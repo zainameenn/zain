@@ -2,41 +2,49 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-.card {
-  --index0: calc(var(--index) - 1);
-  --reverse-index: calc(var(--numcards) - var(--index0));
-  --reverse-index0: calc(var(--reverse-index) - 1);
-}
-* {
-  font-family: var(--font-inter), 'Inter', sans-serif;
+
+body {
+  font-family: 'Geist', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-atkinson), 'Atkinson Hyperlegible', sans-serif;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.card {
-  position: sticky;
-  top: 0;
+::selection {
+  background: #D3AE82;
+  color: #1C1C1C;
 }
 
-#cards {
-  --numcards: 4;
-  view-timeline-name: --cards-element-scrolls-in-body;
+:focus-visible {
+  outline: 2px solid #C4A47C;
+  outline-offset: 3px;
 }
 
-.card__content {
-  --start-range: calc(var(--index0) / var(--numcards) * 100%);
-  --end-range: calc((var(--index)) / var(--numcards) * 100%);
-  animation: linear scale forwards;
-  animation-timeline: --cards-element-scrolls-in-body;
-  animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+@keyframes zin {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
 }
-
-@keyframes scale {
-  to {
-    transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
-  }
+@keyframes zfade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes zddin {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes zmarqL {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes zmarqR {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
 }
 
 @theme inline {
@@ -110,8 +118,8 @@ h1, h2, h3, h4, h5, h6 {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: #EEEDE7;
+  --foreground: #1C1C1C;
 }
 
 .dark {
