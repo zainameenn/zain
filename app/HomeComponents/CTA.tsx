@@ -25,7 +25,7 @@ export default function CTA() {
         </div>
         <div id="book" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <a
-            href="#contact-form"
+            href="/contact"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
             style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: ctaHover ? "#FFFFFF" : "#F2EFEA", color: "#1C1C1C", fontSize: 17, fontWeight: 600, transition: "background 180ms" }}
@@ -34,7 +34,7 @@ export default function CTA() {
             <ArrowIcon size={16} style={{ transform: ctaHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
           </a>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <a href="#social-check" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+            <a href="/contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
               Get a free social check
             </a>
             <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
@@ -44,7 +44,7 @@ export default function CTA() {
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, paddingTop: 12 }}>
             <span style={{ fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
-            <a href="#linkedin" aria-label="LinkedIn" style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 12, border: "1px solid #3A3935", display: "flex", alignItems: "center", justifyContent: "center", color: "#F2EFEA" }}>
+            <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 12, border: "1px solid #3A3935", display: "flex", alignItems: "center", justifyContent: "center", color: "#F2EFEA" }}>
               <LinkedInIcon />
             </a>
           </div>

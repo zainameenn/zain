@@ -30,19 +30,21 @@ const FOOT_GROUPS = [
       ["Pricing", "#pricing"],
       ["About", "/about"],
       ["Insights", "/insights"],
-      ["Contact", "#contact"],
+      ["Contact", "/contact"],
     ],
   },
 ];
 
 const SOCIALS: { t: string; href: string; kind: "in" | "mail" | "icon"; icon?: string }[] = [
-  { t: "LinkedIn", href: "#linkedin", kind: "in" },
+  { t: "LinkedIn", href: "https://www.linkedin.com/in/zain-ameen/", kind: "in" },
   { t: "Email", href: "mailto:hello@zainameen.com", kind: "mail" },
-  { t: "Calendly", href: "#calendly", kind: "icon", icon: "calendly" },
-  { t: "Pinterest", href: "#pinterest", kind: "icon", icon: "pinterest" },
-  { t: "Facebook", href: "#facebook", kind: "icon", icon: "facebook" },
-  { t: "Instagram", href: "#instagram", kind: "icon", icon: "instagram" },
-  { t: "Threads", href: "#threads", kind: "icon", icon: "threads" },
+  { t: "Calendly", href: "https://calendly.com/zain-ameen/30min", kind: "icon", icon: "calendly" },
+  { t: "Upwork", href: "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf", kind: "icon", icon: "upwork" },
+  { t: "GitHub", href: "https://github.com/zainameenn", kind: "icon", icon: "github" },
+  { t: "X", href: "https://x.com/zainnameen", kind: "icon", icon: "x" },
+  { t: "Instagram", href: "https://www.instagram.com/zainn.ms/", kind: "icon", icon: "instagram" },
+  { t: "Pinterest", href: "https://www.pinterest.com/zainameenn", kind: "icon", icon: "pinterest" },
+  { t: "Threads", href: "https://www.threads.com/@zainn.ms", kind: "icon", icon: "threads" },
 ];
 
 export default function Footer() {
@@ -66,7 +68,7 @@ export default function Footer() {
             </a>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }} className="md:justify-end">
-            <a href="#calendly" style={{ display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 18px", borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 18px", borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
               <CalendarIcon />
               Book a meeting
             </a>
@@ -74,7 +76,7 @@ export default function Footer() {
               <MailIcon />
               Email
             </a>
-            <a href="#linkedin" style={{ display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 18px", borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+            <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 18px", borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
               <LinkedInIcon size={15} />
               LinkedIn
             </a>
@@ -98,7 +100,13 @@ export default function Footer() {
             <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F", marginBottom: 18 }}>Connect</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {SOCIALS.map((so) => (
-                <a key={so.t} href={so.href} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 15, color: "#D9D5CC" }}>
+                <a
+                  key={so.t}
+                  href={so.href}
+                  target={so.kind === "mail" ? undefined : "_blank"}
+                  rel={so.kind === "mail" ? undefined : "noreferrer"}
+                  style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 15, color: "#D9D5CC" }}
+                >
                   <span style={{ width: 28, height: 28, flex: "0 0 auto", borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     {so.kind === "in" && <LinkedInIcon size={12} color="#F2EFEA" />}
                     {so.kind === "mail" && <MailIcon size={13} color="#F2EFEA" />}

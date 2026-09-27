@@ -55,3 +55,27 @@ export function LinkedInIcon({ size = 16, color = "currentColor" }: { size?: num
     </svg>
   );
 }
+
+/** The gold hand-drawn underline used beneath italic emphasis phrases across the site. */
+export function Squiggle() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 300 24"
+      preserveAspectRatio="none"
+      style={{ position: "absolute", left: "-3%", bottom: "-0.14em", width: "106%", height: "0.3em", overflow: "visible", pointerEvents: "none" }}
+    >
+      <path d="M3 13 C 60 20, 150 21, 216 15 S 286 6, 297 4" stroke="#C6A47C" strokeWidth="2.6" strokeLinecap="round" vectorEffect="non-scaling-stroke" fill="none" />
+    </svg>
+  );
+}
+
+/** Italic Instrument Serif emphasis with the gold underline squiggle beneath it. */
+export function Emphasis({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+  return (
+    <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
+      <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "inherit", ...style }}>{children}</em>
+      <Squiggle />
+    </span>
+  );
+}

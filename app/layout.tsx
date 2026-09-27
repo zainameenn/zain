@@ -5,17 +5,17 @@ import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
 
 export const metadata: Metadata = {
-  title: "Growth Marketing Specialist for SaaS | Zain Ul Abdin",
+  title: "Growth Marketing Specialist for SaaS & Service Business | Zain Ul Abdin",
   description:
-    "Growth marketing specialist for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
+    "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
   authors: [{ name: "Zain Ul Abdin", url: "https://www.zainameen.com" }],
   creator: "Zain Ul Abdin",
   publisher: "Zain Ul Abdin",
   metadataBase: new URL("https://www.zainameen.com"),
   openGraph: {
-    title: "Growth Marketing Specialist for SaaS | Zain Ul Abdin",
+    title: "Growth Marketing Specialist for SaaS & Service Business | Zain Ul Abdin",
     description:
-      "Growth marketing specialist for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
+      "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
     url: "https://www.zainameen.com",
     siteName: "Zain Ul Abdin",
     images: [
@@ -31,9 +31,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Growth Marketing Specialist for SaaS | Zain Ul Abdin",
+    site: "@zainnameen",
+    creator: "@zainnameen",
+    title: "Growth Marketing Specialist for SaaS & Service Business | Zain Ul Abdin",
     description:
-      "Growth marketing specialist for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
+      "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
     images: ["/assets/v9/g07.png"],
   },
   alternates: {
@@ -74,7 +76,15 @@ export default function RootLayout({
                     addressCountry: "PK",
                   },
                   email: "hello@zainameen.com",
-                  sameAs: ["https://www.linkedin.com/"],
+                  sameAs: [
+                    "https://www.linkedin.com/in/zain-ameen/",
+                    "https://github.com/zainameenn",
+                    "https://x.com/zainnameen",
+                    "https://www.instagram.com/zainn.ms/",
+                    "https://www.pinterest.com/zainameenn",
+                    "https://www.threads.com/@zainn.ms",
+                    "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf",
+                  ],
                 },
                 {
                   "@type": "ProfessionalService",
@@ -116,6 +126,17 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-T3ZK018Y8C');
+          `}
+        </Script>
+
+        {/* ✅ Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "yp1n9hbiei");
           `}
         </Script>
       </body>
