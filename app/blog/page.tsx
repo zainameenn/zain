@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog | Zain Ul Abdin",
@@ -34,7 +35,7 @@ export default function BlogPage() {
       <p style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
         This page is coming soon. Check back for notes on growth, SEO, Reddit marketing and everything else that goes into doing this as one person.
       </p>
-      <a
+      <Link
         href="/"
         style={{
           marginTop: 32,
@@ -51,7 +52,7 @@ export default function BlogPage() {
         }}
       >
         Back to home
-      </a>
+      </Link>
     </main>
   );
 }

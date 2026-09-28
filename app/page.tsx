@@ -34,7 +34,6 @@ export default function Home() {
     <main id="top" style={{ overflowX: "clip" }}>
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Hero />

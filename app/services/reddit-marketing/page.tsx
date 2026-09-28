@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowIcon, Emphasis, UpArrowIcon } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
@@ -602,9 +603,9 @@ export default function RedditMarketingPage() {
             <div style={{ paddingTop: 18, borderTop: "1px solid #33322F" }}>
               <p style={{ margin: 0, fontSize: 14.5, color: "#E6E1D8" }}>Want Reddit, SEO and social together?</p>
               <p style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.5, color: "#9C978D" }}>
-                <a href="/#pricing" style={{ color: "#D3AE82", borderBottom: "1px solid #6B5A40" }}>
+                <Link href="/#pricing" style={{ color: "#D3AE82", borderBottom: "1px solid #6B5A40" }}>
                   Everything, handled
-                </a>{" "}
+                </Link>{" "}
                 is $3,999/month. Separately, <span style={{ textDecoration: "line-through" }}>$4,397/month</span>.
               </p>
             </div>
@@ -684,9 +685,9 @@ export default function RedditMarketingPage() {
               <ArrowIcon size={16} />
             </a>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              <a href="/#contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+              <Link href="/#contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
                 Tell me what&apos;s stuck
-              </a>
+              </Link>
               <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
                 Email me
               </a>

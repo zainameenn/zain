@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Design-tool export references kept for asset lookups only - not app code.
+    "other public pages/**",
   ]),
 ]);
 

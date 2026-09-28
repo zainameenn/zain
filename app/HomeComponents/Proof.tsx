@@ -15,7 +15,7 @@ export default function Proof() {
 
   useEffect(() => {
     if (!("IntersectionObserver" in window) || !ref.current) {
-      setSeen(true);
+      queueMicrotask(() => setSeen(true));
       return;
     }
     const io = new IntersectionObserver(

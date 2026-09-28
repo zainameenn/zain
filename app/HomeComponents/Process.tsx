@@ -13,14 +13,24 @@ const BAR_LEFT = ["4%", "30%", "52%", "75.5%"];
 
 export default function Process() {
   const [step, setStep] = useState(0);
-  const locked = useRef(false);
+  const [locked, setLocked] = useState(false);
+  const lockedRef = useRef(false);
 
   useEffect(() => {
     const t = setInterval(() => {
-      if (!locked.current) setStep((s) => (s + 1) % 4);
+      if (!lockedRef.current) setStep((s) => (s + 1) % 4);
     }, 4200);
     return () => clearInterval(t);
   }, []);
+
+  const lock = () => {
+    lockedRef.current = true;
+    setLocked(true);
+  };
+  const unlock = () => {
+    lockedRef.current = false;
+    setLocked(false);
+  };
 
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
@@ -34,8 +44,8 @@ export default function Process() {
           </h2>
           <div
             role="tablist"
-            onMouseEnter={() => (locked.current = true)}
-            onMouseLeave={() => (locked.current = false)}
+            onMouseEnter={lock}
+            onMouseLeave={unlock}
             style={{ borderTop: "1px solid #DDDAD3" }}
           >
             {STEPS.map((s, i) => {
@@ -62,7 +72,7 @@ export default function Process() {
                       height: 2,
                       width: on ? "100%" : "0%",
                       background: "#1C1C1C",
-                      transition: `width ${on && !locked.current ? "4200ms" : "300ms"} linear`,
+                      transition: `width ${on && !locked ? "4200ms" : "300ms"} linear`,
                     }}
                   />
                 </div>
