@@ -221,7 +221,6 @@ const FAQS: [string, string[]][] = [
 
 const RELATED = [
   { t: "Growth strategy & GTM", d: "When the problem is bigger than ads.", href: "/services/growth-strategy" },
-  { t: "Content & design", d: "Ad creative and landing-page copy.", href: "/services/content-design" },
   { t: "SEO", d: "Turn winning ad keywords into organic traffic.", href: "/services/seo" },
   { t: "Social media management", d: "Organic attention alongside paid.", href: "/services/social-media-management" },
 ];

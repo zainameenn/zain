@@ -4,13 +4,10 @@ const FOOT_GROUPS = [
   {
     h: "Work",
     items: [
-      ["All Case Studies", "#all-work"],
       ["Blainy", "#case-blainy"],
       ["Everdry Waterproofing", "#case-everdry"],
       ["Virtarix", "#case-virtarix"],
       ["LoomPad", "#case-loompad"],
-      ["Reddit Growth", "#reddit-growth"],
-      ["HiFy", "#hify"],
     ],
   },
   {
@@ -21,7 +18,6 @@ const FOOT_GROUPS = [
       ["Reddit marketing", "/services/reddit-marketing"],
       ["Social media management", "/services/social-media-management"],
       ["Google and Meta ads", "/services/google-meta-ads"],
-      ["Content and design", "/services/content-design"],
     ],
   },
   {
@@ -57,7 +53,7 @@ export default function Footer() {
         >
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 20 }}>
             <span style={{ width: 60, height: 60, borderRadius: 16, background: "#F2EFEA", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <img loading="lazy" src="/assets/v8/logos/zain.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 36, width: "auto" }} />
+              <img loading="lazy" src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 36, width: "auto" }} />
             </span>
             <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(24px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, maxWidth: 460 }}>
               Growth marketing without the stress.

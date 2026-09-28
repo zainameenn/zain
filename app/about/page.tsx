@@ -78,10 +78,10 @@ const COMPANIES: { t: string; img?: string; h?: string; w?: string }[] = [
 ];
 
 const CASES = [
-  { logo: "/assets/site/logo-blainy.png", logoAlt: "Blainy", logoH: 34, cat: "AI SaaS", sr: "Blainy: ", title: "Zero to 85K+ users, no paid ads.", stat1v: "85K+", stat1l: "users", stat2v: "~30M", stat2l: "search impressions", href: "/work/blainy", srLink: " on Blainy" },
-  { logo: "/assets/v8/logo-everdry.gif", logoAlt: "Everdry Waterproofing", logoH: 40, cat: "Home services", sr: "Everdry Waterproofing: ", title: "Social and local SEO for a US home services company.", stat1v: "160K+", stat1l: "Facebook views", stat2v: "603", stat2l: "calls from Google", href: "/work/everdry", srLink: " on Everdry Waterproofing" },
-  { logo: "/assets/v8/logos/virtarix.png", logoAlt: "Virtarix", logoH: 30, cat: "AI and tech", sr: "Virtarix: ", title: "A new Facebook page to 70K+ views in 3 months.", stat1v: "70K+", stat1l: "Facebook views", stat2v: "1.2K+", stat2l: "Pinterest visits", href: "/work/virtarix", srLink: " on Virtarix" },
-  { logo: "/assets/v8/logos/loompad.png", logoAlt: "LoomPad", logoH: 30, cat: "Etsy store", sr: "LoomPad: ", title: "Sales from a store nobody could find.", stat1v: "$3,401", stat1l: "in sales", stat2v: "93", stat2l: "orders", href: "/work/loompad", srLink: " on LoomPad" },
+  { logo: "/assets/site/logo-blainy.png", logoAlt: "Blainy", logoH: 34, cat: "AI SaaS", sr: "Blainy: ", title: "Zero to 85K+ users, no paid ads.", stat1v: "85K+", stat1l: "users", stat2v: "~30M", stat2l: "search impressions" },
+  { logo: "/assets/v8/logo-everdry.gif", logoAlt: "Everdry Waterproofing", logoH: 40, cat: "Home services", sr: "Everdry Waterproofing: ", title: "Social and local SEO for a US home services company.", stat1v: "160K+", stat1l: "Facebook views", stat2v: "603", stat2l: "calls from Google" },
+  { logo: "/assets/v8/logos/virtarix.png", logoAlt: "Virtarix", logoH: 30, cat: "AI and tech", sr: "Virtarix: ", title: "A new Facebook page to 70K+ views in 3 months.", stat1v: "70K+", stat1l: "Facebook views", stat2v: "1.2K+", stat2l: "Pinterest visits" },
+  { logo: "/assets/v8/logos/loompad.png", logoAlt: "LoomPad", logoH: 30, cat: "Etsy store", sr: "LoomPad: ", title: "Sales from a store nobody could find.", stat1v: "$3,401", stat1l: "in sales", stat2v: "93", stat2l: "orders" },
 ];
 
 const SKILLS_GROUPS = [
@@ -205,11 +205,7 @@ export default function AboutPage() {
           I&apos;m a growth marketer from Lahore, working with SaaS and service businesses in the US, UAE and Europe. I started as a writer, ran a sales floor, then spent years figuring out why good products don&apos;t grow. Now I find that reason and fix it myself.
         </p>
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-          <a href="/work" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
-            See my work
-            <ArrowIcon />
-          </a>
-          <a href="#resume" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #1C1C1C", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+          <a href="#resume" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
             Download resume
           </a>
         </div>
@@ -379,12 +375,12 @@ export default function AboutPage() {
               <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05 }}>I&apos;ve helped grow.</em>
             </>
           }
-          sub="The short version. The full stories live on the work pages."
+          sub="The short version."
         />
         <img loading="lazy" src="/assets/about/results-t.png" alt="Illustration: several growth dashboards rising around one central result" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {CASES.map((c) => (
-            <article key={c.href} style={{ borderRadius: 24, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "28px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 18 }}>
+            <article key={c.logoAlt} style={{ borderRadius: 24, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "28px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 18 }}>
               <div style={{ height: 48, width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <img loading="lazy" src={c.logo} alt={c.logoAlt} style={{ display: "block", height: c.logoH, width: "auto", maxWidth: 170, mixBlendMode: "multiply" }} />
               </div>
@@ -405,11 +401,6 @@ export default function AboutPage() {
                   <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{c.stat2l}</div>
                 </div>
               </div>
-              <a href={c.href} style={{ alignSelf: "center", display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14.5, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C", paddingBottom: 2 }}>
-                View work
-                <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{c.srLink}</span>
-                <ArrowIcon />
-              </a>
             </article>
           ))}
         </div>

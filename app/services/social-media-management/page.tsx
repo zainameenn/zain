@@ -144,7 +144,6 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "Content & Design", d: "Posts and visuals worth sharing.", href: "/services/content-design" },
   { t: "Reddit Marketing", d: "Where buyers ask for recommendations.", href: "/services/reddit-marketing" },
   { t: "SEO & Organic Growth", d: "Get found by people already searching.", href: "/services/seo" },
 ];
@@ -327,10 +326,6 @@ export default function SocialMediaManagementPage() {
                 <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>
                   Their page wasn&apos;t reaching anyone. I rebuilt the content around visuals homeowners stop for, shared it into local groups, and turned the Google Business Profile into a lead source.
                 </p>
-                <a href="/work/everdry" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 10, height: 40, fontSize: 14.5, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid currentColor" }}>
-                  See the Everdry case study
-                  <ArrowIcon />
-                </a>
               </div>
             </div>
             <div style={{ margin: "32px 0 36px", display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDD5C8" }} className="grid-cols-2 sm:!grid-cols-4">
@@ -398,7 +393,7 @@ export default function SocialMediaManagementPage() {
                 </div>
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
                   <span style={{ padding: "10px 14px", borderRadius: 12, background: "#F2EFEA", display: "inline-flex", alignItems: "center" }}>
-                    <img src="/assets/v8/logos/virtarix.png" alt="Virtarix logo" style={{ display: "block", height: 30, width: "auto" }} />
+                    <img loading="lazy" src="/assets/v8/logos/virtarix.png" alt="Virtarix logo" style={{ display: "block", height: 30, width: "auto" }} />
                   </span>
                 </div>
                 <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
@@ -412,10 +407,6 @@ export default function SocialMediaManagementPage() {
                 <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.6, color: "#C9C4BA", maxWidth: 480 }}>
                   A brand new page with no audience and technical topics most people scroll past. I turned the knowledge into simple visual posts on a steady weekly rhythm, then gave each guide a second life on Pinterest.
                 </p>
-                <a href="/work/virtarix" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 10, height: 40, fontSize: 14.5, fontWeight: 600, color: "#F2EFEA", borderBottom: "1.5px solid currentColor" }}>
-                  See the Virtarix case study
-                  <ArrowIcon />
-                </a>
               </div>
             </div>
             <div style={{ margin: "32px 0 36px", display: "grid", borderTop: "1px solid rgba(255,255,255,.28)", borderBottom: "1px solid rgba(255,255,255,.14)" }} className="grid-cols-1 sm:!grid-cols-3">
@@ -493,7 +484,7 @@ export default function SocialMediaManagementPage() {
                 </div>
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
                   <span style={{ padding: "10px 14px", borderRadius: 12, background: "#F2EFEA", display: "inline-flex", alignItems: "center" }}>
-                    <img src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 40, width: "auto" }} />
+                    <img loading="lazy" src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 40, width: "auto" }} />
                   </span>
                 </div>
                 <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
@@ -507,10 +498,6 @@ export default function SocialMediaManagementPage() {
                 <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.6, color: "#C9C4BA", maxWidth: 480 }}>
                   Student-focused reels, pins, Threads posts and Shorts built around what students already joke and worry about, with the product in the background.
                 </p>
-                <a href="/work/blainy" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 10, height: 40, fontSize: 14.5, fontWeight: 600, color: "#F2EFEA", borderBottom: "1.5px solid currentColor" }}>
-                  See the Blainy case study
-                  <ArrowIcon />
-                </a>
               </div>
             </div>
             <div style={{ margin: "32px 0 36px", display: "grid", borderTop: "1px solid rgba(255,255,255,.28)", borderBottom: "1px solid rgba(255,255,255,.14)" }} className="grid-cols-2 sm:!grid-cols-4">
@@ -616,7 +603,7 @@ export default function SocialMediaManagementPage() {
                   <span>Ecommerce · Facebook · Pinterest</span>
                 </div>
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
-                  <img src="/assets/v8/logos/loompad.png" alt="LoomPad" style={{ display: "block", height: 44, width: "auto", mixBlendMode: "multiply" }} />
+                  <img loading="lazy" src="/assets/v8/logos/loompad.png" alt="LoomPad" style={{ display: "block", height: 44, width: "auto", mixBlendMode: "multiply" }} />
                 </div>
                 <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>LoomPad: </span>
@@ -629,10 +616,6 @@ export default function SocialMediaManagementPage() {
                 <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>
                   Desk mat visuals and product posts built to be shared, plus pins that put the products in front of people searching for desk setup ideas.
                 </p>
-                <a href="/work/loompad" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 10, height: 40, fontSize: 14.5, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid currentColor" }}>
-                  See the LoomPad case study
-                  <ArrowIcon />
-                </a>
               </div>
             </div>
             <div style={{ margin: "32px 0 36px", display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDD5C8" }} className="grid-cols-1 sm:!grid-cols-3">

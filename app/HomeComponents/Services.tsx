@@ -9,7 +9,6 @@ const SERVICES = [
   { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing", linkLabel: "Reddit marketing services" },
   { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/social-media-management", linkLabel: "Social media management services" },
   { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-meta-ads", linkLabel: "Google and Meta ads services" },
-  { name: "Content and design", line: "Articles and graphics made by the same person who plans them.", href: "/services/content-design", linkLabel: "Content and design services" },
 ];
 
 export default function Services() {

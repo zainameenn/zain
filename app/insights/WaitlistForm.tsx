@@ -25,7 +25,7 @@ export function WaitlistForm() {
         }}
       >
         <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
-        You&apos;re on the list. I&apos;ll email you when something useful drops.
+        Your email app should have opened — just hit send and you&apos;re on the list.
       </p>
     );
   }
@@ -34,6 +34,11 @@ export function WaitlistForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        const form = e.currentTarget;
+        const email = new FormData(form).get("email")?.toString().trim() ?? "";
+        const subject = "Add me to the waitlist";
+        const body = `Please add this email to the waitlist: ${email}`;
+        window.location.href = `mailto:hello@zainameen.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         setDone(true);
       }}
       style={{ marginTop: 32, width: "100%", maxWidth: 560, display: "flex", flexDirection: "column", gap: 10 }}
@@ -44,6 +49,7 @@ export function WaitlistForm() {
       </label>
       <input
         id="wl-email"
+        name="email"
         type="email"
         required
         placeholder="you@company.com"

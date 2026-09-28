@@ -17,7 +17,6 @@ const SERVICE_MENU = [
   { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing" },
   { t: "Social media management", d: "Content, graphics and posting that bring visits.", href: "/services/social-media-management" },
   { t: "Google and Meta ads", d: "Test small, find what converts, then scale.", href: "/services/google-meta-ads" },
-  { t: "Content and design", d: "Articles and graphics made by the planner.", href: "/services/content-design" },
 ];
 
 export default function Navbar() {
@@ -59,7 +58,7 @@ export default function Navbar() {
         }}
       >
         <a href="#top" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
-          <img src="/assets/v8/logos/zain.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 34, width: "auto" }} />
+          <img src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 34, width: "auto" }} />
         </a>
 
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>

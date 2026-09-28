@@ -1,8 +1,3 @@
-"use client";
-
-import { useState } from "react";
-import { ArrowIcon } from "./icons";
-
 function CaseStudy({
   id,
   index,
@@ -19,8 +14,6 @@ function CaseStudy({
   headline,
   paragraphs,
   stats,
-  href,
-  linkLabel,
   visual,
 }: {
   id: string;
@@ -38,11 +31,8 @@ function CaseStudy({
   headline: React.ReactNode;
   paragraphs: React.ReactNode;
   stats: { v: string; l: string }[];
-  href: string;
-  linkLabel: string;
   visual: React.ReactNode;
 }) {
-  const [hover, setHover] = useState(false);
   const textColor = dark ? "#EEF0F8" : "#4F5A59";
   const mutedColor = dark ? "#A3A8BD" : "#4F5A59";
 
@@ -72,23 +62,6 @@ function CaseStudy({
             </div>
           ))}
         </div>
-        <a
-          href={href}
-          style={{
-            marginTop: 32,
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 10,
-            height: 44,
-            fontSize: 15,
-            fontWeight: 600,
-            color: dark ? "#EEF0F8" : "#1C1C1C",
-            borderBottom: `1.5px solid ${dark ? "#EEF0F8" : "#1C1C1C"}`,
-          }}
-        >
-          {linkLabel}
-          <ArrowIcon style={{ transform: hover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
-        </a>
       </div>
     </div>
   );
@@ -96,8 +69,6 @@ function CaseStudy({
   return (
     <article id={id} style={{ position: "sticky", top, zIndex: index, marginBottom: 24 }}>
       <div
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
         style={{
           borderRadius: 28,
           background: bg,
@@ -169,8 +140,6 @@ export default function Work() {
           { v: "~30M", l: "search impressions" },
           { v: "Thousands", l: "Reddit-driven conversions" },
         ]}
-        href="/work/blainy"
-        linkLabel="See the Blainy case study"
         visual={
           <Frame bg="#DCE8E6">
             <div style={{ position: "absolute", left: 24, top: 24, width: "calc(86% - 24px)", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(20,40,40,.1)", background: "#fff", boxShadow: "0 20px 40px -30px rgba(20,40,40,.5)" }}>
@@ -213,8 +182,6 @@ export default function Work() {
           { v: "12,462", l: "Business Profile views" },
           { v: "603", l: "calls from Business Profile, Jun–Nov" },
         ]}
-        href="/work/everdry"
-        linkLabel="See the Everdry case study"
         visual={
           <Frame bg="#E9E4DA">
             <div style={{ position: "absolute", left: 24, top: 24, width: "calc(80% - 24px)", borderRadius: 12, overflow: "hidden", border: "1px solid #2F3033", background: "#18191A", boxShadow: "0 20px 40px -28px rgba(20,20,20,.5)" }}>
@@ -258,8 +225,6 @@ export default function Work() {
           { v: "34K", l: "views in one month (Dec)" },
           { v: "5", l: "Reddit Answers results recommending Virtarix" },
         ]}
-        href="/work/virtarix"
-        linkLabel="See the Virtarix case study"
         visual={
           <div style={{ position: "relative", minWidth: 0, aspectRatio: "1/0.86", borderRadius: 20, overflow: "hidden", background: "#1E2130" }}>
             <div style={{ position: "absolute", left: "3.5%", top: "4%", width: "70%", zIndex: 3, borderRadius: 12, overflow: "hidden", border: "1px solid #2C3042", boxShadow: "0 24px 48px -24px rgba(0,0,0,.75)" }}>
@@ -302,8 +267,6 @@ export default function Work() {
           { v: "10,777", l: "shop views" },
           { v: "5,492", l: "visits" },
         ]}
-        href="/work/loompad"
-        linkLabel="See the LoomPad case study"
         visual={
           <Frame bg="#E6DACA">
             <div style={{ position: "absolute", left: 24, top: "13%", width: "calc(90% - 24px)", borderRadius: 12, overflow: "hidden", background: "#fff", border: "1px solid #D8CAB5", boxShadow: "0 24px 48px -30px rgba(60,40,20,.5)" }}>
@@ -322,12 +285,6 @@ export default function Work() {
         }
       />
 
-      <div style={{ marginTop: 32, display: "flex", justifyContent: "flex-end" }}>
-        <a href="/work" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
-          See all case studies
-          <ArrowIcon />
-        </a>
-      </div>
     </section>
   );
 }

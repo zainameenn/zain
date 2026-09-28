@@ -361,10 +361,6 @@ export default function InsightsPage() {
           </p>
         </div>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
-          <a href="/work" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 15.5, fontWeight: 600 }}>
-            See my work
-            <ArrowIcon />
-          </a>
           <a
             href="https://www.linkedin.com/in/zain-ameen/"
             target="_blank"

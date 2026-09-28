@@ -190,7 +190,6 @@ const FAQS: [string, string[]][] = [
 
 const RELATED = [
   { t: "SEO & Organic Growth", d: "Good Reddit threads can support search visibility.", href: "/services/seo" },
-  { t: "Content & Design", d: "Posts and visuals worth sharing.", href: "/services/content-design" },
   { t: "Growth Strategy & GTM", d: "When Reddit is only one part of the acquisition problem.", href: "/services/growth-strategy" },
 ];
 

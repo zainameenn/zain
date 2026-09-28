@@ -215,7 +215,6 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "Content & Design", d: "Articles and graphics made by the same person who plans them.", href: "/services/content-design" },
   { t: "Reddit Marketing", d: "Show up where buyers ask for recommendations, and in the threads Google ranks.", href: "/services/reddit-marketing" },
   { t: "Growth Strategy & GTM", d: "Find the real constraint before deciding SEO is the answer.", href: "/services/growth-strategy" },
 ];
@@ -430,7 +429,7 @@ export default function SeoPage() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                 <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#4F5A59" }}>SEO case study</span>
-                <img src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 30, width: "auto", mixBlendMode: "multiply" }} />
+                <img loading="lazy" src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 30, width: "auto", mixBlendMode: "multiply" }} />
               </div>
               <h3 style={{ margin: "18px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>Blainy</h3>
               <p style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,27px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.15, maxWidth: 560 }}>
@@ -451,10 +450,6 @@ export default function SeoPage() {
                   <div style={{ marginTop: 6, fontSize: 13, color: "#4F5A59" }}>search impressions, Google + Bing</div>
                 </div>
               </div>
-              <a href="/work/blainy" style={{ marginTop: 22, display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, borderBottom: "1.5px solid #1C1C1C" }}>
-                Read the Blainy case study
-                <ArrowIcon />
-              </a>
             </div>
           </div>
 

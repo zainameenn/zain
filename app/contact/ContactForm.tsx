@@ -46,10 +46,14 @@ export function ContactForm() {
     return (
       <div role="status" style={{ padding: "40px 8px", textAlign: "center" }}>
         <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>
-          Got it. Thanks.
+          Almost there.
         </p>
         <p style={{ margin: "10px 0 0", fontSize: 16, color: "#5A5854" }}>
-          I&apos;ll read it properly and reply within a couple of hours.
+          Your email app should have opened with everything filled in — just hit send. If nothing opened, email{" "}
+          <a href="mailto:hello@zainameen.com" style={{ color: "#1C1C1C", fontWeight: 600, borderBottom: "1.5px solid #1C1C1C" }}>
+            hello@zainameen.com
+          </a>{" "}
+          directly.
         </p>
       </div>
     );
@@ -59,6 +63,30 @@ export function ContactForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        const form = e.currentTarget;
+        const data = new FormData(form);
+        const name = data.get("name")?.toString().trim() ?? "";
+        const email = data.get("email")?.toString().trim() ?? "";
+        const website = data.get("website")?.toString().trim() ?? "";
+        const need = data.get("need")?.toString().trim() ?? "";
+        const message = data.get("message")?.toString().trim() ?? "";
+        const budget = data.get("budget")?.toString().trim() ?? "";
+
+        const subject = `New enquiry: ${need || "General"} — ${name || "website contact form"}`;
+        const body = [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          website && `Company/website: ${website}`,
+          `Need: ${need}`,
+          budget && `Monthly budget: ${budget}`,
+          "",
+          "Message:",
+          message,
+        ]
+          .filter(Boolean)
+          .join("\n");
+
+        window.location.href = `mailto:hello@zainameen.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         setSent(true);
       }}
       style={{ display: "grid", gridTemplateColumns: "1fr", gap: 20 }}

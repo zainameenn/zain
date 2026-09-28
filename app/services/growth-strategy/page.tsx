@@ -137,7 +137,6 @@ const RELATED = [
   { t: "SEO", d: "Get found by people already searching.", href: "/services/seo" },
   { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing" },
   { t: "Social media management", d: "Consistent attention that brings visits.", href: "/services/social-media-management" },
-  { t: "Content & design", d: "The words and visuals behind every channel.", href: "/services/content-design" },
 ];
 
 export default function GrowthStrategyPage() {
@@ -316,7 +315,7 @@ export default function GrowthStrategyPage() {
                 </div>
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
                   <span style={{ padding: "10px 14px", borderRadius: 12, background: "#F2EFEA", display: "inline-flex", alignItems: "center" }}>
-                    <img src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 40, width: "auto" }} />
+                    <img loading="lazy" src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 40, width: "auto" }} />
                   </span>
                 </div>
                 <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
@@ -427,7 +426,7 @@ export default function GrowthStrategyPage() {
                   <span>Home services · Local growth</span>
                 </div>
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
-                  <img src="/assets/v8/logo-everdry.gif" alt="Everdry Waterproofing logo" style={{ display: "block", height: 52, width: "auto", mixBlendMode: "multiply" }} />
+                  <img loading="lazy" src="/assets/v8/logo-everdry.gif" alt="Everdry Waterproofing logo" style={{ display: "block", height: 52, width: "auto", mixBlendMode: "multiply" }} />
                 </div>
                 <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   A local service business
@@ -502,7 +501,7 @@ export default function GrowthStrategyPage() {
                 </div>
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
                   <span style={{ padding: "10px 14px", borderRadius: 12, background: "#F2EFEA", display: "inline-flex", alignItems: "center" }}>
-                    <img src="/assets/v8/logos/virtarix.png" alt="Virtarix logo" style={{ display: "block", height: 30, width: "auto" }} />
+                    <img loading="lazy" src="/assets/v8/logos/virtarix.png" alt="Virtarix logo" style={{ display: "block", height: 30, width: "auto" }} />
                   </span>
                 </div>
                 <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
@@ -553,13 +552,6 @@ export default function GrowthStrategyPage() {
               </div>
             </div>
           </article>
-        </div>
-        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16, paddingTop: 24, borderTop: "1px solid #DDDAD3" }}>
-          <p style={{ margin: 0, fontSize: 16, color: "#5A5854" }}>Want the full story behind each result?</p>
-          <a href="/work" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 48, padding: "0 22px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 15, fontWeight: 600 }}>
-            See all case studies
-            <ArrowIcon />
-          </a>
         </div>
       </section>
 
