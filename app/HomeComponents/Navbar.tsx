@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowIcon, ChevronIcon } from "./icons";
 
 const NAV_LINKS: { t: string; href: string }[] = [
-  { t: "Work", href: "/work" },
+  { t: "Blog", href: "/blog" },
   { t: "Services", href: "/services" },
   { t: "Pricing", href: "#pricing" },
   { t: "About", href: "/about" },
