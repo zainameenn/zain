@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { ArrowIcon, Emphasis, LinkedInIcon, MailIcon } from "../HomeComponents/icons";
 import { FAQAccordion } from "../HomeComponents/FAQAccordion";
 import { ContactForm } from "./ContactForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Contact Zain Ul Abdin | Book a Free Marketing Call",
   description:
-    "Tell me what's stuck. Book a free 30 minute call, send an email or fill out a short form. I usually reply within a couple of hours.",
-  alternates: { canonical: "/contact" },
-};
+    "Tell me what's stuck. Book a free 30 minute call, send an email or fill out a short form. No sales script. I usually reply within a couple of hours.",
+  path: "/contact",
+});
 
 const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";

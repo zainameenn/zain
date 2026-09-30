@@ -15,6 +15,14 @@ import About from "./HomeComponents/About";
 import FAQ from "./HomeComponents/FAQ";
 import CTA from "./HomeComponents/CTA";
 import { FAQS } from "./HomeComponents/faqData";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Growth Marketing Specialist for SaaS & Services | Zain",
+  description:
+    "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
+  path: "/",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

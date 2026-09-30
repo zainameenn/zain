@@ -6,7 +6,7 @@ import { ArrowIcon, ChevronIcon } from "./icons";
 const NAV_LINKS: { t: string; href: string }[] = [
   { t: "Blog", href: "/blog" },
   { t: "Services", href: "/services" },
-  { t: "Pricing", href: "#pricing" },
+  { t: "Pricing", href: "/#pricing" },
   { t: "About", href: "/about" },
   { t: "Insights", href: "/insights" },
 ];
@@ -57,7 +57,7 @@ export default function Navbar() {
           gap: 24,
         }}
       >
-        <a href="#top" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
+        <a href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
           <img src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 34, width: "auto" }} />
         </a>
 
@@ -116,7 +116,7 @@ export default function Navbar() {
                           </a>
                         ))}
                         <a
-                          href="#services"
+                          href="/services"
                           style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 6, padding: "14px 14px 10px", borderTop: "1px solid #DDDAD3", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}
                         >
                           View all services
@@ -131,7 +131,7 @@ export default function Navbar() {
           </nav>
 
           <a
-            href="#contact"
+            href="/contact"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
             style={{
@@ -196,7 +196,7 @@ export default function Navbar() {
                         {m.t}
                       </a>
                     ))}
-                    <a href="#services" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>
+                    <a href="/services" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>
                       View all services
                       <ArrowIcon />
                     </a>

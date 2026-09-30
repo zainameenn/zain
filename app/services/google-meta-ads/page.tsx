@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Google Ads and Meta Ads Specialist for Hire | Zain Ul Abdin",
+export const metadata = buildMetadata({
+  title: "Google Ads & Meta Ads Specialist for Hire | Zain Ul Abdin",
   description:
-    "Freelance Google and Meta ads management for $1,499/mo. Tracking first, landing pages fixed, budget moved to what converts. You own the account.",
-  alternates: { canonical: "/services/google-meta-ads" },
-};
+    "Freelance Google and Meta ads management for $1,499/mo. Tracking first, landing page fixed, budget moved to what converts. No % of spend. You own the account.",
+  path: "/services/google-meta-ads",
+});
 
 const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";

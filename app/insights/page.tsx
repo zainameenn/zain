@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { WaitlistForm } from "./WaitlistForm";
 
-export const metadata: Metadata = {
-  title: "Growth Marketing Insights: SEO, Reddit and SaaS | Zain",
-  description: "Practical notes on SEO, Reddit, social and SaaS growth, written from doing the work. No fluff, no recycled listicles.",
-  alternates: { canonical: "/insights" },
-};
+export const metadata = buildMetadata({
+  title: "Free Marketing Guides & Keybooks | Zain Ul Abdin",
+  description:
+    "Free Keybooks and practical guides on SEO, Reddit, social media and SaaS growth, built from real client work. Join the list to get them first.",
+  path: "/insights",
+});
 
 const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";

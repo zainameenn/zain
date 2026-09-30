@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Hire a Social Media Manager for Your Business | Zain",
   description:
-    "Looking for a social media manager? Strategy, 5 posts a week, graphics and community engagement on Facebook, Instagram and LinkedIn. $1,199/mo.",
-  alternates: { canonical: "/services/social-media-management" },
-};
+    "Looking for a social media manager? Strategy, 5 posts a week, graphics and community work on Facebook, Instagram and LinkedIn from $1,199/mo. Free check.",
+  path: "/services/social-media-management",
+});
 
 const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";
@@ -373,7 +373,7 @@ export default function SocialMediaManagementPage() {
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Photos, services and regular updates so local searches turned into calls.</p>
                 <div style={{ display: "grid", gap: 14, alignItems: "start" }} className="sm:!grid-cols-2">
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#1F2022", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile interactions" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#1F2022", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
                     <img loading="lazy" src="/assets/pages/social/07-results-everdry__603-calls.png" alt="Everdry: 603 calls from the Business Profile" style={{ display: "block", width: "100%", height: "auto" }} />

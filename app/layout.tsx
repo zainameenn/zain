@@ -5,42 +5,10 @@ import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
 
 export const metadata: Metadata = {
-  title: "Growth Marketing Specialist for SaaS & Service Business | Zain Ul Abdin",
-  description:
-    "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
   authors: [{ name: "Zain Ul Abdin", url: "https://www.zainameen.com" }],
   creator: "Zain Ul Abdin",
   publisher: "Zain Ul Abdin",
   metadataBase: new URL("https://www.zainameen.com"),
-  openGraph: {
-    title: "Growth Marketing Specialist for SaaS & Service Business | Zain Ul Abdin",
-    description:
-      "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
-    url: "https://www.zainameen.com",
-    siteName: "Zain Ul Abdin",
-    images: [
-      {
-        url: "/assets/v9/g07.png",
-        width: 1448,
-        height: 1086,
-        alt: "Zain Ul Abdin, Growth Marketing Specialist",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@zainnameen",
-    creator: "@zainnameen",
-    title: "Growth Marketing Specialist for SaaS & Service Business | Zain Ul Abdin",
-    description:
-      "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
-    images: ["/assets/v9/g07.png"],
-  },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 export default function RootLayout({
@@ -69,6 +37,8 @@ export default function RootLayout({
                 {
                   "@type": "Person",
                   name: "Zain Ul Abdin",
+                  url: "https://www.zainameen.com",
+                  alternateName: ["Zain Ameen"],
                   jobTitle: "Growth Marketing Specialist",
                   address: {
                     "@type": "PostalAddress",

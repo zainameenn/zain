@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Blog | Zain Ul Abdin",
-  description: "Notes on growth, SEO, Reddit marketing and building without a team.",
-  alternates: { canonical: "/blog" },
-};
+export const metadata = buildMetadata({
+  title: "Growth Marketing Blog: SEO, Reddit & SaaS | Zain Ul Abdin",
+  description:
+    "Practical articles on SEO, Reddit marketing, social media and SaaS growth, written from real client work. What worked, what didn't, and why.",
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (

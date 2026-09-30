@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, Squiggle } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 import { SeoStepsTabs } from "./SeoStepsTabs";
 
-export const metadata: Metadata = {
-  title: "Freelance SEO Expert for SaaS and Service Businesses | Zain",
+export const metadata = buildMetadata({
+  title: "Freelance SEO Expert for SaaS & Service Businesses | Zain",
   description:
-    "Hire a freelance SEO expert for Google and AI search. Research, technical fixes, original content and links for $1,999/mo. Start with a $499 audit.",
-  alternates: { canonical: "/services/seo" },
-};
+    "Hire a freelance SEO expert for Google and AI search. Technical fixes, original content and links for $1,999/mo, or start with a $499 SEO audit.",
+  path: "/services/seo",
+});
 
 const MAX = 1360;
 const PAD = "clamp(20px,4vw,48px)";

@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { FAQAccordion } from "../HomeComponents/FAQAccordion";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "About Zain Ul Abdin | Freelance Growth Marketer, Lahore",
-  description: "Writer, then SEO, then growth. Sales before all of it. Meet the growth marketer behind 100K+ users for SaaS and service businesses.",
-  alternates: { canonical: "/about" },
-};
+  description:
+    "Writer, then SEO, then growth. Sales before all of it. Meet Zain, a Lahore growth marketer working with SaaS and service businesses in the US, UAE and Europe.",
+  path: "/about",
+});
 
 const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";

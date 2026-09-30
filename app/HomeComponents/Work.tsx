@@ -188,7 +188,7 @@ export default function Work() {
               <div role="img" aria-label="Everdry Waterproofing Facebook page overview: 160,235 views in the last 28 days" style={{ aspectRatio: "1500/870", background: "#242526 url('/assets/v8/ed-160k.png') 76.5% 50.3%/168% auto no-repeat" }} />
             </div>
             <div style={{ position: "absolute", right: 24, top: "45%", width: "58%", borderRadius: 12, overflow: "hidden", border: "1px solid #2F3033", background: "#202124", boxShadow: "0 28px 56px -26px rgba(20,20,20,.55)" }}>
-              <img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views and branded searches" style={{ display: "block", width: "100%" }} />
+              <img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views" style={{ display: "block", width: "100%" }} />
             </div>
             <div style={{ position: "absolute", right: 24, top: 24, padding: "16px 20px", borderRadius: 16, background: "#1C1C1C", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4, boxShadow: "0 20px 40px -24px rgba(20,20,20,.5)" }}>
               <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(40px,4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>160K+</span>
