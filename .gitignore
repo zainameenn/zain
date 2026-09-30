@@ -42,3 +42,6 @@ next-env.d.ts
 
 # design source material (not part of the app)
 /other public pages/
+
+# claude code local settings
+.claude/

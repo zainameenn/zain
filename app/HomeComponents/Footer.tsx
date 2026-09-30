@@ -4,10 +4,10 @@ const FOOT_GROUPS = [
   {
     h: "Work",
     items: [
-      ["Blainy", "#case-blainy"],
-      ["Everdry Waterproofing", "#case-everdry"],
-      ["Virtarix", "#case-virtarix"],
-      ["LoomPad", "#case-loompad"],
+      ["Blainy", "/#case-blainy"],
+      ["Everdry Waterproofing", "/#case-everdry"],
+      ["Virtarix", "/#case-virtarix"],
+      ["LoomPad", "/#case-loompad"],
     ],
   },
   {
@@ -23,7 +23,7 @@ const FOOT_GROUPS = [
   {
     h: "Explore",
     items: [
-      ["Pricing", "#pricing"],
+      ["Pricing", "/#pricing"],
       ["About", "/about"],
       ["Insights", "/insights"],
       ["Contact", "/contact"],
@@ -58,7 +58,7 @@ export default function Footer() {
             <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(24px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, maxWidth: 460 }}>
               Growth marketing without the stress.
             </p>
-            <a href="#contact" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#D3AE82", borderBottom: "1.5px solid #D3AE82" }}>
+            <a href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#D3AE82", borderBottom: "1.5px solid #D3AE82" }}>
               Tell me what&apos;s stuck
               <ArrowIcon />
             </a>

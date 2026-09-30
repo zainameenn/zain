@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Growth Strategy and GTM Consultant for SaaS | Zain Ul Abdin",
+export const metadata = buildMetadata({
+  title: "Growth Strategy & GTM Consultant for SaaS | Zain Ul Abdin",
   description:
-    "Find what's actually blocking growth, fix it first, then scale what works. Go to market planning for SaaS and service businesses. Audits $499.",
-  alternates: { canonical: "/services/growth-strategy" },
-};
+    "Go to market and growth strategy for SaaS and service businesses. Find what's blocking growth, fix it first, then scale what works. $499 growth audit.",
+  path: "/services/growth-strategy",
+});
 
 const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";
@@ -453,7 +453,7 @@ export default function GrowthStrategyPage() {
             <div style={{ margin: "28px 0 32px", display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDD5C8" }} className="grid-cols-1 sm:!grid-cols-3">
               {[
                 { v: "160,235", l: "Facebook views, 28 days" },
-                { v: "12,462", l: "Business Profile interactions" },
+                { v: "12,462", l: "Business Profile views" },
                 { v: "603", l: "calls from the Business Profile" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #DDD5C8" : "0" }}>
@@ -482,7 +482,7 @@ export default function GrowthStrategyPage() {
                   <span style={{ fontSize: 12.5, color: "#8B877F" }}>Visibility and calls</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile interactions" style={{ display: "block", width: "100%" }} />
+                  <img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views" style={{ display: "block", width: "100%" }} />
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__603-calls.png" alt="Everdry: 603 calls from the Business Profile" style={{ display: "block", width: "100%" }} />

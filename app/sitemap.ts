@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog", priority: 0.6 },
     { path: "/contact", priority: 0.8 },
     { path: "/insights", priority: 0.6 },
+    { path: "/services", priority: 0.8 },
     { path: "/services/growth-strategy", priority: 0.8 },
     { path: "/services/seo", priority: 0.8 },
     { path: "/services/reddit-marketing", priority: 0.8 },

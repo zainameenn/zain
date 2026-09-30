@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, UpArrowIcon } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Reddit Marketing Specialist for SaaS | Zain Ul Abdin",
+export const metadata = buildMetadata({
+  title: "Reddit Marketing Specialist & Services for SaaS | Zain",
   description:
-    "Organic Reddit marketing without bans or ad spend. Subreddit research, real accounts and useful posts that keep ranking on Google. $1,199/mo.",
-  alternates: { canonical: "/services/reddit-marketing" },
-};
+    "Organic Reddit marketing for SaaS and service businesses. Subreddit research, real accounts, useful posts and replies. 6,089 tracked clicks, $0 on ads.",
+  path: "/services/reddit-marketing",
+});
 
 const MAX = 1360;
 const PAD = "clamp(20px,4vw,48px)";
