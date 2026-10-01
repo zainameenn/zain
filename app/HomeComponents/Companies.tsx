@@ -19,8 +19,8 @@ export default function Companies() {
   const loop = [...BRANDS, ...BRANDS];
 
   return (
-    <section style={{ padding: "clamp(80px,9vw,128px) 0 0" }}>
-      <p style={{ margin: "0 auto 24px", maxWidth: 1360, padding: "0 clamp(20px,4vw,48px)", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>
+    <section className="max-md:!pt-14" style={{ padding: "clamp(80px,9vw,128px) 0 0" }}>
+      <p className="max-md:!text-center" style={{ margin: "0 auto 24px", maxWidth: 1360, padding: "0 clamp(20px,4vw,48px)", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>
         Brands and products I&apos;ve worked with
       </p>
       <div

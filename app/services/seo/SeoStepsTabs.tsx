@@ -50,7 +50,7 @@ export function SeoStepsTabs() {
               >
                 {s.t}
               </h3>
-              <span style={{ gridColumn: 2, fontSize: 15.5, lineHeight: 1.5, color: "#5A5854", maxWidth: 440 }}>{s.d}</span>
+              <span className="max-md:!text-base" style={{ gridColumn: 2, fontSize: 15.5, lineHeight: 1.5, color: "#5A5854", maxWidth: 440 }}>{s.d}</span>
             </button>
             <span
               style={{

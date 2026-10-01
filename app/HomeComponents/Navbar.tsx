@@ -56,12 +56,13 @@ export default function Navbar() {
           justifyContent: "space-between",
           gap: 24,
         }}
+        className="max-md:!gap-3"
       >
         <a href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
           <img src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 42, width: "auto" }} />
         </a>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="max-md:!gap-3">
           <nav className="hidden md:flex" onMouseLeave={() => setNavHover(-1)} style={{ gap: 4, fontSize: 15, fontWeight: 500 }}>
             {NAV_LINKS.map((l, i) => {
               const isSvc = l.t === "Services";
@@ -132,6 +133,7 @@ export default function Navbar() {
 
           <a
             href="/contact"
+            className="max-md:!whitespace-nowrap max-md:!px-3.5"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
             style={{
@@ -153,18 +155,27 @@ export default function Navbar() {
           </a>
 
           <button
-            className="md:hidden"
+            className="md:hidden max-md:!inline-flex max-md:!min-w-11 max-md:!items-center max-md:!justify-center max-md:!gap-2"
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
             style={{ background: "none", border: 0, font: "500 15px 'Inter'", color: "#1C1C1C", height: 44, padding: 0, cursor: "pointer" }}
           >
-            {menuOpen ? "Close" : "Menu"}
+            {/* hamburger icon, becomes an X while the menu is open */}
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+              {menuOpen ? (
+                <path d="M5 5l10 10M15 5L5 15" />
+              ) : (
+                <path d="M3 5.5h14M3 10h14M3 14.5h14" />
+              )}
+            </svg>
+            {/* label is visually hidden on very narrow phones, still read by screen readers */}
+            <span className="max-[379px]:sr-only">{menuOpen ? "Close" : "Menu"}</span>
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <nav style={{ padding: "8px clamp(20px,4vw,48px) 24px", display: "flex", flexDirection: "column", borderTop: "1px solid #DDDAD3" }}>
+        <nav style={{ padding: "8px clamp(20px,4vw,48px) 24px", display: "flex", flexDirection: "column", borderTop: "1px solid #DDDAD3" }} className="max-md:!max-h-[calc(100dvh-73px)] max-md:!overflow-y-auto max-md:!overscroll-contain">
           {NAV_LINKS.map((l) => {
             const isSvc = l.t === "Services";
             if (!isSvc) {
@@ -192,11 +203,11 @@ export default function Navbar() {
                 {mobileSvcOpen && (
                   <div style={{ display: "flex", flexDirection: "column", padding: "0 0 12px" }}>
                     {SERVICE_MENU.map((m) => (
-                      <a key={m.t} href={m.href} onClick={() => setMenuOpen(false)} style={{ padding: "10px 0", fontSize: 16, color: "#4E4C48" }}>
+                      <a key={m.t} href={m.href} onClick={() => setMenuOpen(false)} style={{ padding: "10px 0", fontSize: 16, color: "#4E4C48" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
                         {m.t}
                       </a>
                     ))}
-                    <a href="/services" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>
+                    <a href="/services" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }} className="max-md:!min-h-11">
                       View all services
                       <ArrowIcon />
                     </a>

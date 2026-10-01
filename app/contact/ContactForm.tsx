@@ -148,6 +148,7 @@ export function ContactForm() {
       <div style={{ gridColumn: "1 / -1", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "14px 20px", paddingTop: 4 }}>
         <button
           type="submit"
+          className="max-md:!w-full max-md:!justify-center"
           style={{
             all: "unset",
             boxSizing: "border-box",

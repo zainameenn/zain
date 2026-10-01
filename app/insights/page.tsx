@@ -21,6 +21,7 @@ function CenterHead({ eyebrow, title, sub }: { eyebrow: string; title: React.Rea
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 40px", maxWidth: 900 }}>
       <Eyebrow>{eyebrow}</Eyebrow>
       <h2
+        className="max-md:!text-balance"
         style={{
           margin: "12px 0 0",
           fontFamily: "'General Sans'",
@@ -134,6 +135,7 @@ export default function InsightsPage() {
           Insights
         </div>
         <h1
+          className="max-md:!text-balance"
           style={{
             margin: "20px 0 0",
             fontFamily: "'General Sans'",
@@ -165,9 +167,10 @@ export default function InsightsPage() {
         <p style={{ margin: "14px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
           A lot of it will be free. Because useful marketing advice probably shouldn&apos;t always start with a checkout page.
         </p>
-        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
+        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px]">
           <a
             href="#waitlist"
+            className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!mx-auto"
             style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}
           >
             Join the waitlist
@@ -183,7 +186,7 @@ export default function InsightsPage() {
       </section>
 
       {/* WHAT'S COMING */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead
           eyebrow="What's coming"
           title={
@@ -200,7 +203,7 @@ export default function InsightsPage() {
             <div key={c.n} style={{ paddingTop: 22, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{c.n}</div>
               <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
-              <p style={{ margin: "10px auto 0", maxWidth: 340, fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px auto 0", maxWidth: 340, fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
               {c.tags ? (
                 <div style={{ marginTop: 14, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 6 }}>
                   {c.tags.map((tag) => (
@@ -221,7 +224,7 @@ export default function InsightsPage() {
       </section>
 
       {/* KEYBOOKS */}
-      <section id="keybooks" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section id="keybooks" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead
           eyebrow="Keybooks"
           title={
@@ -280,10 +283,11 @@ export default function InsightsPage() {
       </section>
 
       {/* TOPICS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 28px", maxWidth: 900 }}>
           <Eyebrow>Topics</Eyebrow>
           <h2
+            className="max-md:!text-balance"
             style={{
               margin: "12px 0 0",
               fontFamily: "'General Sans'",
@@ -309,7 +313,7 @@ export default function InsightsPage() {
       </section>
 
       {/* WAITLIST */}
-      <section id="waitlist" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section id="waitlist" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div
           style={{
             borderRadius: 28,
@@ -340,7 +344,7 @@ export default function InsightsPage() {
       </section>
 
       {/* UNTIL THEN */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
+      <section className="max-md:!pt-[68px]" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 28px", maxWidth: 900 }}>
           <h2
             style={{
@@ -366,6 +370,7 @@ export default function InsightsPage() {
             href="https://www.linkedin.com/in/zain-ameen/"
             target="_blank"
             rel="noopener"
+            className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']"
             style={{ fontSize: 14.5, color: "#1C1C1C", borderBottom: "1px solid #CFCBC2", paddingBottom: 2 }}
           >
             Or say hi on LinkedIn

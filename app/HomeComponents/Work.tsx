@@ -45,8 +45,8 @@ function CaseStudy({
             <span style={{ width: 24, height: 1, background: dark ? "#3A3F55" : "#9FB2B0" }} />
             <span>{eyebrow}</span>
           </div>
-          <span style={{ display: "flex", alignItems: "center", flex: "0 0 auto" }}>
-            <img loading="lazy" src={logo} alt={logoAlt} style={{ display: "block", height: logoHeight, width: "auto", maxWidth: 150, mixBlendMode: dark ? "normal" : "multiply" }} />
+          <span className="max-md:!shrink" style={{ display: "flex", alignItems: "center", flex: "0 0 auto" }}>
+            <img loading="lazy" src={logo} alt={logoAlt} className="max-md:!h-auto max-md:!max-w-[120px]" style={{ display: "block", height: logoHeight, width: "auto", maxWidth: 150, mixBlendMode: dark ? "normal" : "multiply" }} />
           </span>
         </div>
         <div style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{name}</div>
@@ -54,9 +54,9 @@ function CaseStudy({
         <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.6, color: textColor, maxWidth: 440 }}>{paragraphs}</div>
       </div>
       <div>
-        <div style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length},minmax(0,1fr))`, borderTop: `1px solid ${dark ? "#2C3042" : "#C9D6D5"}` }}>
+        <div className="max-sm:!grid-cols-2" style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length},minmax(0,1fr))`, borderTop: `1px solid ${dark ? "#2C3042" : "#C9D6D5"}` }}>
           {stats.map((s, i) => (
-            <div key={s.l} style={{ padding: `16px ${i === stats.length - 1 ? 0 : 12}px 0 ${i ? 14 : 0}px`, borderLeft: i ? `1px solid ${dark ? "#2C3042" : "#C9D6D5"}` : "none" }}>
+            <div key={s.l} className={`max-md:!text-center max-sm:!px-2 max-sm:!pb-4 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? (dark ? "max-sm:!border-t max-sm:!border-t-[#2C3042]" : "max-sm:!border-t max-sm:!border-t-[#C9D6D5]") : ""} ${stats.length === 3 && i === 2 ? "max-sm:!col-span-2" : ""}`} style={{ padding: `16px ${i === stats.length - 1 ? 0 : 12}px 0 ${i ? 14 : 0}px`, borderLeft: i ? `1px solid ${dark ? "#2C3042" : "#C9D6D5"}` : "none" }}>
               <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(22px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em" }}>{s.v}</div>
               <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.35, color: mutedColor }}>{s.l}</div>
             </div>
@@ -104,16 +104,16 @@ function Frame({ children, bg }: { children: React.ReactNode; bg: string }) {
 export default function Work() {
   return (
     <section id="work" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
-      <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(32px,4vw,48px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+      <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(32px,4vw,48px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
         <div>
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Selected work</div>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Growth work that had to
             <br />
             <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>earn its place.</em>
           </h2>
         </div>
-        <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 360 }}>No vanity metrics. Just the numbers that actually moved something.</p>
+        <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 360 }}>No vanity metrics. Just the numbers that actually moved something.</p>
       </div>
 
       <CaseStudy
@@ -130,7 +130,7 @@ export default function Work() {
         paragraphs={
           <>
             <p style={{ margin: 0 }}>Blainy needed users without an ad budget. I built growth around search, Reddit and content so each channel fed the next one.</p>
-            <p style={{ margin: "12px 0 0", paddingLeft: 12, borderLeft: "2px solid #9FB2B0", fontSize: 14.5, color: "#1C1C1C", fontWeight: 500, maxWidth: 420 }}>
+            <p className="max-md:!text-base" style={{ margin: "12px 0 0", paddingLeft: 12, borderLeft: "2px solid #9FB2B0", fontSize: 14.5, color: "#1C1C1C", fontWeight: 500, maxWidth: 420 }}>
               That brought in 85K+ users and ~30M search impressions in 12 months.
             </p>
           </>
