@@ -58,7 +58,7 @@ export default function Navbar() {
         }}
       >
         <a href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
-          <img src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 34, width: "auto" }} />
+          <img src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 42, width: "auto" }} />
         </a>
 
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
