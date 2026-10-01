@@ -54,6 +54,7 @@ export default function RootLayout({
                     "https://www.pinterest.com/zainameenn",
                     "https://www.threads.com/@zainn.ms",
                     "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf",
+                    "https://www.facebook.com/profile.php?id=61560222560607",
                   ],
                 },
                 {

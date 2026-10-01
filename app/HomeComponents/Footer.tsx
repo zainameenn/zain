@@ -1,4 +1,4 @@
-import { ArrowIcon, MailIcon, CalendarIcon, LinkedInIcon } from "./icons";
+import { ArrowIcon, MailIcon, LinkedInIcon } from "./icons";
 
 const FOOT_GROUPS = [
   {
@@ -25,22 +25,35 @@ const FOOT_GROUPS = [
     items: [
       ["Pricing", "/#pricing"],
       ["About", "/about"],
+      ["Blog", "/blog"],
       ["Insights", "/insights"],
       ["Contact", "/contact"],
     ],
   },
 ];
 
+// Grid placement. Mobile: Work and Explore side by side, then Services, then Connect.
+// Tablet: four columns under the brand block. Desktop: brand plus four columns in one row.
+const GROUP_CLASS: Record<string, string> = {
+  Work: "",
+  Services: "col-span-2 order-1 md:col-span-1 md:order-none",
+  Explore: "",
+};
+const CONNECT_CLASS = "col-span-2 order-2 md:col-span-1 md:order-none";
+
+const HEADING_STYLE: React.CSSProperties = { fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F", marginBottom: 18 };
+
 const SOCIALS: { t: string; href: string; kind: "in" | "mail" | "icon"; icon?: string }[] = [
   { t: "LinkedIn", href: "https://www.linkedin.com/in/zain-ameen/", kind: "in" },
-  { t: "Email", href: "mailto:hello@zainameen.com", kind: "mail" },
-  { t: "Calendly", href: "https://calendly.com/zain-ameen/30min", kind: "icon", icon: "calendly" },
-  { t: "Upwork", href: "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf", kind: "icon", icon: "upwork" },
-  { t: "GitHub", href: "https://github.com/zainameenn", kind: "icon", icon: "github" },
-  { t: "X", href: "https://x.com/zainnameen", kind: "icon", icon: "x" },
+  { t: "Facebook", href: "https://www.facebook.com/profile.php?id=61560222560607", kind: "icon", icon: "facebook" },
   { t: "Instagram", href: "https://www.instagram.com/zainn.ms/", kind: "icon", icon: "instagram" },
-  { t: "Pinterest", href: "https://www.pinterest.com/zainameenn", kind: "icon", icon: "pinterest" },
+  { t: "X", href: "https://x.com/zainnameen", kind: "icon", icon: "x" },
   { t: "Threads", href: "https://www.threads.com/@zainn.ms", kind: "icon", icon: "threads" },
+  { t: "Pinterest", href: "https://www.pinterest.com/zainameenn", kind: "icon", icon: "pinterest" },
+  { t: "GitHub", href: "https://github.com/zainameenn", kind: "icon", icon: "github" },
+  { t: "Upwork", href: "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf", kind: "icon", icon: "upwork" },
+  { t: "Calendly", href: "https://calendly.com/zain-ameen/30min", kind: "icon", icon: "calendly" },
+  { t: "Email", href: "mailto:hello@zainameen.com", kind: "mail" },
 ];
 
 export default function Footer() {
@@ -48,41 +61,33 @@ export default function Footer() {
     <footer style={{ background: "#171717", color: "#F2EFEA", overflow: "hidden" }}>
       <div style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(64px,7vw,96px) clamp(20px,4vw,48px) 0" }}>
         <div
-          style={{ display: "grid", gap: "32px 48px", alignItems: "end", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }}
-          className="md:!grid-cols-[minmax(0,1fr)_auto]"
+          style={{ display: "grid", gap: "40px 24px", alignItems: "start", justifyContent: "space-between", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }}
+          className="grid-cols-2 md:grid-cols-[repeat(4,auto)] lg:grid-cols-[repeat(5,auto)]"
         >
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 20 }}>
-            <span style={{ width: 60, height: 60, borderRadius: 16, background: "#F2EFEA", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <img loading="lazy" src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 36, width: "auto" }} />
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 16 }} className="col-span-2 md:col-span-4 lg:col-span-1">
+            {/* logo-dark.png has empty space around the mark; this window crops to the mark (56px tall). */}
+            <span style={{ position: "relative", display: "block", width: 62, height: 56, overflow: "hidden" }}>
+              <img loading="lazy" src="/logo-dark.png" alt="Zain Ul Abdin logo" style={{ position: "absolute", left: -18.9, top: -19.3, width: 93.8, height: 93.8, maxWidth: "none" }} />
             </span>
-            <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(24px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, maxWidth: 460 }}>
-              Growth marketing without the stress.
+            <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, whiteSpace: "nowrap" }}>
+              Growth marketing
+              <br />
+              without the stress.
+            </p>
+            <p style={{ margin: 0, fontSize: 13, color: "#8B877F", whiteSpace: "nowrap" }}>
+              Free 30 minute call.
+              <br />
+              You&apos;ll leave with at least one thing to fix.
             </p>
             <a href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#D3AE82", borderBottom: "1.5px solid #D3AE82" }}>
               Tell me what&apos;s stuck
               <ArrowIcon />
             </a>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }} className="md:justify-end">
-            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 18px", borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
-              <CalendarIcon />
-              Book a meeting
-            </a>
-            <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 18px", borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
-              <MailIcon />
-              Email
-            </a>
-            <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 18px", borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
-              <LinkedInIcon size={15} />
-              LinkedIn
-            </a>
-          </div>
-        </div>
 
-        <div style={{ display: "grid", gap: "40px 32px", padding: "clamp(40px,5vw,56px) 0", borderBottom: "1px solid #2F2E2B" }} className="grid-cols-2 md:!grid-cols-4">
           {FOOT_GROUPS.map((g) => (
-            <div key={g.h}>
-              <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F", marginBottom: 18 }}>{g.h}</div>
+            <div key={g.h} className={GROUP_CLASS[g.h]}>
+              <div style={HEADING_STYLE}>{g.h}</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 11 }}>
                 {g.items.map(([t, href]) => (
                   <a key={t} href={href} style={{ fontSize: 15, color: "#D9D5CC" }}>
@@ -92,45 +97,42 @@ export default function Footer() {
               </div>
             </div>
           ))}
-          <div>
-            <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F", marginBottom: 18 }}>Connect</div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+
+          <div className={CONNECT_CLASS}>
+            <div style={HEADING_STYLE}>Connect</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 36px)", gap: 10, justifyContent: "start" }}>
               {SOCIALS.map((so) => (
                 <a
                   key={so.t}
                   href={so.href}
                   target={so.kind === "mail" ? undefined : "_blank"}
                   rel={so.kind === "mail" ? undefined : "noreferrer"}
-                  style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 15, color: "#D9D5CC" }}
+                  aria-label={so.t}
+                  title={so.t}
+                  style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center", color: "#D9D5CC" }}
                 >
-                  <span style={{ width: 28, height: 28, flex: "0 0 auto", borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    {so.kind === "in" && <LinkedInIcon size={12} color="#F2EFEA" />}
-                    {so.kind === "mail" && <MailIcon size={13} color="#F2EFEA" />}
-                    {so.kind === "icon" && (
-                      <span
-                        aria-hidden="true"
-                        style={{ display: "block", width: 13, height: 13, backgroundImage: `url("https://cdn.simpleicons.org/${so.icon}/F2EFEA")`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}
-                      />
-                    )}
-                  </span>
-                  {so.t}
+                  {so.kind === "in" && <LinkedInIcon size={14} color="#F2EFEA" />}
+                  {so.kind === "mail" && <MailIcon size={15} color="#F2EFEA" />}
+                  {so.kind === "icon" && (
+                    <span
+                      aria-hidden="true"
+                      style={{ display: "block", width: 15, height: 15, backgroundImage: `url("https://cdn.simpleicons.org/${so.icon}/F2EFEA")`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}
+                    />
+                  )}
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        <div style={{ padding: "24px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 12, fontSize: 13, color: "#8B877F" }}>
-          <span>© 2026 Zain Ul Abdin</span>
-          <span style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
+        <div style={{ padding: "24px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "12px 32px", fontSize: 13, color: "#8B877F" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <span>© 2026 Zain Ul Abdin</span>
             <span>Built for useful growth, not vanity metrics.</span>
-            <a href="#top" style={{ color: "#8B877F" }}>
-              Back to top ↑
-            </a>
-          </span>
-        </div>
-        <div aria-hidden="true" style={{ margin: "clamp(8px,2vw,24px) 0 -0.2em", textAlign: "center", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(56px,11.6vw,176px)", lineHeight: 0.9, letterSpacing: "-0.05em", color: "#262522", whiteSpace: "nowrap" }}>
-          ZAIN UL ABDIN
+          </div>
+          <a href="#top" style={{ color: "#8B877F" }}>
+            Back to top ↑
+          </a>
         </div>
       </div>
     </footer>
