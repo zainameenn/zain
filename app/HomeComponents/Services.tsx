@@ -4,11 +4,11 @@ import { useState } from "react";
 import { ArrowIcon } from "./icons";
 
 const SERVICES = [
-  { name: "Growth strategy and GTM", line: "Find the real constraint and plan around it.", href: "/services/growth-strategy", linkLabel: "Growth strategy services" },
-  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/seo", linkLabel: "SEO services" },
-  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing", linkLabel: "Reddit marketing services" },
-  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/social-media-management", linkLabel: "Social media management services" },
-  { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-meta-ads", linkLabel: "Google and Meta ads services" },
+  { name: "Growth strategy and GTM", line: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant", linkLabel: "SaaS growth consultant" },
+  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/freelance-seo-expert-for-saas", linkLabel: "Freelance SEO expert for SaaS" },
+  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing-for-saas", linkLabel: "Reddit marketing for SaaS" },
+  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/hire-a-social-media-manager", linkLabel: "Hire a social media manager" },
+  { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-and-meta-ads-specialist", linkLabel: "Google and Meta ads specialist" },
 ];
 
 export default function Services() {
@@ -42,7 +42,7 @@ export default function Services() {
                     <span style={{ fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 520 }}>{s.line}</span>
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14.5, fontWeight: 600, color: on ? "#1C1C1C" : "#8B877F", whiteSpace: "nowrap", transition: "color 200ms" }}>
-                    <span aria-hidden="true">Explore</span>
+                    <span>{s.linkLabel}</span>
                     <ArrowIcon style={{ transform: on ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
                   </span>
                 </a>

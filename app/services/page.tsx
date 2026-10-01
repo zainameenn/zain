@@ -1,12 +1,13 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { ServiceCards } from "./ServiceCards";
 
 export const metadata = buildMetadata({
-  title: "Marketing Services for SaaS & Service Businesses | Zain",
+  title: "Growth Marketing Services for SaaS | Clear Prices | Zain",
   description:
-    "SEO, Reddit marketing, social media management, Google and Meta ads and growth strategy for SaaS and service businesses. One person, one plan, one invoice.",
+    "Growth marketing services for SaaS and service businesses: SEO, Reddit, social, content, ads and strategy. Clear monthly prices, no long contracts.",
   path: "/services",
 });
 
@@ -18,18 +19,17 @@ export default function ServicesPage() {
     <main id="top" style={{ overflowX: "clip" }}>
       {/* HERO */}
       <section className="max-md:!text-center" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 0` }}>
-        <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-          <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-          Marketing services for SaaS and service businesses
+        <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
+          Growth marketing services for SaaS and service businesses
         </h1>
-        <p className="max-md:!mx-auto" style={{ margin: "20px 0 0", maxWidth: 760, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(36px,4.4vw,58px)", lineHeight: 1.05, letterSpacing: "-0.035em" }}>
+        <p className="max-md:!mx-auto" style={{ margin: "20px 0 0", maxWidth: 760, fontFamily: "'General Sans'", fontWeight: 500, fontSize: SUBHEAD_SIZE, lineHeight: 1.05, letterSpacing: "-0.035em" }}>
           Pick one channel.
           <span style={{ display: "block", marginTop: ".12em" }}>
             <Emphasis>Or let me pick for you.</Emphasis>
           </span>
         </p>
         <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 560, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-          Five services, all handled by me. If you already know what you need, jump straight in. If you don&apos;t, that&apos;s kind of my thing.
+          Growth marketing services for SaaS work better when one person runs them together, so pick one channel or hand me all of it. Five services, all handled by me. If you already know what you need, jump straight in. If you don&apos;t, that&apos;s kind of my thing.
         </p>
       </section>
 
@@ -47,7 +47,7 @@ export default function ServicesPage() {
               Most clients start with the $499 audit or the free social check. You&apos;ll know what&apos;s wrong and what to fix first, whether we keep working together or not.
             </p>
             <div style={{ marginTop: 28 }}>
-              <Link href="/#pricing" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!mx-auto" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+              <Link href="/pricing" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!mx-auto" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
                 See pricing
                 <ArrowIcon />
               </Link>

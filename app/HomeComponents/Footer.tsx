@@ -4,28 +4,27 @@ const FOOT_GROUPS = [
   {
     h: "Work",
     items: [
-      ["Blainy", "/#case-blainy"],
-      ["Everdry Waterproofing", "/#case-everdry"],
-      ["Virtarix", "/#case-virtarix"],
+      ["Blainy", "/case-studies/blainy"],
+      ["Everdry Waterproofing", "/case-studies/everdry"],
+      ["Virtarix", "/case-studies/virtarix"],
       ["LoomPad", "/#case-loompad"],
     ],
   },
   {
     h: "Services",
     items: [
-      ["Growth strategy and GTM", "/services/growth-strategy"],
-      ["SEO", "/services/seo"],
-      ["Reddit marketing", "/services/reddit-marketing"],
-      ["Social media management", "/services/social-media-management"],
-      ["Google and Meta ads", "/services/google-meta-ads"],
+      ["Growth strategy and GTM", "/services/saas-growth-consultant"],
+      ["SEO", "/services/freelance-seo-expert-for-saas"],
+      ["Reddit marketing", "/services/reddit-marketing-for-saas"],
+      ["Social media management", "/services/hire-a-social-media-manager"],
+      ["Google and Meta ads", "/services/google-and-meta-ads-specialist"],
     ],
   },
   {
     h: "Explore",
     items: [
-      ["Pricing", "/#pricing"],
+      ["Pricing", "/pricing"],
       ["About", "/about"],
-      ["Blog", "/blog"],
       ["Insights", "/insights"],
       ["Contact", "/contact"],
     ],

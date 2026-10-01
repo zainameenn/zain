@@ -1,13 +1,14 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Google Ads & Meta Ads Specialist for Hire | Zain Ul Abdin",
+  title: "Google and Meta Ads Specialist | Fix the Funnel First | Zain",
   description:
-    "Freelance Google and Meta ads management for $1,499/mo. Tracking first, landing page fixed, budget moved to what converts. No % of spend. You own the account.",
-  path: "/services/google-meta-ads",
+    "Google and Meta ads specialist. Tracking set up first, landing pages fixed, budget moved to what converts. $1,499/mo, and you own the account.",
+  path: "/services/google-and-meta-ads-specialist",
 });
 
 const MAX = 1280;
@@ -31,7 +32,7 @@ function LightPill({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Italic Instrument Serif, no hand-drawn underline — used for most heading emphasis on this page. */
+/** Italic Instrument Serif, no hand-drawn underline, used for most heading emphasis on this page. */
 function ItalicInline({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return (
     <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", ...style }}>
@@ -48,7 +49,7 @@ function ItalicBlock({ children, style }: { children: React.ReactNode; style?: R
   );
 }
 
-/** Block emphasis with the gold hand-drawn squiggle underneath — used only where the source page uses it. */
+/** Block emphasis with the gold hand-drawn squiggle underneath, used only where the source page uses it. */
 function SquiggleBlock({ children, color }: { children: React.ReactNode; color?: string }) {
   return (
     <em className="max-md:[&>span]:!whitespace-normal" style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", color }}>
@@ -221,9 +222,9 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "Growth strategy & GTM", d: "When the problem is bigger than ads.", href: "/services/growth-strategy" },
-  { t: "SEO", d: "Turn winning ad keywords into organic traffic.", href: "/services/seo" },
-  { t: "Social media management", d: "Organic attention alongside paid.", href: "/services/social-media-management" },
+  { t: "Growth strategy & GTM", d: "When the problem is bigger than ads.", href: "/services/saas-growth-consultant" },
+  { t: "SEO", d: "Turn winning ad keywords into organic traffic.", href: "/services/freelance-seo-expert-for-saas" },
+  { t: "Social media management", d: "Organic attention alongside paid.", href: "/services/hire-a-social-media-manager" },
 ];
 
 export default function GoogleMetaAdsPage() {
@@ -232,18 +233,17 @@ export default function GoogleMetaAdsPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "32px 48px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-            Google Ads and Meta Ads specialist for SaaS and service businesses
+          <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
+            Google and Meta ads specialist who fixes the funnel before scaling spend
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(36px,4.4vw,58px)", lineHeight: 1.05, letterSpacing: "-0.035em" }}>
+          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: SUBHEAD_SIZE, lineHeight: 1.05, letterSpacing: "-0.035em" }}>
             Don&apos;t scale the spend
             <span style={{ display: "block", marginTop: ".1em" }}>
               before the <Emphasis>funnel works.</Emphasis>
             </span>
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            I set up the tracking, fix the landing page, build the campaigns and move your budget toward what actually brings customers.
+            As your Google and Meta ads specialist, I set up tracking and fix the landing page before we spend another dollar. I set up the tracking, fix the landing page, build the campaigns and move your budget toward what actually brings customers.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>
             On Google, I capture people already searching. On Meta, I reach the ones who don&apos;t know you yet.
@@ -443,7 +443,7 @@ export default function GoogleMetaAdsPage() {
         <CenterHead eyebrow="Paid work" title={<>A look at<ItalicBlock>the paid work.</ItalicBlock></>} sub="Two Meta video ads from the Blainy account, straight from Ads Manager. Figures are exactly what Meta reports for each ad." mb={32} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, margin: "0 0 24px" }}>
           <img src="/assets/site/logo-blainy.png" alt="Blainy logo" loading="lazy" style={{ display: "block", height: 36, width: "auto", mixBlendMode: "multiply" }} />
-          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "#8B877F" }}>AI SAAS · CAMPAIGN: CAPTURE – SALES</span>
+          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "#8B877F" }}>AI SAAS · CAMPAIGN: CAPTURE / SALES</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           {AD_RESULTS.map((a) => (
@@ -674,7 +674,7 @@ export default function GoogleMetaAdsPage() {
         <div style={{ marginTop: 20, borderRadius: 24, background: "#171717", color: "#F2EFEA", padding: "clamp(24px,3vw,40px)", display: "grid", gap: "24px 48px", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
           <div>
             <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>NEED THE REST OF THE FUNNEL TOO?</div>
-            <div style={{ marginTop: 12, fontFamily: "'General Sans'", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>Everything, handled</div>
+            <div className="phone-heading" style={{ marginTop: 12, fontFamily: "'General Sans'", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>Everything, handled</div>
             <p style={{ margin: "10px 0 0", color: "#C9C4BA" }}>$3,999 a month for SEO, Reddit, social, content and design. Add ads management for $1,499.</p>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "flex-start" }} className="sm:!justify-end max-sm:!justify-center">

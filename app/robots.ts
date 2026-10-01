@@ -9,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       // Explicitly welcome AI/LLM crawlers - see /llms.txt for a structured
       // summary of the site aimed at these same agents.
+      { userAgent: "Googlebot", allow: "/" },
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "ChatGPT-User", allow: "/" },
       { userAgent: "OAI-SearchBot", allow: "/" },

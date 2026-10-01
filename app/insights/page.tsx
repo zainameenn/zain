@@ -1,11 +1,12 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { WaitlistForm } from "./WaitlistForm";
 
 export const metadata = buildMetadata({
-  title: "Free Marketing Guides & Keybooks | Zain Ul Abdin",
+  title: "Growth Marketing Insights | SEO, Reddit and SaaS | Zain",
   description:
-    "Free Keybooks and practical guides on SEO, Reddit, social media and SaaS growth, built from real client work. Join the list to get them first.",
+    "Practical notes on SEO, Reddit, social and SaaS growth, written from doing the work. No fluff, no recycled listicles.",
   path: "/insights",
 });
 
@@ -134,19 +135,12 @@ export default function InsightsPage() {
           <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
           Insights
         </div>
-        <h1
-          className="max-md:!text-balance"
-          style={{
-            margin: "20px 0 0",
-            fontFamily: "'General Sans'",
-            fontWeight: 600,
-            fontSize: "clamp(44px,5.6vw,80px)",
-            lineHeight: 1,
-            letterSpacing: "-0.04em",
-          }}
-        >
-          I&apos;m working on this page.
+        <h1 style={{ ...H1_STYLE, margin: "20px 0 0", maxWidth: 820 }}>
+          Growth marketing insights
         </h1>
+        <p className="max-md:!text-balance" style={{ margin: "18px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: SUBHEAD_SIZE, lineHeight: 1.1, letterSpacing: "-0.035em" }}>
+          I&apos;m working on this page.
+        </p>
         <p
           style={{
             margin: "14px 0 0",
@@ -154,7 +148,7 @@ export default function InsightsPage() {
             fontStyle: "italic",
             fontWeight: 400,
             letterSpacing: "-0.01em",
-            fontSize: "clamp(32px,3.6vw,52px)",
+            fontSize: SUBHEAD_SIZE,
             lineHeight: 1.1,
             color: "#1C1C1C",
           }}
@@ -162,7 +156,7 @@ export default function InsightsPage() {
           <Emphasis>The good stuff is coming.</Emphasis>
         </p>
         <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
-          I&apos;m putting together a collection of practical marketing Keybooks, useful breakdowns and blogs about what works, what doesn&apos;t, and what I&apos;d probably avoid completely.
+          Growth marketing insights from real client work, written so you can use them today. I&apos;m putting together a collection of practical marketing Keybooks, useful breakdowns and blogs about what works, what doesn&apos;t, and what I&apos;d probably avoid completely.
         </p>
         <p style={{ margin: "14px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
           A lot of it will be free. Because useful marketing advice probably shouldn&apos;t always start with a checkout page.

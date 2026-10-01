@@ -1,11 +1,12 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_STYLE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { FAQAccordion } from "../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "About Zain Ul Abdin | Freelance Growth Marketer, Lahore",
+  title: "Zain Ul Abdin | Freelance Growth Marketer in Lahore",
   description:
-    "Writer, then SEO, then growth. Sales before all of it. Meet Zain, a Lahore growth marketer working with SaaS and service businesses in the US, UAE and Europe.",
+    "Zain Ul Abdin is a freelance growth marketer in Lahore working with SaaS and service teams in the US, UAE and Europe. Writer, then SEO, then growth.",
   path: "/about",
 });
 
@@ -161,13 +162,13 @@ const PERSONAL_LIST = [
 ];
 
 const RESUME_ITEMS = [
-  { org: "TechEon", role: "Senior Marketing Specialist", desc: null as string | null, range: "Feb 2026 – present" },
-  { org: "Everdry Waterproofing of Michiana", role: "Marketing specialist (contract)", desc: "Social media and Google Business Profile for a US home services company.", range: "Jul 2025 – present" },
-  { org: "Virtarix", role: "Marketing specialist (contract)", desc: "New Facebook page to 70K+ views in 3 months, and Pinterest built from scratch to 1.2K+ monthly visits.", range: "Aug 2025 – Feb 2026" },
-  { org: "Amoxt Solutions", role: "Product growth specialist", desc: "Scaled Blainy to 85K+ users organically, with ~30M search impressions in 12 months.", range: "Apr 2024 – Oct 2025" },
-  { org: "Amoxt Solutions", role: "Lead generation", desc: "Reddit and SEO campaigns with thousands of conversions in one month, zero ad spend.", range: "Sep 2023 – Apr 2024" },
-  { org: "Infinix Solutions", role: "Floor manager and lead sales rep", desc: "Trained a telesales team, rewrote scripts, hit monthly targets.", range: "Jul 2022 – Sep 2023" },
-  { org: "Upwork", role: "Freelance content writer", desc: "SEO, branding and LinkedIn content for international clients, with five star ratings.", range: "Apr 2019 – Jul 2022" },
+  { org: "TechEon", role: "Senior Marketing Specialist", desc: null as string | null, range: "Feb 2026 to present" },
+  { org: "Everdry Waterproofing of Michiana", role: "Marketing specialist (contract)", desc: "Social media and Google Business Profile for a US home services company.", range: "Jul 2025 to present" },
+  { org: "Virtarix", role: "Marketing specialist (contract)", desc: "New Facebook page to 70K+ views in 3 months, and Pinterest built from scratch to 1.2K+ monthly visits.", range: "Aug 2025 to Feb 2026" },
+  { org: "Amoxt Solutions", role: "Product growth specialist", desc: "Scaled Blainy to 85K+ users organically, with ~30M search impressions in 12 months.", range: "Apr 2024 to Oct 2025" },
+  { org: "Amoxt Solutions", role: "Lead generation", desc: "Reddit and SEO campaigns with thousands of conversions in one month, zero ad spend.", range: "Sep 2023 to Apr 2024" },
+  { org: "Infinix Solutions", role: "Floor manager and lead sales rep", desc: "Trained a telesales team, rewrote scripts, hit monthly targets.", range: "Jul 2022 to Sep 2023" },
+  { org: "Upwork", role: "Freelance content writer", desc: "SEO, branding and LinkedIn content for international clients, with five star ratings.", range: "Apr 2019 to Jul 2022" },
   { org: "Virtual University of Pakistan", role: "BS Computer Science", desc: "Degree completed.", range: "Completed" },
 ];
 
@@ -196,14 +197,14 @@ export default function AboutPage() {
           <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
           About me
         </div>
-        <h1 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(46px,6vw,84px)", lineHeight: 1, letterSpacing: "-0.04em" }}>Hi, I&apos;m Zain.</h1>
+        <h1 style={{ ...H1_STYLE, margin: "20px 0 0", maxWidth: 820 }}>Zain Ul Abdin, freelance growth marketer</h1>
         <p style={{ margin: "14px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(30px,3.4vw,48px)", lineHeight: 1.12 }}>
           I fix growth problems for a living.
           <br />
           <Emphasis>Mostly on purpose.</Emphasis>
         </p>
         <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
-          I&apos;m a growth marketer from Lahore, working with SaaS and service businesses in the US, UAE and Europe. I started as a writer, ran a sales floor, then spent years figuring out why good products don&apos;t grow. Now I find that reason and fix it myself.
+          Zain Ul Abdin here, a freelance growth marketer in Lahore working with teams in the US, UAE and Europe. I started as a writer, ran a sales floor, then spent years figuring out why good products don&apos;t grow. Now I find that reason and fix it myself.
         </p>
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px]">
           <a href="#resume" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>

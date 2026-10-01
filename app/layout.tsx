@@ -35,15 +35,20 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@graph": [
                 {
+                  "@type": "WebSite",
+                  name: "Zain Ul Abdin",
+                  url: "https://www.zainameen.com",
+                },
+                {
                   "@type": "Person",
                   name: "Zain Ul Abdin",
                   url: "https://www.zainameen.com",
                   alternateName: ["Zain Ameen"],
-                  jobTitle: "Growth Marketing Specialist",
+                  jobTitle: "Freelance Growth Marketer",
                   address: {
                     "@type": "PostalAddress",
                     addressLocality: "Lahore",
-                    addressCountry: "PK",
+                    addressCountry: "Pakistan",
                   },
                   email: "hello@zainameen.com",
                   sameAs: [
@@ -60,6 +65,8 @@ export default function RootLayout({
                 {
                   "@type": "ProfessionalService",
                   name: "Zain Ul Abdin, Growth Marketing",
+                  description: "Growth marketing for SaaS and service businesses: SEO, Reddit marketing, social media, content, design and Google and Meta ads.",
+                  url: "https://www.zainameen.com",
                   areaServed: ["US", "AE", "EU"],
                   address: {
                     "@type": "PostalAddress",

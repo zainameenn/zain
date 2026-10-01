@@ -1,12 +1,13 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis, LinkedInIcon, MailIcon } from "../HomeComponents/icons";
 import { FAQAccordion } from "../HomeComponents/FAQAccordion";
 import { ContactForm } from "./ContactForm";
 
 export const metadata = buildMetadata({
-  title: "Contact Zain Ul Abdin | Book a Free Marketing Call",
+  title: "Contact Zain Ul Abdin | Book a Free 30 Minute Call",
   description:
-    "Tell me what's stuck. Book a free 30 minute call, send an email or fill out a short form. No sales script. I usually reply within a couple of hours.",
+    "Contact Zain Ul Abdin about SEO, Reddit, social or ads. Book a free 30 minute call or send a quick message. Messy briefs welcome.",
   path: "/contact",
 });
 
@@ -194,21 +195,21 @@ export default function ContactPage() {
           textAlign: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
+        <p style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
           <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
-          Let&apos;s talk
-        </div>
-        <h1 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(46px,6vw,84px)", lineHeight: 1, letterSpacing: "-0.04em" }}>
           Got something stuck?
+        </p>
+        <h1 style={{ ...H1_STYLE, margin: "20px 0 0", maxWidth: 820 }}>
+          Contact Zain Ul Abdin
         </h1>
-        <p style={{ margin: "18px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(34px,4.2vw,58px)", lineHeight: 1.08, color: "#1C1C1C" }}>
+        <p style={{ margin: "18px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: SUBHEAD_SIZE, lineHeight: 1.08, color: "#1C1C1C" }}>
           <span style={{ display: "block" }}>Bring the problem.</span>
           <span style={{ display: "block" }}>
             <Emphasis>I&apos;ll bring the coffee.</Emphasis>
           </span>
         </p>
         <p style={{ margin: "32px 0 0", maxWidth: 620, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
-          Tell me what you&apos;re working on, what isn&apos;t working, or where you&apos;re trying to get. I&apos;ll help you figure out the clearest next step, even if that step doesn&apos;t involve me.
+          Contact me about whatever&apos;s stuck. Bring the problem, I&apos;ll bring the coffee. Tell me what you&apos;re working on, what isn&apos;t working, or where you&apos;re trying to get. I&apos;ll help you figure out the clearest next step, even if that step doesn&apos;t involve me.
         </p>
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col">
           <a href="#book" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>

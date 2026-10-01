@@ -1,13 +1,14 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Growth Strategy & GTM Consultant for SaaS | Zain Ul Abdin",
+  title: "SaaS Growth Consultant | Fix the Bottleneck First | Zain",
   description:
-    "Go to market and growth strategy for SaaS and service businesses. Find what's blocking growth, fix it first, then scale what works. $499 growth audit.",
-  path: "/services/growth-strategy",
+    "SaaS growth consultant who finds what's actually blocking growth, fixes it first, then scales what works. Go to market plans and $499 audits.",
+  path: "/services/saas-growth-consultant",
 });
 
 const MAX = 1280;
@@ -97,9 +98,9 @@ const LEAVE_WITH = [
 ];
 
 const ROADMAP = [
-  { range: "DAYS 1–30", t: "Diagnose & fix the obvious", items: ["Audit everything.", "Fix tracking.", "Clean up messaging.", "Fix the leaks that do not need testing."], dark: false },
-  { range: "DAYS 31–60", t: "Build & test", items: ["Launch priority channels.", "Run small experiments.", "Measure honestly."], dark: false },
-  { range: "DAYS 61–90", t: "Scale what works", items: ["Double down on what proved itself.", "Cut what didn't.", "No guilt."], dark: true },
+  { range: "DAYS 1 TO 30", t: "Diagnose & fix the obvious", items: ["Audit everything.", "Fix tracking.", "Clean up messaging.", "Fix the leaks that do not need testing."], dark: false },
+  { range: "DAYS 31 TO 60", t: "Build & test", items: ["Launch priority channels.", "Run small experiments.", "Measure honestly."], dark: false },
+  { range: "DAYS 61 TO 90", t: "Scale what works", items: ["Double down on what proved itself.", "Cut what didn't.", "No guilt."], dark: true },
 ];
 
 const PRIORITIZE = [
@@ -135,9 +136,9 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "SEO", d: "Get found by people already searching.", href: "/services/seo" },
-  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing" },
-  { t: "Social media management", d: "Consistent attention that brings visits.", href: "/services/social-media-management" },
+  { t: "SEO", d: "Get found by people already searching.", href: "/services/freelance-seo-expert-for-saas" },
+  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing-for-saas" },
+  { t: "Social media management", d: "Consistent attention that brings visits.", href: "/services/hire-a-social-media-manager" },
 ];
 
 export default function GrowthStrategyPage() {
@@ -146,18 +147,17 @@ export default function GrowthStrategyPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "40px 56px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-            Growth strategy and GTM consultant for SaaS and service businesses
+          <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
+            SaaS growth consultant who fixes the right problem first
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(36px,4.4vw,58px)", lineHeight: 1.05, letterSpacing: "-0.035em" }}>
+          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: SUBHEAD_SIZE, lineHeight: 1.05, letterSpacing: "-0.035em" }}>
             You don&apos;t need every channel.
             <span style={{ display: "block", marginTop: ".12em" }}>
               You need the right <Emphasis>problem fixed first.</Emphasis>
             </span>
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            I look at your whole growth system, from positioning to retention, find the one thing actually holding it back, and build the plan around that.
+            As a SaaS growth consultant, I start by finding the one bottleneck holding everything else back. I look at your whole growth system, from positioning to retention, find the one thing actually holding it back, and build the plan around that.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>Then I help execute it, because a plan nobody runs is just a nice PDF.</p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col">
@@ -522,7 +522,7 @@ export default function GrowthStrategyPage() {
             </div>
             <div style={{ margin: "28px 0 32px", display: "grid", borderTop: "1px solid rgba(255,255,255,.28)", borderBottom: "1px solid rgba(255,255,255,.14)" }} className="grid-cols-1 sm:!grid-cols-3">
               {[
-                { v: "71,459", l: "Facebook views, 4 Oct – 23 Jan" },
+                { v: "71,459", l: "Facebook views, 4 Oct to 23 Jan" },
                 { v: "1.2K+", l: "monthly Pinterest visits, from zero" },
                 { v: "34K", l: "Facebook views in December" },
               ].map((s, i) => (
@@ -536,7 +536,7 @@ export default function GrowthStrategyPage() {
               <div>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
                   <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>FACEBOOK</span>
-                  <span style={{ fontSize: 12.5, color: "#9C978D" }}>4 Oct – 23 Jan</span>
+                  <span style={{ fontSize: 12.5, color: "#9C978D" }}>4 Oct to 23 Jan</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)" }}>
                   <img loading="lazy" src="/assets/v8/vx-70k.png" alt="Virtarix Facebook insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%" }} />

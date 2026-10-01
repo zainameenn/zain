@@ -6,11 +6,11 @@ import { ArrowIcon } from "../HomeComponents/icons";
 
 // Same names and one line descriptions as SERVICE_MENU in Navbar.tsx.
 const SERVICES = [
-  { t: "Growth strategy and GTM", d: "Find the real constraint and plan around it.", href: "/services/growth-strategy" },
-  { t: "SEO", d: "Original content that ranks on Google and in AI answers.", href: "/services/seo" },
-  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing" },
-  { t: "Social media management", d: "Content, graphics and posting that bring visits.", href: "/services/social-media-management" },
-  { t: "Google and Meta ads", d: "Test small, find what converts, then scale.", href: "/services/google-meta-ads" },
+  { t: "Growth strategy and GTM", d: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant" },
+  { t: "SEO", d: "Original content that ranks on Google and in AI answers.", href: "/services/freelance-seo-expert-for-saas" },
+  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing-for-saas" },
+  { t: "Social media management", d: "Content, graphics and posting that bring visits.", href: "/services/hire-a-social-media-manager" },
+  { t: "Google and Meta ads", d: "Test small, find what converts, then scale.", href: "/services/google-and-meta-ads-specialist" },
 ];
 
 // Card list styling follows app/HomeComponents/Services.tsx.

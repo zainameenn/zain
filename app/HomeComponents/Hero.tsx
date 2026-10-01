@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowIcon, UpArrowIcon } from "./icons";
+import { H1_STYLE, SUBHEAD_SIZE } from "./heading";
 
 export default function Hero() {
   const [drawn, setDrawn] = useState(false);
@@ -24,12 +25,11 @@ export default function Hero() {
         gap: "clamp(40px,4vw,64px)",
         alignItems: "center",
       }}
-      className="!grid-cols-1 md:!grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)]"
+      className="!grid-cols-1 xl:!grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]"
     >
       <div style={{ minWidth: 0 }} className="max-md:!text-center">
-        <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-          <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-          Growth marketing specialist for SaaS and service businesses
+        <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 780 }}>
+          Growth marketing specialist for SaaS and service businesses, minus the second full time job.
         </h1>
         <p
           style={{
@@ -37,7 +37,7 @@ export default function Hero() {
             maxWidth: 600,
             fontFamily: "'General Sans',sans-serif",
             fontWeight: 500,
-            fontSize: "clamp(38px,5vw,74px)",
+            fontSize: SUBHEAD_SIZE,
             lineHeight: 1.01,
             letterSpacing: "-0.035em",
           }}
@@ -69,7 +69,7 @@ export default function Hero() {
           </span>
         </p>
         <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "36px 0 0", maxWidth: 540, fontSize: 19, lineHeight: 1.55, color: "#4E4C48" }}>
-          I find what&apos;s actually blocking your growth, then fix it myself. SEO, Reddit, social media, content, design and ads, handled by one person instead of five.
+          As a growth marketing specialist, I find what&apos;s actually blocking growth, then fix it myself. SEO, Reddit, social, content, design and ads, handled by one person instead of five. Fewer tabs. Fewer meetings. Same coffee.
         </p>
         <div style={{ marginTop: 36, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }} className="max-md:!mx-auto max-md:!mt-8 max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
           <a

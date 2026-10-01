@@ -1,5 +1,7 @@
 import Hero from "./HomeComponents/Hero";
 import Proof from "./HomeComponents/Proof";
+import WhatIDo from "./HomeComponents/WhatIDo";
+import Compare from "./HomeComponents/Compare";
 import Work from "./HomeComponents/Work";
 import Companies from "./HomeComponents/Companies";
 import Philosophy from "./HomeComponents/Philosophy";
@@ -18,9 +20,9 @@ import { FAQS } from "./HomeComponents/faqData";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Growth Marketing Specialist for SaaS & Services | Zain",
+  title: "Growth Marketing Specialist for SaaS | Zain Ul Abdin",
   description:
-    "Freelance growth marketer for SaaS and service businesses. SEO, Reddit, social media and ads, planned and done by one person. 100K+ users brought in.",
+    "Growth marketing specialist for SaaS and service businesses. SEO, Reddit, social, content and ads from one person. 100K+ users brought in.",
   path: "/",
 });
 
@@ -46,6 +48,8 @@ export default function Home() {
       />
       <Hero />
       <Proof />
+      <WhatIDo />
+      <Compare />
       <Work />
       <Companies />
       <Philosophy />
