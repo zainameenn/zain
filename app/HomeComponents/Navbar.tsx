@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowIcon, ChevronIcon } from "./icons";
 
@@ -57,9 +58,9 @@ export default function Navbar() {
           gap: 24,
         }}
       >
-        <a href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
+        <Link href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
           <img src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 42, width: "auto" }} />
-        </a>
+        </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           <nav className="hidden md:flex" onMouseLeave={() => setNavHover(-1)} style={{ gap: 4, fontSize: 15, fontWeight: 500 }}>
