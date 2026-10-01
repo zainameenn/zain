@@ -223,8 +223,8 @@ const FAQS: [string, string[]][] = [
 
 const RELATED = [
   { t: "Growth strategy & GTM", d: "When the problem is bigger than ads.", href: "/services/saas-growth-consultant" },
-  { t: "SEO", d: "Turn winning ad keywords into organic traffic.", href: "/services/freelance-seo-expert-for-saas" },
-  { t: "Social media management", d: "Organic attention alongside paid.", href: "/services/hire-a-social-media-manager" },
+  { t: "SEO", d: "Turn winning ad keywords into organic traffic.", href: "/services/seo-specialist-for-saas" },
+  { t: "Social media management", d: "Organic attention alongside paid.", href: "/services/social-media-marketing-specialist" },
 ];
 
 export default function GoogleMetaAdsPage() {

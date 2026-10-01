@@ -9,7 +9,7 @@ export const metadata = buildMetadata({
   title: "SEO Specialist for SaaS | Google and AI Search | Zain",
   description:
     "SEO specialist for SaaS. Keyword research, technical fixes, original content and links built to rank on Google and show up in AI answers. $1,999/mo.",
-  path: "/services/freelance-seo-expert-for-saas",
+  path: "/services/seo-specialist-for-saas",
 });
 
 const MAX = 1360;
@@ -217,7 +217,7 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "Reddit Marketing", d: "Show up where buyers ask for recommendations, and in the threads Google ranks.", href: "/services/reddit-marketing-for-saas" },
+  { t: "Reddit Marketing", d: "Show up where buyers ask for recommendations, and in the threads Google ranks.", href: "/services/reddit-marketing-specialist" },
   { t: "Growth Strategy & GTM", d: "Find the real constraint before deciding SEO is the answer.", href: "/services/saas-growth-consultant" },
 ];
 

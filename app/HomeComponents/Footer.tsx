@@ -14,9 +14,9 @@ const FOOT_GROUPS = [
     h: "Services",
     items: [
       ["Growth strategy and GTM", "/services/saas-growth-consultant"],
-      ["SEO", "/services/freelance-seo-expert-for-saas"],
-      ["Reddit marketing", "/services/reddit-marketing-for-saas"],
-      ["Social media management", "/services/hire-a-social-media-manager"],
+      ["SEO", "/services/seo-specialist-for-saas"],
+      ["Reddit marketing", "/services/reddit-marketing-specialist"],
+      ["Social media management", "/services/social-media-marketing-specialist"],
       ["Google and Meta ads", "/services/google-and-meta-ads-specialist"],
     ],
   },

@@ -8,7 +8,7 @@ export const metadata = buildMetadata({
   title: "Social Media Marketing Specialist | 5 Posts a Week | Zain",
   description:
     "Social media marketing specialist for Facebook, Instagram and LinkedIn. Strategy, 5 posts a week, graphics and community monitoring. From $1,199/mo.",
-  path: "/services/hire-a-social-media-manager",
+  path: "/services/social-media-marketing-specialist",
 });
 
 const MAX = 1280;
@@ -146,8 +146,8 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "Reddit Marketing", d: "Where buyers ask for recommendations.", href: "/services/reddit-marketing-for-saas" },
-  { t: "SEO & Organic Growth", d: "Get found by people already searching.", href: "/services/freelance-seo-expert-for-saas" },
+  { t: "Reddit Marketing", d: "Where buyers ask for recommendations.", href: "/services/reddit-marketing-specialist" },
+  { t: "SEO & Organic Growth", d: "Get found by people already searching.", href: "/services/seo-specialist-for-saas" },
 ];
 
 export default function SocialMediaManagementPage() {

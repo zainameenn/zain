@@ -136,9 +136,9 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "SEO", d: "Get found by people already searching.", href: "/services/freelance-seo-expert-for-saas" },
-  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing-for-saas" },
-  { t: "Social media management", d: "Consistent attention that brings visits.", href: "/services/hire-a-social-media-manager" },
+  { t: "SEO", d: "Get found by people already searching.", href: "/services/seo-specialist-for-saas" },
+  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing-specialist" },
+  { t: "Social media management", d: "Consistent attention that brings visits.", href: "/services/social-media-marketing-specialist" },
 ];
 
 export default function GrowthStrategyPage() {

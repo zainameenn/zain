@@ -13,9 +13,9 @@ const NAV_LINKS: { t: string; href: string }[] = [
 
 const SERVICE_MENU = [
   { t: "Growth strategy and GTM", d: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant" },
-  { t: "SEO", d: "Original content that ranks on Google and in AI answers.", href: "/services/freelance-seo-expert-for-saas" },
-  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing-for-saas" },
-  { t: "Social media management", d: "Content, graphics and posting that bring visits.", href: "/services/hire-a-social-media-manager" },
+  { t: "SEO", d: "Original content that ranks on Google and in AI answers.", href: "/services/seo-specialist-for-saas" },
+  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing-specialist" },
+  { t: "Social media management", d: "Content, graphics and posting that bring visits.", href: "/services/social-media-marketing-specialist" },
   { t: "Google and Meta ads", d: "Test small, find what converts, then scale.", href: "/services/google-and-meta-ads-specialist" },
 ];
 

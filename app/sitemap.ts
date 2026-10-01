@@ -5,9 +5,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: "/", priority: 1 },
     { path: "/services", priority: 0.8 },
-    { path: "/services/freelance-seo-expert-for-saas", priority: 0.8 },
-    { path: "/services/reddit-marketing-for-saas", priority: 0.8 },
-    { path: "/services/hire-a-social-media-manager", priority: 0.8 },
+    { path: "/services/seo-specialist-for-saas", priority: 0.8 },
+    { path: "/services/reddit-marketing-specialist", priority: 0.8 },
+    { path: "/services/social-media-marketing-specialist", priority: 0.8 },
     { path: "/services/google-and-meta-ads-specialist", priority: 0.8 },
     { path: "/services/saas-growth-consultant", priority: 0.8 },
     { path: "/case-studies", priority: 0.7 },

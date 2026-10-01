@@ -44,7 +44,7 @@ export const FAQS: [string, string[]][] = [
     ],
   ],
   [
-    "How much does a freelance growth marketer cost?",
+    "How much does a growth marketing specialist cost?",
     [
       "My plans run from $1,199 to $3,999 a month depending on how many channels you need. Social or Reddit is $1,199/mo, ads management is $1,499/mo plus your ad spend, SEO is $1,999/mo, and everything handled is $3,999/mo. Not sure where to start? The full audit is $499.",
     ],

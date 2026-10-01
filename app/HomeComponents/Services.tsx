@@ -5,9 +5,9 @@ import { ArrowIcon } from "./icons";
 
 const SERVICES = [
   { name: "Growth strategy and GTM", line: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant", linkLabel: "SaaS growth consultant" },
-  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/freelance-seo-expert-for-saas", linkLabel: "Freelance SEO expert for SaaS" },
-  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing-for-saas", linkLabel: "Reddit marketing for SaaS" },
-  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/hire-a-social-media-manager", linkLabel: "Hire a social media manager" },
+  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/seo-specialist-for-saas", linkLabel: "SEO specialist for SaaS" },
+  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing-specialist", linkLabel: "Reddit marketing for SaaS" },
+  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/social-media-marketing-specialist", linkLabel: "Hire a social media manager" },
   { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-and-meta-ads-specialist", linkLabel: "Google and Meta ads specialist" },
 ];
 

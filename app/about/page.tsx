@@ -44,7 +44,7 @@ const PROOF = [
 
 const STORY_STEPS = [
   { n: "01", t: "Computer science", d: "A degree that taught me to think in systems. Also why tracking setups don’t scare me." },
-  { n: "02", t: "Freelance writer", d: "Three years writing SEO blogs, branding and LinkedIn content for international clients. Repeat business and five star ratings taught me that clear beats clever." },
+  { n: "02", t: "Content writer", d: "Three years writing SEO blogs, branding and LinkedIn content for international clients. Repeat business and five star ratings taught me that clear beats clever." },
   { n: "03", t: "Lead Generation Sales Specialist", d: "Lead sales rep, then floor manager. I trained a telesales team, rewrote the scripts and hit monthly targets. That’s where I learned nobody cares about your product until it solves their problem." },
   { n: "04", t: "Lead generation", d: "Reddit and SEO campaigns for AI tools. Thousands of Reddit conversions in a single month, with zero ad spend." },
   { n: "05", t: "Product growth", d: "Scaled Blainy, an AI SaaS, from zero to 85K+ users without paid acquisition." },
@@ -168,7 +168,7 @@ const RESUME_ITEMS = [
   { org: "Amoxt Solutions", role: "Product growth specialist", desc: "Scaled Blainy to 85K+ users organically, with ~30M search impressions in 12 months.", range: "Apr 2024 to Oct 2025" },
   { org: "Amoxt Solutions", role: "Lead generation", desc: "Reddit and SEO campaigns with thousands of conversions in one month, zero ad spend.", range: "Sep 2023 to Apr 2024" },
   { org: "Infinix Solutions", role: "Floor manager and lead sales rep", desc: "Trained a telesales team, rewrote scripts, hit monthly targets.", range: "Jul 2022 to Sep 2023" },
-  { org: "Upwork", role: "Freelance content writer", desc: "SEO, branding and LinkedIn content for international clients, with five star ratings.", range: "Apr 2019 to Jul 2022" },
+  { org: "Upwork", role: "Content writer", desc: "SEO, branding and LinkedIn content for international clients, with five star ratings.", range: "Apr 2019 to Jul 2022" },
   { org: "Virtual University of Pakistan", role: "BS Computer Science", desc: "Degree completed.", range: "Completed" },
 ];
 

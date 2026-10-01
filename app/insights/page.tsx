@@ -6,7 +6,7 @@ import { WaitlistForm } from "./WaitlistForm";
 export const metadata = buildMetadata({
   title: "Growth Marketing Insights | SEO, Reddit and SaaS | Zain",
   description:
-    "Practical notes on SEO, Reddit, social and SaaS growth, written from doing the work. No fluff, no recycled listicles.",
+    "Growth marketing insights on SEO, Reddit, social and SaaS growth, written from real client work. Free Keybooks and breakdowns coming soon.",
   path: "/insights",
 });
 

@@ -8,7 +8,7 @@ export const metadata = buildMetadata({
   title: "Reddit Marketing Specialist for SaaS | No Ad Spend | Zain",
   description:
     "Reddit marketing specialist for SaaS and service brands. Subreddit research, real accounts and useful posts that keep ranking on Google. $1,199/mo.",
-  path: "/services/reddit-marketing-for-saas",
+  path: "/services/reddit-marketing-specialist",
 });
 
 const MAX = 1360;
@@ -191,7 +191,7 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "SEO & Organic Growth", d: "Good Reddit threads can support search visibility.", href: "/services/freelance-seo-expert-for-saas" },
+  { t: "SEO & Organic Growth", d: "Good Reddit threads can support search visibility.", href: "/services/seo-specialist-for-saas" },
   { t: "Growth Strategy & GTM", d: "When Reddit is only one part of the acquisition problem.", href: "/services/saas-growth-consultant" },
 ];
 

@@ -48,7 +48,7 @@ const SERVICES = [
     tags: ["Search strategy", "Technical SEO", "Content", "On-page SEO", "Authority", "GEO / AI visibility", "Reporting"],
     img: "/assets/pages/seo/01-hero__search-queries-to-top-result.png",
     alt: "Illustration: search queries leading to a top-ranked page, which feeds traffic, audience growth and sales",
-    href: "/services/freelance-seo-expert-for-saas",
+    href: "/services/seo-specialist-for-saas",
     cta: "Explore SEO",
   },
   {
@@ -60,7 +60,7 @@ const SERVICES = [
     tags: ["Community research", "Account strategy", "Posts", "Comments", "Distribution", "Monitoring", "Reddit SEO", "AI visibility"],
     img: "/assets/pages/reddit/01-hero__threads-to-engaged-users.png",
     alt: "Reddit threads flowing through search into engaged users",
-    href: "/services/reddit-marketing-for-saas",
+    href: "/services/reddit-marketing-specialist",
     cta: "Explore Reddit Marketing",
   },
   {
@@ -72,7 +72,7 @@ const SERVICES = [
     tags: ["Strategy", "Content planning", "Copy", "Graphics", "Publishing", "Community", "Testing", "Reporting"],
     img: "/assets/pages/social/01-hero__calendar-to-posts.png",
     alt: "Illustration: a content calendar turning into posts published across Instagram, TikTok, LinkedIn, YouTube, X, Pinterest and Threads, feeding a growth dashboard",
-    href: "/services/hire-a-social-media-manager",
+    href: "/services/social-media-marketing-specialist",
     cta: "Explore Social Media",
   },
   {
@@ -175,7 +175,7 @@ export default function ServicesPage() {
           Growth marketing services for SaaS and service businesses
         </h1>
         <p style={{ margin: "28px auto 0", maxWidth: 680, fontSize: 18, lineHeight: 1.6, color: "#4E4C48", textWrap: "pretty" }}>
-          Growth marketing services for SaaS work better when one person runs them together, so pick one channel or hand me all of it. Five services, all handled by me. If you already know what you need, jump straight in. If you don&apos;t, that&apos;s kind of my thing.
+          Growth marketing services for SaaS work better when one person runs them together, so pick one channel or hand me all of it. Six services, all handled by me. If you already know what you need, jump straight in. If you don&apos;t, that&apos;s kind of my thing.
         </p>
         <div className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col" style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
           <Link href="/contact" className="max-md:!justify-center transition-colors hover:!bg-[#33322F]" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>

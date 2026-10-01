@@ -44,7 +44,7 @@ export default function RootLayout({
                   name: "Zain Ul Abdin",
                   url: "https://www.zainameen.com",
                   alternateName: ["Zain Ameen"],
-                  jobTitle: "Freelance Growth Marketer",
+                  jobTitle: "Growth Marketing Specialist",
                   address: {
                     "@type": "PostalAddress",
                     addressLocality: "Lahore",
