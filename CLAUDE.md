@@ -9,6 +9,7 @@
 - Every page's target keyword goes in its title, meta description, URL, H1 and the start of the first sentence.
 - og:title, og:description and og:url always match the page's own title, description and canonical URL.
 - Work on a branch. Never push to master without Zain's OK.
+- After changes are merged into master and the live site has finished deploying, run npm run indexnow once. Never run it more than once for the same change, and never run it before the changes are live.
 
 ## Keyword map
 - / : growth marketing specialist for SaaS
