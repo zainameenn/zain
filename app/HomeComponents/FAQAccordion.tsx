@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { PlusIcon } from "./icons";
 
-export function FAQAccordion({ faqs }: { faqs: [string, string[]][] }) {
-  const [open, setOpen] = useState(-1);
+export function FAQAccordion({ faqs, defaultOpen = -1 }: { faqs: [string, string[]][]; defaultOpen?: number }) {
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div style={{ borderTop: "1px solid #1C1C1C" }}>

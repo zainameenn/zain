@@ -4,16 +4,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const routes = [
     { path: "/", priority: 1 },
+    { path: "/services", priority: 0.8 },
+    { path: "/services/seo-specialist-for-saas", priority: 0.8 },
+    { path: "/services/reddit-marketing-specialist", priority: 0.8 },
+    { path: "/services/social-media-marketing-specialist", priority: 0.8 },
+    { path: "/services/google-and-meta-ads-specialist", priority: 0.8 },
+    { path: "/services/saas-growth-consultant", priority: 0.8 },
+    { path: "/case-studies", priority: 0.7 },
+    { path: "/case-studies/blainy", priority: 0.6 },
+    { path: "/case-studies/everdry", priority: 0.6 },
+    { path: "/case-studies/virtarix", priority: 0.6 },
+    { path: "/pricing", priority: 0.8 },
     { path: "/about", priority: 0.7 },
-    { path: "/blog", priority: 0.6 },
     { path: "/contact", priority: 0.8 },
     { path: "/insights", priority: 0.6 },
-    { path: "/services", priority: 0.8 },
-    { path: "/services/growth-strategy", priority: 0.8 },
-    { path: "/services/seo", priority: 0.8 },
-    { path: "/services/reddit-marketing", priority: 0.8 },
-    { path: "/services/social-media-management", priority: 0.8 },
-    { path: "/services/google-meta-ads", priority: 0.8 },
   ];
 
   return routes.map(({ path, priority }) => ({

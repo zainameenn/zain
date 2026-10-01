@@ -1,14 +1,15 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, Squiggle } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 import { SeoStepsTabs } from "./SeoStepsTabs";
 
 export const metadata = buildMetadata({
-  title: "Freelance SEO Expert for SaaS & Service Businesses | Zain",
+  title: "SEO Specialist for SaaS | Google and AI Search | Zain",
   description:
-    "Hire a freelance SEO expert for Google and AI search. Technical fixes, original content and links for $1,999/mo, or start with a $499 SEO audit.",
-  path: "/services/seo",
+    "SEO specialist for SaaS. Keyword research, technical fixes, original content and links built to rank on Google and show up in AI answers. $1,999/mo.",
+  path: "/services/seo-specialist-for-saas",
 });
 
 const MAX = 1360;
@@ -53,7 +54,7 @@ const PROOF = [
   { v: "50M+", l: "search impressions across work" },
   { v: "~30M", l: "Blainy search impressions" },
   { v: "85K+", l: "Blainy users" },
-  { v: "800–900", l: "daily visitors in 20 days, up from ~100" },
+  { v: "800 to 900", l: "daily visitors in 20 days, up from ~100" },
 ];
 
 const PROBLEM_LIST = [
@@ -112,12 +113,12 @@ const SEARCH_STEPS = [
 const RESULTS_LIST = [
   { n: "01", who: "Blainy", detail: "Google Search Console", value: "297K clicks" },
   { n: "02", who: "Blainy", detail: "Bing Webmaster Tools", value: "38.8K clicks" },
-  { n: "03", who: "Recent client", detail: "First 20 days", value: "~100 → 800–900 daily visitors" },
+  { n: "03", who: "Recent client", detail: "First 20 days", value: "~100 → 800 to 900 daily visitors" },
 ];
 
 const TURNAROUND_STATS = [
   { l: "Before", v: "~100", sub: "daily visitors" },
-  { l: "After", v: "800–900", sub: "daily visitors" },
+  { l: "After", v: "800 to 900", sub: "daily visitors" },
   { l: "Timeframe", v: "20 days", sub: "from the start of the work" },
   { l: "What changed", v: "Original content", sub: "replacing AI-first pages", gold: true },
 ];
@@ -133,7 +134,7 @@ const AFTER_STATS = [
   { v: "11.8K", l: "clicks in under 4 weeks" },
   { v: "1.8%", l: "average CTR, up from 0.3%" },
   { v: "13.4", l: "average position, up from 40" },
-  { v: "800–900", l: "daily visitors" },
+  { v: "800 to 900", l: "daily visitors" },
 ];
 
 const PRICING_CATEGORIES = [
@@ -216,8 +217,8 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "Reddit Marketing", d: "Show up where buyers ask for recommendations, and in the threads Google ranks.", href: "/services/reddit-marketing" },
-  { t: "Growth Strategy & GTM", d: "Find the real constraint before deciding SEO is the answer.", href: "/services/growth-strategy" },
+  { t: "Reddit Marketing", d: "Show up where buyers ask for recommendations, and in the threads Google ranks.", href: "/services/reddit-marketing-specialist" },
+  { t: "Growth Strategy & GTM", d: "Find the real constraint before deciding SEO is the answer.", href: "/services/saas-growth-consultant" },
 ];
 
 export default function SeoPage() {
@@ -226,22 +227,17 @@ export default function SeoPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,72px) ${PAD} clamp(48px,5vw,72px)`, display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-            SEO expert for SaaS and service businesses
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            SEO specialist for SaaS.{" "}
+            <em style={H1_ACCENT_STYLE}>
+              Get found by people already <Emphasis>looking for you.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "22px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(42px,4.8vw,70px)", lineHeight: 1.02, letterSpacing: "-0.04em" }}>
-            Get found by people
-            <br />
-            already looking for
-            <br />
-            <Underline>what you sell.</Underline>
-          </p>
           <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "18px 0 0", maxWidth: 560, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.6vw,36px)", lineHeight: 1.1, color: "#6B6862" }}>
             Traffic is nice. Qualified demand is better.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            I find the searches worth winning on Google and in AI answers like ChatGPT, fix what&apos;s holding your site back, and build the pages and content around them.
+            As an SEO specialist for SaaS, I find the searches worth winning on Google and in AI answers like ChatGPT, fix what&apos;s holding your site back, and build the pages and content around them.
           </p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 20px" }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
             <a href="#contact" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
@@ -527,7 +523,7 @@ export default function SeoPage() {
               <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(30px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.06 }}>
                 From roughly 100 daily visitors
                 <br />
-                to <Emphasis>800–900.</Emphasis>
+                to <Emphasis>800 to 900.</Emphasis>
               </h3>
               <div style={{ marginTop: "clamp(24px,3vw,36px)", display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }}>
                 {TURNAROUND_STATS.map((s, i) => (
@@ -543,7 +539,7 @@ export default function SeoPage() {
               <p style={{ margin: 0 }}>When I started, the site relied heavily on AI-written content and organic performance had been flat for months.</p>
               <p style={{ margin: 0 }}>I reworked the content strategy, rewrote weak AI-first pages into useful, original content, aligned each page with real search intent, and tightened the on-page SEO and internal structure.</p>
               <p style={{ margin: 0, color: "#1C1C1C", fontWeight: 500 }}>
-                Within the first 20 days of the engagement, daily visitors moved from roughly 100 to the 800–900 range. That&apos;s an observed result from this engagement, not a promise for every site.
+                Within the first 20 days of the engagement, daily visitors moved from roughly 100 to the 800 to 900 range. That&apos;s an observed result from this engagement, not a promise for every site.
               </p>
             </div>
           </div>

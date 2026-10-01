@@ -11,10 +11,10 @@ export default function Philosophy() {
           <p className="max-md:!text-center" style={{ margin: "12px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.7vw,38px)", lineHeight: 1.05, color: "#6B6862" }}>
             Sometimes it&apos;s just more tabs open.
           </p>
-          <p style={{ margin: "28px 0 0", maxWidth: 460, fontSize: 18.5, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>
+          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "28px 0 0", maxWidth: 460, fontSize: 18.5, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>
             Three dashboards, two freelancers and one Reddit thread you keep meaning to reply to.
           </p>
-          <p style={{ margin: "12px 0 0", maxWidth: 460, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "12px 0 0", maxWidth: 460, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
             Everything looks busy and growth still feels stuck. Usually one or two things are holding the rest back. We find those first. Everything else can wait.
           </p>
           <p className="max-md:!text-center" style={{ margin: "32px 0 0", paddingTop: 24, borderTop: "1px solid #DDDAD3", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>

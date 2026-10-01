@@ -44,6 +44,30 @@ export const FAQS: [string, string[]][] = [
     ],
   ],
   [
+    "How much does a growth marketing specialist cost?",
+    [
+      "My plans run from $1,199 to $3,999 a month depending on how many channels you need. Social or Reddit is $1,199/mo, ads management is $1,499/mo plus your ad spend, SEO is $1,999/mo, and everything handled is $3,999/mo. Not sure where to start? The full audit is $499.",
+    ],
+  ],
+  [
+    "Do you only work with SaaS?",
+    [
+      "No. Most of my work is SaaS and AI tools, but I also work with service businesses like Everdry, a US waterproofing company. Same process: find the bottleneck, then fix it.",
+    ],
+  ],
+  [
+    "How fast can you start?",
+    [
+      "I work with two clients at a time, so it depends on whether a spot is open. Book a call and I'll tell you straight.",
+    ],
+  ],
+  [
+    "What results have you gotten?",
+    [
+      "100K+ users brought in across clients, including 85K+ for Blainy with no paid ads. 50M+ search impressions and 100M+ total impressions across all clients.",
+    ],
+  ],
+  [
     "How fast do you reply?",
     [
       "Usually within a couple of hours. If we're on opposite sides of the clock, your email is the first thing I read when I wake up. I read every email, even the scam ones, so yours is in good company.",

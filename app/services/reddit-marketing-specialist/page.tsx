@@ -1,13 +1,14 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, UpArrowIcon } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Reddit Marketing Specialist & Services for SaaS | Zain",
+  title: "Reddit Marketing Specialist for SaaS | No Ad Spend | Zain",
   description:
-    "Organic Reddit marketing for SaaS and service businesses. Subreddit research, real accounts, useful posts and replies. 6,089 tracked clicks, $0 on ads.",
-  path: "/services/reddit-marketing",
+    "Reddit marketing specialist for SaaS and service brands. Subreddit research, real accounts and useful posts that keep ranking on Google. $1,199/mo.",
+  path: "/services/reddit-marketing-specialist",
 });
 
 const MAX = 1360;
@@ -190,8 +191,8 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "SEO & Organic Growth", d: "Good Reddit threads can support search visibility.", href: "/services/seo" },
-  { t: "Growth Strategy & GTM", d: "When Reddit is only one part of the acquisition problem.", href: "/services/growth-strategy" },
+  { t: "SEO & Organic Growth", d: "Good Reddit threads can support search visibility.", href: "/services/seo-specialist-for-saas" },
+  { t: "Growth Strategy & GTM", d: "When Reddit is only one part of the acquisition problem.", href: "/services/saas-growth-consultant" },
 ];
 
 export default function RedditMarketingPage() {
@@ -200,22 +201,14 @@ export default function RedditMarketingPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,72px) ${PAD} clamp(48px,5vw,72px)`, display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 style={{ margin: 0 }}>
-            <span className="max-md:!block max-md:!text-balance" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-              <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-              Reddit marketing specialist for SaaS and service businesses
-            </span>
-            <span className="max-md:!mx-auto max-md:!text-balance" style={{ display: "block", margin: "22px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,4.2vw,58px)", lineHeight: 1.02, letterSpacing: "-0.04em", maxWidth: 620 }}>
-              Your buyers are
-              <br />
-              already talking.
-            </span>
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            Reddit marketing specialist for SaaS brands that{" "}
+            <em style={H1_ACCENT_STYLE}>
+              don&apos;t want to smell <Emphasis>like an ad.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.8vw,40px)", lineHeight: 1.12, color: "#6B6862", maxWidth: 600 }}>
-            The trick is <Emphasis>not sounding like an ad.</Emphasis>
-          </p>
           <p className="max-md:!mx-auto" style={{ margin: "30px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C" }}>
-            I find the communities where your buyers ask for help, build real accounts with real history, and write posts and replies people actually want to read.
+            As a Reddit marketing specialist, I find the communities where your buyers ask for help, build real accounts with real history, and write posts and replies people actually want to read.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "10px 0 0", maxWidth: 520, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854" }}>The kind that keep bringing users long after they&apos;re posted.</p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 20px" }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
@@ -596,14 +589,14 @@ export default function RedditMarketingPage() {
                 <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
               </div>
             </div>
-            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto max-md:!whitespace-normal max-md:!text-center max-md:!px-4" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", whiteSpace: "nowrap", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
+            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto max-md:!whitespace-normal max-md:!text-center max-md:!px-4 max-lg:!whitespace-normal max-lg:!text-center" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", whiteSpace: "nowrap", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
               Show me my Reddit opportunity
               <ArrowIcon />
             </a>
             <div style={{ paddingTop: 18, borderTop: "1px solid #33322F" }}>
               <p className="max-md:!text-base" style={{ margin: 0, fontSize: 14.5, color: "#E6E1D8" }}>Want Reddit, SEO and social together?</p>
               <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.5, color: "#9C978D" }}>
-                <Link href="/#pricing" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ color: "#D3AE82", borderBottom: "1px solid #6B5A40" }}>
+                <Link href="/pricing" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ color: "#D3AE82", borderBottom: "1px solid #6B5A40" }}>
                   Everything, handled
                 </Link>{" "}
                 is $3,999/month. Separately, <span style={{ textDecoration: "line-through" }}>$4,397/month</span>.

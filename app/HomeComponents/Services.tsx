@@ -4,11 +4,11 @@ import { useState } from "react";
 import { ArrowIcon } from "./icons";
 
 const SERVICES = [
-  { name: "Growth strategy and GTM", line: "Find the real constraint and plan around it.", href: "/services/growth-strategy", linkLabel: "Growth strategy services" },
-  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/seo", linkLabel: "SEO services" },
-  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing", linkLabel: "Reddit marketing services" },
-  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/social-media-management", linkLabel: "Social media management services" },
-  { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-meta-ads", linkLabel: "Google and Meta ads services" },
+  { name: "Growth strategy and GTM", line: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant", linkLabel: "SaaS growth consultant" },
+  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/seo-specialist-for-saas", linkLabel: "SEO specialist for SaaS" },
+  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing-specialist", linkLabel: "Reddit marketing specialist" },
+  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/social-media-marketing-specialist", linkLabel: "Social media marketing specialist" },
+  { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-and-meta-ads-specialist", linkLabel: "Google and Meta ads specialist" },
 ];
 
 export default function Services() {
@@ -16,12 +16,12 @@ export default function Services() {
 
   return (
     <section id="services" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
-      <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: 32 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
+      <div style={{ maxWidth: 720, margin: "0 auto 32px", textAlign: "center" }}>
         <div>
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Capabilities</div>
           <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>What I can help with.</h2>
         </div>
-        <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "#5A5854", maxWidth: 440 }}>If you already know the channel, great. If you don&apos;t, that&apos;s kind of my thing.</p>
+        <p style={{ margin: "16px auto 0", fontSize: 17, lineHeight: 1.55, color: "#5A5854", maxWidth: 440 }}>If you already know the channel, great. If you don&apos;t, that&apos;s kind of my thing.</p>
       </div>
       <div style={{ display: "grid", gap: "clamp(32px,4vw,64px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
         <div style={{ borderTop: "1px solid #1C1C1C" }}>
@@ -42,7 +42,7 @@ export default function Services() {
                     <span style={{ fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 520 }}>{s.line}</span>
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14.5, fontWeight: 600, color: on ? "#1C1C1C" : "#8B877F", whiteSpace: "nowrap", transition: "color 200ms" }}>
-                    <span aria-hidden="true">Explore</span>
+                    <span>{s.linkLabel}</span>
                     <ArrowIcon style={{ transform: on ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
                   </span>
                 </a>

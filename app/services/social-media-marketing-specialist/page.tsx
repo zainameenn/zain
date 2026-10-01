@@ -1,13 +1,14 @@
 import { buildMetadata } from "@/lib/seo";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Hire a Social Media Manager for Your Business | Zain",
+  title: "Social Media Marketing Specialist | 5 Posts a Week | Zain",
   description:
-    "Looking for a social media manager? Strategy, 5 posts a week, graphics and community work on Facebook, Instagram and LinkedIn from $1,199/mo. Free check.",
-  path: "/services/social-media-management",
+    "Social media marketing specialist for Facebook, Instagram and LinkedIn. Strategy, 5 posts a week, graphics and community monitoring. From $1,199/mo.",
+  path: "/services/social-media-marketing-specialist",
 });
 
 const MAX = 1280;
@@ -145,8 +146,8 @@ const FAQS: [string, string[]][] = [
 ];
 
 const RELATED = [
-  { t: "Reddit Marketing", d: "Where buyers ask for recommendations.", href: "/services/reddit-marketing" },
-  { t: "SEO & Organic Growth", d: "Get found by people already searching.", href: "/services/seo" },
+  { t: "Reddit Marketing", d: "Where buyers ask for recommendations.", href: "/services/reddit-marketing-specialist" },
+  { t: "SEO & Organic Growth", d: "Get found by people already searching.", href: "/services/seo-specialist-for-saas" },
 ];
 
 export default function SocialMediaManagementPage() {
@@ -155,20 +156,14 @@ export default function SocialMediaManagementPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "40px 56px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-            Social media manager for SaaS and service businesses
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            Social media marketing specialist.{" "}
+            <em style={H1_ACCENT_STYLE}>
+              Stop filling a calendar. <Emphasis>Start getting seen.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-[clamp(40px,12.5vw,52px)]" style={{ margin: "20px 0 0", maxWidth: 600, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(52px,5vw,74px)", lineHeight: 1.01, letterSpacing: "-0.035em" }}>
-            Stop filling a
-            <br />
-            content calendar.
-            <span style={{ display: "block", marginTop: ".06em", fontSize: "1.08em" }}>
-              <Emphasis>Start getting seen.</Emphasis>
-            </span>
-          </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            I plan, write, design and post your content on Facebook, Instagram and LinkedIn, then show up in the groups and communities where your buyers actually ask questions.
+            As a social media marketing specialist, I plan, write, design and post your content on Facebook, Instagram and LinkedIn, then show up in the groups and communities where your buyers actually ask questions.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>You get attention that turns into visits, not just likes.</p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col">
@@ -412,7 +407,7 @@ export default function SocialMediaManagementPage() {
             </div>
             <div style={{ margin: "32px 0 36px", display: "grid", borderTop: "1px solid rgba(255,255,255,.28)", borderBottom: "1px solid rgba(255,255,255,.14)" }} className="grid-cols-1 sm:!grid-cols-3">
               {[
-                { v: "71,459", l: "Facebook views, Oct – Jan" },
+                { v: "71,459", l: "Facebook views, Oct to Jan" },
                 { v: "34K", l: "views in December alone" },
                 { v: "1.2K+", l: "Pinterest visits in 7 days" },
               ].map((s, i) => (
@@ -427,7 +422,7 @@ export default function SocialMediaManagementPage() {
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", justifyContent: "space-between", gap: "8px 20px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>FACEBOOK</span>
-                    <span style={{ fontSize: 12.5, color: "#9C978D" }}>4 Oct – 23 Jan</span>
+                    <span style={{ fontSize: 12.5, color: "#9C978D" }}>4 Oct to 23 Jan</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
                     <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>71,459</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
@@ -444,7 +439,7 @@ export default function SocialMediaManagementPage() {
                   <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", justifyContent: "space-between", gap: "8px 20px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                       <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>FACEBOOK · ONE MONTH</span>
-                      <span style={{ fontSize: 12.5, color: "#9C978D" }}>1 Dec – 8 Jan</span>
+                      <span style={{ fontSize: 12.5, color: "#9C978D" }}>1 Dec to 8 Jan</span>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
                       <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>34K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
@@ -563,7 +558,7 @@ export default function SocialMediaManagementPage() {
                   <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", justifyContent: "space-between", gap: "8px 20px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                       <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>03 · THREADS</span>
-                      <span style={{ fontSize: 12.5, color: "#9C978D" }}>Feb 21 – May 21</span>
+                      <span style={{ fontSize: 12.5, color: "#9C978D" }}>Feb 21 to May 21</span>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
                       <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>338K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
@@ -636,7 +631,7 @@ export default function SocialMediaManagementPage() {
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", justifyContent: "space-between", gap: "8px 20px", paddingTop: 16, borderTop: "1px solid #DDD5C8" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>FACEBOOK</span>
-                    <span style={{ fontSize: 12.5, color: "#8B877F" }}>7 – 14 Sep</span>
+                    <span style={{ fontSize: 12.5, color: "#8B877F" }}>7 to 14 Sep</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
                     <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>32,759</b> <span style={{ fontSize: 13, color: "#5A5854" }}>views</span></span>
@@ -672,7 +667,7 @@ export default function SocialMediaManagementPage() {
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", justifyContent: "space-between", gap: "8px 20px", paddingTop: 16, borderTop: "1px solid #DDD5C8" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>PINTEREST</span>
-                    <span style={{ fontSize: 12.5, color: "#8B877F" }}>25 Jul – 14 Sep</span>
+                    <span style={{ fontSize: 12.5, color: "#8B877F" }}>25 Jul to 14 Sep</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
                     <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>7.88K</b> <span style={{ fontSize: 13, color: "#5A5854" }}>impressions</span></span>

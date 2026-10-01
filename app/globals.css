@@ -43,6 +43,14 @@ a {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
 }
+/* Phones: keep every section heading smaller than the page H1 (32px at phone width). */
+@media (max-width: 767.98px) {
+  main h2 { font-size: clamp(1.75rem, calc(2vw + 1rem), 2.25rem) !important; }
+  main h2 :not(em) { font-size: inherit !important; }
+  main h2 em { font-size: 1.08em !important; }
+  main h2 em em { font-size: inherit !important; }
+  main h3[style*="clamp(3"], main .phone-heading { font-size: 1.75rem !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }

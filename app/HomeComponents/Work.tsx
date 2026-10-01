@@ -1,4 +1,4 @@
-function CaseStudy({
+export function CaseStudy({
   id,
   index,
   top,
@@ -45,8 +45,8 @@ function CaseStudy({
             <span style={{ width: 24, height: 1, background: dark ? "#3A3F55" : "#9FB2B0" }} />
             <span>{eyebrow}</span>
           </div>
-          <span className="max-md:!shrink" style={{ display: "flex", alignItems: "center", flex: "0 0 auto" }}>
-            <img loading="lazy" src={logo} alt={logoAlt} className="max-md:!h-auto max-md:!max-w-[120px]" style={{ display: "block", height: logoHeight, width: "auto", maxWidth: 150, mixBlendMode: dark ? "normal" : "multiply" }} />
+          <span className="max-lg:!shrink" style={{ display: "flex", alignItems: "center", flex: "0 0 auto" }}>
+            <img loading="lazy" src={logo} alt={logoAlt} className="max-lg:!h-auto max-lg:!max-w-[120px]" style={{ display: "block", height: logoHeight, width: "auto", maxWidth: 150, mixBlendMode: dark ? "normal" : "multiply" }} />
           </span>
         </div>
         <div style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{name}</div>
@@ -101,21 +101,9 @@ function Frame({ children, bg }: { children: React.ReactNode; bg: string }) {
   return <div style={{ position: "relative", minWidth: 0, aspectRatio: "1/0.8", borderRadius: 20, overflow: "hidden", background: bg }}>{children}</div>;
 }
 
-export default function Work() {
-  return (
-    <section id="work" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
-      <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(32px,4vw,48px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
-        <div>
-          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Selected work</div>
-          <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Growth work that had to
-            <br />
-            <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>earn its place.</em>
-          </h2>
-        </div>
-        <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 360 }}>No vanity metrics. Just the numbers that actually moved something.</p>
-      </div>
-
+/** The case study cards, shared by the homepage and the case study pages. */
+export const CASES = {
+  blainy: (
       <CaseStudy
         id="case-blainy"
         index={1}
@@ -155,7 +143,8 @@ export default function Work() {
           </Frame>
         }
       />
-
+  ),
+  everdry: (
       <CaseStudy
         id="case-everdry"
         index={2}
@@ -180,7 +169,7 @@ export default function Work() {
         stats={[
           { v: "160K+", l: "Facebook views in 28 days" },
           { v: "12,462", l: "Business Profile views" },
-          { v: "603", l: "calls from Business Profile, Jun–Nov" },
+          { v: "603", l: "calls from Business Profile, Jun to Nov" },
         ]}
         visual={
           <Frame bg="#E9E4DA">
@@ -200,7 +189,8 @@ export default function Work() {
           </Frame>
         }
       />
-
+  ),
+  virtarix: (
       <CaseStudy
         id="case-virtarix"
         index={3}
@@ -246,7 +236,8 @@ export default function Work() {
           </div>
         }
       />
-
+  ),
+  loompad: (
       <CaseStudy
         id="case-loompad"
         index={4}
@@ -284,6 +275,31 @@ export default function Work() {
           </Frame>
         }
       />
+  ),
+};
+
+export default function Work() {
+  return (
+    <section id="work" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
+      <div style={{ maxWidth: 720, margin: "0 auto clamp(32px,4vw,48px)", textAlign: "center" }}>
+        <div>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Selected work</div>
+          <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            Growth work that had to
+            <br />
+            <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>earn its place.</em>
+          </h2>
+        </div>
+        <p style={{ margin: "16px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 360 }}>No vanity metrics. Just the numbers that actually moved something.</p>
+      </div>
+
+      {CASES.blainy}
+
+      {CASES.everdry}
+
+      {CASES.virtarix}
+
+      {CASES.loompad}
 
     </section>
   );
