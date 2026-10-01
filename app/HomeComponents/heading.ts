@@ -11,5 +11,21 @@ export const H1_STYLE: CSSProperties = {
   textWrap: "balance",
 };
 
+/** Inner page hero H1: page H1 type at the homepage hero size, so the two part headline fits. */
+export const HERO_H1_STYLE: CSSProperties = {
+  ...H1_STYLE,
+  fontSize: "clamp(2rem, calc(2.6vw + 1.25rem), 3.625rem)",
+};
+
+/** Italic serif accent inside a hero H1, matching the homepage hero. */
+export const H1_ACCENT_STYLE: CSSProperties = {
+  fontFamily: "'Instrument Serif',serif",
+  fontStyle: "italic",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
+  fontSize: "1.1em",
+  lineHeight: 0.95,
+};
+
 /** Former display lines, now subheads under the H1: always smaller than the H1. */
 export const SUBHEAD_SIZE = "clamp(1.5rem, calc(2.2vw + 0.75rem), 2.5rem)";

@@ -1,13 +1,13 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Hire a Social Media Manager | 5 Posts a Week, Done | Zain",
+  title: "Social Media Marketing Specialist | 5 Posts a Week | Zain",
   description:
-    "Hire a social media manager for Facebook, Instagram and LinkedIn. Strategy, 5 posts a week, graphics and community monitoring. From $1,199/mo.",
+    "Social media marketing specialist for Facebook, Instagram and LinkedIn. Strategy, 5 posts a week, graphics and community monitoring. From $1,199/mo.",
   path: "/services/hire-a-social-media-manager",
 });
 
@@ -156,19 +156,14 @@ export default function SocialMediaManagementPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "40px 56px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
-            Hire a social media manager who gets you seen
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            Social media marketing specialist.{" "}
+            <em style={H1_ACCENT_STYLE}>
+              Stop filling a calendar. <Emphasis>Start getting seen.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto" style={{ margin: "20px 0 0", maxWidth: 600, fontFamily: "'General Sans'", fontWeight: 500, fontSize: SUBHEAD_SIZE, lineHeight: 1.01, letterSpacing: "-0.035em" }}>
-            Stop filling a
-            <br />
-            content calendar.
-            <span style={{ display: "block", marginTop: ".06em", fontSize: "1.08em" }}>
-              <Emphasis>Start getting seen.</Emphasis>
-            </span>
-          </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            Hire a social media manager once, and you get the strategy, writing, design and posting from the same person. I plan, write, design and post your content on Facebook, Instagram and LinkedIn, then show up in the groups and communities where your buyers actually ask questions.
+            As a social media marketing specialist, I plan, write, design and post your content on Facebook, Instagram and LinkedIn, then show up in the groups and communities where your buyers actually ask questions.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>You get attention that turns into visits, not just likes.</p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col">

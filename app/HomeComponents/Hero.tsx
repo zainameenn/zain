@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowIcon, UpArrowIcon } from "./icons";
-import { H1_STYLE, SUBHEAD_SIZE } from "./heading";
+import { H1_STYLE } from "./heading";
 
 export default function Hero() {
   const [drawn, setDrawn] = useState(false);
@@ -25,53 +25,38 @@ export default function Hero() {
         gap: "clamp(40px,4vw,64px)",
         alignItems: "center",
       }}
-      className="!grid-cols-1 xl:!grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]"
+      className="!grid-cols-1 xl:!grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] xl:!gap-10"
     >
       <div style={{ minWidth: 0 }} className="max-md:!text-center">
-        <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 780 }}>
-          Growth marketing specialist for SaaS and service businesses, minus the second full time job.
-        </h1>
-        <p
-          style={{
-            margin: "24px 0 0",
-            maxWidth: 600,
-            fontFamily: "'General Sans',sans-serif",
-            fontWeight: 500,
-            fontSize: SUBHEAD_SIZE,
-            lineHeight: 1.01,
-            letterSpacing: "-0.035em",
-          }}
-        >
-          Marketing <br className="md:hidden" />shouldn&apos;t feel like a{" "}
-          <span style={{ display: "block", marginTop: ".04em", fontSize: "1.1em", lineHeight: 0.95 }}>
-            <span style={{ position: "relative", display: "inline-block" }}>
-              <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "inherit" }}>
-                second full time job.
-              </em>
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 300 24"
-                preserveAspectRatio="none"
-                style={{ position: "absolute", left: "-3%", bottom: "-0.16em", width: "109%", height: "0.3em", overflow: "visible", pointerEvents: "none" }}
-              >
-                <path
-                  pathLength={1}
-                  d="M3 13 C 60 20, 150 21, 216 15 S 286 6, 297 4"
-                  stroke="#C6A47C"
-                  strokeWidth="2.8"
-                  strokeLinecap="round"
-                  vectorEffect="non-scaling-stroke"
-                  fill="none"
-                  style={{ strokeDasharray: 1, strokeDashoffset: drawn ? 0 : 1, transition: "stroke-dashoffset 650ms cubic-bezier(.3,.7,.2,1)" }}
-                />
-              </svg>
-            </span>
+        <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, fontSize: "clamp(2rem, calc(2.6vw + 1.25rem), 3.625rem)", lineHeight: 1.08, maxWidth: 820 }}>
+          Growth marketing specialist for SaaS and service businesses, minus the{" "}
+          <span style={{ position: "relative", display: "inline-block" }}>
+            <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", lineHeight: 0.95 }}>
+              second full time job.
+            </em>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 300 24"
+              preserveAspectRatio="none"
+              style={{ position: "absolute", left: "-3%", bottom: "-0.16em", width: "109%", height: "0.3em", overflow: "visible", pointerEvents: "none" }}
+            >
+              <path
+                pathLength={1}
+                d="M3 13 C 60 20, 150 21, 216 15 S 286 6, 297 4"
+                stroke="#C6A47C"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+                fill="none"
+                style={{ strokeDasharray: 1, strokeDashoffset: drawn ? 0 : 1, transition: "stroke-dashoffset 650ms cubic-bezier(.3,.7,.2,1)" }}
+              />
+            </svg>
           </span>
-        </p>
-        <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "36px 0 0", maxWidth: 540, fontSize: 19, lineHeight: 1.55, color: "#4E4C48" }}>
+        </h1>
+        <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "28px 0 0", maxWidth: 560, fontSize: 19, lineHeight: 1.55, color: "#4E4C48" }}>
           As a growth marketing specialist, I find what&apos;s actually blocking growth, then fix it myself. SEO, Reddit, social, content, design and ads, handled by one person instead of five. Fewer tabs. Fewer meetings. Same coffee.
         </p>
-        <div style={{ marginTop: 36, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }} className="max-md:!mx-auto max-md:!mt-8 max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
+        <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }} className="max-md:!mx-auto max-md:!mt-8 max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
           <a
             href="#contact"
             className="max-md:!justify-center"
@@ -99,11 +84,11 @@ export default function Hero() {
         </p>
       </div>
 
-      <figure style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
+      <figure className="xl:!-mr-12" style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
         <div
           role="img"
           aria-label="Illustration of a founder calmly reviewing marketing dashboards"
-          style={{ aspectRatio: "1448/960", background: "url('/assets/v9/g07.png') 50% 50%/100% auto no-repeat" }}
+          style={{ aspectRatio: "1373/666", background: "url('/assets/v9/g07.png') 56% 50.4%/105.5% auto no-repeat" }}
         />
       </figure>
     </section>

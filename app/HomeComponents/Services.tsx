@@ -16,12 +16,12 @@ export default function Services() {
 
   return (
     <section id="services" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
-      <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: 32 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
+      <div style={{ maxWidth: 720, margin: "0 auto 32px", textAlign: "center" }}>
         <div>
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Capabilities</div>
           <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>What I can help with.</h2>
         </div>
-        <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "#5A5854", maxWidth: 440 }}>If you already know the channel, great. If you don&apos;t, that&apos;s kind of my thing.</p>
+        <p style={{ margin: "16px auto 0", fontSize: 17, lineHeight: 1.55, color: "#5A5854", maxWidth: 440 }}>If you already know the channel, great. If you don&apos;t, that&apos;s kind of my thing.</p>
       </div>
       <div style={{ display: "grid", gap: "clamp(32px,4vw,64px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
         <div style={{ borderTop: "1px solid #1C1C1C" }}>

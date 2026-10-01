@@ -1,5 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
@@ -147,17 +147,14 @@ export default function GrowthStrategyPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "40px 56px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
-            SaaS growth consultant who fixes the right problem first
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            SaaS growth consultant who{" "}
+            <em style={H1_ACCENT_STYLE}>
+              fixes the leak before <Emphasis>buying more water.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: SUBHEAD_SIZE, lineHeight: 1.05, letterSpacing: "-0.035em" }}>
-            You don&apos;t need every channel.
-            <span style={{ display: "block", marginTop: ".12em" }}>
-              You need the right <Emphasis>problem fixed first.</Emphasis>
-            </span>
-          </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            As a SaaS growth consultant, I start by finding the one bottleneck holding everything else back. I look at your whole growth system, from positioning to retention, find the one thing actually holding it back, and build the plan around that.
+            As a SaaS growth consultant, I look at your whole growth system, from positioning to retention, find the one thing actually holding it back, and build the plan around that.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>Then I help execute it, because a plan nobody runs is just a nice PDF.</p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col">

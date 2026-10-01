@@ -1,5 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
@@ -233,17 +233,14 @@ export default function GoogleMetaAdsPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "32px 48px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
-            Google and Meta ads specialist who fixes the funnel before scaling spend
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            Google and Meta ads specialist.{" "}
+            <em style={H1_ACCENT_STYLE}>
+              Fix the funnel before <Emphasis>you feed it.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: SUBHEAD_SIZE, lineHeight: 1.05, letterSpacing: "-0.035em" }}>
-            Don&apos;t scale the spend
-            <span style={{ display: "block", marginTop: ".1em" }}>
-              before the <Emphasis>funnel works.</Emphasis>
-            </span>
-          </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            As your Google and Meta ads specialist, I set up tracking and fix the landing page before we spend another dollar. I set up the tracking, fix the landing page, build the campaigns and move your budget toward what actually brings customers.
+            As your Google and Meta ads specialist, I set up the tracking, fix the landing page, build the campaigns and move your budget toward what actually brings customers.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>
             On Google, I capture people already searching. On Meta, I reach the ones who don&apos;t know you yet.

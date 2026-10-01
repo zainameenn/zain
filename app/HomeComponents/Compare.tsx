@@ -8,8 +8,9 @@ const OPTIONS = [
 export default function Compare() {
   return (
     <section className="max-md:!pt-20" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
-      <h2 style={{ margin: "0 auto 40px", maxWidth: 860, textAlign: "center", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em", textWrap: "balance" }}>
-        Freelance growth marketer vs agency vs full time hire
+      <h2 style={{ margin: "0 auto 40px", maxWidth: 720, textAlign: "center", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em", textWrap: "balance" }}>
+        Freelance growth marketer vs agency{" "}
+        <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>vs full time hire</em>
       </h2>
       <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 md:!grid-cols-3">
         {OPTIONS.map((o) => (

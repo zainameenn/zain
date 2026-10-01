@@ -1,12 +1,12 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE } from "@/app/HomeComponents/heading";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { FAQAccordion } from "../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Zain Ul Abdin | Freelance Growth Marketer in Lahore",
+  title: "Zain Ul Abdin | Growth Marketing Specialist in Lahore",
   description:
-    "Zain Ul Abdin is a freelance growth marketer in Lahore working with SaaS and service teams in the US, UAE and Europe. Writer, then SEO, then growth.",
+    "Zain Ul Abdin is a growth marketing specialist in Lahore working with SaaS and service teams in the US, UAE and Europe. Writer, then SEO, then growth.",
   path: "/about",
 });
 
@@ -193,18 +193,14 @@ export default function AboutPage() {
     <main id="top" style={{ overflowX: "clip" }}>
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,8vw,112px) ${PAD} 0`, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-          <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
-          About me
-        </div>
-        <h1 style={{ ...H1_STYLE, margin: "20px 0 0", maxWidth: 820 }}>Zain Ul Abdin, freelance growth marketer</h1>
-        <p style={{ margin: "14px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(30px,3.4vw,48px)", lineHeight: 1.12 }}>
-          I fix growth problems for a living.
-          <br />
-          <Emphasis>Mostly on purpose.</Emphasis>
-        </p>
+        <h1 style={{ ...HERO_H1_STYLE, maxWidth: 820 }}>
+          Hi, I&apos;m Zain Ul Abdin.{" "}
+          <em style={H1_ACCENT_STYLE}>
+            I&nbsp;fix growth problems for a living. <Emphasis>Mostly on purpose.</Emphasis>
+          </em>
+        </h1>
         <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
-          Zain Ul Abdin here, a freelance growth marketer in Lahore working with teams in the US, UAE and Europe. I started as a writer, ran a sales floor, then spent years figuring out why good products don&apos;t grow. Now I find that reason and fix it myself.
+          I&apos;m a growth marketing specialist from Lahore, working with SaaS and service businesses in the US, UAE and Europe. I started as a writer, ran a sales floor, then spent years figuring out why good products don&apos;t grow. Now I find that reason and fix it myself.
         </p>
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px]">
           <a href="#resume" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>

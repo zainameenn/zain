@@ -23,13 +23,13 @@ export default function Team() {
           <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "18px 0 0", maxWidth: 460, fontSize: 18, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>
             Strategy, SEO, Reddit, social media, articles, graphics and ads. All handled by me.
           </p>
-          <p style={{ margin: "14px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "14px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
             Most founders end up hiring an SEO expert, a social media manager, a designer and an ads person, then managing all four.
           </p>
           <p className="max-md:!text-center" style={{ margin: "16px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 26, lineHeight: 1.1, color: "#1C1C1C" }}>
             That&apos;s a job on its own.
           </p>
-          <p style={{ margin: "16px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "16px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
             You get one person, one plan and fewer &quot;wait, who was doing this?&quot; moments.
           </p>
         </div>

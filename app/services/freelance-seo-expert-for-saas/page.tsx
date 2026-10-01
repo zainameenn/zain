@@ -1,14 +1,14 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, Squiggle } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 import { SeoStepsTabs } from "./SeoStepsTabs";
 
 export const metadata = buildMetadata({
-  title: "Freelance SEO Expert for SaaS | Google and AI Search | Zain",
+  title: "SEO Specialist for SaaS | Google and AI Search | Zain",
   description:
-    "Freelance SEO expert for SaaS. Keyword research, technical fixes, original content and links built to rank on Google and show up in AI answers. $1,999/mo.",
+    "SEO specialist for SaaS. Keyword research, technical fixes, original content and links built to rank on Google and show up in AI answers. $1,999/mo.",
   path: "/services/freelance-seo-expert-for-saas",
 });
 
@@ -227,21 +227,17 @@ export default function SeoPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,72px) ${PAD} clamp(48px,5vw,72px)`, display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
-            Freelance SEO expert for SaaS, built for Google and AI search
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            SEO specialist for SaaS.{" "}
+            <em style={H1_ACCENT_STYLE}>
+              Get found by people already <Emphasis>looking for you.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "22px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 600, fontSize: SUBHEAD_SIZE, lineHeight: 1.02, letterSpacing: "-0.04em" }}>
-            Get found by people
-            <br />
-            already looking for
-            <br />
-            <Underline>what you sell.</Underline>
-          </p>
           <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "18px 0 0", maxWidth: 560, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.6vw,36px)", lineHeight: 1.1, color: "#6B6862" }}>
             Traffic is nice. Qualified demand is better.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
-            As a freelance SEO expert for SaaS, I handle the research, technical fixes, content and links myself, so you&apos;re not managing three vendors. I find the searches worth winning on Google and in AI answers like ChatGPT, fix what&apos;s holding your site back, and build the pages and content around them.
+            As an SEO specialist for SaaS, I find the searches worth winning on Google and in AI answers like ChatGPT, fix what&apos;s holding your site back, and build the pages and content around them.
           </p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 20px" }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
             <a href="#contact" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>

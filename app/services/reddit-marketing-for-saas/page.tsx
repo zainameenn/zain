@@ -1,13 +1,13 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, UpArrowIcon } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Reddit Marketing for SaaS | Organic, No Ad Spend | Zain",
+  title: "Reddit Marketing Specialist for SaaS | No Ad Spend | Zain",
   description:
-    "Reddit marketing for SaaS that sounds human. Subreddit research, real accounts and useful posts that keep ranking on Google. $1,199/mo.",
+    "Reddit marketing specialist for SaaS and service brands. Subreddit research, real accounts and useful posts that keep ranking on Google. $1,199/mo.",
   path: "/services/reddit-marketing-for-saas",
 });
 
@@ -201,19 +201,14 @@ export default function RedditMarketingPage() {
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,72px) ${PAD} clamp(48px,5vw,72px)`, display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
         <div style={{ minWidth: 0 }} className="max-md:!text-center">
-          <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, maxWidth: 680 }}>
-            Reddit marketing for SaaS that doesn&apos;t sound like an ad
+          <h1 className="max-md:!mx-auto" style={{ ...HERO_H1_STYLE, maxWidth: 680 }}>
+            Reddit marketing specialist for SaaS brands that{" "}
+            <em style={H1_ACCENT_STYLE}>
+              don&apos;t want to smell <Emphasis>like an ad.</Emphasis>
+            </em>
           </h1>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "22px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: SUBHEAD_SIZE, lineHeight: 1.05, letterSpacing: "-0.035em", maxWidth: 620 }}>
-            Your buyers are
-            <br />
-            already talking.
-          </p>
-          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.8vw,40px)", lineHeight: 1.12, color: "#6B6862", maxWidth: 600 }}>
-            The trick is <Emphasis>not sounding like an ad.</Emphasis>
-          </p>
           <p className="max-md:!mx-auto" style={{ margin: "30px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C" }}>
-            Reddit marketing for SaaS works when your posts help first and sell second, and your buyers are already there talking. I find the communities where your buyers ask for help, build real accounts with real history, and write posts and replies people actually want to read.
+            As a Reddit marketing specialist, I find the communities where your buyers ask for help, build real accounts with real history, and write posts and replies people actually want to read.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "10px 0 0", maxWidth: 520, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854" }}>The kind that keep bringing users long after they&apos;re posted.</p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 20px" }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">

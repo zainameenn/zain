@@ -1,5 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE, SUBHEAD_SIZE } from "@/app/HomeComponents/heading";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { WaitlistForm } from "./WaitlistForm";
 
@@ -131,32 +131,14 @@ export default function InsightsPage() {
           textAlign: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-          <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
-          Insights
-        </div>
-        <h1 style={{ ...H1_STYLE, margin: "20px 0 0", maxWidth: 820 }}>
-          Growth marketing insights
+        <h1 style={{ ...HERO_H1_STYLE, maxWidth: 820 }}>
+          Growth marketing insights are on the way.{" "}
+          <em style={H1_ACCENT_STYLE}>
+            The good stuff <Emphasis>is coming.</Emphasis>
+          </em>
         </h1>
-        <p className="max-md:!text-balance" style={{ margin: "18px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: SUBHEAD_SIZE, lineHeight: 1.1, letterSpacing: "-0.035em" }}>
-          I&apos;m working on this page.
-        </p>
-        <p
-          style={{
-            margin: "14px 0 0",
-            fontFamily: "'Instrument Serif',serif",
-            fontStyle: "italic",
-            fontWeight: 400,
-            letterSpacing: "-0.01em",
-            fontSize: SUBHEAD_SIZE,
-            lineHeight: 1.1,
-            color: "#1C1C1C",
-          }}
-        >
-          <Emphasis>The good stuff is coming.</Emphasis>
-        </p>
         <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
-          Growth marketing insights from real client work, written so you can use them today. I&apos;m putting together a collection of practical marketing Keybooks, useful breakdowns and blogs about what works, what doesn&apos;t, and what I&apos;d probably avoid completely.
+          Growth marketing insights are coming here soon: practical Keybooks, useful breakdowns and blogs about what works, what doesn&apos;t, and what I&apos;d probably avoid completely.
         </p>
         <p style={{ margin: "14px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
           A lot of it will be free. Because useful marketing advice probably shouldn&apos;t always start with a checkout page.

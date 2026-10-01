@@ -85,16 +85,15 @@ export default function Reviews() {
   return (
     <section id="reviews" style={{ marginTop: "clamp(80px,9vw,128px)", background: "#171717", color: "#F2EFEA" }}>
       <div
-        style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,8vw,112px) clamp(20px,4vw,48px) 0", display: "grid", gap: "16px 48px", alignItems: "end" }}
-        className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center"
+        style={{ maxWidth: 816, margin: "0 auto", padding: "clamp(80px,8vw,112px) clamp(20px,4vw,48px) 0", textAlign: "center" }}
       >
         <div>
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client proof</div>
-          <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ textWrap: "balance", margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             What people say after working with me.
           </h2>
         </div>
-        <p style={{ margin: 0, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#B7B2A8" }}>
+        <p style={{ margin: "16px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#B7B2A8" }}>
           Luckily, I don&apos;t have to write this part myself.
         </p>
       </div>
