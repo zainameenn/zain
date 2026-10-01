@@ -22,17 +22,17 @@ function Pill({ children }: { children: React.ReactNode }) {
 }
 
 function Eyebrow({ children, dark }: { children: React.ReactNode; dark?: boolean }) {
-  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#9C978D" : "#8B877F" }}>{children}</div>;
+  return <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#9C978D" : "#8B877F" }}>{children}</div>;
 }
 
 function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: React.ReactNode; sub: React.ReactNode; dark?: boolean }) {
   return (
-    <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 40 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+    <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 40 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
       <div>
         <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
-        <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
       </div>
-      <div style={{ paddingBottom: 4, maxWidth: 460 }}>
+      <div className="max-md:!mx-auto" style={{ paddingBottom: 4, maxWidth: 460 }}>
         <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: dark ? "#B7B2A8" : "#5A5854" }}>{sub}</p>
       </div>
     </div>
@@ -154,12 +154,12 @@ export default function SocialMediaManagementPage() {
     <main id="top" style={{ overflowX: "clip" }}>
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "40px 56px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)]">
-        <div style={{ minWidth: 0 }}>
-          <h1 style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-            <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+        <div style={{ minWidth: 0 }} className="max-md:!text-center">
+          <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
+            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
             Social media manager for SaaS and service businesses
           </h1>
-          <p style={{ margin: "20px 0 0", maxWidth: 600, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(52px,5vw,74px)", lineHeight: 1.01, letterSpacing: "-0.035em" }}>
+          <p className="max-md:!mx-auto max-md:!text-[clamp(40px,12.5vw,52px)]" style={{ margin: "20px 0 0", maxWidth: 600, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(52px,5vw,74px)", lineHeight: 1.01, letterSpacing: "-0.035em" }}>
             Stop filling a
             <br />
             content calendar.
@@ -167,21 +167,21 @@ export default function SocialMediaManagementPage() {
               <Emphasis>Start getting seen.</Emphasis>
             </span>
           </p>
-          <p style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
             I plan, write, design and post your content on Facebook, Instagram and LinkedIn, then show up in the groups and communities where your buyers actually ask questions.
           </p>
-          <p style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>You get attention that turns into visits, not just likes.</p>
-          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }}>
-            <a href="#contact" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>You get attention that turns into visits, not just likes.</p>
+          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col">
+            <a href="#contact" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
               Get a free social check
               <ArrowIcon />
             </a>
-            <a href="#results" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+            <a href="#results" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
               See social results
             </a>
           </div>
-          <p style={{ margin: "16px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
-            <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
+          <p className="max-md:!block" style={{ margin: "16px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
+            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
             Free, no strings. <Emphasis style={{ fontSize: 16 }}>Coffee&apos;s on me.</Emphasis>
           </p>
         </div>
@@ -194,27 +194,27 @@ export default function SocialMediaManagementPage() {
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `0 ${PAD}` }}>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="!grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s, i) => (
-            <div key={s.l} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
+            <div key={s.l} className={`max-md:!text-center max-sm:!px-2 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
               <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(40px,3.8vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
               <div style={{ marginTop: 14, fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>{s.l}</div>
               <div style={{ marginTop: 4, fontSize: 13.5, lineHeight: 1.4, color: "#77746E" }}>{s.sub}</div>
             </div>
           ))}
         </div>
-        <p style={{ margin: "12px 0 0", fontSize: 13, color: "#8B877F", textAlign: "right" }}>Each number is one platform, one client. Screenshots below.</p>
+        <p className="max-md:!text-center" style={{ margin: "12px 0 0", fontSize: 13, color: "#8B877F", textAlign: "right" }}>Each number is one platform, one client. Screenshots below.</p>
       </section>
 
       {/* PROBLEM */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "40px 64px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)]">
           <div>
             <Eyebrow>The problem</Eyebrow>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               More posts aren&apos;t
               <br />
               always the answer.
             </h2>
-            <p style={{ margin: "6px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.05, color: "#6B6862" }}>
+            <p className="max-md:!text-center" style={{ margin: "6px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.05, color: "#6B6862" }}>
               Sometimes they&apos;re just more posts.
             </p>
             <p style={{ margin: "24px 0 0", maxWidth: 440, fontSize: 18, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>Most business accounts look busy and go nowhere.</p>
@@ -237,7 +237,7 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* FIVE PARTS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="What social media involves" title={<>Social media has<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1 }}>five parts.</em></>} sub="Most accounts only do one of them: posting." />
         <div style={{ display: "grid", gap: 20 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-6">
           {PARTS.map((p) => (
@@ -245,7 +245,7 @@ export default function SocialMediaManagementPage() {
               <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
               <div>
                 <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,1.9vw,26px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
-                <p style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", maxWidth: 460, minHeight: "4.65em" }}>{p.d}</p>
+                <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", maxWidth: 460, minHeight: "4.65em" }}>{p.d}</p>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 18 }}>
                 {p.tags.map((tag) => (
@@ -261,7 +261,7 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* JOURNEY (dark) */}
-      <section style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
+      <section className="max-md:!mt-20" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,6vw,88px) ${PAD} clamp(56px,5vw,72px)` }}>
           <SectionHead
             dark
@@ -278,7 +278,7 @@ export default function SocialMediaManagementPage() {
                   <span style={{ fontSize: 12, fontWeight: 600, color: "#8B877F", fontVariantNumeric: "tabular-nums" }}>{j.n}</span>
                 </div>
                 <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: 19, fontWeight: 600, letterSpacing: "-0.015em", color: j.gold ? "#D3AE82" : "#F2EFEA" }}>{j.t}</h3>
-                <p style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.5, color: "#9C978D" }}>{j.d}</p>
+                <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.5, color: "#9C978D" }}>{j.d}</p>
               </li>
             ))}
           </ol>
@@ -286,21 +286,21 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* CONTENT PILLARS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Content pillars" title={<>Five kinds of posts.<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1 }}>All of them useful.</em></>} sub="A good feed isn't random. Every post falls into one of these." />
         <img loading="lazy" src="/assets/pages/social/06-content-pillars__teach-show-prove-join-sell.png" alt="Illustration: five post types, Teach, Show, Prove, Join and Sell, on one timeline" style={{ display: "block", width: "100%", height: "auto" }} />
         <div style={{ marginTop: 24, display: "grid", gap: "24px 20px" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-5">
           {PILLARS.map((p) => (
             <div key={p.t} style={{ minWidth: 0, minHeight: 96, paddingTop: 16, borderTop: "1px solid #DDDAD3" }}>
               <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{p.t}</h3>
-              <p style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.5, color: "#4E4C48" }}>{p.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.5, color: "#4E4C48" }}>{p.d}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* RESULTS */}
-      <section id="results" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section id="results" className="max-md:!pt-20 max-md:[&_.grid-cols-2>div]:!text-center max-md:[&_.grid-cols-1>div]:!text-center max-sm:[&_.grid-cols-2>div]:!px-2 max-sm:[&_.grid-cols-2>div:nth-child(odd)]:!border-l-0 max-sm:[&_.grid-cols-2>div:nth-child(n+3)]:![border-top:1px_solid_rgba(128,128,128,.3)] max-sm:[&_.grid-cols-1>div]:!border-l-0 max-sm:[&_.grid-cols-1>div]:!px-0 max-sm:[&_.grid-cols-1>div+div]:![border-top:1px_solid_rgba(128,128,128,.3)] max-md:[&_p[style*='font-size:14.5px']]:!text-base" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Social media results" title={<>Social results,<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1 }}>not just likes.</em></>} sub="Different platforms. Different jobs. Results shown separately." />
         <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
           {/* 01 Everdry */}
@@ -696,11 +696,11 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* ONE IDEA / REPURPOSING */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "40px 64px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)]">
           <div>
             <Eyebrow>Repurposing</Eyebrow>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               One idea.
               <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1 }}>Five places to use it.</em>
             </h2>
@@ -718,7 +718,7 @@ export default function SocialMediaManagementPage() {
                 </li>
               ))}
             </ol>
-            <p style={{ margin: "16px 0 0", maxWidth: 460, fontSize: 14, lineHeight: 1.5, color: "#77746E" }}>Not copy and paste. Each version is rewritten for how people use that platform.</p>
+            <p className="max-md:!text-base" style={{ margin: "16px 0 0", maxWidth: 460, fontSize: 14, lineHeight: 1.5, color: "#77746E" }}>Not copy and paste. Each version is rewritten for how people use that platform.</p>
           </div>
           <figure style={{ margin: 0, minWidth: 0 }}>
             <img loading="lazy" src="/assets/pages/social/08-one-idea__many-formats.png" alt="Illustration: one idea branching into a carousel, a feed post, an X thread, a short video, a story and an email" style={{ display: "block", width: "100%", height: "auto" }} />
@@ -727,11 +727,11 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* WHAT YOU GET */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-10" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "32px 64px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)]">
           <div>
             <Eyebrow>What you get</Eyebrow>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               Everything
               <br />
               your social needs.
@@ -751,11 +751,11 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* PROCESS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 28 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div>
             <Eyebrow>Process</Eyebrow>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               Five steps.
               <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1 }}>No &quot;just post more&quot; strategy.</em>
             </h2>
@@ -767,14 +767,14 @@ export default function SocialMediaManagementPage() {
             <li key={s.t} style={{ minWidth: 0, padding: "20px 0 0", borderTop: `2px solid ${s.gold ? "#C4A47C" : "#1C1C1C"}` }}>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{String(i + 1).padStart(2, "0")}</span>
               <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
-              <p style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48" }}>{s.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48" }}>{s.d}</p>
             </li>
           ))}
         </ol>
       </section>
 
       {/* GOOD SOCIAL GUT CHECK */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="A gut check" title={<>What good social<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1 }}>actually looks like.</em></>} sub="A quick gut check for your current account." />
         <div style={{ display: "grid", gap: 24, alignItems: "stretch" }} className="grid-cols-1 md:!grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)_minmax(0,1fr)]">
           <div style={{ borderRadius: 22, border: "1px solid #DDDAD3", padding: 28 }}>
@@ -804,35 +804,35 @@ export default function SocialMediaManagementPage() {
           </div>
         </div>
         <div style={{ marginTop: 24, display: "grid", gap: "16px 32px", alignItems: "center", padding: "20px 0", borderTop: "1px solid #DDDAD3", borderBottom: "1px solid #DDDAD3" }} className="sm:!grid-cols-[auto_minmax(0,1fr)]">
-          <div style={{ display: "flex", alignItems: "baseline", gap: 10, fontFamily: "'General Sans'", fontWeight: 600, letterSpacing: "-0.03em" }}>
+          <div className="max-sm:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 10, fontFamily: "'General Sans'", fontWeight: 600, letterSpacing: "-0.03em" }}>
             <span style={{ fontSize: 40, lineHeight: 1 }}>5</span>
             <span style={{ color: "#C4A47C", fontSize: 24 }}>·</span>
             <span style={{ fontSize: 40, lineHeight: 1 }}>3</span>
             <span style={{ color: "#C4A47C", fontSize: 24 }}>·</span>
             <span style={{ fontSize: 40, lineHeight: 1, color: "#9A7646" }}>2</span>
           </div>
-          <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48", maxWidth: 720 }}>
+          <p className="max-md:!text-base" style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48", maxWidth: 720 }}>
             A useful rule of thumb is the 5 3 2 rule: for every 10 posts, 5 share useful content from others, 3 are your own, and 2 are personal. It&apos;s a reminder to stop talking about yourself all the time.
           </p>
         </div>
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+      <section id="pricing" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+        <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
           <div>
             <Eyebrow>Pricing</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-balance max-md:[&_em]:!block" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Three platforms.
               <br />
               <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>One person handling all of it.</em>
             </h2>
           </div>
-          <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 420 }}>No long contracts. Billed weekly or every two weeks.</p>
+          <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 420 }}>No long contracts. Billed weekly or every two weeks.</p>
         </div>
         <div style={{ borderBottom: "1px solid #DDDAD3" }}>
           {PRICING_ROWS.map((r) => (
-            <div key={r.n} style={{ display: "grid", gap: "10px 24px", alignItems: "center", padding: "clamp(24px,3vw,38px) clamp(8px,1vw,16px)", borderTop: "1px solid #DDDAD3" }} className="sm:!grid-cols-[48px_minmax(0,1.3fr)_minmax(0,2.6fr)_minmax(0,0.9fr)]">
+            <div key={r.n} style={{ display: "grid", gap: "10px 24px", alignItems: "center", padding: "clamp(24px,3vw,38px) clamp(8px,1vw,16px)", borderTop: "1px solid #DDDAD3" }} className="sm:!grid-cols-[48px_minmax(0,1.3fr)_minmax(0,2.6fr)_minmax(0,0.9fr)] max-sm:!justify-items-center max-sm:!text-center">
               <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646" }}>{r.n}</span>
               <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{r.t}</h3>
               <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48", maxWidth: 540 }}>
@@ -846,21 +846,21 @@ export default function SocialMediaManagementPage() {
             </div>
           ))}
         </div>
-        <p style={{ margin: "14px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F", maxWidth: 640 }}>Most businesses pay between $500 and $5,000 a month for social media management, with most landing in the $1,000 to $3,000 range.</p>
-        <div style={{ marginTop: "clamp(32px,4vw,48px)", borderRadius: 28, background: "#171717", color: "#F2EFEA", padding: "clamp(28px,3.5vw,48px)", display: "grid", gap: "28px clamp(32px,5vw,72px)", alignItems: "center" }} className="sm:!grid-cols-2">
+        <p className="max-md:!mx-auto max-md:!text-center max-md:!text-base" style={{ margin: "14px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F", maxWidth: 640 }}>Most businesses pay between $500 and $5,000 a month for social media management, with most landing in the $1,000 to $3,000 range.</p>
+        <div style={{ marginTop: "clamp(32px,4vw,48px)", borderRadius: 28, background: "#171717", color: "#F2EFEA", padding: "clamp(28px,3.5vw,48px)", display: "grid", gap: "28px clamp(32px,5vw,72px)", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
           <div>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82" }}>Want social, SEO and Reddit together?</div>
             <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(28px,2.8vw,40px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
               Everything, <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>handled.</em>
             </h3>
-            <p style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.55, color: "#C9C4BA", maxWidth: 460 }}>SEO, Reddit, social media, content and design. One person, one plan, one invoice.</p>
+            <p className="max-sm:!mx-auto" style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.55, color: "#C9C4BA", maxWidth: 460 }}>SEO, Reddit, social media, content and design. One person, one plan, one invoice.</p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 14, flexWrap: "wrap" }}>
+            <div className="max-sm:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 14, flexWrap: "wrap" }}>
               <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(40px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
               <span style={{ fontSize: 14, color: "#9C978D" }}>per month · <span style={{ textDecoration: "line-through" }}>$4,397</span> separately</span>
             </div>
-            <a href="#contact" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
+            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
               Get a free social check
               <ArrowIcon />
             </a>
@@ -869,9 +869,9 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* FIT */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
-          <div>
+          <div className="max-md:!text-center">
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Who it&apos;s for</div>
             <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Social works
@@ -907,15 +907,15 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0`, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.5fr)_minmax(0,1fr)]">
-        <div>
+      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0`, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.5fr)_minmax(0,1fr)] max-md:!pt-20">
+        <div className="max-md:!text-center">
           <Eyebrow>FAQ</Eyebrow>
           <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             Social media questions,
             <br />
             <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
           </h2>
-          <div style={{ marginTop: 32, width: "100%", maxWidth: 420 }}>
+          <div className="max-md:!mx-auto" style={{ marginTop: 32, width: "100%", maxWidth: 420 }}>
             <img loading="lazy" src="/assets/pages/social/14-faq__social-questions.png" alt="Illustration: questions from Instagram, TikTok, YouTube, X, Facebook and LinkedIn answered by one marketer and turned into scheduled posts, community replies and analytics" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
@@ -923,23 +923,23 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* CTA */}
-      <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
+      <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
-          <div>
-            <h2 style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Posting a lot and still invisible?</h2>
+          <div className="max-md:!text-center">
+            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Posting a lot and still invisible?</h2>
             <p style={{ margin: "14px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
               <Emphasis>Let&apos;s find out why.</Emphasis>
             </p>
-            <p style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+            <p className="max-md:!mx-auto" style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
               Send me your accounts and tell me who you&apos;re trying to reach. I&apos;ll tell you what&apos;s working, what isn&apos;t and what I&apos;d change first. Free.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div className="max-md:!mx-auto max-md:!w-full max-md:!max-w-[400px]" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <a href="/contact" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 17, fontWeight: 600 }}>
               Get a free social check
               <ArrowIcon size={16} />
             </a>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <div className="max-md:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               <Link href="/#contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
                 Tell me what&apos;s stuck
               </Link>
@@ -947,22 +947,22 @@ export default function SocialMediaManagementPage() {
                 Email me
               </a>
             </div>
-            <span style={{ paddingTop: 8, fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
+            <span className="max-md:!text-center" style={{ paddingTop: 8, fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
           </div>
         </div>
       </section>
 
       {/* RELATED */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <h2 style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Social works better with</h2>
+        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Social works better with</h2>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
           {RELATED.map((r, i) => (
-            <a key={r.t} href={r.href} style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
               <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>
-              <span style={{ fontSize: 15, lineHeight: 1.5, color: "#5A5854" }}>{r.d}</span>
+              <span className="max-md:!text-base" style={{ fontSize: 15, lineHeight: 1.5, color: "#5A5854" }}>{r.d}</span>
             </a>
           ))}
         </div>

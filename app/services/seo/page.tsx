@@ -24,17 +24,17 @@ function Pill({ children }: { children: React.ReactNode }) {
 }
 
 function Eyebrow({ children, dark }: { children: React.ReactNode; dark?: boolean }) {
-  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#C4A47C" : "#8B877F" }}>{children}</div>;
+  return <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#C4A47C" : "#8B877F" }}>{children}</div>;
 }
 
 function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: React.ReactNode; sub: React.ReactNode; dark?: boolean }) {
   return (
-    <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+    <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
       <div>
         <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
-        <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+        <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
       </div>
-      <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: dark ? "#B7B2A8" : "#5A5854", maxWidth: 420 }}>{sub}</p>
+      <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: dark ? "#B7B2A8" : "#5A5854", maxWidth: 420 }}>{sub}</p>
     </div>
   );
 }
@@ -225,36 +225,36 @@ export default function SeoPage() {
     <main id="top" style={{ overflowX: "clip" }}>
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,72px) ${PAD} clamp(48px,5vw,72px)`, display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)]">
-        <div style={{ minWidth: 0 }}>
-          <h1 style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-            <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+        <div style={{ minWidth: 0 }} className="max-md:!text-center">
+          <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
+            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
             SEO expert for SaaS and service businesses
           </h1>
-          <p style={{ margin: "22px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(42px,4.8vw,70px)", lineHeight: 1.02, letterSpacing: "-0.04em" }}>
+          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "22px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(42px,4.8vw,70px)", lineHeight: 1.02, letterSpacing: "-0.04em" }}>
             Get found by people
             <br />
             already looking for
             <br />
             <Underline>what you sell.</Underline>
           </p>
-          <p style={{ margin: "18px 0 0", maxWidth: 560, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.6vw,36px)", lineHeight: 1.1, color: "#6B6862" }}>
+          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "18px 0 0", maxWidth: 560, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.6vw,36px)", lineHeight: 1.1, color: "#6B6862" }}>
             Traffic is nice. Qualified demand is better.
           </p>
-          <p style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
             I find the searches worth winning on Google and in AI answers like ChatGPT, fix what&apos;s holding your site back, and build the pages and content around them.
           </p>
-          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 20px" }}>
-            <a href="#contact" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 20px" }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
+            <a href="#contact" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
               Show me your site
               <ArrowIcon />
             </a>
-            <a href="#results" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 4px", fontSize: 16, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid transparent" }}>
+            <a href="#results" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 4px", fontSize: 16, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid transparent" }}>
               See SEO results ↓
             </a>
           </div>
-          <p style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
-            <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
-            Not sure what&apos;s wrong? <a href="#pricing" style={{ color: "#1C1C1C", borderBottom: "1px solid #CFCBC2" }}>Start with the $499 audit.</a>
+          <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
+            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
+            Not sure what&apos;s wrong? <a href="#pricing" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ color: "#1C1C1C", borderBottom: "1px solid #CFCBC2" }}>Start with the $499 audit.</a>
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%", maxWidth: 680 }}>
@@ -267,28 +267,28 @@ export default function SeoPage() {
         <Eyebrow>Organic proof</Eyebrow>
         <div style={{ marginTop: 14, display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="!grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s, i) => (
-            <div key={s.l} style={{ padding: `26px ${i ? 16 : 20}px 26px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
+            <div key={s.l} className={`max-md:!text-center max-sm:!px-2 max-sm:!pb-4 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `26px ${i ? 16 : 20}px 26px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
               <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(40px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>{s.v}</div>
-              <div style={{ marginTop: 10, fontSize: 14, lineHeight: 1.4, color: "#5A5854", maxWidth: 200 }}>{s.l}</div>
+              <div className="max-md:!mx-auto max-md:!text-balance" style={{ marginTop: 10, fontSize: 14, lineHeight: 1.4, color: "#5A5854", maxWidth: 200 }}>{s.l}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* PROBLEM */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
         <div style={{ display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div>
             <Eyebrow>The problem</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Ranking isn&apos;t the same
               <br />
               as <Underline>growing.</Underline>
             </h2>
-            <p style={{ margin: "12px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.1, color: "#6B6862" }}>
+            <p className="max-md:!text-center" style={{ margin: "12px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.1, color: "#6B6862" }}>
               The wrong traffic still wastes your time.
             </p>
-            <figure style={{ margin: "clamp(28px,3vw,44px) 0 0", maxWidth: 680 }}>
+            <figure className="max-md:!mx-auto" style={{ margin: "clamp(28px,3vw,44px) 0 0", maxWidth: 680 }}>
               <img loading="lazy" src="/assets/pages/seo/03-problem__ranking-isnt-growing.png" alt="Illustration: rankings and impressions flow into one search hub with several possible blockers before qualified demand, conversion and revenue" style={{ display: "block", width: "100%", height: "auto" }} />
             </figure>
           </div>
@@ -309,7 +309,7 @@ export default function SeoPage() {
       </section>
 
       {/* THE WORK */}
-      <section id="the-work" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
+      <section id="the-work" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
         <SectionHead
           eyebrow="The work"
           title={
@@ -370,7 +370,7 @@ export default function SeoPage() {
       </section>
 
       {/* SEARCH SYSTEM */}
-      <section style={{ marginTop: "clamp(96px,9vw,128px)", background: "#171717", color: "#F2EFEA" }}>
+      <section className="max-md:!mt-20" style={{ marginTop: "clamp(96px,9vw,128px)", background: "#171717", color: "#F2EFEA" }}>
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,6vw,88px) ${PAD} clamp(48px,5vw,72px)` }}>
           <SectionHead
             dark
@@ -393,7 +393,7 @@ export default function SeoPage() {
                 <div key={s.n} style={{ padding: "18px 0" }}>
                   <div style={{ fontSize: 12, fontWeight: 600, color: "#D3AE82" }}>{s.n}</div>
                   <div style={{ marginTop: 8, fontFamily: "'General Sans'", fontSize: 18, fontWeight: 600, color: "#F2EFEA" }}>{s.t}</div>
-                  <p style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#B7B2A8" }}>{s.d}</p>
+                  <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#B7B2A8" }}>{s.d}</p>
                 </div>
               ))}
             </figcaption>
@@ -402,11 +402,11 @@ export default function SeoPage() {
       </section>
 
       {/* SEO RESULTS */}
-      <section id="results" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
+      <section id="results" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
         <div style={{ display: "grid", gap: "24px clamp(32px,4vw,64px)", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div>
+          <div className="max-md:!text-center">
             <Eyebrow>SEO results</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-balance max-md:[&_span]:!whitespace-normal" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Two sites.
               <br />
               <Emphasis>Google and Bing, shown separately.</Emphasis>
@@ -414,18 +414,18 @@ export default function SeoPage() {
           </div>
           <ol style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #1C1C1C" }}>
             {RESULTS_LIST.map((r) => (
-              <li key={r.n} style={{ display: "grid", gridTemplateColumns: "32px minmax(0,1fr) auto", gap: "4px 14px", alignItems: "baseline", padding: "14px 0", borderBottom: "1px solid #DDDAD3" }}>
+              <li key={r.n} className="max-md:!grid-cols-[32px_minmax(0,1fr)]" style={{ display: "grid", gridTemplateColumns: "32px minmax(0,1fr) auto", gap: "4px 14px", alignItems: "baseline", padding: "14px 0", borderBottom: "1px solid #DDDAD3" }}>
                 <span style={{ fontSize: 12, fontWeight: 600, color: "#9A7646" }}>{r.n}</span>
                 <span style={{ fontSize: 15, color: "#1C1C1C" }}>
                   <b style={{ fontWeight: 600 }}>{r.who}</b> · <span style={{ color: "#5A5854" }}>{r.detail}</span>
                 </span>
-                <span style={{ fontFamily: "'General Sans'", fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}>{r.value}</span>
+                <span className="max-md:!col-start-2 max-md:!whitespace-normal" style={{ fontFamily: "'General Sans'", fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}>{r.value}</span>
               </li>
             ))}
           </ol>
         </div>
 
-        <div style={{ borderRadius: 28, background: "#EEF3F2", border: "1px solid #D6E1DF", padding: "clamp(24px,3vw,44px)" }}>
+        <div className="max-md:[&_[style*='grid-template-columns']>div]:!px-2 max-md:[&_[style*='grid-template-columns']>div]:!text-center" style={{ borderRadius: 28, background: "#EEF3F2", border: "1px solid #D6E1DF", padding: "clamp(24px,3vw,44px)" }}>
           <div style={{ display: "grid", gap: "24px clamp(32px,4vw,56px)", alignItems: "end" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -478,7 +478,7 @@ export default function SeoPage() {
                   <div style={{ marginTop: 6, fontSize: 13, color: "#4F5A59" }}>average position</div>
                 </div>
               </div>
-              <p style={{ margin: "18px 0 0", fontSize: 15, lineHeight: 1.55, color: "#1C1C1C" }}>Organic search growth from the Blainy SEO work, climbing steadily from mid-2024.</p>
+              <p className="max-md:!text-base" style={{ margin: "18px 0 0", fontSize: 15, lineHeight: 1.55, color: "#1C1C1C" }}>Organic search growth from the Blainy SEO work, climbing steadily from mid-2024.</p>
             </div>
             <div style={{ minWidth: 0 }}>
               <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid rgba(20,40,40,.12)", background: "#fff", boxShadow: "0 24px 48px -34px rgba(20,40,40,.4)" }}>
@@ -507,7 +507,7 @@ export default function SeoPage() {
                   <div style={{ marginTop: 6, fontSize: 13, color: "#4F5A59" }}>average CTR</div>
                 </div>
               </div>
-              <p style={{ margin: "18px 0 0", fontSize: 15, lineHeight: 1.55, color: "#1C1C1C" }}>The same organic system producing visibility beyond Google.</p>
+              <p className="max-md:!text-base" style={{ margin: "18px 0 0", fontSize: 15, lineHeight: 1.55, color: "#1C1C1C" }}>The same organic system producing visibility beyond Google.</p>
             </div>
             <div style={{ minWidth: 0 }}>
               <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid rgba(20,40,40,.12)", background: "#fff", boxShadow: "0 24px 48px -34px rgba(20,40,40,.4)" }}>
@@ -560,7 +560,7 @@ export default function SeoPage() {
             </div>
             <div style={{ display: "grid", borderTop: "1px solid #DDDAD3", marginTop: 14 }} className="grid-cols-2 sm:!grid-cols-4">
               {BEFORE_STATS.map((s, i) => (
-                <div key={s.l} style={{ padding: `16px 12px 0 ${i ? 18 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
+                <div key={s.l} className={`max-md:!text-center max-sm:!px-2 max-sm:!pb-4 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `16px 12px 0 ${i ? 18 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
                   <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{s.v}</div>
                   <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{s.l}</div>
                 </div>
@@ -586,7 +586,7 @@ export default function SeoPage() {
             </div>
             <div style={{ display: "grid", borderTop: "1px solid #1C1C1C", marginTop: 14 }} className="grid-cols-2 sm:!grid-cols-4">
               {AFTER_STATS.map((s, i) => (
-                <div key={s.l} style={{ padding: `16px 12px 0 ${i ? 18 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
+                <div key={s.l} className={`max-md:!text-center max-sm:!px-2 max-sm:!pb-4 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `16px 12px 0 ${i ? 18 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
                   <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{s.v}</div>
                   <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{s.l}</div>
                 </div>
@@ -597,11 +597,11 @@ export default function SeoPage() {
       </section>
 
       {/* PROCESS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
         <div style={{ display: "grid", gap: "clamp(32px,5vw,72px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.82fr)_minmax(0,1fr)]">
           <div>
             <Eyebrow>How SEO works with me</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.2vw,44px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.2vw,44px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Five steps.
               <br />
               <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em" }}>No keyword spreadsheet disappearing into a folder.</em>
@@ -615,7 +615,7 @@ export default function SeoPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
+      <section id="pricing" className="max-md:!pt-12" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
         <SectionHead
           eyebrow="Pricing"
           title={
@@ -629,7 +629,7 @@ export default function SeoPage() {
         />
         <div style={{ borderRadius: 28, background: "#171717", color: "#F2EFEA", padding: "clamp(32px,4vw,56px)", display: "grid", gap: "40px clamp(32px,5vw,72px)" }} className="md:!grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <div>
-            <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em" }}>SEO</h3>
+            <h3 className="max-md:!text-center" style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em" }}>SEO</h3>
             <p style={{ margin: "14px 0 0", maxWidth: 500, fontSize: 16.5, lineHeight: 1.6, color: "#C9C4BA" }}>
               Keyword and competitor research, technical fixes, original articles, internal linking, link building through outreach, and monthly reporting on rankings, traffic and conversions.
             </p>
@@ -639,7 +639,7 @@ export default function SeoPage() {
                   <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82", marginBottom: 8 }}>{c.h}</div>
                   <ul style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #33322F" }}>
                     {c.items.map((it) => (
-                      <li key={it} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 0", borderBottom: "1px solid #33322F", fontSize: 14.5, color: "#E6E1D8" }}>
+                      <li key={it} className="max-md:!text-base" style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 0", borderBottom: "1px solid #33322F", fontSize: 14.5, color: "#E6E1D8" }}>
                         <span aria-hidden="true" style={{ width: 5, height: 5, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
                         {it}
                       </li>
@@ -649,35 +649,35 @@ export default function SeoPage() {
               ))}
             </div>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }} className="md:!pl-14 md:!border-l md:!border-[#33322F]">
-            <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }} className="md:!pl-14 md:!border-l md:!border-[#33322F] max-md:!text-center">
+            <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
               <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(52px,5.4vw,72px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,999</span>
               <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
             </div>
-            <a href="#contact" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
+            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
               Start SEO
               <ArrowIcon />
             </a>
             <div style={{ marginTop: 8, paddingTop: 18, borderTop: "1px solid #33322F" }}>
               <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Market context</div>
-              <p style={{ margin: "10px 0 0", fontSize: 14, lineHeight: 1.55, color: "#B7B2A8" }}>Most SEO freelancers average around $1,350/month and agencies around $3,200.</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 14, lineHeight: 1.55, color: "#B7B2A8" }}>Most SEO freelancers average around $1,350/month and agencies around $3,200.</p>
               <p style={{ margin: "6px 0 0", fontSize: 12.5, color: "#8B877F" }}>Source: Ahrefs survey of 439 SEO providers.</p>
             </div>
           </div>
         </div>
 
-        <div style={{ marginTop: 16, borderRadius: 22, border: "1px solid #DAD8D1", background: "#FBFBF9", padding: "clamp(24px,2.6vw,36px)", display: "grid", gap: "20px clamp(24px,3vw,48px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_auto]">
+        <div style={{ marginTop: 16, borderRadius: 22, border: "1px solid #DAD8D1", background: "#FBFBF9", padding: "clamp(24px,2.6vw,36px)", display: "grid", gap: "20px clamp(24px,3vw,48px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_auto] max-md:!text-center">
           <div>
             <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em" }}>Not ready for monthly?</h3>
             <p style={{ margin: "6px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 24, color: "#6B6862" }}>Start with the audit.</p>
           </div>
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48", maxWidth: 440 }}>Everything on your site, ranked by what to fix first. Most audits give you a list. This one tells you the order.</p>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 }} className="md:!items-end">
+          <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48", maxWidth: 440 }}>Everything on your site, ranked by what to fix first. Most audits give you a list. This one tells you the order.</p>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 }} className="md:!items-end max-md:!items-center">
             <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
               <span style={{ fontFamily: "'General Sans'", fontSize: 36, fontWeight: 600, letterSpacing: "-0.035em" }}>$499</span>
               <span style={{ fontSize: 13.5, color: "#77746E" }}>one time</span>
             </div>
-            <a href="#contact" style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, borderBottom: "1.5px solid #1C1C1C", paddingBottom: 3 }}>
+            <a href="#contact" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, borderBottom: "1.5px solid #1C1C1C", paddingBottom: 3 }}>
               Start with the $499 audit
               <ArrowIcon />
             </a>
@@ -686,9 +686,9 @@ export default function SeoPage() {
       </section>
 
       {/* FIT */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
-          <div>
+          <div className="max-md:!text-center">
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Who it’s for</div>
             <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3vw,44px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               SEO works
@@ -724,15 +724,15 @@ export default function SeoPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.58fr)_minmax(0,1fr)]">
-        <div>
+      <section style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.58fr)_minmax(0,1fr)] max-md:!pt-20">
+        <div className="max-md:!text-center">
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>SEO FAQ</div>
           <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             SEO questions,
             <br />
             <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>answered straight.</em>
           </h2>
-          <div style={{ marginTop: "clamp(28px,3vw,40px)", width: "100%", maxWidth: 420 }}>
+          <div className="max-md:!mx-auto" style={{ marginTop: "clamp(28px,3vw,40px)", width: "100%", maxWidth: 420 }}>
             <img loading="lazy" src="/assets/pages/seo/10-faq__seo-questions.png" alt="Illustration: a search leading to query refinements, a useful page, supporting links and a growth chart" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
@@ -742,19 +742,19 @@ export default function SeoPage() {
       {/* CTA */}
       <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(80px,9vw,128px) ${PAD} clamp(24px,3vw,40px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-          <div>
-            <h2 style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+          <div className="max-md:!text-center">
+            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
               Want me to look at what&apos;s stopping <Underline>your search growth?</Underline>
             </h2>
             <p style={{ margin: "14px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>Start with the audit.</p>
-            <p style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>I&apos;ll review the site, the search demand and what is already working, then rank the fixes by what matters first.</p>
+            <p className="max-md:!mx-auto" style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>I&apos;ll review the site, the search demand and what is already working, then rank the fixes by what matters first.</p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div className="max-md:!mx-auto max-md:!w-full max-md:!max-w-[400px]" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <a href="/contact" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 17, fontWeight: 600 }}>
               Start the $499 SEO audit
               <ArrowIcon size={16} />
             </a>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <div className="max-md:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               <Link href="/#contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
                 Tell me what&apos;s stuck
               </Link>
@@ -762,22 +762,22 @@ export default function SeoPage() {
                 Email me
               </a>
             </div>
-            <span style={{ paddingTop: 8, fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
+            <span className="max-md:!text-center" style={{ paddingTop: 8, fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
           </div>
         </div>
       </section>
 
       {/* RELATED */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <h2 style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>SEO rarely works alone</h2>
+        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>SEO rarely works alone</h2>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
           {RELATED.map((r, i) => (
-            <a key={r.t} href={r.href} style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
               <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>
-              <span style={{ fontSize: 15, lineHeight: 1.5, color: "#5A5854" }}>{r.d}</span>
+              <span className="max-md:!text-base" style={{ fontSize: 15, lineHeight: 1.5, color: "#5A5854" }}>{r.d}</span>
             </a>
           ))}
         </div>

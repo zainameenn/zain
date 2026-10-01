@@ -38,6 +38,7 @@ export default function BlogPage() {
       </p>
       <Link
         href="/"
+        className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!mx-auto"
         style={{
           marginTop: 32,
           display: "inline-flex",

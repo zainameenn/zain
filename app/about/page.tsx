@@ -28,7 +28,7 @@ function CenteredHead({ eyebrow, title, sub }: { eyebrow: string; title: React.R
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 40px", maxWidth: 900 }}>
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>{title}</h2>
+      <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>{title}</h2>
       {sub && <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>{sub}</p>}
     </div>
   );
@@ -205,8 +205,8 @@ export default function AboutPage() {
         <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
           I&apos;m a growth marketer from Lahore, working with SaaS and service businesses in the US, UAE and Europe. I started as a writer, ran a sales floor, then spent years figuring out why good products don&apos;t grow. Now I find that reason and fix it myself.
         </p>
-        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-          <a href="#resume" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px]">
+          <a href="#resume" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
             Download resume
           </a>
         </div>
@@ -232,7 +232,7 @@ export default function AboutPage() {
       </section>
 
       {/* MY STORY */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="My story"
           title={
@@ -250,14 +250,14 @@ export default function AboutPage() {
               <span aria-hidden="true" style={{ position: "absolute", top: -6, left: "calc(50% - 5.5px)", width: 11, height: 11, borderRadius: "50%", background: s.accent ? "#C4A47C" : "#1C1C1C", boxShadow: "0 0 0 4px #EEEDE7" }} />
               <div style={{ fontSize: 12, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{s.n}</div>
               <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans'", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.t}</h3>
-              <p style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "#4E4C48" }}>{s.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "#4E4C48" }}>{s.d}</p>
             </li>
           ))}
         </ol>
       </section>
 
       {/* GROWTH PATH */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(40px,5vw,64px) clamp(20px,3vw,48px)" }}>
           <CenteredHead
             eyebrow="How I got into growth"
@@ -297,7 +297,7 @@ export default function AboutPage() {
                   )}
                 </div>
                 <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
-                <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: p.dark ? "#C9C4BA" : "#4E4C48" }}>{p.d}</p>
+                <p className="max-md:!text-base" style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: p.dark ? "#C9C4BA" : "#4E4C48" }}>{p.d}</p>
               </li>
             ))}
           </ol>
@@ -305,7 +305,7 @@ export default function AboutPage() {
       </section>
 
       {/* LESSONS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="Lessons"
           title={
@@ -322,14 +322,14 @@ export default function AboutPage() {
             <div key={l.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{l.n}</div>
               <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{l.t}</h3>
-              <p style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{l.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{l.d}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* COMPANIES */}
-      <section style={{ padding: "clamp(88px,8vw,112px) 0 0" }}>
+      <section className="max-md:!pt-20" style={{ padding: "clamp(88px,8vw,112px) 0 0" }}>
         <div style={{ padding: `0 ${PAD}` }}>
           <CenteredHead
             eyebrow="Companies"
@@ -343,6 +343,7 @@ export default function AboutPage() {
           />
         </div>
         <div
+          className="max-md:![-webkit-mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)] max-md:![mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)]"
           style={{
             background: "#EEEDE7",
             overflow: "hidden",
@@ -367,7 +368,7 @@ export default function AboutPage() {
       </section>
 
       {/* CASES */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="Selected work"
           title={
@@ -408,7 +409,7 @@ export default function AboutPage() {
       </section>
 
       {/* SKILLS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="Skills"
           title={
@@ -438,7 +439,7 @@ export default function AboutPage() {
       </section>
 
       {/* TOOLS */}
-      <section style={{ padding: "clamp(88px,8vw,112px) 0 0" }}>
+      <section className="max-md:!pt-20" style={{ padding: "clamp(88px,8vw,112px) 0 0" }}>
         <div style={{ padding: `0 ${PAD}` }}>
           <CenteredHead
             eyebrow="Tools"
@@ -451,6 +452,7 @@ export default function AboutPage() {
           />
         </div>
         <div
+          className="max-md:![-webkit-mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)] max-md:![mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)]"
           style={{
             overflow: "hidden",
             background: "#F8F6F4",
@@ -473,7 +475,7 @@ export default function AboutPage() {
       </section>
 
       {/* PHILOSOPHY */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="How I think about marketing"
           title={
@@ -505,14 +507,14 @@ export default function AboutPage() {
           {PHILOSOPHY_CARDS.map((c) => (
             <div key={c.t} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{c.t}</h3>
-              <p style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* HOW I WORK */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="Working together"
           title={
@@ -529,18 +531,18 @@ export default function AboutPage() {
             <div key={w.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{w.n}</div>
               <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{w.t}</h3>
-              <p style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{w.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{w.d}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* CLIENT PROOF */}
-      <section id="reviews" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
+      <section id="reviews" className="max-md:!mt-20" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(80px,8vw,104px) ${PAD} 0` }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto", maxWidth: 900 }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client proof</div>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               What people say
               <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>about working with me.</em>
             </h2>
@@ -548,6 +550,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div
+          className="max-md:![-webkit-mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)] max-md:![mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)]"
           style={{
             marginTop: "clamp(40px,4vw,56px)",
             overflowX: "auto",
@@ -562,12 +565,12 @@ export default function AboutPage() {
               <figure key={r.name} style={{ flex: "0 0 auto", width: "clamp(300px,26vw,380px)", margin: "0 16px 0 0", borderRadius: 20, background: r.bg, color: "#1C1C1C", padding: "clamp(24px,2.2vw,32px)", display: "flex", flexDirection: "column", gap: 20, scrollSnapAlign: "center" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
                   <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9A7646" }}>{r.srcLabel}</span>
-                  <a href={r.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, color: "#5A5854", borderBottom: "1px solid #CFCBC2" }}>
+                  <a href={r.link} target="_blank" rel="noopener noreferrer" className="max-md:!whitespace-nowrap max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontSize: 12.5, color: "#5A5854", borderBottom: "1px solid #CFCBC2" }}>
                     View original ↗
                   </a>
                 </div>
                 <blockquote style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 500, fontSize: 16.5, lineHeight: 1.4, letterSpacing: "-0.01em", flex: 1 }}>&quot;{r.q}&quot;</blockquote>
-                <figcaption style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 16, borderTop: "1px solid #DAD6CC" }}>
+                <figcaption className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 16, borderTop: "1px solid #DAD6CC" }}>
                   {r.avatar ? (
                     <img loading="lazy" src={r.avatar} alt={r.name} style={{ width: 44, height: 44, borderRadius: "50%", flex: "0 0 auto", objectFit: "cover" }} />
                   ) : (
@@ -587,23 +590,23 @@ export default function AboutPage() {
       </section>
 
       {/* PERSONAL */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(40px,5vw,72px) clamp(24px,4vw,64px)", display: "grid", gap: "40px clamp(32px,5vw,72px)", alignItems: "stretch" }} className="md:!grid-cols-2">
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 32 }}>
-            <div>
+            <div className="max-md:!text-center">
               <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Outside the dashboard</div>
-              <h2 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+              <h2 className="max-md:!text-balance" style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
                 There&apos;s a person
                 <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>behind the dashboards.</em>
               </h2>
-              <p style={{ margin: "18px 0 0", maxWidth: 420, fontSize: 16.5, lineHeight: 1.6, color: "#B7B2A8" }}>A few things that have nothing to do with click through rates.</p>
+              <p className="max-md:!mx-auto" style={{ margin: "18px 0 0", maxWidth: 420, fontSize: 16.5, lineHeight: 1.6, color: "#B7B2A8" }}>A few things that have nothing to do with click through rates.</p>
             </div>
             <figure style={{ margin: 0, padding: 28, borderRadius: 20, background: "#262523", border: "1px solid #3A3935" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <span style={{ fontFamily: "'General Sans'", fontSize: 13, fontWeight: 600, color: "#1C1C1C", background: "#D3AE82", borderRadius: 999, height: 28, padding: "0 12px", display: "inline-flex", alignItems: "center" }}>01</span>
                 <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Gamer with a serious backlog</h3>
               </div>
-              <p style={{ margin: "14px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#C9C4BA" }}>Resident Evil is my all time favorite. Right now I&apos;m rotating between Sekiro, Elden Ring and Black Myth: Wukong.</p>
+              <p className="max-md:!text-base" style={{ margin: "14px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#C9C4BA" }}>Resident Evil is my all time favorite. Right now I&apos;m rotating between Sekiro, Elden Ring and Black Myth: Wukong.</p>
               <blockquote style={{ margin: "18px 0 0", paddingTop: 18, borderTop: "1px solid #3A3935", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.2, color: "#F2EFEA" }}>
                 &ldquo;Dying to the same boss 40 times turns out to be great training for Google algorithm updates.&rdquo;
               </blockquote>
@@ -615,7 +618,7 @@ export default function AboutPage() {
                 <span style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 40, lineHeight: 1, color: "#D3AE82" }}>{p.n}</span>
                 <div>
                   <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
-                  <p style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>{p.d}</p>
+                  <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>{p.d}</p>
                 </div>
               </li>
             ))}
@@ -624,7 +627,7 @@ export default function AboutPage() {
       </section>
 
       {/* RESUME */}
-      <section id="resume" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section id="resume" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="Resume"
           title={
@@ -641,8 +644,8 @@ export default function AboutPage() {
             <div key={i} style={{ display: "flex", flexDirection: "column", gap: 6, padding: "20px 0", borderBottom: "1px solid #DDDAD3" }} className="md:!grid md:!grid-cols-[minmax(0,260px)_minmax(0,1fr)_140px] md:!gap-x-6 md:!items-baseline">
               <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 18, fontWeight: 600, letterSpacing: "-0.015em" }}>{r.org}</h3>
               <div>
-                <div style={{ fontSize: 15.5, fontWeight: 500, color: "#1C1C1C" }}>{r.role}</div>
-                {r.desc && <p style={{ margin: "4px 0 0", fontSize: 14.5, lineHeight: 1.55, color: "#5A5854" }}>{r.desc}</p>}
+                <div className="max-md:!text-base" style={{ fontSize: 15.5, fontWeight: 500, color: "#1C1C1C" }}>{r.role}</div>
+                {r.desc && <p className="max-md:!text-base" style={{ margin: "4px 0 0", fontSize: 14.5, lineHeight: 1.55, color: "#5A5854" }}>{r.desc}</p>}
               </div>
               <span style={{ fontSize: 13.5, color: "#77746E", whiteSpace: "nowrap", fontVariantNumeric: "tabular-nums" }} className="md:!text-right">
                 {r.range}
@@ -659,7 +662,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div style={{ marginTop: 36, display: "flex", flexDirection: "column", alignItems: "center", gap: 12, textAlign: "center" }}>
-          <a href="#resume-pdf" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+          <a href="#resume-pdf" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
             Download resume
             <ArrowIcon />
           </a>
@@ -667,7 +670,7 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenteredHead
           eyebrow="FAQ"
           title={
@@ -683,7 +686,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
+      <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <h2 style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>That&apos;s the story.</h2>
           <p style={{ margin: "12px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.1, color: "#D3AE82" }}>
@@ -692,12 +695,12 @@ export default function AboutPage() {
           <p style={{ margin: "24px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
             What are you growing, and what&apos;s getting in the way? I&apos;ll tell you where I&apos;d start. I only take two clients at a time, so the sooner the better.
           </p>
-          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col">
+            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener noreferrer" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
               Book a free call
               <ArrowIcon />
             </a>
-            <a href="mailto:hello@zainameen.com" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #3A3935", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
+            <a href="mailto:hello@zainameen.com" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #3A3935", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
               Send me an email
             </a>
           </div>

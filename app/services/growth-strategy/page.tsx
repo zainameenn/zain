@@ -30,17 +30,17 @@ function LightPill({ children }: { children: React.ReactNode }) {
 }
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>{children}</div>;
+  return <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>{children}</div>;
 }
 
 function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: React.ReactNode; sub: React.ReactNode; dark?: boolean }) {
   return (
-    <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 40 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+    <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 40 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
       <div>
         <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#9C978D" : "#8B877F" }}>{eyebrow}</div>
-        <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
       </div>
-      <div style={{ paddingBottom: 4, maxWidth: 460 }}>
+      <div className="max-md:!mx-auto" style={{ paddingBottom: 4, maxWidth: 460 }}>
         <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: dark ? "#B7B2A8" : "#4E4C48" }}>{sub}</p>
       </div>
     </div>
@@ -145,27 +145,27 @@ export default function GrowthStrategyPage() {
     <main id="top" style={{ overflowX: "clip" }}>
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(40px,5vw,64px) ${PAD} 48px`, display: "grid", gap: "40px 56px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
-        <div style={{ minWidth: 0 }}>
-          <h1 style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-            <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+        <div style={{ minWidth: 0 }} className="max-md:!text-center">
+          <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
+            <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
             Growth strategy and GTM consultant for SaaS and service businesses
           </h1>
-          <p style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(36px,4.4vw,58px)", lineHeight: 1.05, letterSpacing: "-0.035em" }}>
+          <p className="max-md:!mx-auto max-md:!text-balance" style={{ margin: "20px 0 0", maxWidth: 640, fontFamily: "'General Sans'", fontWeight: 500, fontSize: "clamp(36px,4.4vw,58px)", lineHeight: 1.05, letterSpacing: "-0.035em" }}>
             You don&apos;t need every channel.
             <span style={{ display: "block", marginTop: ".12em" }}>
               You need the right <Emphasis>problem fixed first.</Emphasis>
             </span>
           </p>
-          <p style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
             I look at your whole growth system, from positioning to retention, find the one thing actually holding it back, and build the plan around that.
           </p>
-          <p style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>Then I help execute it, because a plan nobody runs is just a nice PDF.</p>
-          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }}>
-            <a href="#pricing" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>Then I help execute it, because a plan nobody runs is just a nice PDF.</p>
+          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col">
+            <a href="#pricing" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
               Start with the $499 audit
               <ArrowIcon />
             </a>
-            <a href="#work" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+            <a href="#work" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
               See the results ↓
             </a>
           </div>
@@ -179,28 +179,28 @@ export default function GrowthStrategyPage() {
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `0 ${PAD}` }}>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="!grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s, i) => (
-            <div key={s.l} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
+            <div key={s.l} className={`max-md:!text-center max-sm:!px-2 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
               <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(40px,3.8vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
               <div style={{ marginTop: 14, fontSize: 15, fontWeight: 600 }}>{s.l}</div>
               <div style={{ marginTop: 4, fontSize: 13.5, color: "#77746E" }}>{s.sub}</div>
             </div>
           ))}
         </div>
-        <p style={{ margin: "14px 0 0", fontSize: 13.5, color: "#77746E" }}>Strategy built from doing the work, not just talking about it.</p>
+        <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13.5, color: "#77746E" }}>Strategy built from doing the work, not just talking about it.</p>
       </section>
 
       {/* PROBLEM */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "40px 64px", alignItems: "start" }} className="md:!grid-cols-2">
           <div>
             <Eyebrow>The problem</Eyebrow>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
               More marketing
               <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em" }}>
                 <Emphasis>isn&apos;t a strategy.</Emphasis>
               </em>
             </h2>
-            <p style={{ margin: "18px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,26px)", lineHeight: 1.25, color: "#6B6862", maxWidth: 460 }}>
+            <p className="max-md:!mx-auto max-md:!text-center max-md:!text-balance" style={{ margin: "18px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,26px)", lineHeight: 1.25, color: "#6B6862", maxWidth: 460 }}>
               It&apos;s usually just a more expensive way to stay stuck.
             </p>
             <p style={{ margin: "24px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>
@@ -213,10 +213,10 @@ export default function GrowthStrategyPage() {
           <div style={{ minWidth: 0 }}>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #1C1C1C" }}>
               {SYMPTOMS.map((s) => (
-                <li key={s.n} style={{ display: "grid", gridTemplateColumns: "40px minmax(0,150px) minmax(0,1fr)", gap: "4px 16px", alignItems: "baseline", padding: "20px 0", borderBottom: "1px solid #DDDAD3" }}>
+                <li key={s.n} className="max-sm:!grid-cols-[40px_minmax(0,1fr)]" style={{ display: "grid", gridTemplateColumns: "40px minmax(0,150px) minmax(0,1fr)", gap: "4px 16px", alignItems: "baseline", padding: "20px 0", borderBottom: "1px solid #DDDAD3" }}>
                   <span style={{ fontSize: 12.5, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
                   <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase" }}>{s.k}</span>
-                  <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 500, letterSpacing: "-0.01em", lineHeight: 1.3 }}>{s.d}</span>
+                  <span className="max-sm:!col-start-2" style={{ fontFamily: "'General Sans'", fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 500, letterSpacing: "-0.01em", lineHeight: 1.3 }}>{s.d}</span>
                 </li>
               ))}
             </ul>
@@ -230,14 +230,14 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* SIX PARTS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="What growth involves" title={<>Growth has <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>six parts.</em></>} sub="A weak one drags down the other five." />
         <div style={{ display: "grid", gap: 20 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
           {SIX_PARTS.map((p) => (
             <div key={p.n} style={{ minWidth: 0, borderRadius: 22, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: 26, display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
               <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(21px,1.8vw,25px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
-              <p style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#4E4C48" }}>{p.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#4E4C48" }}>{p.d}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
                 {p.tags.map((tag) => (
                   <Pill key={tag}>{tag}</Pill>
@@ -252,7 +252,7 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* DARK: BOTTLENECK TO SYSTEM */}
-      <section style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
+      <section className="max-md:!mt-20" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,6vw,88px) ${PAD} clamp(56px,5vw,72px)` }}>
           <SectionHead
             dark
@@ -266,7 +266,7 @@ export default function GrowthStrategyPage() {
                 <li key={s.n} style={{ minWidth: 0, paddingTop: 16, borderTop: `2px solid ${i === SYSTEM_STEPS.length - 1 ? "#C4A47C" : "rgba(255,255,255,.3)"}` }}>
                   <span style={{ fontSize: 12, fontWeight: 600, color: "#D3AE82", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
                   <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{s.t}</h3>
-                  <p style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#B7B2A8" }}>{s.d}</p>
+                  <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#B7B2A8" }}>{s.d}</p>
                 </li>
               ))}
             </ol>
@@ -276,11 +276,11 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* CONSTRAINT MAP */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="The whole system" title={<>I check the whole system<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>before recommending anything.</em></>} sub="If I only looked at SEO, I'd only ever recommend SEO." />
         <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(20px,3vw,40px) clamp(12px,2vw,28px) clamp(24px,3vw,36px)" }}>
           <img loading="lazy" src="/assets/pages/growth-strategy/06-constraint-map__nine-stage-system.png" alt="Growth system: market, ICP, positioning, offer, channel, landing page, activation, retention and revenue as nine connected stages, with a magnifier on the weak points" style={{ display: "block", width: "100%", height: "auto" }} />
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "8px 16px", marginTop: 20 }}>
+          <div className="max-md:!justify-center" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "8px 16px", marginTop: 20 }}>
             {STAGES.map((s, i) => (
               <span key={s} style={{ fontFamily: "'General Sans'", fontSize: 14.5, fontWeight: 600, letterSpacing: "-0.01em", color: i === STAGES.length - 1 ? "#9A7646" : "#1C1C1C" }}>
                 {s}
@@ -290,7 +290,7 @@ export default function GrowthStrategyPage() {
         </div>
         <div style={{ marginTop: 28, display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {SYMPTOM_QUOTES.map((s, i) => (
-            <div key={s.q} style={{ minWidth: 0, padding: `20px ${i ? 0 : 24}px 22px 0`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <div key={s.q} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `20px ${i ? 0 : 24}px 22px 0`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
               <p style={{ margin: 0, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 20, lineHeight: 1.25 }}>{s.q}</p>
               <p style={{ margin: "10px 0 0", fontSize: 11.5, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "#9A7646" }}>{s.to}</p>
             </div>
@@ -302,7 +302,7 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* WORK */}
-      <section id="work" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section id="work" className="max-md:!pt-20 max-md:[&_.grid-cols-2>div]:!text-center max-md:[&_.grid-cols-1>div]:!text-center max-sm:[&_.grid-cols-2>div]:!px-2 max-sm:[&_.grid-cols-2>div:nth-child(odd)]:!border-l-0 max-sm:[&_.grid-cols-2>div:nth-child(n+3)]:![border-top:1px_solid_rgba(128,128,128,.3)] max-sm:[&_.grid-cols-1>div]:!border-l-0 max-sm:[&_.grid-cols-1>div]:!px-0 max-sm:[&_.grid-cols-1>div+div]:![border-top:1px_solid_rgba(128,128,128,.3)] max-md:[&_p[style*='font-size:15.5px']]:!text-base" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Selected growth work" title={<>Growth work that<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>had to earn its place.</em></>} sub="Every number below comes from a real screenshot." />
         <div style={{ display: "flex", flexDirection: "column", gap: "clamp(56px,6vw,80px)" }}>
           {/* Blainy */}
@@ -557,11 +557,11 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* LEAVE WITH */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Deliverables" title={<>Strategy you can<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>actually use.</em></>} sub="Not a 60-slide deck. A plan with an order to it." />
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
           {LEAVE_WITH.map((c, i) => (
-            <div key={c.n} style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 32px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 32px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646" }}>{c.n}</span>
               <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.025em" }}>{c.t}</h3>
               <ul style={{ margin: "20px 0 0", padding: 0, listStyle: "none" }}>
@@ -578,7 +578,7 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* 30 60 90 */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Roadmap" title={<>What the first 90 days<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>usually look like.</em></>} sub="" />
         <div style={{ display: "grid", gap: 20 }} className="grid-cols-1 sm:!grid-cols-3">
           {ROADMAP.map((r) => (
@@ -591,7 +591,7 @@ export default function GrowthStrategyPage() {
               <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>{r.t}</h3>
               <ul style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
                 {r.items.map((it) => (
-                  <li key={it} style={{ padding: "10px 0", borderTop: `1px solid ${r.dark ? "rgba(255,255,255,.14)" : "#E6E1D8"}`, fontSize: 15.5, lineHeight: 1.45, color: r.dark ? "#C9C4BA" : "#4E4C48" }}>
+                  <li key={it} style={{ padding: "10px 0", borderTop: `1px solid ${r.dark ? "rgba(255,255,255,.14)" : "#E6E1D8"}`, fontSize: 15.5, lineHeight: 1.45, color: r.dark ? "#C9C4BA" : "#4E4C48" }} className="max-md:!text-base">
                     {it}
                   </li>
                 ))}
@@ -602,8 +602,8 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* PRIORITIZE */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 36 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+        <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 36 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
           <div>
             <Eyebrow>How I prioritize</Eyebrow>
             <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
@@ -613,7 +613,7 @@ export default function GrowthStrategyPage() {
           </div>
           <div style={{ paddingBottom: 4 }}>
             <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#4E4C48" }}>Every idea gets three questions.</p>
-            <div style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 14px", fontFamily: "'General Sans'", fontSize: 19, fontWeight: 600 }}>
+            <div className="max-md:!justify-center" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 14px", fontFamily: "'General Sans'", fontSize: 19, fontWeight: 600 }}>
               {["Impact", "Confidence", "Effort"].map((t, i) => (
                 <span key={t} style={{ display: "inline-flex", alignItems: "baseline", gap: 8 }}>
                   <span style={{ fontFamily: "'Geist','Inter'", fontSize: 11.5, color: "#9A7646" }}>{String(i + 1).padStart(2, "0")}</span>
@@ -625,7 +625,7 @@ export default function GrowthStrategyPage() {
         </div>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
           {PRIORITIZE.map((c, i) => (
-            <div key={c.n} style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 30px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 30px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: c.dim ? "#A09B91" : "#9A7646" }}>
                 <span style={{ width: 8, height: 8, borderRadius: "50%", background: i === 0 ? "#1C1C1C" : i === 1 ? "#C4A47C" : "transparent", border: c.dim ? "1.5px solid #CFCBC2" : "1.5px solid transparent" }} />
                 {c.n}
@@ -644,9 +644,9 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* PROCESS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <Eyebrow>Process</Eyebrow>
-        <h2 style={{ margin: "16px 0 24px", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
+        <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 24px", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
           Five steps.
           <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>No strategy that dies in a folder.</em>
         </h2>
@@ -656,7 +656,7 @@ export default function GrowthStrategyPage() {
               <li key={s.n} style={{ minWidth: 0, display: "grid", gridTemplateColumns: "44px minmax(0,1fr)", gap: "2px 12px", padding: "18px 0", borderTop: `1px solid ${i === PROCESS_STEPS.length - 1 ? "#C4A47C" : "#1C1C1C"}` }}>
                 <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646" }}>{s.n}</span>
                 <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(21px,1.9vw,25px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
-                <p style={{ gridColumn: 2, margin: "4px 0 0", fontSize: 15.5, lineHeight: 1.5, color: "#4E4C48" }}>{s.d}</p>
+                <p className="max-md:!text-base" style={{ gridColumn: 2, margin: "4px 0 0", fontSize: 15.5, lineHeight: 1.5, color: "#4E4C48" }}>{s.d}</p>
               </li>
             ))}
           </ol>
@@ -665,49 +665,49 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section id="pricing" className="max-md:!pt-12" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Pricing" title={<>Start with the diagnosis.<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>Then decide.</em></>} sub="Most clients begin with the audit. You leave knowing what is wrong and what to do next, whether or not we keep working together." />
         <div style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #D9CBB6", padding: "clamp(24px,3.4vw,48px)" }}>
           <div style={{ display: "grid", gap: "32px 56px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>
+            <div className="max-md:!text-center">
+              <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
                 01 · DIAGNOSE · THE FIRST STEP
               </div>
               <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(32px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Growth audit</h3>
-              <p style={{ margin: "14px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 520 }}>
+              <p className="max-md:!mx-auto" style={{ margin: "14px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 520 }}>
                 Not a list of marketing ideas. I review your business as it exists today, the whole growth system, and find what is actually holding it back.
               </p>
               <div style={{ marginTop: 24, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>WHAT I REVIEW</div>
-              <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2">
+              <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2 max-md:!text-left">
                 {AUDIT_REVIEW.map((it) => (
-                  <li key={it} style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4 }}>
+                  <li key={it} className="max-md:!text-base" style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4 }}>
                     <span style={{ width: 5, height: 5, marginTop: ".5em", borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
                     {it}
                   </li>
                 ))}
               </ul>
               <div style={{ marginTop: 24, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>WHAT YOU RECEIVE</div>
-              <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2">
+              <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2 max-md:!text-left">
                 {AUDIT_RECEIVE.map((it) => (
-                  <li key={it} style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4, fontWeight: 500 }}>
+                  <li key={it} className="max-md:!text-base" style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4, fontWeight: 500 }}>
                     <span style={{ fontSize: 12, color: "#9A7646" }}>✓</span>
                     {it}
                   </li>
                 ))}
               </ul>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 18 }} className="md:!pl-14 md:!border-l md:!border-[#D9CBB6]">
+            <div style={{ display: "flex", flexDirection: "column", gap: 18 }} className="md:!pl-14 md:!border-l md:!border-[#D9CBB6] max-md:!text-center">
               <div>
                 <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(56px,5.6vw,76px)", fontWeight: 600, letterSpacing: "-0.045em", lineHeight: 1 }}>$499</span>
                 <span style={{ marginLeft: 10, fontSize: 15, color: "#77746E" }}>one time</span>
               </div>
-              <a href="#contact" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+              <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
                 Start the growth audit
                 <ArrowIcon />
               </a>
               <div style={{ marginTop: 8, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>YOU LEAVE KNOWING</div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              <div className="max-md:!justify-center" style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {["What's wrong", "What matters", "What to fix first", "What to do next"].map((t) => (
                   <Pill key={t}>{t}</Pill>
                 ))}
@@ -715,20 +715,20 @@ export default function GrowthStrategyPage() {
             </div>
           </div>
         </div>
-        <div style={{ marginTop: 20, borderRadius: 24, background: "#171717", color: "#F2EFEA", padding: "clamp(28px,3.4vw,44px)", display: "grid", gap: "28px 48px", alignItems: "center" }} className="sm:!grid-cols-2">
+        <div style={{ marginTop: 20, borderRadius: 24, background: "#171717", color: "#F2EFEA", padding: "clamp(28px,3.4vw,44px)", display: "grid", gap: "28px 48px", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
           <div>
             <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>02 · THEN EXECUTE · EVERYTHING, HANDLED</div>
-            <div style={{ marginTop: 12, display: "flex", alignItems: "baseline", gap: 10 }}>
+            <div className="max-sm:!justify-center" style={{ marginTop: 12, display: "flex", alignItems: "baseline", gap: 10 }}>
               <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(44px,4.4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
               <span style={{ color: "#9C978D" }}>per month</span>
             </div>
-            <p style={{ margin: "12px 0 0", color: "#C9C4BA", maxWidth: 460, lineHeight: 1.55 }}>Strategy plus execution across SEO, Reddit, social media, content and design.</p>
+            <p className="max-sm:!mx-auto" style={{ margin: "12px 0 0", color: "#C9C4BA", maxWidth: 460, lineHeight: 1.55 }}>Strategy plus execution across SEO, Reddit, social media, content and design.</p>
             <p style={{ margin: "8px 0 0", color: "#F2EFEA", fontWeight: 500 }}>One person. One plan. One invoice.</p>
           </div>
           <div className="sm:!pl-12 sm:!border-l sm:!border-[#33322F]">
             <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Running ads too?</h3>
-            <p style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.55, color: "#B7B2A8" }}>Ads management can be added separately.</p>
-            <a href="#contact" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 12, height: 48, padding: "0 22px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15, fontWeight: 600 }}>
+            <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.55, color: "#B7B2A8" }}>Ads management can be added separately.</p>
+            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 12, height: 48, padding: "0 22px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15, fontWeight: 600 }}>
               Tell me what&apos;s stuck
               <ArrowIcon />
             </a>
@@ -737,9 +737,9 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* FIT */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
-          <div>
+          <div className="max-md:!text-center">
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Who it&apos;s for</div>
             <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Growth strategy
@@ -775,15 +775,15 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0`, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.58fr)_minmax(0,1fr)]">
-        <div>
+      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0`, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.58fr)_minmax(0,1fr)] max-md:!pt-20">
+        <div className="max-md:!text-center">
           <Eyebrow>FAQ</Eyebrow>
           <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             Growth questions,
             <br />
             <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
           </h2>
-          <div style={{ marginTop: 32, width: "100%", maxWidth: 420 }}>
+          <div className="max-md:!mx-auto" style={{ marginTop: 32, width: "100%", maxWidth: 420 }}>
             <img loading="lazy" src="/assets/pages/growth-strategy/14-faq__growth-questions.png" alt="Illustration: growth questions answered and checked off, on a path toward a target" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
@@ -791,23 +791,23 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* CTA */}
-      <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
+      <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
-          <div>
-            <h2 style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Not sure what&apos;s holding growth back?</h2>
+          <div className="max-md:!text-center">
+            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Not sure what&apos;s holding growth back?</h2>
             <p style={{ margin: "14px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
               <Emphasis>That&apos;s exactly where I start.</Emphasis>
             </p>
-            <p style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+            <p className="max-md:!mx-auto" style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
               Tell me what you&apos;re growing, what&apos;s happening now and what you&apos;ve already tried. I&apos;ll look at the system and tell you where I&apos;d start first.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div className="max-md:!mx-auto max-md:!w-full max-md:!max-w-[400px]" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <a href="#pricing" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 17, fontWeight: 600 }}>
               Start with the $499 audit
               <ArrowIcon size={16} />
             </a>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <div className="max-md:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               <Link href="/#contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
                 Tell me what&apos;s stuck
               </Link>
@@ -815,22 +815,22 @@ export default function GrowthStrategyPage() {
                 Email me
               </a>
             </div>
-            <span style={{ paddingTop: 8, fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
+            <span className="max-md:!text-center" style={{ paddingTop: 8, fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
           </div>
         </div>
       </section>
 
       {/* RELATED */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <h2 style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Where the strategy gets executed</h2>
+        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Where the strategy gets executed</h2>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {RELATED.map((r, i) => (
-            <a key={r.t} href={r.href} style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
               <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>
-              <span style={{ fontSize: 15, lineHeight: 1.5, color: "#5A5854" }}>{r.d}</span>
+              <span className="max-md:!text-base" style={{ fontSize: 15, lineHeight: 1.5, color: "#5A5854" }}>{r.d}</span>
             </a>
           ))}
         </div>

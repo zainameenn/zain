@@ -26,9 +26,9 @@ export default function Hero() {
       }}
       className="!grid-cols-1 md:!grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)]"
     >
-      <div style={{ minWidth: 0 }}>
-        <h1 style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
-          <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+      <div style={{ minWidth: 0 }} className="max-md:!text-center">
+        <h1 className="max-md:!block max-md:!text-balance" style={{ margin: 0, display: "flex", alignItems: "center", gap: 10, fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#5A5854" }}>
+          <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
           Growth marketing specialist for SaaS and service businesses
         </h1>
         <p
@@ -42,7 +42,7 @@ export default function Hero() {
             letterSpacing: "-0.035em",
           }}
         >
-          Marketing shouldn&apos;t feel like a{" "}
+          Marketing <br className="md:hidden" />shouldn&apos;t feel like a{" "}
           <span style={{ display: "block", marginTop: ".04em", fontSize: "1.1em", lineHeight: 0.95 }}>
             <span style={{ position: "relative", display: "inline-block" }}>
               <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "inherit" }}>
@@ -68,12 +68,13 @@ export default function Hero() {
             </span>
           </span>
         </p>
-        <p style={{ margin: "36px 0 0", maxWidth: 540, fontSize: 19, lineHeight: 1.55, color: "#4E4C48" }}>
+        <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "36px 0 0", maxWidth: 540, fontSize: 19, lineHeight: 1.55, color: "#4E4C48" }}>
           I find what&apos;s actually blocking your growth, then fix it myself. SEO, Reddit, social media, content, design and ads, handled by one person instead of five.
         </p>
-        <div style={{ marginTop: 36, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }}>
+        <div style={{ marginTop: 36, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }} className="max-md:!mx-auto max-md:!mt-8 max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
           <a
             href="#contact"
+            className="max-md:!justify-center"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
             style={{ display: "flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: ctaHover ? "#33322F" : "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600, transition: "background 180ms" }}
@@ -83,6 +84,7 @@ export default function Hero() {
           </a>
           <a
             href="#work"
+            className="max-md:!justify-center"
             onMouseEnter={() => setWorkHover(true)}
             onMouseLeave={() => setWorkHover(false)}
             style={{ display: "flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: `1px solid ${workHover ? "#1C1C1C" : "#CFCBC2"}`, background: workHover ? "#F8F6F4" : "transparent", fontSize: 16, fontWeight: 500, transition: "background 180ms,border-color 180ms" }}
@@ -91,8 +93,8 @@ export default function Hero() {
             <UpArrowIcon style={{ transform: workHover ? "translateY(3px)" : "none", transition: "transform 200ms" }} />
           </a>
         </div>
-        <p style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
-          <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+        <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
+          <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
           I usually reply within a couple of hours. No 60 minute discovery call.
         </p>
       </div>

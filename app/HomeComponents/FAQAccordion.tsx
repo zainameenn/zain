@@ -38,7 +38,7 @@ export function FAQAccordion({ faqs }: { faqs: [string, string[]][] }) {
               </span>
             </button>
             {isOpen && (
-              <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: "0 48px 28px 0", maxWidth: 720 }}>
+              <div className="max-md:!pr-0" style={{ display: "flex", flexDirection: "column", gap: 12, padding: "0 48px 28px 0", maxWidth: 720 }}>
                 {paras.map((p, j) => (
                   <p key={j} style={{ margin: 0, fontSize: 16, lineHeight: 1.65, color: "#4E4C48" }}>
                     {p}

@@ -31,7 +31,7 @@ export function ServiceCards() {
               className="lg:!grid lg:!grid-cols-[44px_minmax(0,1fr)_auto] lg:!gap-x-4 lg:!gap-y-2 lg:!items-baseline"
             >
               <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#9A7646" : "#8B877F", fontVariantNumeric: "tabular-nums" }}>{String(i + 1).padStart(2, "0")}</span>
-              <span style={{ display: "flex", flexDirection: "column", gap: 8, transform: on ? "translateX(6px)" : "none", transition: "transform 240ms cubic-bezier(.2,.7,.2,1)" }}>
+              <span className="max-md:!transform-none" style={{ display: "flex", flexDirection: "column", gap: 8, transform: on ? "translateX(6px)" : "none", transition: "transform 240ms cubic-bezier(.2,.7,.2,1)" }}>
                 <h2 className="lg:!whitespace-nowrap" style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(21px,1.8vw,26px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h2>
                 <span style={{ fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 520 }}>{s.d}</span>
               </span>

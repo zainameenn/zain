@@ -40,6 +40,7 @@ function CenterHead({
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: `0 auto ${marginBottom}px`, maxWidth }}>
       <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
       <h2
+        className="max-md:!text-balance"
         style={{
           margin: "12px 0 0",
           fontFamily: "'General Sans'",
@@ -209,17 +210,17 @@ export default function ContactPage() {
         <p style={{ margin: "32px 0 0", maxWidth: 620, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
           Tell me what you&apos;re working on, what isn&apos;t working, or where you&apos;re trying to get. I&apos;ll help you figure out the clearest next step, even if that step doesn&apos;t involve me.
         </p>
-        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-          <a href="#book" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+        <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col">
+          <a href="#book" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
             Book a free call
             <ArrowIcon />
           </a>
-          <a href="mailto:hello@zainameen.com" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+          <a href="mailto:hello@zainameen.com" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
             Send me an email
           </a>
         </div>
-        <p style={{ margin: "16px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
-          <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
+        <p className="max-md:!block" style={{ margin: "16px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
+          <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
           No sales script. No slide deck. I usually reply within a couple of hours.
         </p>
         <div style={{ width: "100%", maxWidth: 1040, margin: "clamp(12px,2vw,28px) auto 0" }}>
@@ -233,7 +234,7 @@ export default function ContactPage() {
       </section>
 
       {/* REACH */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Three ways" title={<>Pick whatever<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1.05 }}>feels easiest.</em></>} />
         <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16 }} className="md:!grid-cols-3">
           <ReachCard
@@ -265,19 +266,19 @@ export default function ContactPage() {
       </section>
 
       {/* BOOKING */}
-      <section id="book" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section id="book" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead
           eyebrow="Booking"
           title={<>Prefer talking it through?<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1.05 }}>Grab a coffee slot.</em></>}
           sub="Pick a time that works for you. The calendar shows your time zone automatically."
         />
         <div style={{ maxWidth: 960, margin: "0 auto", borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(14px,1.6vw,20px)" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "12px 24px", padding: "10px 12px 18px" }}>
+          <div className="max-md:!justify-center max-md:!text-center" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "12px 24px", padding: "10px 12px 18px" }}>
             <div style={{ minWidth: 0 }}>
               <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 Bring the problem. I&apos;ll bring the coffee.
               </h3>
-              <p style={{ margin: "6px 0 0", maxWidth: 560, fontSize: 14.5, lineHeight: 1.5, color: "#5A5854" }}>
+              <p className="max-md:!text-base" style={{ margin: "6px 0 0", maxWidth: 560, fontSize: 14.5, lineHeight: 1.5, color: "#5A5854" }}>
                 A free 30 minute call about whatever&apos;s stuck in your growth. Bring your website, your numbers or just the problem. You&apos;ll leave knowing what I&apos;d fix first, whether we work together or not.
               </p>
             </div>
@@ -296,11 +297,11 @@ export default function ContactPage() {
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "10px 20px", padding: "16px 8px 6px", fontSize: 14, color: "#5A5854" }}>
             <span>Calendar not loading?</span>
-            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener" style={{ fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
+            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
               Open Calendly
             </a>
             <span aria-hidden="true" style={{ color: "#C9B9A2" }}>·</span>
-            <a href="https://calendar.app.google/ca5LzpvMmXTPGXbR9" target="_blank" rel="noopener" style={{ fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
+            <a href="https://calendar.app.google/ca5LzpvMmXTPGXbR9" target="_blank" rel="noopener" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
               Book with Google Calendar
             </a>
           </div>
@@ -308,7 +309,7 @@ export default function ContactPage() {
       </section>
 
       {/* TOPICS */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead
           eyebrow="On the call"
           marginBottom={32}
@@ -321,7 +322,7 @@ export default function ContactPage() {
             </span>
           ))}
         </div>
-        <p style={{ margin: "22px 0 0", textAlign: "center", fontSize: 14.5, color: "#77746E" }}>
+        <p className="max-md:!text-base" style={{ margin: "22px 0 0", textAlign: "center", fontSize: 14.5, color: "#77746E" }}>
           That last one is the most common. It&apos;s also the most fun.
         </p>
         <div style={{ width: "100%", maxWidth: 900, margin: "clamp(8px,2vw,24px) auto 0" }}>
@@ -335,7 +336,7 @@ export default function ContactPage() {
       </section>
 
       {/* MESSY (dark) */}
-      <section style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
+      <section className="max-md:!mt-[72px]" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,6vw,88px) ${PAD}` }}>
           <CenterHead
             dark
@@ -357,7 +358,7 @@ export default function ContactPage() {
       </section>
 
       {/* FORM */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Contact form" title={<>Rather type it out?<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1.05 }}>That works too.</em></>} />
         <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px clamp(24px,3vw,40px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <div style={{ minWidth: 0, borderRadius: 28, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: "clamp(24px,3vw,40px)" }}>
@@ -368,7 +369,7 @@ export default function ContactPage() {
             <blockquote style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 500, lineHeight: 1.45, letterSpacing: "-0.01em" }}>
               &ldquo;He came in, got up to speed quick, and delivered what we needed without me having to micromanage. His communication is clean, turnaround time is solid, and he takes feedback well. Critically, he suggested how to approach things I didn&apos;t know that we needed to approach and the results were phenomenal.&rdquo;
             </blockquote>
-            <figcaption style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 18, borderTop: "1px solid #33322F" }}>
+            <figcaption className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 18, borderTop: "1px solid #33322F" }}>
               <span style={{ width: 44, height: 44, borderRadius: "50%", background: "#33322F", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 600 }}>C</span>
               <span>
                 <span style={{ display: "block", fontSize: 15, fontWeight: 600 }}>Cam</span>
@@ -380,7 +381,7 @@ export default function ContactPage() {
       </section>
 
       {/* NEXT */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Next steps" title={<>What happens<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1.05 }}>after you reach out?</em></>} />
         <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gridTemplateColumns: "1fr", gap: "32px 48px" }} className="md:!grid-cols-3">
           {NEXT_STEPS.map((s, i) => (
@@ -398,7 +399,7 @@ export default function ContactPage() {
       </section>
 
       {/* SOCIAL */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Elsewhere" marginBottom={24} title="I'm around." />
         <div style={{ width: "100%", maxWidth: 1100, margin: "0 auto 8px" }}>
           <img
@@ -436,7 +437,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="FAQ" title={<>Before you ask,<em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1.05 }}>you&apos;re probably wondering...</em></>} />
         <div style={{ maxWidth: 880, margin: "0 auto" }}>
           <FAQAccordion faqs={FAQS} />
@@ -444,7 +445,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA */}
-      <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
+      <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <h2 style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Still thinking about it?
@@ -455,16 +456,16 @@ export default function ContactPage() {
           <p style={{ margin: "24px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
             Worst case, I tell you I&apos;m not the right person and point you to someone who is. Best case, we find the thing that&apos;s been slowing you down.
           </p>
-          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col">
+            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
               Book a free call
               <ArrowIcon />
             </a>
-            <a href="mailto:hello@zainameen.com" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #3A3935", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
+            <a href="mailto:hello@zainameen.com" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #3A3935", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
               Send an email
             </a>
           </div>
-          <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noopener" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14.5, color: "#D3AE82", borderBottom: "1px solid #6B5A40", paddingBottom: 2 }}>
+          <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noopener" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14.5, color: "#D3AE82", borderBottom: "1px solid #6B5A40", paddingBottom: 2 }}>
             Or message me on LinkedIn
           </a>
         </div>
