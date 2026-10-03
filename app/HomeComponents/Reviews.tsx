@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BgImage } from "./Img";
 
 const MED = "clamp(300px,26vw,380px)";
 const BIG = "clamp(340px,34vw,500px)";
@@ -89,11 +90,11 @@ export default function Reviews() {
       >
         <div>
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client proof</div>
-          <h2 style={{ textWrap: "balance", margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ textWrap: "balance", margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             What people say after working with me.
           </h2>
         </div>
-        <p style={{ margin: "16px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#B7B2A8" }}>
+        <p style={{ margin: "16px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#B7B2A8" }}>
           Luckily, I don&apos;t have to write this part myself.
         </p>
       </div>
@@ -126,17 +127,17 @@ export default function Reviews() {
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9A7646" }}>
+                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>
                   {r.src === "Upwork" ? "Upwork ★ 5.0" : "LinkedIn recommendation"}
                 </span>
                 <a href={r.link} target="_blank" rel="noreferrer" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontSize: 12.5, color: "#5A5854", borderBottom: "1px solid #CFCBC2" }}>
                   View original ↗
                 </a>
               </div>
-              <blockquote style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 500, fontSize: r.fs, lineHeight: 1.4, letterSpacing: "-0.01em", flex: 1 }}>&quot;{r.q}&quot;</blockquote>
+              <blockquote style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: r.fs, lineHeight: 1.4, letterSpacing: "-0.01em", flex: 1 }}>&quot;{r.q}&quot;</blockquote>
               <figcaption className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 16, borderTop: "1px solid #DAD6CC" }}>
                 {r.img ? (
-                  <span role="img" aria-label={r.name} style={{ width: 44, height: 44, borderRadius: "50%", flex: "0 0 auto", backgroundImage: `url("${r.img}")`, backgroundSize: "cover", backgroundPosition: "center" }} />
+                  <BgImage src={r.img} alt={r.name} fit="cover" style={{ width: 44, height: 44, borderRadius: "50%", flex: "0 0 auto" }} />
                 ) : (
                   <span style={{ width: 44, height: 44, borderRadius: "50%", flex: "0 0 auto", background: "#DDD7CB", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 600 }}>{r.initials}</span>
                 )}

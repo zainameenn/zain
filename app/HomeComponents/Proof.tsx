@@ -47,23 +47,25 @@ export default function Proof() {
               minWidth: 0,
             }}
           >
-            <div className={m.mobile} style={{ fontFamily: "'General Sans'", fontSize: m.fs, fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{m.v}</div>
+            <div className={m.mobile} style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: m.fs, fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{m.v}</div>
             <div className="max-md:!mx-auto max-md:!text-balance" style={{ marginTop: 12, fontSize: 14.5, lineHeight: 1.4, color: "#5A5854", maxWidth: 220 }}>{m.l}</div>
             <span
-              className="max-md:!mx-auto"
+              className="max-md:!mx-auto max-md:!origin-center"
               style={{
                 display: "block",
                 marginTop: 16,
                 height: 2,
-                width: seen ? "40px" : "0px",
+                width: 40,
+                transform: seen ? "scaleX(1)" : "scaleX(0)",
+                transformOrigin: "left",
                 background: "#C4A47C",
-                transition: `width 700ms cubic-bezier(.3,.7,.2,1) ${i * 120}ms`,
+                transition: `transform 700ms cubic-bezier(.3,.7,.2,1) ${i * 120}ms`,
               }}
             />
           </div>
         ))}
       </div>
-      <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13, color: "#8B877F", textAlign: "right" }}>Across SaaS and service clients.</p>
+      <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13, color: "#6F6B64", textAlign: "right" }}>Across SaaS and service clients.</p>
     </section>
   );
 }

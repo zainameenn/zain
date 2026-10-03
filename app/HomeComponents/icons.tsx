@@ -74,7 +74,7 @@ export function Squiggle() {
 export function Emphasis({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return (
     <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
-      <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "inherit", ...style }}>{children}</em>
+      <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "inherit", ...style }}>{children}</em>
       <Squiggle />
     </span>
   );

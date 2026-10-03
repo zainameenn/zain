@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import { Geist, Inter, Instrument_Serif } from "next/font/google";
 import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
+
+const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-geist" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter" });
+const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", display: "swap", variable: "--nf-serif" });
+
+const FONTSHARE_CSS = "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap";
 
 export const metadata: Metadata = {
   authors: [{ name: "Zain Ul Abdin", url: "https://www.zainameen.com" }],
@@ -15,15 +22,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable}`}>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap"
+        {/* General Sans stays on Fontshare (its license doesn't allow it in a public repo). Added by script so it doesn't block the first paint. */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var l=document.createElement("link");l.rel="stylesheet";l.href=${JSON.stringify(FONTSHARE_CSS)};document.head.appendChild(l)})();`,
+          }}
         />
 
         {/* ✅ Structured Data (Person + Contact Info) */}
@@ -108,7 +115,7 @@ export default function RootLayout({
         </Script>
 
         {/* ✅ Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

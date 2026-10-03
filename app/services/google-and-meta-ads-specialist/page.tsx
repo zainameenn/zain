@@ -3,6 +3,7 @@ import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
+import { Img } from "../../HomeComponents/Img";
 
 export const metadata = buildMetadata({
   title: "Google and Meta Ads Specialist | Fix the Funnel First | Zain",
@@ -35,7 +36,7 @@ function LightPill({ children }: { children: React.ReactNode }) {
 /** Italic Instrument Serif, no hand-drawn underline, used for most heading emphasis on this page. */
 function ItalicInline({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return (
-    <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", ...style }}>
+    <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", ...style }}>
       {children}
     </em>
   );
@@ -43,7 +44,7 @@ function ItalicInline({ children, style }: { children: React.ReactNode; style?: 
 
 function ItalicBlock({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return (
-    <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, ...style }}>
+    <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, ...style }}>
       {children}
     </em>
   );
@@ -52,7 +53,7 @@ function ItalicBlock({ children, style }: { children: React.ReactNode; style?: R
 /** Block emphasis with the gold hand-drawn squiggle underneath, used only where the source page uses it. */
 function SquiggleBlock({ children, color }: { children: React.ReactNode; color?: string }) {
   return (
-    <em className="max-md:[&>span]:!whitespace-normal" style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", color }}>
+    <em className="max-md:[&>span]:!whitespace-normal" style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", color }}>
       <Emphasis>{children}</Emphasis>
     </em>
   );
@@ -61,8 +62,8 @@ function SquiggleBlock({ children, color }: { children: React.ReactNode; color?:
 function CenterHead({ eyebrow, title, sub, dark, mb = 40, max = 1000 }: { eyebrow: string; title: React.ReactNode; sub?: React.ReactNode; dark?: boolean; mb?: number; max?: number }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: `0 auto ${mb}px`, maxWidth: max }}>
-      <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#9C978D" : "#8B877F" }}>{eyebrow}</div>
-      <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+      <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#9C978D" : "#6F6B64" }}>{eyebrow}</div>
+      <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
       {sub ? <p style={{ margin: "20px 0 0", maxWidth: 600, fontSize: 17, lineHeight: 1.55, color: dark ? "#B7B2A8" : "#5A5854" }}>{sub}</p> : null}
     </div>
   );
@@ -76,7 +77,7 @@ function TrustItem({ path, t, d }: { path: string; t: string; d: string }) {
           <path d={path} stroke="#D3AE82" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </span>
-      <span style={{ fontFamily: "'General Sans'", fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.25 }}>{t}</span>
+      <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.25 }}>{t}</span>
       <span style={{ fontSize: 14, lineHeight: 1.45, color: "#5A5854" }}>{d}</span>
     </div>
   );
@@ -85,8 +86,8 @@ function TrustItem({ path, t, d }: { path: string; t: string; d: string }) {
 function NumRow({ n, children, big }: { n: string; children: React.ReactNode; big?: boolean }) {
   return (
     <li style={{ display: "grid", gridTemplateColumns: big ? "40px minmax(0,1fr)" : "auto minmax(0,1fr)", gap: big ? 16 : 12, alignItems: "baseline", padding: big ? "17px 0" : "12px 0", borderBottom: "1px solid #DDDAD3" }}>
-      <span style={{ fontSize: big ? 12.5 : 11.5, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{n}</span>
-      <span className={big ? undefined : "max-md:!text-base"} style={big ? { fontFamily: "'General Sans'", fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 500, letterSpacing: "-0.01em", lineHeight: 1.3 } : { fontSize: 15.5, lineHeight: 1.4 }}>{children}</span>
+      <span style={{ fontSize: big ? 12.5 : 11.5, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{n}</span>
+      <span className={big ? undefined : "max-md:!text-base"} style={big ? { fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 500, letterSpacing: "-0.01em", lineHeight: 1.3 } : { fontSize: 15.5, lineHeight: 1.4 }}>{children}</span>
     </li>
   );
 }
@@ -254,13 +255,13 @@ export default function GoogleMetaAdsPage() {
               See how I work ↓
             </a>
           </div>
-          <p className="max-md:!block" style={{ margin: "16px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
+          <p className="max-md:!block" style={{ margin: "16px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#6E6B66" }}>
             <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
             You own the ad account. Your spend goes straight to Google and Meta.
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
-          <img loading="lazy" src="/assets/pages/ads/01-hero__ad-spend-leaking-funnel.png" alt="Illustration: ad spend poured into a leaking pipe, losing coins at targeting, offer, landing page, tracking and funnel before reaching customers" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/pages/ads/01-hero__ad-spend-leaking-funnel.png" alt="Illustration: ad spend poured into a leaking pipe, losing coins at targeting, offer, landing page, tracking and funnel before reaching customers" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
         </figure>
       </section>
 
@@ -271,32 +272,32 @@ export default function GoogleMetaAdsPage() {
             <TrustItem key={s.t} path={s.path} t={s.t} d={s.d} />
           ))}
         </div>
-        <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13.5, color: "#77746E" }}>The boring stuff most wasted budgets skip.</p>
+        <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13.5, color: "#6E6B66" }}>The boring stuff most wasted budgets skip.</p>
       </section>
 
       {/* PROBLEM */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "40px 64px", alignItems: "start" }} className="md:!grid-cols-2">
           <div>
-            <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>The problem</div>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
+            <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>The problem</div>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
               More ad spend
               <SquiggleBlock>doesn&apos;t fix a broken funnel.</SquiggleBlock>
             </h2>
-            <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "18px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,26px)", lineHeight: 1.25, color: "#6B6862", maxWidth: 460 }}>
+            <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "18px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,26px)", lineHeight: 1.25, color: "#6B6862", maxWidth: 460 }}>
               It just makes the leak more expensive.
             </p>
             <p style={{ margin: "24px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>
               Most bad ad results aren&apos;t an ads problem. The campaigns are getting clicks, but something between the click and the customer is broken.
             </p>
-            <p style={{ margin: "32px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+            <p style={{ margin: "32px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
               Find the leak first.
               <br />
-              <ItalicInline style={{ color: "#9A7646" }}>Then spend the money.</ItalicInline>
+              <ItalicInline style={{ color: "#7D6039" }}>Then spend the money.</ItalicInline>
             </p>
           </div>
           <div style={{ minWidth: 0 }}>
-            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646", marginBottom: 12 }}>USUALLY ONE OF THESE</div>
+            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039", marginBottom: 12 }}>USUALLY ONE OF THESE</div>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #1C1C1C" }}>
               {PROBLEM_LIST.map((it, i) => (
                 <NumRow key={it} n={String(i + 1).padStart(2, "0")} big>
@@ -315,10 +316,10 @@ export default function GoogleMetaAdsPage() {
           {SIX_PARTS.map((p) => (
             <div key={p.n} style={{ minWidth: 0, borderRadius: 22, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: 26, display: "flex", flexDirection: "column" }}>
               <div style={{ marginBottom: 14 }}>
-                <img loading="lazy" src={`/assets/pages/ads/${p.img}`} alt={p.alt} style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
+                <Img loading="lazy" src={`/assets/pages/ads/${p.img}`} alt={p.alt} style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
               </div>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
-              <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(21px,1.8vw,25px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
+              <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(21px,1.8vw,25px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#4E4C48" }}>{p.d}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
                 {p.tags.map((tag) => (
@@ -341,13 +342,13 @@ export default function GoogleMetaAdsPage() {
             mb={8}
           />
           <div style={{ margin: "0 auto", maxWidth: 1120 }}>
-            <img loading="lazy" src="/assets/pages/ads/05-click-to-customer__dark-journey.png" alt="Journey: ad click, landing page, attention, evaluation, sign up or lead, qualified customer" style={{ display: "block", width: "100%", aspectRatio: "1448/460", borderRadius: 12, objectFit: "cover" }} />
+            <Img loading="lazy" src="/assets/pages/ads/05-click-to-customer__dark-journey.png" alt="Journey: ad click, landing page, attention, evaluation, sign up or lead, qualified customer" style={{ display: "block", width: "100%", aspectRatio: "1448/460", borderRadius: 12, objectFit: "cover" }} />
           </div>
           <ol style={{ margin: "32px 0 0", padding: 0, listStyle: "none", display: "grid", gap: 24 }} className="grid-cols-2 sm:!grid-cols-3 lg:!grid-cols-6">
             {CLICK_STEPS.map((s, i) => (
               <li key={s.n} style={{ minWidth: 0, paddingTop: 16, borderTop: `2px solid ${i === CLICK_STEPS.length - 1 ? "#C4A47C" : "rgba(255,255,255,.3)"}` }}>
                 <span style={{ fontSize: 12, fontWeight: 600, color: "#D3AE82", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
-                <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{s.t}</h3>
+                <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{s.t}</h3>
                 <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#B7B2A8" }}>{s.d}</p>
               </li>
             ))}
@@ -359,7 +360,7 @@ export default function GoogleMetaAdsPage() {
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Two platforms" title={<>Same budget. <ItalicInline>Different job.</ItalicInline></>} mb={24} />
         <div style={{ margin: "0 auto 28px", maxWidth: 880 }}>
-          <img loading="lazy" src="/assets/pages/ads/06-google-vs-meta__budget-split.png" alt="Illustration: the same budget split into Google, capturing existing demand, and Meta, creating future demand" style={{ display: "block", width: "100%", aspectRatio: "16/9", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="lazy" src="/assets/pages/ads/06-google-vs-meta__budget-split.png" alt="Illustration: the same budget split into Google, capturing existing demand, and Meta, creating future demand" style={{ display: "block", width: "100%", aspectRatio: "16/9", borderRadius: 12, objectFit: "cover" }} />
         </div>
         <div style={{ display: "grid", gap: 20 }} className="md:!grid-cols-2">
           <div style={{ minWidth: 0, borderRadius: 24, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #E2DFD8", padding: "clamp(24px,3vw,40px)" }}>
@@ -369,9 +370,9 @@ export default function GoogleMetaAdsPage() {
                   <path d="M5 9a4 4 0 1 0 8 0 4 4 0 0 0-8 0M12 12l4 4" stroke="#D3AE82" strokeWidth="1.6" strokeLinecap="round" />
                 </svg>
               </span>
-              <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>GOOGLE ADS</span>
+              <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>GOOGLE ADS</span>
             </div>
-            <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Captures demand.</h3>
+            <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Captures demand.</h3>
             <p style={{ margin: "12px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 460 }}>
               People are already searching for what you sell. Google puts you in front of them at the exact moment they&apos;re looking.
             </p>
@@ -393,7 +394,7 @@ export default function GoogleMetaAdsPage() {
               </span>
               <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>META ADS</span>
             </div>
-            <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Creates demand.</h3>
+            <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Creates demand.</h3>
             <p style={{ margin: "12px 0 0", fontSize: 17, lineHeight: 1.6, color: "#B7B2A8", maxWidth: 460 }}>
               People aren&apos;t looking for you yet. Meta interrupts the scroll with something worth stopping for.
             </p>
@@ -407,8 +408,8 @@ export default function GoogleMetaAdsPage() {
             </ul>
           </div>
         </div>
-        <p style={{ margin: "24px 0 0", textAlign: "center", fontFamily: "'General Sans'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
-          Google catches intent. <ItalicInline style={{ color: "#9A7646" }}>Meta creates it.</ItalicInline>
+        <p style={{ margin: "24px 0 0", textAlign: "center", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+          Google catches intent. <ItalicInline style={{ color: "#7D6039" }}>Meta creates it.</ItalicInline>
         </p>
       </section>
 
@@ -431,7 +432,7 @@ export default function GoogleMetaAdsPage() {
               ))}
             </ul>
           </div>
-          <img loading="lazy" src="/assets/pages/ads/07-tracking__broken-tracking.png" alt="Illustration: tangled, broken tracking across Google, Meta and store feeding a dark dashboard, versus clean connected tracking into one data source and a clear dashboard" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="lazy" src="/assets/pages/ads/07-tracking__broken-tracking.png" alt="Illustration: tangled, broken tracking across Google, Meta and store feeding a dark dashboard, versus clean connected tracking into one data source and a clear dashboard" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
         </div>
       </section>
 
@@ -439,8 +440,8 @@ export default function GoogleMetaAdsPage() {
       <section id="work" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Paid work" title={<>A look at<ItalicBlock>the paid work.</ItalicBlock></>} sub="Two Meta video ads from the Blainy account, straight from Ads Manager. Figures are exactly what Meta reports for each ad." mb={32} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, margin: "0 0 24px" }}>
-          <img src="/assets/site/logo-blainy.png" alt="Blainy logo" loading="lazy" style={{ display: "block", height: 36, width: "auto", mixBlendMode: "multiply" }} />
-          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "#8B877F" }}>AI SAAS · CAMPAIGN: CAPTURE / SALES</span>
+          <Img src="/assets/site/logo-blainy.png" alt="Blainy logo" loading="lazy" style={{ display: "block", height: 36, width: "auto", mixBlendMode: "multiply" }} />
+          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "#6F6B64" }}>AI SAAS · CAMPAIGN: CAPTURE / SALES</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           {AD_RESULTS.map((a) => (
@@ -451,27 +452,27 @@ export default function GoogleMetaAdsPage() {
                   <span style={{ width: 24, height: 1, background: "#DDD5C8" }} />
                   <span>META ADS · VIDEO CREATIVE</span>
                 </div>
-                <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>
+                <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>
                   {a.title} <ItalicInline style={{ fontWeight: 400 }}>{a.emph}</ItalicInline>
                 </h3>
                 <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{a.d}</p>
                 <div className="max-md:[&>div]:!px-2 max-md:[&>div]:!text-center" style={{ marginTop: 20, display: "grid", gridTemplateColumns: "1fr 1fr", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDD5C8" }}>
                   {a.stats.map((s, i) => (
                     <div key={s.l} style={{ padding: `14px 10px 14px ${i % 2 ? 14 : 0}px`, borderLeft: i % 2 ? "1px solid #DDD5C8" : "0", borderTop: i > 1 ? "1px solid #DDD5C8" : "0" }}>
-                      <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                      <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                       <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{s.l}</div>
                     </div>
                   ))}
                 </div>
               </div>
               <figure style={{ margin: 0, minWidth: 0 }}>
-                <div style={{ marginBottom: 10, fontSize: 11, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>META ADS MANAGER · VIDEO PERFORMANCE</div>
-                <img loading="lazy" src={`/assets/pages/ads/${a.img}`} alt={a.alt} style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 14, objectFit: "cover" }} />
+                <div style={{ marginBottom: 10, fontSize: 11, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>META ADS MANAGER · VIDEO PERFORMANCE</div>
+                <Img loading="lazy" src={`/assets/pages/ads/${a.img}`} alt={a.alt} style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 14, objectFit: "cover" }} />
               </figure>
             </article>
           ))}
         </div>
-        <p className="max-md:!text-base" style={{ margin: "18px 0 0", fontSize: 14, lineHeight: 1.5, color: "#77746E", textAlign: "center" }}>
+        <p className="max-md:!text-base" style={{ margin: "18px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66", textAlign: "center" }}>
           What I handled on these: campaign and ad-set setup, creative testing across hooks, and reading the video metrics to decide what kept running.
         </p>
       </section>
@@ -483,7 +484,7 @@ export default function GoogleMetaAdsPage() {
           {FIRST_WEEK.map((f) => (
             <div key={f.n} style={{ minWidth: 0, borderRadius: 22, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: "clamp(24px,2.6vw,32px)" }}>
               <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, borderRadius: "50%", border: "1.5px solid #1C1C1C", fontSize: 12.5, fontWeight: 600 }}>{f.n}</span>
-              <h3 style={{ margin: "18px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,27px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>{f.q}</h3>
+              <h3 style={{ margin: "18px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,27px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>{f.q}</h3>
               <p style={{ margin: "10px 0 0", fontSize: 16, lineHeight: 1.55, color: "#5A5854" }}>{f.d}</p>
             </div>
           ))}
@@ -496,8 +497,8 @@ export default function GoogleMetaAdsPage() {
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-5">
           {MANAGE_COLS.map((c, i) => (
             <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `24px ${i ? 18 : 0}px 28px ${i ? 18 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <span style={{ fontSize: 12.5, fontWeight: 600, color: "#9A7646" }}>{c.n}</span>
-              <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
+              <span style={{ fontSize: 12.5, fontWeight: 600, color: "#7D6039" }}>{c.n}</span>
+              <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
               <ul style={{ margin: "16px 0 0", padding: 0, listStyle: "none" }}>
                 {c.items.map((it) => (
                   <li key={it} className="max-md:!text-base" style={{ padding: "9px 0", borderTop: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4, color: "#4E4C48" }}>
@@ -516,7 +517,7 @@ export default function GoogleMetaAdsPage() {
           <CenterHead eyebrow="Testing framework" title={<>Change one thing. <ItalicInline>Learn something.</ItalicInline></>} sub="Changing five things at once tells you nothing. I test one variable at a time, so every result actually means something." mb={28} />
           <div style={{ display: "grid", gap: "32px 48px", alignItems: "center" }} className="md:!grid-cols-2">
             <div>
-              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646", textAlign: "center" }}>ONE VARIABLE AT A TIME</div>
+              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039", textAlign: "center" }}>ONE VARIABLE AT A TIME</div>
               <div style={{ marginTop: 12, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 8 }}>
                   {TEST_ROW1.map((t) => (
@@ -530,17 +531,17 @@ export default function GoogleMetaAdsPage() {
                 </div>
               </div>
               <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 10 }}>
-                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #DDD0BE", fontFamily: "'General Sans'", fontSize: 16, fontWeight: 600 }}>Test</span>
+                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #DDD0BE", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 16, fontWeight: 600 }}>Test</span>
                 <span aria-hidden="true" style={{ color: "#B8A68C" }}>→</span>
-                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #DDD0BE", fontFamily: "'General Sans'", fontSize: 16, fontWeight: 600 }}>Learn</span>
+                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #DDD0BE", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 16, fontWeight: 600 }}>Learn</span>
                 <span aria-hidden="true" style={{ color: "#B8A68C" }}>→</span>
-                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #DDD0BE", fontFamily: "'General Sans'", fontSize: 16, fontWeight: 600 }}>Keep or kill</span>
+                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #DDD0BE", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 16, fontWeight: 600 }}>Keep or kill</span>
                 <span aria-hidden="true" style={{ color: "#B8A68C" }}>→</span>
-                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#1C1C1C", color: "#D3AE82", border: "1px solid #1C1C1C", fontFamily: "'General Sans'", fontSize: 16, fontWeight: 600 }}>Scale</span>
+                <span style={{ display: "inline-flex", alignItems: "center", height: 44, padding: "0 16px", borderRadius: 12, background: "#1C1C1C", color: "#D3AE82", border: "1px solid #1C1C1C", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 16, fontWeight: 600 }}>Scale</span>
                 <span aria-hidden="true" style={{ color: "#B8A68C", fontSize: 18 }}>↺</span>
               </div>
             </div>
-            <img loading="lazy" src="/assets/pages/ads/09-testing__one-dial-at-a-time.png" alt="Illustration: adjusting one dial feeds audience, ads, landing page, checkout and conversions" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
+            <Img loading="lazy" src="/assets/pages/ads/09-testing__one-dial-at-a-time.png" alt="Illustration: adjusting one dial feeds audience, ads, landing page, checkout and conversions" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
           </div>
         </div>
       </section>
@@ -550,8 +551,8 @@ export default function GoogleMetaAdsPage() {
         <CenterHead eyebrow="Budget" title={<>Management fee and ad spend<ItalicBlock>stay separate.</ItalicBlock></>} sub="You pay Google and Meta directly. You own the ad accounts, always. My fee covers the management, not the media." max={900} />
         <div style={{ display: "grid", gap: 20 }} className="md:!grid-cols-2">
           <div style={{ borderRadius: 24, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: "clamp(24px,3vw,40px)" }}>
-            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>YOUR AD SPEND</div>
-            <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em" }}>Paid straight to Google &amp; Meta.</h3>
+            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>YOUR AD SPEND</div>
+            <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em" }}>Paid straight to Google &amp; Meta.</h3>
             <p style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48" }}>
               It depends on your market, click costs, location, sales cycle and goal. For testing, I usually recommend starting between $100 and $500 a month.
             </p>
@@ -566,18 +567,18 @@ export default function GoogleMetaAdsPage() {
             <p className="max-md:!text-base" style={{ margin: "24px 0 0", paddingTop: 16, borderTop: "1px solid #E6E1D8", fontSize: 14.5, lineHeight: 1.55, color: "#5A5854" }}>
               At about $5.42 per Google click on average, $300 to $600 a month gets you roughly 55 to 110 clicks. Enough to learn which keywords convert, not enough to scale.
             </p>
-            <p style={{ margin: "12px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#77746E" }}>
+            <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#6E6B66" }}>
               Tiny budgets can answer questions. They can&apos;t guarantee results.
             </p>
           </div>
           <div style={{ borderRadius: 24, background: "#171717", color: "#F2EFEA", padding: "clamp(24px,3vw,40px)" }}>
             <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>MY MANAGEMENT FEE</div>
-            <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em" }}>One flat monthly fee.</h3>
+            <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em" }}>One flat monthly fee.</h3>
             <p style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.6, color: "#B7B2A8" }}>
               Covers the work: tracking, campaigns, creative, landing-page review and weekly optimization. Not a percentage of your spend.
             </p>
             <div style={{ marginTop: 24, display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(48px,4.6vw,64px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,499</span>
+              <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(48px,4.6vw,64px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,499</span>
               <span style={{ color: "#9C978D" }}>per month</span>
             </div>
             <ul style={{ margin: "22px 0 0", padding: 0, listStyle: "none" }}>
@@ -596,13 +597,13 @@ export default function GoogleMetaAdsPage() {
       <section id="process" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Process" title={<>Five steps. <ItalicInline>No &ldquo;launch everything and pray.&rdquo;</ItalicInline></>} mb={28} max={1100} />
         <div style={{ margin: "0 auto 28px", maxWidth: 1120 }}>
-          <img loading="lazy" src="/assets/pages/ads/10-process__five-steps.png" alt="Five-step process illustration: audit, research, build, optimize, measure" style={{ display: "block", width: "100%", aspectRatio: "1448/500", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="lazy" src="/assets/pages/ads/10-process__five-steps.png" alt="Five-step process illustration: audit, research, build, optimize, measure" style={{ display: "block", width: "100%", aspectRatio: "1448/500", borderRadius: 12, objectFit: "cover" }} />
         </div>
         <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: "16px 24px" }} className="grid-cols-1 sm:!grid-cols-3 lg:!grid-cols-5">
           {PROCESS_STEPS.map((s) => (
             <li key={s.n} style={{ minWidth: 0, paddingTop: 16, borderTop: `2px solid ${s.last ? "#C4A47C" : "#1C1C1C"}` }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646" }}>{s.n}</span>
-              <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(20px,1.7vw,23px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{s.n}</span>
+              <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.7vw,23px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 15, lineHeight: 1.5, color: "#4E4C48" }}>{s.d}</p>
             </li>
           ))}
@@ -616,16 +617,16 @@ export default function GoogleMetaAdsPage() {
           {PERF_CARDS.map((c) => (
             <li key={c.n} style={{ position: "relative", minWidth: 0, borderRadius: 18, padding: "22px 20px 24px", background: c.dark ? (c.n === "05" ? "#2A2926" : "#171717") : "#FBFBF9", color: c.dark ? "#F2EFEA" : "#1C1C1C", border: c.dark ? "1px solid transparent" : "1px solid #E2DFD8" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: 12, fontWeight: 600, color: c.dark ? "#D3AE82" : "#9A7646" }}>{c.n}</span>
-                <span style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: ".1em", color: c.dark ? "#D3AE82" : "#A09B91" }}>{c.tag}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: c.dark ? "#D3AE82" : "#7D6039" }}>{c.n}</span>
+                <span style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: ".1em", color: c.dark ? "#D3AE82" : "#706B61" }}>{c.tag}</span>
               </div>
-              <h3 style={{ margin: "16px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em" }}>{c.t}</h3>
+              <h3 style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em" }}>{c.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.5, color: c.dark ? "#C9C4BA" : "#5A5854" }}>{c.d}</p>
             </li>
           ))}
         </ol>
-        <p style={{ margin: "24px 0 0", textAlign: "center", fontFamily: "'General Sans'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
-          A $10 click that becomes a customer <ItalicInline style={{ color: "#9A7646" }}>beats a $1 click that doesn&apos;t.</ItalicInline>
+        <p style={{ margin: "24px 0 0", textAlign: "center", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+          A $10 click that becomes a customer <ItalicInline style={{ color: "#7D6039" }}>beats a $1 click that doesn&apos;t.</ItalicInline>
         </p>
       </section>
 
@@ -635,18 +636,18 @@ export default function GoogleMetaAdsPage() {
         <div style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #D9CBB6", padding: "clamp(24px,3.4vw,48px)" }}>
           <div style={{ display: "grid", gap: "32px 56px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
             <div className="max-md:!text-center">
-              <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#9A7646" }}>
+              <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
                 GOOGLE + META ADS MANAGEMENT
               </div>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>
+              <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>
                 Tracking, campaigns, creative and weekly optimization.
               </h3>
               <div style={{ marginTop: 22, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>INCLUDED</div>
               <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2 max-md:!text-left">
                 {PRICING_INCLUDED.map((it) => (
                   <li key={it} className="max-md:!text-base" style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4, fontWeight: 500 }}>
-                    <span style={{ fontSize: 12, color: "#9A7646" }}>✓</span>
+                    <span style={{ fontSize: 12, color: "#7D6039" }}>✓</span>
                     {it}
                   </li>
                 ))}
@@ -654,15 +655,15 @@ export default function GoogleMetaAdsPage() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 18 }} className="md:!pl-14 md:!border-l md:!border-[#E6E1D8] max-md:!text-center">
               <div>
-                <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(56px,5.6vw,76px)", fontWeight: 600, letterSpacing: "-0.045em", lineHeight: 1 }}>$1,499</span>
-                <span style={{ marginLeft: 10, fontSize: 15, color: "#77746E" }}>per month</span>
+                <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(56px,5.6vw,76px)", fontWeight: 600, letterSpacing: "-0.045em", lineHeight: 1 }}>$1,499</span>
+                <span style={{ marginLeft: 10, fontSize: 15, color: "#6E6B66" }}>per month</span>
               </div>
               <p className="max-md:!text-base" style={{ margin: 0, fontSize: 15, lineHeight: 1.55, color: "#4E4C48" }}>Ad spend is paid directly to Google or Meta. You own the ad account.</p>
               <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
                 Tell me about your ads
                 <ArrowIcon />
               </a>
-              <p className="max-md:!text-base" style={{ margin: 0, paddingTop: 14, borderTop: "1px solid #E6E1D8", fontSize: 13.5, lineHeight: 1.5, color: "#77746E" }}>
+              <p className="max-md:!text-base" style={{ margin: 0, paddingTop: 14, borderTop: "1px solid #E6E1D8", fontSize: 13.5, lineHeight: 1.5, color: "#6E6B66" }}>
                 Freelancers typically charge $500 to $2,500 a month for ads management. Tracking, creative and landing-page review are in this fee, not add-ons.
               </p>
             </div>
@@ -671,7 +672,7 @@ export default function GoogleMetaAdsPage() {
         <div style={{ marginTop: 20, borderRadius: 24, background: "#171717", color: "#F2EFEA", padding: "clamp(24px,3vw,40px)", display: "grid", gap: "24px 48px", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
           <div>
             <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>NEED THE REST OF THE FUNNEL TOO?</div>
-            <div className="phone-heading" style={{ marginTop: 12, fontFamily: "'General Sans'", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>Everything, handled</div>
+            <div className="phone-heading" style={{ marginTop: 12, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>Everything, handled</div>
             <p style={{ margin: "10px 0 0", color: "#C9C4BA" }}>$3,999 a month for SEO, Reddit, social, content and design. Add ads management for $1,499.</p>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "flex-start" }} className="sm:!justify-end max-sm:!justify-center">
@@ -685,29 +686,29 @@ export default function GoogleMetaAdsPage() {
       {/* FIT */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: 36 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Who it&apos;s for</div>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Who it&apos;s for</div>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Paid ads work best <ItalicInline>when...</ItalicInline>
           </h2>
         </div>
         <div style={{ display: "grid", gap: "32px clamp(32px,5vw,72px)", maxWidth: 1080, margin: "0 auto" }} className="sm:!grid-cols-2">
           <div>
-            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9A7646" }}>Good fit</h3>
+            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>Good fit</h3>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
               {FIT_GOOD.map((t) => (
                 <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45 }}>
-                  <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#9A7646" }}>✓</span>
+                  <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#7D6039" }}>✓</span>
                   <span>{t}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" }}>Not the right fit</h3>
+            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>Not the right fit</h3>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
               {FIT_BAD.map((t) => (
                 <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#5A5854" }}>
-                  <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#A09B91" }}>—</span>
+                  <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#706B61" }}>—</span>
                   <span>{t}</span>
                 </li>
               ))}
@@ -721,7 +722,7 @@ export default function GoogleMetaAdsPage() {
         <CenterHead eyebrow="FAQ" title={<>Ads questions, <ItalicInline>answered straight.</ItalicInline></>} mb={8} />
         <div style={{ display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.5fr)_minmax(0,1fr)]">
           <div style={{ minWidth: 0, display: "flex", justifyContent: "center" }}>
-            <img loading="lazy" src="/assets/pages/ads/14-faq__ad-questions.png" alt="Illustration: scattered ad questions going into a laptop and coming out as clear, checked answers" style={{ display: "block", width: "100%", aspectRatio: "1/1", borderRadius: 12, objectFit: "cover" }} />
+            <Img loading="lazy" src="/assets/pages/ads/14-faq__ad-questions.png" alt="Illustration: scattered ad questions going into a laptop and coming out as clear, checked answers" style={{ display: "block", width: "100%", aspectRatio: "1/1", borderRadius: 12, objectFit: "cover" }} />
           </div>
           <FAQAccordion faqs={FAQS} />
         </div>
@@ -731,8 +732,8 @@ export default function GoogleMetaAdsPage() {
       <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div className="max-md:!text-center">
-            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Already spending and not sure what&apos;s working?</h2>
-            <p style={{ margin: "14px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
+            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Already spending and not sure what&apos;s working?</h2>
+            <p style={{ margin: "14px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
               <Emphasis>Let&apos;s find the leak.</Emphasis>
             </p>
             <p className="max-md:!mx-auto" style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
@@ -759,11 +760,11 @@ export default function GoogleMetaAdsPage() {
 
       {/* RELATED */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Works well alongside ads</h2>
+        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Works well alongside ads</h2>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {RELATED.map((r, i) => (
             <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
+              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>

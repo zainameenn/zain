@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { WaitlistForm } from "./WaitlistForm";
+import { Img } from "../HomeComponents/Img";
 
 export const metadata = buildMetadata({
   title: "Growth Marketing Insights | SEO, Reddit and SaaS | Zain",
@@ -14,7 +15,7 @@ const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>{children}</div>;
+  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>{children}</div>;
 }
 
 function CenterHead({ eyebrow, title, sub }: { eyebrow: string; title: React.ReactNode; sub?: React.ReactNode }) {
@@ -25,7 +26,7 @@ function CenterHead({ eyebrow, title, sub }: { eyebrow: string; title: React.Rea
         className="max-md:!text-balance"
         style={{
           margin: "12px 0 0",
-          fontFamily: "'General Sans'",
+          fontFamily: "'General Sans', 'General Sans Fallback'",
           fontWeight: 600,
           fontSize: "clamp(34px,3.4vw,50px)",
           lineHeight: 1.04,
@@ -66,7 +67,7 @@ const KEYBOOKS = [
   {
     n: "01",
     dark: false,
-    labelColor: "#9A7646",
+    labelColor: "#7D6039",
     badgeBorder: "#D6CFC2",
     badgeColor: "#5A5854",
     subColor: "#5A5854",
@@ -88,7 +89,7 @@ const KEYBOOKS = [
   {
     n: "03",
     dark: false,
-    labelColor: "#9A7646",
+    labelColor: "#7D6039",
     badgeBorder: "#D6CFC2",
     badgeColor: "#5A5854",
     subColor: "#5A5854",
@@ -153,8 +154,8 @@ export default function InsightsPage() {
             <ArrowIcon />
           </a>
         </div>
-        <img
-          loading="lazy"
+        <Img
+          loading="eager" fetchPriority="high"
           src="/assets/about/content-hub-t.png"
           alt="Illustration: one guide at the centre, connected to research, email, distribution, sharing, analytics and the website"
           style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "clamp(40px,4vw,56px) auto 0", mixBlendMode: "multiply" }}
@@ -168,7 +169,7 @@ export default function InsightsPage() {
           title={
             <>
               What I&rsquo;m
-              <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
                 working on.
               </em>
             </>
@@ -177,8 +178,8 @@ export default function InsightsPage() {
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,48px)" }} className="grid-cols-1 md:!grid-cols-3">
           {COMING.map((c) => (
             <div key={c.n} style={{ paddingTop: 22, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{c.n}</div>
-              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{c.n}</div>
+              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px auto 0", maxWidth: 340, fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
               {c.tags ? (
                 <div style={{ marginTop: 14, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 6 }}>
@@ -190,7 +191,7 @@ export default function InsightsPage() {
                 </div>
               ) : null}
               {c.italic ? (
-                <p style={{ margin: "12px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 18, lineHeight: 1.3, color: "#77746E" }}>
+                <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 18, lineHeight: 1.3, color: "#6E6B66" }}>
                   {c.italic}
                 </p>
               ) : null}
@@ -206,7 +207,7 @@ export default function InsightsPage() {
           title={
             <>
               The Keybooks are
-              <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
                 probably the fun part.
               </em>
             </>
@@ -250,7 +251,7 @@ export default function InsightsPage() {
                 </span>
               </div>
               <div style={{ textAlign: "center" }}>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Working on it.</h3>
+                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Working on it.</h3>
                 <p style={{ margin: "6px 0 0", fontSize: 14.5, color: k.subColor }}>Free when it&apos;s ready.</p>
               </div>
             </article>
@@ -266,7 +267,7 @@ export default function InsightsPage() {
             className="max-md:!text-balance"
             style={{
               margin: "12px 0 0",
-              fontFamily: "'General Sans'",
+              fontFamily: "'General Sans', 'General Sans Fallback'",
               fontWeight: 600,
               fontSize: "clamp(34px,3.4vw,50px)",
               lineHeight: 1.04,
@@ -274,7 +275,7 @@ export default function InsightsPage() {
             }}
           >
             Things I&apos;ll probably
-            <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
               write too much about.
             </em>
           </h2>
@@ -303,9 +304,9 @@ export default function InsightsPage() {
           }}
         >
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Get it first</div>
-          <h2 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Want me to tell you
-            <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
+            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
               when something useful drops?
             </em>
           </h2>
@@ -325,7 +326,7 @@ export default function InsightsPage() {
           <h2
             style={{
               margin: "12px 0 0",
-              fontFamily: "'General Sans'",
+              fontFamily: "'General Sans', 'General Sans Fallback'",
               fontWeight: 600,
               fontSize: "clamp(34px,3.4vw,50px)",
               lineHeight: 1.04,
@@ -333,7 +334,7 @@ export default function InsightsPage() {
             }}
           >
             Until then...
-            <em style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
               I&apos;m probably still writing.
             </em>
           </h2>
@@ -351,8 +352,8 @@ export default function InsightsPage() {
           >
             Or say hi on LinkedIn
           </a>
-          <p style={{ margin: "24px 0 0", fontSize: 13, color: "#A09B91" }}>
-            That&apos;s it for now. <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: 15 }}>Ta-da. Bye.</em>
+          <p style={{ margin: "24px 0 0", fontSize: 13, color: "#706B61" }}>
+            That&apos;s it for now. <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: 15 }}>Ta-da. Bye.</em>
           </p>
         </div>
       </section>

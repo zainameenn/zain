@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 /** Page H1: fluid size so it is the largest headline on every screen, wrapping evenly. */
 export const H1_STYLE: CSSProperties = {
   margin: 0,
-  fontFamily: "'General Sans'",
+  fontFamily: "'General Sans', 'General Sans Fallback'",
   fontWeight: 600,
   fontSize: "clamp(2rem, calc(4vw + 1rem), 4rem)",
   lineHeight: 1.1,
@@ -19,7 +19,7 @@ export const HERO_H1_STYLE: CSSProperties = {
 
 /** Italic serif accent inside a hero H1, matching the homepage hero. */
 export const H1_ACCENT_STYLE: CSSProperties = {
-  fontFamily: "'Instrument Serif',serif",
+  fontFamily: "var(--nf-serif),serif",
   fontStyle: "italic",
   fontWeight: 400,
   letterSpacing: "-0.01em",

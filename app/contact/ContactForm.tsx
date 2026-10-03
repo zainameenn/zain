@@ -45,7 +45,7 @@ export function ContactForm() {
   if (sent) {
     return (
       <div role="status" style={{ padding: "40px 8px", textAlign: "center" }}>
-        <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>
+        <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>
           Almost there.
         </p>
         <p style={{ margin: "10px 0 0", fontSize: 16, color: "#5A5854" }}>
@@ -102,7 +102,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="cf-site" style={labelStyle}>
-          Company or website <span style={{ fontWeight: 400, color: "#8B877F" }}>(optional)</span>
+          Company or website <span style={{ fontWeight: 400, color: "#6F6B64" }}>(optional)</span>
         </label>
         <input id="cf-site" name="website" autoComplete="url" style={fieldStyle} className={focusClass} />
       </div>
@@ -134,7 +134,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="cf-budget" style={labelStyle}>
-          Monthly budget <span style={{ fontWeight: 400, color: "#8B877F" }}>(optional)</span>
+          Monthly budget <span style={{ fontWeight: 400, color: "#6F6B64" }}>(optional)</span>
         </label>
         <select id="cf-budget" name="budget" style={selectStyle} className={focusClass} defaultValue="">
           <option value="">Choose one</option>
@@ -168,7 +168,7 @@ export function ContactForm() {
           Send it my way
           <ArrowIcon />
         </button>
-        <p style={{ margin: 0, flex: "1 1 240px", fontSize: 13.5, lineHeight: 1.5, color: "#77746E" }}>
+        <p style={{ margin: 0, flex: "1 1 240px", fontSize: 13.5, lineHeight: 1.5, color: "#6E6B66" }}>
           I read every message myself and usually reply within a couple of hours. No mailing list surprises.
         </p>
       </div>

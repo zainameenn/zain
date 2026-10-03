@@ -1,4 +1,5 @@
 import { ArrowIcon, ChevronIcon, MailIcon, LinkedInIcon } from "./icons";
+import { Img } from "./Img";
 
 const FOOT_GROUPS = [
   {
@@ -62,9 +63,9 @@ export default function Footer() {
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 16 }} className="col-span-2 md:col-span-4 lg:col-span-1 max-md:!items-center max-md:!text-center">
             {/* logo-dark.png has empty space around the mark; this window crops to the mark (56px tall). */}
             <span style={{ position: "relative", display: "block", width: 62, height: 56, overflow: "hidden" }}>
-              <img loading="lazy" src="/logo-dark.png" alt="Zain Ul Abdin logo" style={{ position: "absolute", left: -18.9, top: -19.3, width: 93.8, height: 93.8, maxWidth: "none" }} />
+              <Img loading="lazy" src="/logo-dark-288.png" alt="Zain Ul Abdin logo" style={{ position: "absolute", left: -18.9, top: -19.3, width: 93.8, height: 93.8, maxWidth: "none" }} />
             </span>
-            <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, whiteSpace: "nowrap" }}>
+            <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, whiteSpace: "nowrap" }}>
               Growth marketing
               <br />
               without the stress.
@@ -131,10 +132,7 @@ export default function Footer() {
                   {so.kind === "in" && <LinkedInIcon size={14} color="#F2EFEA" />}
                   {so.kind === "mail" && <MailIcon size={15} color="#F2EFEA" />}
                   {so.kind === "icon" && (
-                    <span
-                      aria-hidden="true"
-                      style={{ display: "block", width: 15, height: 15, backgroundImage: `url("https://cdn.simpleicons.org/${so.icon}/F2EFEA")`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}
-                    />
+                    <Img src={`/icons/${so.icon}-F2EFEA.svg`} alt="" aria-hidden="true" width={15} height={15} style={{ display: "block", width: 15, height: 15, objectFit: "contain" }} />
                   )}
                 </a>
               ))}

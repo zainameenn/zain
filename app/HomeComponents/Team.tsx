@@ -1,3 +1,4 @@
+import { Img } from "./Img";
 export default function Team() {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
@@ -14,8 +15,8 @@ export default function Team() {
         className="md:!grid-cols-2 max-md:!px-6"
       >
         <div>
-          <div className="max-md:!text-center" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>One person instead of five</div>
-          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+          <div className="max-md:!text-center" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>One person instead of five</div>
+          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             The stuff that usually
             <br />
             takes a whole team.
@@ -26,7 +27,7 @@ export default function Team() {
           <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "14px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
             Most founders end up hiring an SEO expert, a social media manager, a designer and an ads person, then managing all four.
           </p>
-          <p className="max-md:!text-center" style={{ margin: "16px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 26, lineHeight: 1.1, color: "#1C1C1C" }}>
+          <p className="max-md:!text-center" style={{ margin: "16px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 26, lineHeight: 1.1, color: "#1C1C1C" }}>
             That&apos;s a job on its own.
           </p>
           <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "16px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
@@ -34,7 +35,7 @@ export default function Team() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%" }}>
-          <img
+          <Img
             src="/assets/v12/art-a.png"
             alt="Illustration: strategy, search, Reddit, social, design and ads cards all connecting to one marketer at a desk"
             width={1448}

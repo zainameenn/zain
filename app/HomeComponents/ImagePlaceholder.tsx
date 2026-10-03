@@ -25,7 +25,7 @@ export function ImagePlaceholder({
         gap: 8,
         padding: 16,
         textAlign: "center",
-        color: dark ? "#8B877F" : "#9A9488",
+        color: dark ? "#6F6B64" : "#9A9488",
         width: "100%",
         height: "100%",
       }}

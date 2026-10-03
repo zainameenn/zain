@@ -36,15 +36,15 @@ export function SeoStepsTabs() {
                 padding: "16px 0",
               }}
             >
-              <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#9A7646" : "#8B877F", paddingTop: 6 }}>{String(i + 1).padStart(2, "0")}</span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7D6039" : "#6F6B64", paddingTop: 6 }}>{String(i + 1).padStart(2, "0")}</span>
               <h3
                 style={{
                   margin: 0,
-                  fontFamily: "'General Sans'",
+                  fontFamily: "'General Sans', 'General Sans Fallback'",
                   fontSize: "clamp(20px,1.8vw,24px)",
                   fontWeight: 600,
                   letterSpacing: "-0.02em",
-                  color: on ? "#1C1C1C" : "#A09B91",
+                  color: on ? "#1C1C1C" : "#706B61",
                   transition: "color 250ms",
                 }}
               >
@@ -58,9 +58,11 @@ export function SeoStepsTabs() {
                 left: 0,
                 bottom: -1,
                 height: 2,
-                width: on ? "100%" : "0%",
+                width: "100%",
+                transform: on ? "scaleX(1)" : "scaleX(0)",
+                transformOrigin: "left",
                 background: "#1C1C1C",
-                transition: "width 450ms cubic-bezier(.3,.7,.2,1)",
+                transition: "transform 450ms cubic-bezier(.3,.7,.2,1)",
               }}
             />
           </div>

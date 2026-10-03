@@ -3,8 +3,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Sized like General Sans so headings don't jump while the Fontshare font loads. */
+@font-face {
+  font-family: 'General Sans Fallback';
+  src: local('Arial');
+  size-adjust: 90%;
+  ascent-override: 98.9%;
+  descent-override: 24.4%;
+  line-gap-override: 0%;
+}
+
 body {
-  font-family: 'Geist', 'Inter', system-ui, sans-serif;
+  font-family: var(--nf-geist), var(--nf-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

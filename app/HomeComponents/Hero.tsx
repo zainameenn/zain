@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowIcon, UpArrowIcon } from "./icons";
 import { H1_STYLE } from "./heading";
+import { BgImage } from "./Img";
 
 export default function Hero() {
   const [drawn, setDrawn] = useState(false);
@@ -31,7 +32,7 @@ export default function Hero() {
         <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, fontSize: "clamp(2rem, calc(2.6vw + 1.25rem), 3.625rem)", lineHeight: 1.08, maxWidth: 820 }}>
           Growth marketing specialist for SaaS and service businesses, minus the{" "}
           <span style={{ position: "relative", display: "inline-block" }}>
-            <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", lineHeight: 0.95 }}>
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", lineHeight: 0.95 }}>
               second full time job.
             </em>
             <svg
@@ -78,17 +79,21 @@ export default function Hero() {
             <UpArrowIcon style={{ transform: workHover ? "translateY(3px)" : "none", transition: "transform 200ms" }} />
           </a>
         </div>
-        <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
+        <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#6E6B66" }}>
           <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
           I usually reply within a couple of hours. No 60 minute discovery call.
         </p>
       </div>
 
       <figure className="xl:!-mr-12" style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
-        <div
-          role="img"
-          aria-label="Illustration of a founder calmly reviewing marketing dashboards"
-          style={{ aspectRatio: "1373/666", background: "url('/assets/v9/g07.png') 56% 50.4%/105.5% auto no-repeat" }}
+        <BgImage
+          src="/assets/v9/g07.png"
+          alt="Illustration of a founder calmly reviewing marketing dashboards"
+          position="56% 50.4%"
+          fit={105.5}
+          loading="eager"
+          fetchPriority="high"
+          style={{ aspectRatio: "1373/666" }}
         />
       </figure>
     </section>
