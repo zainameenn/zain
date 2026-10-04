@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowIcon, ChevronIcon } from "./icons";
 import { Img } from "./Img";
 
@@ -21,6 +21,7 @@ const SERVICE_MENU = [
 ];
 
 export default function Navbar() {
+  const scrollMarker = useRef<HTMLSpanElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [navHover, setNavHover] = useState(-1);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,13 +29,17 @@ export default function Navbar() {
   const [ctaHover, setCtaHover] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    if (!scrollMarker.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setScrolled(!entry.isIntersecting);
+    });
+    observer.observe(scrollMarker.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
+    <>
+    <span ref={scrollMarker} aria-hidden="true" style={{ position: "absolute", top: 8, left: 0, width: 1, height: 1, pointerEvents: "none" }} />
     <header
       style={{
         position: "sticky",
@@ -220,5 +225,6 @@ export default function Navbar() {
         </nav>
       )}
     </header>
+    </>
   );
 }

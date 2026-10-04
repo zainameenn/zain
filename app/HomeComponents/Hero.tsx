@@ -3,7 +3,20 @@
 import { useEffect, useState } from "react";
 import { ArrowIcon, UpArrowIcon } from "./icons";
 import { H1_STYLE } from "./heading";
-import { BgImage } from "./Img";
+import { BgImage, scaleSizes } from "./Img";
+import { IMAGE_META } from "./imageMeta";
+import { getImageProps } from "next/image";
+
+const HERO_IMAGE = "/assets/v9/g07.png";
+const heroMeta = IMAGE_META[HERO_IMAGE];
+const heroSizes = scaleSizes(heroMeta[2], 1.055);
+const { props: heroImageProps } = getImageProps({
+  src: HERO_IMAGE,
+  alt: "",
+  width: heroMeta[0],
+  height: heroMeta[1],
+  sizes: heroSizes,
+});
 
 export default function Hero() {
   const [drawn, setDrawn] = useState(false);
@@ -16,6 +29,8 @@ export default function Hero() {
   }, []);
 
   return (
+    <>
+    <link rel="preload" as="image" media="(min-width: 1024px)" imageSrcSet={heroImageProps.srcSet} imageSizes={heroSizes} fetchPriority="high" />
     <section
       style={{
         maxWidth: 1360,
@@ -87,15 +102,16 @@ export default function Hero() {
 
       <figure className="xl:!-mr-12" style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
         <BgImage
-          src="/assets/v9/g07.png"
+          src={HERO_IMAGE}
           alt="Illustration of a founder calmly reviewing marketing dashboards"
           position="56% 50.4%"
           fit={105.5}
           loading="eager"
-          fetchPriority="high"
+          picture
           style={{ aspectRatio: "1373/666" }}
         />
       </figure>
     </section>
+    </>
   );
 }

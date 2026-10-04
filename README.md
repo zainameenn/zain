@@ -141,7 +141,7 @@ You're welcome to learn from the code and use the structure for your own portfol
 
 - **The code** is free to use under the license in this repo.
 - **The content is not.** My copy, case studies, client names, logos, screenshots, testimonials, illustrations and branding belong to me or my clients. Replace all of it with your own.
-- **Fonts:** General Sans loads from [Fontshare](https://www.fontshare.com/) and isn't included here. Get it from Fontshare under their license if you want it.
+- **Fonts:** General Sans isn't included in this public repository. The live site's Vercel build downloads the unmodified licensed files from private Blob storage; a clone without the Blob token builds with the sized fallback. Get General Sans from [Fontshare](https://www.fontshare.com/) under their license if you want to use it.
 - **IndexNow:** generate your own key. Don't reuse mine.
 - **Analytics:** swap in your own Google Analytics and Clarity IDs, or remove them.
 

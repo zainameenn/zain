@@ -14,7 +14,7 @@ export function Img({ src, sizes, loading, width, height, ...rest }: ImgProps) {
   return <Image src={src} width={width ?? meta[0]} height={height ?? meta[1]} sizes={sizes ?? meta[2]} loading={loading ?? "lazy"} {...rest} />;
 }
 
-const scaleSizes = (sizes: string, scale: number) =>
+export const scaleSizes = (sizes: string, scale: number) =>
   scale === 1 ? sizes : sizes.replace(/(\d+(?:\.\d+)?)(vw|px)(?=\s*(,|\)|$))/g, (_, n, u) => `${Math.ceil(Number(n) * scale)}${u}`);
 
 type BgImageProps = {
@@ -30,27 +30,30 @@ type BgImageProps = {
   sizes?: string;
   loading?: "lazy" | "eager";
   fetchPriority?: "high" | "low" | "auto";
+  /** Keep an eager image in HTML without React's automatic global image preload. */
+  picture?: boolean;
 };
 
 /** Replaces a role="img" box with a CSS background image. Renders a real image with identical position, scale and cropping. */
-export function BgImage({ src, alt, style, className, position = "50% 50%", fit = "contain", sizes, loading = "lazy", fetchPriority }: BgImageProps) {
+export function BgImage({ src, alt, style, className, position = "50% 50%", fit = "contain", sizes, loading = "lazy", fetchPriority, picture = false }: BgImageProps) {
   const meta = IMAGE_META[src];
   const [x, y] = position.split(" ");
   const box: CSSProperties = { position: "relative", overflow: "hidden", ...style };
   if (typeof fit === "number") {
     // "N% auto": image is N% of the box width, natural height, placed like background-position.
+    const image = <Image
+      src={src}
+      alt={alt}
+      width={meta[0]}
+      height={meta[1]}
+      sizes={scaleSizes(sizes ?? meta[2], fit / 100)}
+      loading={loading}
+      fetchPriority={fetchPriority}
+      style={{ position: "absolute", left: x, top: y, width: `${fit}%`, height: "auto", maxWidth: "none", transform: `translate(-${x}, -${y})` }}
+    />;
     return (
       <div className={className} style={box}>
-        <Image
-          src={src}
-          alt={alt}
-          width={meta[0]}
-          height={meta[1]}
-          sizes={scaleSizes(sizes ?? meta[2], fit / 100)}
-          loading={loading}
-          fetchPriority={fetchPriority}
-          style={{ position: "absolute", left: x, top: y, width: `${fit}%`, height: "auto", maxWidth: "none", transform: `translate(-${x}, -${y})` }}
-        />
+        {picture ? <picture>{image}</picture> : image}
       </div>
     );
   }

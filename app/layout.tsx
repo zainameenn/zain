@@ -4,12 +4,12 @@ import Script from "next/script";
 import { Geist, Inter, Instrument_Serif } from "next/font/google";
 import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
+import { generalSansCss, generalSansPreloads } from "../.generated/general-sans";
+import { preload } from "react-dom";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-geist" });
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", preload: false, variable: "--nf-inter" });
 const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", display: "swap", variable: "--nf-serif" });
-
-const FONTSHARE_CSS = "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap";
 
 export const metadata: Metadata = {
   authors: [{ name: "Zain Ul Abdin", url: "https://www.zainameen.com" }],
@@ -21,17 +21,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  generalSansPreloads.forEach((href) => preload(href, { as: "font", type: "font/woff2", crossOrigin: "anonymous" }));
   return (
     <html lang="en" className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable}`}>
       <head>
-        {/* General Sans stays on Fontshare (its license doesn't allow it in a public repo). Added by script so it doesn't block the first paint. */}
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var l=document.createElement("link");l.rel="stylesheet";l.href=${JSON.stringify(FONTSHARE_CSS)};document.head.appendChild(l)})();`,
-          }}
-        />
+        {generalSansCss && <style dangerouslySetInnerHTML={{ __html: generalSansCss }} />}
 
         {/* ✅ Structured Data (Person + Contact Info) */}
         <Script
@@ -102,10 +96,10 @@ export default function RootLayout({
 
         {/* ✅ Google Analytics */}
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=G-T3ZK018Y8C"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
