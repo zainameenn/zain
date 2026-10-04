@@ -3,6 +3,7 @@ import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, UpArrowIcon } from "../../HomeComponents/icons";
 import { FAQAccordion } from "../../HomeComponents/FAQAccordion";
+import { Img } from "../../HomeComponents/Img";
 
 export const metadata = buildMetadata({
   title: "Reddit Marketing Specialist for SaaS | No Ad Spend | Zain",
@@ -23,18 +24,18 @@ function Pill({ children }: { children: React.ReactNode }) {
 }
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>{children}</div>;
+  return <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>{children}</div>;
 }
 
 function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: React.ReactNode; sub: React.ReactNode; dark?: boolean }) {
   return (
     <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#D3AE82" : "#8B877F" }}>{eyebrow}</div>
-        <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+        <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#D3AE82" : "#6F6B64" }}>{eyebrow}</div>
+        <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
       </div>
       <div>
-        <p style={{ margin: 0, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(24px,2.2vw,30px)", lineHeight: 1.15, color: dark ? "#F2EFEA" : "#6B6862", maxWidth: 440 }} className="max-md:!mx-auto">{sub}</p>
+        <p style={{ margin: 0, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(24px,2.2vw,30px)", lineHeight: 1.15, color: dark ? "#F2EFEA" : "#6B6862", maxWidth: 440 }} className="max-md:!mx-auto">{sub}</p>
       </div>
     </div>
   );
@@ -221,13 +222,13 @@ export default function RedditMarketingPage() {
               <UpArrowIcon />
             </a>
           </div>
-          <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#77746E" }}>
+          <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#6E6B66" }}>
             <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
             Organic first. No ad spend. No shortcuts.
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%", maxWidth: 680 }}>
-          <img loading="lazy" src="/assets/pages/reddit/01-hero__threads-to-engaged-users.png" alt="Reddit threads flowing through search into engaged users" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/pages/reddit/01-hero__threads-to-engaged-users.png" alt="Reddit threads flowing through search into engaged users" style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
@@ -237,12 +238,12 @@ export default function RedditMarketingPage() {
         <div style={{ marginTop: 14, display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="!grid-cols-1 sm:!grid-cols-3">
           {PROOF.map((s, i) => (
             <div key={s.l} style={{ display: "flex", flexDirection: "column", gap: 12, padding: "28px 24px", borderLeft: i ? "1px solid #DDDAD3" : "0", borderTop: i ? "1px solid #DDDAD3" : "0" }} className="sm:!border-t-0 max-sm:!border-l-0 max-md:!items-center max-md:!text-center">
-              <div className="max-md:!justify-center" style={{ height: 56, display: "flex", alignItems: "flex-end", fontFamily: "'General Sans'", fontSize: "clamp(40px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>{s.v}</div>
+              <div className="max-md:!justify-center" style={{ height: 56, display: "flex", alignItems: "flex-end", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(40px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>{s.v}</div>
               <div style={{ fontSize: 14, lineHeight: 1.4, color: "#5A5854" }}>{s.l}</div>
             </div>
           ))}
         </div>
-        <p className="max-md:!pl-0 max-md:!text-center" style={{ margin: "12px 0 0", paddingLeft: 24, fontSize: 13, color: "#8B877F" }}>Across SaaS and service clients.</p>
+        <p className="max-md:!pl-0 max-md:!text-center" style={{ margin: "12px 0 0", paddingLeft: 24, fontSize: 13, color: "#6F6B64" }}>Across SaaS and service clients.</p>
       </section>
 
       {/* PROBLEM */}
@@ -250,12 +251,12 @@ export default function RedditMarketingPage() {
         <div style={{ display: "grid", gap: "32px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div>
             <Eyebrow>The problem</Eyebrow>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit doesn&apos;t hate marketing.</h2>
-            <p className="max-md:!text-center" style={{ margin: "10px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit doesn&apos;t hate marketing.</h2>
+            <p className="max-md:!text-center" style={{ margin: "10px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>
               It hates <Emphasis>bad marketing.</Emphasis>
             </p>
             <div style={{ marginTop: "clamp(28px,3vw,40px)" }}>
-              <img loading="lazy" src="/assets/pages/reddit/03-problem__promo-blocked-vs-helpful.png" alt="Promotional posts getting blocked versus helpful posts gaining upvotes" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/03-problem__promo-blocked-vs-helpful.png" alt="Promotional posts getting blocked versus helpful posts gaining upvotes" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
           </div>
           <div style={{ maxWidth: 560 }}>
@@ -269,8 +270,8 @@ export default function RedditMarketingPage() {
                 </li>
               ))}
             </ul>
-            <p style={{ margin: "22px 0 0", fontFamily: "'General Sans'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
-              Help first. Mention the product second. <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em", color: "#6B6862" }}>Maybe.</em>
+            <p style={{ margin: "22px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+              Help first. Mention the product second. <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em", color: "#6B6862" }}>Maybe.</em>
             </p>
           </div>
         </div>
@@ -281,16 +282,16 @@ export default function RedditMarketingPage() {
         <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
           <div>
             <Eyebrow>The work</Eyebrow>
-            <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit marketing has five layers.</h2>
+            <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit marketing has five layers.</h2>
           </div>
-          <p style={{ margin: 0, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(24px,2.2vw,30px)", lineHeight: 1.15, color: "#6B6862", maxWidth: 440 }} className="max-md:!mx-auto">Skip one and the rest usually fall apart.</p>
+          <p style={{ margin: 0, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(24px,2.2vw,30px)", lineHeight: 1.15, color: "#6B6862", maxWidth: 440 }} className="max-md:!mx-auto">Skip one and the rest usually fall apart.</p>
         </div>
         <div style={{ display: "grid", gap: 20 }}>
           {LAYERS.map((l) => (
             <div key={l.n} style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #C9B9A2", boxShadow: "0 0 0 4px rgba(196,164,124,.12)", padding: "clamp(22px,2.6vw,34px)", display: "grid", gap: "24px 32px", alignItems: "center" }} className="md:!grid-cols-2">
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{l.n}</div>
-                <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.1 }}>{l.t}</h3>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{l.n}</div>
+                <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.1 }}>{l.t}</h3>
                 <p style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>{l.d}</p>
                 <div style={{ marginTop: 18, display: "flex", flexWrap: "wrap", gap: 8 }}>
                   {l.tags.map((tag) => (
@@ -298,14 +299,14 @@ export default function RedditMarketingPage() {
                   ))}
                 </div>
               </div>
-              <img loading="lazy" src={`/assets/pages/reddit/${l.img}`} alt={l.alt} style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src={`/assets/pages/reddit/${l.img}`} alt={l.alt} style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
           ))}
           <div style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #C9B9A2", boxShadow: "0 0 0 4px rgba(196,164,124,.12)", padding: "clamp(24px,3vw,44px)", display: "grid", gap: "28px clamp(32px,4vw,56px)", alignItems: "center" }} className="md:!grid-cols-2">
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: "#9A7646" }}>05</div>
-              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(28px,2.8vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
-                Distribution and <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em" }}>discovery</em>
+              <div style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>05</div>
+              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.8vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                Distribution and <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em" }}>discovery</em>
               </h3>
               <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500, maxWidth: 460 }}>A good thread doesn&apos;t stay on Reddit.</p>
               <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.6, color: "#5A5854", maxWidth: 460 }}>It shows up in Google and in AI answers for months.</p>
@@ -315,7 +316,7 @@ export default function RedditMarketingPage() {
                 ))}
               </div>
             </div>
-            <img loading="lazy" src="/assets/pages/reddit/04-layer-5__thread-to-page-to-user.png" alt="A thread leading to a page, a signup and revenue" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/reddit/04-layer-5__thread-to-page-to-user.png" alt="A thread leading to a page, a signup and revenue" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
       </section>
@@ -326,9 +327,9 @@ export default function RedditMarketingPage() {
           <div style={{ display: "grid", gap: "16px 48px", alignItems: "end" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
             <div>
               <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#D3AE82" }}>How Reddit turns into users</div>
-              <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+              <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
                 From a thread
-                <span style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.02em", lineHeight: 1.08, color: "#D3AE82" }}>
+                <span style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.02em", lineHeight: 1.08, color: "#D3AE82" }}>
                   <Emphasis>to hundreds of users.</Emphasis>
                 </span>
               </h2>
@@ -339,13 +340,13 @@ export default function RedditMarketingPage() {
             </div>
           </div>
           <div style={{ marginTop: "clamp(20px,2.4vw,32px)" }}>
-            <img loading="lazy" src="/assets/pages/reddit/05-thread-to-users__dark-journey.png" alt="Reddit threads turning into clicks, visits, signups and growth" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/reddit/05-thread-to-users__dark-journey.png" alt="Reddit threads turning into clicks, visits, signups and growth" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
           <ol style={{ margin: "clamp(20px,2.4vw,32px) 0 0", padding: 0, listStyle: "none", display: "grid", gap: "20px 16px" }} className="grid-cols-2 sm:!grid-cols-3 lg:!grid-cols-6">
             {JOURNEY_STAGES.map((s, i) => (
               <li key={s.n} style={{ minWidth: 0, paddingTop: 14, borderTop: `1px solid ${i === JOURNEY_STAGES.length - 1 ? "#C4A47C" : "#3A3935"}` }}>
                 <div style={{ fontSize: 12, fontWeight: 600, color: "#D3AE82", fontVariantNumeric: "tabular-nums" }}>{s.n}</div>
-                <div style={{ marginTop: 6, fontFamily: "'General Sans'", fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>{s.t}</div>
+                <div style={{ marginTop: 6, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>{s.t}</div>
                 <div className="max-md:!text-base" style={{ marginTop: 6, fontSize: 14, lineHeight: 1.45, color: "#B7B2A8" }}>{s.d}</div>
               </li>
             ))}
@@ -358,18 +359,18 @@ export default function RedditMarketingPage() {
         <div style={{ display: "grid", gap: "32px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div>
             <Eyebrow>Why Reddit matters</Eyebrow>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Most people on Reddit never comment.</h2>
-            <p className="max-md:!text-center" style={{ margin: "10px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>They&apos;re still reading.</p>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Most people on Reddit never comment.</h2>
+            <p className="max-md:!text-center" style={{ margin: "10px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>They&apos;re still reading.</p>
             <p style={{ margin: "24px 0 0", maxWidth: 500, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
               A common rule of thumb for online communities: out of every 100 people, roughly 90 only read, around 9 occasionally join in, and a small minority creates most of the content.
             </p>
             <p style={{ margin: "12px 0 0", maxWidth: 500, fontSize: 17, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>So a thread with 20 comments may still be read by thousands.</p>
             <div style={{ marginTop: 28, paddingTop: 20, borderTop: "1px solid #DDDAD3", maxWidth: 500 }}>
-              <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>Reddit also travels.</p>
+              <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>Reddit also travels.</p>
               <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48" }}>Useful Reddit threads can surface in Google and be referenced by AI answer tools long after the original posting window.</p>
             </div>
           </div>
-          <img loading="lazy" src="/assets/pages/reddit/06-why-reddit__few-posts-large-audience.png" alt="A few posts read by a large crowd of silent readers" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="lazy" src="/assets/pages/reddit/06-why-reddit__few-posts-large-audience.png" alt="A few posts read by a large crowd of silent readers" style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
       </section>
 
@@ -379,12 +380,12 @@ export default function RedditMarketingPage() {
 
         {/* Blainy */}
         <article style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #C9B9A2", boxShadow: "0 0 0 4px rgba(196,164,124,.12)", padding: "clamp(24px,3vw,44px)" }}>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Blainy · AI SaaS · Reddit</div>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Blainy · AI SaaS · Reddit</div>
           <div style={{ marginTop: 14, display: "grid", gap: "28px clamp(32px,4vw,56px)", alignItems: "start" }} className="md:!grid-cols-2">
             <div>
-              <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.06 }}>
+              <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.06 }}>
                 6,089 clicks from Reddit to one tracked link.
-                <span style={{ display: "block", marginTop: 6, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.02em", color: "#6B6862" }}>$0 on ads.</span>
+                <span style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.02em", color: "#6B6862" }}>$0 on ads.</span>
               </h3>
               <p style={{ margin: "18px 0 0", fontSize: 16.5, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500, maxWidth: 480 }}>The linked posts were only part of the strategy.</p>
               <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>
@@ -395,7 +396,7 @@ export default function RedditMarketingPage() {
               </p>
             </div>
             <figure style={{ margin: 0, minWidth: 0 }}>
-              <img loading="lazy" src="/assets/pages/reddit/07-results-blainy__subreddit-map.png" alt="Illustration: Blainy Reddit posts across subreddits feeding one tracked link, 6,089 clicks with $0 on ads" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/07-results-blainy__subreddit-map.png" alt="Illustration: Blainy Reddit posts across subreddits feeding one tracked link, 6,089 clicks with $0 on ads" style={{ display: "block", width: "100%", height: "auto" }} />
             </figure>
           </div>
           <div style={{ marginTop: "clamp(24px,3vw,36px)", display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="grid-cols-1 sm:!grid-cols-3">
@@ -405,51 +406,51 @@ export default function RedditMarketingPage() {
               { v: "165", l: "clicks on the best day, June 10, 2024" },
             ].map((s, i) => (
               <div key={s.l} className={`max-sm:!border-l-0 max-md:!text-center ${i ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: "22px 20px", borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
-                <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(32px,3vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>{s.v}</div>
+                <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(32px,3vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>{s.v}</div>
                 <div className="max-md:!mx-auto" style={{ marginTop: 8, fontSize: 14, lineHeight: 1.4, color: "#5A5854", maxWidth: 240 }}>{s.l}</div>
               </div>
             ))}
           </div>
           <div style={{ marginTop: 20, display: "grid", gap: 16, alignItems: "start" }} className="sm:!grid-cols-2">
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff" }}>
-              <img loading="lazy" src="/assets/pages/reddit/07-results-blainy__link-analytics-6089-hits.jpg" alt="Link analytics: 6,089 all-time hits since March 5, 2024; best day 165 hits on June 10, 2024" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/07-results-blainy__link-analytics-6089-hits.jpg" alt="Link analytics: 6,089 all-time hits since March 5, 2024; best day 165 hits on June 10, 2024" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff" }}>
-              <img loading="lazy" src="/assets/pages/reddit/07-results-blainy__traffic-sources-3715-referrers.jpg" alt="Link analytics traffic sources: 3,715 referrer hits, 2,374 direct" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/07-results-blainy__traffic-sources-3715-referrers.jpg" alt="Link analytics traffic sources: 3,715 referrer hits, 2,374 direct" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
           </div>
-          <p style={{ margin: "12px 0 0", fontSize: 13, color: "#8B877F" }}>View counts from Reddit&apos;s post insights. Click data from the link tracker, March to December 2024.</p>
+          <p style={{ margin: "12px 0 0", fontSize: 13, color: "#6F6B64" }}>View counts from Reddit&apos;s post insights. Click data from the link tracker, March to December 2024.</p>
         </article>
 
         {/* Virtarix */}
         <article style={{ marginTop: 20, borderRadius: 28, background: "#FBFBF9", border: "1px solid #C9B9A2", boxShadow: "0 0 0 4px rgba(196,164,124,.12)", padding: "clamp(24px,3vw,44px)" }}>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Tech · Community · Reddit</div>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Tech · Community · Reddit</div>
           <div style={{ marginTop: 14, display: "grid", gap: "24px clamp(32px,4vw,56px)", alignItems: "center" }} className="md:!grid-cols-2">
             <div>
-              <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(32px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Virtarix</h3>
-              <p style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 500, letterSpacing: "-0.015em", lineHeight: 1.3 }}>Recommended by name in Reddit Answers for hosting questions.</p>
+              <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(32px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Virtarix</h3>
+              <p style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 500, letterSpacing: "-0.015em", lineHeight: 1.3 }}>Recommended by name in Reddit Answers for hosting questions.</p>
               <p style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>Technical content, community engagement and useful replies, so Virtarix shows up when people ask Reddit which host to use.</p>
             </div>
             <div className="max-md:[&>div]:!px-2 max-md:[&>div]:!text-center" style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }}>
               <div style={{ padding: "18px 12px 18px 0" }}>
-                <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(30px,2.8vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>3</div>
+                <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(30px,2.8vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>3</div>
                 <div style={{ marginTop: 8, fontSize: 13.5, color: "#5A5854" }}>Reddit Answers queries shown below</div>
               </div>
               <div style={{ padding: "18px 0 18px 18px", borderLeft: "1px solid #DDDAD3" }}>
-                <div style={{ fontFamily: "'General Sans'", fontSize: "clamp(30px,2.8vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>$0</div>
+                <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(30px,2.8vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>$0</div>
                 <div style={{ marginTop: 8, fontSize: 13.5, color: "#5A5854" }}>ad spend</div>
               </div>
             </div>
           </div>
           <div style={{ marginTop: "clamp(24px,3vw,36px)", display: "grid", gap: 16, alignItems: "start" }} className="sm:!grid-cols-3">
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff" }}>
-              <img loading="lazy" src="/assets/v7/virtarix-reddit-good.jpg" alt="Reddit Answers for 'good vps' listing Virtarix" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/v7/virtarix-reddit-good.jpg" alt="Reddit Answers for 'good vps' listing Virtarix" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff" }}>
-              <img loading="lazy" src="/assets/pages/reddit/07-results-virtarix__reddit-answers-mention.jpg" alt="Reddit Answers result mentioning Virtarix" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/07-results-virtarix__reddit-answers-mention.jpg" alt="Reddit Answers result mentioning Virtarix" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff" }}>
-              <img loading="lazy" src="/assets/pages/reddit/07-results-virtarix__reddit-answers-south-africa-vps.jpg" alt="Reddit Answers result mentioning Virtarix" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/07-results-virtarix__reddit-answers-south-africa-vps.jpg" alt="Reddit Answers result mentioning Virtarix" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
           </div>
         </article>
@@ -458,18 +459,18 @@ export default function RedditMarketingPage() {
         <article style={{ marginTop: 20, borderRadius: 28, background: "#F3F0EA", border: "1px solid #E2DBCD", padding: "clamp(24px,3vw,44px)", display: "grid", gap: "clamp(24px,3vw,36px)" }}>
           <div className="max-md:!mx-auto max-md:!text-center" style={{ maxWidth: 640 }}>
             <Eyebrow>Post performance</Eyebrow>
-            <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1 }}>What a single useful post can reach.</h3>
+            <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1 }}>What a single useful post can reach.</h3>
             <p className="max-md:!mx-auto" style={{ margin: "14px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48", maxWidth: 520 }}>
               These are examples, not ceilings. I&apos;ve had posts go past 100K views, while plenty of niche posts stay much smaller and still bring better users.
             </p>
-            <p style={{ margin: "12px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 22, lineHeight: 1.2, color: "#6B6862" }}>The goal is the right community, not the biggest number.</p>
+            <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 22, lineHeight: 1.2, color: "#6B6862" }}>The goal is the right community, not the biggest number.</p>
           </div>
           <div style={{ display: "grid", gap: 20, alignItems: "start" }} className="sm:!grid-cols-2">
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff" }}>
-              <img loading="lazy" src="/assets/pages/reddit/08-post-reach__reddit-post-44k-views.png" alt="Reddit post insights: 44K views" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/08-post-reach__reddit-post-44k-views.png" alt="Reddit post insights: 44K views" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff" }}>
-              <img loading="lazy" src="/assets/pages/reddit/08-post-reach__reddit-post-36k-views.png" alt="Reddit post insights: 36K views" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/08-post-reach__reddit-post-36k-views.png" alt="Reddit post insights: 36K views" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
           </div>
         </article>
@@ -480,14 +481,14 @@ export default function RedditMarketingPage() {
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
           <div className="max-md:!text-center">
             <Eyebrow>Deliverables</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit marketing</h2>
-            <p style={{ margin: "10px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>without the spammy part.</p>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit marketing</h2>
+            <p style={{ margin: "10px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>without the spammy part.</p>
           </div>
           <ol style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #1C1C1C" }}>
             {DELIVERABLES.map((d) => (
               <li key={d.n} style={{ display: "grid", gridTemplateColumns: "44px minmax(0,1fr)", gap: "6px 24px", alignItems: "baseline", padding: "20px 0", borderBottom: "1px solid #DDDAD3" }} className="sm:!grid-cols-[64px_minmax(0,220px)_minmax(0,1fr)]">
-                <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{d.n}</span>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{d.t}</h3>
+                <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{d.n}</span>
+                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{d.t}</h3>
                 <p style={{ gridColumn: "1 / -1", margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }} className="sm:!col-auto">
                   {d.d}
                 </p>
@@ -502,23 +503,23 @@ export default function RedditMarketingPage() {
         <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
           <div>
             <Eyebrow>Process</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Five steps.</h2>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Five steps.</h2>
           </div>
-          <p style={{ margin: 0, fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(24px,2.2vw,30px)", lineHeight: 1.15, color: "#6B6862", maxWidth: 440 }} className="max-md:!mx-auto">
+          <p style={{ margin: 0, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(24px,2.2vw,30px)", lineHeight: 1.15, color: "#6B6862", maxWidth: 440 }} className="max-md:!mx-auto">
             No &ldquo;blast it everywhere&rdquo; strategy.
           </p>
         </div>
         <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-5">
           {PROCESS_STEPS.map((s, i) => (
             <li key={s.n} className="max-sm:!border-l-0 max-sm:!pr-0" style={{ padding: `24px ${i ? 24 : 0}px 28px 0`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
+              <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", maxWidth: 260 }}>{s.d}</p>
             </li>
           ))}
         </ol>
         <figure style={{ margin: "clamp(28px,3vw,40px) 0 0" }}>
-          <img loading="lazy" src="/assets/pages/reddit/09-process__five-steps.png" alt="Five steps: listen, research, participate, publish, measure" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="lazy" src="/assets/pages/reddit/09-process__five-steps.png" alt="Five steps: listen, research, participate, publish, measure" style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
@@ -526,19 +527,19 @@ export default function RedditMarketingPage() {
       <section className="max-md:!pt-12" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(96px,9vw,128px) ${PAD} 0` }}>
         <div style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #DAD8D1", padding: "clamp(28px,4vw,56px)", display: "grid", gap: "32px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div className="max-md:!text-center">
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#9A7646" }}>From experience</div>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7D6039" }}>From experience</div>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               What can one good
               <br />
-              <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Reddit post</em> do?
+              <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Reddit post</em> do?
             </h2>
-            <p style={{ margin: "18px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.4vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>Pick the room, not the crowd size.</p>
+            <p style={{ margin: "18px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.4vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>Pick the room, not the crowd size.</p>
           </div>
           <div style={{ maxWidth: 560, display: "flex", flexDirection: "column", gap: 12, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
             <p style={{ margin: 0 }}>In my experience, a post reaching 100K views in a focused subreddit can bring around 100 to 200 users a day while it&apos;s active.</p>
             <p style={{ margin: 0 }}>Reddit threads keep getting found, so one useful thread can keep sending users afterwards.</p>
             <p style={{ margin: 0, color: "#1C1C1C", fontWeight: 500 }}>A smaller post in the right community can outperform a bigger post in the wrong one.</p>
-            <p style={{ margin: "6px 0 0", paddingTop: 14, borderTop: "1px solid #DDDAD3", fontSize: 13.5, color: "#77746E" }}>What I&apos;ve seen, not a guarantee. Results depend on niche, community, content and product.</p>
+            <p style={{ margin: "6px 0 0", paddingTop: 14, borderTop: "1px solid #DDDAD3", fontSize: 13.5, color: "#6E6B66" }}>What I&apos;ve seen, not a guarantee. Results depend on niche, community, content and product.</p>
           </div>
         </div>
       </section>
@@ -548,8 +549,8 @@ export default function RedditMarketingPage() {
         <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(32px,3vw,44px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
           <div>
             <Eyebrow>Pricing</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit marketing,</h2>
-            <p style={{ margin: "10px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>without getting banned.</p>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit marketing,</h2>
+            <p style={{ margin: "10px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>without getting banned.</p>
           </div>
           <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 420 }}>Organic only. No ad spend needed. Billed weekly or every two weeks.</p>
         </div>
@@ -585,7 +586,7 @@ export default function RedditMarketingPage() {
             <div>
               <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Reddit marketing</div>
               <div className="max-md:!justify-center" style={{ marginTop: 6, display: "flex", alignItems: "baseline", gap: 10 }}>
-                <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(52px,5.4vw,72px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,199</span>
+                <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(52px,5.4vw,72px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,199</span>
                 <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
               </div>
             </div>
@@ -610,8 +611,8 @@ export default function RedditMarketingPage() {
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(96px,9vw,128px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
           <div className="max-md:!text-center">
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Who it&apos;s for</div>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Who it&apos;s for</div>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Reddit works
               <br />
               best when&hellip;
@@ -619,22 +620,22 @@ export default function RedditMarketingPage() {
           </div>
           <div style={{ display: "grid", gap: "32px clamp(24px,3vw,48px)" }} className="sm:!grid-cols-2">
             <div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9A7646" }}>Good fit</h3>
+              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>Good fit</h3>
               <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
                 {FIT_GOOD.map((t) => (
                   <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45 }}>
-                    <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#9A7646" }}>✓</span>
+                    <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#7D6039" }}>✓</span>
                     <span>{t}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" }}>Not the right fit</h3>
+              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>Not the right fit</h3>
               <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
                 {FIT_BAD.map((t) => (
                   <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#5A5854" }}>
-                    <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#A09B91" }}>—</span>
+                    <span aria-hidden="true" style={{ fontSize: 14 }}><span style={{ display: "inline-block", width: "0.91em", height: 2, verticalAlign: "0.214em", background: "#706B61" }} /></span>
                     <span>{t}</span>
                   </li>
                 ))}
@@ -648,13 +649,13 @@ export default function RedditMarketingPage() {
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(80px,9vw,128px) ${PAD} 0`, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.58fr)_minmax(0,1fr)]">
         <div className="max-md:!text-center">
           <Eyebrow>FAQ</Eyebrow>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             Reddit questions,
             <br />
-            <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
           </h2>
           <div className="max-md:!mx-auto" style={{ marginTop: "clamp(24px,3vw,36px)", width: "100%", maxWidth: 420 }}>
-            <img loading="lazy" src="/assets/pages/reddit/12-faq__reddit-questions.png" alt="Reddit questions flowing through search into clear answers" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/reddit/12-faq__reddit-questions.png" alt="Reddit questions flowing through search into clear answers" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
         <FAQAccordion faqs={FAQS} />
@@ -664,8 +665,8 @@ export default function RedditMarketingPage() {
       <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(80px,9vw,128px) ${PAD} clamp(24px,3vw,40px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div className="max-md:!text-center">
-            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Your buyers are probably already talking.</h2>
-            <p style={{ margin: "14px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
+            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Your buyers are probably already talking.</h2>
+            <p style={{ margin: "14px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
               <Emphasis>Let&apos;s find the right thread.</Emphasis>
             </p>
             <p className="max-md:!mx-auto" style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
@@ -692,11 +693,11 @@ export default function RedditMarketingPage() {
 
       {/* RELATED */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Reddit rarely works alone</h2>
+        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Reddit rarely works alone</h2>
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
           {RELATED.map((r, i) => (
             <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.015em" }}>
+              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>

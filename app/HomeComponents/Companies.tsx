@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BgImage } from "./Img";
 
 const BRANDS: { t: string; img?: string; h: string; w: string }[] = [
   { t: "Amoxt Solutions", img: "/assets/v9/l_amoxt.png", h: "30px", w: "130px" },
@@ -20,7 +21,7 @@ export default function Companies() {
 
   return (
     <section className="max-md:!pt-14" style={{ padding: "clamp(80px,9vw,128px) 0 0" }}>
-      <p className="max-md:!text-center" style={{ margin: "0 auto 24px", maxWidth: 1360, padding: "0 clamp(20px,4vw,48px)", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>
+      <p className="max-md:!text-center" style={{ margin: "0 auto 24px", maxWidth: 1360, padding: "0 clamp(20px,4vw,48px)", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>
         Brands and products I&apos;ve worked with
       </p>
       <div
@@ -39,13 +40,9 @@ export default function Companies() {
           {loop.map((b, i) => (
             <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", justifyContent: "center", height: "clamp(104px,9vw,136px)", padding: "0 clamp(40px,4vw,64px)", background: "#EEEDE7" }}>
               {b.img ? (
-                <span
-                  role="img"
-                  aria-label={b.t}
-                  style={{ display: "block", width: b.w, height: b.h, backgroundImage: `url("${b.img}")`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center", mixBlendMode: "multiply" }}
-                />
+                <BgImage src={b.img} alt={b.t} fit="contain" style={{ display: "block", width: b.w, height: b.h, mixBlendMode: "multiply" }} />
               ) : (
-                <span style={{ fontFamily: "'General Sans'", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
+                <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
               )}
             </div>
           ))}

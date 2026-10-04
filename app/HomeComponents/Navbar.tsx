@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowIcon, ChevronIcon } from "./icons";
+import { Img } from "./Img";
 
 const NAV_LINKS: { t: string; href: string }[] = [
   { t: "Services", href: "/services" },
@@ -59,7 +60,7 @@ export default function Navbar() {
         className="max-md:!gap-3"
       >
         <Link href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
-          <img src="/logo.png" alt="Zain Ul Abdin logo" style={{ display: "block", height: 42, width: "auto" }} />
+          <Img src="/logo-128.png" alt="Zain Ul Abdin logo" loading="eager" style={{ display: "block", height: 42, width: "auto" }} />
         </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="max-md:!gap-3">
@@ -81,7 +82,7 @@ export default function Navbar() {
                       gap: 6,
                       height: 44,
                       padding: "0 12px",
-                      color: navHover === -1 || on ? "#1C1C1C" : "#8B877F",
+                      color: navHover === -1 || on ? "#1C1C1C" : "#6F6B64",
                       transition: "color 180ms",
                     }}
                   >
@@ -158,7 +159,7 @@ export default function Navbar() {
             className="md:hidden max-md:!inline-flex max-md:!min-w-11 max-md:!items-center max-md:!justify-center max-md:!gap-2"
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
-            style={{ background: "none", border: 0, font: "500 15px 'Inter'", color: "#1C1C1C", height: 44, padding: 0, cursor: "pointer" }}
+            style={{ background: "none", border: 0, font: "500 15px var(--nf-inter)", color: "#1C1C1C", height: 44, padding: 0, cursor: "pointer" }}
           >
             {/* hamburger icon, becomes an X while the menu is open */}
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -184,7 +185,7 @@ export default function Navbar() {
                   key={l.t}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  style={{ display: "block", fontFamily: "'General Sans'", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
+                  style={{ display: "block", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
                 >
                   {l.t}
                 </a>
@@ -195,7 +196,7 @@ export default function Navbar() {
                 <button
                   onClick={() => setMobileSvcOpen((v) => !v)}
                   aria-expanded={mobileSvcOpen}
-                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "'General Sans'", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
+                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
                 >
                   {l.t}
                   <ChevronIcon style={{ transform: mobileSvcOpen ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />

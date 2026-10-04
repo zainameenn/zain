@@ -25,7 +25,7 @@ export function WaitlistForm() {
         }}
       >
         <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
-        Your email app should have opened — just hit send and you&apos;re on the list.
+        Your email app should have opened. Just hit send and you&apos;re on the list.
       </p>
     );
   }

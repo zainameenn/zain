@@ -1,3 +1,4 @@
+import { cloneElement } from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { H1_STYLE } from "@/app/HomeComponents/heading";
@@ -22,7 +23,7 @@ export default function VirtarixCaseStudyPage() {
         </p>
       </section>
       <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(56px,6vw,80px) clamp(20px,4vw,48px) 0" }}>
-        {CASES.virtarix}
+        {cloneElement(CASES.virtarix, { headingLevel: 2 })}
         <div style={{ marginTop: 16, display: "flex", justifyContent: "center" }}>
           <Link href="/case-studies" style={{ display: "inline-flex", alignItems: "center", gap: 10, minHeight: 44, fontSize: 15, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
             All growth marketing case studies

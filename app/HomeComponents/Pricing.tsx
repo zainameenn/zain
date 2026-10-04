@@ -20,12 +20,12 @@ function Row({ n, title, children, price, sub, cta }: { n: string; title: string
       }}
       className="md:!grid-cols-[minmax(0,0.8fr)_minmax(0,2.6fr)_minmax(0,4.5fr)_minmax(0,2.1fr)] max-md:!justify-items-center max-md:!text-center"
     >
-      <span style={{ fontSize: 13, fontWeight: 600, color: "#9A7646", fontVariantNumeric: "tabular-nums" }}>{n}</span>
-      <h3 style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{title}</h3>
+      <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{n}</span>
+      <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{title}</h3>
       <div style={{ maxWidth: 540 }}>{children}</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 4 }} className="items-start md:!items-end md:text-right max-md:!items-center">
-        <p style={{ margin: 0, fontFamily: "'General Sans'", fontSize: "clamp(24px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, whiteSpace: "nowrap" }}>{price}</p>
-        {sub && <span style={{ fontSize: 13, fontWeight: 500, color: "#77746E" }}>{sub}</span>}
+        <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, whiteSpace: "nowrap" }}>{price}</p>
+        {sub && <span style={{ fontSize: 13, fontWeight: 500, color: "#6E6B66" }}>{sub}</span>}
         {cta && (
           <a href="#contact" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ marginTop: 8, display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C", paddingBottom: 2 }}>
             {cta.label}
@@ -44,24 +44,24 @@ export default function Pricing() {
     <section id="pricing" className="max-md:!pt-20" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(96px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto clamp(40px,4vw,56px)", textAlign: "center" }}>
         <div>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>Pricing</div>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Pricing</div>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Senior work.
             <br />
-            <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>Without the agency invoice.</em>
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>Without the agency invoice.</em>
           </h2>
         </div>
         <p style={{ margin: "16px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 420 }}>No long contracts. No agency markup. Monthly work is billed weekly or every two weeks.</p>
       </div>
 
-      <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 4px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" }}>
+      <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 4px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
         Start here
       </div>
       <div style={{ borderBottom: "1px solid #DDDAD3" }}>
         <Row n="01" title="Social media check" price="Free" cta={{ label: "Get the free check" }}>
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>I&apos;ll look at why your posts aren&apos;t getting seen.</p>
-          <p style={{ margin: "6px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#77746E" }}>Coffee&apos;s on me.</p>
+          <p style={{ margin: "6px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#6E6B66" }}>Coffee&apos;s on me.</p>
         </Row>
         <Row n="02" title="Full website & SEO audit" price="$499" sub="one time" cta={{ label: "Start with an audit" }}>
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
@@ -72,7 +72,7 @@ export default function Pricing() {
 
       <div style={{ height: "clamp(48px,5vw,64px)" }} />
 
-      <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 4px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" }}>
+      <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 4px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
         Ongoing
       </div>
@@ -81,17 +81,17 @@ export default function Pricing() {
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
             Five posts a week, strategy, graphics, and I keep an eye on the groups and communities where your buyers hang out.
           </p>
-          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#77746E" }}>Adding video or extra platforms? $1,199 to $1,499, depending on how many platforms I&apos;m handling.</p>
+          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>Adding video or extra platforms? $1,199 to $1,499, depending on how many platforms I&apos;m handling.</p>
         </Row>
         <Row n="04" title="Reddit marketing" price="$1,199" sub="per month">
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
             Posts, comments and threads in the communities your buyers actually read. Built to rank on Google and get picked up by AI answers, without getting banned.
           </p>
-          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#77746E" }}>The same approach behind thousands of Reddit conversions with $0 on ads.</p>
+          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>The same approach behind thousands of Reddit conversions with $0 on ads.</p>
         </Row>
         <Row n="05" title="SEO" price="$1,999" sub="per month">
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>Research, original articles and backlinks.</p>
-          <p style={{ margin: "6px 0 0", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#77746E" }}>
+          <p style={{ margin: "6px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#6E6B66" }}>
             The part everyone quietly hates doing.
           </p>
         </Row>
@@ -106,8 +106,8 @@ export default function Pricing() {
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#D3AE82" }} />
             06 · Best value
           </div>
-          <h3 style={{ margin: "18px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Everything, <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>handled.</em>
+          <h3 style={{ margin: "18px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            Everything, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>handled.</em>
           </h3>
           <p className="max-md:!mx-auto" style={{ margin: "18px 0 0", maxWidth: 460, fontSize: 17, lineHeight: 1.55, color: "#C9C4BA" }}>
             SEO, Reddit, social media, content and design.
@@ -131,7 +131,7 @@ export default function Pricing() {
           <div>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Together</div>
             <div className="max-md:!justify-center" style={{ marginTop: 6, display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "'General Sans'", fontSize: "clamp(48px,5vw,68px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
+              <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(48px,5vw,68px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
               <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
             </div>
           </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { PlusIcon } from "./icons";
 import { FAQS } from "./faqData";
+import { Img } from "./Img";
 
 export default function FAQ() {
   const [open, setOpen] = useState(-1);
@@ -13,13 +14,13 @@ export default function FAQ() {
       className="md:!grid-cols-[minmax(0,0.58fr)_minmax(0,1fr)]"
     >
       <div className="max-md:!text-center">
-        <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#8B877F" }}>FAQ</div>
-        <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>FAQ</div>
+        <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
           Questions people
           <br />
           usually ask first.
         </h2>
-        <img
+        <Img
           src="/assets/v12/art-b.png"
           alt="Illustration: questions flowing to a marketer at a desk and coming out as checked answers"
           width={1086}
@@ -47,7 +48,7 @@ export default function FAQ() {
                   alignItems: "center",
                   gap: 24,
                   padding: "22px 0",
-                  fontFamily: "'General Sans'",
+                  fontFamily: "'General Sans', 'General Sans Fallback'",
                   fontSize: "clamp(18px,1.4vw,20px)",
                   fontWeight: 600,
                   letterSpacing: "-0.01em",

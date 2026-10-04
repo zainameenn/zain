@@ -1,3 +1,4 @@
+import { cloneElement } from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { H1_STYLE } from "@/app/HomeComponents/heading";
@@ -13,9 +14,9 @@ export const metadata = buildMetadata({
 });
 
 const LIST = [
-  { slug: "blainy", label: "Blainy case study", card: CASES.blainy },
-  { slug: "everdry", label: "Everdry case study", card: CASES.everdry },
-  { slug: "virtarix", label: "Virtarix case study", card: CASES.virtarix },
+  { slug: "blainy", label: "Blainy case study", card: cloneElement(CASES.blainy, { headingLevel: 2 }) },
+  { slug: "everdry", label: "Everdry case study", card: cloneElement(CASES.everdry, { headingLevel: 2 }) },
+  { slug: "virtarix", label: "Virtarix case study", card: cloneElement(CASES.virtarix, { headingLevel: 2 }) },
 ];
 
 export default function CaseStudiesPage() {
