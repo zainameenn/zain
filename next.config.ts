@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  // The Tailwind CSS is small, so ship it inside the HTML instead of as a render-blocking file.
+  experimental: {
+    inlineCss: true,
+  },
   // Old URLs permanently redirect to the new keyword URLs.
   async redirects() {
     return [

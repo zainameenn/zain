@@ -4,12 +4,41 @@
 @custom-variant dark (&:is(.dark *));
 
 /* Sized like General Sans so headings don't jump while the Fontshare font loads. */
+/* Measured per weight against General Sans: width ratio, ascent 1.01em, descent 0.24em. */
 @font-face {
   font-family: 'General Sans Fallback';
   src: local('Arial');
-  size-adjust: 90%;
-  ascent-override: 98.9%;
-  descent-override: 24.4%;
+  font-weight: 400;
+  size-adjust: 100.05%;
+  ascent-override: 100.95%;
+  descent-override: 23.99%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'General Sans Fallback';
+  src: local('Arial');
+  font-weight: 500;
+  size-adjust: 102.8%;
+  ascent-override: 98.25%;
+  descent-override: 23.35%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'General Sans Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT');
+  font-weight: 600;
+  size-adjust: 99.27%;
+  ascent-override: 101.74%;
+  descent-override: 24.18%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'General Sans Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT');
+  font-weight: 700;
+  size-adjust: 101.95%;
+  ascent-override: 99.07%;
+  descent-override: 23.54%;
   line-gap-override: 0%;
 }
 
@@ -55,10 +84,10 @@ a {
 }
 /* Phones: keep every section heading smaller than the page H1 (32px at phone width). */
 @media (max-width: 767.98px) {
-  main h2 { font-size: clamp(1.75rem, calc(2vw + 1rem), 2.25rem) !important; }
-  main h2 :not(em) { font-size: inherit !important; }
-  main h2 em { font-size: 1.08em !important; }
-  main h2 em em { font-size: inherit !important; }
+  main h2:not(.case-headline) { font-size: clamp(1.75rem, calc(2vw + 1rem), 2.25rem) !important; }
+  main h2:not(.case-headline) :not(em) { font-size: inherit !important; }
+  main h2:not(.case-headline) em { font-size: 1.08em !important; }
+  main h2:not(.case-headline) em em { font-size: inherit !important; }
   main h3[style*="clamp(3"], main .phone-heading { font-size: 1.75rem !important; }
 }
 @media (prefers-reduced-motion: reduce) {

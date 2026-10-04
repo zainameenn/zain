@@ -15,7 +15,7 @@ export function Img({ src, sizes, loading, width, height, ...rest }: ImgProps) {
 }
 
 const scaleSizes = (sizes: string, scale: number) =>
-  scale === 1 ? sizes : sizes.replace(/(\d+(?:\.\d+)?)(vw|px)(?=\s*(,|$))/g, (_, n, u) => `${Math.ceil(Number(n) * scale)}${u}`);
+  scale === 1 ? sizes : sizes.replace(/(\d+(?:\.\d+)?)(vw|px)(?=\s*(,|\)|$))/g, (_, n, u) => `${Math.ceil(Number(n) * scale)}${u}`);
 
 type BgImageProps = {
   src: string;

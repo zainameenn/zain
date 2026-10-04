@@ -3,6 +3,7 @@ import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis, LinkedInIcon, MailIcon } from "../HomeComponents/icons";
 import { FAQAccordion } from "../HomeComponents/FAQAccordion";
 import { ContactForm } from "./ContactForm";
+import { CalendlyEmbed } from "./CalendlyEmbed";
 import { Img } from "../HomeComponents/Img";
 
 export const metadata = buildMetadata({
@@ -283,12 +284,7 @@ export default function ContactPage() {
             </span>
           </div>
           <div style={{ borderRadius: 18, overflow: "hidden", background: "#FBFBF9", border: "1px solid #E2DFD8" }}>
-            <iframe
-              src="https://calendly.com/zain-ameen/30min?hide_gdpr_banner=1&background_color=fbfbf9&text_color=1c1c1c&primary_color=1c1c1c"
-              title="Book a free 30 minute call with Zain"
-              loading="lazy"
-              style={{ display: "block", width: "100%", height: 720, border: 0 }}
-            />
+            <CalendlyEmbed />
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "10px 20px", padding: "16px 8px 6px", fontSize: 14, color: "#5A5854" }}>
             <span>Calendar not loading?</span>

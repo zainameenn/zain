@@ -708,7 +708,7 @@ export default function GoogleMetaAdsPage() {
             <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
               {FIT_BAD.map((t) => (
                 <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#5A5854" }}>
-                  <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#706B61" }}>—</span>
+                  <span aria-hidden="true" style={{ fontSize: 14 }}><span style={{ display: "inline-block", width: "0.91em", height: 2, verticalAlign: "0.214em", background: "#706B61" }} /></span>
                   <span>{t}</span>
                 </li>
               ))}

@@ -16,6 +16,7 @@ export function CaseStudy({
   paragraphs,
   stats,
   visual,
+  headingLevel = 3,
 }: {
   id: string;
   index: number;
@@ -33,7 +34,10 @@ export function CaseStudy({
   paragraphs: React.ReactNode;
   stats: { v: string; l: string }[];
   visual: React.ReactNode;
+  /** 2 on the case study pages, where the card sits directly under the H1. */
+  headingLevel?: 2 | 3;
 }) {
+  const Headline = headingLevel === 2 ? "h2" : "h3";
   const textColor = dark ? "#EEF0F8" : "#4F5A59";
   const mutedColor = dark ? "#A3A8BD" : "#4F5A59";
 
@@ -51,7 +55,7 @@ export function CaseStudy({
           </span>
         </div>
         <div style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{name}</div>
-        <h3 style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.12 }}>{headline}</h3>
+        <Headline className="case-headline" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.12 }}>{headline}</Headline>
         <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.6, color: textColor, maxWidth: 440 }}>{paragraphs}</div>
       </div>
       <div>

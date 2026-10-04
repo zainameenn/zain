@@ -49,7 +49,7 @@ export function ContactForm() {
           Almost there.
         </p>
         <p style={{ margin: "10px 0 0", fontSize: 16, color: "#5A5854" }}>
-          Your email app should have opened with everything filled in — just hit send. If nothing opened, email{" "}
+          Your email app should have opened with everything filled in. Just hit send. If nothing opened, email{" "}
           <a href="mailto:hello@zainameen.com" style={{ color: "#1C1C1C", fontWeight: 600, borderBottom: "1.5px solid #1C1C1C" }}>
             hello@zainameen.com
           </a>{" "}
@@ -72,7 +72,7 @@ export function ContactForm() {
         const message = data.get("message")?.toString().trim() ?? "";
         const budget = data.get("budget")?.toString().trim() ?? "";
 
-        const subject = `New enquiry: ${need || "General"} — ${name || "website contact form"}`;
+        const subject = `New enquiry: ${need || "General"}, from ${name || "website contact form"}`;
         const body = [
           `Name: ${name}`,
           `Email: ${email}`,
