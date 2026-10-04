@@ -1,154 +1,104 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import Footer from "./HomeComponents/Footer";
+import { Geist, Inter, Instrument_Serif } from "next/font/google";
 import Navbar from "./HomeComponents/Navbar";
-import { CaseStudiesProvider } from "@/context/CaseStudiesContext";
+import Footer from "./HomeComponents/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-geist" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter" });
+const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", display: "swap", variable: "--nf-serif" });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const FONTSHARE_CSS = "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap";
 
-// ✅ Full SEO Metadata (no favicons)
 export const metadata: Metadata = {
-  title: "Zain Ameen | Marketing Strategist & Growth Expert",
-  description:
-    "I help businesses scale faster with SEO, automation, and community-driven strategies. 25M+ impressions, $18M+ raised, and 6.5x ROI average return.",
-  keywords: [
-    "Zain Ameen",
-    "Marketing Strategist",
-    "Growth Expert",
-    "SEO Specialist",
-    "Social Media Marketing",
-    "Product Marketing",
-    "Community Building",
-    "Content Marketing",
-    "Automation",
-  ],
-  authors: [{ name: "Zain Ameen", url: "https://www.zainameen.com" }],
-  creator: "Zain Ameen",
-  publisher: "Zain Ameen",
+  authors: [{ name: "Zain Ul Abdin", url: "https://www.zainameen.com" }],
+  creator: "Zain Ul Abdin",
+  publisher: "Zain Ul Abdin",
   metadataBase: new URL("https://www.zainameen.com"),
-  openGraph: {
-    title: "Zain Ameen | Marketing Strategist & Growth Expert",
-    description:
-      "Turning quiet brands into loud voices. From 600 ➝ 150K views in 40 days. $2M+ savings generated. Let's scale your business together.",
-    url: "https://www.zainameen.com",
-    siteName: "Zain Ameen",
-    images: [
-      {
-        url: "https://www.zainameen.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Zain Ameen Marketing Strategist",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@techeon_ai",
-    creator: "@zainnameen",
-    title: "Zain Ameen | Marketing Strategist & Growth Expert",
-    description:
-      "Scaling brands with SEO, automation & social growth. 25M+ impressions, $18M+ raised, 6.5x ROI avg.",
-    images: ["https://www.zainameen.com/og-image.jpg"],
-  },
-  alternates: {
-    canonical: "https://www.zainameen.com",
-  },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable}`}>
       <head>
-        {/* ✅ Structured Data (Person + Contact Info + Links) */}
+        {/* General Sans stays on Fontshare (its license doesn't allow it in a public repo). Added by script so it doesn't block the first paint. */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var l=document.createElement("link");l.rel="stylesheet";l.href=${JSON.stringify(FONTSHARE_CSS)};document.head.appendChild(l)})();`,
+          }}
+        />
+
+        {/* ✅ Structured Data (Person + Contact Info) */}
         <Script
           id="structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Zain Ameen",
-              jobTitle: "Marketing Strategist & Growth Expert",
-              url: "https://www.zainameen.com",
-              email: ["contact@zainameen.com", "hello@zainameen.com"],
-              sameAs: [
-                "https://www.linkedin.com/in/zain-ameen/",
-                "https://x.com/zainnameen",
-                "https://calendly.com/zain-ameen",
-                "https://techeon.org/",
-                "https://www.linkedin.com/company/techeon-partners/",
-              ],
-              worksFor: {
-                "@type": "Organization",
-                name: "Zain Ameen Marketing",
-                url: "https://www.zainameen.com",
-              },
-              knowsAbout: [
-                "SEO",
-                "Social Media Marketing",
-                "Product Marketing",
-                "Community Growth",
-                "Content Strategy",
-                "Automation",
-              ],
-              contactPoint: [
+              "@graph": [
                 {
-                  "@type": "ContactPoint",
-                  email: "contact@zainameen.com",
-                  contactType: "Business inquiries",
+                  "@type": "WebSite",
+                  name: "Zain Ul Abdin",
+                  url: "https://www.zainameen.com",
                 },
                 {
-                  "@type": "ContactPoint",
+                  "@type": "Person",
+                  name: "Zain Ul Abdin",
+                  url: "https://www.zainameen.com",
+                  alternateName: ["Zain Ameen"],
+                  jobTitle: "Growth Marketing Specialist",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Lahore",
+                    addressCountry: "Pakistan",
+                  },
                   email: "hello@zainameen.com",
-                  contactType: "Collaborations",
+                  sameAs: [
+                    "https://www.linkedin.com/in/zain-ameen/",
+                    "https://github.com/zainameenn",
+                    "https://x.com/zainnameen",
+                    "https://www.instagram.com/zainn.ms/",
+                    "https://www.pinterest.com/zainameenn",
+                    "https://www.threads.com/@zainn.ms",
+                    "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf",
+                    "https://www.facebook.com/profile.php?id=61560222560607",
+                  ],
+                },
+                {
+                  "@type": "ProfessionalService",
+                  name: "Zain Ul Abdin, Growth Marketing",
+                  description: "Growth marketing for SaaS and service businesses: SEO, Reddit marketing, social media, content, design and Google and Meta ads.",
+                  url: "https://www.zainameen.com",
+                  areaServed: ["US", "AE", "EU"],
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Lahore",
+                    addressCountry: "PK",
+                  },
+                  serviceType: [
+                    "Growth strategy and GTM",
+                    "SEO",
+                    "Reddit marketing",
+                    "Social media management",
+                    "Google and Meta ads",
+                    "Content and design",
+                  ],
                 },
               ],
-            }),
-          }}
-        />
-
-        {/* ✅ Optional: WebSite schema for rich search results */}
-        <Script
-          id="website-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Zain Ameen",
-              url: "https://www.zainameen.com",
-              potentialAction: {
-                "@type": "SearchAction",
-                target: "https://www.zainameen.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
             }),
           }}
         />
       </head>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <CaseStudiesProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </CaseStudiesProvider>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+        <Footer />
 
         {/* ✅ Google Analytics */}
         <Script
@@ -161,6 +111,17 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-T3ZK018Y8C');
+          `}
+        </Script>
+
+        {/* ✅ Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="lazyOnload">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "yp1n9hbiei");
           `}
         </Script>
       </body>

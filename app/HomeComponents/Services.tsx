@@ -1,219 +1,69 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
 
-const tabs = [
-  "Product Growth",
-  "Service Marketing",
-  "Multi-Channel SEO",
-  "Reddit Marketing",
-] as const;
-type TabType = (typeof tabs)[number];
+import { useState } from "react";
+import { ArrowIcon } from "./icons";
+import { BgImage } from "./Img";
 
-interface TabContent {
-  subtitle: string;
-  title: string;
-  description: string;
-  result: string;
-  buttonText: string;
-  gradient1: string;
-  gradient2: string;
-}
-
-const tabContent: Record<TabType, TabContent> = {
-  "Product Growth": {
-    subtitle: "SaaS & Tech Product Marketing",
-    title: "Full-Funnel Growth\nfor Tech Products",
-    description:
-      "GTM strategy. User acquisition. Retention. SEO, Reddit, social, email—everything you need to scale.",
-    result: "~85K users in 12 months. Organic.",
-    buttonText: "Grow Your SaaS Product",
-    gradient1: "from-[#DEE7E2] to-[#CAD8D1]",
-    gradient2: "from-[#E9F1ED] to-[#D3E0DB]",
-  },
-  "Service Marketing": {
-    subtitle: "Local & Service Business Growth",
-    title: "Dominate Your\nLocal Market",
-    description:
-      "Local SEO. Lead generation. Reputation management. Google Business optimization. Review campaigns. Ads that convert.",
-    result: "More leads. Lower CAC. Predictable pipeline.",
-    buttonText: "Scale Your Service Business",
-    gradient1: "from-[#DCE5EB] to-[#C9D6E0]",
-    gradient2: "from-[#E7EEF2] to-[#D5E1EA]",
-  },
-  "Multi-Channel SEO": {
-    subtitle: "Omnichannel Search Dominance",
-    title: "Rank Everywhere\nThat Matters",
-    description:
-      "Google, Bing, Reddit, YouTube ranking. Content that compounds monthly. Backlinks. Authority. Page 1 positions.",
-    result: "~30M impressions. Thousands of leads.",
-    buttonText: "Start SEO Strategy",
-    gradient1: "from-[#E3E9E0] to-[#D4DED2]",
-    gradient2: "from-[#EAF0E6] to-[#DDE7DA]",
-  },
-  "Reddit Marketing": {
-    subtitle: "Authentic Community Growth",
-    title: "Convert Without\nSpending on Ads",
-    description:
-      "Non-promotional community strategies. Thousands of users without ads. Authentic engagement that converts.",
-    result: "831 conversions in 30 days. $0 spent.",
-    buttonText: "Master Reddit Marketing",
-    gradient1: "from-[#EEE8DF] to-[#E3DED5]",
-    gradient2: "from-[#F3EFE8] to-[#E9E4DB]",
-  },
-};
+const SERVICES = [
+  { name: "Growth strategy and GTM", line: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant", linkLabel: "SaaS growth consultant" },
+  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/seo-specialist-for-saas", linkLabel: "SEO specialist for SaaS" },
+  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing-specialist", linkLabel: "Reddit marketing specialist" },
+  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/social-media-marketing-specialist", linkLabel: "Social media marketing specialist" },
+  { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-and-meta-ads-specialist", linkLabel: "Google and Meta ads specialist" },
+];
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState<TabType>("Product Growth");
+  const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-[#F8F6F4] max-w-7xl mx-auto rounded-3xl px-6 md:px-10 py-20 mt-5">
-      <div className="grid lg:grid-cols-2 gap-12 items-start">
-        {/* LEFT */}
+    <section id="services" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
+      <div style={{ maxWidth: 720, margin: "0 auto 32px", textAlign: "center" }}>
         <div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl lg:text-5xl font-bold text-gray-900 leading-tight mb-8"
-          >
-            Growth Systems That Work{" "}
-            <span className="text-[#E6B27E]">
-              for SaaS & Services
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-gray-700 mb-8 leading-relaxed"
-          >
-            Full-funnel marketing strategies that drive real results. From user
-            acquisition to retention, local SEO to Reddit growth—everything you
-            need to scale.
-          </motion.p>
-
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gradient-to-r from-[#E6B27E] to-[#E6B27E] hover:from-[#fab672] hover:to-[#d19860] text-white px-8 py-4 rounded-full font-bold text-lg transition-all inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
-          >
-            Let's Build Your Growth System
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </motion.button>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
-          >
-            {[
-              { label: "Years experience", value: "14" },
-              { label: "Projects completed", value: "91" },
-              { label: "Startup funding", value: "$100m" },
-              { label: "Industries served", value: "10" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="text-gray-600 text-sm mb-2">{stat.label}</p>
-                <p className="text-4xl font-bold text-gray-900">
-                  {stat.value}
-                </p>
-              </div>
-            ))}
-          </motion.div>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Capabilities</div>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>What I can help with.</h2>
         </div>
-
-        {/* RIGHT */}
-        <div>
-          <div className="flex gap-6 mb-8  pb-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`whitespace-nowrap  pb-2 font-medium transition-colors relative ${
-                  activeTab === tab
-                    ? "text-gray-900"
-                    : "text-gray-400 hover:text-gray-600"
-                }`}
-              >
-                {tab}
-                {activeTab === tab && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[##E6B27E]"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-[#ECEBE6] rounded-[3rem] p-8 shadow-xl"
-          >
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <div className="mb-8">
-                <p className="text-xs text-gray-500 mb-2">
-                  {tabContent[activeTab].subtitle}
-                </p>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4 leading-tight">
-                  {tabContent[activeTab].title.split("\n").map((line, i) => (
-                    <React.Fragment key={i}>
-                      {line}
-                      {i === 0 && <br />}
-                    </React.Fragment>
-                  ))}
-                </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed text-sm">
-                  {tabContent[activeTab].description}
-                </p>
-                <button className="bg-[##E6B27E] text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#4F6B65] transition-all">
-                  {tabContent[activeTab].buttonText}
-                </button>
-              </div>
-
-              <div className="flex gap-4">
-                <div
-                  className={`flex-1 bg-gradient-to-br ${tabContent[activeTab].gradient1} rounded-2xl h-32`}
-                ></div>
-                <div
-                  className={`w-32 bg-gradient-to-br ${tabContent[activeTab].gradient2} rounded-2xl overflow-hidden`}
+        <p style={{ margin: "16px auto 0", fontSize: 17, lineHeight: 1.55, color: "#5A5854", maxWidth: 440 }}>If you already know the channel, great. If you don&apos;t, that&apos;s kind of my thing.</p>
+      </div>
+      <div style={{ display: "grid", gap: "clamp(32px,4vw,64px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+        <div style={{ borderTop: "1px solid #1C1C1C" }}>
+          {SERVICES.map((s, i) => {
+            const on = active === i;
+            return (
+              <div key={s.name} style={{ borderBottom: "1px solid #DDDAD3" }}>
+                <a
+                  href={s.href}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  style={{ display: "flex", flexDirection: "column", gap: 8, padding: "24px 0" }}
+                  className="lg:!grid lg:!grid-cols-[44px_minmax(0,1fr)_auto] lg:!gap-x-4 lg:!gap-y-2 lg:!items-baseline"
                 >
-                  <div className="h-24 bg-gray-200 rounded-t-2xl"></div>
-                  <div className="h-8 bg-white flex items-center justify-center">
-                    <span className="text-xs text-green-700 font-medium">
-                      ● Accepting new clients
-                    </span>
-                  </div>
-                </div>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7D6039" : "#6F6B64", fontVariantNumeric: "tabular-nums" }}>{String(i + 1).padStart(2, "0")}</span>
+                  <span className="max-md:!transform-none" style={{ display: "flex", flexDirection: "column", gap: 8, transform: on ? "translateX(6px)" : "none", transition: "transform 240ms cubic-bezier(.2,.7,.2,1)" }}>
+                    <h3 className="lg:!whitespace-nowrap" style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(21px,1.8vw,26px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.name}</h3>
+                    <span style={{ fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 520 }}>{s.line}</span>
+                  </span>
+                  <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14.5, fontWeight: 600, color: on ? "#1C1C1C" : "#6F6B64", whiteSpace: "nowrap", transition: "color 200ms" }}>
+                    <span>{s.linkLabel}</span>
+                    <ArrowIcon style={{ transform: on ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
+                  </span>
+                </a>
               </div>
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="bg-[#D5DDD8] rounded-3xl h-32"></div>
-              <div className="bg-[#B8C7C0] rounded-3xl h-32"></div>
-            </div>
-          </motion.div>
+            );
+          })}
         </div>
+        <figure style={{ margin: 0, minWidth: 0, position: "sticky", top: 112, borderRadius: 28, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "clamp(20px,2.4vw,32px) clamp(12px,1.6vw,24px)" }}>
+          <BgImage
+            src="/assets/v9/g10.png"
+            alt="Illustration: ads, search and content channels feeding one growth engine that outputs performance and revenue"
+            fit={100}
+            style={{ aspectRatio: "1448/880" }}
+          />
+          <figcaption style={{ display: "flex", justifyContent: "space-between", gap: 16, marginTop: 8, padding: "14px 8px 0", borderTop: "1px solid #E2DFD8", fontSize: 11.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6E6B66" }}>
+            <span>Channels</span>
+            <span>One system</span>
+            <span style={{ color: "#7D6039" }}>Growth</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

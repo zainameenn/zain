@@ -1,117 +1,224 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { ArrowIcon, ChevronIcon } from "./icons";
+import { Img } from "./Img";
+
+const NAV_LINKS: { t: string; href: string }[] = [
+  { t: "Services", href: "/services" },
+  { t: "Pricing", href: "/pricing" },
+  { t: "About", href: "/about" },
+  { t: "Insights", href: "/insights" },
+];
+
+const SERVICE_MENU = [
+  { t: "Growth strategy and GTM", d: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant" },
+  { t: "SEO", d: "Original content that ranks on Google and in AI answers.", href: "/services/seo-specialist-for-saas" },
+  { t: "Reddit marketing", d: "Show up where buyers ask for recommendations.", href: "/services/reddit-marketing-specialist" },
+  { t: "Social media marketing", d: "Content, graphics and posting that bring visits.", href: "/services/social-media-marketing-specialist" },
+  { t: "Google and Meta ads", d: "Test small, find what converts, then scale.", href: "/services/google-and-meta-ads-specialist" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [navHover, setNavHover] = useState(-1);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileSvcOpen, setMobileSvcOpen] = useState(false);
+  const [ctaHover, setCtaHover] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercentage = (window.scrollY / window.innerHeight) * 100;
-      setScrolled(scrollPercentage > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out ${
-        scrolled
-          ? 'w-[90%] max-w-7xl mt-4 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl px-8 py-4'
-          : 'w-[80%] max-w-8xl bg-transparent px-12 py-5'
-      }`}
+    <header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 80,
+        background: scrolled || menuOpen ? "rgba(238,237,231,.94)" : "rgba(238,237,231,0)",
+        borderBottom: `1px solid ${scrolled ? "#DDDAD3" : "transparent"}`,
+        transition: "background 200ms, border-color 200ms",
+        backdropFilter: "blur(6px)",
+      }}
     >
-      <div className="flex justify-between items-center">
-        {/* Logo */}
-        <Link
-          href="/"
-          className={`text-2xl w-10 h-10 font-bold transition-colors duration-300 ${
-            scrolled ? 'text-gray-900' : 'text-zinc-800'
-          }`}
-        >
-          <img src="/logo.avif" alt="" />
+      <div
+        style={{
+          maxWidth: 1360,
+          margin: "0 auto",
+          padding: "0 clamp(20px,4vw,48px)",
+          height: 72,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 24,
+        }}
+        className="max-md:!gap-3"
+      >
+        <Link href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
+          <Img src="/logo-128.png" alt="Zain Ul Abdin logo" loading="eager" style={{ display: "block", height: 42, width: "auto" }} />
         </Link>
-        
-        {/* Navigation Links */}
-        <ul className="hidden md:flex font-medium text-md  items-center gap-8">
-          <li>
-            <Link
-              href="/"
-              className={`relative  transition-colors duration-300 hover:opacity-80 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
-                scrolled
-                  ? 'text-gray-700 after:bg-zinc-600'
-                  : 'text-zinc-800 after:bg-white'
-              }`}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/case-studies"
-              className={`relative  transition-colors duration-300 hover:opacity-80 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
-                scrolled
-                  ? 'text-gray-700 after:bg-zinc-600'
-                  : 'text-zinc-800 after:bg-white'
-              }`}
-            >
-              Case Studies
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about"
-              className={`relative  transition-colors duration-300 hover:opacity-80 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
-                scrolled
-                  ? 'text-gray-700 after:bg-zinc-600'
-                  : 'text-zinc-800 after:bg-white'
-              }`}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/services"
-              className={`relative  transition-colors duration-300 hover:opacity-80 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
-                scrolled
-                  ? 'text-gray-700 after:bg-zinc-600'
-                  : 'text-zinc-800 after:bg-white'
-              }`}
-            >
-              Services
-            </Link>
-          </li>
-      
-        </ul>
-        <div>
-            <Link
-              href="/contact"
-              className={`px-6 py-2.5 rounded-full border font-semibold transition-all duration-300 ${
-                scrolled
-                  ? 'bg-gradient-to-r from-zinc-100 to-white text-black hover:shadow-lg hover:scale-105'
-                  : 'bg-white text-zinc-600 hover:bg-opacity-90 hover:scale-105'
-              }`}
-            >
-              Contact Me
-            </Link>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className={`md:hidden flex flex-col gap-1.5 ${
-            scrolled ? 'text-gray-900' : 'text-zinc-800'
-          }`}
-          aria-label="Menu"
-        >
-          <span className={`w-6 h-0.5 ${scrolled ? 'bg-gray-900' : 'bg-white'} transition-colors`}></span>
-          <span className={`w-6 h-0.5 ${scrolled ? 'bg-gray-900' : 'bg-white'} transition-colors`}></span>
-          <span className={`w-6 h-0.5 ${scrolled ? 'bg-gray-900' : 'bg-white'} transition-colors`}></span>
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="max-md:!gap-3">
+          <nav className="hidden md:flex" onMouseLeave={() => setNavHover(-1)} style={{ gap: 4, fontSize: 15, fontWeight: 500 }}>
+            {NAV_LINKS.map((l, i) => {
+              const isSvc = l.t === "Services";
+              const on = navHover === i;
+              const dd = on && isSvc;
+              return (
+                <div key={l.t} onMouseEnter={() => setNavHover(i)} style={{ position: "relative" }}>
+                  <a
+                    href={l.href}
+                    aria-haspopup={isSvc}
+                    aria-expanded={dd}
+                    style={{
+                      position: "relative",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 6,
+                      height: 44,
+                      padding: "0 12px",
+                      color: navHover === -1 || on ? "#1C1C1C" : "#6F6B64",
+                      transition: "color 180ms",
+                    }}
+                  >
+                    <span style={{ display: "block", transform: on ? "translateY(-1px)" : "none", transition: "transform 220ms cubic-bezier(.2,.7,.2,1)" }}>{l.t}</span>
+                    {isSvc && <ChevronIcon style={{ transform: dd ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />}
+                    <span
+                      style={{
+                        position: "absolute",
+                        left: 12,
+                        right: 12,
+                        bottom: 8,
+                        height: 1.5,
+                        background: "#C4A47C",
+                        transform: `scaleX(${on ? 1 : 0})`,
+                        transformOrigin: "left",
+                        transition: "transform 260ms cubic-bezier(.2,.7,.2,1)",
+                      }}
+                    />
+                  </a>
+                  {dd && (
+                    <div style={{ position: "absolute", left: -8, top: "100%", paddingTop: 10, width: 380, zIndex: 90, animation: "zddin 180ms ease-out both" }}>
+                      <div style={{ background: "#F8F6F4", border: "1px solid #DDDAD3", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: 8 }}>
+                        {SERVICE_MENU.map((m) => (
+                          <a
+                            key={m.t}
+                            href={m.href}
+                            style={{ display: "block", padding: "12px 14px", borderRadius: 10, transition: "background 160ms" }}
+                            onMouseEnter={(e) => (e.currentTarget.style.background = "#EEEDE7")}
+                            onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                          >
+                            <span style={{ display: "block", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>{m.t}</span>
+                            <span style={{ display: "block", marginTop: 3, fontSize: 13.5, fontWeight: 400, color: "#5A5854" }}>{m.d}</span>
+                          </a>
+                        ))}
+                        <a
+                          href="/services"
+                          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 6, padding: "14px 14px 10px", borderTop: "1px solid #DDDAD3", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}
+                        >
+                          View all services
+                          <ArrowIcon />
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </nav>
+
+          <a
+            href="/contact"
+            className="max-md:!whitespace-nowrap max-md:!px-3.5"
+            onMouseEnter={() => setCtaHover(true)}
+            onMouseLeave={() => setCtaHover(false)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              height: 44,
+              padding: "0 18px",
+              borderRadius: 12,
+              background: ctaHover ? "#33322F" : "#1C1C1C",
+              color: "#F8F6F4",
+              fontSize: 14.5,
+              fontWeight: 500,
+              transition: "background 180ms",
+            }}
+          >
+            <span>Tell me what&apos;s stuck</span>
+            <ArrowIcon style={{ transform: ctaHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
+          </a>
+
+          <button
+            className="md:hidden max-md:!inline-flex max-md:!min-w-11 max-md:!items-center max-md:!justify-center max-md:!gap-2"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-expanded={menuOpen}
+            style={{ background: "none", border: 0, font: "500 15px var(--nf-inter)", color: "#1C1C1C", height: 44, padding: 0, cursor: "pointer" }}
+          >
+            {/* hamburger icon, becomes an X while the menu is open */}
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+              {menuOpen ? (
+                <path d="M5 5l10 10M15 5L5 15" />
+              ) : (
+                <path d="M3 5.5h14M3 10h14M3 14.5h14" />
+              )}
+            </svg>
+            {/* label is visually hidden on very narrow phones, still read by screen readers */}
+            <span className="max-[379px]:sr-only">{menuOpen ? "Close" : "Menu"}</span>
+          </button>
+        </div>
       </div>
-    </nav>
+
+      {menuOpen && (
+        <nav style={{ padding: "8px clamp(20px,4vw,48px) 24px", display: "flex", flexDirection: "column", borderTop: "1px solid #DDDAD3" }} className="max-md:!max-h-[calc(100dvh-73px)] max-md:!overflow-y-auto max-md:!overscroll-contain">
+          {NAV_LINKS.map((l) => {
+            const isSvc = l.t === "Services";
+            if (!isSvc) {
+              return (
+                <a
+                  key={l.t}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  style={{ display: "block", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
+                >
+                  {l.t}
+                </a>
+              );
+            }
+            return (
+              <div key={l.t} style={{ borderBottom: "1px solid #DDDAD3" }}>
+                <button
+                  onClick={() => setMobileSvcOpen((v) => !v)}
+                  aria-expanded={mobileSvcOpen}
+                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
+                >
+                  {l.t}
+                  <ChevronIcon style={{ transform: mobileSvcOpen ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />
+                </button>
+                {mobileSvcOpen && (
+                  <div style={{ display: "flex", flexDirection: "column", padding: "0 0 12px" }}>
+                    {SERVICE_MENU.map((m) => (
+                      <a key={m.t} href={m.href} onClick={() => setMenuOpen(false)} style={{ padding: "10px 0", fontSize: 16, color: "#4E4C48" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
+                        {m.t}
+                      </a>
+                    ))}
+                    <a href="/services" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }} className="max-md:!min-h-11">
+                      View all services
+                      <ArrowIcon />
+                    </a>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </nav>
+      )}
+    </header>
   );
 }

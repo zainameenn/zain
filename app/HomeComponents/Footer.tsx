@@ -1,207 +1,154 @@
-"use client";
-import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { ArrowIcon, ChevronIcon, MailIcon, LinkedInIcon } from "./icons";
+import { Img } from "./Img";
+
+const FOOT_GROUPS = [
+  {
+    h: "Work",
+    items: [
+      ["Blainy", "/case-studies/blainy"],
+      ["Everdry Waterproofing", "/case-studies/everdry"],
+      ["Virtarix", "/case-studies/virtarix"],
+      ["LoomPad", "/#case-loompad"],
+    ],
+  },
+  {
+    h: "Services",
+    items: [
+      ["Growth strategy and GTM", "/services/saas-growth-consultant"],
+      ["SEO", "/services/seo-specialist-for-saas"],
+      ["Reddit marketing", "/services/reddit-marketing-specialist"],
+      ["Social media marketing", "/services/social-media-marketing-specialist"],
+      ["Google and Meta ads", "/services/google-and-meta-ads-specialist"],
+    ],
+  },
+  {
+    h: "Explore",
+    items: [
+      ["Pricing", "/pricing"],
+      ["About", "/about"],
+      ["Insights", "/insights"],
+      ["Contact", "/contact"],
+    ],
+  },
+];
+
+// Tablet: four columns under the brand block. Desktop: brand plus four columns in one row.
+// Phones: these columns are hidden and the same links appear as tap-to-open rows instead.
+const GROUP_CLASS = "max-md:!hidden";
+const CONNECT_CLASS = "col-span-2 md:col-span-1";
+
+const HEADING_STYLE: React.CSSProperties = { fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F", marginBottom: 18 };
+
+const SOCIALS: { t: string; href: string; kind: "in" | "mail" | "icon"; icon?: string }[] = [
+  { t: "LinkedIn", href: "https://www.linkedin.com/in/zain-ameen/", kind: "in" },
+  { t: "Facebook", href: "https://www.facebook.com/profile.php?id=61560222560607", kind: "icon", icon: "facebook" },
+  { t: "Instagram", href: "https://www.instagram.com/zainn.ms/", kind: "icon", icon: "instagram" },
+  { t: "X", href: "https://x.com/zainnameen", kind: "icon", icon: "x" },
+  { t: "Threads", href: "https://www.threads.com/@zainn.ms", kind: "icon", icon: "threads" },
+  { t: "Pinterest", href: "https://www.pinterest.com/zainameenn", kind: "icon", icon: "pinterest" },
+  { t: "GitHub", href: "https://github.com/zainameenn", kind: "icon", icon: "github" },
+  { t: "Upwork", href: "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf", kind: "icon", icon: "upwork" },
+  { t: "Calendly", href: "https://calendly.com/zain-ameen/30min", kind: "icon", icon: "calendly" },
+  { t: "Email", href: "mailto:hello@zainameen.com", kind: "mail" },
+];
 
 export default function Footer() {
-  const footerColumns = [
-    {
-      title: "Quick Links",
-      links: [
-        { label: "Home", href: "/" },
-        { label: "Case Studies", href: "/case-studies" },
-        { label: "About", href: "#about" },
-        { label: "Services", href: "#services" },
-        { label: "Contact", href: "#contact" },
-      ],
-    },
-    {
-      title: "What I Do",
-      links: [
-        { label: "SaaS Product Growth", href: "#services" },
-        { label: "Service Business Marketing", href: "#services" },
-        { label: "Reddit Marketing", href: "#services" },
-        { label: "Multi-Channel SEO", href: "#services" },
-        { label: "Local Lead Generation", href: "#services" },
-      ],
-    },
-    {
-      title: "Free Resources",
-      links: [
-        { label: "Book Strategy Call", href: "https://calendly.com/zain-ameen", external: true },
-        { label: "Read Case Studies", href: "/case-studies" },
-        { label: "View Portfolio", href: "#projects" },
-        { label: "Free Marketing Audit", href: "#contact" },
-      ],
-    },
-  ];
-
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/zain-ameen/",
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-        </svg>
-      ),
-    },
-    {
-      name: "X (Twitter)",
-      href: "https://x.com/zainnameen",
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      ),
-    },
-    {
-      name: "Email",
-      href: "mailto:contact@zainameen.com",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-    },
-  ];
-
   return (
-    <footer className="bg-gradient-to-t from-[#EDEBE7] to-[#F8F6F4] text-[#3B3A38] border-t border-[#D6D3CE]/60">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 py-10">
-        {/* Logo and tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
+    <footer style={{ background: "#171717", color: "#F2EFEA", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(64px,7vw,96px) clamp(20px,4vw,48px) 0" }}>
+        <div
+          style={{ display: "grid", gap: "40px 24px", alignItems: "start", justifyContent: "space-between", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }}
+          className="grid-cols-2 md:grid-cols-[repeat(4,auto)] lg:grid-cols-[repeat(5,auto)]"
         >
-          <h3 className="text-3xl font-semibold text-[#1C1C1C] mb-3">
-            Zain Ul Abdin
-          </h3>
-          <p className="text-[#5A5854] max-w-md text-lg">
-            Growth Specialist for SaaS & Services. Building organic systems that scale.
-          </p>
-        </motion.div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 16 }} className="col-span-2 md:col-span-4 lg:col-span-1 max-md:!items-center max-md:!text-center">
+            {/* logo-dark.png has empty space around the mark; this window crops to the mark (56px tall). */}
+            <span style={{ position: "relative", display: "block", width: 62, height: 56, overflow: "hidden" }}>
+              <Img loading="lazy" src="/logo-dark-288.png" alt="Zain Ul Abdin logo" style={{ position: "absolute", left: -18.9, top: -19.3, width: 93.8, height: 93.8, maxWidth: "none" }} />
+            </span>
+            <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, whiteSpace: "nowrap" }}>
+              Growth marketing
+              <br />
+              without the stress.
+            </p>
+            <p style={{ margin: 0, fontSize: 13, color: "#8B877F", whiteSpace: "nowrap" }}>
+              Free 30 minute call.
+              <br />
+              You&apos;ll leave with at least one thing to fix.
+            </p>
+            <a href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#D3AE82", borderBottom: "1.5px solid #D3AE82" }}>
+              Tell me what&apos;s stuck
+              <ArrowIcon />
+            </a>
+          </div>
 
-        {/* Footer grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {footerColumns.map((col, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-            >
-              <h4 className="font-semibold text-[#1C1C1C] text-lg mb-4">
-                {col.title}
-              </h4>
-              <ul className="space-y-3">
-                {col.links.map((link, j) => (
-                  <li key={j}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#5A5854] hover:text-[#C4A47C] transition-colors duration-300 text-sm"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-[#5A5854] hover:text-[#C4A47C] transition-colors duration-300 text-sm"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
+          {/* Phones only: link groups as tap-to-open rows (native details, works without JavaScript) */}
+          <div className="col-span-2 md:hidden" style={{ borderTop: "1px solid #2F2E2B" }}>
+            {FOOT_GROUPS.map((g) => (
+              <details key={g.h} className="group" style={{ borderBottom: "1px solid #2F2E2B" }}>
+                <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D9D5CC" }}>
+                  {g.h}
+                  <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-200 group-open:rotate-180" style={{ border: "1px solid #33322F", color: "#D3AE82" }}>
+                    <ChevronIcon size={12} />
+                  </span>
+                </summary>
+                <div style={{ display: "flex", flexDirection: "column", paddingBottom: 12 }}>
+                  {g.items.map(([t, href]) => (
+                    <a key={t} href={href} className="flex min-h-11 items-center" style={{ fontSize: 15, color: "#B7B2A8" }}>
+                      {t}
+                    </a>
+                  ))}
+                </div>
+              </details>
+            ))}
+          </div>
+
+          {FOOT_GROUPS.map((g) => (
+            <div key={g.h} className={GROUP_CLASS}>
+              <div style={HEADING_STYLE}>{g.h}</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 11 }} className="max-md:!gap-0">
+                {g.items.map(([t, href]) => (
+                  <a key={t} href={href} style={{ fontSize: 15, color: "#D9D5CC" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
+                    {t}
+                  </a>
                 ))}
-              </ul>
-            </motion.div>
+              </div>
+            </div>
           ))}
 
-          {/* Social column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h4 className="font-semibold text-[#1C1C1C] text-lg mb-4">
-              Connect
-            </h4>
-            <div className="flex gap-3 flex-wrap">
-              {socialLinks.map((s, i) => (
+          <div className={CONNECT_CLASS}>
+            <div style={HEADING_STYLE} className="max-md:!text-center">Connect</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 36px)", gap: 10, justifyContent: "start" }} className="max-md:!mx-auto max-md:!flex max-md:!max-w-[260px] max-md:!flex-wrap max-md:!justify-center">
+              {SOCIALS.map((so) => (
                 <a
-                  key={i}
-                  href={s.href}
-                  target={s.href.startsWith("http") ? "_blank" : undefined}
-                  rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="w-10 h-10 rounded-full bg-[#EAE8E2] hover:bg-[#C4A47C] flex items-center justify-center text-[#3B3A38] hover:text-white transition-all duration-300 hover:scale-105"
-                  aria-label={s.name}
+                  key={so.t}
+                  href={so.href}
+                  target={so.kind === "mail" ? undefined : "_blank"}
+                  rel={so.kind === "mail" ? undefined : "noreferrer"}
+                  aria-label={so.t}
+                  title={so.t}
+                  style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center", color: "#D9D5CC" }}
+                  className="max-md:!h-11 max-md:!w-11"
                 >
-                  {s.icon}
+                  {so.kind === "in" && <LinkedInIcon size={14} color="#F2EFEA" />}
+                  {so.kind === "mail" && <MailIcon size={15} color="#F2EFEA" />}
+                  {so.kind === "icon" && (
+                    <Img src={`/icons/${so.icon}-F2EFEA.svg`} alt="" aria-hidden="true" width={15} height={15} style={{ display: "block", width: 15, height: 15, objectFit: "contain" }} />
+                  )}
                 </a>
               ))}
             </div>
-
-            <div className="mt-6">
-              <a
-                href="https://calendly.com/zain-ameen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#1C1C1C] hover:bg-[#2C2C2E] text-white px-6 py-3 rounded-full font-medium text-sm transition-all duration-300"
-              >
-                Book a Call
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
-            </div>
-          </motion.div>
+          </div>
         </div>
 
-        <div className="border-t border-[#D6D3CE] my-8"></div>
-
-        {/* Bottom bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#77736C]"
-        >
-          <p className="text-center md:text-left">
-            © 2025 Zain Ul Abdin | Growth Specialist for SaaS & Services | All Rights Reserved
-          </p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-[#C4A47C] transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-[#C4A47C] transition-colors">
-              Terms of Service
-            </Link>
+        <div style={{ padding: "24px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "12px 32px", fontSize: 13, color: "#8B877F" }} className="max-md:!flex-col max-md:!items-center max-md:!gap-1 max-md:!text-center">
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }} className="max-md:!items-center">
+            <span>© 2026 Zain Ul Abdin</span>
+            <span>Built for useful growth, not vanity metrics.</span>
           </div>
-        </motion.div>
+          <a href="#top" style={{ color: "#8B877F" }} className="max-md:!inline-flex max-md:!min-h-11 max-md:!items-center">
+            Back to top ↑
+          </a>
+        </div>
       </div>
     </footer>
   );
