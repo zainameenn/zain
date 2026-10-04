@@ -27,11 +27,7 @@ export default function RootLayout({
         {/* General Sans stays on Fontshare (its license doesn't allow it in a public repo). Added by script so it doesn't block the first paint. */}
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var l=document.createElement("link");l.rel="stylesheet";l.href=${JSON.stringify(FONTSHARE_CSS)};document.head.appendChild(l)})();`,
-          }}
-        />
+        <link rel="stylesheet" href={FONTSHARE_CSS} />
 
         {/* ✅ Structured Data (Person + Contact Info) */}
         <Script
