@@ -45,3 +45,9 @@ next-env.d.ts
 
 # claude code local settings
 .claude/
+
+# Local generated files (never commit)
+.generated/
+
+# General Sans font files are downloaded from a private Vercel Blob during the build (licence: never commit them)
+/public/fonts/general-sans/

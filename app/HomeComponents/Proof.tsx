@@ -47,7 +47,7 @@ export default function Proof() {
               minWidth: 0,
             }}
           >
-            <div className={m.mobile} style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: m.fs, fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{m.v}</div>
+            <div className={m.mobile} style={{ fontFamily: "var(--nf-general-sans)", fontSize: m.fs, fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{m.v}</div>
             <div className="max-md:!mx-auto max-md:!text-balance" style={{ marginTop: 12, fontSize: 14.5, lineHeight: 1.4, color: "#5A5854", maxWidth: 220 }}>{m.l}</div>
             <span
               className="max-md:!mx-auto max-md:!origin-center"

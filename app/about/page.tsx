@@ -30,7 +30,7 @@ function CenteredHead({ eyebrow, title, sub }: { eyebrow: string; title: React.R
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 40px", maxWidth: 900 }}>
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>{title}</h2>
+      <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>{title}</h2>
       {sub && <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>{sub}</p>}
     </div>
   );
@@ -221,7 +221,7 @@ export default function AboutPage() {
         <div style={{ display: "grid", borderTop: "1px solid #DDDAD3", borderBottom: "1px solid #DDDAD3" }} className="grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s) => (
             <div key={s.l} style={{ padding: "28px 16px", textAlign: "center" }}>
-              <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(36px,3.6vw,52px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+              <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(36px,3.6vw,52px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
               <div style={{ marginTop: 10, fontSize: 14, color: "#5A5854" }}>{s.l}</div>
             </div>
           ))}
@@ -247,7 +247,7 @@ export default function AboutPage() {
             <li key={s.n} style={{ position: "relative", paddingTop: 28, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <span aria-hidden="true" style={{ position: "absolute", top: -6, left: "calc(50% - 5.5px)", width: 11, height: 11, borderRadius: "50%", background: s.accent ? "#C4A47C" : "#1C1C1C", boxShadow: "0 0 0 4px #EEEDE7" }} />
               <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{s.n}</div>
-              <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.t}</h3>
+              <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "#4E4C48" }}>{s.d}</p>
             </li>
           ))}
@@ -294,7 +294,7 @@ export default function AboutPage() {
                     </span>
                   )}
                 </div>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
+                <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
                 <p className="max-md:!text-base" style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: p.dark ? "#C9C4BA" : "#4E4C48" }}>{p.d}</p>
               </li>
             ))}
@@ -319,7 +319,7 @@ export default function AboutPage() {
           {LESSONS.map((l) => (
             <div key={l.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{l.n}</div>
-              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{l.t}</h3>
+              <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{l.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{l.d}</p>
             </div>
           ))}
@@ -357,7 +357,7 @@ export default function AboutPage() {
                 {b.img ? (
                   <Img loading="lazy" src={b.img} alt={b.t} style={{ display: "block", width: b.w, height: b.h, objectFit: "contain", mixBlendMode: "multiply" }} />
                 ) : (
-                  <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
+                  <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
                 )}
               </div>
             ))}
@@ -386,18 +386,18 @@ export default function AboutPage() {
               </div>
               <div>
                 <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7D6039" }}>{c.cat}</div>
-                <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
+                <h3 style={{ margin: "8px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{c.sr}</span>
                   {c.title}
                 </h3>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "start", width: "100%", borderTop: "1px solid #DDDAD3", marginTop: "auto" }}>
                 <div style={{ padding: "18px 8px 0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{c.stat1v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{c.stat1v}</div>
                   <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{c.stat1l}</div>
                 </div>
                 <div style={{ padding: "18px 8px 0", borderLeft: "1px solid #DDDAD3" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{c.stat2v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{c.stat2v}</div>
                   <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{c.stat2l}</div>
                 </div>
               </div>
@@ -424,7 +424,7 @@ export default function AboutPage() {
             <div key={g.n} style={{ borderRadius: 20, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "24px 22px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <span style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{g.n}</span>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em" }}>{g.t}</h3>
+                <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em" }}>{g.t}</h3>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 8 }}>
                 {g.tags.map((tag) => (
@@ -488,7 +488,7 @@ export default function AboutPage() {
         <div role="img" aria-label="Diagnose, prioritize, execute, measure, learn, then repeat" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "10px 8px", margin: "0 auto 48px", maxWidth: 980 }}>
           {PHILOSOPHY_FLOW.map((t, i) => (
             <span key={t} style={{ display: "contents" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px", borderRadius: 999, background: i === 0 ? "#1C1C1C" : "#F8F6F4", color: i === 0 ? "#F2EFEA" : "#1C1C1C", border: i === 0 ? "1px solid #1C1C1C" : "1px solid #DDD6C8", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 16, fontWeight: 600 }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px", borderRadius: 999, background: i === 0 ? "#1C1C1C" : "#F8F6F4", color: i === 0 ? "#F2EFEA" : "#1C1C1C", border: i === 0 ? "1px solid #1C1C1C" : "1px solid #DDD6C8", fontFamily: "var(--nf-general-sans)", fontSize: 16, fontWeight: 600 }}>
                 <span style={{ fontSize: 11.5, color: i === 0 ? "#D3AE82" : "#7D6039" }}>{String(i + 1).padStart(2, "0")}</span>
                 {t}
               </span>
@@ -504,7 +504,7 @@ export default function AboutPage() {
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,40px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {PHILOSOPHY_CARDS.map((c) => (
             <div key={c.t} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
-              <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{c.t}</h3>
+              <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{c.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
             </div>
           ))}
@@ -528,7 +528,7 @@ export default function AboutPage() {
           {WORKING.map((w) => (
             <div key={w.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{w.n}</div>
-              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{w.t}</h3>
+              <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{w.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{w.d}</p>
             </div>
           ))}
@@ -540,7 +540,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(80px,8vw,104px) ${PAD} 0` }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto", maxWidth: 900 }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client proof</div>
-            <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               What people say
               <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>about working with me.</em>
             </h2>
@@ -567,7 +567,7 @@ export default function AboutPage() {
                     View original ↗
                   </a>
                 </div>
-                <blockquote style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 16.5, lineHeight: 1.4, letterSpacing: "-0.01em", flex: 1 }}>&quot;{r.q}&quot;</blockquote>
+                <blockquote style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 16.5, lineHeight: 1.4, letterSpacing: "-0.01em", flex: 1 }}>&quot;{r.q}&quot;</blockquote>
                 <figcaption className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 16, borderTop: "1px solid #DAD6CC" }}>
                   {r.avatar ? (
                     <Img loading="lazy" src={r.avatar} alt={r.name} style={{ width: 44, height: 44, borderRadius: "50%", flex: "0 0 auto", objectFit: "cover" }} />
@@ -593,7 +593,7 @@ export default function AboutPage() {
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 32 }}>
             <div className="max-md:!text-center">
               <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Outside the dashboard</div>
-              <h2 className="max-md:!text-balance" style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+              <h2 className="max-md:!text-balance" style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
                 There&apos;s a person
                 <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>behind the dashboards.</em>
               </h2>
@@ -601,8 +601,8 @@ export default function AboutPage() {
             </div>
             <figure style={{ margin: 0, padding: 28, borderRadius: 20, background: "#262523", border: "1px solid #3A3935" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 13, fontWeight: 600, color: "#1C1C1C", background: "#D3AE82", borderRadius: 999, height: 28, padding: "0 12px", display: "inline-flex", alignItems: "center" }}>01</span>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Gamer with a serious backlog</h3>
+                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 13, fontWeight: 600, color: "#1C1C1C", background: "#D3AE82", borderRadius: 999, height: 28, padding: "0 12px", display: "inline-flex", alignItems: "center" }}>01</span>
+                <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Gamer with a serious backlog</h3>
               </div>
               <p className="max-md:!text-base" style={{ margin: "14px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#C9C4BA" }}>Resident Evil is my all time favorite. Right now I&apos;m rotating between Sekiro, Elden Ring and Black Myth: Wukong.</p>
               <blockquote style={{ margin: "18px 0 0", paddingTop: 18, borderTop: "1px solid #3A3935", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.2, color: "#F2EFEA" }}>
@@ -615,7 +615,7 @@ export default function AboutPage() {
               <li key={p.n} style={{ display: "grid", gridTemplateColumns: "64px minmax(0,1fr)", gap: "4px 20px", alignItems: "baseline", padding: "26px 0", borderBottom: "1px solid #3A3935" }}>
                 <span style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 40, lineHeight: 1, color: "#D3AE82" }}>{p.n}</span>
                 <div>
-                  <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
+                  <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
                   <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>{p.d}</p>
                 </div>
               </li>
@@ -640,7 +640,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1040, margin: "0 auto", borderTop: "1px solid #1C1C1C" }}>
           {RESUME_ITEMS.map((r, i) => (
             <div key={i} style={{ display: "flex", flexDirection: "column", gap: 6, padding: "20px 0", borderBottom: "1px solid #DDDAD3" }} className="md:!grid md:!grid-cols-[minmax(0,260px)_minmax(0,1fr)_140px] md:!gap-x-6 md:!items-baseline">
-              <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 18, fontWeight: 600, letterSpacing: "-0.015em" }}>{r.org}</h3>
+              <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 18, fontWeight: 600, letterSpacing: "-0.015em" }}>{r.org}</h3>
               <div>
                 <div className="max-md:!text-base" style={{ fontSize: 15.5, fontWeight: 500, color: "#1C1C1C" }}>{r.role}</div>
                 {r.desc && <p className="max-md:!text-base" style={{ margin: "4px 0 0", fontSize: 14.5, lineHeight: 1.55, color: "#5A5854" }}>{r.desc}</p>}
@@ -686,7 +686,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          <h2 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>That&apos;s the story.</h2>
+          <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>That&apos;s the story.</h2>
           <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.1, color: "#D3AE82" }}>
             <Emphasis>Now tell me yours.</Emphasis>
           </p>

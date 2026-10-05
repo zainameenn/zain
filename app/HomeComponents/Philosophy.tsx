@@ -4,7 +4,7 @@ export default function Philosophy() {
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ display: "grid", gap: "40px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.86fr)_minmax(0,1fr)]">
         <div>
-          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             More marketing isn&apos;t
             <br />
             always the answer.
@@ -18,7 +18,7 @@ export default function Philosophy() {
           <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "12px 0 0", maxWidth: 460, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
             Everything looks busy and growth still feels stuck. Usually one or two things are holding the rest back. We find those first. Everything else can wait.
           </p>
-          <p className="max-md:!text-center" style={{ margin: "32px 0 0", paddingTop: 24, borderTop: "1px solid #DDDAD3", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>
+          <p className="max-md:!text-center" style={{ margin: "32px 0 0", paddingTop: 24, borderTop: "1px solid #DDDAD3", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>
             Diagnose first.{" "}
             <em style={{ fontFamily: "var(--nf-serif),serif", fontWeight: 400, fontSize: "1.1em" }}>Panic never.</em>
           </p>

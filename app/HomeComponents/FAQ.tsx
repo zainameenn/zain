@@ -15,7 +15,7 @@ export default function FAQ() {
     >
       <div className="max-md:!text-center">
         <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>FAQ</div>
-        <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+        <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
           Questions people
           <br />
           usually ask first.
@@ -48,7 +48,7 @@ export default function FAQ() {
                   alignItems: "center",
                   gap: 24,
                   padding: "22px 0",
-                  fontFamily: "'General Sans', 'General Sans Fallback'",
+                  fontFamily: "var(--nf-general-sans)",
                   fontSize: "clamp(18px,1.4vw,20px)",
                   fontWeight: 600,
                   letterSpacing: "-0.01em",

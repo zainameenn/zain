@@ -54,15 +54,15 @@ export function CaseStudy({
             <Img loading="lazy" src={logo} alt={logoAlt} className="max-lg:!h-auto max-lg:!max-w-[120px]" style={{ display: "block", height: logoHeight, width: "auto", maxWidth: 150, mixBlendMode: dark ? "normal" : "multiply" }} />
           </span>
         </div>
-        <div style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{name}</div>
-        <Headline className="case-headline" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.12 }}>{headline}</Headline>
+        <div style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{name}</div>
+        <Headline className="case-headline" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.12 }}>{headline}</Headline>
         <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.6, color: textColor, maxWidth: 440 }}>{paragraphs}</div>
       </div>
       <div>
         <div className="max-sm:!grid-cols-2" style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length},minmax(0,1fr))`, borderTop: `1px solid ${dark ? "#2C3042" : "#C9D6D5"}` }}>
           {stats.map((s, i) => (
             <div key={s.l} className={`max-md:!text-center max-sm:!px-2 max-sm:!pb-4 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? (dark ? "max-sm:!border-t max-sm:!border-t-[#2C3042]" : "max-sm:!border-t max-sm:!border-t-[#C9D6D5]") : ""} ${stats.length === 3 && i === 2 ? "max-sm:!col-span-2" : ""}`} style={{ padding: `16px ${i === stats.length - 1 ? 0 : 12}px 0 ${i ? 14 : 0}px`, borderLeft: i ? `1px solid ${dark ? "#2C3042" : "#C9D6D5"}` : "none" }}>
-              <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em" }}>{s.v}</div>
+              <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em" }}>{s.v}</div>
               <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.35, color: mutedColor }}>{s.l}</div>
             </div>
           ))}
@@ -142,7 +142,7 @@ export const CASES = {
               <Img loading="lazy" src="/assets/site/blainy-bing-full.jpg" alt="Blainy Bing Webmaster Tools search performance" style={{ display: "block", width: "100%" }} />
             </div>
             <div style={{ position: "absolute", left: 24, bottom: 24, padding: "16px 20px", borderRadius: 16, background: "#1C1C1C", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4 }}>
-              <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(30px,3.2vw,48px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>85K+</span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(30px,3.2vw,48px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>85K+</span>
               <span style={{ fontSize: 12.5, color: "#B7B2A8" }}>users, organically</span>
             </div>
           </Frame>
@@ -185,7 +185,7 @@ export const CASES = {
               <Img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views" style={{ display: "block", width: "100%" }} />
             </div>
             <div style={{ position: "absolute", right: 24, top: 24, padding: "16px 20px", borderRadius: 16, background: "#1C1C1C", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4, boxShadow: "0 20px 40px -24px rgba(20,20,20,.5)" }}>
-              <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(40px,4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>160K+</span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>160K+</span>
               <span style={{ fontSize: 12.5, color: "#B7B2A8" }}>Facebook views in 28 days</span>
             </div>
             <div style={{ position: "absolute", left: 24, bottom: 24, width: "34%", aspectRatio: "4/3", border: "6px solid #fff", boxShadow: "0 24px 44px -24px rgba(20,20,20,.5)", transform: "rotate(-2deg)", borderRadius: 12, overflow: "hidden" }}>
@@ -289,7 +289,7 @@ export default function Work() {
       <div style={{ maxWidth: 720, margin: "0 auto clamp(32px,4vw,48px)", textAlign: "center" }}>
         <div>
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Selected work</div>
-          <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Growth work that had to
             <br />
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>earn its place.</em>
