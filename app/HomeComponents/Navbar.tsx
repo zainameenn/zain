@@ -28,10 +28,21 @@ export default function Navbar() {
   const [ctaHover, setCtaHover] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    // Read scrollY inside requestAnimationFrame so it never forces an early layout.
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        setScrolled(window.scrollY > 8);
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -185,7 +196,7 @@ export default function Navbar() {
                   key={l.t}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  style={{ display: "block", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
+                  style={{ display: "block", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
                 >
                   {l.t}
                 </a>
@@ -196,7 +207,7 @@ export default function Navbar() {
                 <button
                   onClick={() => setMobileSvcOpen((v) => !v)}
                   aria-expanded={mobileSvcOpen}
-                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
+                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
                 >
                   {l.t}
                   <ChevronIcon style={{ transform: mobileSvcOpen ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />

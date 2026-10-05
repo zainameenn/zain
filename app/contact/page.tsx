@@ -46,7 +46,7 @@ function CenterHead({
         className="max-md:!text-balance"
         style={{
           margin: "12px 0 0",
-          fontFamily: "'General Sans', 'General Sans Fallback'",
+          fontFamily: "var(--nf-general-sans)",
           fontWeight: 600,
           fontSize: "clamp(34px,3.4vw,50px)",
           lineHeight: 1.04,
@@ -106,7 +106,7 @@ function ReachCard({
           style={{ display: "block", width: "100%", height: "100%", objectFit: "contain" }}
         />
       </div>
-      <h3 style={{ margin: "4px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em" }}>{title}</h3>
+      <h3 style={{ margin: "4px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em" }}>{title}</h3>
       <p style={{ margin: "10px 0 0", fontSize: 16, lineHeight: 1.55, color: "#5A5854", flex: 1 }}>{desc}</p>
       <a
         href={ctaHref}
@@ -271,7 +271,7 @@ export default function ContactPage() {
         <div style={{ maxWidth: 960, margin: "0 auto", borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(14px,1.6vw,20px)" }}>
           <div className="max-md:!justify-center max-md:!text-center" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "12px 24px", padding: "10px 12px 18px" }}>
             <div style={{ minWidth: 0 }}>
-              <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
+              <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 Bring the problem. I&apos;ll bring the coffee.
               </h3>
               <p className="max-md:!text-base" style={{ margin: "6px 0 0", maxWidth: 560, fontSize: 14.5, lineHeight: 1.5, color: "#5A5854" }}>
@@ -340,7 +340,7 @@ export default function ContactPage() {
             {MESSY_STEPS.map((s) => (
               <li key={s.n} style={{ minWidth: 0, padding: "24px 8px 0 0" }}>
                 <span style={{ fontSize: 13, fontWeight: 600, color: "#D3AE82" }}>{s.n}</span>
-                <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
+                <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
                 <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.55, color: "#B7B2A8" }}>{s.d}</p>
               </li>
             ))}
@@ -357,7 +357,7 @@ export default function ContactPage() {
           </div>
           <figure style={{ margin: 0, minWidth: 0, borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(28px,3vw,40px)", display: "flex", flexDirection: "column", gap: 24 }}>
             <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#D3AE82" }}>Upwork ★ 5.0</span>
-            <blockquote style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 500, lineHeight: 1.45, letterSpacing: "-0.01em" }}>
+            <blockquote style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 500, lineHeight: 1.45, letterSpacing: "-0.01em" }}>
               &ldquo;He came in, got up to speed quick, and delivered what we needed without me having to micromanage. His communication is clean, turnaround time is solid, and he takes feedback well. Critically, he suggested how to approach things I didn&apos;t know that we needed to approach and the results were phenomenal.&rdquo;
             </blockquote>
             <figcaption className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 18, borderTop: "1px solid #33322F" }}>
@@ -382,7 +382,7 @@ export default function ContactPage() {
               )}
               <span aria-hidden="true" style={{ position: "absolute", left: 0, top: 4, width: 11, height: 11, borderRadius: "50%", background: "#C4A47C" }} />
               <span style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{s.n}</span>
-              <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
+              <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
               <p style={{ margin: "8px 0 0", maxWidth: 340, fontSize: 16, lineHeight: 1.55, color: "#5A5854" }}>{s.d}</p>
             </li>
           ))}
@@ -437,7 +437,7 @@ export default function ContactPage() {
       {/* CTA */}
       <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          <h2 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Still thinking about it?
           </h2>
           <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.1, color: "#D3AE82" }}>

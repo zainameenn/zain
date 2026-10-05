@@ -3,43 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Sized like General Sans so headings don't jump while the Fontshare font loads. */
-/* Measured per weight against General Sans: width ratio, ascent 1.01em, descent 0.24em. */
-@font-face {
-  font-family: 'General Sans Fallback';
-  src: local('Arial');
-  font-weight: 400;
-  size-adjust: 100.05%;
-  ascent-override: 100.95%;
-  descent-override: 23.99%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: 'General Sans Fallback';
-  src: local('Arial');
-  font-weight: 500;
-  size-adjust: 102.8%;
-  ascent-override: 98.25%;
-  descent-override: 23.35%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: 'General Sans Fallback';
-  src: local('Arial Bold'), local('Arial-BoldMT');
-  font-weight: 600;
-  size-adjust: 99.27%;
-  ascent-override: 101.74%;
-  descent-override: 24.18%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: 'General Sans Fallback';
-  src: local('Arial Bold'), local('Arial-BoldMT');
-  font-weight: 700;
-  size-adjust: 101.95%;
-  ascent-override: 99.07%;
-  descent-override: 23.54%;
-  line-gap-override: 0%;
+:root {
+  /* Used when the General Sans files aren't available to this build (next/font overrides it when they are). */
+  --nf-general-sans: Arial, sans-serif;
 }
 
 body {
@@ -81,6 +47,10 @@ a {
 @keyframes zmarqR {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
+}
+/* Phones: the hero squiggle is shown already drawn, so nothing in the hero waits for JavaScript. Desktop keeps the draw animation. */
+@media (max-width: 767.98px) {
+  .hero-squiggle { stroke-dashoffset: 0 !important; transition: none !important; }
 }
 /* Phones: keep every section heading smaller than the page H1 (32px at phone width). */
 @media (max-width: 767.98px) {

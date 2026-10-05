@@ -13,7 +13,7 @@ export default function CTA() {
         className="md:!grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"
       >
         <div className="max-md:!text-center">
-          <h2 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(36px,4vw,56px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,4vw,56px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             <span style={{ display: "block", fontSize: "1.12em", color: "#D3AE82", marginBottom: ".08em" }}>
               <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "inherit" }}>Take a breath.</em>
             </span>

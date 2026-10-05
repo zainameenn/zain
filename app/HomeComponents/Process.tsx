@@ -37,7 +37,7 @@ export default function Process() {
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto clamp(32px,4vw,48px)", textAlign: "center" }}>
         <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>How I work</div>
-        <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,46px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+        <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.4vw,46px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
           Four steps.
           <br />
           <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>No 87 slide strategy deck.</em>
@@ -64,7 +64,7 @@ export default function Process() {
                     style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "grid", gridTemplateColumns: "48px minmax(0,1fr)", gap: "6px 0", padding: "20px 0" }}
                   >
                     <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7D6039" : "#6F6B64", fontVariantNumeric: "tabular-nums", paddingTop: 8 }}>{String(i + 1).padStart(2, "0")}</span>
-                    <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", color: on ? "#1C1C1C" : "#706B61", transition: "color 250ms" }}>{s.t}</span>
+                    <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", color: on ? "#1C1C1C" : "#706B61", transition: "color 250ms" }}>{s.t}</span>
                     <span style={{ gridColumn: 2, fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 440 }}>{s.d}</span>
                   </button>
                   <span

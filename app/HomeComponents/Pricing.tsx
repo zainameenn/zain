@@ -21,10 +21,10 @@ function Row({ n, title, children, price, sub, cta }: { n: string; title: string
       className="md:!grid-cols-[minmax(0,0.8fr)_minmax(0,2.6fr)_minmax(0,4.5fr)_minmax(0,2.1fr)] max-md:!justify-items-center max-md:!text-center"
     >
       <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{n}</span>
-      <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{title}</h3>
+      <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{title}</h3>
       <div style={{ maxWidth: 540 }}>{children}</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 4 }} className="items-start md:!items-end md:text-right max-md:!items-center">
-        <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, whiteSpace: "nowrap" }}>{price}</p>
+        <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, whiteSpace: "nowrap" }}>{price}</p>
         {sub && <span style={{ fontSize: 13, fontWeight: 500, color: "#6E6B66" }}>{sub}</span>}
         {cta && (
           <a href="#contact" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ marginTop: 8, display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C", paddingBottom: 2 }}>
@@ -45,7 +45,7 @@ export default function Pricing() {
       <div style={{ maxWidth: 720, margin: "0 auto clamp(40px,4vw,56px)", textAlign: "center" }}>
         <div>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Pricing</div>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Senior work.
             <br />
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>Without the agency invoice.</em>
@@ -106,7 +106,7 @@ export default function Pricing() {
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#D3AE82" }} />
             06 · Best value
           </div>
-          <h3 style={{ margin: "18px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h3 style={{ margin: "18px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Everything, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>handled.</em>
           </h3>
           <p className="max-md:!mx-auto" style={{ margin: "18px 0 0", maxWidth: 460, fontSize: 17, lineHeight: 1.55, color: "#C9C4BA" }}>
@@ -131,7 +131,7 @@ export default function Pricing() {
           <div>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Together</div>
             <div className="max-md:!justify-center" style={{ marginTop: 6, display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(48px,5vw,68px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(48px,5vw,68px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
               <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
             </div>
           </div>

@@ -65,7 +65,7 @@ export default function Footer() {
             <span style={{ position: "relative", display: "block", width: 62, height: 56, overflow: "hidden" }}>
               <Img loading="lazy" src="/logo-dark-288.png" alt="Zain Ul Abdin logo" style={{ position: "absolute", left: -18.9, top: -19.3, width: 93.8, height: 93.8, maxWidth: "none" }} />
             </span>
-            <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, whiteSpace: "nowrap" }}>
+            <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, whiteSpace: "nowrap" }}>
               Growth marketing
               <br />
               without the stress.

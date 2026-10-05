@@ -16,7 +16,7 @@ export default function Team() {
       >
         <div>
           <div className="max-md:!text-center" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>One person instead of five</div>
-          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             The stuff that usually
             <br />
             takes a whole team.

@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 /** Page H1: fluid size so it is the largest headline on every screen, wrapping evenly. */
 export const H1_STYLE: CSSProperties = {
   margin: 0,
-  fontFamily: "'General Sans', 'General Sans Fallback'",
+  fontFamily: "var(--nf-general-sans)",
   fontWeight: 600,
   fontSize: "clamp(2rem, calc(4vw + 1rem), 4rem)",
   lineHeight: 1.1,

@@ -26,7 +26,7 @@ function CenterHead({ eyebrow, title, sub }: { eyebrow: string; title: React.Rea
         className="max-md:!text-balance"
         style={{
           margin: "12px 0 0",
-          fontFamily: "'General Sans', 'General Sans Fallback'",
+          fontFamily: "var(--nf-general-sans)",
           fontWeight: 600,
           fontSize: "clamp(34px,3.4vw,50px)",
           lineHeight: 1.04,
@@ -179,7 +179,7 @@ export default function InsightsPage() {
           {COMING.map((c) => (
             <div key={c.n} style={{ paddingTop: 22, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{c.n}</div>
-              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
+              <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px auto 0", maxWidth: 340, fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
               {c.tags ? (
                 <div style={{ marginTop: 14, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 6 }}>
@@ -251,7 +251,7 @@ export default function InsightsPage() {
                 </span>
               </div>
               <div style={{ textAlign: "center" }}>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Working on it.</h3>
+                <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Working on it.</h3>
                 <p style={{ margin: "6px 0 0", fontSize: 14.5, color: k.subColor }}>Free when it&apos;s ready.</p>
               </div>
             </article>
@@ -267,7 +267,7 @@ export default function InsightsPage() {
             className="max-md:!text-balance"
             style={{
               margin: "12px 0 0",
-              fontFamily: "'General Sans', 'General Sans Fallback'",
+              fontFamily: "var(--nf-general-sans)",
               fontWeight: 600,
               fontSize: "clamp(34px,3.4vw,50px)",
               lineHeight: 1.04,
@@ -304,7 +304,7 @@ export default function InsightsPage() {
           }}
         >
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Get it first</div>
-          <h2 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Want me to tell you
             <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
               when something useful drops?
@@ -326,7 +326,7 @@ export default function InsightsPage() {
           <h2
             style={{
               margin: "12px 0 0",
-              fontFamily: "'General Sans', 'General Sans Fallback'",
+              fontFamily: "var(--nf-general-sans)",
               fontWeight: 600,
               fontSize: "clamp(34px,3.4vw,50px)",
               lineHeight: 1.04,
