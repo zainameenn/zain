@@ -7,7 +7,8 @@ import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-geist" });
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter" });
+// Only the small mobile "Menu" label uses Inter, so it loads without a preload.
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter", preload: false });
 const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", display: "swap", variable: "--nf-serif" });
 
 // General Sans, self hosted from the official, unmodified Fontshare files (ITF Free Font License, see FFL.txt next to them).
@@ -22,6 +23,8 @@ const generalSans = localFont({
   variable: "--nf-general-sans",
   fallback: ["Arial", "sans-serif"],
   adjustFontFallback: "Arial",
+  // next/font can only preload all four files or none. The mobile hero only needs 600, so none are preloaded; they load during the first render with a size matched fallback.
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -107,10 +110,10 @@ export default function RootLayout({
 
         {/* ✅ Google Analytics */}
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=G-T3ZK018Y8C"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
