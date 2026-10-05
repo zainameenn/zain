@@ -32,7 +32,7 @@ function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: Re
     <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 40 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
       <div>
         <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
-        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
       </div>
       <div className="max-md:!mx-auto" style={{ paddingBottom: 4, maxWidth: 460 }}>
         <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: dark ? "#B7B2A8" : "#5A5854" }}>{sub}</p>
@@ -191,7 +191,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="!grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s, i) => (
             <div key={s.l} className={`max-md:!text-center max-sm:!px-2 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
-              <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(40px,3.8vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+              <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,3.8vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
               <div style={{ marginTop: 14, fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>{s.l}</div>
               <div style={{ marginTop: 4, fontSize: 13.5, lineHeight: 1.4, color: "#6E6B66" }}>{s.sub}</div>
             </div>
@@ -205,7 +205,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", gap: "40px 64px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)]">
           <div>
             <Eyebrow>The problem</Eyebrow>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               More posts aren&apos;t
               <br />
               always the answer.
@@ -225,7 +225,7 @@ export default function SocialMediaManagementPage() {
                 </li>
               ))}
             </ol>
-            <p style={{ margin: "24px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
+            <p style={{ margin: "24px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
               Fewer, better posts. <Emphasis style={{ fontSize: "1.12em", color: "#7D6039" }}>More of the right conversations.</Emphasis>
             </p>
           </div>
@@ -240,7 +240,7 @@ export default function SocialMediaManagementPage() {
             <div key={p.n} style={{ minWidth: 0, borderRadius: 22, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: 28, display: "grid", gridTemplateRows: "auto auto auto 1fr" }} className={p.span === 2 ? "lg:!col-span-2" : "lg:!col-span-3"}>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
               <div>
-                <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,1.9vw,26px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
+                <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,1.9vw,26px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
                 <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", maxWidth: 460, minHeight: "4.65em" }}>{p.d}</p>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 18 }}>
@@ -273,7 +273,7 @@ export default function SocialMediaManagementPage() {
                   <span style={{ width: 8, height: 8, borderRadius: "50%", background: j.gold ? "#D3AE82" : "#F2EFEA", flex: "0 0 auto" }} />
                   <span style={{ fontSize: 12, fontWeight: 600, color: "#8B877F", fontVariantNumeric: "tabular-nums" }}>{j.n}</span>
                 </div>
-                <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 19, fontWeight: 600, letterSpacing: "-0.015em", color: j.gold ? "#D3AE82" : "#F2EFEA" }}>{j.t}</h3>
+                <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600, letterSpacing: "-0.015em", color: j.gold ? "#D3AE82" : "#F2EFEA" }}>{j.t}</h3>
                 <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.5, color: "#9C978D" }}>{j.d}</p>
               </li>
             ))}
@@ -288,7 +288,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ marginTop: 24, display: "grid", gap: "24px 20px" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-5">
           {PILLARS.map((p) => (
             <div key={p.t} style={{ minWidth: 0, minHeight: 96, paddingTop: 16, borderTop: "1px solid #DDDAD3" }}>
-              <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{p.t}</h3>
+              <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{p.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.5, color: "#4E4C48" }}>{p.d}</p>
             </div>
           ))}
@@ -311,7 +311,7 @@ export default function SocialMediaManagementPage() {
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
                   <Img loading="lazy" src="/assets/v8/logo-everdry.gif" alt="Everdry Waterproofing logo" style={{ display: "block", height: 52, width: "auto", mixBlendMode: "multiply" }} />
                 </div>
-                <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>Everdry Waterproofing: </span>
                   160K+ Facebook views
                   <br />
@@ -333,7 +333,7 @@ export default function SocialMediaManagementPage() {
                 { v: "603", l: "calls from the profile" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #DDD5C8" : "0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                   <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#5A5854" }}>{s.l}</div>
                 </div>
               ))}
@@ -346,8 +346,8 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Page overview · last 28 days</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>160,235</b> <span style={{ fontSize: 13, color: "#5A5854" }}>views</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>40,153</b> <span style={{ fontSize: 13, color: "#5A5854" }}>reach</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>160,235</b> <span style={{ fontSize: 13, color: "#5A5854" }}>views</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>40,153</b> <span style={{ fontSize: 13, color: "#5A5854" }}>reach</span></span>
                   </div>
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Before-and-after visuals and seasonal problem posts, shared into local community groups.</p>
@@ -362,8 +362,8 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Local search</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>12,462</b> <span style={{ fontSize: 13, color: "#5A5854" }}>profile views</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>603</b> <span style={{ fontSize: 13, color: "#5A5854" }}>calls</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>12,462</b> <span style={{ fontSize: 13, color: "#5A5854" }}>profile views</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>603</b> <span style={{ fontSize: 13, color: "#5A5854" }}>calls</span></span>
                   </div>
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Photos, services and regular updates so local searches turned into calls.</p>
@@ -393,7 +393,7 @@ export default function SocialMediaManagementPage() {
                     <Img loading="lazy" src="/assets/v8/logos/virtarix.png" alt="Virtarix logo" style={{ display: "block", height: 30, width: "auto" }} />
                   </span>
                 </div>
-                <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>Virtarix: </span>
                   A new Facebook page to
                   <br />
@@ -413,7 +413,7 @@ export default function SocialMediaManagementPage() {
                 { v: "1.2K+", l: "Pinterest visits in 7 days" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid rgba(255,255,255,.14)" : "0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(34px,3.2vw,46px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(34px,3.2vw,46px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                   <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#B7B2A8" }}>{s.l}</div>
                 </div>
               ))}
@@ -426,8 +426,8 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#9C978D" }}>4 Oct to 23 Jan</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>71,459</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>3,395</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>interactions</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>71,459</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>3,395</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>interactions</span></span>
                   </div>
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>Views flat until October, then climbing as the posting rhythm and formats settled.</p>
@@ -443,7 +443,7 @@ export default function SocialMediaManagementPage() {
                       <span style={{ fontSize: 12.5, color: "#9C978D" }}>1 Dec to 8 Jan</span>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>34K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
+                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>34K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
                     </div>
                   </div>
                   <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>December alone brought nearly half the total.</p>
@@ -458,7 +458,7 @@ export default function SocialMediaManagementPage() {
                       <span style={{ fontSize: 12.5, color: "#9C978D" }}>Last 60 days view</span>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>0</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views until October</span></span>
+                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>0</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views until October</span></span>
                     </div>
                   </div>
                   <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>The same dashboard before the new content started.</p>
@@ -484,7 +484,7 @@ export default function SocialMediaManagementPage() {
                     <Img loading="lazy" src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 40, width: "auto" }} />
                   </span>
                 </div>
-                <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>Blainy: </span>
                   <strong style={{ fontWeight: 700 }}>3.95M Instagram views</strong>
                   <br />
@@ -505,7 +505,7 @@ export default function SocialMediaManagementPage() {
                 { v: "78K", l: "YouTube views, 28 days" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid rgba(255,255,255,.14)" : "0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                   <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#B7B2A8" }}>{s.l}</div>
                 </div>
               ))}
@@ -518,9 +518,9 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#9C978D" }}>Last 90 days</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>3,952,443</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>2.14M</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>reached</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>612K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>interactions</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>3,952,443</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>2.14M</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>reached</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>612K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>interactions</span></span>
                   </div>
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>Relatable student reels. 98% of views came from non-followers, so the content did the finding.</p>
@@ -540,8 +540,8 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#9C978D" }}>Last 90 days</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>479K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>impressions</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>+410%</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>vs previous 90 days</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>479K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>impressions</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>+410%</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>vs previous 90 days</span></span>
                   </div>
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>Video pins and study-tip pins. 600K+ impressions overall.</p>
@@ -562,8 +562,8 @@ export default function SocialMediaManagementPage() {
                       <span style={{ fontSize: 12.5, color: "#9C978D" }}>Feb 21 to May 21</span>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>338K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
-                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>11.9K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>interactions</span></span>
+                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>338K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
+                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>11.9K</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>interactions</span></span>
                     </div>
                   </div>
                   <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>Short, dry student humour posted daily.</p>
@@ -578,7 +578,7 @@ export default function SocialMediaManagementPage() {
                       <span style={{ fontSize: 12.5, color: "#9C978D" }}>Last 28 days</span>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>78,267</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
+                      <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>78,267</b> <span style={{ fontSize: 13, color: "#B7B2A8" }}>views</span></span>
                     </div>
                   </div>
                   <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>The best reels re-cut as Shorts, so each idea earned views twice.</p>
@@ -602,7 +602,7 @@ export default function SocialMediaManagementPage() {
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
                   <Img loading="lazy" src="/assets/v8/logos/loompad.png" alt="LoomPad" style={{ display: "block", height: 44, width: "auto", mixBlendMode: "multiply" }} />
                 </div>
-                <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>LoomPad: </span>
                   <strong style={{ fontWeight: 700 }}>32,759 Facebook views</strong>
                   <br />
@@ -622,7 +622,7 @@ export default function SocialMediaManagementPage() {
                 { v: "7.88K", l: "Pinterest impressions" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #DDD5C8" : "0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(34px,3.2vw,46px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(34px,3.2vw,46px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                   <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#5A5854" }}>{s.l}</div>
                 </div>
               ))}
@@ -635,8 +635,8 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#6F6B64" }}>7 to 14 Sep</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>32,759</b> <span style={{ fontSize: 13, color: "#5A5854" }}>views</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>653</b> <span style={{ fontSize: 13, color: "#5A5854" }}>engagements</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>32,759</b> <span style={{ fontSize: 13, color: "#5A5854" }}>views</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>653</b> <span style={{ fontSize: 13, color: "#5A5854" }}>engagements</span></span>
                   </div>
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Product and setup photos made to be shared. 96% of engagement came from non-followers.</p>
@@ -651,8 +651,8 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Same week</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>448</b> <span style={{ fontSize: 13, color: "#5A5854" }}>reactions</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>132</b> <span style={{ fontSize: 13, color: "#5A5854" }}>shares</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>448</b> <span style={{ fontSize: 13, color: "#5A5854" }}>reactions</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>132</b> <span style={{ fontSize: 13, color: "#5A5854" }}>shares</span></span>
                   </div>
                 </div>
                 <div style={{ display: "grid", gap: 14, alignItems: "start" }} className="sm:!grid-cols-2">
@@ -671,8 +671,8 @@ export default function SocialMediaManagementPage() {
                     <span style={{ fontSize: 12.5, color: "#6F6B64" }}>25 Jul to 14 Sep</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>7.88K</b> <span style={{ fontSize: 13, color: "#5A5854" }}>impressions</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>5.37K</b> <span style={{ fontSize: 13, color: "#5A5854" }}>audience</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>7.88K</b> <span style={{ fontSize: 13, color: "#5A5854" }}>impressions</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>5.37K</b> <span style={{ fontSize: 13, color: "#5A5854" }}>audience</span></span>
                   </div>
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Product and setup pins; the logo and setup pins led impressions.</p>
@@ -696,7 +696,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", gap: "40px 64px", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)]">
           <div>
             <Eyebrow>Repurposing</Eyebrow>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               One idea.
               <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1 }}>Five places to use it.</em>
             </h2>
@@ -727,7 +727,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", gap: "32px 64px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)]">
           <div>
             <Eyebrow>What you get</Eyebrow>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               Everything
               <br />
               your social needs.
@@ -738,7 +738,7 @@ export default function SocialMediaManagementPage() {
             {GET.map((g, i) => (
               <li key={g.t} style={{ display: "grid", gap: "6px 24px", alignItems: "baseline", padding: "20px 0", borderBottom: "1px solid #DDDAD3" }} className="sm:!grid-cols-[40px_150px_minmax(0,1fr)]">
                 <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{String(i + 1).padStart(2, "0")}</span>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{g.t}</h3>
+                <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{g.t}</h3>
                 <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>{g.d}</p>
               </li>
             ))}
@@ -751,7 +751,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 28 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div>
             <Eyebrow>Process</Eyebrow>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "#1C1C1C" }}>
               Five steps.
               <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1 }}>No &quot;just post more&quot; strategy.</em>
             </h2>
@@ -762,7 +762,7 @@ export default function SocialMediaManagementPage() {
           {PROCESS_STEPS.map((s, i) => (
             <li key={s.t} style={{ minWidth: 0, padding: "20px 0 0", borderTop: `2px solid ${s.gold ? "#C4A47C" : "#1C1C1C"}` }}>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{String(i + 1).padStart(2, "0")}</span>
-              <h3 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
+              <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48" }}>{s.d}</p>
             </li>
           ))}
@@ -800,7 +800,7 @@ export default function SocialMediaManagementPage() {
           </div>
         </div>
         <div style={{ marginTop: 24, display: "grid", gap: "16px 32px", alignItems: "center", padding: "20px 0", borderTop: "1px solid #DDDAD3", borderBottom: "1px solid #DDDAD3" }} className="sm:!grid-cols-[auto_minmax(0,1fr)]">
-          <div className="max-sm:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 10, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, letterSpacing: "-0.03em" }}>
+          <div className="max-sm:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 10, fontFamily: "var(--nf-general-sans)", fontWeight: 600, letterSpacing: "-0.03em" }}>
             <span style={{ fontSize: 40, lineHeight: 1 }}>5</span>
             <span style={{ color: "#C4A47C", fontSize: 24 }}>·</span>
             <span style={{ fontSize: 40, lineHeight: 1 }}>3</span>
@@ -818,7 +818,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
           <div>
             <Eyebrow>Pricing</Eyebrow>
-            <h2 className="max-md:!text-balance max-md:[&_em]:!block" style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-balance max-md:[&_em]:!block" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Three platforms.
               <br />
               <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>One person handling all of it.</em>
@@ -830,13 +830,13 @@ export default function SocialMediaManagementPage() {
           {PRICING_ROWS.map((r) => (
             <div key={r.n} style={{ display: "grid", gap: "10px 24px", alignItems: "center", padding: "clamp(24px,3vw,38px) clamp(8px,1vw,16px)", borderTop: "1px solid #DDDAD3" }} className="sm:!grid-cols-[48px_minmax(0,1.3fr)_minmax(0,2.6fr)_minmax(0,0.9fr)] max-sm:!justify-items-center max-sm:!text-center">
               <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{r.n}</span>
-              <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{r.t}</h3>
+              <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{r.t}</h3>
               <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48", maxWidth: 540 }}>
                 {r.d}
                 {r.em && <Emphasis style={{ fontSize: 18, color: "#6E6B66" }}>{r.em}</Emphasis>}
               </p>
               <div className="sm:!justify-self-end sm:!text-right">
-                <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, whiteSpace: "nowrap" }}>{r.price}</p>
+                <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, whiteSpace: "nowrap" }}>{r.price}</p>
                 {r.per && <span style={{ display: "block", marginTop: 4, fontSize: 13, fontWeight: 500, color: "#6E6B66" }}>{r.per}</span>}
               </div>
             </div>
@@ -846,14 +846,14 @@ export default function SocialMediaManagementPage() {
         <div style={{ marginTop: "clamp(32px,4vw,48px)", borderRadius: 28, background: "#171717", color: "#F2EFEA", padding: "clamp(28px,3.5vw,48px)", display: "grid", gap: "28px clamp(32px,5vw,72px)", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
           <div>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82" }}>Want social, SEO and Reddit together?</div>
-            <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(28px,2.8vw,40px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+            <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(28px,2.8vw,40px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
               Everything, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>handled.</em>
             </h3>
             <p className="max-sm:!mx-auto" style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.55, color: "#C9C4BA", maxWidth: 460 }}>SEO, Reddit, social media, content and design. One person, one plan, one invoice.</p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             <div className="max-sm:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 14, flexWrap: "wrap" }}>
-              <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(40px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
               <span style={{ fontSize: 14, color: "#9C978D" }}>per month · <span style={{ textDecoration: "line-through" }}>$4,397</span> separately</span>
             </div>
             <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
@@ -869,7 +869,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
           <div className="max-md:!text-center">
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Who it&apos;s for</div>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Social works
               <br />
               best when...
@@ -906,7 +906,7 @@ export default function SocialMediaManagementPage() {
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0`, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.5fr)_minmax(0,1fr)] max-md:!pt-20">
         <div className="max-md:!text-center">
           <Eyebrow>FAQ</Eyebrow>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             Social media questions,
             <br />
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
@@ -922,7 +922,7 @@ export default function SocialMediaManagementPage() {
       <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div className="max-md:!text-center">
-            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Posting a lot and still invisible?</h2>
+            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Posting a lot and still invisible?</h2>
             <p style={{ margin: "14px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
               <Emphasis>Let&apos;s find out why.</Emphasis>
             </p>
@@ -954,7 +954,7 @@ export default function SocialMediaManagementPage() {
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
           {RELATED.map((r, i) => (
             <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.015em" }}>
+              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "var(--nf-general-sans)", fontSize: 21, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>

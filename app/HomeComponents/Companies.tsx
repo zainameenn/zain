@@ -42,7 +42,7 @@ export default function Companies() {
               {b.img ? (
                 <BgImage src={b.img} alt={b.t} fit="contain" style={{ display: "block", width: b.w, height: b.h, mixBlendMode: "multiply" }} />
               ) : (
-                <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
+                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
               )}
             </div>
           ))}

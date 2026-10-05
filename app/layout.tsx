@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 import { Geist, Inter, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
 
@@ -9,7 +10,19 @@ const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], display
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter" });
 const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", display: "swap", variable: "--nf-serif" });
 
-const FONTSHARE_CSS = "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap";
+// General Sans, self hosted from the official, unmodified Fontshare files (ITF Free Font License, see FFL.txt next to them).
+const generalSans = localFont({
+  src: [
+    { path: "../public/fonts/general-sans/GeneralSans-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/general-sans/GeneralSans-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/general-sans/GeneralSans-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "../public/fonts/general-sans/GeneralSans-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  display: "swap",
+  variable: "--nf-general-sans",
+  fallback: ["Arial", "sans-serif"],
+  adjustFontFallback: "Arial",
+});
 
 export const metadata: Metadata = {
   authors: [{ name: "Zain Ul Abdin", url: "https://www.zainameen.com" }],
@@ -22,12 +35,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable}`}>
+    <html lang="en" className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${generalSans.variable}`}>
       <head>
-        {/* General Sans stays on Fontshare (its license doesn't allow it in a public repo). Added by script so it doesn't block the first paint. */}
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href={FONTSHARE_CSS} />
 
         {/* ✅ Structured Data (Person + Contact Info) */}
         <Script

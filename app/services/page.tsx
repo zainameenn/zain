@@ -17,7 +17,7 @@ const SEC_PAD = `clamp(88px,8vw,112px) ${PAD} 0`;
 
 const EYEBROW = { fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase" } as const;
 const SERIF = { fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em" } as const;
-const H2 = { margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", textWrap: "balance" } as const;
+const H2 = { margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em", textWrap: "balance" } as const;
 const TEXT_LINK = "transition-colors hover:!text-[#9A7646]";
 
 const PROOF = [
@@ -172,7 +172,7 @@ export default function ServicesPage() {
           <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
           Services
         </div>
-        <h1 style={{ margin: "18px auto 0", maxWidth: 980, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(42px,5.2vw,76px)", lineHeight: 1.02, letterSpacing: "-0.04em", textWrap: "balance" }}>
+        <h1 style={{ margin: "18px auto 0", maxWidth: 980, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(42px,5.2vw,76px)", lineHeight: 1.02, letterSpacing: "-0.04em", textWrap: "balance" }}>
           Growth marketing services for SaaS and service businesses
         </h1>
         <p style={{ margin: "28px auto 0", maxWidth: 680, fontSize: 18, lineHeight: 1.6, color: "#4E4C48", textWrap: "pretty" }}>
@@ -195,7 +195,7 @@ export default function ServicesPage() {
         <div className="max-[760px]:!grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }}>
           {PROOF.map((p, i) => (
             <div key={p.v} className={i === 2 ? "max-[760px]:!border-l-0" : undefined} style={{ padding: "28px 16px", textAlign: "center", borderLeft: i === 0 ? "none" : "1px solid #DDDAD3" }}>
-              <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(34px,3.4vw,48px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{p.v}</div>
+              <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(34px,3.4vw,48px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{p.v}</div>
               <div style={{ marginTop: 10, fontSize: 14, lineHeight: 1.4, color: "#5A5854" }}>{p.l}</div>
             </div>
           ))}
@@ -222,7 +222,7 @@ export default function ServicesPage() {
                   <span style={{ ...SERIF, fontSize: 30, lineHeight: 1, color: "#AE834E" }}>{s.n}</span>
                   <span style={{ ...EYEBROW, fontSize: 11.5, color: "#5A5854" }}>{s.tag}</span>
                 </div>
-                <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.1vw,30px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.12, textWrap: "balance" }}>{s.t}</h3>
+                <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.1vw,30px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.12, textWrap: "balance" }}>{s.t}</h3>
                 <p style={{ margin: "14px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48", textWrap: "pretty" }}>{s.d}</p>
                 <div style={{ marginTop: 20, width: "100%", padding: "14px 18px", borderRadius: 12, background: "#EEEDE7", borderTop: "2px solid #C4A47C" }}>
                   <div style={{ ...EYEBROW, fontSize: 10.5, color: "#7D6039" }}>Best when</div>
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                   </span>
                 ),
                 <div key={c} className="max-[760px]:!w-full max-[760px]:!flex-none" style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", maxWidth: 170, height: 56, borderRadius: 14, border: `1px solid ${last ? "#D3AE82" : "#3A3935"}`, background: last ? "#D3AE82" : "#262523", color: last ? "#1C1C1C" : "#F2EFEA", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 17, fontWeight: 600 }}>{c}</span>
+                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", maxWidth: 170, height: 56, borderRadius: 14, border: `1px solid ${last ? "#D3AE82" : "#3A3935"}`, background: last ? "#D3AE82" : "#262523", color: last ? "#1C1C1C" : "#F2EFEA", fontFamily: "var(--nf-general-sans)", fontSize: 17, fontWeight: 600 }}>{c}</span>
                   {c === "Distribution" && (
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 6, width: "100%", maxWidth: 170 }}>
                       {DISTRIBUTION.map((d) => (
@@ -295,9 +295,9 @@ export default function ServicesPage() {
           ].map((o) => (
             <div key={o.n} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "clamp(28px,3vw,40px) clamp(22px,2.4vw,32px)", borderRadius: 24, background: o.featured ? "#F4F0E8" : "#F8F6F4", border: `1px solid ${o.featured ? "#D3AE82" : "#E2DFD8"}` }}>
               <span style={{ ...SERIF, fontSize: 32, lineHeight: 1, color: "#AE834E" }}>{o.n}</span>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 21, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, textWrap: "balance" }}>{o.t}</h3>
+              <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 21, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, textWrap: "balance" }}>{o.t}</h3>
               <p style={{ margin: "12px 0 0", maxWidth: 320, fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", textWrap: "pretty" }}>{o.d}</p>
-              {o.price && <div style={{ marginTop: 16, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em" }}>{o.price}</div>}
+              {o.price && <div style={{ marginTop: 16, fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em" }}>{o.price}</div>}
               <Link href={o.href} className={TEXT_LINK} style={{ marginTop: "auto", paddingTop: 24, display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>
                 <span style={{ borderBottom: "1.5px solid currentColor", paddingBottom: 2 }}>{o.cta}</span>
                 {o.up ? <span aria-hidden="true">↑</span> : <ArrowIcon />}
@@ -314,7 +314,7 @@ export default function ServicesPage() {
           {STEPS.map((s) => (
             <li key={s.n} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", paddingTop: 22, borderTop: "2px solid #1C1C1C" }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
-              <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
+              <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
               <p style={{ margin: "8px 0 0", maxWidth: 240, fontSize: 15.5, lineHeight: 1.55, color: "#5A5854" }}>{s.d}</p>
             </li>
           ))}
@@ -333,7 +333,7 @@ export default function ServicesPage() {
               <div style={{ marginTop: 18, width: "100%", display: "flex", flexDirection: "column" }}>
                 {c.stats.map(([v, l]) => (
                   <div key={l} style={{ padding: "12px 0", borderTop: "1px solid #E2DFD8" }}>
-                    <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 24, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05 }}>{v}</div>
+                    <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: 24, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05 }}>{v}</div>
                     <div style={{ marginTop: 4, fontSize: 13.5, color: "#5A5854" }}>{l}</div>
                   </div>
                 ))}
@@ -358,7 +358,7 @@ export default function ServicesPage() {
       {/* CTA */}
       <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          <h2 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Still not sure which one?
             <span style={{ ...SERIF, display: "block", marginTop: 6, fontSize: "1.08em", color: "#D3AE82" }}>
               <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>

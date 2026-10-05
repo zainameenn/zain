@@ -40,7 +40,7 @@ function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: Re
     <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 40 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
       <div>
         <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#9C978D" : "#6F6B64" }}>{eyebrow}</div>
-        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
       </div>
       <div className="max-md:!mx-auto" style={{ paddingBottom: 4, maxWidth: 460 }}>
         <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: dark ? "#B7B2A8" : "#4E4C48" }}>{sub}</p>
@@ -178,7 +178,7 @@ export default function GrowthStrategyPage() {
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="!grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s, i) => (
             <div key={s.l} className={`max-md:!text-center max-sm:!px-2 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
-              <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(40px,3.8vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+              <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,3.8vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
               <div style={{ marginTop: 14, fontSize: 15, fontWeight: 600 }}>{s.l}</div>
               <div style={{ marginTop: 4, fontSize: 13.5, color: "#6E6B66" }}>{s.sub}</div>
             </div>
@@ -192,7 +192,7 @@ export default function GrowthStrategyPage() {
         <div style={{ display: "grid", gap: "40px 64px", alignItems: "start" }} className="md:!grid-cols-2">
           <div>
             <Eyebrow>The problem</Eyebrow>
-            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
+            <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
               More marketing
               <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em" }}>
                 <Emphasis>isn&apos;t a strategy.</Emphasis>
@@ -214,11 +214,11 @@ export default function GrowthStrategyPage() {
                 <li key={s.n} className="max-sm:!grid-cols-[40px_minmax(0,1fr)]" style={{ display: "grid", gridTemplateColumns: "40px minmax(0,150px) minmax(0,1fr)", gap: "4px 16px", alignItems: "baseline", padding: "20px 0", borderBottom: "1px solid #DDDAD3" }}>
                   <span style={{ fontSize: 12.5, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
                   <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase" }}>{s.k}</span>
-                  <span className="max-sm:!col-start-2" style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 500, letterSpacing: "-0.01em", lineHeight: 1.3 }}>{s.d}</span>
+                  <span className="max-sm:!col-start-2" style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 500, letterSpacing: "-0.01em", lineHeight: 1.3 }}>{s.d}</span>
                 </li>
               ))}
             </ul>
-            <p style={{ margin: "24px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+            <p style={{ margin: "24px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
               Different symptoms. Different fixes.
               <br />
               <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em", color: "#7D6039" }}>Same mistake: guessing.</em>
@@ -234,7 +234,7 @@ export default function GrowthStrategyPage() {
           {SIX_PARTS.map((p) => (
             <div key={p.n} style={{ minWidth: 0, borderRadius: 22, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: 26, display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
-              <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(21px,1.8vw,25px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
+              <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(21px,1.8vw,25px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
               <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#4E4C48" }}>{p.d}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
                 {p.tags.map((tag) => (
@@ -263,7 +263,7 @@ export default function GrowthStrategyPage() {
               {SYSTEM_STEPS.map((s, i) => (
                 <li key={s.n} style={{ minWidth: 0, paddingTop: 16, borderTop: `2px solid ${i === SYSTEM_STEPS.length - 1 ? "#C4A47C" : "rgba(255,255,255,.3)"}` }}>
                   <span style={{ fontSize: 12, fontWeight: 600, color: "#D3AE82", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
-                  <h3 style={{ margin: "8px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{s.t}</h3>
+                  <h3 style={{ margin: "8px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{s.t}</h3>
                   <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#B7B2A8" }}>{s.d}</p>
                 </li>
               ))}
@@ -280,7 +280,7 @@ export default function GrowthStrategyPage() {
           <Img loading="lazy" src="/assets/pages/growth-strategy/06-constraint-map__nine-stage-system.png" alt="Growth system: market, ICP, positioning, offer, channel, landing page, activation, retention and revenue as nine connected stages, with a magnifier on the weak points" style={{ display: "block", width: "100%", height: "auto" }} />
           <div className="max-md:!justify-center" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "8px 16px", marginTop: 20 }}>
             {STAGES.map((s, i) => (
-              <span key={s} style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 14.5, fontWeight: 600, letterSpacing: "-0.01em", color: i === STAGES.length - 1 ? "#7D6039" : "#1C1C1C" }}>
+              <span key={s} style={{ fontFamily: "var(--nf-general-sans)", fontSize: 14.5, fontWeight: 600, letterSpacing: "-0.01em", color: i === STAGES.length - 1 ? "#7D6039" : "#1C1C1C" }}>
                 {s}
               </span>
             ))}
@@ -294,7 +294,7 @@ export default function GrowthStrategyPage() {
             </div>
           ))}
         </div>
-        <p style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+        <p style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
           Same business. Different symptom. <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em", color: "#7D6039" }}>Completely different fix.</em>
         </p>
       </section>
@@ -317,7 +317,7 @@ export default function GrowthStrategyPage() {
                     <Img loading="lazy" src="/assets/site/logo-blainy.png" alt="Blainy logo" style={{ display: "block", height: 40, width: "auto" }} />
                   </span>
                 </div>
-                <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   Zero to 85K+ users.
                   <br />
                   <strong style={{ fontWeight: 700 }}>No paid acquisition.</strong>
@@ -342,7 +342,7 @@ export default function GrowthStrategyPage() {
                 { v: "6,089", l: "tracked Reddit clicks, $0 on ads" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid rgba(255,255,255,.14)" : "0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                   <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#B7B2A8" }}>{s.l}</div>
                 </div>
               ))}
@@ -362,7 +362,7 @@ export default function GrowthStrategyPage() {
               </span>
               <div style={{ borderRadius: 16, border: "1px solid rgba(211,174,130,.5)", padding: "18px 20px" }}>
                 <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>ONE GROWTH ENGINE</div>
-                <div style={{ marginTop: 8, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.035em" }}>85K+ users</div>
+                <div style={{ marginTop: 8, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.035em" }}>85K+ users</div>
               </div>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
@@ -427,7 +427,7 @@ export default function GrowthStrategyPage() {
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
                   <Img loading="lazy" src="/assets/v8/logo-everdry.gif" alt="Everdry Waterproofing logo" style={{ display: "block", height: 52, width: "auto", mixBlendMode: "multiply" }} />
                 </div>
-                <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   A local service business
                   <br />
                   that needed <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>calls, not likes.</em>
@@ -455,7 +455,7 @@ export default function GrowthStrategyPage() {
                 { v: "603", l: "calls from the Business Profile" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #DDD5C8" : "0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                   <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#5A5854" }}>{s.l}</div>
                 </div>
               ))}
@@ -503,7 +503,7 @@ export default function GrowthStrategyPage() {
                     <Img loading="lazy" src="/assets/v8/logos/virtarix.png" alt="Virtarix logo" style={{ display: "block", height: 30, width: "auto" }} />
                   </span>
                 </div>
-                <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   Technical expertise.
                   <br />
                   <strong style={{ fontWeight: 700 }}>Almost no distribution.</strong>
@@ -525,7 +525,7 @@ export default function GrowthStrategyPage() {
                 { v: "34K", l: "Facebook views in December" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid rgba(255,255,255,.14)" : "0" }}>
-                  <div style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
+                  <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
                   <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#B7B2A8" }}>{s.l}</div>
                 </div>
               ))}
@@ -561,7 +561,7 @@ export default function GrowthStrategyPage() {
           {LEAVE_WITH.map((c, i) => (
             <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 32px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{c.n}</span>
-              <h3 style={{ margin: "10px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.025em" }}>{c.t}</h3>
+              <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.025em" }}>{c.t}</h3>
               <ul style={{ margin: "20px 0 0", padding: 0, listStyle: "none" }}>
                 {c.items.map((it) => (
                   <li key={it} style={{ display: "flex", gap: 12, padding: "11px 0", borderTop: "1px solid #E6E1D8", fontSize: 16, lineHeight: 1.45 }}>
@@ -586,7 +586,7 @@ export default function GrowthStrategyPage() {
                 <span style={{ flex: 1, height: 1.5, background: r.dark ? "rgba(211,174,130,.5)" : "#DDD5C8" }} />
                 <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: r.dark ? "#9E7948" : "#7D6039" }}>{r.range}</span>
               </div>
-              <h3 style={{ margin: "20px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>{r.t}</h3>
+              <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>{r.t}</h3>
               <ul style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
                 {r.items.map((it) => (
                   <li key={it} style={{ padding: "10px 0", borderTop: `1px solid ${r.dark ? "rgba(255,255,255,.14)" : "#E6E1D8"}`, fontSize: 15.5, lineHeight: 1.45, color: r.dark ? "#C9C4BA" : "#4E4C48" }} className="max-md:!text-base">
@@ -604,14 +604,14 @@ export default function GrowthStrategyPage() {
         <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 36 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
           <div>
             <Eyebrow>How I prioritize</Eyebrow>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
+            <h2 style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
               Fix now. Test next.
               <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>Ignore for now.</em>
             </h2>
           </div>
           <div style={{ paddingBottom: 4 }}>
             <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#4E4C48" }}>Every idea gets three questions.</p>
-            <div className="max-md:!justify-center" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 14px", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 19, fontWeight: 600 }}>
+            <div className="max-md:!justify-center" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 14px", fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600 }}>
               {["Impact", "Confidence", "Effort"].map((t, i) => (
                 <span key={t} style={{ display: "inline-flex", alignItems: "baseline", gap: 8 }}>
                   <span style={{ fontFamily: "var(--nf-geist),var(--nf-inter)", fontSize: 11.5, color: "#7D6039" }}>{String(i + 1).padStart(2, "0")}</span>
@@ -628,7 +628,7 @@ export default function GrowthStrategyPage() {
                 <span style={{ width: 8, height: 8, borderRadius: "50%", background: i === 0 ? "#1C1C1C" : i === 1 ? "#C4A47C" : "transparent", border: c.dim ? "1.5px solid #CFCBC2" : "1.5px solid transparent" }} />
                 {c.n}
               </div>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", color: c.dim ? "#6E6B66" : "#1C1C1C" }}>{c.t}</h3>
+              <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", color: c.dim ? "#6E6B66" : "#1C1C1C" }}>{c.t}</h3>
               <ul style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
                 {c.items.map((it) => (
                   <li key={it} style={{ padding: "10px 0", borderTop: "1px solid #E6E1D8", fontSize: 16, lineHeight: 1.45, color: c.dim ? "#6E6B66" : "#4E4C48" }}>
@@ -644,7 +644,7 @@ export default function GrowthStrategyPage() {
       {/* PROCESS */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <Eyebrow>Process</Eyebrow>
-        <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 24px", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
+        <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "16px 0 24px", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
           Five steps.
           <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>No strategy that dies in a folder.</em>
         </h2>
@@ -653,7 +653,7 @@ export default function GrowthStrategyPage() {
             {PROCESS_STEPS.map((s, i) => (
               <li key={s.n} style={{ minWidth: 0, display: "grid", gridTemplateColumns: "44px minmax(0,1fr)", gap: "2px 12px", padding: "18px 0", borderTop: `1px solid ${i === PROCESS_STEPS.length - 1 ? "#C4A47C" : "#1C1C1C"}` }}>
                 <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{s.n}</span>
-                <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(21px,1.9vw,25px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
+                <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(21px,1.9vw,25px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
                 <p className="max-md:!text-base" style={{ gridColumn: 2, margin: "4px 0 0", fontSize: 15.5, lineHeight: 1.5, color: "#4E4C48" }}>{s.d}</p>
               </li>
             ))}
@@ -672,7 +672,7 @@ export default function GrowthStrategyPage() {
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
                 01 · DIAGNOSE · THE FIRST STEP
               </div>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(32px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Growth audit</h3>
+              <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(32px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Growth audit</h3>
               <p className="max-md:!mx-auto" style={{ margin: "14px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 520 }}>
                 Not a list of marketing ideas. I review your business as it exists today, the whole growth system, and find what is actually holding it back.
               </p>
@@ -697,7 +697,7 @@ export default function GrowthStrategyPage() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 18 }} className="md:!pl-14 md:!border-l md:!border-[#D9CBB6] max-md:!text-center">
               <div>
-                <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(56px,5.6vw,76px)", fontWeight: 600, letterSpacing: "-0.045em", lineHeight: 1 }}>$499</span>
+                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(56px,5.6vw,76px)", fontWeight: 600, letterSpacing: "-0.045em", lineHeight: 1 }}>$499</span>
                 <span style={{ marginLeft: 10, fontSize: 15, color: "#6E6B66" }}>one time</span>
               </div>
               <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
@@ -717,14 +717,14 @@ export default function GrowthStrategyPage() {
           <div>
             <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>02 · THEN EXECUTE · EVERYTHING, HANDLED</div>
             <div className="max-sm:!justify-center" style={{ marginTop: 12, display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: "clamp(44px,4.4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(44px,4.4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
               <span style={{ color: "#9C978D" }}>per month</span>
             </div>
             <p className="max-sm:!mx-auto" style={{ margin: "12px 0 0", color: "#C9C4BA", maxWidth: 460, lineHeight: 1.55 }}>Strategy plus execution across SEO, Reddit, social media, content and design.</p>
             <p style={{ margin: "8px 0 0", color: "#F2EFEA", fontWeight: 500 }}>One person. One plan. One invoice.</p>
           </div>
           <div className="sm:!pl-12 sm:!border-l sm:!border-[#33322F]">
-            <h3 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Running ads too?</h3>
+            <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Running ads too?</h3>
             <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.55, color: "#B7B2A8" }}>Ads management can be added separately.</p>
             <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 12, height: 48, padding: "0 22px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15, fontWeight: 600 }}>
               Tell me what&apos;s stuck
@@ -739,7 +739,7 @@ export default function GrowthStrategyPage() {
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
           <div className="max-md:!text-center">
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Who it&apos;s for</div>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Growth strategy
               <br />
               works best when...
@@ -776,7 +776,7 @@ export default function GrowthStrategyPage() {
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0`, display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.58fr)_minmax(0,1fr)] max-md:!pt-20">
         <div className="max-md:!text-center">
           <Eyebrow>FAQ</Eyebrow>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             Growth questions,
             <br />
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
@@ -792,7 +792,7 @@ export default function GrowthStrategyPage() {
       <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
         <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div className="max-md:!text-center">
-            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Not sure what&apos;s holding growth back?</h2>
+            <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Not sure what&apos;s holding growth back?</h2>
             <p style={{ margin: "14px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
               <Emphasis>That&apos;s exactly where I start.</Emphasis>
             </p>
@@ -824,7 +824,7 @@ export default function GrowthStrategyPage() {
         <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {RELATED.map((r, i) => (
             <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
+              <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>

@@ -45,3 +45,6 @@ next-env.d.ts
 
 # claude code local settings
 .claude/
+
+# Local generated files (never commit)
+.generated/

@@ -49,7 +49,7 @@ export default function Hero() {
                 strokeLinecap="round"
                 vectorEffect="non-scaling-stroke"
                 fill="none"
-                style={{ strokeDasharray: 1, strokeDashoffset: drawn ? 0 : 1, transition: "stroke-dashoffset 650ms cubic-bezier(.3,.7,.2,1)" }}
+                className="hero-squiggle" style={{ strokeDasharray: 1, strokeDashoffset: drawn ? 0 : 1, transition: "stroke-dashoffset 650ms cubic-bezier(.3,.7,.2,1)" }}
               />
             </svg>
           </span>

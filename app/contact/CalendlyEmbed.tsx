@@ -29,7 +29,7 @@ export function CalendlyEmbed() {
           <span aria-hidden="true" style={{ width: 56, height: 56, borderRadius: "50%", border: "1px solid #DDD6CA", background: "#F4F0E8", display: "flex", alignItems: "center", justifyContent: "center", color: "#1C1C1C" }}>
             <CalendarIcon size={22} />
           </span>
-          <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em", color: "#1C1C1C" }}>Pick a time that works for you</p>
+          <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em", color: "#1C1C1C" }}>Pick a time that works for you</p>
           <button
             type="button"
             onClick={() => setOpen(true)}

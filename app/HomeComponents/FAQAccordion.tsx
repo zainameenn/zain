@@ -25,7 +25,7 @@ export function FAQAccordion({ faqs, defaultOpen = -1 }: { faqs: [string, string
                 alignItems: "center",
                 gap: 24,
                 padding: "22px 0",
-                fontFamily: "'General Sans', 'General Sans Fallback'",
+                fontFamily: "var(--nf-general-sans)",
                 fontSize: "clamp(18px,1.4vw,20px)",
                 fontWeight: 600,
                 letterSpacing: "-0.01em",

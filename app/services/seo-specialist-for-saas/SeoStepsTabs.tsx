@@ -40,7 +40,7 @@ export function SeoStepsTabs() {
               <h3
                 style={{
                   margin: 0,
-                  fontFamily: "'General Sans', 'General Sans Fallback'",
+                  fontFamily: "var(--nf-general-sans)",
                   fontSize: "clamp(20px,1.8vw,24px)",
                   fontWeight: 600,
                   letterSpacing: "-0.02em",

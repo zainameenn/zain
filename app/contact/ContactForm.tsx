@@ -45,7 +45,7 @@ export function ContactForm() {
   if (sent) {
     return (
       <div role="status" style={{ padding: "40px 8px", textAlign: "center" }}>
-        <p style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>
+        <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>
           Almost there.
         </p>
         <p style={{ margin: "10px 0 0", fontSize: 16, color: "#5A5854" }}>

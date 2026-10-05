@@ -47,7 +47,7 @@ export default function Tools() {
   return (
     <section style={{ padding: "clamp(80px,9vw,128px) 0 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto 24px", padding: "0 clamp(20px,4vw,48px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textAlign: "center" }}>
-        <h2 style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(28px,2.8vw,38px)", letterSpacing: "-0.03em" }}>Tools I work with</h2>
+        <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(28px,2.8vw,38px)", letterSpacing: "-0.03em" }}>Tools I work with</h2>
         <p style={{ margin: 0, fontSize: 16, color: "#5A5854" }}>The stack changes. The job doesn&apos;t.</p>
       </div>
       <div

@@ -90,7 +90,7 @@ export default function Reviews() {
       >
         <div>
           <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client proof</div>
-          <h2 style={{ textWrap: "balance", margin: "12px 0 0", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 style={{ textWrap: "balance", margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             What people say after working with me.
           </h2>
         </div>
@@ -134,7 +134,7 @@ export default function Reviews() {
                   View original ↗
                 </a>
               </div>
-              <blockquote style={{ margin: 0, fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: r.fs, lineHeight: 1.4, letterSpacing: "-0.01em", flex: 1 }}>&quot;{r.q}&quot;</blockquote>
+              <blockquote style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: r.fs, lineHeight: 1.4, letterSpacing: "-0.01em", flex: 1 }}>&quot;{r.q}&quot;</blockquote>
               <figcaption className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 16, borderTop: "1px solid #DAD6CC" }}>
                 {r.img ? (
                   <BgImage src={r.img} alt={r.name} fit="cover" style={{ width: 44, height: 44, borderRadius: "50%", flex: "0 0 auto" }} />

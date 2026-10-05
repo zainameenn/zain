@@ -185,7 +185,7 @@ export default function Navbar() {
                   key={l.t}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  style={{ display: "block", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
+                  style={{ display: "block", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
                 >
                   {l.t}
                 </a>
@@ -196,7 +196,7 @@ export default function Navbar() {
                 <button
                   onClick={() => setMobileSvcOpen((v) => !v)}
                   aria-expanded={mobileSvcOpen}
-                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "'General Sans', 'General Sans Fallback'", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
+                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
                 >
                   {l.t}
                   <ChevronIcon style={{ transform: mobileSvcOpen ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />
