@@ -22,3 +22,4 @@
 - /about : Zain Ul Abdin
 - /contact : Contact Zain Ul Abdin
 - /insights : growth marketing insights
+- /case-studies/blainy : Blainy case study
