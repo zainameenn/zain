@@ -23,3 +23,4 @@
 - /contact : Contact Zain Ul Abdin
 - /insights : growth marketing insights
 - /case-studies/blainy : Blainy case study
+- /case-studies/virtarix : Virtarix case study

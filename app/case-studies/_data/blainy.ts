@@ -183,7 +183,7 @@ export const blainy: CaseStudy = {
           },
         ],
         screenshotsNote: "Clicks from Reddit posts that carried a link. Most posts didn't.",
-        postExample: { subreddit: "r/ChatGPTPromptGenius", title: "Is using AI for writing cheating?", views: "44K" },
+        example: { heading: "What a post looked like", label: "r/ChatGPTPromptGenius", title: "Is using AI for writing cheating?", views: "44K" },
         attribution: {
           title: "Why the dashboard undercounts Reddit",
           text: [
@@ -343,7 +343,7 @@ export const blainy: CaseStudy = {
         tags: "Content · Community · Reddit",
         logo: { src: `${IMG}/virtarix-logo.png`, width: 576, height: 176, alt: "Virtarix logo" },
         stat: "70K+",
-        statLabel: "Facebook views in 3 months",
+        statLabel: "Facebook views in under 4 months",
         text: "Virtarix had solid technical knowledge and almost no distribution.",
         link: { label: "Read the Virtarix case study", href: "/case-studies/virtarix" },
       },

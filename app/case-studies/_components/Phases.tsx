@@ -6,6 +6,7 @@ import { ACCENT_LINE, BODY, CARD, EYEBROW, GENERAL_SANS, GOLD, GOLD_TEXT, INK, L
 
 const WIDE_SIZES = "(max-width: 1023px) 90vw, 1000px";
 const HALF_SIZES = "(max-width: 1023px) 90vw, 500px";
+const SINGLE_SIZES = "(max-width: 1023px) 90vw, 760px";
 
 const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] text-[15px] font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 
@@ -17,11 +18,14 @@ function ExternalIcon() {
   );
 }
 
+const BODY_TEXT: React.CSSProperties = { margin: "12px 0 0", maxWidth: 680, fontSize: 16.5, lineHeight: 1.65, color: BODY, textWrap: "pretty" };
+
 const ASIDE: React.CSSProperties = { marginTop: 28, maxWidth: 760, borderRadius: 20, background: CARD, padding: "clamp(20px,2.4vw,28px)" };
 const ASIDE_TITLE: React.CSSProperties = { ...EYEBROW, margin: 0, color: GOLD_TEXT };
 
 function PhaseItem({ phase }: { phase: Phase }) {
-  const { articleExample: art, postExample: post, attribution: attr } = phase;
+  const { articleExample: art, example: ex, attribution: attr } = phase;
+  const single = phase.screenshotsLayout === "single";
   const id = `phase-${phase.number}`;
   return (
     <li className="grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 md:grid-cols-[56px_minmax(0,1fr)] md:gap-x-[clamp(20px,2.4vw,32px)]" style={{ position: "relative" }}>
@@ -36,7 +40,7 @@ function PhaseItem({ phase }: { phase: Phase }) {
         <div style={{ ...EYEBROW, color: GOLD_TEXT }}>{phase.eyebrow}</div>
         <h3 style={{ margin: "10px 0 0", fontFamily: GENERAL_SANS, fontWeight: 600, fontSize: "clamp(26px,2.6vw,36px)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>{phase.title}</h3>
         <p style={{ margin: "14px 0 0", maxWidth: 680, fontSize: 17, lineHeight: 1.6, color: phase.introStrong ? INK : BODY, textWrap: "pretty" }}>{phase.intro}</p>
-        {phase.body && <p style={{ margin: "12px 0 0", maxWidth: 680, fontSize: 16.5, lineHeight: 1.65, color: BODY, textWrap: "pretty" }}>{phase.body}</p>}
+        {phase.body && !phase.bodyAfterBullets && <p style={BODY_TEXT}>{phase.body}</p>}
 
         {phase.bullets && (
           <ul style={{ margin: "22px 0 0", padding: 0, listStyle: "none", borderTop: `1px solid ${LINE}`, maxWidth: 760 }}>
@@ -48,6 +52,7 @@ function PhaseItem({ phase }: { phase: Phase }) {
             ))}
           </ul>
         )}
+        {phase.body && phase.bodyAfterBullets && <p style={BODY_TEXT}>{phase.body}</p>}
 
         {phase.link?.href && (
           <a href={phase.link.href} target="_blank" rel="noopener" className={TEXT_LINK} style={{ marginTop: 20 }}>
@@ -56,11 +61,17 @@ function PhaseItem({ phase }: { phase: Phase }) {
           </a>
         )}
 
-        <div className="grid grid-cols-1 gap-x-5 gap-y-6 lg:grid-cols-2" style={{ marginTop: 28, alignItems: "start" }}>
-          {phase.screenshots.map((s) => (
-            <ScreenshotFigure key={s.src} shot={s} sizes={s.wide ? WIDE_SIZES : HALF_SIZES} className={s.wide ? "lg:col-span-2" : undefined} />
-          ))}
-        </div>
+        {phase.screenshots.length > 0 && (single ? (
+          <div style={{ marginTop: 28, maxWidth: 760, display: "flex", flexDirection: "column", gap: 24 }}>
+            {phase.screenshots.map((s) => <ScreenshotFigure key={s.src} shot={s} sizes={SINGLE_SIZES} />)}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-x-5 gap-y-6 lg:grid-cols-2" style={{ marginTop: 28, alignItems: "start" }}>
+            {phase.screenshots.map((s) => (
+              <ScreenshotFigure key={s.src} shot={s} sizes={s.wide ? WIDE_SIZES : HALF_SIZES} className={s.wide ? "lg:col-span-2" : undefined} />
+            ))}
+          </div>
+        ))}
         {phase.screenshotsNote && <p style={{ margin: "14px 0 0", fontSize: 13, lineHeight: 1.5, color: MUTED }}>{phase.screenshotsNote}</p>}
 
         {phase.driveLink?.href && (
@@ -93,13 +104,13 @@ function PhaseItem({ phase }: { phase: Phase }) {
           </aside>
         )}
 
-        {post?.title && post.subreddit && post.views && (
-          <aside aria-labelledby={`${id}-post`} style={{ ...ASIDE, border: `1px solid ${LINE}` }}>
-            <h4 id={`${id}-post`} style={ASIDE_TITLE}>What a post looked like</h4>
+        {ex?.title && ex.views && (
+          <aside aria-labelledby={`${id}-example`} style={{ ...ASIDE, border: `1px solid ${LINE}` }}>
+            <h4 id={`${id}-example`} style={ASIDE_TITLE}>{ex.heading}</h4>
             <div style={{ marginTop: 14, padding: "16px 18px", borderRadius: 12, border: `1px solid ${LINE}`, background: "#FFFFFF" }}>
-              <div style={{ fontSize: 13.5, fontWeight: 600, color: MUTED }}>{post.subreddit}</div>
-              <p style={{ margin: "8px 0 0", fontFamily: GENERAL_SANS, fontSize: "clamp(17px,1.5vw,20px)", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.35 }}>{post.title}</p>
-              <div style={{ ...EYEBROW, marginTop: 12, fontVariantNumeric: "tabular-nums" }}>{post.views} views</div>
+              {ex.label && <div style={{ fontSize: 13.5, fontWeight: 600, color: MUTED }}>{ex.label}</div>}
+              <p style={{ margin: ex.label ? "8px 0 0" : 0, fontFamily: GENERAL_SANS, fontSize: "clamp(17px,1.5vw,20px)", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.35 }}>{ex.title}</p>
+              <div style={{ ...EYEBROW, marginTop: 12, fontVariantNumeric: "tabular-nums" }}>{ex.views} views</div>
             </div>
           </aside>
         )}
