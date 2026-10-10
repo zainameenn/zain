@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CaseStudy } from "../_data/types";
+import type { AccentHeading, CaseStudy } from "../_data/types";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "../../HomeComponents/heading";
 import { ArrowIcon, Squiggle, UpArrowIcon } from "../../HomeComponents/icons";
 import { Compounding } from "./Compounding";
@@ -18,6 +18,9 @@ const OUTLINE_BUTTON = "inline-flex items-center whitespace-nowrap rounded-[12px
 const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 const UNDERLINE_LINK = "inline-flex items-center min-h-[32px] border-b border-[#CFCBC2] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 
+/** Larger product paragraph, used above or below the body text. */
+const PRODUCT_LARGE: React.CSSProperties = { fontFamily: GENERAL_SANS, fontSize: "clamp(19px,1.7vw,22px)", fontWeight: 500, lineHeight: 1.4, letterSpacing: "-0.01em", textWrap: "pretty" };
+
 function ExternalIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -26,7 +29,7 @@ function ExternalIcon() {
   );
 }
 
-function SectionIntro({ eyebrow, heading }: { eyebrow: string; heading: CaseStudy["results"]["heading"] }) {
+function SectionIntro({ eyebrow, heading }: { eyebrow: string; heading: AccentHeading }) {
   return (
     <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
       <div style={EYEBROW}>{eyebrow}</div>
@@ -51,7 +54,7 @@ function Stat({ value, label, note, size }: { value: string; label: string; note
 
 export function CaseStudyPage({ study }: { study: CaseStudy }) {
   const { hero, testimonial, summary, product, problem, effort, results, drive, lessons, servicesUsed, related, cta } = study;
-  const gallery = results.gallery.filter((g) => g.src);
+  const gallery = results?.gallery.filter((g) => g.src) ?? [];
 
   return (
     <LightboxProvider>
@@ -125,7 +128,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           </section>
 
           {/* Key results strip */}
-          <section aria-label="Key results">
+          <section id={study.keyResultsId} aria-label="Key results" style={study.keyResultsId ? { scrollMarginTop: 96 } : undefined}>
             <dl className="grid grid-cols-1 md:grid-cols-3" style={{ margin: 0, gap: 1, background: LINE, borderTop: `1px solid ${INK}`, borderBottom: `1px solid ${LINE}` }}>
               {study.keyResults.map((r) => (
                 <div key={r.label} style={{ background: "#EEEDE7", padding: "28px 20px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
@@ -139,7 +142,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           {/* Client quote */}
           {testimonial && (
             <section aria-labelledby="from-the-founder" style={{ paddingTop: "clamp(48px,5vw,72px)" }}>
-              <h2 id="from-the-founder" className={LABEL_H2} style={{ ...EYEBROW, margin: 0, textAlign: "center" }}>From the founder</h2>
+              <h2 id="from-the-founder" className={LABEL_H2} style={{ ...EYEBROW, margin: 0, textAlign: "center" }}>{testimonial.heading ?? "From the founder"}</h2>
               <figure style={{ margin: "20px auto 0", maxWidth: 820, borderRadius: 20, background: "#F2EFEA", padding: "clamp(26px,3.6vw,48px)", display: "flex", flexDirection: "column", gap: 24 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
                   <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: GOLD_TEXT }}>{testimonial.label}</span>
@@ -151,7 +154,13 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
                 <figcaption style={{ display: "flex", alignItems: "center", gap: 14, paddingTop: 20, borderTop: "1px solid #DAD6CC" }}>
-                  <Image src={testimonial.avatar.src} alt={testimonial.avatar.alt} width={52} height={52} sizes="52px" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", display: "block", flex: "0 0 auto" }} />
+                  {testimonial.avatar ? (
+                    <Image src={testimonial.avatar.src} alt={testimonial.avatar.alt} width={52} height={52} sizes="52px" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", display: "block", flex: "0 0 auto" }} />
+                  ) : (
+                    <span aria-hidden="true" style={{ width: 52, height: 52, borderRadius: "50%", background: INK, color: "#F2EFEA", display: "flex", alignItems: "center", justifyContent: "center", flex: "0 0 auto", fontFamily: GENERAL_SANS, fontSize: 16, fontWeight: 600, letterSpacing: ".02em" }}>
+                      {testimonial.initials}
+                    </span>
+                  )}
                   <span>
                     <span style={{ display: "block", fontSize: 16, fontWeight: 600 }}>{testimonial.name}</span>
                     <span style={{ display: "block", fontSize: 14, color: MUTED }}>{testimonial.role}</span>
@@ -184,8 +193,9 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
             <div style={{ minWidth: 0 }}>
               <div style={EYEBROW}>{product.eyebrow}</div>
               <h2 style={{ ...SECTION_H2, fontSize: "clamp(30px,3vw,44px)", lineHeight: 1.08 }}>{product.heading}</h2>
-              <p style={{ margin: "20px 0 0", fontFamily: GENERAL_SANS, fontSize: "clamp(19px,1.7vw,22px)", fontWeight: 500, lineHeight: 1.4, letterSpacing: "-0.01em", textWrap: "pretty" }}>{product.lead}</p>
-              <p style={{ margin: "16px 0 0", fontSize: 16.5, lineHeight: 1.65, color: BODY, textWrap: "pretty" }}>{product.body}</p>
+              {product.lead && <p style={{ ...PRODUCT_LARGE, margin: "20px 0 0" }}>{product.lead}</p>}
+              <p style={{ margin: product.lead ? "16px 0 0" : "20px 0 0", fontSize: 16.5, lineHeight: 1.65, color: BODY, textWrap: "pretty" }}>{product.body}</p>
+              {product.closing && <p style={{ ...PRODUCT_LARGE, margin: "16px 0 0" }}>{product.closing}</p>}
             </div>
             <div style={{ minWidth: 0, aspectRatio: "4/3", borderRadius: 20, border: `1px solid ${LINE}`, background: CARD, display: "flex", alignItems: "center", justifyContent: "center", padding: "12%" }}>
               <Image src={study.logo.src} alt={study.logo.alt} width={study.logo.width} height={study.logo.height} sizes="340px" style={{ display: "block", width: "100%", maxWidth: 340, height: "auto" }} />
@@ -201,11 +211,13 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
                 <span style={{ ...ACCENT_LINE, marginTop: 4, color: GOLD_LIGHT }}>{problem.heading.accent}</span>
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2" style={{ marginTop: "clamp(28px,3vw,40px)", gap: "20px clamp(28px,3.5vw,48px)", paddingTop: 24, borderTop: "1px solid #3A3935" }}>
-                {problem.paragraphs.map((p, i) => <p key={i} style={{ margin: 0, fontSize: 16.5, lineHeight: 1.65, color: "#D9D5CC", textWrap: "pretty" }}>{p}</p>)}
+                {problem.paragraphs.map((p, i) => <p key={i} style={{ margin: 0, fontSize: 16.5, lineHeight: 1.65, color: "#D9D5CC", textWrap: "pretty" }}><Rich text={p} /></p>)}
               </div>
-              <p style={{ margin: "clamp(28px,3vw,40px) auto 0", textAlign: "center", maxWidth: 820, fontFamily: GENERAL_SANS, fontSize: "clamp(21px,2.1vw,28px)", fontWeight: 500, lineHeight: 1.35, letterSpacing: "-0.015em", textWrap: "pretty" }}>
-                <Rich text={problem.closing} />
-              </p>
+              {problem.closing && (
+                <p style={{ margin: "clamp(28px,3vw,40px) auto 0", textAlign: "center", maxWidth: 820, fontFamily: GENERAL_SANS, fontSize: "clamp(21px,2.1vw,28px)", fontWeight: 500, lineHeight: 1.35, letterSpacing: "-0.015em", textWrap: "pretty" }}>
+                  <Rich text={problem.closing} />
+                </p>
+              )}
             </div>
           </section>
 
@@ -227,6 +239,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           </section>
 
           {/* Results */}
+          {results && (
           <section id="results" style={{ paddingTop: SECTION_GAP, scrollMarginTop: 96 }}>
             <SectionIntro eyebrow={results.eyebrow} heading={results.heading} />
             <dl className="grid grid-cols-1 md:grid-cols-3" style={{ margin: "clamp(28px,3vw,40px) 0 0", gap: 16 }}>
@@ -254,6 +267,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
               </div>
             )}
           </section>
+          )}
 
           {/* All results in Google Drive */}
           {drive.link.href && (

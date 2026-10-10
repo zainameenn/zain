@@ -22,7 +22,10 @@ export type Screenshot = ImageAsset & {
 };
 
 /** Icons available to the "how it compounded" flow. */
-export type FlowIcon = "reddit" | "instagram" | "pinterest" | "search" | "trend" | "award" | "sprout";
+export type FlowIcon = "reddit" | "instagram" | "pinterest" | "facebook" | "search" | "trend" | "award" | "sprout" | "book";
+
+/** One step in a "how it compounded" chain. When a chain has descriptions, it shows as stacked cards. */
+export type FlowStep = { label: string; icons: FlowIcon[]; description?: string };
 
 export type Phase = {
   number: string;
@@ -33,16 +36,20 @@ export type Phase = {
   introStrong?: boolean;
   body?: string;
   bullets?: RichText[];
+  /** Shows the body after the bullets instead of before them. */
+  bodyAfterBullets?: boolean;
   /** Hidden while href is empty. */
   link?: LinkItem;
   screenshots: Screenshot[];
+  /** "single" shows the screenshots in one narrow column instead of the two column grid. */
+  screenshotsLayout?: "grid" | "single";
   screenshotsNote?: string;
   /** Hidden while href is empty. */
   driveLink?: LinkItem;
   /** Hidden while title or url is empty. */
   articleExample?: { title: string; url: string; result: string };
-  /** Hidden while any field is empty. */
-  postExample?: { subreddit: string; title: string; views: string };
+  /** Example post or answer card. Hidden while title or views is empty. */
+  example?: { heading: string; label?: string; title: string; views: string };
   callout?: { title: string; text: RichText };
   attribution?: { title: string; text: RichText; tracked: [string, string]; untracked: [string, string]; ratio: [number, number] };
 };
@@ -59,14 +66,19 @@ export type CaseStudy = {
   quickFacts: { label: string; value?: string; links?: LinkItem[]; large?: boolean }[];
   keyResults: { value: string; label: string }[];
   keyResultsSource: string;
-  testimonial?: { label: string; quote: string; name: string; role: string; avatar: ImageAsset; originalHref: string };
+  /** Section id for the key results strip, e.g. "results" when there's no separate results section. */
+  keyResultsId?: string;
+  /** Without an avatar photo, the initials show in a dark circle. */
+  testimonial?: { /** Section label, "From the founder" when empty. */ heading?: string; label: string; quote: string; name: string; role: string; avatar?: ImageAsset; initials?: string; originalHref: string };
   summary: { heading: string; items: { title: string; text: string; emphasis?: boolean }[] };
-  product: { eyebrow: string; heading: string; lead: string; body: string };
-  problem: { eyebrow: string; heading: AccentHeading; paragraphs: string[]; closing: RichText };
+  /** lead shows large above the body; closing shows large below it. */
+  product: { eyebrow: string; heading: string; lead?: string; body: string; closing?: string };
+  problem: { eyebrow: string; heading: AccentHeading; paragraphs: RichText[]; closing?: RichText };
   phases: { eyebrow: string; heading: AccentHeading; items: Phase[] };
-  compounding: { eyebrow: string; heading: AccentHeading; intro: string; flows: { label: string; icons: FlowIcon[] }[][]; footnote: string };
+  compounding: { eyebrow: string; heading: AccentHeading; intro?: string; flows: FlowStep[][]; footnote?: string };
   effort: { heading: string; items: { value: string; label: string }[] };
-  results: {
+  /** Optional separate results section. */
+  results?: {
     eyebrow: string;
     heading: AccentHeading;
     items: { value: string; label: string; note?: string }[];
