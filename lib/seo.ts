@@ -14,11 +14,14 @@ type BuildMetadataInput = {
   description: string;
   path: string;
   noindex?: boolean;
+  /** Overrides the default share image. */
+  image?: { url: string; width: number; height: number; alt: string };
+  type?: "website" | "article";
 };
 
 // Next.js replaces a parent's openGraph/twitter objects entirely when a page
 // defines them, so every page gets the full set from here.
-export function buildMetadata({ title, description, path, noindex }: BuildMetadataInput): Metadata {
+export function buildMetadata({ title, description, path, noindex, image = OG_IMAGE, type = "website" }: BuildMetadataInput): Metadata {
   return {
     title,
     description,
@@ -29,8 +32,8 @@ export function buildMetadata({ title, description, path, noindex }: BuildMetada
       url: path,
       siteName: SITE_NAME,
       locale: "en_US",
-      type: "website",
-      images: [OG_IMAGE],
+      type,
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
@@ -38,7 +41,7 @@ export function buildMetadata({ title, description, path, noindex }: BuildMetada
       creator: TWITTER_HANDLE,
       title,
       description,
-      images: [OG_IMAGE],
+      images: [image],
     },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
