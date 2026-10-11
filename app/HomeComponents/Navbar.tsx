@@ -7,6 +7,7 @@ import { Img } from "./Img";
 
 const NAV_LINKS: { t: string; href: string }[] = [
   { t: "Services", href: "/services" },
+  { t: "Case Studies", href: "/case-studies" },
   { t: "Pricing", href: "/pricing" },
   { t: "About", href: "/about" },
   { t: "Insights", href: "/insights" },
@@ -20,11 +21,24 @@ const SERVICE_MENU = [
   { t: "Google and Meta ads", d: "Test small, find what converts, then scale.", href: "/services/google-and-meta-ads-specialist" },
 ];
 
+const CASE_STUDY_MENU = [
+  { t: "Blainy", d: "An AI SaaS to 85K+ signups with zero paid ads.", href: "/case-studies/blainy" },
+  { t: "Everdry Waterproofing", d: "A quiet Facebook page to 160K+ views in 28 days.", href: "/case-studies/everdry" },
+  { t: "Virtarix", d: "A VPS host found through Reddit and Facebook.", href: "/case-studies/virtarix" },
+  { t: "LoomPad", d: "My own Etsy store: $3,401 from 93 orders.", href: "/case-studies/loompad" },
+];
+
+/** Nav items that open a dropdown, with the "view all" link at the bottom. */
+const DROPDOWNS: Record<string, { items: { t: string; d: string; href: string }[]; all: { t: string; href: string } }> = {
+  Services: { items: SERVICE_MENU, all: { t: "View all services", href: "/services" } },
+  "Case Studies": { items: CASE_STUDY_MENU, all: { t: "View all case studies", href: "/case-studies" } },
+};
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [navHover, setNavHover] = useState(-1);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileSvcOpen, setMobileSvcOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState<string | null>(null);
   const [ctaHover, setCtaHover] = useState(false);
 
   useEffect(() => {
@@ -70,20 +84,22 @@ export default function Navbar() {
         }}
         className="max-md:!gap-3"
       >
-        <Link href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44 }}>
+        <Link href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", height: 44, flexShrink: 0 }}>
           <Img src="/logo-128.png" alt="Zain Ul Abdin logo" loading="eager" style={{ display: "block", height: 42, width: "auto" }} />
         </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="max-md:!gap-3">
+        <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="max-md:!gap-3 max-lg:gap-4">
           <nav className="hidden md:flex" onMouseLeave={() => setNavHover(-1)} style={{ gap: 4, fontSize: 15, fontWeight: 500 }}>
             {NAV_LINKS.map((l, i) => {
-              const isSvc = l.t === "Services";
+              const menu = DROPDOWNS[l.t];
+              const isSvc = !!menu;
               const on = navHover === i;
               const dd = on && isSvc;
               return (
                 <div key={l.t} onMouseEnter={() => setNavHover(i)} style={{ position: "relative" }}>
                   <a
                     href={l.href}
+                    className="max-lg:!px-2"
                     aria-haspopup={isSvc}
                     aria-expanded={dd}
                     style={{
@@ -93,6 +109,7 @@ export default function Navbar() {
                       gap: 6,
                       height: 44,
                       padding: "0 12px",
+                      whiteSpace: "nowrap",
                       color: navHover === -1 || on ? "#1C1C1C" : "#6F6B64",
                       transition: "color 180ms",
                     }}
@@ -116,7 +133,7 @@ export default function Navbar() {
                   {dd && (
                     <div style={{ position: "absolute", left: -8, top: "100%", paddingTop: 10, width: 380, zIndex: 90, animation: "zddin 180ms ease-out both" }}>
                       <div style={{ background: "#F8F6F4", border: "1px solid #DDDAD3", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: 8 }}>
-                        {SERVICE_MENU.map((m) => (
+                        {menu.items.map((m) => (
                           <a
                             key={m.t}
                             href={m.href}
@@ -129,10 +146,10 @@ export default function Navbar() {
                           </a>
                         ))}
                         <a
-                          href="/services"
+                          href={menu.all.href}
                           style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 6, padding: "14px 14px 10px", borderTop: "1px solid #DDDAD3", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}
                         >
-                          View all services
+                          {menu.all.t}
                           <ArrowIcon />
                         </a>
                       </div>
@@ -162,7 +179,7 @@ export default function Navbar() {
               transition: "background 180ms",
             }}
           >
-            <span>Tell me what&apos;s stuck</span>
+            <span style={{ whiteSpace: "nowrap" }}>Tell me what&apos;s stuck</span>
             <ArrowIcon style={{ transform: ctaHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
           </a>
 
@@ -189,8 +206,8 @@ export default function Navbar() {
       {menuOpen && (
         <nav style={{ padding: "8px clamp(20px,4vw,48px) 24px", display: "flex", flexDirection: "column", borderTop: "1px solid #DDDAD3" }} className="max-md:!max-h-[calc(100dvh-73px)] max-md:!overflow-y-auto max-md:!overscroll-contain">
           {NAV_LINKS.map((l) => {
-            const isSvc = l.t === "Services";
-            if (!isSvc) {
+            const menu = DROPDOWNS[l.t];
+            if (!menu) {
               return (
                 <a
                   key={l.t}
@@ -205,22 +222,22 @@ export default function Navbar() {
             return (
               <div key={l.t} style={{ borderBottom: "1px solid #DDDAD3" }}>
                 <button
-                  onClick={() => setMobileSvcOpen((v) => !v)}
-                  aria-expanded={mobileSvcOpen}
+                  onClick={() => setMobileOpen((v) => (v === l.t ? null : l.t))}
+                  aria-expanded={mobileOpen === l.t}
                   style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
                 >
                   {l.t}
-                  <ChevronIcon style={{ transform: mobileSvcOpen ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />
+                  <ChevronIcon style={{ transform: mobileOpen === l.t ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />
                 </button>
-                {mobileSvcOpen && (
+                {mobileOpen === l.t && (
                   <div style={{ display: "flex", flexDirection: "column", padding: "0 0 12px" }}>
-                    {SERVICE_MENU.map((m) => (
+                    {menu.items.map((m) => (
                       <a key={m.t} href={m.href} onClick={() => setMenuOpen(false)} style={{ padding: "10px 0", fontSize: 16, color: "#4E4C48" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
                         {m.t}
                       </a>
                     ))}
-                    <a href="/services" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }} className="max-md:!min-h-11">
-                      View all services
+                    <a href={menu.all.href} onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }} className="max-md:!min-h-11">
+                      {menu.all.t}
                       <ArrowIcon />
                     </a>
                   </div>
