@@ -51,14 +51,24 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* ✅ Microsoft Clarity */}
+        {/* ✅ Microsoft Clarity, loaded on the visitor's first scroll, tap, click or keypress.
+            Clarity sets third party cookies, so loading it only once someone interacts keeps
+            page load clean (Lighthouse Best Practices) while still recording real sessions. */}
         <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "yp1n9hbiei");
+            (function(){
+              var events=["scroll","pointerdown","keydown","touchstart"],done=false;
+              function load(){
+                if(done)return;done=true;
+                events.forEach(function(e){removeEventListener(e,load)});
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "yp1n9hbiei");
+              }
+              events.forEach(function(e){addEventListener(e,load,{once:true,passive:true})});
+            })();
           `}
         </Script>
       </body>
