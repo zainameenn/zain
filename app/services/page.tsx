@@ -124,9 +124,9 @@ const STEPS = [
 
 const CASES = [
   { href: "/case-studies/blainy", logo: "/assets/site/logo-blainy.png", alt: "Blainy", stats: [["85K+", "users"], ["~30M", "search impressions"], ["Thousands", "Reddit-driven conversions"]] },
-  { href: "/case-studies/everdry", logo: "/assets/v8/logo-everdry.gif", alt: "Everdry Waterproofing", stats: [["160K+", "Facebook views in 28 days"], ["12,462", "Business Profile views/interactions"], ["603", "calls from Business Profile"]] },
+  { href: "/case-studies/everdry", logo: "/assets/v8/logo-everdry.gif", alt: "Everdry Waterproofing", stats: [["160K+", "Facebook views in 28 days"], ["40,153", "people reached in 28 days"], ["141,889", "views, an earlier 28 days"]] },
   { href: "/case-studies/virtarix", logo: "/assets/v8/logos/virtarix.png", alt: "Virtarix", stats: [["70K+", "Facebook views"], ["Reddit", "visibility"], ["Community", "+ content distribution"]] },
-  { href: "/#case-loompad", logo: "/assets/v8/logos/loompad.png", alt: "LoomPad", stats: [["93", "orders"], ["$3,401", "sales"], ["10,777", "shop views"]] },
+  { href: "/case-studies/loompad", logo: "/assets/v8/logos/loompad.png", alt: "LoomPad", stats: [["93", "orders"], ["$3,401", "sales"], ["10,777", "shop views"]] },
 ];
 
 const FAQS: [string, string[]][] = [

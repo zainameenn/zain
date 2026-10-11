@@ -321,7 +321,7 @@ export default function SocialMediaManagementPage() {
               </div>
               <div style={{ minWidth: 0 }}>
                 <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>
-                  Their page wasn&apos;t reaching anyone. I rebuilt the content around visuals homeowners stop for, shared it into local groups, and turned the Google Business Profile into a lead source.
+                  Their page wasn&apos;t reaching anyone. I rebuilt the content around visuals homeowners stop for: before and afters, myth busting and real reviews, shared into local groups.
                 </p>
               </div>
             </div>
@@ -329,8 +329,8 @@ export default function SocialMediaManagementPage() {
               {[
                 { v: "160,235", l: "Facebook views, last 28 days" },
                 { v: "40,153", l: "accounts reached" },
-                { v: "12,462", l: "Business Profile views" },
-                { v: "603", l: "calls from the profile" },
+                { v: "141,889", l: "views, an earlier 28 days" },
+                { v: "50,881", l: "views early on, 28 days" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #DDD5C8" : "0" }}>
                   <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
@@ -358,21 +358,21 @@ export default function SocialMediaManagementPage() {
               <div style={{ minWidth: 0, display: "flex", flexDirection: "column", gap: 14 }}>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", justifyContent: "space-between", gap: "8px 20px", paddingTop: 16, borderTop: "1px solid #DDD5C8" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>GOOGLE BUSINESS PROFILE</span>
-                    <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Local search</span>
+                    <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>FACEBOOK</span>
+                    <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Earlier 28 day windows</span>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px" }}>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>12,462</b> <span style={{ fontSize: 13, color: "#5A5854" }}>profile views</span></span>
-                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>603</b> <span style={{ fontSize: 13, color: "#5A5854" }}>calls</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>141,889</b> <span style={{ fontSize: 13, color: "#5A5854" }}>views</span></span>
+                    <span style={{ whiteSpace: "nowrap" }}><b style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>50,881</b> <span style={{ fontSize: 13, color: "#5A5854" }}>views early on</span></span>
                   </div>
                 </div>
-                <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Photos, services and regular updates so local searches turned into calls.</p>
+                <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Separate 28 day windows from the page&apos;s professional dashboard. The views kept coming.</p>
                 <div style={{ display: "grid", gap: 14, alignItems: "start" }} className="sm:!grid-cols-2">
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#1F2022", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <Img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <Img loading="lazy" src="/assets/case-studies/everdry/facebook-141k-views.webp" alt="Everdry Facebook professional dashboard: 141,889 views and 36,284 reach in 28 days" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#1F2022", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <Img loading="lazy" src="/assets/pages/social/07-results-everdry__603-calls.png" alt="Everdry: 603 calls from the Business Profile" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <Img loading="lazy" src="/assets/case-studies/everdry/facebook-50k-views-early.webp" alt="Everdry Facebook professional dashboard early on: 50,881 views and 17,292 reach in 28 days" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                 </div>
               </div>
@@ -688,7 +688,7 @@ export default function SocialMediaManagementPage() {
             </div>
           </article>
         </div>
-        <p style={{ margin: "14px 0 0", fontSize: 13, color: "#6F6B64" }}>Screenshots from Meta Business Suite, Instagram, Threads, Pinterest, YouTube Studio and Google Business Profile.</p>
+        <p style={{ margin: "14px 0 0", fontSize: 13, color: "#6F6B64" }}>Screenshots from Meta Business Suite, Instagram, Threads, Pinterest, and YouTube Studio.</p>
       </section>
 
       {/* ONE IDEA / REPURPOSING */}

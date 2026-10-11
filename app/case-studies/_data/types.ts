@@ -71,12 +71,36 @@ export type CaseStudy = {
   /** Without an avatar photo, the initials show in a dark circle. */
   testimonial?: { /** Section label, "From the founder" when empty. */ heading?: string; label: string; quote: string; name: string; role: string; avatar?: ImageAsset; initials?: string; originalHref: string };
   summary: { heading: string; items: { title: string; text: string; emphasis?: boolean }[] };
+  /** Buyer or customer reviews shown as a row of short quote cards with stars. */
+  reviews?: { heading: string; items: { quote: string; name: string; role: string; rating: number }[] };
   /** lead shows large above the body; closing shows large below it. */
-  product: { eyebrow: string; heading: string; lead?: string; body: string; closing?: string };
+  product?: { eyebrow: string; heading: string; lead?: string; body: string; closing?: string };
   problem: { eyebrow: string; heading: AccentHeading; paragraphs: RichText[]; closing?: RichText };
-  phases: { eyebrow: string; heading: AccentHeading; items: Phase[] };
-  compounding: { eyebrow: string; heading: AccentHeading; intro?: string; flows: FlowStep[][]; footnote?: string };
-  effort: { heading: string; items: { value: string; label: string }[] };
+  /** "What I did" as a numbered timeline of phases. */
+  phases?: {
+    eyebrow: string;
+    heading: AccentHeading;
+    items: Phase[];
+    /** Shown after the timeline: a bullet callout, then screenshots. */
+    outro?: { callout?: { title: string; bullets: RichText[] }; screenshots?: Screenshot[]; note?: string };
+  };
+  /** "What I did" as an intro, numbered cards and screenshot galleries, for work that wasn't done in phases. */
+  approach?: {
+    eyebrow: string;
+    heading: AccentHeading;
+    intro?: string;
+    items: { title: string; text: string }[];
+    outro?: string;
+    /** Each gallery is its own two column grid. */
+    galleries: Screenshot[][];
+    note?: string;
+    /** Hidden while href is empty. */
+    driveLink?: LinkItem;
+  };
+  compounding?: { eyebrow: string; heading: AccentHeading; intro?: string; flows: FlowStep[][]; footnote?: string };
+  effort?: { heading: string; items: { value: string; label: string }[] };
+  /** A simple labelled grid of result numbers. */
+  statsGrid?: { id?: string; heading: string; items: { value: string; label: string }[]; source: string };
   /** Optional separate results section. */
   results?: {
     eyebrow: string;
@@ -90,11 +114,7 @@ export type CaseStudy = {
   drive: { heading: string; text: string; link: LinkItem };
   lessons: { eyebrow: string; heading: AccentHeading; items: { title: string; text: string }[]; /** Hidden while href is empty. */ articleLink: LinkItem };
   servicesUsed: { heading: string; items: LinkItem[] };
-  related: {
-    eyebrow: string;
-    heading: string;
-    items: { tags: string; logo: ImageAsset; stat: string; statLabel: string; text: string; link: LinkItem }[];
-    allLink: LinkItem;
-  };
+  /** How this case study appears in "Read another case study" and on /case-studies. Uses the logo above. */
+  card: { tags: string; stat: string; statLabel: string; text: string };
   cta: { heading: AccentHeading; text: string; link: LinkItem };
 };

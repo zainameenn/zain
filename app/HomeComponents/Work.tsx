@@ -157,7 +157,7 @@ export const CASES = {
         bg="#F8F6F4"
         border="#E1DCD2"
         reverse
-        eyebrow="Home Services / Social / Local SEO"
+        eyebrow="Home Services / Social / Facebook"
         logo="/assets/v8/logo-everdry.gif"
         logoAlt="Everdry Waterproofing logo"
         logoHeight={38}
@@ -170,11 +170,11 @@ export const CASES = {
             </em>
           </>
         }
-        paragraphs={<p style={{ margin: 0 }}>Their social pages weren&apos;t reaching anyone. I rebuilt the content around visuals people stop for and turned the Google Business Profile into a lead source.</p>}
+        paragraphs={<p style={{ margin: 0 }}>Their Facebook page had gone quiet after the last manager left. I rebuilt it around before and afters, myth busting and real reviews, with visuals homeowners stop for.</p>}
         stats={[
           { v: "160K+", l: "Facebook views in 28 days" },
-          { v: "12,462", l: "Business Profile views" },
-          { v: "603", l: "calls from Business Profile, Jun to Nov" },
+          { v: "40,153", l: "people reached in the same 28 days" },
+          { v: "141,889", l: "views in an earlier 28 day window" },
         ]}
         visual={
           <Frame bg="#E9E4DA">
@@ -182,7 +182,7 @@ export const CASES = {
               <BgImage src="/assets/v8/ed-160k.png" alt="Everdry Waterproofing Facebook page overview: 160,235 views in the last 28 days" position="76.5% 50.3%" fit={168} style={{ aspectRatio: "1500/870", background: "#242526" }} />
             </div>
             <div style={{ position: "absolute", right: 24, top: "45%", width: "58%", borderRadius: 12, overflow: "hidden", border: "1px solid #2F3033", background: "#202124", boxShadow: "0 28px 56px -26px rgba(20,20,20,.55)" }}>
-              <Img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views" style={{ display: "block", width: "100%" }} />
+              <Img loading="lazy" src="/assets/case-studies/everdry/facebook-141k-views.webp" alt="Everdry Facebook professional dashboard: 141,889 views and 36,284 reach in 28 days" style={{ display: "block", width: "100%" }} />
             </div>
             <div style={{ position: "absolute", right: 24, top: 24, padding: "16px 20px", borderRadius: 16, background: "#1C1C1C", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4, boxShadow: "0 20px 40px -24px rgba(20,20,20,.5)" }}>
               <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>160K+</span>

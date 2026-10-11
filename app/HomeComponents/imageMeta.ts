@@ -120,6 +120,8 @@ export const IMAGE_META: Record<string, [number, number, string]> = {
   "/assets/v12/art-b.png": [1086, 1448, "(max-width: 767px) 90vw, (max-width: 1023px) 32vw, (max-width: 1439px) min(32vw, 420px), 420px"],
   "/assets/v12/vx-before.png": [1556, 781, "(max-width: 767px) 77vw, (max-width: 1023px) 41vw, (max-width: 1439px) min(42vw, 541px), 541px"],
   "/assets/v12/vx-month.png": [986, 662, "(max-width: 767px) 77vw, (max-width: 1023px) 41vw, (max-width: 1439px) min(42vw, 541px), 541px"],
+  "/assets/case-studies/everdry/facebook-141k-views.webp": [1920, 1119, "(max-width: 767px) 77vw, (max-width: 1023px) 42vw, (max-width: 1439px) min(43vw, 550px), 550px"],
+  "/assets/case-studies/everdry/facebook-50k-views-early.webp": [1600, 925, "(max-width: 767px) 77vw, (max-width: 1023px) 42vw, (max-width: 1439px) min(43vw, 550px), 550px"],
   "/assets/v7/everdry-gbp.png": [2309, 1275, "(max-width: 767px) 77vw, (max-width: 1023px) 42vw, (max-width: 1439px) min(43vw, 550px), 550px"],
   "/assets/v7/virtarix-reddit-good.jpg": [990, 722, "(max-width: 767px) 77vw, (max-width: 1023px) 42vw, (max-width: 1439px) min(43vw, 548px), 548px"],
   "/assets/v8/ed-160k.png": [3238, 1884, "(max-width: 767px) 57vw, (max-width: 1023px) 36vw, (max-width: 1439px) min(37vw, 524px), 524px"],

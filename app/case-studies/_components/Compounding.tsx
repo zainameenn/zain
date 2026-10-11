@@ -34,7 +34,7 @@ function Icon({ name, color, dark }: { name: FlowIcon; color: string; dark?: boo
   );
 }
 
-export function Compounding({ data }: { data: CaseStudy["compounding"] }) {
+export function Compounding({ data }: { data: NonNullable<CaseStudy["compounding"]> }) {
   // A chain with descriptions shows as stacked cards; without, as compact rows.
   const cards = data.flows.some((steps) => steps.some((s) => s.description));
   return (
