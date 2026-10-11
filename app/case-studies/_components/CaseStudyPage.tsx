@@ -8,6 +8,9 @@ import { LightboxProvider, ScreenshotFigure } from "./Lightbox";
 import { Phases } from "./Phases";
 import { Rich } from "./Rich";
 import { Toc } from "./Toc";
+import { otherCaseStudies } from "../_data";
+import { CaseStudyCard } from "./CaseStudyCard";
+import { Approach, Reviews, StatsGrid } from "./Sections";
 import { ACCENT_LINE, BODY, CARD, CARD_PAD, EYEBROW, GENERAL_SANS, GOLD, GOLD_LIGHT, GOLD_TEXT, INK, LINE, MUTED, SECTION_GAP, SECTION_H2, SERIF } from "./styles";
 
 // `case-headline` keeps small label headings out of the phone heading size rule in globals.css.
@@ -17,6 +20,9 @@ const DARK_BUTTON = "inline-flex items-center whitespace-nowrap rounded-[12px] b
 const OUTLINE_BUTTON = "inline-flex items-center whitespace-nowrap rounded-[12px] border border-[#1C1C1C] transition-colors hover:bg-[#E4E1D9]";
 const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 const UNDERLINE_LINK = "inline-flex items-center min-h-[32px] border-b border-[#CFCBC2] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
+
+/** Column classes by item count, written out so Tailwind keeps them. */
+const MD_COLS: Record<number, string> = { 1: "md:grid-cols-1", 2: "md:grid-cols-2", 3: "md:grid-cols-3" };
 
 /** Larger product paragraph, used above or below the body text. */
 const PRODUCT_LARGE: React.CSSProperties = { fontFamily: GENERAL_SANS, fontSize: "clamp(19px,1.7vw,22px)", fontWeight: 500, lineHeight: 1.4, letterSpacing: "-0.01em", textWrap: "pretty" };
@@ -53,8 +59,11 @@ function Stat({ value, label, note, size }: { value: string; label: string; note
 }
 
 export function CaseStudyPage({ study }: { study: CaseStudy }) {
-  const { hero, testimonial, summary, product, problem, effort, results, drive, lessons, servicesUsed, related, cta } = study;
+  const { hero, testimonial, summary, product, problem, effort, results, drive, lessons, servicesUsed, cta } = study;
   const gallery = results?.gallery.filter((g) => g.src) ?? [];
+  // Facts with no value and no links (unfilled placeholders) are hidden.
+  const quickFacts = study.quickFacts.filter((f) => f.value || f.links?.length);
+  const others = otherCaseStudies(study.slug);
 
   return (
     <LightboxProvider>
@@ -109,8 +118,8 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
             <aside aria-labelledby="quick-facts" style={{ minWidth: 0, borderRadius: 20, background: CARD, border: `1px solid ${LINE}`, padding: "clamp(22px,2.4vw,32px)" }}>
               <h2 id="quick-facts" className={LABEL_H2} style={{ ...EYEBROW, margin: 0 }}>Quick facts</h2>
               <dl style={{ margin: "14px 0 0" }}>
-                {study.quickFacts.map((f, i) => (
-                  <div key={f.label} className="grid grid-cols-1 md:grid-cols-[96px_minmax(0,1fr)]" style={{ gap: "2px 16px", padding: i === study.quickFacts.length - 1 ? "13px 0 0" : "13px 0", borderTop: `1px solid ${i === 0 ? INK : LINE}` }}>
+                {quickFacts.map((f, i) => (
+                  <div key={f.label} className="grid grid-cols-1 md:grid-cols-[96px_minmax(0,1fr)]" style={{ gap: "2px 16px", padding: i === quickFacts.length - 1 ? "13px 0 0" : "13px 0", borderTop: `1px solid ${i === 0 ? INK : LINE}` }}>
                     <dt style={{ fontSize: 14, color: MUTED }}>{f.label}</dt>
                     {f.links ? (
                       <dd style={{ margin: 0, fontSize: 15.5, fontWeight: 500, lineHeight: 1.45, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2px 12px" }}>
@@ -129,7 +138,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
 
           {/* Key results strip */}
           <section id={study.keyResultsId} aria-label="Key results" style={study.keyResultsId ? { scrollMarginTop: 96 } : undefined}>
-            <dl className="grid grid-cols-1 md:grid-cols-3" style={{ margin: 0, gap: 1, background: LINE, borderTop: `1px solid ${INK}`, borderBottom: `1px solid ${LINE}` }}>
+            <dl className={`grid grid-cols-1 ${MD_COLS[Math.min(study.keyResults.length, 3)]}`} style={{ margin: 0, gap: 1, background: LINE, borderTop: `1px solid ${INK}`, borderBottom: `1px solid ${LINE}` }}>
               {study.keyResults.map((r) => (
                 <div key={r.label} style={{ background: "#EEEDE7", padding: "28px 20px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
                   <Stat value={r.value} label={r.label} size="clamp(40px,4vw,58px)" />
@@ -170,6 +179,8 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
             </section>
           )}
 
+          {study.reviews && <Reviews data={study.reviews} />}
+
           {/* 30 second version */}
           <section aria-labelledby="summary" style={{ paddingTop: "clamp(48px,5vw,72px)" }}>
             <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(24px,3.4vw,44px)" }}>
@@ -189,6 +200,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           </section>
 
           {/* Product */}
+          {product && (
           <section className="grid grid-cols-1 lg:grid-cols-2" style={{ paddingTop: SECTION_GAP, gap: "32px clamp(32px,4vw,64px)", alignItems: "center" }}>
             <div style={{ minWidth: 0 }}>
               <div style={EYEBROW}>{product.eyebrow}</div>
@@ -201,6 +213,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
               <Image src={study.logo.src} alt={study.logo.alt} width={study.logo.width} height={study.logo.height} sizes="340px" style={{ display: "block", width: "100%", maxWidth: 340, height: "auto" }} />
             </div>
           </section>
+          )}
 
           {/* Problem */}
           <section id="problem" style={{ paddingTop: SECTION_GAP, scrollMarginTop: 96 }}>
@@ -221,14 +234,19 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
             </div>
           </section>
 
-          <Phases data={study.phases} />
+          {study.approach && <Approach data={study.approach} />}
 
-          <Compounding data={study.compounding} />
+          {study.phases && <Phases data={study.phases} />}
+
+          {study.compounding && <Compounding data={study.compounding} />}
+
+          {study.statsGrid && <StatsGrid data={study.statsGrid} />}
 
           {/* Effort */}
+          {effort && (
           <section aria-labelledby="what-went-in" style={{ paddingTop: "clamp(56px,6vw,80px)" }}>
             <h2 id="what-went-in" className={LABEL_H2} style={{ ...EYEBROW, margin: 0, textAlign: "center" }}>{effort.heading}</h2>
-            <dl className="grid grid-cols-2 md:grid-cols-4" style={{ margin: "16px 0 0", gap: "0 24px" }}>
+            <dl className={`grid grid-cols-2 ${effort.items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-4"}`} style={{ margin: "16px 0 0", gap: "0 24px" }}>
               {effort.items.map((e) => (
                 <div key={e.label} style={{ padding: "18px 12px 4px", borderTop: `1px solid ${LINE}`, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 6 }}>
                   <dt style={{ order: 2, fontSize: 14, lineHeight: 1.4, color: MUTED }}>{e.label}</dt>
@@ -237,6 +255,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
               ))}
             </dl>
           </section>
+          )}
 
           {/* Results */}
           {results && (
@@ -308,7 +327,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           {/* Services used */}
           <section aria-labelledby="services-used" style={{ paddingTop: "clamp(64px,6vw,88px)" }}>
             <h2 id="services-used" className={LABEL_H2} style={{ ...EYEBROW, margin: 0, textAlign: "center" }}>{servicesUsed.heading}</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-3" style={{ margin: "16px 0 0", padding: 0, listStyle: "none", gap: 12 }}>
+            <ul className={`grid grid-cols-1 ${MD_COLS[Math.min(servicesUsed.items.length, 3)]}`} style={{ margin: "16px auto 0", maxWidth: servicesUsed.items.length >= 3 ? undefined : servicesUsed.items.length * 400, padding: 0, listStyle: "none", gap: 12 }}>
               {servicesUsed.items.map((s) => (
                 <li key={s.href}>
                   <Link href={s.href} className="flex items-center justify-between gap-4 border border-[#DDDAD3] transition-colors hover:border-[#1C1C1C]" style={{ minHeight: 64, padding: "16px 20px", borderRadius: 14, background: CARD, fontFamily: GENERAL_SANS, fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em" }}>
@@ -323,31 +342,15 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           {/* More case studies */}
           <section aria-labelledby="more-case-studies" style={{ paddingTop: "clamp(64px,6vw,88px)" }}>
             <div style={{ textAlign: "center" }}>
-              <div style={EYEBROW}>{related.eyebrow}</div>
-              <h2 id="more-case-studies" style={{ ...SECTION_H2, fontSize: "clamp(28px,3vw,40px)", lineHeight: 1.08 }}>{related.heading}</h2>
+              <div style={EYEBROW}>More case studies</div>
+              <h2 id="more-case-studies" style={{ ...SECTION_H2, fontSize: "clamp(28px,3vw,40px)", lineHeight: 1.08 }}>Read another case study</h2>
             </div>
-            <ul className="grid grid-cols-1 md:grid-cols-2" style={{ margin: "clamp(24px,3vw,36px) auto 0", maxWidth: 920, padding: 0, listStyle: "none", gap: 16 }}>
-              {related.items.map((c) => (
-                <li key={c.link.href} style={{ borderRadius: 20, border: `1px solid ${LINE}`, background: CARD, padding: "clamp(22px,2.4vw,28px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 16 }}>
-                  <div style={{ ...EYEBROW, fontSize: 11.5 }}>{c.tags}</div>
-                  <span style={{ width: "100%", height: 96, borderRadius: 14, background: "#FFFFFF", border: "1px solid #E4E0D7", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 24px" }}>
-                    <Image src={c.logo.src} alt={c.logo.alt} width={c.logo.width} height={c.logo.height} sizes="200px" unoptimized={c.logo.src.endsWith(".gif")} style={{ display: "block", maxHeight: 56, maxWidth: "80%", width: "auto", height: "auto", objectFit: "contain" }} />
-                  </span>
-                  <div style={{ width: "100%", paddingTop: 14, borderTop: `1px solid ${LINE}` }}>
-                    <div style={{ fontFamily: GENERAL_SANS, fontSize: "clamp(30px,2.8vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{c.stat}</div>
-                    <div style={{ marginTop: 8, fontSize: 14, lineHeight: 1.45, color: MUTED }}>{c.statLabel}</div>
-                  </div>
-                  <p style={{ margin: 0, flex: 1, fontSize: 15.5, lineHeight: 1.6, color: BODY, textWrap: "pretty" }}>{c.text}</p>
-                  <Link href={c.link.href} className={TEXT_LINK} style={{ fontSize: 15 }}>
-                    {c.link.label}
-                    <ArrowIcon />
-                  </Link>
-                </li>
-              ))}
+            <ul className="grid grid-cols-1 md:grid-cols-3" style={{ margin: "clamp(24px,3vw,36px) 0 0", padding: 0, listStyle: "none", gap: 16 }}>
+              {others.map((s) => <CaseStudyCard key={s.slug} study={s} />)}
             </ul>
             <div style={{ marginTop: 24, textAlign: "center" }}>
-              <Link href={related.allLink.href} className={OUTLINE_BUTTON} style={{ gap: 10, height: 52, padding: "0 24px", fontSize: 15.5, fontWeight: 600 }}>
-                {related.allLink.label}
+              <Link href="/case-studies" className={OUTLINE_BUTTON} style={{ gap: 10, height: 52, padding: "0 24px", fontSize: 15.5, fontWeight: 600 }}>
+                See all case studies
                 <ArrowIcon />
               </Link>
             </div>

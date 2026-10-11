@@ -430,18 +430,18 @@ export default function GrowthStrategyPage() {
                 <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,38px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.08 }}>
                   A local service business
                   <br />
-                  that needed <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>calls, not likes.</em>
+                  with a page <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>nobody was running.</em>
                 </h3>
               </div>
               <div style={{ minWidth: 0 }}>
                 <div style={{ padding: "14px 0", borderTop: "1px solid #DDD5C8" }}>
                   <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>PROBLEM</div>
-                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", maxWidth: 460 }}>Social pages weren&apos;t reaching enough people and local visibility needed improvement.</p>
+                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", maxWidth: 460 }}>The person running their Facebook page had left. Nobody was posting, and nobody was seeing it.</p>
                 </div>
                 <div style={{ padding: "14px 0", borderTop: "1px solid #DDD5C8" }}>
                   <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>WHAT CHANGED</div>
                   <div style={{ marginTop: 10, display: "flex", flexWrap: "wrap", gap: 8 }}>
-                    {["Local visual content", "Community distribution", "Facebook growth", "Google Business Profile"].map((t) => (
+                    {["Before and afters", "Myth busting posts", "Real reviews", "Facebook growth"].map((t) => (
                       <Pill key={t}>{t}</Pill>
                     ))}
                   </div>
@@ -451,8 +451,8 @@ export default function GrowthStrategyPage() {
             <div style={{ margin: "28px 0 32px", display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDD5C8" }} className="grid-cols-1 sm:!grid-cols-3">
               {[
                 { v: "160,235", l: "Facebook views, 28 days" },
-                { v: "12,462", l: "Business Profile views" },
-                { v: "603", l: "calls from the Business Profile" },
+                { v: "40,153", l: "people reached, same 28 days" },
+                { v: "141,889", l: "views, an earlier 28 days" },
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #DDD5C8" : "0" }}>
                   <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
@@ -476,14 +476,14 @@ export default function GrowthStrategyPage() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid #DDD5C8", marginBottom: 14 }}>
-                  <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>GOOGLE BUSINESS PROFILE</span>
-                  <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Visibility and calls</span>
+                  <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>FACEBOOK</span>
+                  <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Earlier 28 day windows</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/v7/everdry-gbp.png" alt="Everdry Google Business Profile: 12,462 profile views" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/case-studies/everdry/facebook-141k-views.webp" alt="Everdry Facebook professional dashboard: 141,889 views and 36,284 reach in 28 days" style={{ display: "block", width: "100%" }} />
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__603-calls.png" alt="Everdry: 603 calls from the Business Profile" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/case-studies/everdry/facebook-50k-views-early.webp" alt="Everdry Facebook professional dashboard early on: 50,881 views and 17,292 reach in 28 days" style={{ display: "block", width: "100%" }} />
                 </div>
               </div>
             </div>

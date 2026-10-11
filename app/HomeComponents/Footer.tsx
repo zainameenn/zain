@@ -8,7 +8,8 @@ const FOOT_GROUPS = [
       ["Blainy", "/case-studies/blainy"],
       ["Everdry Waterproofing", "/case-studies/everdry"],
       ["Virtarix", "/case-studies/virtarix"],
-      ["LoomPad", "/#case-loompad"],
+      ["LoomPad", "/case-studies/loompad"],
+      ["View all", "/case-studies"],
     ],
   },
   {
@@ -28,6 +29,7 @@ const FOOT_GROUPS = [
       ["About", "/about"],
       ["Insights", "/insights"],
       ["Contact", "/contact"],
+      ["Privacy", "/privacy"],
     ],
   },
 ];

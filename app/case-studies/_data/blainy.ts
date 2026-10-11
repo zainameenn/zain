@@ -23,7 +23,7 @@ export const blainy: CaseStudy = {
   seo: {
     title: "Blainy Case Study: 85K+ Signups Without Paid Ads | Zain",
     description:
-      "Blainy case study: how an AI research paper tool got 85K+ signups and 1M+ visitors in about 14 months with Reddit, SEO and UGC. No paid ads.",
+      "How an AI SaaS went from zero to 85K+ signups with SEO, Reddit and content, and no ad budget. What I did, the order I did it in, and the real screenshots.",
     ogImage: {
       src: `${IMG}/og-google-search-console.jpg`,
       width: 1200,
@@ -327,28 +327,11 @@ export const blainy: CaseStudy = {
       { label: "Social media marketing specialist", href: "/services/social-media-marketing-specialist" },
     ],
   },
-  related: {
-    eyebrow: "More case studies",
-    heading: "Read another case study",
-    items: [
-      {
-        tags: "Home services · Social · Local SEO",
-        logo: { src: `${IMG}/everdry-logo.gif`, width: 250, height: 80, alt: "Everdry logo" },
-        stat: "603",
-        statLabel: "calls from Google Business Profile, Jun to Nov",
-        text: "Their social pages weren't reaching anyone. I rebuilt the content around visuals people stop for and turned the Google Business Profile into a lead source.",
-        link: { label: "Read the Everdry case study", href: "/case-studies/everdry" },
-      },
-      {
-        tags: "Content · Community · Reddit",
-        logo: { src: `${IMG}/virtarix-logo.png`, width: 576, height: 176, alt: "Virtarix logo" },
-        stat: "70K+",
-        statLabel: "Facebook views in under 4 months",
-        text: "Virtarix had solid technical knowledge and almost no distribution.",
-        link: { label: "Read the Virtarix case study", href: "/case-studies/virtarix" },
-      },
-    ],
-    allLink: { label: "See all case studies", href: "/case-studies" },
+  card: {
+    tags: "AI SaaS · SEO · Reddit",
+    stat: "85K+",
+    statLabel: "signups in about 14 months",
+    text: "SEO for the foundation, Reddit to earn trust, UGC creators to grow social.",
   },
   cta: {
     heading: { text: "Got a product people don't trust yet?", accent: "Tell me what's stuck." },

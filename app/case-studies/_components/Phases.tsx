@@ -2,6 +2,7 @@ import type { CaseStudy, Phase } from "../_data/types";
 import { ArrowIcon } from "../../HomeComponents/icons";
 import { ScreenshotFigure } from "./Lightbox";
 import { Rich } from "./Rich";
+import { BulletCallout, ScreenshotGrid } from "./Sections";
 import { ACCENT_LINE, BODY, CARD, EYEBROW, GENERAL_SANS, GOLD, GOLD_TEXT, INK, LINE, MUTED, SECTION_GAP, SECTION_H2 } from "./styles";
 
 const WIDE_SIZES = "(max-width: 1023px) 90vw, 1000px";
@@ -39,7 +40,7 @@ function PhaseItem({ phase }: { phase: Phase }) {
       <div className="pt-2 md:pt-[14px]" style={{ minWidth: 0 }}>
         <div style={{ ...EYEBROW, color: GOLD_TEXT }}>{phase.eyebrow}</div>
         <h3 style={{ margin: "10px 0 0", fontFamily: GENERAL_SANS, fontWeight: 600, fontSize: "clamp(26px,2.6vw,36px)", lineHeight: 1.1, letterSpacing: "-0.03em" }}>{phase.title}</h3>
-        <p style={{ margin: "14px 0 0", maxWidth: 680, fontSize: 17, lineHeight: 1.6, color: phase.introStrong ? INK : BODY, textWrap: "pretty" }}>{phase.intro}</p>
+        {phase.intro && <p style={{ margin: "14px 0 0", maxWidth: 680, fontSize: 17, lineHeight: 1.6, color: phase.introStrong ? INK : BODY, textWrap: "pretty" }}>{phase.intro}</p>}
         {phase.body && !phase.bodyAfterBullets && <p style={BODY_TEXT}>{phase.body}</p>}
 
         {phase.bullets && (
@@ -142,7 +143,8 @@ function PhaseItem({ phase }: { phase: Phase }) {
   );
 }
 
-export function Phases({ data }: { data: CaseStudy["phases"] }) {
+export function Phases({ data }: { data: NonNullable<CaseStudy["phases"]> }) {
+  const { outro } = data;
   return (
     <section id="what-i-did" style={{ paddingTop: SECTION_GAP, scrollMarginTop: 96 }}>
       <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
@@ -155,6 +157,9 @@ export function Phases({ data }: { data: CaseStudy["phases"] }) {
           {data.items.map((p) => <PhaseItem key={p.number} phase={p} />)}
         </ol>
       </div>
+      {outro?.callout && <BulletCallout title={outro.callout.title} bullets={outro.callout.bullets} />}
+      {outro?.screenshots && outro.screenshots.length > 0 && <ScreenshotGrid shots={outro.screenshots} style={{ marginTop: "clamp(28px,3vw,40px)" }} />}
+      {outro?.note && <p style={{ margin: "14px 0 0", fontSize: 13, lineHeight: 1.5, color: MUTED }}>{outro.note}</p>}
     </section>
   );
 }

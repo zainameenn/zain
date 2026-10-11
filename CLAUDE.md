@@ -24,3 +24,4 @@
 - /insights : growth marketing insights
 - /case-studies/blainy : Blainy case study
 - /case-studies/virtarix : Virtarix case study
+- /case-studies/loompad : Etsy SEO case study

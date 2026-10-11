@@ -21,7 +21,7 @@ export const virtarix: CaseStudy = {
   seo: {
     title: "Virtarix Case Study: 70K+ Facebook Views in Under 4 Months | Zain",
     description:
-      "Virtarix case study: how a VPS host went from no social presence to 71K+ Facebook views and Reddit Answers recommendations, with Reddit, guides and social.",
+      "How a VPS host with great tech and no distribution got found: a new Facebook page to 70K+ views in under 4 months, plus Reddit Answers recommending it.",
     ogImage: {
       src: `${IMG}/og-facebook-71k-views.jpg`,
       width: 1200,
@@ -216,28 +216,11 @@ export const virtarix: CaseStudy = {
       { label: "Social media marketing specialist", href: "/services/social-media-marketing-specialist" },
     ],
   },
-  related: {
-    eyebrow: "More case studies",
-    heading: "Read another case study",
-    items: [
-      {
-        tags: "AI SaaS · SEO · Reddit",
-        logo: { src: "/assets/case-studies/blainy/blainy-logo.png", width: 2000, height: 582, alt: "Blainy logo" },
-        stat: "85K+",
-        statLabel: "signups in about 14 months",
-        text: "85K+ signups and 1M+ visitors in about 14 months. Zero paid ads.",
-        link: { label: "Read the Blainy case study", href: "/case-studies/blainy" },
-      },
-      {
-        tags: "Home services · Social · Local SEO",
-        logo: { src: "/assets/case-studies/blainy/everdry-logo.gif", width: 250, height: 80, alt: "Everdry logo" },
-        stat: "603",
-        statLabel: "calls from Google Business Profile, Jun to Nov",
-        text: "Their social pages weren't reaching anyone. I rebuilt the content around visuals people stop for and turned the Google Business Profile into a lead source.",
-        link: { label: "Read the Everdry case study", href: "/case-studies/everdry" },
-      },
-    ],
-    allLink: { label: "See all case studies", href: "/case-studies" },
+  card: {
+    tags: "VPS hosting · Reddit · Social",
+    stat: "70K+",
+    statLabel: "Facebook views in under 4 months",
+    text: "Reddit and technical guides first, then social, then Pinterest.",
   },
   cta: {
     heading: { text: "Great product,", accent: "nobody talking about it?" },
