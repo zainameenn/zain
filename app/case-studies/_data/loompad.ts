@@ -11,19 +11,19 @@ const DRIVE_URL = "";
 const ARTICLE_URL = "";
 // ─────────────────────────────────────────────────────────────────────────────
 
-// LoomPad is Zain's own Etsy store, not a client. Numbers match the 93 order shop stats screenshot.
+// LoomPad is Zain's own Etsy store, not a client. Numbers match the Jul to Oct 2026 shop stats (120 orders).
 export const loompad: CaseStudy = {
   slug: "loompad",
   name: "LoomPad",
   seo: {
-    title: "LoomPad Case Study: $3,401 From 93 Etsy Orders, No Ads | Zain",
+    title: "Etsy SEO Case Study: 120 Orders in 2 Months, No Ads | Zain",
     description:
-      "How an Etsy desk mat store nobody could find made $3,401 from 93 orders. Better listings and smarter distribution, so searchers could finally see it.",
+      "How an Etsy desk mat store nobody could find made $4,381 from 120 orders. Better listings and smarter distribution, so searchers could finally see it.",
     ogImage: {
-      src: `${IMG}/og-etsy-shop-stats.jpg`,
+      src: `${IMG}/og-etsy-shop-stats-120.jpg`,
       width: 1200,
       height: 630,
-      alt: "LoomPad Etsy shop stats: 10,777 views, 93 orders, 5,492 visits and $3,401.81 revenue",
+      alt: "LoomPad Etsy shop stats, Jul to Oct 2026: 7,046 visits, 120 orders, 1.7% conversion rate and USD 4,381.60 revenue",
     },
   },
   toc: [
@@ -35,10 +35,10 @@ export const loompad: CaseStudy = {
   tags: ["Ecommerce", "Etsy SEO", "Listings", "Mockups"],
   logo: { src: `${IMG}/loompad-logo.webp`, width: 485, height: 120, alt: "LoomPad logo" },
   hero: {
-    title: "LoomPad case study: 0 to 93 Etsy orders,",
+    title: "Etsy SEO case study: 0 to 120 orders in 2 months,",
     accent: "ads switched off.",
     intro:
-      "This LoomPad case study shows how my own print on demand desk mat store went from zero sales to 93 orders and $3,401 in about two months on Etsy, without paid ads.",
+      "This Etsy SEO case study shows how LoomPad, my own print on demand desk mat store, went from zero sales to 120 orders in about two months, without paid ads.",
     primaryCta: { label: "Tell me what's stuck", href: "/contact" },
     secondaryCta: { label: "See the results", href: "#results" },
   },
@@ -57,9 +57,9 @@ export const loompad: CaseStudy = {
     { label: "Ad spend", value: "About $20, then switched off" },
   ],
   keyResults: [
-    { value: "0 to 93", label: "orders in about 2 months" },
-    { value: "$3,401", label: "in sales" },
-    { value: "5.0", label: "star rating from 21 reviews" },
+    { value: "0 to 120", label: "orders in about 2 months" },
+    { value: "$4,381", label: "in sales" },
+    { value: "1.7%", label: "conversion rate, from 7,046 visits" },
   ],
   keyResultsSource: "Source: Etsy shop stats.",
   reviews: {
@@ -90,7 +90,7 @@ export const loompad: CaseStudy = {
     items: [
       { title: "The problem", text: "Listings got views, but nobody bought." },
       { title: "What I did", text: "Studied 20 to 30 top sellers, then rebuilt titles, tags, descriptions and mockups around what buyers search." },
-      { title: "The result", text: "93 orders and a 5.0 rating in about two months. No ads.", emphasis: true },
+      { title: "The result", text: "120 orders and a 5.0 rating in about two months. No ads.", emphasis: true },
     ],
   },
   product: {
@@ -164,20 +164,26 @@ export const loompad: CaseStudy = {
       },
       screenshots: [
         {
-          src: `${IMG}/etsy-storefront-93-sales.webp`,
+          src: `${IMG}/etsy-storefront-120-sales.webp`,
           width: 1920,
-          height: 919,
-          alt: "LoomPad Etsy storefront: banner reading Premium Desk Mats That Make Every Workspace Feel Like Your Own, with a 5.0 star rating from 21 reviews, 93 sales and 2 months on Etsy",
-          caption: "Etsy storefront · 5.0 rating · 93 sales · 2 months on Etsy",
+          height: 554,
+          alt: "LoomPad Etsy storefront: banner reading Premium Desk Mats That Make Every Workspace Feel Like Your Own, with a 5.0 star rating from 27 reviews, 120 sales and 2 months on Etsy",
+          caption: "Etsy storefront · 5.0 rating · 120 sales",
           wide: true,
         },
         {
-          src: `${IMG}/etsy-shop-stats-93-orders.webp`,
-          width: 1320,
-          height: 2140,
-          alt: "LoomPad Etsy shop stats: 10,777 views, 93 orders, 5,492 visits and $3,401.81 revenue",
-          caption: "Shop stats · 93 orders · $3,401.81",
-          background: "#19171c",
+          src: `${IMG}/etsy-shop-stats-120-orders.webp`,
+          width: 1670,
+          height: 830,
+          alt: "LoomPad Etsy shop stats, all time Jul to Oct 2026: 7,046 visits, 120 orders, 1.7% conversion rate and USD 4,381.60 revenue",
+          caption: "Shop stats · 120 orders · 7,046 visits",
+        },
+        {
+          src: `${IMG}/etsy-shopper-stats.webp`,
+          width: 1670,
+          height: 770,
+          alt: "LoomPad shopper stats: 1,113 favourites, 27 reviews, 108 cities reached. Traffic: Etsy app and pages 2,472, Etsy marketing and SEO 1,802, Etsy Search 1,554, Etsy Ads 51",
+          caption: "How shoppers found the store · 1,554 from Etsy search · 51 from ads",
         },
       ],
     },
@@ -186,13 +192,13 @@ export const loompad: CaseStudy = {
     id: "results",
     heading: "Full results",
     items: [
-      { value: "93", label: "orders in about 2 months" },
-      { value: "$3,401", label: "in sales" },
-      { value: "5,492", label: "visits" },
-      { value: "10,777", label: "shop views" },
+      { value: "120", label: "orders in about 2 months" },
+      { value: "$4,381", label: "in sales" },
+      { value: "7,046", label: "visits" },
+      { value: "1.7%", label: "conversion rate" },
       { value: "5.0", label: "star rating" },
     ],
-    source: "Source: Etsy shop stats.",
+    source: "Source: Etsy shop stats, Jul to Oct 2026.",
   },
   effort: {
     heading: "What went in",
@@ -227,8 +233,8 @@ export const loompad: CaseStudy = {
   },
   card: {
     tags: "Etsy · SEO · Listings",
-    stat: "$3,401",
-    statLabel: "in Etsy sales from 93 orders",
+    stat: "$4,381",
+    statLabel: "in Etsy sales from 120 orders",
     text: "My own Etsy store, rebuilt around what buyers search: titles, tags, descriptions and mockups.",
   },
   cta: {

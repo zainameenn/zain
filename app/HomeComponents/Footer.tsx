@@ -29,6 +29,7 @@ const FOOT_GROUPS = [
       ["About", "/about"],
       ["Insights", "/insights"],
       ["Contact", "/contact"],
+      ["Privacy", "/privacy"],
     ],
   },
 ];

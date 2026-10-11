@@ -16,7 +16,7 @@ export const everdry: CaseStudy = {
   slug: "everdry",
   name: "Everdry Waterproofing",
   seo: {
-    title: "Everdry Case Study: Social Media and Local SEO | Zain",
+    title: "Everdry Case Study: 160K+ Facebook Views in 28 Days | Zain",
     description:
       "How a home services brand got homeowners to stop scrolling: a Facebook page rebuilt from zero to 160K+ views in 28 days, with visuals people watch.",
     ogImage: {

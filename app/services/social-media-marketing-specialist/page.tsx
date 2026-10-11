@@ -397,7 +397,7 @@ export default function SocialMediaManagementPage() {
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>Virtarix: </span>
                   A new Facebook page to
                   <br />
-                  <strong style={{ fontWeight: 700 }}>70K+ views</strong> in 3 months.
+                  <strong style={{ fontWeight: 700 }}>70K+ views</strong> in under 4 months.
                 </h3>
               </div>
               <div style={{ minWidth: 0 }}>

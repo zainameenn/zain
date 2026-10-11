@@ -208,7 +208,7 @@ export const CASES = {
         logoAlt="Virtarix logo"
         logoHeight={28}
         name="Virtarix"
-        headline={<>A new Facebook page to<br /><strong style={{ fontWeight: 700 }}>70K+ views</strong> in 3 months.</>}
+        headline={<>A new Facebook page to<br /><strong style={{ fontWeight: 700 }}>70K+ views</strong> in under 4 months.</>}
         paragraphs={
           <>
             <p style={{ margin: 0, color: "#A3A8BD" }}>Virtarix had solid technical knowledge and almost no distribution.</p>
@@ -255,13 +255,13 @@ export const CASES = {
         logoAlt="LoomPad"
         logoHeight={38}
         name="LoomPad"
-        headline={<><strong style={{ fontWeight: 700 }}>$3,401</strong> in sales from a store nobody could find.</>}
+        headline={<><strong style={{ fontWeight: 700 }}>$4,381</strong> in sales from a store nobody could find.</>}
         paragraphs={<p style={{ margin: 0, color: "#5E5142" }}>I reworked listings and distribution so people searching could actually find the products.</p>}
         stats={[
-          { v: "93", l: "orders" },
-          { v: "$3,401", l: "sales" },
-          { v: "10,777", l: "shop views" },
-          { v: "5,492", l: "visits" },
+          { v: "120", l: "orders" },
+          { v: "$4,381", l: "sales" },
+          { v: "7,046", l: "visits" },
+          { v: "1.7%", l: "conversion rate" },
         ]}
         visual={
           <Frame bg="#E6DACA">
@@ -272,10 +272,10 @@ export const CASES = {
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#D6CFC3" }} />
                 <span style={{ marginLeft: 10, height: 14, padding: "0 10px", borderRadius: 7, background: "#fff", fontSize: 9.5, color: "#6F6B64", display: "flex", alignItems: "center", whiteSpace: "nowrap" }}>etsy.com/shop/Loompad</span>
               </div>
-              <Img loading="lazy" src="/assets/v9/loom-store.png" alt="LoomPad Etsy storefront: desk-mat banner, 5.0 rating, 93 sales, featured listings" style={{ display: "block", width: "100%" }} />
+              <Img loading="lazy" src="/assets/case-studies/loompad/etsy-storefront-120-sales.webp" alt="LoomPad Etsy storefront: desk mat banner, 5.0 rating from 27 reviews, 120 sales, 2 months on Etsy" style={{ display: "block", width: "100%" }} />
             </div>
-            <div style={{ position: "absolute", right: 24, bottom: 24, width: "27%", borderRadius: 18, overflow: "hidden", border: "4px solid #1C1C1C", background: "#1C1B20", boxShadow: "0 28px 48px -22px rgba(20,10,0,.6)" }}>
-              <Img loading="lazy" src="/assets/v9/m46.png" alt="LoomPad Etsy shop stats, all time: 10,777 views, 93 orders, 5,492 visits, $3,401.81 revenue" style={{ display: "block", width: "100%" }} />
+            <div style={{ position: "absolute", right: 24, bottom: 24, width: "52%", borderRadius: 12, overflow: "hidden", border: "1px solid #D8CAB5", background: "#fff", boxShadow: "0 28px 48px -22px rgba(20,10,0,.6)" }}>
+              <Img loading="lazy" src="/assets/case-studies/loompad/etsy-shop-stats-120-orders.webp" alt="LoomPad Etsy shop stats, Jul to Oct 2026: 7,046 visits, 120 orders, 1.7% conversion rate, USD 4,381.60 revenue" style={{ display: "block", width: "100%" }} />
             </div>
           </Frame>
         }
