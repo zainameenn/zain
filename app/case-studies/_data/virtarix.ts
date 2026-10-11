@@ -21,7 +21,7 @@ export const virtarix: CaseStudy = {
   seo: {
     title: "Virtarix Case Study: 70K+ Facebook Views in Under 4 Months | Zain",
     description:
-      "Virtarix case study: how a VPS host went from no social presence to 71K+ Facebook views and Reddit Answers recommendations, with Reddit, guides and social.",
+      "How a VPS host with great tech and no distribution got found: a new Facebook page to 70K+ views in under 4 months, plus Reddit Answers recommending it.",
     ogImage: {
       src: `${IMG}/og-facebook-71k-views.jpg`,
       width: 1200,

@@ -18,7 +18,7 @@ export const everdry: CaseStudy = {
   seo: {
     title: "Everdry Case Study: Social Media and Local SEO | Zain",
     description:
-      "This Everdry case study shows how a US waterproofing company turned quiet social pages into steady visibility.",
+      "How a home services brand got homeowners to stop scrolling: a Facebook page rebuilt from zero to 160K+ views in 28 days, with visuals people watch.",
     ogImage: {
       src: `${IMG}/og-facebook-160k-views.jpg`,
       width: 1200,

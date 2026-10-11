@@ -23,7 +23,7 @@ export const blainy: CaseStudy = {
   seo: {
     title: "Blainy Case Study: 85K+ Signups Without Paid Ads | Zain",
     description:
-      "Blainy case study: how an AI research paper tool got 85K+ signups and 1M+ visitors in about 14 months with Reddit, SEO and UGC. No paid ads.",
+      "How an AI SaaS went from zero to 85K+ users with SEO, Reddit and content, and no ad budget. What I did, the order I did it in, and the real screenshots.",
     ogImage: {
       src: `${IMG}/og-google-search-console.jpg`,
       width: 1200,
