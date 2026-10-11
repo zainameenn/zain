@@ -139,8 +139,6 @@ export const IMAGE_META: Record<string, [number, number, string]> = {
   "/assets/v9/l_neonrev.png": [1094, 218, "150px"],
   "/assets/case-studies/loompad/etsy-storefront-120-sales.webp": [1920, 554, "(max-width: 767px) 65vw, (max-width: 1023px) 41vw, (max-width: 1439px) min(42vw, 593px), 593px"],
   "/assets/case-studies/loompad/etsy-shop-stats-120-orders.webp": [1670, 830, "(max-width: 767px) 38vw, (max-width: 1023px) 24vw, (max-width: 1439px) min(25vw, 345px), 345px"],
-  "/assets/v9/loom-store.png": [2460, 1178, "(max-width: 767px) 65vw, (max-width: 1023px) 41vw, (max-width: 1439px) min(42vw, 593px), 593px"],
-  "/assets/v9/m46.png": [1320, 2868, "(max-width: 767px) 20vw, (max-width: 1023px) 13vw, (max-width: 1439px) min(13vw, 178px), 178px"],
   "/assets/v9/t_ahrefs.png": [415, 119, "91px"],
   "/assets/v9/t_canva.png": [717, 233, "92px"],
   "/assets/v9/t_clarity2.png": [432, 139, "93px"],

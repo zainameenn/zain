@@ -5,7 +5,7 @@ import { Emphasis } from "../HomeComponents/icons";
 // ─── DRAFT FOR REVIEW ─────────────────────────────────────────────────────────
 // Zain: read this page, then set REVIEWED to true. Until then the page shows a
 // draft note and asks search engines not to index it.
-const REVIEWED = false;
+const REVIEWED = true;
 const LAST_UPDATED = "October 11, 2026";
 // ─────────────────────────────────────────────────────────────────────────────
 
