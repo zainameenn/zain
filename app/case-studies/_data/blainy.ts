@@ -331,7 +331,7 @@ export const blainy: CaseStudy = {
     tags: "AI SaaS · SEO · Reddit",
     stat: "85K+",
     statLabel: "signups in about 14 months",
-    text: "85K+ signups and 1M+ visitors in about 14 months. Zero paid ads.",
+    text: "SEO for the foundation, Reddit to earn trust, UGC creators to grow social.",
   },
   cta: {
     heading: { text: "Got a product people don't trust yet?", accent: "Tell me what's stuck." },

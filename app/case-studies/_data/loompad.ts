@@ -229,7 +229,7 @@ export const loompad: CaseStudy = {
     tags: "Etsy · SEO · Listings",
     stat: "$3,401",
     statLabel: "in Etsy sales from 93 orders",
-    text: "My own Etsy store. I reworked listings and distribution so people searching could actually find the products.",
+    text: "My own Etsy store, rebuilt around what buyers search: titles, tags, descriptions and mockups.",
   },
   cta: {
     heading: { text: "Getting views", accent: "but no sales?" },

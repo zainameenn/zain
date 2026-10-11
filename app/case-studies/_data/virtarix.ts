@@ -220,7 +220,7 @@ export const virtarix: CaseStudy = {
     tags: "VPS hosting · Reddit · Social",
     stat: "70K+",
     statLabel: "Facebook views in under 4 months",
-    text: "Virtarix had solid technical knowledge and almost no distribution.",
+    text: "Reddit and technical guides first, then social, then Pinterest.",
   },
   cta: {
     heading: { text: "Great product,", accent: "nobody talking about it?" },

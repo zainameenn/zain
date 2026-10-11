@@ -161,7 +161,7 @@ export const everdry: CaseStudy = {
     tags: "Home services · Facebook",
     stat: "160K+",
     statLabel: "Facebook views in 28 days",
-    text: "Their Facebook page had gone quiet after the last manager left. I rebuilt it around before and afters, myth busting and real reviews.",
+    text: "I rebuilt a quiet Facebook page around before and afters, myth busting and real reviews.",
   },
   cta: {
     heading: { text: "Great service,", accent: "quiet page?" },

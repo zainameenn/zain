@@ -23,7 +23,14 @@ export function CaseStudyCard({ study, linkLabel }: { study: CaseStudy; linkLabe
       </div>
       <p style={{ margin: 0, flex: 1, fontSize: 15.5, lineHeight: 1.6, color: BODY, textWrap: "pretty" }}>{card.text}</p>
       <Link href={`/case-studies/${study.slug}`} className={TEXT_LINK} style={{ fontSize: 15 }}>
-        {linkLabel ?? `Read the ${study.name.split(" ")[0]} case study`}
+        {linkLabel ? (
+          <span>
+            {linkLabel}
+            <span className="sr-only">: {study.name}</span>
+          </span>
+        ) : (
+          `Read the ${study.name.split(" ")[0]} case study`
+        )}
         <ArrowIcon />
       </Link>
     </li>
