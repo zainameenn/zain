@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { PERSON_ID, SITE } from "@/lib/structuredData";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { Emphasis } from "../HomeComponents/icons";
 import CTA from "../HomeComponents/CTA";
@@ -13,12 +14,36 @@ export const metadata = buildMetadata({
   path: "/case-studies",
 });
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+        { "@type": "ListItem", position: 2, name: "Case studies", item: `${SITE}/case-studies` },
+      ],
+    },
+    {
+      "@type": "CollectionPage",
+      name: "Growth marketing case studies",
+      url: `${SITE}/case-studies`,
+      author: { "@id": PERSON_ID },
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: CASE_STUDIES.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: `${s.name} case study`, url: `${SITE}/case-studies/${s.slug}` })),
+      },
+    },
+  ],
+};
+
 const MAX = 1360;
 const PAD = "clamp(20px,4vw,48px)";
 
 export default function CaseStudiesPage() {
   return (
     <main id="top" style={{ overflowX: "clip" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       {/* Hero */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,8vw,112px) ${PAD} 0`, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
         <h1 style={{ ...HERO_H1_STYLE, maxWidth: 900 }}>

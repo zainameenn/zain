@@ -5,6 +5,7 @@ import { Geist, Inter, Instrument_Serif } from "next/font/google";
 import { generalSans } from "../.generated/general-sans";
 import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
+import { identityGraph } from "@/lib/structuredData";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-geist" });
 // Only the small mobile "Menu" label uses Inter, so it loads without a preload.
@@ -27,66 +28,8 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${generalSans.variable}`}>
       <head>
 
-        {/* ✅ Structured Data (Person + Contact Info) */}
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "WebSite",
-                  name: "Zain Ul Abdin",
-                  url: "https://www.zainameen.com",
-                },
-                {
-                  "@type": "Person",
-                  name: "Zain Ul Abdin",
-                  url: "https://www.zainameen.com",
-                  alternateName: ["Zain Ameen"],
-                  jobTitle: "Growth Marketing Specialist",
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Lahore",
-                    addressCountry: "Pakistan",
-                  },
-                  email: "hello@zainameen.com",
-                  sameAs: [
-                    "https://www.linkedin.com/in/zain-ameen/",
-                    "https://github.com/zainameenn",
-                    "https://x.com/zainnameen",
-                    "https://www.instagram.com/zainn.ms/",
-                    "https://www.pinterest.com/zainameenn",
-                    "https://www.threads.com/@zainn.ms",
-                    "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf",
-                    "https://www.facebook.com/profile.php?id=61560222560607",
-                  ],
-                },
-                {
-                  "@type": "ProfessionalService",
-                  name: "Zain Ul Abdin, Growth Marketing",
-                  description: "Growth marketing for SaaS and service businesses: SEO, Reddit marketing, social media, content, design and Google and Meta ads.",
-                  url: "https://www.zainameen.com",
-                  areaServed: ["US", "AE", "EU"],
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Lahore",
-                    addressCountry: "PK",
-                  },
-                  serviceType: [
-                    "Growth strategy and GTM",
-                    "SEO",
-                    "Reddit marketing",
-                    "Social media management",
-                    "Google and Meta ads",
-                    "Content and design",
-                  ],
-                },
-              ],
-            }),
-          }}
-        />
+        {/* Structured data: website, Person and Organization. A plain script so crawlers and agents see it without running JavaScript. */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(identityGraph) }} />
       </head>
 
       <body className="antialiased">
