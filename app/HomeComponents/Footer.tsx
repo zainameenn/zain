@@ -28,6 +28,7 @@ const FOOT_GROUPS = [
       ["Pricing", "/pricing"],
       ["About", "/about"],
       ["Blog", "/blog"],
+      ["Free Tools", "/tools"],
       ["Insights", "/insights"],
       ["Contact", "/contact"],
       ["Privacy", "/privacy"],
