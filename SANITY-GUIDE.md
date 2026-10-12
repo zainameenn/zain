@@ -55,7 +55,7 @@ Categories only show as filters on /blog once at least one published post uses t
 
 ## 7. Newsletter
 
-The form on /blog saves each email once in Sanity (**Newsletter subscribers**). Emails are private: the public API can't read them. Nothing is sent automatically. When you're ready to send emails, export the list or connect an email tool (for example Kit, Buttondown or Mailchimp), and use that tool's unsubscribe link, since the form promises people can unsubscribe.
+The form on /blog saves each email once in Sanity (**Newsletter subscribers**). Emails are private: the public API can't read them. Nothing is sent automatically. When you're ready to send emails, export the list or connect an email tool (for example Kit, Buttondown or Mailchimp), and use its unsubscribe link. Until then, the form tells people to email hello@zainameen.com to be removed, so delete them from **Newsletter subscribers** when they ask (open the entry, then the ⋯ menu, then Delete).
 
 ## 8. Where things are
 

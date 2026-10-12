@@ -288,7 +288,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
             New articles, practical guides, and things I&apos;ve learned while working on actual projects. Sent when there&apos;s something worth sharing.
           </p>
           <NewsletterForm source="blog" />
-          <p style={{ margin: "14px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F" }}>No daily motivational emails. Unsubscribe whenever you want.</p>
+          <p style={{ margin: "14px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F" }}>No daily motivational emails. Want off the list? Email hello@zainameen.com and I&apos;ll remove you.</p>
         </div>
       </section>
     </main>

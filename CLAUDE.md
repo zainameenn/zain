@@ -22,7 +22,7 @@
 - /about : Zain Ul Abdin
 - /contact : Contact Zain Ul Abdin
 - /insights : growth marketing insights
-- /blog : growth marketing blog
+- /blog : growth marketing blog (title, meta description and URL only. The H1 "Marketing advice without the marketing headache." stays as written, by Zain's choice.)
 - /case-studies/blainy : Blainy case study
 - /case-studies/virtarix : Virtarix case study
 - /case-studies/loompad : Etsy SEO case study
