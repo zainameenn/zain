@@ -1,118 +1,86 @@
 # Your blog: how to use it
 
-This is the plain English guide to writing and publishing on zainameen.com/insights.
+This is the plain English guide to writing and publishing on zainameen.com/blog.
 
 ## 1. Open your dashboard
 
 Go to **https://www.zainameen.com/studio** and sign in with **Google** (the same account you use for sanity.io).
 
-On the left you'll see three things:
+Make sure **Structure** is selected at the top. On the left you'll see:
 
 - **Blog posts**: your articles
-- **Authors**: your profile (already set up)
-- **Categories**: SEO, Reddit marketing, Social media, Paid ads, Growth strategy, Content strategy
+- **Authors**: your profile
+- **Categories**: SEO, Reddit Marketing, SaaS Growth, Social Media, Content Marketing, AI Search, Growth Strategy, Case Studies
+- **Newsletter subscribers**: everyone who signed up on the blog (read only)
 
-You can bookmark the Studio. It works in any browser, and you don't need to install anything.
+sanity.io/manage is the account admin area. It never shows your posts.
 
 ## 2. Write and publish an article
 
-1. Click **Blog posts**, then the **pencil / +** icon at the top to create a new post.
-2. **Title**: type the headline. Put the main keyword near the start.
-3. **URL slug**: click **Generate**. This becomes the address, for example `zainameen.com/insights/how-to-rank-on-reddit`. Try not to change it after publishing.
-4. **Italic ending of the headline** (optional): copy the last few words of your title here to show them in the italic serif font, like the headlines on the rest of the site.
-5. **Excerpt**: one or two sentences. They appear under the headline and on the article cards.
-6. **Featured image**: upload a wide image (at least 1600 pixels wide), then fill in **Alt text** (a short description of what's in the image).
-7. **Article**: write here, or paste from Google Docs or Word. Headings, bold, links and lists come across when you paste.
-   - Use **Heading (H2)** for main sections. They build the "On this page" menu automatically.
-   - Use **Subheading (H3)** for sections inside a section.
-   - The **+** button inside the editor adds an image, a **Callout box** (key takeaway, tip, warning) or a **Table**.
-   - To add a link, highlight the words and click the link icon. Use **Link to another article** for your own posts: those links keep working even if a slug changes.
-8. Open the **Author and categories** tab: you're already selected as the author. Pick at least one category (the first one is the main category).
-9. Open the **SEO and sharing** tab: add an **SEO title** (50 to 60 characters) and an **SEO meta description** (120 to 155 characters). If you leave them empty, the headline and excerpt are used instead.
-10. Optional, in the **FAQ, CTA and related** tab:
-    - **FAQ section**: questions and answers shown at the end of the article.
-    - **Call to action box**: the default is your normal "Take a breath. Then tell me what's stuck." box. You can write a custom one or turn it off.
-    - **Related articles**: pick up to 3, or leave it empty and recent articles from the same category are shown.
-11. Click **Publish** (bottom right).
+1. Click **Blog posts**, then the **pencil / +** icon.
+2. **Title**: the headline. Put the main keyword near the start.
+3. **Italic ending of the headline** (optional): copy only the last few words of the title here (for example `What's Stuck`) to show them in the italic serif font. Leave it empty for a plain headline. If you paste the whole title, the whole headline turns italic.
+4. **URL slug**: click **Generate**. This becomes `zainameen.com/blog/your-slug`. Try not to change it after publishing.
+5. **Excerpt**: one or two sentences. Shown under the headline and on cards.
+6. **Featured image**: upload a wide image and fill in **Alt text**. **Caption** is optional.
+7. **Article**: write here, or paste from Google Docs or Word.
+   - **Heading (H2)** for main sections, **Subheading (H3)** inside them. With 3 or more headings, an "On this page" menu appears automatically.
+   - The **+** button adds an image, a **Callout box**, a **Code block** or a **Table**.
+   - To link, highlight words and click the link icon. Use **Link to another article** for your own posts.
+8. **Author and categories** tab: you're pre-selected as the author. Pick at least one category (the first one is the main category). Until you do, this tab shows a red **!** and Publish stays blocked. That's on purpose.
+   - **Feature this post on the blog page**: puts it in the big slot at the top of /blog. If nothing is featured, the newest post is used. If several are featured, the highest **Featured priority** wins.
+9. **SEO and sharing** tab: **SEO title** (50 to 60 characters) and **SEO meta description** (120 to 155 characters). Empty means the headline and excerpt are used.
+10. Optional, **FAQ, CTA and related** tab: FAQ, the call to action box (default is "Got the same problem in your business?" linking to Contact), and up to 3 related articles.
+11. Click **Publish**.
 
-The article goes live within a few seconds and is added to your sitemap automatically.
+It goes live within seconds, appears on /blog under its category, becomes searchable, and is added to the sitemap.
 
-If something important is missing (title, slug, excerpt, image, alt text, author, category or article text), the Publish button is blocked and the field is marked in red. Yellow warnings (like a long SEO title) are only advice and don't block publishing.
-
-**Drafts:** everything you type is saved automatically as a draft. Drafts are never visible on the website. Only clicking Publish makes them public.
-
-**Scheduling:** set the **Publication date** to a future time and publish. The article appears after that time (within about an hour).
+**Drafts** are saved automatically and are never public. **Scheduling**: set a future Publication date and publish; it appears after that time (within about an hour).
 
 ## 3. Preview before publishing
 
-Open a draft and click the **Presentation** tab at the top of the Studio (or the eye icon). You'll see the article exactly as it will look on the site, with your unpublished changes, and you can click any text to jump to that field.
+Open the post and click **Presentation** at the top of the Studio. You see the real page with your unpublished changes. Turn on **Edit** to click any text and jump to that field. The dark "Preview: you are seeing drafts" badge means you're in preview; **Exit preview** goes back to normal.
 
-A dark "Preview: you are seeing drafts" badge in the corner means you're in preview mode. Click **Exit preview** to go back to the normal site.
+## 4. Edit, update or remove
 
-(Preview needs the one-off setup in section 7.)
-
-## 4. Edit or update an article
-
-Open the post, make your changes and click **Publish** again. For a meaningful update, also set **Last updated date** (Author and categories tab), so readers and Google see "Updated" on the article.
-
-To take an article down, open it, click the **⋯** menu next to Publish, and choose **Unpublish** (keeps it as a draft) or **Delete**.
+Change the post and click **Publish** again. For a meaningful update, also set **Last updated date**. To take an article down, use the **⋯** menu next to Publish: **Unpublish** (keeps the draft) or **Delete**. It disappears from the site, the blog list and the sitemap.
 
 ## 5. Images
 
-- Upload images directly into the image fields or the article. They're resized and compressed automatically for phones and desktops.
-- After uploading, click the **crop icon** on the image to set the focal point. When the image is cropped (on cards, for example), that spot always stays visible.
-- Always fill in **Alt text**.
-- To reuse an image you uploaded before, click **Select** on any image field instead of Upload.
-- **Social sharing image** (SEO tab) is optional. Use 1200 by 630 pixels if you want a special image for LinkedIn and X.
+Upload straight into image fields. They're resized and compressed automatically. Click the **crop icon** to set the focal point used when cards crop the image. Always add alt text.
 
-## 6. Your author profile
+## 6. Categories
 
-Click **Authors**, then **Zain Ul Abdin**. You can change your photo, professional title, biography, website, LinkedIn and other social links. Click **Publish** to save.
+Categories only show as filters on /blog once at least one published post uses them. **Display order** sets their order (lower first). **Hide from the blog filters** removes one from the filter row without touching posts. The older "Paid ads" and "Content strategy" categories are still there at the end; delete them if you don't need them.
 
-Your profile currently has **no photo**, so your initials are shown. Upload a square photo whenever you like.
+## 7. Newsletter
 
-Your author page is at **zainameen.com/insights/author/zain-ul-abdin**.
+The form on /blog saves each email once in Sanity (**Newsletter subscribers**). Emails are private: the public API can't read them. Nothing is sent automatically. When you're ready to send emails, export the list or connect an email tool (for example Kit, Buttondown or Mailchimp), and use that tool's unsubscribe link, since the form promises people can unsubscribe.
 
-## 7. One-off setup still needed (about 5 minutes)
-
-These steps need your Vercel login, so only you can do them.
-
-### a) Add two settings to Vercel
-
-They live in the file `.env.local` in this project folder (it is never uploaded to GitHub). Open it in VS Code to copy the values. Don't paste them anywhere else.
-
-1. Go to vercel.com, open your **zain** project, then **Settings → Environment Variables**.
-2. Add `SANITY_API_READ_TOKEN` with the value from `.env.local`. Tick **Production** and **Preview**. Save.
-3. Add `SANITY_REVALIDATE_SECRET` with the value from `.env.local`. Tick **Production** and **Preview**. Save.
-
-What they do:
-
-- `SANITY_API_READ_TOKEN` lets the site show drafts in the preview, and only there. It's read-only.
-- `SANITY_REVALIDATE_SECRET` lets Sanity tell the website "something was just published, refresh now". A webhook called "Refresh website on publish" has already been created in Sanity for this.
-
-Without them the blog still works: published articles still appear (within about a minute instead of instantly), but preview won't work.
-
-### b) Deploy
-
-The blog is on the branch `sanity-blog`. Once it's merged into `master`, Vercel deploys it. After the live site has finished deploying, run `npm run indexnow` once.
-
-## What was already set up for you
-
-- Your author profile, with the bio you provided, and six categories.
-- Studio access for `https://www.zainameen.com` and `http://localhost:3000` (Sanity "CORS origins").
-- A read-only token called "Website preview (read drafts)".
-- The "Refresh website on publish" webhook.
-
-You can see or change all of these at https://www.sanity.io/manage/project/uziw3l77 under **API**.
-
-## Where things show up
+## 8. Where things are
 
 | Page | Address |
 | --- | --- |
-| All articles | zainameen.com/insights |
-| One article | zainameen.com/insights/your-slug |
-| A category | zainameen.com/insights/category/seo |
-| Your author page | zainameen.com/insights/author/zain-ul-abdin |
+| Blog | zainameen.com/blog |
+| One article | zainameen.com/blog/your-slug |
+| A category | zainameen.com/blog?category=seo |
+| Search | zainameen.com/blog?q=reddit (not indexed by Google) |
+| Your author page | zainameen.com/blog/author/zain-ul-abdin |
+| Keybooks page | zainameen.com/insights (in the footer) |
 | Dashboard | zainameen.com/studio |
 
-Until the first article is published, /insights keeps showing the current "coming soon" page exactly as it is today.
+Old article links under /insights/... redirect permanently to /blog/....
+
+## 9. Settings in Vercel (already done)
+
+These are set as hidden secrets for Preview and Production. Their values are only in the `.env.local` file on your computer, which is never uploaded to GitHub.
+
+- `SANITY_API_READ_TOKEN`: lets preview mode show drafts. Read only.
+- `SANITY_REVALIDATE_SECRET`: proves "something was published" messages really come from Sanity, so pages update instantly.
+- `SANITY_API_WRITE_TOKEN`: lets the newsletter form save signups.
+
+You can see or revoke the tokens at https://www.sanity.io/manage/project/uziw3l77 under **API**.
+
+## 10. After a deploy
+
+Once a change is live, run `npm run indexnow` once, ideally after your first article is published, so search engines hear about the new URL.

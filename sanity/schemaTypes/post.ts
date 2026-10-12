@@ -1,7 +1,7 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { apiVersion } from "../env";
 
-// These words are used by other Insights URLs (/insights/category/..., /insights/author/...).
+// These words are used by other blog URLs (/blog/author/...) or kept free for future ones.
 const RESERVED_SLUGS = ["category", "author", "page", "feed"];
 
 export const post = defineType({
@@ -44,7 +44,7 @@ export const post = defineType({
       name: "slug",
       type: "slug",
       title: "URL slug",
-      description: "The article address: zainameen.com/insights/your-slug. Click Generate to create it from the title. Avoid changing it after publishing.",
+      description: "The article address: zainameen.com/blog/your-slug. Click Generate to create it from the title. Avoid changing it after publishing.",
       group: "content",
       options: {
         source: "title",
@@ -96,6 +96,12 @@ export const post = defineType({
           description: "Describe what the image shows. Required for accessibility and SEO.",
           validation: (rule) => rule.required().error("Add alt text to the featured image."),
         }),
+        defineField({
+          name: "caption",
+          type: "string",
+          title: "Caption (optional)",
+          description: "Shown under the image on the article page. For example, a source or credit.",
+        }),
       ],
       validation: (rule) => rule.required().error("Add a featured image."),
     }),
@@ -138,6 +144,23 @@ export const post = defineType({
       group: "details",
       of: [defineArrayMember({ type: "string" })],
       options: { layout: "tags" },
+    }),
+    defineField({
+      name: "featured",
+      type: "boolean",
+      title: "Feature this post on the blog page",
+      description: "Shows it in the big Featured slot at the top of /blog. If nothing is featured, the newest post is used.",
+      group: "details",
+      initialValue: false,
+    }),
+    defineField({
+      name: "featuredPriority",
+      type: "number",
+      title: "Featured priority (optional)",
+      description: "Only matters if more than one post is featured: the highest number wins. Ties go to the newest post.",
+      group: "details",
+      hidden: ({ document }) => !document?.featured,
+      validation: (rule) => rule.integer().min(0),
     }),
     defineField({
       name: "publishedAt",
@@ -241,7 +264,7 @@ export const post = defineType({
           title: "Show",
           options: {
             list: [
-              { title: "Default (Tell me what's stuck, links to Contact)", value: "default" },
+              { title: "Default (Got the same problem in your business? Links to Contact)", value: "default" },
               { title: "Custom text and link", value: "custom" },
               { title: "No call to action", value: "none" },
             ],

@@ -18,9 +18,9 @@ async function blogRoutes(): Promise<MetadataRoute.Sitemap> {
   try {
     const { posts, categories, authors } = await fetchPublished<SitemapContent>(SITEMAP_QUERY);
     return [
-      ...posts.map((p) => ({ url: `https://www.zainameen.com/insights/${p.slug}`, lastModified: new Date(p.date), changeFrequency: "monthly" as const, priority: 0.6 })),
-      ...categories.map((c) => ({ url: `https://www.zainameen.com/insights/category/${c.slug}`, lastModified: new Date(c._updatedAt), changeFrequency: "weekly" as const, priority: 0.4 })),
-      ...authors.map((a) => ({ url: `https://www.zainameen.com/insights/author/${a.slug}`, lastModified: new Date(a._updatedAt), changeFrequency: "monthly" as const, priority: 0.3 })),
+      ...posts.map((p) => ({ url: `https://www.zainameen.com/blog/${p.slug}`, lastModified: new Date(p.date), changeFrequency: "monthly" as const, priority: 0.6 })),
+      ...categories.map((c) => ({ url: `https://www.zainameen.com/blog?category=${c.slug}`, lastModified: new Date(c._updatedAt), changeFrequency: "weekly" as const, priority: 0.4 })),
+      ...authors.map((a) => ({ url: `https://www.zainameen.com/blog/author/${a.slug}`, lastModified: new Date(a._updatedAt), changeFrequency: "monthly" as const, priority: 0.3 })),
     ];
   } catch (error) {
     console.error("Sitemap: could not load blog posts from Sanity.", error);
@@ -46,7 +46,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/pricing", priority: 0.8 },
     { path: "/about", priority: 0.7 },
     { path: "/contact", priority: 0.8 },
-    { path: "/insights", priority: 0.6 },
+    { path: "/blog", priority: 0.7 },
+    { path: "/insights", priority: 0.5 },
     { path: "/privacy", priority: 0.3 },
   ];
 

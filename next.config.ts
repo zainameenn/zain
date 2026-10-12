@@ -19,7 +19,10 @@ const nextConfig: NextConfig = {
       { source: "/services/hire-a-social-media-manager", destination: "/services/social-media-marketing-specialist", permanent: true },
       { source: "/services/google-meta-ads", destination: "/services/google-and-meta-ads-specialist", permanent: true },
       { source: "/services/growth-strategy", destination: "/services/saas-growth-consultant", permanent: true },
-      { source: "/blog", destination: "/insights", permanent: true },
+      // Blog articles used to live under /insights. /insights itself stays as the Keybooks page.
+      { source: "/insights/category/:slug", destination: "/blog?category=:slug", permanent: true },
+      { source: "/insights/author/:slug", destination: "/blog/author/:slug", permanent: true },
+      { source: "/insights/:slug", destination: "/blog/:slug", permanent: true },
       { source: "/work", destination: "/case-studies", permanent: true },
     ];
   },

@@ -3,7 +3,7 @@ import { PortableText, stegaClean, type PortableTextBlock, type PortableTextComp
 import type { SanityImage as SanityImageValue } from "@/sanity/lib/types";
 import { SanityImage } from "./SanityImage";
 import { paragraphs, postPath, type TocItem } from "./utils";
-import s from "../insights.module.css";
+import s from "../blog.module.css";
 
 type CalloutValue = { tone?: "takeaway" | "tip" | "warning" | "note"; title?: string; body?: string };
 type TableValue = { table?: { rows?: { _key: string; cells?: string[] }[] }; caption?: string };
@@ -13,14 +13,29 @@ const TONE_LABEL: Record<string, string> = { takeaway: "Key takeaway", tip: "Tip
 
 const isOwnSite = (href: string) => href.startsWith("/") || href.startsWith("#") || /^https?:\/\/(www\.)?zainameen\.com/.test(href);
 
+/** H2 and H3 get stable ids (used by the table of contents) and a "#" link to copy the section address. */
+function Heading({ level, id, children }: { level: 2 | 3; id?: string; children: React.ReactNode }) {
+  const Tag = level === 2 ? "h2" : "h3";
+  return (
+    <Tag id={id}>
+      {children}
+      {id ? (
+        <a href={`#${id}`} className={s.anchor} aria-label="Link to this section">
+          #
+        </a>
+      ) : null}
+    </Tag>
+  );
+}
+
 export function ArticleBody({ value, toc }: { value: PortableTextBlock[]; toc: TocItem[] }) {
   const ids = new Map(toc.map((t) => [t.key, t.id]));
   const idFor = (key?: string) => (key ? ids.get(key) : undefined);
 
   const components: PortableTextComponents = {
     block: {
-      h2: ({ children, value }) => <h2 id={idFor(value._key)}>{children}</h2>,
-      h3: ({ children, value }) => <h3 id={idFor(value._key)}>{children}</h3>,
+      h2: ({ children, value }) => <Heading level={2} id={idFor(value._key)}>{children}</Heading>,
+      h3: ({ children, value }) => <Heading level={3} id={idFor(value._key)}>{children}</Heading>,
       h4: ({ children }) => <h4>{children}</h4>,
       blockquote: ({ children }) => <blockquote>{children}</blockquote>,
     },
@@ -61,6 +76,15 @@ export function ArticleBody({ value, toc }: { value: PortableTextBlock[]; toc: T
           </aside>
         );
       },
+      codeBlock: ({ value }: { value: { filename?: string; code?: string } }) =>
+        value.code ? (
+          <figure className={s.code}>
+            {value.filename ? <figcaption>{value.filename}</figcaption> : null}
+            <pre>
+              <code>{stegaClean(value.code)}</code>
+            </pre>
+          </figure>
+        ) : null,
       tableBlock: ({ value }: { value: TableValue }) => {
         const rows = value.table?.rows ?? [];
         if (!rows.length) return null;

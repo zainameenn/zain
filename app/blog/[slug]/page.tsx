@@ -5,19 +5,19 @@ import { cache } from "react";
 import { stegaClean } from "next-sanity";
 import { buildMetadata } from "@/lib/seo";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
-import { ArrowIcon, ChevronIcon, PlusIcon } from "@/app/HomeComponents/icons";
-import CTA from "@/app/HomeComponents/CTA";
+import { ArrowIcon, ChevronIcon, LinkedInIcon, PlusIcon } from "@/app/HomeComponents/icons";
 import { SITE_URL } from "@/sanity/env";
 import { fetchPublished, sanityFetch } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 import { POST_QUERY, POST_SLUGS_QUERY } from "@/sanity/lib/queries";
 import type { Post } from "@/sanity/lib/types";
 import { ArticleBody } from "../_components/ArticleBody";
+import { CopyLinkButton } from "../_components/CopyLinkButton";
 import { JsonLd, breadcrumbList } from "../_components/JsonLd";
-import { AuthorBox, Breadcrumbs, Byline, Eyebrow, PostCard } from "../_components/parts";
+import { AuthorBox, BlogCta, Byline, Eyebrow, PostCard } from "../_components/parts";
 import { SanityImage } from "../_components/SanityImage";
 import { MAX, PAD, absolute, authorPath, buildToc, categoryPath, paragraphs, pickRelated, postPath, type TocItem } from "../_components/utils";
-import s from "../insights.module.css";
+import s from "../blog.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -67,27 +67,14 @@ function Toc({ items }: { items: TocItem[] }) {
   );
 }
 
-function CustomCta({ heading, text, buttonLabel, buttonUrl }: { heading: string; text?: string; buttonLabel: string; buttonUrl: string }) {
-  return (
-    <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) clamp(24px,3vw,40px)" }}>
-      <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-        <h2 style={{ margin: 0, maxWidth: 820, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.6vw,50px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>{heading}</h2>
-        {text ? <p style={{ margin: "20px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>{text}</p> : null}
-        <a href={buttonUrl} style={{ marginTop: 32, display: "inline-flex", alignItems: "center", gap: 12, height: 60, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16.5, fontWeight: 600 }}>
-          {buttonLabel}
-          <ArrowIcon size={15} />
-        </a>
-      </div>
-    </section>
-  );
-}
-
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) notFound();
 
   const toc = buildToc(post.body);
+  // Short posts don't need a table of contents.
+  const showToc = toc.length >= 3;
   const category = post.categories?.[0];
   const related = pickRelated(post, post.relatedPicked, post.relatedRefs, post.sameCategory, post.latest);
   const title = stegaClean(post.title);
@@ -96,12 +83,6 @@ export default async function ArticlePage({ params }: Props) {
   const pageUrl = absolute(postPath(stegaClean(post.slug)));
   const cta = post.cta ?? { mode: "default" as const };
   const ctaMode = stegaClean(cta.mode) ?? "default";
-
-  const crumbs = [
-    { name: "Home", href: "/" },
-    { name: "Insights", href: "/insights" },
-    ...(category ? [{ name: category.title, href: categoryPath(category.slug) }] : []),
-  ];
 
   const jsonLd = stegaClean({
     "@context": "https://schema.org",
@@ -131,12 +112,16 @@ export default async function ArticlePage({ params }: Props) {
           : {}),
         publisher: { "@type": "Person", name: "Zain Ul Abdin", url: SITE_URL },
         mainEntityOfPage: { "@type": "WebPage", "@id": post.canonicalUrl || pageUrl },
-        isPartOf: { "@type": "Blog", name: "Growth Marketing Insights", url: absolute("/insights") },
+        isPartOf: { "@type": "Blog", name: "Growth Marketing Blog", url: absolute("/blog") },
         ...(category ? { articleSection: category.title } : {}),
         ...(post.tags?.length ? { keywords: post.tags.join(", ") } : {}),
         inLanguage: "en",
       },
-      breadcrumbList([...crumbs.map((c) => ({ name: c.name, url: absolute(c.href) })), { name: title, url: pageUrl }]),
+      breadcrumbList([
+        { name: "Home", url: absolute("/") },
+        { name: "Blog", url: absolute("/blog") },
+        { name: title, url: pageUrl },
+      ]),
       ...(post.faqs?.length
         ? [
             {
@@ -148,6 +133,9 @@ export default async function ArticlePage({ params }: Props) {
     ],
   });
 
+  const shareText = encodeURIComponent(title);
+  const shareUrl = encodeURIComponent(pageUrl);
+
   return (
     <main id="top" style={{ overflowX: "clip" }}>
       <JsonLd data={jsonLd} />
@@ -157,10 +145,13 @@ export default async function ArticlePage({ params }: Props) {
           <div className={s.layout}>
             <div className={s.tocDesktop} aria-hidden="true" />
             <header style={{ minWidth: 0 }}>
-              <Breadcrumbs items={crumbs} />
+              <Link href="/blog" className={s.backLink} style={{ height: 36, fontSize: 14, borderBottomWidth: 1 }}>
+                <ArrowIcon />
+                Back to blog
+              </Link>
               {category ? (
                 <div style={{ marginTop: 28 }}>
-                  <Link href={categoryPath(category.slug)}>
+                  <Link href={categoryPath(stegaClean(category.slug))}>
                     <Eyebrow color="#7D6039">{category.title}</Eyebrow>
                   </Link>
                 </div>
@@ -178,8 +169,12 @@ export default async function ArticlePage({ params }: Props) {
               <p style={{ margin: "20px 0 28px", fontSize: "clamp(18px,1.4vw,20px)", lineHeight: 1.6, color: "#4E4C48" }}>{post.excerpt}</p>
               <Byline author={post.author} publishedAt={post.publishedAt} updatedAt={post.updatedAt} chars={post.chars} />
               {post.mainImage?.asset ? (
-                <figure style={{ margin: "32px 0 0", borderRadius: 20, overflow: "hidden" }}>
-                  <SanityImage image={post.mainImage} aspect={16 / 9} sizes="(min-width: 800px) 760px, 100vw" widths={[480, 760, 1080, 1520]} priority />
+                <figure style={{ margin: "32px 0 0" }}>
+                  {/* The image keeps its own proportions. */}
+                  <SanityImage image={post.mainImage} sizes="(min-width: 800px) 760px, 100vw" widths={[480, 760, 1080, 1520]} priority style={{ borderRadius: 20 }} />
+                  {post.mainImage.caption ? (
+                    <figcaption style={{ marginTop: 10, fontSize: 14, lineHeight: 1.5, color: "#6F6B64", textAlign: "center" }}>{post.mainImage.caption}</figcaption>
+                  ) : null}
                 </figure>
               ) : null}
             </header>
@@ -188,7 +183,7 @@ export default async function ArticlePage({ params }: Props) {
           {/* BODY with table of contents */}
           <div className={s.layout} style={{ marginTop: "clamp(40px,4vw,56px)" }}>
             <aside className={s.tocDesktop} aria-label="Table of contents">
-              {toc.length > 1 ? (
+              {showToc ? (
                 <>
                   <Eyebrow>On this page</Eyebrow>
                   <div style={{ marginTop: 14 }}>
@@ -198,7 +193,7 @@ export default async function ArticlePage({ params }: Props) {
               ) : null}
             </aside>
             <div style={{ minWidth: 0 }}>
-              {toc.length > 1 ? (
+              {showToc ? (
                 <details className={s.tocMobile} style={{ marginBottom: 36 }}>
                   <summary>
                     On this page
@@ -237,8 +232,33 @@ export default async function ArticlePage({ params }: Props) {
                 </section>
               ) : null}
 
+              {/* ARTICLE FOOTER: categories and sharing */}
+              <div style={{ marginTop: 56, paddingTop: 24, borderTop: "1px solid #DDDAD3", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+                {post.categories?.length ? (
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>
+                    <span style={{ fontSize: 14, color: "#6F6B64", marginRight: 4 }}>Filed under</span>
+                    {post.categories.map((c) => (
+                      <Link key={c.slug} href={categoryPath(stegaClean(c.slug))} className={s.chip}>
+                        {c.title}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>
+                  <CopyLinkButton url={pageUrl} />
+                  <a className={s.shareButton} href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`} target="_blank" rel="noopener noreferrer">
+                    <LinkedInIcon size={14} />
+                    Share
+                    <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>on LinkedIn</span>
+                  </a>
+                  <a className={s.shareButton} href={`https://x.com/intent/post?url=${shareUrl}&text=${shareText}`} target="_blank" rel="noopener noreferrer">
+                    Post on X
+                  </a>
+                </div>
+              </div>
+
               {post.author ? (
-                <div style={{ marginTop: 64 }}>
+                <div style={{ marginTop: 40 }}>
                   <AuthorBox author={post.author} />
                 </div>
               ) : null}
@@ -247,20 +267,13 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       </article>
 
-      {ctaMode === "default" ? <CTA /> : null}
-      {ctaMode === "custom" && cta.heading && cta.buttonLabel && cta.buttonUrl ? (
-        <CustomCta heading={cta.heading} text={cta.text} buttonLabel={cta.buttonLabel} buttonUrl={stegaClean(cta.buttonUrl)} />
-      ) : null}
-
       {related.length ? (
         <section aria-labelledby="related" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(72px,7vw,104px) ${PAD} 0` }}>
-          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: 16, marginBottom: 32 }}>
-            <div>
-              <Eyebrow>Keep reading</Eyebrow>
-              <h2 id="related" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
-                Related articles
-              </h2>
-            </div>
+          <div style={{ marginBottom: 32 }}>
+            <Eyebrow>Keep reading</Eyebrow>
+            <h2 id="related" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+              Related articles
+            </h2>
           </div>
           <div className={s.grid}>
             {related.map((p) => (
@@ -270,10 +283,15 @@ export default async function ArticlePage({ params }: Props) {
         </section>
       ) : null}
 
+      {ctaMode === "default" ? <BlogCta /> : null}
+      {ctaMode === "custom" && cta.heading && cta.buttonLabel && cta.buttonUrl ? (
+        <BlogCta heading={cta.heading} text={cta.text} buttonLabel={cta.buttonLabel} buttonUrl={stegaClean(cta.buttonUrl)} />
+      ) : null}
+
       <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(48px,5vw,72px) ${PAD} clamp(64px,7vw,96px)`, display: "flex", justifyContent: "center" }}>
-        <Link href="/insights" className={s.backLink}>
+        <Link href="/blog" className={s.backLink}>
           <ArrowIcon />
-          Back to all insights
+          Back to the blog
         </Link>
       </div>
     </main>

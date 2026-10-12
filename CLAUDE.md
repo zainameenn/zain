@@ -22,6 +22,7 @@
 - /about : Zain Ul Abdin
 - /contact : Contact Zain Ul Abdin
 - /insights : growth marketing insights
+- /blog : growth marketing blog
 - /case-studies/blainy : Blainy case study
 - /case-studies/virtarix : Virtarix case study
 - /case-studies/loompad : Etsy SEO case study

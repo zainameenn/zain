@@ -17,9 +17,9 @@ export function readingMinutes(chars: number | null | undefined) {
   return Math.max(1, Math.round((chars ?? 0) / 5.5 / 230));
 }
 
-export const postPath = (slug: string) => `/insights/${slug}`;
-export const categoryPath = (slug: string) => `/insights/category/${slug}`;
-export const authorPath = (slug: string) => `/insights/author/${slug}`;
+export const postPath = (slug: string) => `/blog/${slug}`;
+export const categoryPath = (slug: string) => `/blog?category=${encodeURIComponent(slug)}`;
+export const authorPath = (slug: string) => `/blog/author/${slug}`;
 export const absolute = (path: string) => (path.startsWith("http") ? path : `${SITE_URL}${path}`);
 
 export function slugify(text: string) {

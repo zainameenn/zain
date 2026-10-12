@@ -129,6 +129,20 @@ export const blockContent = defineType({
       },
     }),
     defineArrayMember({
+      name: "codeBlock",
+      type: "object",
+      title: "Code block",
+      description: "For snippets like tracking code, robots.txt rules or formulas.",
+      fields: [
+        defineField({ name: "filename", type: "string", title: "Label (optional)", description: "For example: robots.txt" }),
+        defineField({ name: "code", type: "text", title: "Code", rows: 8, validation: (rule) => rule.required() }),
+      ],
+      preview: {
+        select: { title: "filename", code: "code" },
+        prepare: ({ title, code }) => ({ title: title || "Code block", subtitle: code?.split("\n")[0] }),
+      },
+    }),
+    defineArrayMember({
       name: "tableBlock",
       type: "object",
       title: "Table",

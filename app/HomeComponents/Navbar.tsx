@@ -10,7 +10,7 @@ const NAV_LINKS: { t: string; href: string }[] = [
   { t: "Case Studies", href: "/case-studies" },
   { t: "Pricing", href: "/pricing" },
   { t: "About", href: "/about" },
-  { t: "Insights", href: "/insights" },
+  { t: "Blog", href: "/blog" },
 ];
 
 const SERVICE_MENU = [

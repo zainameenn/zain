@@ -7,6 +7,7 @@ export type SanityImage = {
   alt?: string;
   lqip?: string;
   dimensions?: { width: number; height: number; aspectRatio: number };
+  caption?: string | null;
 };
 
 export type CategoryRef = { title: string; slug: string };
@@ -53,6 +54,6 @@ export type Post = Omit<PostCard, "author"> & {
   latest?: PostCard[] | null;
 };
 
-export type Category = { title: string; slug: string; description?: string | null; posts: PostCard[] };
+export type BlogCategory = { title: string; slug: string; description?: string | null };
 
 export type AuthorWithPosts = Author & { posts: PostCard[] };

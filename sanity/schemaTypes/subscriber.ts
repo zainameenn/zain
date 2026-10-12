@@ -1,0 +1,23 @@
+import { defineField, defineType } from "sanity";
+
+// Created by the blog's newsletter form (app/api/subscribe). Stored under a private ID,
+// so subscriber emails are never readable through the public API.
+export const subscriber = defineType({
+  name: "subscriber",
+  title: "Newsletter subscriber",
+  type: "document",
+  readOnly: true,
+  fields: [
+    defineField({ name: "email", type: "string", title: "Email" }),
+    defineField({ name: "subscribedAt", type: "datetime", title: "Subscribed at" }),
+    defineField({ name: "source", type: "string", title: "Signed up on" }),
+  ],
+  orderings: [{ title: "Newest first", name: "subscribedAtDesc", by: [{ field: "subscribedAt", direction: "desc" }] }],
+  preview: {
+    select: { title: "email", date: "subscribedAt", source: "source" },
+    prepare: ({ title, date, source }) => ({
+      title,
+      subtitle: [source, date ? new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : null].filter(Boolean).join(" · "),
+    }),
+  },
+});

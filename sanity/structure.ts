@@ -1,6 +1,6 @@
 import type { StructureResolver } from "sanity/structure";
 
-// The Studio sidebar: posts first, then authors and categories.
+// The Studio sidebar: posts first, then authors and categories, then newsletter signups.
 export const structure: StructureResolver = (S) =>
   S.list()
     .title("Content")
@@ -9,4 +9,6 @@ export const structure: StructureResolver = (S) =>
       S.divider(),
       S.documentTypeListItem("author").title("Authors"),
       S.documentTypeListItem("category").title("Categories"),
+      S.divider(),
+      S.documentTypeListItem("subscriber").title("Newsletter subscribers"),
     ]);
