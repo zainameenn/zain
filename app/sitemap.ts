@@ -1,6 +1,30 @@
 import type { MetadataRoute } from "next";
+import { fetchPublished } from "@/sanity/lib/fetch";
+import { SITEMAP_QUERY } from "@/sanity/lib/queries";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+type SitemapContent = {
+  posts: { slug: string; date: string }[];
+  categories: { slug: string; _updatedAt: string }[];
+  authors: { slug: string; _updatedAt: string }[];
+};
+
+// Published blog content from Sanity. Drafts never appear (the query only sees published documents).
+// If Sanity can't be reached, the sitemap still lists every fixed page.
+async function blogRoutes(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const { posts, categories, authors } = await fetchPublished<SitemapContent>(SITEMAP_QUERY);
+    return [
+      ...posts.map((p) => ({ url: `https://www.zainameen.com/insights/${p.slug}`, lastModified: new Date(p.date), changeFrequency: "monthly" as const, priority: 0.6 })),
+      ...categories.map((c) => ({ url: `https://www.zainameen.com/insights/category/${c.slug}`, lastModified: new Date(c._updatedAt), changeFrequency: "weekly" as const, priority: 0.4 })),
+      ...authors.map((a) => ({ url: `https://www.zainameen.com/insights/author/${a.slug}`, lastModified: new Date(a._updatedAt), changeFrequency: "monthly" as const, priority: 0.3 })),
+    ];
+  } catch (error) {
+    console.error("Sitemap: could not load blog posts from Sanity.", error);
+    return [];
+  }
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const routes = [
     { path: "/", priority: 1 },
@@ -20,10 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/insights", priority: 0.6 },
   ];
 
-  return routes.map(({ path, priority }) => ({
-    url: `https://www.zainameen.com${path}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority,
-  }));
+  return [
+    ...routes.map(({ path, priority }) => ({
+      url: `https://www.zainameen.com${path}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority,
+    })),
+    ...(await blogRoutes()),
+  ];
 }

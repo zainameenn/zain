@@ -9,16 +9,23 @@ const OG_IMAGE = {
   alt: "Zain Ul Abdin, Growth Marketing Specialist",
 };
 
+type OgImage = { url: string; width: number; height: number; alt: string };
+
 type BuildMetadataInput = {
   title: string;
   description: string;
   path: string;
   noindex?: boolean;
+  /** Replaces the default sharing image (blog posts use their own). */
+  image?: OgImage;
+  /** Blog posts are shared as articles, with their dates and author. */
+  article?: { publishedTime: string; modifiedTime?: string; authors?: string[]; section?: string; tags?: string[] };
 };
 
 // Next.js replaces a parent's openGraph/twitter objects entirely when a page
 // defines them, so every page gets the full set from here.
-export function buildMetadata({ title, description, path, noindex }: BuildMetadataInput): Metadata {
+export function buildMetadata({ title, description, path, noindex, image, article }: BuildMetadataInput): Metadata {
+  const images = [image ?? OG_IMAGE];
   return {
     title,
     description,
@@ -29,8 +36,8 @@ export function buildMetadata({ title, description, path, noindex }: BuildMetada
       url: path,
       siteName: SITE_NAME,
       locale: "en_US",
-      type: "website",
-      images: [OG_IMAGE],
+      images,
+      ...(article ? { type: "article", ...article } : { type: "website" }),
     },
     twitter: {
       card: "summary_large_image",
@@ -38,7 +45,7 @@ export function buildMetadata({ title, description, path, noindex }: BuildMetada
       creator: TWITTER_HANDLE,
       title,
       description,
-      images: [OG_IMAGE],
+      images,
     },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
