@@ -13,14 +13,20 @@
     "defaults and supports es6-module"
   ],
   "dependencies": {
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/table": "^3.1.18",
+    "@sanity/vision": "^6.18.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.29.2",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "next": "^16.3.8",
+    "next-sanity": "^13.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "sanity": "^6.18.0",
+    "styled-components": "^6.5.3",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

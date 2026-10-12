@@ -3,6 +3,13 @@ import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { ArrowIcon, Emphasis } from "../HomeComponents/icons";
 import { WaitlistForm } from "./WaitlistForm";
 import { Img } from "../HomeComponents/Img";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { CATEGORIES_WITH_POSTS_QUERY, POSTS_QUERY } from "@/sanity/lib/queries";
+import type { CategoryRef, PostCard } from "@/sanity/lib/types";
+import { JsonLd, breadcrumbList } from "./_components/JsonLd";
+import { FeaturedCard } from "./_components/parts";
+import { PostListing } from "./_components/PostListing";
+import { absolute } from "./_components/utils";
 
 export const metadata = buildMetadata({
   title: "Growth Marketing Insights | SEO, Reddit and SaaS | Zain",
@@ -117,7 +124,104 @@ const TOPICS = [
   "Community",
 ];
 
-export default function InsightsPage() {
+function KeybooksSection() {
+  return (
+    <section id="keybooks" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <CenterHead
+        eyebrow="Keybooks"
+        title={
+          <>
+            The Keybooks are
+            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+              probably the fun part.
+            </em>
+          </>
+        }
+        sub={
+          <>
+            I&apos;m working on a few practical guides that I&apos;ll share here for free. Think less &ldquo;ultimate marketing ebook&rdquo; and more: here&apos;s the system, here&apos;s what I learned, here&apos;s how I&apos;d actually do it.
+          </>
+        }
+      />
+      <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 md:!grid-cols-3">
+        {KEYBOOKS.map((k) => (
+          <article
+            key={k.n}
+            style={{
+              borderRadius: 24,
+              background: k.dark ? "#1C1C1C" : "#F4F0E8",
+              color: k.dark ? "#F2EFEA" : "#1C1C1C",
+              border: `1px solid ${k.dark ? "#1C1C1C" : "#E2D8CA"}`,
+              padding: 24,
+              display: "flex",
+              flexDirection: "column",
+              gap: 20,
+              minHeight: 360,
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: k.labelColor }}>Keybook {k.n}</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6, height: 26, padding: "0 10px", borderRadius: 999, border: `1px solid ${k.badgeBorder}`, fontSize: 11.5, fontWeight: 600, color: k.badgeColor }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
+                Coming soon
+              </span>
+            </div>
+            <div aria-hidden="true" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ position: "relative", width: 132, aspectRatio: "1", borderRadius: "50%", border: `1px solid ${k.ringBorder}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ position: "absolute", inset: 18, borderRadius: "50%", border: `1px dashed ${k.ringDash}` }} />
+                <span style={{ ...k.shape } as React.CSSProperties} />
+                <span style={{ position: "absolute", top: 8, right: 14, width: 10, height: 10, borderRadius: "50%", background: "#E0673F" }} />
+              </span>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Working on it.</h3>
+              <p style={{ margin: "6px 0 0", fontSize: 14.5, color: k.subColor }}>Free when it&apos;s ready.</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function WaitlistSection() {
+  return (
+    <section id="waitlist" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
+      <div
+        style={{
+          borderRadius: 28,
+          background: "#1C1C1C",
+          color: "#F2EFEA",
+          padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Get it first</div>
+        <h2 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          Want me to tell you
+          <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
+            when something useful drops?
+          </em>
+        </h2>
+        <p style={{ margin: "22px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+          Join the list and I&apos;ll send you the new Keybooks, guides and genuinely useful posts when they&apos;re ready. No daily &ldquo;10x your growth&rdquo; emails. Promise.
+        </p>
+        <WaitlistForm />
+        <p style={{ margin: "16px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F" }}>
+          Free resources, new posts and the occasional &ldquo;I learned this the hard way.&rdquo; Unsubscribe whenever you want.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/** Shown while there are no published articles yet. */
+function ComingSoon() {
   return (
     <main id="top" style={{ overflowX: "clip" }}>
       {/* HERO */}
@@ -201,63 +305,7 @@ export default function InsightsPage() {
       </section>
 
       {/* KEYBOOKS */}
-      <section id="keybooks" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <CenterHead
-          eyebrow="Keybooks"
-          title={
-            <>
-              The Keybooks are
-              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
-                probably the fun part.
-              </em>
-            </>
-          }
-          sub={
-            <>
-              I&apos;m working on a few practical guides that I&apos;ll share here for free. Think less &ldquo;ultimate marketing ebook&rdquo; and more: here&apos;s the system, here&apos;s what I learned, here&apos;s how I&apos;d actually do it.
-            </>
-          }
-        />
-        <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 md:!grid-cols-3">
-          {KEYBOOKS.map((k) => (
-            <article
-              key={k.n}
-              style={{
-                borderRadius: 24,
-                background: k.dark ? "#1C1C1C" : "#F4F0E8",
-                color: k.dark ? "#F2EFEA" : "#1C1C1C",
-                border: `1px solid ${k.dark ? "#1C1C1C" : "#E2D8CA"}`,
-                padding: 24,
-                display: "flex",
-                flexDirection: "column",
-                gap: 20,
-                minHeight: 360,
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: k.labelColor }}>Keybook {k.n}</span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 6, height: 26, padding: "0 10px", borderRadius: 999, border: `1px solid ${k.badgeBorder}`, fontSize: 11.5, fontWeight: 600, color: k.badgeColor }}>
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
-                  Coming soon
-                </span>
-              </div>
-              <div aria-hidden="true" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ position: "relative", width: 132, aspectRatio: "1", borderRadius: "50%", border: `1px solid ${k.ringBorder}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ position: "absolute", inset: 18, borderRadius: "50%", border: `1px dashed ${k.ringDash}` }} />
-                  <span style={{ ...k.shape } as React.CSSProperties} />
-                  <span style={{ position: "absolute", top: 8, right: 14, width: 10, height: 10, borderRadius: "50%", background: "#E0673F" }} />
-                </span>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Working on it.</h3>
-                <p style={{ margin: "6px 0 0", fontSize: 14.5, color: k.subColor }}>Free when it&apos;s ready.</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <KeybooksSection />
 
       {/* TOPICS */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
@@ -290,35 +338,7 @@ export default function InsightsPage() {
       </section>
 
       {/* WAITLIST */}
-      <section id="waitlist" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <div
-          style={{
-            borderRadius: 28,
-            background: "#1C1C1C",
-            color: "#F2EFEA",
-            padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        >
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Get it first</div>
-          <h2 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Want me to tell you
-            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
-              when something useful drops?
-            </em>
-          </h2>
-          <p style={{ margin: "22px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
-            Join the list and I&apos;ll send you the new Keybooks, guides and genuinely useful posts when they&apos;re ready. No daily &ldquo;10x your growth&rdquo; emails. Promise.
-          </p>
-          <WaitlistForm />
-          <p style={{ margin: "16px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F" }}>
-            Free resources, new posts and the occasional &ldquo;I learned this the hard way.&rdquo; Unsubscribe whenever you want.
-          </p>
-        </div>
-      </section>
+      <WaitlistSection />
 
       {/* UNTIL THEN */}
       <section className="max-md:!pt-[68px]" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
@@ -357,6 +377,68 @@ export default function InsightsPage() {
           </p>
         </div>
       </section>
+    </main>
+  );
+}
+
+export default async function InsightsPage() {
+  const [posts, categories] = await Promise.all([sanityFetch<PostCard[]>(POSTS_QUERY), sanityFetch<CategoryRef[]>(CATEGORIES_WITH_POSTS_QUERY)]);
+  if (!posts.length) return <ComingSoon />;
+
+  const [featured, ...rest] = posts;
+
+  return (
+    <main id="top" style={{ overflowX: "clip" }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [breadcrumbList([{ name: "Home", url: absolute("/") }, { name: "Insights", url: absolute("/insights") }])],
+        }}
+      />
+      {/* HERO */}
+      <section
+        style={{
+          maxWidth: MAX,
+          margin: "0 auto",
+          padding: `clamp(64px,8vw,112px) ${PAD} 0`,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <h1 style={{ ...HERO_H1_STYLE, maxWidth: 820 }}>
+          Growth marketing insights{" "}
+          <em style={H1_ACCENT_STYLE}>
+            from <Emphasis>real client work.</Emphasis>
+          </em>
+        </h1>
+        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+          Growth marketing insights on SEO, Reddit, social media and SaaS growth. Straightforward breakdowns of what to do, what not to do, what I&apos;d test first, and why.
+        </p>
+      </section>
+
+      {/* LATEST */}
+      <section aria-label="Latest article" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,88px) ${PAD} 0` }}>
+        <FeaturedCard post={featured} />
+      </section>
+
+      {/* ALL ARTICLES */}
+      {rest.length ? (
+        <section aria-labelledby="all-articles" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(72px,7vw,104px) ${PAD} 0` }}>
+          <div style={{ marginBottom: 24, paddingTop: 32, borderTop: "1px solid #DDDAD3" }}>
+            <Eyebrow>Browse</Eyebrow>
+            <h2 id="all-articles" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+              All articles
+            </h2>
+          </div>
+          <PostListing posts={rest} categories={categories} />
+        </section>
+      ) : null}
+
+      <KeybooksSection />
+      <WaitlistSection />
+      <div style={{ height: "clamp(64px,7vw,96px)" }} />
     </main>
   );
 }
