@@ -42,10 +42,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/case-studies/blainy", priority: 0.6 },
     { path: "/case-studies/everdry", priority: 0.6 },
     { path: "/case-studies/virtarix", priority: 0.6 },
+    { path: "/case-studies/loompad", priority: 0.6 },
     { path: "/pricing", priority: 0.8 },
     { path: "/about", priority: 0.7 },
     { path: "/contact", priority: 0.8 },
     { path: "/insights", priority: 0.6 },
+    { path: "/privacy", priority: 0.3 },
   ];
 
   return [

@@ -1,10 +1,11 @@
-import { cloneElement } from "react";
-import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
-import { H1_STYLE } from "@/app/HomeComponents/heading";
-import { CASES } from "../HomeComponents/Work";
-import { ArrowIcon } from "../HomeComponents/icons";
+import { PERSON_ID, SITE } from "@/lib/structuredData";
+import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
+import { Emphasis } from "../HomeComponents/icons";
 import CTA from "../HomeComponents/CTA";
+import { CASE_STUDIES } from "./_data";
+import { CaseStudyCard } from "./_components/CaseStudyCard";
+import { ACCENT_LINE, EYEBROW, SECTION_H2 } from "./_components/styles";
 
 export const metadata = buildMetadata({
   title: "Growth Marketing Case Studies | SaaS and Services | Zain",
@@ -13,34 +14,64 @@ export const metadata = buildMetadata({
   path: "/case-studies",
 });
 
-const LIST = [
-  { slug: "blainy", label: "Blainy case study", card: cloneElement(CASES.blainy, { headingLevel: 2 }) },
-  { slug: "everdry", label: "Everdry case study", card: cloneElement(CASES.everdry, { headingLevel: 2 }) },
-  { slug: "virtarix", label: "Virtarix case study", card: cloneElement(CASES.virtarix, { headingLevel: 2 }) },
-];
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+        { "@type": "ListItem", position: 2, name: "Case studies", item: `${SITE}/case-studies` },
+      ],
+    },
+    {
+      "@type": "CollectionPage",
+      name: "Growth marketing case studies",
+      url: `${SITE}/case-studies`,
+      author: { "@id": PERSON_ID },
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: CASE_STUDIES.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: `${s.name} case study`, url: `${SITE}/case-studies/${s.slug}` })),
+      },
+    },
+  ],
+};
+
+const MAX = 1360;
+const PAD = "clamp(20px,4vw,48px)";
 
 export default function CaseStudiesPage() {
   return (
     <main id="top" style={{ overflowX: "clip" }}>
-      <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(64px,8vw,112px) clamp(20px,4vw,48px) 0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-        <h1 style={{ ...H1_STYLE, maxWidth: 900 }}>Growth marketing case studies</h1>
-        <p style={{ margin: "24px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
-          These growth marketing case studies show what was broken, what I changed, and what happened next.
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      {/* Hero */}
+      <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,8vw,112px) ${PAD} 0`, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <h1 style={{ ...HERO_H1_STYLE, maxWidth: 900 }}>
+          Growth marketing case studies,{" "}
+          <em style={H1_ACCENT_STYLE}>
+            <Emphasis>receipts included.</Emphasis>
+          </em>
+        </h1>
+        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+          These growth marketing case studies show real work, real results and the real screenshots behind them. What was broken, what I changed and what happened next. No vanity metrics, no rounding up.
         </p>
       </section>
-      <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(56px,6vw,80px) clamp(20px,4vw,48px) 0" }}>
-        {LIST.map((c) => (
-          <div key={c.slug} style={{ marginBottom: 40 }}>
-            {c.card}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Link href={`/case-studies/${c.slug}`} style={{ display: "inline-flex", alignItems: "center", gap: 10, minHeight: 44, fontSize: 15, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
-                {c.label}
-                <ArrowIcon />
-              </Link>
-            </div>
-          </div>
-        ))}
+
+      {/* The four case studies */}
+      <section aria-labelledby="all-case-studies" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} 0` }}>
+        <div style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}>
+          <div style={EYEBROW}>The work</div>
+          <h2 id="all-case-studies" style={SECTION_H2}>
+            Four businesses.<span style={ACCENT_LINE}>Four very different problems.</span>
+          </h2>
+        </div>
+        <ul className="grid grid-cols-1 md:grid-cols-2" style={{ margin: "clamp(28px,3vw,40px) auto 0", maxWidth: 1040, padding: 0, listStyle: "none", gap: 16 }}>
+          {CASE_STUDIES.map((s) => (
+            <CaseStudyCard key={s.slug} study={s} linkLabel="Read the case study" />
+          ))}
+        </ul>
       </section>
+
       <CTA />
     </main>
   );

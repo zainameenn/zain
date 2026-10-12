@@ -82,9 +82,9 @@ const COMPANIES: { t: string; img?: string; h?: string; w?: string }[] = [
 
 const CASES = [
   { logo: "/assets/site/logo-blainy.png", logoAlt: "Blainy", logoH: 34, cat: "AI SaaS", sr: "Blainy: ", title: "Zero to 85K+ users, no paid ads.", stat1v: "85K+", stat1l: "users", stat2v: "~30M", stat2l: "search impressions" },
-  { logo: "/assets/v8/logo-everdry.gif", logoAlt: "Everdry Waterproofing", logoH: 40, cat: "Home services", sr: "Everdry Waterproofing: ", title: "Social and local SEO for a US home services company.", stat1v: "160K+", stat1l: "Facebook views", stat2v: "603", stat2l: "calls from Google" },
-  { logo: "/assets/v8/logos/virtarix.png", logoAlt: "Virtarix", logoH: 30, cat: "AI and tech", sr: "Virtarix: ", title: "A new Facebook page to 70K+ views in 3 months.", stat1v: "70K+", stat1l: "Facebook views", stat2v: "1.2K+", stat2l: "Pinterest visits" },
-  { logo: "/assets/v8/logos/loompad.png", logoAlt: "LoomPad", logoH: 30, cat: "Etsy store", sr: "LoomPad: ", title: "Sales from a store nobody could find.", stat1v: "$3,401", stat1l: "in sales", stat2v: "93", stat2l: "orders" },
+  { logo: "/assets/v8/logo-everdry.gif", logoAlt: "Everdry Waterproofing", logoH: 40, cat: "Home services", sr: "Everdry Waterproofing: ", title: "A quiet Facebook page to 160K+ views in 28 days.", stat1v: "160K+", stat1l: "Facebook views", stat2v: "40,153", stat2l: "people reached" },
+  { logo: "/assets/v8/logos/virtarix.png", logoAlt: "Virtarix", logoH: 30, cat: "AI and tech", sr: "Virtarix: ", title: "A new Facebook page to 70K+ views in under 4 months.", stat1v: "70K+", stat1l: "Facebook views", stat2v: "1.2K+", stat2l: "Pinterest visits" },
+  { logo: "/assets/v8/logos/loompad.png", logoAlt: "LoomPad", logoH: 30, cat: "Etsy store", sr: "LoomPad: ", title: "Sales from a store nobody could find.", stat1v: "$4,381", stat1l: "in sales", stat2v: "120", stat2l: "orders" },
 ];
 
 const SKILLS_GROUPS = [
@@ -164,8 +164,8 @@ const PERSONAL_LIST = [
 
 const RESUME_ITEMS = [
   { org: "TechEon", role: "Senior Marketing Specialist", desc: null as string | null, range: "Feb 2026 to present" },
-  { org: "Everdry Waterproofing of Michiana", role: "Marketing specialist (contract)", desc: "Social media and Google Business Profile for a US home services company.", range: "Jul 2025 to present" },
-  { org: "Virtarix", role: "Marketing specialist (contract)", desc: "New Facebook page to 70K+ views in 3 months, and Pinterest built from scratch to 1.2K+ monthly visits.", range: "Aug 2025 to Feb 2026" },
+  { org: "Everdry Waterproofing of Michiana", role: "Marketing specialist (contract)", desc: "Facebook content and design for a US home services company.", range: "Jul 2025 to present" },
+  { org: "Virtarix", role: "Marketing specialist (contract)", desc: "New Facebook page to 70K+ views in under 4 months, and Pinterest built from scratch to 1.2K+ monthly visits.", range: "Aug 2025 to Feb 2026" },
   { org: "Amoxt Solutions", role: "Product growth specialist", desc: "Scaled Blainy to 85K+ users organically, with ~30M search impressions in 12 months.", range: "Apr 2024 to Oct 2025" },
   { org: "Amoxt Solutions", role: "Lead generation", desc: "Reddit and SEO campaigns with thousands of conversions in one month, zero ad spend.", range: "Sep 2023 to Apr 2024" },
   { org: "Infinix Solutions", role: "Floor manager and lead sales rep", desc: "Trained a telesales team, rewrote scripts, hit monthly targets.", range: "Jul 2022 to Sep 2023" },

@@ -65,6 +65,9 @@ This site is the case study. Here's what's built in.
 | `/services/social-media-marketing-specialist` | social media marketing specialist |
 | `/services/google-and-meta-ads-specialist` | Google and Meta ads specialist |
 | `/services/saas-growth-consultant` | SaaS growth consultant |
+| `/case-studies/blainy` | Blainy case study |
+| `/case-studies/virtarix` | Virtarix case study |
+| `/case-studies/loompad` | Etsy SEO case study |
 
 ### Technical SEO
 
