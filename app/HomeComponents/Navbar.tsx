@@ -11,6 +11,7 @@ const NAV_LINKS: { t: string; href: string }[] = [
   { t: "Pricing", href: "/pricing" },
   { t: "About", href: "/about" },
   { t: "Blog", href: "/blog" },
+  { t: "Free Tools", href: "/tools" },
 ];
 
 const SERVICE_MENU = [

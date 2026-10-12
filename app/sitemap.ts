@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { fetchPublished } from "@/sanity/lib/fetch";
 import { SITEMAP_QUERY } from "@/sanity/lib/queries";
+import { TOOLS, toolPath } from "@/lib/tools/registry";
 
 type SitemapContent = {
   posts: { slug: string; date: string }[];
@@ -47,6 +48,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/about", priority: 0.7 },
     { path: "/contact", priority: 0.8 },
     { path: "/blog", priority: 0.7 },
+    { path: "/tools", priority: 0.7 },
+    ...Object.keys(TOOLS).map((slug) => ({ path: toolPath(slug), priority: 0.6 })),
     { path: "/insights", priority: 0.5 },
     { path: "/privacy", priority: 0.3 },
   ];
