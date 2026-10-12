@@ -23,7 +23,7 @@ export type Rewrite = "shorter" | "punchier" | "funnier";
 
 export type ToolBlock = {
   model: "fast" | "strong";
-  /** The spec's temperature. Not sent: current Claude models reject custom sampling values. */
+  /** The spec's temperature. Kept as data, not sent: Google recommends the default temperature for current Gemini models. */
   temperature: number;
   maxTokens: number;
   system: string;

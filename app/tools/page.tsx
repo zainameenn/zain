@@ -11,8 +11,8 @@ import s from "./tools.module.css";
 
 // The /tools hub: every free tool, grouped by Social, SEO, Ecommerce and LinkedIn.
 
-const TITLE = "Free Marketing Tools: 22 Generators and a UTM Builder";
-const DESCRIPTION = "Free marketing tools for social media, SEO, ecommerce and LinkedIn. Write bios, captions, titles and plans from your real details, then track every link.";
+const TITLE = "Free Marketing Tools: AI Bio and Caption Generators";
+const DESCRIPTION = "Free marketing tools for social media: write bios and captions from your real details, preview them live, and copy the one you like.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: "/tools" });
 
@@ -51,11 +51,11 @@ export default function ToolsHub() {
           Free Marketing <em style={H1_ACCENT_STYLE}>Tools</em>
         </h1>
         <p className={s.lede}>
-          These free marketing tools write bios, captions, titles, posts and plans from the details you give them, and build clean campaign links right in your browser. Nothing gets invented, and nothing gets posted for you.
+          These free marketing tools write bios and captions from the details you give them, then show them on a live preview before you post. Nothing gets invented, and nothing gets posted for you. More tools are on the way.
         </p>
       </header>
 
-      {GROUPS.map((g) => (
+      {GROUPS.filter((g) => toolsIn(g.group).length).map((g) => (
         <section key={g.group} className={s.hubSection} aria-labelledby={`group-${g.group}`}>
           <h2 id={`group-${g.group}`} className={s.h2}>
             {g.heading}

@@ -1,6 +1,6 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { BLOCKS, calendarSlots, fill, type ToolBlock } from "@/lib/tools/blocks";
 import { CORE_PROMPT } from "@/lib/tools/core";
+import { ModelError, generate, type Turn } from "@/lib/tools/gemini";
 import { getTool } from "@/lib/tools/registry";
 import type { ToolInput, ToolPage } from "@/lib/tools/types";
 import { countChars, fullText, nearDuplicates, resolveLimit, retryMessage, stripTrailingSeparators, type Option, type Problem } from "@/lib/tools/validate";
@@ -12,12 +12,13 @@ import { countChars, fullText, nearDuplicates, resolveLimit, retryMessage, strip
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
+// Google keeps these aliases pointed at its current Flash and Pro models. Override with env vars to pin a version.
 const MODELS = {
-  fast: process.env.TOOLS_MODEL_FAST || "claude-haiku-5-5",
-  strong: process.env.TOOLS_MODEL_STRONG || "claude-sonnet-5-5",
+  fast: process.env.TOOLS_MODEL_FAST || "gemini-flash-latest",
+  strong: process.env.TOOLS_MODEL_STRONG || "gemini-pro-latest",
 };
 /** Room for the model's thinking on top of the spec's output budget, so replies are never cut short. */
-const THINKING_ROOM = { fast: 2000, strong: 4000 };
+const THINKING_ROOM = { fast: 4000, strong: 8000 };
 const MAX_BODY = 16000;
 const MAX_DRAFT = 8000;
 
@@ -63,8 +64,7 @@ function readInput(tool: ToolPage, raw: unknown): Record<string, string> | strin
   return out;
 }
 
-function parseReply(message: Anthropic.Message): Reply | null {
-  const text = message.content.flatMap((b) => (b.type === "text" ? [b.text] : [])).join("");
+function parseReply(text: string): Reply | null {
   const start = text.indexOf("{");
   const end = text.lastIndexOf("}");
   if (start < 0 || end < start) return null;
@@ -120,8 +120,8 @@ export async function POST(req: Request) {
   if (typeof answers === "string") return json({ error: answers }, 400);
 
   const failText = tool.workspace.errorText;
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error("Tools API: ANTHROPIC_API_KEY is not set.");
+  if (!process.env.GEMINI_API_KEY) {
+    console.error("Tools API: GEMINI_API_KEY is not set.");
     return json({ error: failText }, 500);
   }
 
@@ -147,19 +147,18 @@ export async function POST(req: Request) {
   const result = tool.workspace.result;
   const limit = result.kind === "options" ? resolveLimit(result.limit, (data.input ?? {}) as ToolInput) : "limit" in result ? result.limit : 0;
 
-  const client = new Anthropic();
+  // The spec's temperatures stay in blocks.ts as data only: Google recommends the default temperature for current Gemini models.
   const request = {
     model: MODELS[block.model],
-    max_tokens: block.maxTokens + THINKING_ROOM[block.model],
+    maxOutputTokens: block.maxTokens + THINKING_ROOM[block.model],
     system: `${CORE_PROMPT}\n\n${fill(block.system, vars)}`,
-    output_config: { effort: "low" as const },
   };
-  const messages: Anthropic.MessageParam[] = [{ role: "user", content: user }];
+  const turns: Turn[] = [{ role: "user", text: user }];
 
   try {
-    const first = await client.messages.create({ ...request, messages });
-    if (first.stop_reason === "refusal") return json({ error: failText }, 422);
-    const reply = parseReply(first);
+    const first = await generate({ ...request, turns });
+    if (first.blocked) return json({ error: failText }, 422);
+    const reply = parseReply(first.text);
     if (reply && typeof reply.error === "string") return json({ error: reply.error }, 422);
     if (!reply) return json({ error: failText }, 502);
     const missingInfo = strings(reply.missing_info);
@@ -167,11 +166,8 @@ export async function POST(req: Request) {
 
     /** One retry naming only the failing items. Anything still over shows with a red counter. */
     const retry = async (problems: Problem[]) => {
-      const second = await client.messages.create({
-        ...request,
-        messages: [...messages, { role: "assistant", content: first.content }, { role: "user", content: retryMessage(problems, limit) }],
-      });
-      return second.stop_reason === "refusal" ? null : parseReply(second);
+      const second = await generate({ ...request, turns: [...turns, { role: "model", text: first.text }, { role: "user", text: retryMessage(problems, limit) }] });
+      return second.blocked ? null : parseReply(second.text);
     };
 
     const out = block.output;
@@ -224,10 +220,11 @@ export async function POST(req: Request) {
     const rest = Object.fromEntries(Object.entries(reply).filter(([k]) => k !== "missing_info" && k !== "warnings"));
     return json({ data: slots ? { ...rest, slots } : rest, missingInfo, warnings });
   } catch (error) {
-    if (error instanceof Anthropic.RateLimitError || (error instanceof Anthropic.APIError && error.status === 529)) {
+    // 429: Google's quota or rate limit. 503: Gemini is overloaded. Either way the visitor keeps their answers.
+    if (error instanceof ModelError && (error.status === 429 || error.status === 503)) {
       return json({ error: failText }, 503);
     }
-    console.error("Tools API: model call failed.", error instanceof Anthropic.APIError ? error.status : "network");
+    console.error("Tools API: model call failed.", error instanceof ModelError ? error.status : error instanceof Error ? error.name : "unknown");
     return json({ error: failText }, 502);
   }
 }

@@ -55,3 +55,8 @@
   - New preview skins in ProfileMockup: tiktok, x, threads, facebook, instagram-post. Caption family got language + emoji fields and prompt lines.
   - Unverified (flagged): TikTok 80 limit (creators report 160 on newer apps), Threads 150 limit, Facebook 101 limit, Instagram 2,200 (developer docs only), "before more" cutoffs.
 - Next: Batch 2 = TikTok caption, Facebook caption, YouTube description, Pinterest description, YouTube title.
+
+## Provider switch and first publish (2026-10-12)
+- AI tools now run on Google Gemini via plain fetch (lib/tools/gemini.ts), no SDK. Env: GEMINI_API_KEY (required, set in Vercel and .env.local, never committed). Optional TOOLS_MODEL_FAST / TOOLS_MODEL_STRONG; defaults gemini-flash-latest / gemini-pro-latest. JSON mode on, default temperature.
+- Only pages in LIVE (lib/tools/registry.ts) render in production: the 6 batch 1 pages. In dev, every page renders for review. Add each slug to LIVE when its batch is approved.
+- Hub copy is generic (no tool count) and hides empty groups.

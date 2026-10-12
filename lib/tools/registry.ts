@@ -25,7 +25,22 @@ const PAGES: ToolPage[] = [
   COMMENT,
 ];
 
-export const TOOLS: Record<string, ToolPage> = Object.fromEntries(PAGES.map((p) => [p.slug, p]));
+/**
+ * Pages rebuilt to the Instagram bio standard and approved to go live. Add a slug here when its batch is approved.
+ * In local dev every page renders, so unfinished batches can still be reviewed on localhost.
+ */
+const LIVE = new Set([
+  "instagram-bio-generator",
+  "tiktok-bio-generator",
+  "twitter-bio-generator",
+  "threads-bio-generator",
+  "facebook-bio-generator",
+  "instagram-caption-generator",
+]);
+const SHOWN = process.env.NODE_ENV === "development" ? PAGES : PAGES.filter((p) => LIVE.has(p.slug));
+
+/** Every page that renders: the hub, sitemap, static params, related links and the API all read from this. */
+export const TOOLS: Record<string, ToolPage> = Object.fromEntries(SHOWN.map((p) => [p.slug, p]));
 
 export const toolPath = (slug: string) => `/tools/${slug}`;
 
@@ -41,4 +56,4 @@ export const GROUPS: { group: ToolGroup; heading: string }[] = [
   { group: "LinkedIn", heading: "Free LinkedIn tools" },
 ];
 
-export const toolsIn = (group: ToolGroup) => PAGES.filter((p) => p.group === group);
+export const toolsIn = (group: ToolGroup) => SHOWN.filter((p) => p.group === group);
