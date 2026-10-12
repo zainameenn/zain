@@ -23,7 +23,7 @@ export default defineConfig({
     // "Presentation" shows drafts on the real site layout before publishing.
     presentationTool({
       resolve,
-      previewUrl: { previewMode: { enable: "/api/draft-mode/enable" } },
+      previewUrl: { initial: "/blog", previewMode: { enable: "/api/draft-mode/enable" } },
     }),
     table(),
     // Query playground for troubleshooting. Harmless for editors.

@@ -14,7 +14,7 @@ import type { AuthorWithPosts } from "@/sanity/lib/types";
 import { JsonLd, breadcrumbList } from "../../_components/JsonLd";
 import { Avatar, Breadcrumbs, Eyebrow, PostCard, SocialLinks } from "../../_components/parts";
 import { MAX, PAD, absolute, authorPath, paragraphs } from "../../_components/utils";
-import s from "../../insights.module.css";
+import s from "../../blog.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const name = stegaClean(author.name);
   return buildMetadata({
     // Framed as an article archive so it doesn't compete with /about for searches of the name.
-    title: `Articles by ${name} | Growth Marketing Insights`,
+    title: `Articles by ${name} | Growth Marketing Blog`,
     description: `Growth marketing articles by ${name}${author.jobTitle ? `, ${stegaClean(author.jobTitle)}` : ""}. Practical insights on SEO, Reddit, social media and SaaS growth from real projects.`,
     path: authorPath(stegaClean(author.slug)),
     noindex: author.posts.length === 0,
@@ -70,14 +70,14 @@ export default async function AuthorPage({ params }: Props) {
             },
             breadcrumbList([
               { name: "Home", url: absolute("/") },
-              { name: "Insights", url: absolute("/insights") },
+              { name: "Blog", url: absolute("/blog") },
               { name: author.name, url: pageUrl },
             ]),
           ],
         })}
       />
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(32px,4vw,56px) ${PAD} 0` }}>
-        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Insights", href: "/insights" }, { name: author.name }]} />
+        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }, { name: author.name }]} />
         <div style={{ maxWidth: 820, margin: "0 auto", padding: "clamp(40px,5vw,72px) 0 clamp(48px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <Avatar name={author.name} image={author.image} size={112} />
           <h1 style={{ ...HERO_H1_STYLE, marginTop: 24 }}>

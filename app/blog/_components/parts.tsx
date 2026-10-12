@@ -3,8 +3,8 @@ import { stegaClean } from "next-sanity";
 import { ArrowIcon, LinkedInIcon } from "@/app/HomeComponents/icons";
 import type { Author, PostCard as PostCardData, SanityImage as SanityImageValue } from "@/sanity/lib/types";
 import { SanityImage } from "./SanityImage";
-import { authorPath, categoryPath, formatDate, initials, paragraphs, postPath, readingMinutes } from "./utils";
-import s from "../insights.module.css";
+import { authorPath, formatDate, initials, paragraphs, postPath, readingMinutes } from "./utils";
+import s from "../blog.module.css";
 
 export function Eyebrow({ children, color = "#6F6B64" }: { children: React.ReactNode; color?: string }) {
   return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color }}>{children}</div>;
@@ -57,8 +57,6 @@ export function Avatar({ name, image, size }: { name: string; image?: SanityImag
 function Meta({ post }: { post: PostCardData }) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 8px", fontSize: 13.5, color: "#6F6B64" }}>
-      {post.author ? <span>{post.author.name}</span> : null}
-      {post.author ? <span aria-hidden="true">·</span> : null}
       <time dateTime={stegaClean(post.publishedAt)}>{formatDate(post.publishedAt)}</time>
       <span aria-hidden="true">·</span>
       <span>{readingMinutes(post.chars)} min read</span>
@@ -66,56 +64,80 @@ function Meta({ post }: { post: PostCardData }) {
   );
 }
 
+/** Shown when a post has no cover image, so every card keeps the same shape. */
+function CoverFallback({ label }: { label?: string }) {
+  return (
+    <div aria-hidden="true" className={s.coverFallback}>
+      <span>{label || "The blog"}</span>
+    </div>
+  );
+}
+
+function ReadMore({ label = "Read article" }: { label?: string }) {
+  return (
+    <span className={s.readMore} aria-hidden="true">
+      {label}
+      <ArrowIcon />
+    </span>
+  );
+}
+
+/** Article card. The whole card is one link; there are no links inside it. */
 export function PostCard({ post, headingLevel = 3, priority }: { post: PostCardData; headingLevel?: 2 | 3; priority?: boolean }) {
   const Heading = headingLevel === 2 ? "h2" : "h3";
   const category = post.categories?.[0];
   return (
     <article className={s.card}>
-      {post.mainImage ? (
+      <Link href={postPath(stegaClean(post.slug))} className={s.cardLink}>
         <div className={s.cardMedia}>
-          <SanityImage image={post.mainImage} aspect={16 / 10} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" widths={[400, 640, 800, 1080]} priority={priority} />
+          {post.mainImage?.asset ? (
+            <SanityImage image={post.mainImage} aspect={16 / 10} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" widths={[400, 640, 800, 1080]} priority={priority} />
+          ) : (
+            <CoverFallback label={category?.title} />
+          )}
         </div>
-      ) : null}
-      <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 0 }}>
-        {category ? (
-          <Link href={categoryPath(category.slug)} className={s.cardCategory} style={{ alignSelf: "flex-start", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7D6039" }}>
-            {category.title}
-          </Link>
-        ) : null}
-        <Heading className={s.cardTitle}>
-          <Link href={postPath(post.slug)}>{post.title}</Link>
-        </Heading>
-        <p style={{ margin: "10px 0 14px", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{post.excerpt}</p>
-        <Meta post={post} />
-      </div>
+        <div style={{ marginTop: 18, display: "flex", flexDirection: "column", flex: 1 }}>
+          {category ? <span className={s.cardCategory}>{category.title}</span> : null}
+          <Heading className={s.cardTitle}>{post.title}</Heading>
+          <p className={s.cardExcerpt}>{post.excerpt}</p>
+          <div style={{ marginTop: "auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+            <Meta post={post} />
+            <ReadMore />
+          </div>
+        </div>
+      </Link>
     </article>
   );
 }
 
+/** The featured article: a little more prominent than a normal card, image beside the text on wide screens. */
 export function FeaturedCard({ post }: { post: PostCardData }) {
   const category = post.categories?.[0];
   return (
-    <article className={`${s.card} ${s.featured}`}>
-      {post.mainImage ? (
+    <article className={s.card}>
+      <Link href={postPath(stegaClean(post.slug))} className={`${s.cardLink} ${s.featured}`}>
         <div className={s.cardMedia} style={{ borderRadius: 24 }}>
-          <SanityImage image={post.mainImage} aspect={16 / 10} sizes="(min-width: 1280px) 700px, (min-width: 900px) 56vw, 100vw" priority />
+          {post.mainImage?.asset ? (
+            <SanityImage image={post.mainImage} aspect={16 / 10} sizes="(min-width: 1280px) 700px, (min-width: 900px) 56vw, 100vw" priority />
+          ) : (
+            <CoverFallback label={category?.title} />
+          )}
         </div>
-      ) : null}
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ display: "inline-flex", alignItems: "center", height: 26, padding: "0 10px", borderRadius: 999, background: "#1C1C1C", color: "#F2EFEA", fontSize: 11.5, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>Latest</span>
-          {category ? (
-            <Link href={categoryPath(category.slug)} className={s.cardCategory} style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7D6039" }}>
-              {category.title}
-            </Link>
-          ) : null}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", height: 26, padding: "0 10px", borderRadius: 999, background: "#1C1C1C", color: "#F2EFEA", fontSize: 11.5, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>Featured</span>
+            {category ? <span className={s.cardCategory}>{category.title}</span> : null}
+          </div>
+          <h2 className={s.cardTitle} style={{ marginTop: 14 }}>
+            {post.title}
+          </h2>
+          <p style={{ margin: "14px 0 20px", fontSize: 17, lineHeight: 1.6, color: "#4E4C48" }}>{post.excerpt}</p>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 24px" }}>
+            <Meta post={post} />
+            <ReadMore label="Read the article" />
+          </div>
         </div>
-        <h2 className={s.cardTitle} style={{ marginTop: 14 }}>
-          <Link href={postPath(post.slug)}>{post.title}</Link>
-        </h2>
-        <p style={{ margin: "14px 0 18px", fontSize: 17, lineHeight: 1.6, color: "#4E4C48" }}>{post.excerpt}</p>
-        <Meta post={post} />
-      </div>
+      </Link>
     </article>
   );
 }
@@ -219,3 +241,38 @@ export function AuthorBox({ author }: { author: Author }) {
 }
 
 export { SocialLinks };
+
+/** Call to action after an article. Defaults to the contact page; posts can set their own text and link. */
+export function BlogCta({
+  heading,
+  text = "I write about this stuff, but I also work on it. Tell me what's stuck and I'll tell you where I'd start.",
+  buttonLabel = "Tell me what's stuck",
+  buttonUrl = "/contact",
+}: {
+  heading?: string;
+  text?: string;
+  buttonLabel?: string;
+  buttonUrl?: string;
+}) {
+  return (
+    <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
+      <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <h2 style={{ margin: 0, maxWidth: 820, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.6vw,50px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+          {heading ?? (
+            <>
+              Got the same problem
+              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
+                in your business?
+              </em>
+            </>
+          )}
+        </h2>
+        {text ? <p style={{ margin: "20px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>{text}</p> : null}
+        <Link href={buttonUrl} style={{ marginTop: 32, display: "inline-flex", alignItems: "center", gap: 12, height: 60, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16.5, fontWeight: 600 }}>
+          {buttonLabel}
+          <ArrowIcon size={15} />
+        </Link>
+      </div>
+    </section>
+  );
+}

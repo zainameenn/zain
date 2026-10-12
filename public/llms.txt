@@ -53,7 +53,8 @@ Proof of work:
 - [Pricing](https://www.zainameen.com/pricing): Full pricing across all services, including the one-time $499 growth audit and the $3,999/month all-in-one plan.
 - [Case studies](https://www.zainameen.com/case-studies): What was broken, what changed and what happened next for Blainy, Everdry, Virtarix and LoomPad.
 - [Contact](https://www.zainameen.com/contact): Book a free 30-minute call, send an email, or fill out the contact form.
-- [Insights](https://www.zainameen.com/insights): Practical, non-recycled notes on SEO, Reddit marketing, social and SaaS growth.
+- [Blog](https://www.zainameen.com/blog): Practical, non-recycled notes on SEO, Reddit marketing, social and SaaS growth.
+- [Insights](https://www.zainameen.com/insights): Free Keybooks (practical guides) in progress, with a waitlist.
 
 ## Optional
 

@@ -27,6 +27,7 @@ const FOOT_GROUPS = [
     items: [
       ["Pricing", "/pricing"],
       ["About", "/about"],
+      ["Blog", "/blog"],
       ["Insights", "/insights"],
       ["Contact", "/contact"],
       ["Privacy", "/privacy"],

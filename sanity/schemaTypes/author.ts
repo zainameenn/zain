@@ -15,7 +15,7 @@ export const author = defineType({
       name: "slug",
       type: "slug",
       title: "URL slug",
-      description: "Used for the author page: /insights/author/your-slug. Click Generate to create it from the name.",
+      description: "Used for the author page: /blog/author/your-slug. Click Generate to create it from the name.",
       options: { source: "name", maxLength: 80 },
       validation: (rule) => rule.required(),
     }),

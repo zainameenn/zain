@@ -14,10 +14,20 @@
 }
 
 .card {
-  position: relative;
+  min-width: 0;
+  display: flex;
+}
+/* The whole card is a single link. */
+.cardLink {
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  width: 100%;
+  color: inherit;
+  border-radius: 20px;
+}
+.cardLink:focus-visible {
+  outline: 2px solid #C4A47C;
+  outline-offset: 6px;
 }
 .cardMedia {
   border-radius: 18px;
@@ -27,8 +37,33 @@
 .cardMedia img {
   transition: transform 400ms cubic-bezier(.2, .7, .2, 1);
 }
-.card:hover .cardMedia img {
+.cardLink:hover .cardMedia img {
   transform: scale(1.03);
+}
+.coverFallback {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #F4F0E8;
+  border: 1px solid #E2D8CA;
+  border-radius: inherit;
+  text-align: center;
+}
+.coverFallback span {
+  font-family: var(--nf-serif), serif;
+  font-style: italic;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.1;
+  color: #7D6039;
+}
+.cardCategory {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #7D6039;
 }
 .cardTitle {
   margin: 10px 0 0;
@@ -38,27 +73,40 @@
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: #1C1C1C;
+  text-wrap: pretty;
 }
-/* The whole card is clickable through the title link. */
-.cardTitle a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-.card:hover .cardTitle a {
+.cardLink:hover .cardTitle {
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
   text-decoration-color: #C4A47C;
 }
-.cardCategory {
-  position: relative;
-  z-index: 2;
+.cardExcerpt {
+  margin: 10px 0 16px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #4E4C48;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C1C1C;
+}
+.readMore svg {
+  transition: transform 200ms;
+}
+.cardLink:hover .readMore svg {
+  transform: translateX(4px);
 }
 
 .featured {
-  position: relative;
   display: grid;
   gap: 28px clamp(28px, 4vw, 56px);
   align-items: center;
@@ -73,10 +121,31 @@
   letter-spacing: -0.03em;
 }
 
+/* Category filters: one row that scrolls sideways on phones. */
+.filters {
+  list-style: none;
+  margin: 0;
+  padding: 2px 2px 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+@media (max-width: 767.98px) {
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 calc(-1 * clamp(20px, 2.5vw, 32px));
+    padding: 2px clamp(20px, 2.5vw, 32px) 6px;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters li { flex: 0 0 auto; }
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
-  height: 38px;
+  height: 40px;
   padding: 0 16px;
   border-radius: 999px;
   border: 1px solid #D6CFC2;
@@ -461,3 +530,106 @@
   color: #6F6B64;
 }
 .crumbs a:hover { color: #1C1C1C; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Pagination ---------- */
+.pagination {
+  margin-top: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.pageLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #D6CFC2;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1C1C1C;
+  transition: border-color 160ms, background 160ms;
+}
+.pageLink:hover { border-color: #1C1C1C; }
+.pageCurrent {
+  background: #1C1C1C;
+  border-color: #1C1C1C;
+  color: #F2EFEA;
+}
+.pageDisabled {
+  opacity: .4;
+  pointer-events: none;
+}
+
+/* ---------- Heading anchors (shareable section links) ---------- */
+.anchor {
+  margin-left: 10px;
+  font-weight: 400;
+  color: #C4A47C !important;
+  text-decoration: none !important;
+  opacity: 0;
+  transition: opacity 140ms;
+}
+.body h2:hover .anchor,
+.body h3:hover .anchor,
+.anchor:focus-visible {
+  opacity: 1;
+}
+@media (hover: none) {
+  .anchor { display: none; }
+}
+
+/* ---------- Code blocks ---------- */
+.code {
+  margin-top: 1.8em;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1C1C1C;
+  color: #F2EFEA;
+}
+.code figcaption {
+  margin: 0 !important;
+  padding: 10px 16px;
+  border-bottom: 1px solid #3A3935;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px !important;
+  color: #B7B2A8 !important;
+  text-align: left !important;
+}
+.code pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.body .code code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ---------- Share buttons ---------- */
+.shareButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid #D6CFC2;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1C1C1C;
+  cursor: pointer;
+  transition: border-color 160ms;
+}
+.shareButton:hover { border-color: #1C1C1C; }
