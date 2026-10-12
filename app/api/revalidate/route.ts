@@ -1,4 +1,4 @@
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 import { parseBody } from "next-sanity/webhook";
 import { SANITY_TAG } from "@/sanity/lib/fetch";
@@ -17,8 +17,6 @@ export async function POST(request: NextRequest) {
     }
     // The next visitor gets fresh content straight away (no stale copy is served).
     revalidateTag(SANITY_TAG, { expire: 0 });
-    // Vercel caches the sitemap by its address rather than by tag, so refresh it by address too.
-    revalidatePath("/sitemap.xml");
     return NextResponse.json({ revalidated: true, type: body?._type ?? null, now: Date.now() });
   } catch (error) {
     console.error(error);

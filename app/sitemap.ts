@@ -8,6 +8,10 @@ type SitemapContent = {
   authors: { slug: string; _updatedAt: string }[];
 };
 
+// Built on each request (Vercel would otherwise keep a cached copy for up to an hour after a publish).
+// The Sanity data itself is still cached and refreshed by the publish webhook, so this stays cheap.
+export const revalidate = 0;
+
 // Published blog content from Sanity. Drafts never appear (the query only sees published documents).
 // If Sanity can't be reached, the sitemap still lists every fixed page.
 async function blogRoutes(): Promise<MetadataRoute.Sitemap> {
