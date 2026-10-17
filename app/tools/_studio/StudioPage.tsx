@@ -9,7 +9,7 @@ import { countChars } from "@/lib/tools/validate";
 import { Crumbs, rich } from "../_components/content";
 import { BioStudio } from "./BioStudio";
 import { lora } from "./fonts";
-import { InstaScreen, Mark, PhoneFrame } from "./Phone";
+import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
 import { StyleButton } from "./StyleButton";
 import s from "./studio.module.css";
 
@@ -83,7 +83,7 @@ function StepVisual({ kind }: { kind: "account" | "style" | "copy" }) {
   );
 }
 
-function BrandCard({ b }: { b: BrandExample }) {
+function BrandCard({ b, limit, platform }: { b: BrandExample; limit: number; platform: string }) {
   const verified = b.bio !== null;
   const text = verified ? b.bio : (b.illustrative ?? "");
   return (
@@ -93,7 +93,12 @@ function BrandCard({ b }: { b: BrandExample }) {
           // Small local SVGs: next/image would only add an optimization round trip here.
           // eslint-disable-next-line @next/next/no-img-element
           <img src={b.logo.src} alt="" width={40} height={40} className={s.brandLogo} loading="lazy" />
-        ) : null}
+        ) : (
+          // No freely licensed logo for this brand, so a neutral monogram stands in.
+          <span className={`${s.brandLogo} ${s.brandMono}`} aria-hidden>
+            {initialsOf(b.brand)}
+          </span>
+        )}
         <div className={s.brandNames}>
           <span className={s.brandName}>{b.brand}</span>
           <span className={s.brandHandle}>@{b.handle}</span>
@@ -102,14 +107,14 @@ function BrandCard({ b }: { b: BrandExample }) {
       </div>
       <div className={s.inset}>
         {text ? <p className={s.insetBio}>{text}</p> : <p className={s.insetEmpty}>No bio right now. Just the name.</p>}
-        <span className={s.count}>{verified ? `${countChars(text ?? "")} / 150` : "Illustrative example"}</span>
+        <span className={s.count}>{verified ? `${countChars(text ?? "")} / ${limit}` : "Illustrative example"}</span>
       </div>
       <p className={s.why}>
         <span className={s.whyLabel}>Why it works</span>
         {rich(b.why)}
       </p>
       <a className={s.cardFoot} href={b.url} target="_blank" rel="noopener noreferrer">
-        View Instagram profile
+        View {platform} profile
         <span className={s.srOnly}> for {b.brand} (opens in a new tab)</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M5 12h14M13 6l6 6-6 6" />
@@ -127,6 +132,9 @@ const ICONS: Record<RelatedIcon, ReactNode> = {
 };
 
 function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
+  const r = tool.workspace.result;
+  const limit = r.kind === "options" && typeof r.limit === "number" ? r.limit : 150;
+  const platform = tool.studio?.platform ?? "Instagram";
   switch (section.kind) {
     case "steps":
       return (
@@ -146,7 +154,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
         <>
           <ul className={s.gallery}>
             {section.items.map((b) => (
-              <BrandCard key={b.handle} b={b} />
+              <BrandCard key={b.handle} b={b} limit={limit} platform={platform} />
             ))}
           </ul>
           {section.note ? <p className={s.smallNote}>{rich(section.note)}</p> : null}
@@ -158,14 +166,14 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
         <span key={l.text}>
           {l.text}
           <Mark n={l.mark} />
-          {i < section.lines.length - 1 ? "\n" : ""}
+          {i < section.lines.length - 1 ? (section.join ?? "\n") : ""}
         </span>
       ));
       return (
         <div className={s.creator}>
           <ol className={s.points}>
             {section.points.map((pt, i) => {
-              const marked = i + 1 === section.nameMark || section.lines.some((l) => l.mark === i + 1);
+              const marked = i + 1 === section.nameMark || i + 1 === section.linkMark || i + 1 === section.categoryMark || section.lines.some((l) => l.mark === i + 1);
               return (
                 <li key={pt.title} className={marked ? s.point : `${s.point} ${s.pointMissing}`}>
                   <span className={s.pointNum} aria-hidden>
@@ -181,11 +189,15 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
           </ol>
           <figure className={s.creatorPhone}>
             <PhoneFrame>
-              <InstaScreen
+              <ProfileScreen
+                skin={tool.studio?.skin ?? "instagram"}
                 username={p.handle}
                 name={p.name}
+                category={p.category}
+                link={p.link}
+                location={p.location}
                 bio={bio}
-                marks={{ name: section.nameMark }}
+                marks={{ name: section.nameMark, link: section.linkMark, category: section.categoryMark }}
                 highlights={[]}
                 avatar={<Image src={p.photo.src} alt="" width={p.photo.width} height={p.photo.height} className={s.instaPhoto} />}
               />
@@ -194,7 +206,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
               {section.note ? <>{rich(section.note)} </> : null}
               Posts and buttons are placeholders. {rich(p.photo.credit)}{" "}
               <a href={p.url} target="_blank" rel="noopener noreferrer">
-                View @{p.handle} on Instagram
+                View @{p.handle} on {platform}
               </a>
             </figcaption>
           </figure>
@@ -209,12 +221,12 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
             <div className={s.compareCol}>
               <p className={s.compareLabel}>Before</p>
               <p className={s.compareBio}>{section.before}</p>
-              <p className={s.count}>{countChars(section.before)} / 150</p>
+              <p className={s.count}>{countChars(section.before)} / {limit}</p>
             </div>
             <div className={`${s.compareCol} ${s.compareAfter}`}>
               <p className={s.compareLabel}>After</p>
               <p className={s.compareBio}>{section.after}</p>
-              <p className={s.count}>{countChars(section.after)} / 150</p>
+              <p className={s.count}>{countChars(section.after)} / {limit}</p>
             </div>
           </div>
           <ul className={s.changes}>
@@ -233,7 +245,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
               <p className={s.styleWhen}>{st.when}</p>
               <div className={s.inset}>
                 <p className={s.insetBio}>{st.bio}</p>
-                <span className={s.count}>{countChars(st.bio)} / 150</span>
+                <span className={s.count}>{countChars(st.bio)} / {limit}</span>
               </div>
               <p className={s.why}>
                 <span className={s.whyLabel}>Why it works</span>
@@ -259,9 +271,9 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
               {p.example && "count" in p.example ? (
                 <div className={s.meter} aria-hidden>
                   <span className={s.meterBar}>
-                    <i style={{ width: `${(p.example.count / 150) * 100}%` }} />
+                    <i style={{ width: `${(p.example.count / limit) * 100}%` }} />
                   </span>
-                  <span className={s.count}>{p.example.count} / 150</span>
+                  <span className={s.count}>{p.example.count} / {limit}</span>
                 </div>
               ) : p.example ? (
                 <div className={s.examples}>
@@ -343,7 +355,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.sub}>{studio.sub}</p>
           <p className={s.trust}>{studio.trust}</p>
         </header>
-        <BioStudio slug={tool.slug} ws={tool.workspace} />
+        <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />
       </div>
 
       {bands.map((section, i) => (

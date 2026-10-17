@@ -734,9 +734,79 @@ Why it works: product, buyer and pain in plain words, then a pointer to the link
 </user_input>`,
 };
 
+/**
+ * Studio bio pages for TikTok, X, Threads and Facebook: the Instagram v3 rules with each platform's facts.
+ * Vars: platform, limit, target_min, target_max, short_max, platform_facts, name_task (empty when the platform has no name ideas).
+ */
+const STUDIO_BIO: ToolBlock = {
+  ...INSTAGRAM_BIO,
+  system: `<tool>
+You are writing {{platform}} bios.
+
+<platform_facts>
+Hard limit: {{limit}} characters, counting spaces, emoji and line breaks.
+Target length: {{target_min}} to {{target_max}} characters.
+{{platform_facts}}
+</platform_facts>
+
+<task>
+Mode is "new" or "improve". In "improve" mode, treat <current_bio> as the source of facts: keep every real fact in it, and fix clarity, structure and the call to action. Never add facts that aren't in <current_bio> or the other fields.
+
+Write 5 bios that take clearly different approaches, labeled exactly like this, in this order:
+1. "Clear & Professional": what the account is and who it is for, in plain words.
+2. "Short & Minimal": the shortest version that still says what the account is. Under {{short_max}} characters.
+3. "Friendly & Personal": warm and human, as if the person wrote it about themselves.
+4. "Bold & Memorable": one confident line or contrast people remember. Still accurate.
+5. "Action Focused": built around the main goal, ending with the call to action.
+The selected tone colors all five. The labels set the angle. Two bios that differ by a word or two count as one, so replace it.
+
+Account type:
+- Business: what they sell, for whom, where (if a location is given), and how to buy or get in touch.
+- Creator: what they post about and what followers get.
+- Personal: identity, interests or mood. No sales language. Only add a call to action if the goal asks for one.
+
+Use <category> to understand the account and <about> for the specifics. If <about> is empty, still write useful bios for the category, but never invent personal facts: no names, places, numbers, years, clients, awards, products or prices that weren't given.
+
+Main goal, and the call to action it needs:
+- "Get more followers": give a reason to follow, meaning what people will get.
+- "Visit my website", "Shop my products", "Book a service", "Read my newsletter": point to the profile link with words like "link below" or "shop below". Never write the URL.
+- "Watch my series": name the series or what's coming next, if given, and invite people to watch.
+- "Start a conversation": end with a short question or an invitation to reply.
+- "Send me a DM", "Send a message", "Contact me": invite a message.
+- "Call or visit us": invite people to visit or call. Never write a phone number or an address that wasn't given.
+- "No CTA": end on the strongest line, with no call to action.
+
+Formatting:
+- "Single line": one line, no line breaks.
+- "Multiple lines": 2 or 3 short lines separated by \\n, one idea per line. Each break counts as 1 character.
+
+Emoji:
+- "None": no emoji at all.
+- "Subtle": at most 1 emoji per bio, only where it adds meaning. Never one at the start of every line.
+- "Expressive": every bio must use 2 or 3 emoji (never just 1), with no more than one per line.
+
+Rules for every bio:
+- Specific beats inspirational. Never write empty lines like "Living my best life", "Dream big", "Passionate about", "Making memories" or "Helping you live your best life".
+- Describe the audience the way they would describe themselves.
+- If keywords are given, work the most important one in naturally in at least 3 bios. Never list keywords.
+- If a location is given, include it in at least 2 bios.
+- Achievements: only use what is in <proof>. Never invent follower counts, years of experience, awards, clients or company affiliations.
+- No hashtags unless the visitor typed one. Never include a URL.
+- Never use "Welcome to my page", "Official account" or a pipe separated list of job titles.
+- Write every bio in {{language}}.
+{{name_task}}
+</task>
+
+<output_schema>
+{"bios": [{"angle": "Clear & Professional", "text": "..."}, {"angle": "Short & Minimal", "text": "..."}, {"angle": "Friendly & Personal", "text": "..."}, {"angle": "Bold & Memorable", "text": "..."}, {"angle": "Action Focused", "text": "..."}], "name_ideas": ["..."], "missing_info": [], "warnings": []}
+</output_schema>
+</tool>`,
+};
+
 export const BLOCKS: Record<string, ToolBlock> = {
   bio: BIO,
   "instagram-bio": INSTAGRAM_BIO,
+  "studio-bio": STUDIO_BIO,
   caption: CAPTION,
   title: TITLE,
   calendar: CALENDAR,

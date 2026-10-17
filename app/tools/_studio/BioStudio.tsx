@@ -6,7 +6,7 @@ import { LINK_GOALS, draftBio, nicheFor, usernameFrom } from "@/lib/tools/draft"
 import type { StyleSettings, ToolField, ToolInput, Workspace } from "@/lib/tools/types";
 import { countChars, resolveLimit, type Option } from "@/lib/tools/validate";
 import { Combobox, Disclosure, Segmented, Select, Spinner, StudioField } from "./controls";
-import { InstaScreen, PhoneFrame, initialsOf } from "./Phone";
+import { PhoneFrame, ProfileScreen, initialsOf, type ProfileSkin } from "./Phone";
 import s from "./studio.module.css";
 
 // The redesigned bio generator.
@@ -25,7 +25,7 @@ function defaults(fields: ToolField[]): ToolInput {
 
 const shows = (f: ToolField, v: ToolInput) => !f.when || v[f.when.field] === f.when.equals;
 
-export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
+export function BioStudio({ slug, ws, skin = "instagram", label = "Instagram bio generator" }: { slug: string; ws: Workspace; skin?: ProfileSkin; label?: string }) {
   const [values, setValues] = useState<ToolInput>(() => defaults(ws.fields));
   const [status, setStatus] = useState<Status>("idle");
   const [options, setOptions] = useState<Option[]>([]);
@@ -178,10 +178,11 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
     format: str("format"),
     location: str("location"),
     audience: str("audience"),
+    limit,
   });
   const phoneBio = has ? (options[Math.min(selected, options.length - 1)]?.text ?? "") : draft;
   const displayName = name || ideas[0] || (category ? `Your name · ${category.split(" / ")[0]}` : "Your name");
-  const shownCategory = mode === "improve" || accountType === "Personal" ? undefined : category ? category.split(" / ")[0] : "Your category";
+  const shownCategory = mode === "improve" || accountType === "Personal" || (skin !== "instagram" && skin !== "facebook") ? undefined : category ? category.split(" / ")[0] : "Your category";
   const link = LINK_GOALS.includes(str("goal")) ? "yourwebsite.com" : undefined;
   const avatar = <span className={s.instaInitials}>{name ? initialsOf(name) : category ? niche.emoji : "?"}</span>;
   const showPhone = !has || view === "phone";
@@ -189,14 +190,15 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
   const phone = (
     <div className={s.phoneStage}>
       <PhoneFrame>
-        <InstaScreen
-          username={usernameFrom(name, category)}
+        <ProfileScreen
+          skin={skin}
+          username={usernameFrom(name, category, skin)}
           name={displayName}
           category={shownCategory}
           bio={phoneBio || <span className={s.instaPlaceholder}>Your bio shows up here</span>}
           link={link}
           avatar={avatar}
-          highlights={niche.highlights}
+          highlights={skin === "instagram" ? niche.highlights : undefined}
         />
       </PhoneFrame>
       {loading && !has ? (
@@ -209,7 +211,7 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
   );
 
   return (
-    <section className={s.tool} aria-label="Instagram bio generator">
+    <section className={s.tool} aria-label={label}>
       <form
         ref={formRef}
         className={s.panel}

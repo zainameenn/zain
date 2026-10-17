@@ -1,225 +1,333 @@
-import { FAIR_USE } from "../links";
-import type { DemoProfile, ToolExample, ToolInput, ToolPage } from "../types";
+import { FAIR_USE, LINK_SOCIAL_MEDIA_SERVICE } from "../links";
+import type { BrandExample, StudioContent, ToolPage } from "../types";
+import { studioBioPage, type StudioBioPlatform } from "./studio-bio";
 
-// Threads Bio Generator copy v2 (docs/copy/threads-bio-generator.md), merged over the bio family page.
+// Threads Bio Generator on the studio layout, same structure as the Instagram page.
 
+/** Old form copy, still read by the bio family. The studio form below replaces the fields on this page. */
 export const THREADS_FIELD_COPY = {
-  who: { placeholder: "Tiny candle studio run by two people" },
-  audience: { placeholder: "People who like slow evenings and honest small business talk", hint: "Threads is a conversation app, so say who you want to talk with" },
-  current_bio: { label: "Paste your current bio (from Threads, Instagram or X)" },
-  keywords: { label: "Topics you post about (optional)", placeholder: "candles, small business" },
-  proof: { placeholder: "500 orders shipped from our kitchen table" },
-  action: { label: "What should visitors do next?", options: ["Follow", "DM me", "Tap my link", "Book", "Shop", "Nothing"], defaultValue: "Follow" },
-  tone: { label: "Vibe" },
+  who: { placeholder: "Product manager at a fintech startup" },
+  current_bio: { label: "Paste your current Threads bio" },
 };
 
-const base = (input: ToolInput): ToolInput => ({ mode: "new", current_bio: "", keywords: "", location: "", proof: "", emoji: true, line_breaks: true, language: "English", ...input });
+const CHECKED = "October 17, 2026";
+const logo = (path: string, alt: string) => ({ src: path, alt, width: 64, height: 64 });
 
-type Example = ToolExample & { profile: DemoProfile };
+const PLATFORM: StudioBioPlatform = {
+  platform: "Threads",
+  skin: "threads",
+  limit: 150,
+  target: [60, 140],
+  shortMax: 60,
+  facts:
+    "Threads is a conversation platform, so the bio can be warmer and chattier than Instagram. Links (up to 5) and Interests (up to 10 topics) have their own fields, so never list links, topics or hashtags in the bio. Threads doesn't publish a bio limit, so keep every bio within 150 characters.",
+  goals: ["Get more followers", "Start a conversation", "Visit my website", "Shop my products", "Send me a DM", "No CTA"],
+  defaultFormat: "Multiple lines",
+  copy: {
+    about: "Product manager writing about shipping faster",
+    currentBio: "Official account of Leeds Bikes | Shop | Repairs",
+    name: "Sam Patel",
+    nameHint: "Shows on the preview. Your Threads name comes from Instagram.",
+    audience: "People who build software for a living",
+    proof: "Shipped three apps in five years",
+    keywords: "product management",
+    location: "Leeds",
+  },
+  example: {
+    account_type: "Business",
+    category: "Small Business",
+    about: "Neighborhood bike shop doing repairs and rentals",
+    name: "Leeds Bikes",
+    location: "Leeds",
+    tone: "Friendly",
+    goal: "Start a conversation",
+    emoji: "Subtle",
+    format: "Multiple lines",
+  },
+};
 
-const EXAMPLES: Example[] = [
+/**
+ * Real brand profiles. Each bio is the biography field from the brand's live Threads profile on the date in CHECKED.
+ * Bios change often, so recheck before relying on them. Brands without a free logo get a neutral monogram.
+ */
+const BRANDS: BrandExample[] = [
   {
-    inputLabel: "Candle studio",
-    inputText: "two person candle studio · people who like small business stories · Follow · Funny",
-    input: base({ account_type: "Business", who: "Two person candle studio", audience: "People who like small business stories", keywords: "candles", action: "Follow", tone: "Funny" }),
-    output: "Two of us, one tiny candle studio, far too many opinions about wax 🕯️\nPosting the wins, the flops and the weird orders",
-    why: "it promises a running story, which is exactly what people follow on Threads.",
-    profile: { username: "wickandwhim", name: "Wick & Whim", text: "", link: "yoursite.com", badge: "Business" },
+    brand: "Duolingo",
+    handle: "duolingo",
+    url: "https://www.threads.com/@duolingo",
+    logo: logo("/assets/tools/instagram-bio/brands/duolingo.svg", "Duolingo logo"),
+    bio: "taco. taco. taco. タコス. taco. taco. टैको. taco. Taco.",
+    checked: CHECKED,
+    style: "Personality",
+    why: "One word in three scripts. It shows off the product, languages, as a joke instead of a description.",
+    lesson: "Show what you do instead of explaining it, if you can do it in one line.",
   },
   {
-    inputLabel: "Product designer",
-    inputText: "product designer · designers and product people · Follow · Bold",
-    input: base({ account_type: "Creator", who: "Product designer", audience: "Designers and product people", keywords: "UX", action: "Follow", tone: "Bold", emoji: false, line_breaks: false }),
-    output: "Product designer. Hot takes on bad UX, kind takes on people.",
-    why: "the contrast tells you the tone of every reply before you read one.",
-    profile: { username: "rina.designs", name: "Rina · Product Design", text: "", badge: "Creator" },
+    brand: "Canva",
+    handle: "canva",
+    url: "https://www.threads.com/@canva",
+    logo: logo("/assets/tools/instagram-bio/brands/canva.svg", "Canva logo"),
+    bio: "What will you design today?",
+    checked: CHECKED,
+    style: "Action-focused",
+    why: "A single question that invites you to do something, which suits a platform built on replies.",
+    lesson: "A question is a call to action that doesn't feel like one.",
   },
   {
-    inputLabel: "English teacher",
-    inputText: "English teacher · adults who think it's too late · Follow · Friendly",
-    input: base({ account_type: "Creator", who: "English teacher for adult learners", audience: "Adults who think it's too late to learn English", action: "Follow", tone: "Friendly", emoji: false, line_breaks: false }),
-    output: "Teaching English to adults who think it's too late. It isn't.",
-    why: "it names the doubt the audience carries, then answers it in two words.",
-    profile: { username: "never.too.late.english", name: "Omar · English Coach", text: "", badge: "Creator" },
+    brand: "NASA",
+    handle: "nasa",
+    url: "https://www.threads.com/@nasa",
+    logo: logo("/assets/tools/brands/nasa.svg", "NASA logo"),
+    bio: "Making the seemingly impossible, possible. ✨",
+    checked: CHECKED,
+    style: "Brand-focused",
+    why: "A mission line and one emoji. The topics live in the Interests field instead: NASA, Space Threads and Science Threads.",
+    lesson: "Let Interests carry the topics so the bio can say something bigger.",
   },
   {
-    inputLabel: "Coffee roaster",
-    inputText: "small batch coffee roaster · Leeds · home brewers · DM me · Friendly",
-    input: base({ account_type: "Business", who: "Small batch coffee roaster", audience: "Home brewers", location: "Leeds", keywords: "coffee", action: "DM me", tone: "Friendly" }),
-    output: "Small batch coffee, roasted in Leeds ☕\nAsk us anything about brewing at home, we love it\nDMs open",
-    why: "it invites questions, and on Threads a question is how a conversation starts.",
-    profile: { username: "leeds.roastery", name: "Leeds Roastery", text: "", link: "yoursite.com", badge: "Business" },
+    brand: "Wendy's",
+    handle: "wendys",
+    url: "https://www.threads.com/@wendys",
+    logo: null,
+    bio: "Food threads",
+    checked: CHECKED,
+    style: "Minimal",
+    why: "Two words that play on the platform's name, in the same joking voice Wendy's uses everywhere.",
+    lesson: "A tiny bio works when the voice is already famous.",
   },
   {
-    inputLabel: "SaaS founder",
-    inputText: "building an invoicing tool for tiny agencies · founders · Follow · Professional",
-    input: base({ account_type: "Personal", who: "Building an invoicing tool for tiny agencies", audience: "Other founders", keywords: "SaaS", action: "Follow", tone: "Professional", emoji: false }),
-    output: "Building an invoicing tool for tiny agencies\nThinking out loud about pricing, churn and sleep",
-    why: "\"thinking out loud\" is a promise of honest posts, and \"sleep\" makes it human.",
-    profile: { username: "dev.builds.invoices", name: "Dev · Founder", text: "", link: "yoursite.com", badge: "Personal" },
+    brand: "Sephora",
+    handle: "sephora",
+    url: "https://www.threads.com/@sephora",
+    logo: null,
+    bio: "We Belong to Something Beautiful",
+    checked: CHECKED,
+    style: "Brand-focused",
+    why: "The brand slogan, and nothing else. The shopping happens in the link, which has its own title: sephora.com.",
+    lesson: "Give your link a clear title so the bio doesn't have to explain it.",
   },
   {
-    inputLabel: "Personal",
-    inputText: "plants and late night playlists · personal account · Nothing · Aesthetic",
-    input: base({ account_type: "Personal", who: "Plants and late night playlists", audience: "", action: "Nothing", tone: "Aesthetic", line_breaks: false }),
-    output: "plants, bad puns, playlists for 2am 🌙",
-    why: "a personal account only needs a mood, and this one sets it in seven words.",
-    profile: { username: "leafy.lena", name: "lena", text: "", badge: "Personal" },
+    brand: "Starbucks",
+    handle: "starbucks",
+    url: "https://www.threads.com/@starbucks",
+    logo: null,
+    bio: "*shakes iced coffee*",
+    checked: CHECKED,
+    style: "Personality",
+    why: "Written like an action in a chat. It sounds like a person on Threads, not a coffee company.",
+    lesson: "On Threads, sounding like a person beats sounding official.",
   },
-].map((e) => ({ ...e, profile: { ...e.profile, text: e.output } }));
+];
+
+const STUDIO: StudioContent = {
+  lede: "This Threads bio generator writes bios that sound like a real person, start conversations, and fit in 150 characters.",
+  sub: "Choose your style, tell us what your account is about, and get five bios ready to copy.",
+  trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
+  sections: [
+    {
+      kind: "steps",
+      eyebrow: "How it works",
+      heading: "How to use the",
+      accent: "Threads bio generator",
+      intro: "Three steps, about thirty seconds. The phone preview updates while you go.",
+      steps: [
+        { title: "Tell us about your account", text: "Pick personal, creator or business, then choose your niche or type your own.", visual: "account" },
+        { title: "Choose your style", text: "Pick a tone, how many emoji you want, and one line or several.", visual: "style" },
+        { title: "Copy your favorite", text: "Compare five bios, preview any of them on the phone, then paste one into Edit profile on Threads.", visual: "copy" },
+      ],
+    },
+    {
+      kind: "gallery",
+      eyebrow: "Real examples",
+      heading: "6 Threads bios",
+      accent: "worth learning from",
+      intro: "How well known brands sound on Threads, where the bio reads more like a hello than a pitch.",
+      note: `Big brands can lean on name recognition, so copy the habits, not the brevity. Bios as shown on each brand's official Threads profile on ${CHECKED}, and they may have changed since. Logos are trademarks of their owners, shown only to identify each account.`,
+      items: BRANDS,
+    },
+    {
+      kind: "creator",
+      eyebrow: "Bio breakdown",
+      heading: "What makes a good",
+      accent: "Threads bio",
+      intro: "A good Threads bio tells people who you are and why your replies are worth reading. Here's a real one, taken apart line by line.",
+      profile: {
+        handle: "adamgrant",
+        name: "Adam Grant",
+        url: "https://www.threads.com/@adamgrant",
+        checked: CHECKED,
+        link: "linktr.ee/adammgrant",
+        photo: {
+          src: "/assets/tools/threads-bio/adam-grant.webp",
+          alt: "Adam Grant",
+          width: 256,
+          height: 256,
+          credit: "Photo: World Economic Forum / Jakob Polacsek, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), via Wikimedia Commons, cropped.",
+        },
+      },
+      nameMark: 1,
+      linkMark: 5,
+      lines: [
+        { text: "Organizational psychologist @whartonschool", mark: 2 },
+        { text: "#1 NYT bestselling author of THINK AGAIN and HIDDEN POTENTIAL", mark: 3 },
+        { text: "@TED podcast: Re:Thinking", mark: 4 },
+      ],
+      points: [
+        { title: "Name", text: "His real name, in bold at the top. On Threads it comes from Instagram, so there's no extra name field to fill." },
+        { title: "Role and where he works", text: "\"Organizational psychologist\" says what he knows about, and the @whartonschool mention is tappable." },
+        { title: "Proof, stated once", text: "One line of credibility, with his two books named. Use proof like this only if it's real and you can name it." },
+        { title: "Another way in", text: "The podcast line gives people a second reason to stick around, and the @TED mention links straight to it." },
+        { title: "One link", text: "A single link page in the links section, so the bio itself never needs a URL. Threads allows up to five." },
+        { title: "What's missing", text: "Nothing personal or chatty, and no Interests set. On Threads, one human line or a question gives people an easy first reply." },
+      ],
+      note: `Bio and link as shown on @adamgrant on ${CHECKED}. Follower counts and posts are left out on purpose.`,
+    },
+    {
+      kind: "compare",
+      eyebrow: "Before and after",
+      heading: "Fixing a weak",
+      accent: "Threads bio",
+      intro: "A bio copied from a website sounds stiff on Threads. Make it sound like someone you could reply to.",
+      before: "Official account of Leeds Bikes 🚲\nShop | Repairs | Rentals\nLink below 👇",
+      after: "Neighborhood bike shop in Leeds 🚲\nAsk us anything about fixing a puncture",
+      changes: [
+        "\"Official account\" became what the shop actually is.",
+        "A list of services became an open invitation to talk.",
+        "The link pointer went, because links have their own section.",
+      ],
+    },
+    {
+      kind: "styles",
+      eyebrow: "Bio ideas",
+      heading: "Threads bio ideas",
+      accent: "for every style",
+      intro: "Six different approaches across six kinds of accounts. Find one that sounds like you, then send its settings straight to the generator.",
+      styles: [
+        {
+          name: "Minimal",
+          when: "For makers and artists who let their posts do the talking.",
+          bio: "Ceramicist · Glasgow\nMostly mugs, some opinions",
+          why: "Craft, place and a hint of personality in seven words.",
+          settings: { tone: "Minimal", emoji: "None", format: "Multiple lines" },
+        },
+        {
+          name: "Professional",
+          when: "For people sharing what they learn at work.",
+          bio: "Product manager at a fintech startup\nPosting what I learn about shipping faster",
+          why: "What you do, then exactly what people get from following.",
+          settings: { tone: "Professional", emoji: "None", format: "Multiple lines" },
+          dark: true,
+        },
+        {
+          name: "Funny",
+          when: "For teachers, parents and anyone with stories to tell.",
+          bio: "Teaching year 6 and losing every argument to a ten year old 🍎",
+          why: "A real job and an honest joke. You can already picture the posts.",
+          settings: { tone: "Funny", emoji: "Subtle", format: "Single line" },
+        },
+        {
+          name: "Aesthetic",
+          when: "For lifestyle and personal accounts.",
+          bio: "slow mornings, film photos, too many plants 🌿",
+          why: "Three small details set a mood without trying hard.",
+          settings: { tone: "Aesthetic", emoji: "Subtle", format: "Single line" },
+        },
+        {
+          name: "Conversation starter",
+          when: "For creators who want replies, not just follows.",
+          bio: "Home cook sharing one dinner a day 🍲\nWhat should I make next?",
+          why: "What you post, then a question that gives people an easy first reply.",
+          settings: { tone: "Friendly", emoji: "Subtle", format: "Multiple lines", goal: "Start a conversation" },
+        },
+        {
+          name: "Business",
+          when: "For local shops and small brands.",
+          bio: "Neighborhood bike shop in Leeds 🚲\nRepairs, rides and the odd rant about potholes",
+          why: "What, where, and a little personality that makes locals want to say hi.",
+          settings: { tone: "Friendly", emoji: "Subtle", format: "Multiple lines" },
+        },
+      ],
+    },
+    {
+      kind: "practices",
+      eyebrow: "Best practices",
+      heading: "Threads bio",
+      accent: "best practices",
+      intro: "Six habits that make the biggest difference, each one a different idea.",
+      items: [
+        {
+          title: "Sound like a person",
+          text: "Threads is built for conversation, so write the way you'd introduce yourself to someone new.",
+          featured: true,
+          example: { good: "Product manager who overshares about shipping", bad: "Visionary leader | Innovator" },
+        },
+        {
+          title: "Use Interests for topics",
+          text: "You can add [up to 10 Interests](https://www.threads.com/@threads/post/DIupHJTsMO3) to your profile. Tapping one leads to conversations about it.",
+          example: { good: "Bike repairs and local rides", bad: "#cycling #bikes #leeds #repair" },
+        },
+        {
+          title: "Put links in the links section",
+          text: "Threads lets you add [up to 5 links](https://about.fb.com/news/2025/03/new-threads-features-more-personalized-experience-you-control/), each with its own title.",
+          example: { good: "Repair bookings below", bad: "Book at www.leedsbikes.co.uk" },
+        },
+        {
+          title: "Don't just copy Instagram",
+          text: "Changes on Threads [only affect Threads](https://help.instagram.com/1207185479989246/), so you can write a warmer version here.",
+          example: { good: "Mostly mugs, some opinions" },
+        },
+        { title: "Invite a reply", text: "A short question or an open door gives people an easy first message.", example: { good: "What should I make next?" } },
+        { title: "Keep it short", text: "Threads doesn't publish a bio limit. This tool keeps every bio within 150 characters, the same as Instagram.", example: { count: 126 } },
+      ],
+    },
+    { kind: "faq", eyebrow: "FAQ", heading: "Frequently asked", accent: "questions" },
+    {
+      kind: "related",
+      eyebrow: "Keep going",
+      heading: "More free tools for",
+      accent: "your social profiles",
+      tools: [
+        { slug: "instagram-bio-generator", text: "The matching bio for Instagram.", icon: "bio" },
+        { slug: "twitter-bio-generator", text: "A sharper 160 character bio for X.", icon: "x" },
+        { slug: "tiktok-bio-generator", text: "Say the same thing in 80 characters.", icon: "bio" },
+        { slug: "instagram-caption-generator", text: "Captions for the posts your bio promises.", icon: "caption" },
+      ],
+    },
+    {
+      kind: "cta",
+      heading: "A better bio is a start.",
+      accent: "Let's fix the rest of your social presence.",
+      copy: "I help SaaS and service businesses turn content, profiles and organic social into real growth.",
+      button: "Explore social media marketing",
+      href: LINK_SOCIAL_MEDIA_SERVICE ?? "/services",
+    },
+  ],
+};
 
 export function threadsPage(page: ToolPage): ToolPage {
-  return {
-    ...page,
-    metaTitle: "Threads Bio Generator: Free AI Bios That Start Chats",
-    metaDescription: "Use this free Threads bio generator to write 5 bios from your real details, see them on a live Threads style profile, and copy the one that sounds like you.",
-    h1: { regular: "Free AI Threads", accent: "Bio Generator" },
-    heroDescription:
-      "This Threads bio generator writes five bios from a few quick answers, then shows them on a live Threads style profile. Each one is short, sounds like a person, and tells people what you post about, so the right ones follow and reply.",
-    accessNote: FAIR_USE,
-    workspace: {
-      ...page.workspace,
-      exampleInput: EXAMPLES[0].input,
-      emptyState: "",
-      dataNote: "AI can get things wrong. Read your bio before you post it, because it goes out under your name.",
-      result: { kind: "options", limit: 150, shorter: "Make them shorter", funnier: "Make them funnier" },
-      preview: {
-        skin: "threads",
-        limit: 150,
-        demo: EXAMPLES.map((e) => e.profile),
-        labels: { pill: "Live preview", caption: "Illustrative profiles. Yours shows up here.", disclosure: "See it on a profile", previewButton: "Preview", theme: "Dark background" },
-        live: { username: "your.username", link: "yoursite.com" },
-      },
-    },
-    howTo: {
-      heading: "How to use the Threads bio generator",
-      intro: "Two minutes, five bios, zero staring at a blinking cursor. Here's the whole process.",
-      steps: [
-        "**Pick your account type.** Business, creator or personal. A coffee roaster and a product designer want different conversations, so the tool writes each one differently.",
-        "**Say what you do and who you want to talk with.** Threads is a conversation app. \"Coffee people\" is fine. \"Home brewers who want better morning coffee\" is better.",
-        "**Add the topics you post about.** That's what tells a stranger whether your posts belong in their feed. Add a city, a real proof point and a next step if you have them.",
-        "**Preview, copy, paste.** Click Preview to see each bio on a Threads style profile. Pick one, copy it, then in Threads go to your profile, tap Edit profile, and paste it into Bio.",
+  return studioBioPage(
+    {
+      ...page,
+      metaTitle: "Threads Bio Generator: Free AI Bios That Start Chats",
+      metaDescription: "Use this free Threads bio generator to write 5 bios from your real details, see them on a live Threads style profile, and copy the one that sounds like you.",
+      h1: { regular: "Free Threads", accent: "Bio Generator" },
+      heroDescription: STUDIO.lede,
+      accessNote: FAIR_USE,
+      faqs: [
+        { q: "Is this Threads bio generator free?", a: `Yes. ${FAIR_USE}` },
+        { q: "How long can a Threads bio be?", a: "Threads doesn't publish an exact limit. This tool keeps every bio within 150 characters, counting spaces, emoji and line breaks, and the counter shows the exact total." },
+        { q: "Can my Threads bio be different from my Instagram bio?", a: "Yes. Changes you make on Threads only affect Threads, so it doesn't have to match Instagram. Most people do better with a warmer, chattier version here." },
+        { q: "How many links can I add to my Threads profile?", a: "Up to five, and you can give each link a title. That's why the bio itself never needs a URL." },
+        { q: "What are Interests on a Threads profile?", a: "Topics you add to your profile, up to 10. Tapping one takes people to conversations about that topic, so they're the best place to list what you post about." },
+        { q: "Should I use hashtags in my Threads bio?", a: "Use the Interests field for topics instead. It was built for exactly that, and it keeps your bio free for personality." },
+        { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real number or result, it suggests what to add instead of inventing one." },
+        { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my bio\", paste your Threads, Instagram or X bio, and you'll get five Threads versions that keep your facts." },
+        { q: "Can it write bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all five bios come out in it." },
       ],
-      outro: "Moving over from Instagram or X? Switch to **Improve my current bio**, paste the old one, and the tool rewrites it for Threads while keeping your facts.",
+      related: [],
+      extraLinks: [],
     },
-    examples: {
-      heading: "Threads bio examples for every kind of account",
-      label: "Illustrative examples",
-      intro: [{ p: "Six bios the tool wrote from the inputs shown. Hit \"Use this example\" on any card to load its inputs, then swap in your own details." }],
-      items: EXAMPLES,
-    },
-    sections: [
-      {
-        heading: "What makes a good Threads bio",
-        blocks: [
-          { p: "Instagram bios sell the account. Threads bios start the conversation. That's the whole difference, and it changes what you write." },
-          { p: "Someone lands on your profile because you replied to a post they liked. They want to know one thing: if I follow, what will you talk about? So a good Threads bio does three jobs:" },
-          {
-            ol: [
-              "**Says what you post about,** in plain words. Topics beat titles.",
-              "**Sounds like you talk.** A little personality is the point here, not a risk.",
-              "**Gives people a reason to reply.** A question you love answering, an opinion you hold, a story you're in the middle of.",
-            ],
-          },
-          { p: "Think of your bio as the sign on the door of a party. Nobody walks into a room labeled \"Entrepreneur. Visionary.\" Plenty walk into one labeled \"Two people, one candle studio, a lot of opinions about wax.\"" },
-        ],
-      },
-      {
-        heading: "Your Threads profile has more than a bio, so use all of it",
-        blocks: [
-          { p: "The bio is short on purpose. Threads gives you other spots for everything that doesn't fit, and most people leave them empty." },
-          {
-            table: {
-              head: ["Profile part", "What it's for", "How to use it"],
-              rows: [
-                ["Bio", "What you post about and who it's for", "One or two lines with personality. Use the formulas below"],
-                ["Interests", "Topics people can tap to find conversations about them", "Add up to 10 topics you actually post about"],
-                ["Links", "Somewhere useful to send people", "Add up to 5 links, and give each one a clear title"],
-                ["Profile photo", "The face next to every reply you write", "A clear face or logo that still reads at tiny sizes"],
-                ["Your replies", "The real reason people find you", "Good replies send people to your profile, so the bio has to finish the job"],
-              ],
-            },
-          },
-          { p: "Threads announced [up to 10 Interests topics and up to five profile links](https://about.fb.com/news/2025/03/new-threads-features-more-personalized-experience-you-control/) in 2025. Because topics and links have their own spots, **YOUR BIO NEVER HAS TO LIST THEM.** Spend those characters on personality instead." },
-        ],
-      },
-      {
-        heading: "Threads bio ideas for every vibe",
-        blocks: [
-          { p: "Steal a formula, swap the brackets for your own details, or pick the matching vibe in the tool and let it do the swapping." },
-          { h3: "Conversational" },
-          { ul: ["\"Talking about [topic] like it's a group chat. [Small honest detail].\"\ne.g. \"Talking about personal finance like it's a group chat. Still buy too many plants.\"", "\"Ask me anything about [thing you know]. Seriously, I love it.\""] },
-          { h3: "Story in progress" },
-          { ul: ["\"Building [thing] for [who]. Sharing [what you'll post].\"\ne.g. \"Building a tiny bakery in a big city. Sharing the numbers and the burnt batches.\"", "\"Day [number] of [challenge]. Results so far: [honest one liner].\""] },
-          { h3: "Opinionated" },
-          { ul: ["\"[Role]. Strong opinions about [topic], loosely held.\"\ne.g. \"Copywriter. Strong opinions about commas, loosely held.\""] },
-          { h3: "Aesthetic" },
-          { ul: ["\"[three small things], [one mood] [one emoji]\"\ne.g. \"ceramics, rain, slow sundays ☁️\""] },
-        ],
-      },
-      {
-        heading: "Interests, topics and your Threads bio",
-        blocks: [
-          { p: "Threads lets you add topics to your profile as Interests. Meta says tapping a topic on someone's profile leads straight to conversations about it. That's a much better home for your topics than a row of hashtags in your bio." },
-          { p: "So use them like this:" },
-          {
-            ol: [
-              "**Put your three or four main topics in Interests.** Pick the ones you'd happily post about every week.",
-              "**Let the bio give those topics a personality.** Interests say \"coffee\". The bio says \"roasting small batches in Leeds and answering every brewing question\".",
-              "**Keep them consistent with your posts.** If your Interests say design and every post is about football, people will notice.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "Threads bio length and formatting",
-        blocks: [
-          { p: "Threads bios are short. This tool keeps every bio under **150 characters**, counting spaces, emoji and line breaks, so it fits without trimming. The counter on every result shows the exact total." },
-          { p: "A few formatting habits that work well:" },
-          {
-            ol: [
-              "**Use one or two lines.** Short lines read better on a phone, and the tool keeps your line breaks when you copy.",
-              "**Skip the links in the text.** You have up to five proper links on your profile, so point to them instead.",
-              "**Go easy on emoji.** One that adds meaning beats four that add noise.",
-              "**Write it fresh for Threads.** Your Threads bio doesn't have to match your Instagram bio, and it usually shouldn't. Instagram sells, Threads chats.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "Threads bio mistakes that cost you followers",
-        blocks: [
-          {
-            ol: [
-              "**Pasting your Instagram bio unchanged.** \"Shop the collection below\" sounds odd in a conversation app. Rewrite it as an invitation.",
-              "**A list of job titles.** \"Founder | Speaker | Coach\" tells people your LinkedIn history, not what you'll talk about.",
-              "**Being vague to sound mysterious.** \"Just vibes ✨\" is fine for a private account. For anything else, say what the vibes are about.",
-              "**Hashtags instead of Interests.** Use the Interests field for topics, and keep the bio for personality.",
-              "**Promising posts you never write.** If the bio says \"daily design tips\" and you post twice a month, the bio becomes a broken promise.",
-            ],
-          },
-        ],
-      },
-    ],
-    faqs: [
-      { q: "Is this Threads bio generator free?", a: `Yes. ${FAIR_USE}` },
-      { q: "How long can a Threads bio be?", a: "Keep it short. This tool writes every bio under 150 characters, counting spaces, emoji and line breaks, and the counter shows the exact total." },
-      { q: "Can my Threads bio be different from my Instagram bio?", a: "Yes. You can edit your bio in Threads, so it doesn't have to match Instagram. Most people do better with a warmer, chattier version on Threads." },
-      { q: "How many links can I add to my Threads profile?", a: "Up to five, and you can give each link a title. That's why the bio itself never needs a URL." },
-      { q: "What are Interests on a Threads profile?", a: "Topics you add to your profile, up to 10. Tapping one takes people to conversations about that topic, so they're the best place to list what you post about." },
-      { q: "Should I use hashtags in my Threads bio?", a: "Use the Interests field for topics instead. It was built for exactly that, and it keeps your bio free for personality." },
-      { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real number or result, it suggests what to add instead of inventing one." },
-      { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my current bio\", paste your Threads, Instagram or X bio, and you'll get five Threads versions that keep your facts." },
-      { q: "Can it write bios in other languages?", a: "Yes. Pick your language from the dropdown and all five bios come out in it." },
-    ],
-    ctas: page.ctas,
-    related: [
-      { slug: "instagram-bio-generator", text: "the version that sells your account." },
-      { slug: "twitter-bio-generator", text: "a sharper take for X." },
-      { slug: "instagram-caption-generator", text: "posts that match your new bio." },
-      { slug: "linkedin-headline-generator", text: "the professional cousin of your bio." },
-      { slug: "social-media-content-calendar-generator", text: "plan what you'll actually post." },
-    ],
-    extraLinks: [...page.extraLinks, { text: "See all free marketing tools", href: "/tools" }],
-  };
+    PLATFORM,
+    STUDIO,
+  );
 }

@@ -1,4 +1,4 @@
-// Live draft for the Instagram bio preview. Runs in the browser on every keystroke, no AI involved.
+// Live draft for the bio studio preview. Runs in the browser on every keystroke, no AI involved.
 // It's a quick, clearly labeled sketch of where the visitor's answers go, not a generated bio:
 // it only rearranges what they typed plus neutral category wording, and never invents facts about them.
 
@@ -35,10 +35,15 @@ const CTAS: Record<string, { text: string; emoji: string }> = {
   "Book a service": { text: "Book through the link below", emoji: "📅" },
   "View my portfolio": { text: "See my work below", emoji: "👇" },
   "Contact me": { text: "Get in touch below", emoji: "✉️" },
+  "Watch my series": { text: "Watch the series", emoji: "🎬" },
+  "Read my newsletter": { text: "Get the newsletter below", emoji: "📬" },
+  "Start a conversation": { text: "Say hi in the replies", emoji: "💬" },
+  "Send a message": { text: "Send us a message", emoji: "💬" },
+  "Call or visit us": { text: "Come and say hello", emoji: "📍" },
 };
 
 /** Goals whose call to action points at the profile link, so the preview shows a link. */
-export const LINK_GOALS = ["Visit my website", "Shop my products", "Book a service", "View my portfolio", "Contact me"];
+export const LINK_GOALS = ["Visit my website", "Shop my products", "Book a service", "View my portfolio", "Contact me", "Read my newsletter"];
 
 export const nicheFor = (category: string): Niche => NICHES[category] ?? FALLBACK;
 
@@ -59,9 +64,11 @@ export type DraftInput = {
   format: string;
   location: string;
   audience: string;
+  /** The platform limit. Defaults to Instagram's 150. */
+  limit?: number;
 };
 
-/** Builds the draft bio shown on the phone before anything is generated. Always fits 150 characters. */
+/** Builds the draft bio shown on the phone before anything is generated. Always fits the platform limit. */
 export function draftBio(d: DraftInput): string {
   if (d.mode === "improve") return d.currentBio.trim();
   const niche = nicheFor(d.category);
@@ -88,23 +95,30 @@ export function draftBio(d: DraftInput): string {
     return text;
   });
 
-  if (d.format === "Single line") out = [out.join(d.tone === "Aesthetic" ? " · " : ". ")];
+  // One line: sentences join with a period, but never put one straight after an emoji.
+  if (d.format === "Single line") out = [out.reduce((acc, line) => (acc ? `${acc}${d.tone === "Aesthetic" ? " · " : /[A-Za-z0-9)]$/.test(acc) ? ". " : " "}${line}` : line), "")];
   let bio = out.join("\n");
-  // Stays inside Instagram's 150 characters, cutting at a word so nothing ends mid word.
-  if (graphemes(bio).length > 150) {
-    const cut = graphemes(bio).slice(0, 150).join("");
+  // Stays inside the platform limit, cutting at a word so nothing ends mid word.
+  const max = d.limit ?? 150;
+  if (graphemes(bio).length > max) {
+    const cut = graphemes(bio).slice(0, max).join("");
     bio = cut.slice(0, cut.lastIndexOf(" ")).trim();
   }
   return bio;
 }
 
-/** A plausible username from the visitor's name or category, only for the preview. */
-export function usernameFrom(name: string, category: string): string {
+/**
+ * A plausible username from the visitor's name or category, only for the preview.
+ * X handles allow letters, numbers and underscores (15 max). TikTok and Instagram also allow periods.
+ */
+export function usernameFrom(name: string, category: string, platform: string = "instagram"): string {
+  const x = platform === "x";
   const base = (name || category || "your name")
     .toLowerCase()
     .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, ".")
-    .replace(/^\.+|\.+$/g, "")
-    .slice(0, 24);
-  return base || "yourusername";
+    .replace(/[^a-z0-9]+/g, x ? "_" : ".")
+    .replace(/^[._]+|[._]+$/g, "")
+    .slice(0, x ? 15 : 24)
+    .replace(/[._]+$/, "");
+  return base || (x ? "yourhandle" : "yourusername");
 }
