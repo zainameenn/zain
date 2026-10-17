@@ -1,161 +1,209 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { JsonLd } from "@/app/blog/_components/JsonLd";
 import { TOOLS, toolPath } from "@/lib/tools/registry";
-import type { BrandExample, RelatedIcon, StudioImage, StudioSection, ToolPage } from "@/lib/tools/types";
+import type { BrandExample, RelatedIcon, StudioHead, StudioImage, StudioSection, ToolPage } from "@/lib/tools/types";
 import { countChars } from "@/lib/tools/validate";
 import { Crumbs, rich } from "../_components/content";
 import { BioStudio } from "./BioStudio";
 import { lora } from "./fonts";
-import { InstaPreview } from "./InstaPreview";
+import { InstaScreen, Mark, PhoneFrame } from "./Phone";
+import { StyleButton } from "./StyleButton";
 import s from "./studio.module.css";
 
 // The studio tool page: hero, the generator, then teaching sections built from the page config.
 // Server rendered: every section is plain HTML, so the page is useful (and indexable) before anyone generates a bio.
+// Sections sit on alternating cream and warm white bands, and every one opens like the service pages do.
 
-function Figure({ image, priority }: { image: StudioImage; priority?: boolean }) {
+const pad = (n: number) => String(n).padStart(2, "0");
+
+function Figure({ image }: { image: StudioImage }) {
   return (
     <figure className={s.figure}>
-      <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 1023px) 92vw, 560px" priority={priority} className={s.figureImg} />
+      <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 1023px) 92vw, 720px" className={s.figureImg} />
     </figure>
   );
 }
 
-function SectionHead({ heading, intro }: { heading: string; intro?: string }) {
+function SectionHead({ head, center }: { head: StudioHead; center?: boolean }) {
   return (
-    <header className={s.sectionHead}>
-      <h2 className={s.h2}>{heading}</h2>
-      {intro ? <p className={s.intro}>{rich(intro)}</p> : null}
+    <header className={center ? `${s.sectionHead} ${s.sectionHeadCenter}` : s.sectionHead}>
+      <div>
+        {head.eyebrow ? <p className={s.kicker}>{head.eyebrow}</p> : null}
+        <h2 className={s.h2}>
+          {head.heading}
+          {head.accent ? <em className={s.h2Accent}> {head.accent}</em> : null}
+        </h2>
+      </div>
+      {head.intro ? <p className={s.intro}>{rich(head.intro)}</p> : null}
     </header>
+  );
+}
+
+/** Small decorative versions of the generator, one per step. Hidden from screen readers: the step text says it all. */
+function StepVisual({ kind }: { kind: "account" | "style" | "copy" }) {
+  if (kind === "account") {
+    return (
+      <div className={s.mini} aria-hidden>
+        <div className={s.miniSeg}>
+          <span>Personal</span>
+          <span>Creator</span>
+          <span className={s.miniOn}>Business</span>
+        </div>
+        <div className={s.miniField}>Food &amp; Restaurants</div>
+      </div>
+    );
+  }
+  if (kind === "style") {
+    return (
+      <div className={s.mini} aria-hidden>
+        <div className={s.miniChips}>
+          <span className={s.miniOn}>Friendly</span>
+          <span>Bold</span>
+          <span>Minimal</span>
+        </div>
+        <div className={s.miniChips}>
+          <span>None</span>
+          <span className={s.miniOn}>Subtle</span>
+          <span>Expressive</span>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className={s.mini} aria-hidden>
+      <div className={s.miniCard}>
+        <span className={s.miniLine} />
+        <span className={s.miniLine} style={{ width: "72%" }} />
+        <span className={s.miniBtn}>Copy bio</span>
+      </div>
+    </div>
   );
 }
 
 function BrandCard({ b }: { b: BrandExample }) {
   const verified = b.bio !== null;
+  const text = verified ? b.bio : (b.illustrative ?? "");
   return (
     <li className={s.brand}>
-      <InstaPreview
-        compact
-        username={b.handle}
-        name={b.brand}
-        bio={verified ? b.bio : b.illustrative}
-        empty={verified && !b.bio ? "No bio right now. Just the name." : undefined}
-        avatar={
-          b.logo ? (
-            // Small local SVGs: next/image would only add an optimization round trip here.
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={b.logo.src} alt="" width={b.logo.width} height={b.logo.height} className={s.brandLogo} loading="lazy" />
-          ) : undefined
-        }
-      />
-      <p className={s.brandMeta}>
-        {verified ? (b.bio ? `${countChars(b.bio)} / 150 characters` : "0 / 150 characters") : "Illustrative example"}
-        <span aria-hidden> · </span>
-        {b.style}
+      <div className={s.brandHead}>
+        {b.logo ? (
+          // Small local SVGs: next/image would only add an optimization round trip here.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={b.logo.src} alt="" width={40} height={40} className={s.brandLogo} loading="lazy" />
+        ) : null}
+        <div className={s.brandNames}>
+          <span className={s.brandName}>{b.brand}</span>
+          <span className={s.brandHandle}>@{b.handle}</span>
+        </div>
+        <span className={s.tag}>{b.style}</span>
+      </div>
+      <div className={s.inset}>
+        {text ? <p className={s.insetBio}>{text}</p> : <p className={s.insetEmpty}>No bio right now. Just the name.</p>}
+        <span className={s.count}>{verified ? `${countChars(text ?? "")} / 150` : "Illustrative example"}</span>
+      </div>
+      <p className={s.why}>
+        <span className={s.whyLabel}>Why it works</span>
+        {rich(b.why)}
       </p>
-      <p className={s.brandWhy}>
-        <strong>Why it works:</strong> {rich(b.why)}
-      </p>
-      <p className={s.brandLesson}>
-        <span className={s.lessonMark}>Try it:</span> {rich(b.lesson)}
-      </p>
-      <a className={s.textLink} href={b.url} target="_blank" rel="noopener noreferrer">
-        View {b.brand} on Instagram
+      <a className={s.cardFoot} href={b.url} target="_blank" rel="noopener noreferrer">
+        View Instagram profile
+        <span className={s.srOnly}> for {b.brand} (opens in a new tab)</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
       </a>
     </li>
   );
 }
 
-const ICONS: Record<RelatedIcon, React.ReactNode> = {
+const ICONS: Record<RelatedIcon, ReactNode> = {
   caption: <path d="M5 6h14M5 11h14M5 16h9" />,
   bio: <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8a7 7 0 0 1 14 0" />,
   chat: <path d="M5 6h14v9H9l-4 3V6Z" />,
   x: <path d="M6 6l12 12M18 6 6 18" />,
 };
 
-function Section({ section, tool }: { section: StudioSection; tool: ToolPage }) {
+function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
   switch (section.kind) {
     case "steps":
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
-          {section.image ? <Figure image={section.image} /> : null}
-          <ol className={s.steps}>
-            {section.steps.map((step, i) => (
-              <li key={step.title}>
-                <span className={`${s.stepNum} ${lora.className}`}>{i + 1}</span>
-                <h3 className={s.h3}>{step.title}</h3>
-                <p>{rich(step.text)}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
+        <ol className={s.steps}>
+          {section.steps.map((step, i) => (
+            <li key={step.title} className={s.step}>
+              <StepVisual kind={step.visual} />
+              <span className={`${s.stepNum} ${lora.className}`}>{pad(i + 1)}</span>
+              <h3 className={s.h3}>{step.title}</h3>
+              <p className={s.body}>{rich(step.text)}</p>
+            </li>
+          ))}
+        </ol>
       );
     case "gallery":
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
+        <>
           <ul className={s.gallery}>
             {section.items.map((b) => (
               <BrandCard key={b.handle} b={b} />
             ))}
           </ul>
-          {section.note ? <p className={s.galleryNote}>{rich(section.note)}</p> : null}
-        </section>
+          {section.note ? <p className={s.smallNote}>{rich(section.note)}</p> : null}
+        </>
       );
-    case "anatomy": {
-      // Each part gets a number; the same number marks where it appears on the sample profile.
-      const num = (key: string) => section.parts.findIndex((p) => p.key === key) + 1;
-      const mark = (key: string) =>
-        num(key) ? (
-          <span className={s.mark} aria-hidden>
-            {num(key)}
-          </span>
-        ) : null;
+    case "creator": {
+      const p = section.profile;
+      const bio = section.lines.map((l, i) => (
+        <span key={l.text}>
+          {l.text}
+          <Mark n={l.mark} />
+          {i < section.lines.length - 1 ? "\n" : ""}
+        </span>
+      ));
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
-          <div className={s.split}>
-            <div className={s.anatomy}>
-              <InstaPreview
-                username={section.profile.username}
-                name={section.profile.name}
-                category={section.profile.category}
-                link={section.profile.link}
-                nameMark={mark("name")}
-                linkMark={mark("link")}
-                bio={section.lines.map((l, i) => (
-                  <span key={l.text}>
-                    {l.text}
-                    {mark(l.part)}
-                    {i < section.lines.length - 1 ? "\n" : ""}
+        <div className={s.creator}>
+          <ol className={s.points}>
+            {section.points.map((pt, i) => {
+              const marked = i + 1 === section.nameMark || section.lines.some((l) => l.mark === i + 1);
+              return (
+                <li key={pt.title} className={marked ? s.point : `${s.point} ${s.pointMissing}`}>
+                  <span className={s.pointNum} aria-hidden>
+                    {marked ? pad(i + 1) : "?"}
                   </span>
-                ))}
+                  <div>
+                    <h3 className={s.h3}>{pt.title}</h3>
+                    <p className={s.body}>{rich(pt.text)}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+          <figure className={s.creatorPhone}>
+            <PhoneFrame>
+              <InstaScreen
+                username={p.handle}
+                name={p.name}
+                bio={bio}
+                marks={{ name: section.nameMark }}
+                highlights={[]}
+                avatar={<Image src={p.photo.src} alt="" width={p.photo.width} height={p.photo.height} className={s.instaPhoto} />}
               />
-              <ol className={s.parts}>
-                {section.parts.map((p, i) => (
-                  <li key={p.key}>
-                    <span className={s.mark} aria-hidden>
-                      {i + 1}
-                    </span>
-                    <div>
-                      <h3 className={s.h3}>{p.label}</h3>
-                      <p>{rich(p.text)}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-            {section.image ? <Figure image={section.image} /> : null}
-          </div>
-        </section>
+            </PhoneFrame>
+            <figcaption className={s.smallNote}>
+              {section.note ? <>{rich(section.note)} </> : null}
+              Posts and buttons are placeholders. {rich(p.photo.credit)}{" "}
+              <a href={p.url} target="_blank" rel="noopener noreferrer">
+                View @{p.handle} on Instagram
+              </a>
+            </figcaption>
+          </figure>
+        </div>
       );
     }
     case "compare":
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
+        <>
           {section.image ? <Figure image={section.image} /> : null}
           <div className={s.compare}>
             <div className={s.compareCol}>
@@ -174,78 +222,84 @@ function Section({ section, tool }: { section: StudioSection; tool: ToolPage }) 
               <li key={c}>{rich(c)}</li>
             ))}
           </ul>
-        </section>
+        </>
       );
     case "styles":
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
-          <ul className={s.styles}>
-            {section.styles.map((st) => (
-              <li key={st.name}>
-                <h3 className={s.h3}>{st.name}</h3>
-                <p className={s.styleBio}>{st.bio}</p>
-                <p className={s.styleNote}>{rich(st.note)}</p>
-              </li>
-            ))}
-          </ul>
-          <div className={s.split}>
-            <div>
-              <h3 className={s.h3}>Same bio, three formats</h3>
-              <ul className={s.formats}>
-                {section.formats.map((f) => (
-                  <li key={f.label}>
-                    <p className={s.formatLabel}>
-                      {f.label}
-                      <span className={s.count}> {countChars(f.bio)} / 150</span>
-                    </p>
-                    <p className={s.styleBio}>{f.bio}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {section.image ? <Figure image={section.image} /> : null}
-          </div>
-        </section>
+        <ul className={s.styles}>
+          {section.styles.map((st) => (
+            <li key={st.name} className={st.dark ? `${s.styleCard} ${s.dark}` : s.styleCard}>
+              <span className={s.tag}>{st.name}</span>
+              <p className={s.styleWhen}>{st.when}</p>
+              <div className={s.inset}>
+                <p className={s.insetBio}>{st.bio}</p>
+                <span className={s.count}>{countChars(st.bio)} / 150</span>
+              </div>
+              <p className={s.why}>
+                <span className={s.whyLabel}>Why it works</span>
+                {rich(st.why)}
+              </p>
+              <div className={s.cardActions}>
+                <StyleButton name={st.name} settings={st.settings} dark={st.dark} />
+              </div>
+            </li>
+          ))}
+        </ul>
       );
     case "practices":
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
-          <ul className={s.practices}>
-            {section.items.map((p) => (
-              <li key={p.title}>
-                <h3 className={s.h3}>{p.title}</h3>
-                <p>{rich(p.text)}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <ol className={s.practices}>
+          {section.items.map((p, i) => (
+            <li key={p.title} className={p.featured ? `${s.practice} ${s.dark}` : s.practice}>
+              <span className={`${s.bigNum} ${lora.className}`} aria-hidden>
+                {pad(i + 1)}
+              </span>
+              <h3 className={s.h3}>{p.title}</h3>
+              <p className={s.body}>{rich(p.text)}</p>
+              {p.example && "count" in p.example ? (
+                <div className={s.meter} aria-hidden>
+                  <span className={s.meterBar}>
+                    <i style={{ width: `${(p.example.count / 150) * 100}%` }} />
+                  </span>
+                  <span className={s.count}>{p.example.count} / 150</span>
+                </div>
+              ) : p.example ? (
+                <div className={s.examples}>
+                  <p className={s.exGood}>
+                    <span className={s.exMark}>Do</span>
+                    <span className={s.exText}>{p.example.good}</span>
+                  </p>
+                  {p.example.bad ? (
+                    <p className={s.exBad}>
+                      <span className={s.exMark}>Skip</span>
+                      <span className={s.exText}>{p.example.bad}</span>
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+            </li>
+          ))}
+        </ol>
       );
     case "faq":
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
-          <div className={s.faq}>
-            {tool.faqs.map((f) => (
-              <details key={f.q}>
-                <summary>
-                  <h3 className={s.faqQ}>{f.q}</h3>
-                  <span className={s.faqIcon} aria-hidden />
-                </summary>
-                <p className={s.faqA}>{rich(f.a)}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+        <div className={s.faq}>
+          {tool.faqs.map((f) => (
+            <details key={f.q}>
+              <summary>
+                <h3 className={s.faqQ}>{f.q}</h3>
+                <span className={s.faqIcon} aria-hidden />
+              </summary>
+              <p className={s.faqA}>{rich(f.a)}</p>
+            </details>
+          ))}
+        </div>
       );
     case "related": {
       // Only tools that are live right now, so there's never a dead link.
       const live = section.tools.filter((t) => TOOLS[t.slug]);
-      if (!live.length) return null;
       return (
-        <section className={s.section}>
-          <SectionHead heading={section.heading} intro={section.intro} />
+        <>
           <ul className={s.related}>
             {live.map((t) => (
               <li key={t.slug}>
@@ -264,26 +318,18 @@ function Section({ section, tool }: { section: StudioSection; tool: ToolPage }) 
               Explore all free tools
             </Link>
           </p>
-        </section>
+        </>
       );
     }
     case "cta":
-      return (
-        <section className={s.cta}>
-          <h2 className={s.ctaHeading}>
-            {section.heading} <em style={H1_ACCENT_STYLE}>{section.accent}</em>
-          </h2>
-          <p className={s.ctaCopy}>{section.copy}</p>
-          <Link href={section.href} className={`${s.btn} ${s.btnLight} ${s.btnLg}`}>
-            {section.button}
-          </Link>
-        </section>
-      );
+      return null;
   }
 }
 
 export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<string, unknown> }) {
   const studio = tool.studio!;
+  const cta = studio.sections.find((x) => x.kind === "cta");
+  const bands = studio.sections.filter((x) => x.kind !== "cta" && (x.kind !== "related" || x.tools.some((t) => TOOLS[t.slug])));
   return (
     <main className={`${s.page} ${lora.variable}`}>
       <JsonLd data={jsonLd} />
@@ -298,9 +344,32 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.trust}>{studio.trust}</p>
         </header>
         <BioStudio slug={tool.slug} ws={tool.workspace} />
-        {studio.sections.map((section, i) => (section.kind === "cta" ? null : <Section key={i} section={section} tool={tool} />))}
       </div>
-      {studio.sections.map((section, i) => (section.kind === "cta" ? <div key={i} className={s.wrap}><Section section={section} tool={tool} /></div> : null))}
+
+      {bands.map((section, i) => (
+        <section key={i} className={i % 2 === 0 ? `${s.band} ${s.bandWarm}` : s.band}>
+          <div className={s.wrap}>
+            <SectionHead head={section} center={section.kind === "faq" || section.kind === "steps"} />
+            <Body section={section} tool={tool} />
+          </div>
+        </section>
+      ))}
+
+      {cta && cta.kind === "cta" ? (
+        <div className={s.wrap}>
+          <section className={s.cta}>
+            {cta.eyebrow ? <p className={s.kicker}>{cta.eyebrow}</p> : null}
+            <h2 className={s.ctaHeading}>
+              {cta.heading}
+              {cta.accent ? <em className={s.h2Accent}> {cta.accent}</em> : null}
+            </h2>
+            <p className={s.ctaCopy}>{cta.copy}</p>
+            <Link href={cta.href} className={`${s.btn} ${s.btnLight} ${s.btnLg}`}>
+              {cta.button}
+            </Link>
+          </section>
+        </div>
+      ) : null}
     </main>
   );
 }

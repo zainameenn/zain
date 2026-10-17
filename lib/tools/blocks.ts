@@ -719,6 +719,7 @@ Why it works: product, buyer and pain in plain words, then a pointer to the link
   user: `<user_input>
 <mode>{{mode}}</mode>
 <account_type>{{account_type}}</account_type>
+<name>{{name}}</name>
 <category>{{category}}</category>
 <about>{{about}}</about>
 <current_bio>{{current_bio}}</current_bio>

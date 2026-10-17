@@ -183,25 +183,40 @@ export type BrandExample = {
 
 export type RelatedIcon = "caption" | "bio" | "chat" | "x";
 
-export type StudioSection =
-  | { kind: "steps"; heading: string; intro?: Rich; image?: StudioImage; steps: { title: string; text: Rich }[] }
-  | { kind: "gallery"; heading: string; intro?: Rich; note?: Rich; items: BrandExample[] }
-  | {
-      kind: "anatomy";
-      heading: string;
-      intro?: Rich;
-      image?: StudioImage;
-      profile: { username: string; name: string; category: string; link: string };
-      /** The sample bio, line by line, each tagged with the part it demonstrates. */
-      lines: { text: string; part: string }[];
-      parts: { key: string; label: string; text: Rich }[];
-    }
-  | { kind: "compare"; heading: string; intro?: Rich; image?: StudioImage; before: string; after: string; changes: Rich[] }
-  | { kind: "styles"; heading: string; intro?: Rich; image?: StudioImage; styles: { name: string; bio: string; note: Rich }[]; formats: { label: string; bio: string }[] }
-  | { kind: "practices"; heading: string; intro?: Rich; items: { title: string; text: Rich }[] }
-  | { kind: "faq"; heading: string; intro?: Rich }
-  | { kind: "related"; heading: string; intro?: Rich; tools: { slug: string; text: string; icon: RelatedIcon }[] }
-  | { kind: "cta"; heading: string; accent: string; copy: string; button: string; href: string };
+/** Every studio section opens the same way as the service pages: eyebrow, H2 with an italic accent line, short sub. */
+export type StudioHead = { eyebrow?: string; heading: string; accent?: string; intro?: Rich };
+
+/** Settings a "Use this style" button sends to the generator. */
+export type StyleSettings = { tone?: string; emoji?: string; format?: string; account_type?: string; category?: string };
+
+export type StudioSection = StudioHead &
+  (
+    | { kind: "steps"; steps: { title: string; text: Rich; visual: "account" | "style" | "copy" }[] }
+    | { kind: "gallery"; note?: Rich; items: BrandExample[] }
+    | {
+        kind: "creator";
+        profile: { handle: string; name: string; url: string; checked: string; photo: StudioImage & { credit: Rich } };
+        /** The real bio, line by line. `mark` numbers the line to match a point. */
+        lines: { text: string; mark?: number }[];
+        nameMark?: number;
+        points: { title: string; text: Rich }[];
+        note?: Rich;
+      }
+    | { kind: "compare"; image?: StudioImage; before: string; after: string; changes: Rich[] }
+    | {
+        kind: "styles";
+        styles: { name: string; when: string; bio: string; why: Rich; settings: StyleSettings; dark?: boolean }[];
+        formats?: { label: string; bio: string }[];
+        image?: StudioImage;
+      }
+    | {
+        kind: "practices";
+        items: { title: string; text: Rich; featured?: boolean; example?: { good: string; bad?: string } | { count: number } }[];
+      }
+    | { kind: "faq" }
+    | { kind: "related"; tools: { slug: string; text: string; icon: RelatedIcon }[] }
+    | { kind: "cta"; copy: string; button: string; href: string }
+  );
 
 export type StudioContent = {
   lede: Rich;
