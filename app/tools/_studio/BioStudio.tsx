@@ -1,26 +1,26 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BUSY_MESSAGE } from "@/lib/tools/links";
-import type { ToolField, ToolInput, Workspace } from "@/lib/tools/types";
+import { LINK_GOALS, draftBio, nicheFor, usernameFrom } from "@/lib/tools/draft";
+import type { StyleSettings, ToolField, ToolInput, Workspace } from "@/lib/tools/types";
 import { countChars, resolveLimit, type Option } from "@/lib/tools/validate";
 import { Combobox, Disclosure, Segmented, Select, Spinner, StudioField } from "./controls";
-import { InstaPreview } from "./InstaPreview";
+import { InstaScreen, PhoneFrame, initialsOf } from "./Phone";
 import s from "./studio.module.css";
 
-// The redesigned bio generator: a short form on the left, a profile preview and five results on the right.
+// The redesigned bio generator.
+// Left: a short form. Right: a phone that shows a live draft while you type, then the five generated bios,
+// either as a list or one at a time on the phone. Results and the selected bio survive every view change.
+
+/** "Use this style" buttons elsewhere on the page send their settings through this event. */
+export const STYLE_EVENT = "studio:style";
 
 type Status = "idle" | "loading" | "done" | "error";
-type Extra = { rewrite?: "shorter" };
-
-/** Goals that send people to a link, so the preview shows a link under the bio. */
-const LINK_GOALS = ["Visit my website", "Shop my products", "Book a service", "View my portfolio"];
-const EXAMPLE_BIO = "Sourdough baked fresh every morning 🍞\nPreorder by 9pm for tomorrow\nOrder link below 👇";
+type View = "list" | "phone";
 
 function defaults(fields: ToolField[]): ToolInput {
-  return Object.fromEntries(
-    fields.map((f) => [f.name, f.type === "toggle" ? f.defaultOn : "defaultValue" in f && f.defaultValue ? f.defaultValue : ""]),
-  );
+  return Object.fromEntries(fields.map((f) => [f.name, f.type === "toggle" ? f.defaultOn : "defaultValue" in f && f.defaultValue ? f.defaultValue : ""]));
 }
 
 const shows = (f: ToolField, v: ToolInput) => !f.when || v[f.when.field] === f.when.equals;
@@ -33,11 +33,13 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
   const [tips, setTips] = useState<string[]>([]);
   const [error, setError] = useState("");
   const [selected, setSelected] = useState(0);
+  const [view, setView] = useState<View>("list");
   const [editing, setEditing] = useState<number | null>(null);
   const [copied, setCopied] = useState<number | null>(null);
   const [announce, setAnnounce] = useState("");
   const [original, setOriginal] = useState("");
-  const resultsRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const outputRef = useRef<HTMLDivElement>(null);
 
   const r = ws.result;
   const limit = r.kind === "options" ? resolveLimit(r.limit, values) : 150;
@@ -45,11 +47,22 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
   const set = (name: string, v: string | boolean) => setValues((old) => ({ ...old, [name]: v }));
   const str = (name: string) => (typeof values[name] === "string" ? (values[name] as string) : "");
   const mode = str("mode") || "new";
-  const field = (name: string) => ws.fields.find((f) => f.name === name);
   const inGroup = (g: ToolField["group"]) => ws.fields.filter((f) => f.group === g && shows(f, values));
   const advancedCount = ws.fields.filter((f) => f.group === "advanced" && f.type !== "select" && str(f.name).trim()).length;
 
-  async function generate(extra?: Extra) {
+  // "Use this style" on the style cards: apply the settings, keep everything else, bring the form into view.
+  useEffect(() => {
+    const onStyle = (e: Event) => {
+      const detail = (e as CustomEvent<StyleSettings>).detail ?? {};
+      setValues((old) => ({ ...old, mode: "new", ...Object.fromEntries(Object.entries(detail).filter(([, v]) => v)) }));
+      setAnnounce("Style applied to the generator");
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    window.addEventListener(STYLE_EVENT, onStyle);
+    return () => window.removeEventListener(STYLE_EVENT, onStyle);
+  }, []);
+
+  async function generate(rewrite?: "shorter") {
     setStatus("loading");
     setError("");
     setEditing(null);
@@ -58,7 +71,7 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
       const res = await fetch("/api/tools", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, input: values, extra: extra?.rewrite ? { rewrite: extra.rewrite, current: options.map((o) => o.text).join("\n\n---\n\n") } : undefined }),
+        body: JSON.stringify({ slug, input: values, extra: rewrite ? { rewrite, current: options.map((o) => o.text).join("\n\n---\n\n") } : undefined }),
       });
       const body = await res.json().catch(() => ({}));
       const list = Array.isArray(body?.data?.options) ? (body.data.options as Option[]) : null;
@@ -72,10 +85,11 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
       setIdeas(ideaInfo && Array.isArray(body.data[ideaInfo.key]) ? body.data[ideaInfo.key] : []);
       setTips(Array.isArray(body.missingInfo) ? body.missingInfo : []);
       setSelected(0);
+      setView("list");
       setOriginal(mode === "improve" ? str("current_bio") : "");
       setStatus("done");
-      setAnnounce(`${list.length} bios ready. The first one is on the profile preview.`);
-      if (window.matchMedia("(max-width: 1023.98px)").matches) resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setAnnounce(`${list.length} bios ready.`);
+      if (window.matchMedia("(max-width: 1023.98px)").matches) outputRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch {
       setError(ws.errorText);
       setStatus(options.length ? "done" : "error");
@@ -92,9 +106,17 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
       setTimeout(() => setCopied((c) => (c === i ? null : c)), 1800);
     } catch {
       setAnnounce("Copy didn't work. Select the text and copy it instead.");
+      setView("list");
       setEditing(i);
     }
   }
+
+  const preview = (i: number) => {
+    setSelected(i);
+    setView("phone");
+    setEditing(null);
+    setAnnounce(`Showing ${options[i].label} on the profile preview`);
+  };
 
   const control = (f: ToolField) => {
     const id = `${slug}-${f.name}`;
@@ -137,37 +159,77 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
     return null;
   };
 
-  const modeField = field("mode");
+  // ---------- What the phone shows ----------
   const loading = status === "loading";
   const has = options.length > 0;
-  const shown = has ? options[Math.min(selected, options.length - 1)]?.text ?? "" : EXAMPLE_BIO;
   const category = mode === "improve" ? "" : str("category");
-  const displayName = ideas[0] ?? (category ? `Your name · ${category.split(" / ")[0]}` : "Your name");
+  const niche = nicheFor(category);
+  const name = str("name").trim();
+  const accountType = str("account_type") || "Business";
+  const draft = draftBio({
+    mode,
+    accountType,
+    category,
+    about: str("about"),
+    currentBio: str("current_bio"),
+    tone: str("tone"),
+    goal: str("goal"),
+    emoji: str("emoji"),
+    format: str("format"),
+    location: str("location"),
+    audience: str("audience"),
+  });
+  const phoneBio = has ? (options[Math.min(selected, options.length - 1)]?.text ?? "") : draft;
+  const displayName = name || ideas[0] || (category ? `Your name · ${category.split(" / ")[0]}` : "Your name");
+  const shownCategory = mode === "improve" || accountType === "Personal" ? undefined : category ? category.split(" / ")[0] : "Your category";
   const link = LINK_GOALS.includes(str("goal")) ? "yourwebsite.com" : undefined;
+  const avatar = <span className={s.instaInitials}>{name ? initialsOf(name) : category ? niche.emoji : "?"}</span>;
+  const showPhone = !has || view === "phone";
+
+  const phone = (
+    <div className={s.phoneStage}>
+      <PhoneFrame>
+        <InstaScreen
+          username={usernameFrom(name, category)}
+          name={displayName}
+          category={shownCategory}
+          bio={phoneBio || <span className={s.instaPlaceholder}>Your bio shows up here</span>}
+          link={link}
+          avatar={avatar}
+          highlights={niche.highlights}
+        />
+      </PhoneFrame>
+      {loading && !has ? (
+        <div className={s.phoneBusy} aria-hidden>
+          <Spinner />
+          Writing five bios
+        </div>
+      ) : null}
+    </div>
+  );
 
   return (
     <section className={s.tool} aria-label="Instagram bio generator">
       <form
+        ref={formRef}
         className={s.panel}
         onSubmit={(e) => {
           e.preventDefault();
           generate();
         }}
       >
-        {modeField && modeField.type === "mode" ? (
-          <div className={s.modeRow}>
-            <Segmented
-              id={`${slug}-mode`}
-              options={modeField.options.map((o) => o.value)}
-              labels={Object.fromEntries(modeField.options.map((o) => [o.value, o.label]))}
-              value={mode}
-              onChange={(v) => set("mode", v)}
-            />
-            <span id={`${slug}-mode-label`} className={s.srOnly}>
-              {modeField.label}
-            </span>
-          </div>
-        ) : null}
+        <div className={s.modeRow}>
+          <span id={`${slug}-mode-label`} className={s.srOnly}>
+            What do you want to do?
+          </span>
+          <Segmented
+            id={`${slug}-mode`}
+            options={["new", "improve"]}
+            labels={{ new: "Create a bio", improve: "Improve my bio" }}
+            value={mode}
+            onChange={(v) => set("mode", v)}
+          />
+        </div>
 
         <div className={s.group}>{inGroup("essentials").map(control)}</div>
 
@@ -192,19 +254,31 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
         <p className={s.note}>{ws.dataNote}</p>
       </form>
 
-      <div className={s.output} ref={resultsRef}>
-        <div className={s.previewHead}>
-          <span className={s.eyebrow}>{has ? "Profile preview" : "Example preview"}</span>
-          <span className={countChars(shown) > limit ? `${s.count} ${s.countOver}` : s.count}>
-            {countChars(shown)} / {limit}
-          </span>
-        </div>
-        <InstaPreview username="yourusername" name={displayName} category={category} bio={shown} link={link} />
-        {has ? null : <p className={s.note}>Your bios show up here, on the profile and in a list you can copy from.</p>}
-
+      <div className={s.output} ref={outputRef}>
         <p className={s.srOnly} aria-live="polite" role="status">
           {announce}
         </p>
+
+        <div className={s.outputBar}>
+          {has ? (
+            <div className={s.viewTabs} role="tablist" aria-label="Results view">
+              <button type="button" role="tab" aria-selected={view === "list"} className={view === "list" ? `${s.viewTab} ${s.viewTabOn}` : s.viewTab} onClick={() => setView("list")}>
+                All {options.length} bios
+              </button>
+              <button type="button" role="tab" aria-selected={view === "phone"} className={view === "phone" ? `${s.viewTab} ${s.viewTabOn}` : s.viewTab} onClick={() => setView("phone")}>
+                Profile preview
+              </button>
+            </div>
+          ) : (
+            <span className={s.draftPill}>
+              <span className={s.draftDot} aria-hidden />
+              {mode === "improve" ? "Your current bio" : "Live draft"}
+            </span>
+          )}
+          <span className={countChars(phoneBio) > limit ? `${s.count} ${s.countOver}` : s.count}>
+            {showPhone ? `${countChars(phoneBio)} / ${limit}` : `${limit} characters max`}
+          </span>
+        </div>
 
         {error ? (
           <div className={s.error} role="alert">
@@ -215,103 +289,138 @@ export function BioStudio({ slug, ws }: { slug: string; ws: Workspace }) {
           </div>
         ) : null}
 
-        {loading ? (
-          <ol className={s.results} aria-hidden>
-            {[0, 1, 2, 3, 4].map((i) => (
-              <li key={i} className={`${s.result} ${s.skeleton}`} />
-            ))}
-          </ol>
-        ) : has ? (
-          <>
-            <p className={s.resultsTitle}>{ws.resultsHeading}</p>
-            {original ? (
-              <div className={s.original}>
-                <span className={s.resultLabel}>Your current bio</span>
-                <p className={s.resultText}>{original}</p>
-                <span className={s.count}>
-                  {countChars(original)} / {limit}
-                </span>
-              </div>
-            ) : null}
-            <ol className={s.results}>
-              {options.map((o, i) => {
-                const n = countChars(o.text);
-                const isOn = i === selected;
-                return (
-                  <li key={i} className={isOn ? `${s.result} ${s.resultOn}` : s.result}>
-                    <div className={s.resultTop}>
-                      <span className={s.resultLabel}>{o.label}</span>
-                      <span className={n > limit ? `${s.count} ${s.countOver}` : s.count}>
-                        {n} / {limit}
-                      </span>
-                    </div>
-                    {editing === i ? (
-                      <textarea
-                        // Opened by "Edit bio", so focus moves straight into the text.
-                        autoFocus
-                        className={`${s.input} ${s.textarea} ${s.resultEdit}`}
-                        aria-label={`Edit the ${o.label} bio`}
-                        rows={Math.max(3, o.text.split("\n").length + 1)}
-                        value={o.text}
-                        onChange={(e) => setOptions((all) => all.map((x, j) => (j === i ? { ...x, text: e.target.value } : x)))}
-                        onBlur={() => setEditing(null)}
-                      />
-                    ) : (
-                      <p className={s.resultText}>{o.text}</p>
-                    )}
-                    <div className={s.resultActions}>
-                      <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`} onClick={() => copy(i)}>
-                        {copied === i ? "Copied" : "Copy bio"}
-                      </button>
-                      <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnSm}`} onClick={() => setEditing(editing === i ? null : i)}>
-                        {editing === i ? "Done" : "Edit bio"}
-                      </button>
-                      <button type="button" className={`${s.btn} ${s.btnText} ${s.btnSm}`} aria-pressed={isOn} onClick={() => setSelected(i)} disabled={isOn}>
-                        {isOn ? "On the preview" : "See profile"}
-                      </button>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-
-            {ideaInfo && ideas.length ? (
-              <div className={s.ideas}>
-                <p className={s.resultLabel}>{ideaInfo.heading}</p>
-                <ul>
-                  {ideas.map((idea) => (
-                    <li key={idea}>
-                      <span>{idea}</span>
-                      <span className={countChars(idea) > ideaInfo.limit ? `${s.count} ${s.countOver}` : s.count}>
-                        {countChars(idea)} / {ideaInfo.limit}
-                      </span>
-                    </li>
+        {showPhone ? (
+          <div className={s.viewPane} key="phone">
+            {phone}
+            {has ? (
+              <div className={s.phoneControls}>
+                <div className={s.picker} role="group" aria-label="Choose which bio to preview">
+                  {options.map((o, i) => (
+                    <button key={i} type="button" className={i === selected ? `${s.pick} ${s.pickOn}` : s.pick} aria-pressed={i === selected} aria-label={`Preview bio ${i + 1}: ${o.label}`} onClick={() => setSelected(i)}>
+                      {i + 1}
+                    </button>
                   ))}
-                </ul>
-                <p className={s.note}>{ideaInfo.helper}</p>
+                </div>
+                <p className={s.pickLabel}>{options[selected]?.label}</p>
+                <div className={s.actionsCenter}>
+                  <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnMd}`} onClick={() => copy(selected)}>
+                    {copied === selected ? "Copied" : "Copy this bio"}
+                  </button>
+                  <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnMd}`} onClick={() => setView("list")}>
+                    Back to all {options.length} bios
+                  </button>
+                </div>
               </div>
-            ) : null}
-
-            {tips.length ? (
-              <ul className={s.tips}>
-                {tips.map((t) => (
-                  <li key={t}>Tip: {t}</li>
+            ) : (
+              <p className={s.draftNote}>
+                {mode === "improve"
+                  ? "This is your current bio. Hit Improve my bio for five rewrites that keep your facts."
+                  : "A quick draft from your answers, updating as you type. Hit Generate for five AI written bios."}
+              </p>
+            )}
+          </div>
+        ) : (
+          <div className={s.viewPane} key="list">
+            {loading ? (
+              <ol className={s.results} aria-hidden>
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <li key={i} className={`${s.result} ${s.skeleton}`} />
                 ))}
-              </ul>
-            ) : null}
+              </ol>
+            ) : (
+              <>
+                {original ? (
+                  <div className={s.original}>
+                    <span className={s.resultLabel}>Your current bio</span>
+                    <p className={s.resultText}>{original}</p>
+                    <span className={s.count}>
+                      {countChars(original)} / {limit}
+                    </span>
+                  </div>
+                ) : null}
+                <ol className={s.results}>
+                  {options.map((o, i) => {
+                    const n = countChars(o.text);
+                    return (
+                      <li key={i} className={i === selected ? `${s.result} ${s.resultOn}` : s.result}>
+                        <div className={s.resultTop}>
+                          <span className={s.resultLabel}>
+                            <span className={s.resultNum}>{String(i + 1).padStart(2, "0")}</span>
+                            {o.label}
+                          </span>
+                          <span className={n > limit ? `${s.count} ${s.countOver}` : s.count}>
+                            {n} / {limit}
+                          </span>
+                        </div>
+                        {editing === i ? (
+                          <textarea
+                            // Opened by "Edit", so focus moves straight into the text.
+                            autoFocus
+                            className={`${s.input} ${s.textarea} ${s.resultEdit}`}
+                            aria-label={`Edit the ${o.label} bio`}
+                            rows={Math.max(3, o.text.split("\n").length + 1)}
+                            value={o.text}
+                            onChange={(e) => setOptions((all) => all.map((x, j) => (j === i ? { ...x, text: e.target.value } : x)))}
+                            onBlur={() => setEditing(null)}
+                          />
+                        ) : (
+                          <p className={s.resultText}>{o.text}</p>
+                        )}
+                        <div className={s.resultActions}>
+                          <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`} onClick={() => copy(i)}>
+                            {copied === i ? "Copied" : "Copy bio"}
+                          </button>
+                          <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnSm}`} onClick={() => preview(i)}>
+                            Preview in profile
+                          </button>
+                          <button type="button" className={`${s.btn} ${s.btnText} ${s.btnSm}`} onClick={() => setEditing(editing === i ? null : i)}>
+                            {editing === i ? "Done" : "Edit"}
+                          </button>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
 
-            <div className={s.actions}>
-              <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnMd}`} onClick={() => generate()}>
-                {ws.more}
-              </button>
-              {r.kind === "options" && r.shorter ? (
-                <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnMd}`} onClick={() => generate({ rewrite: "shorter" })}>
-                  {r.shorter}
-                </button>
-              ) : null}
-            </div>
-          </>
-        ) : null}
+                {ideaInfo && ideas.length ? (
+                  <div className={s.ideas}>
+                    <p className={s.resultLabel}>{ideaInfo.heading}</p>
+                    <ul>
+                      {ideas.map((idea) => (
+                        <li key={idea}>
+                          <span>{idea}</span>
+                          <span className={countChars(idea) > ideaInfo.limit ? `${s.count} ${s.countOver}` : s.count}>
+                            {countChars(idea)} / {ideaInfo.limit}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className={s.note}>{ideaInfo.helper}</p>
+                  </div>
+                ) : null}
+
+                {tips.length ? (
+                  <ul className={s.tips}>
+                    {tips.map((t) => (
+                      <li key={t}>Tip: {t}</li>
+                    ))}
+                  </ul>
+                ) : null}
+
+                <div className={s.actions}>
+                  <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnMd}`} onClick={() => generate()}>
+                    {ws.more}
+                  </button>
+                  {r.kind === "options" && r.shorter ? (
+                    <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnMd}`} onClick={() => generate("shorter")}>
+                      {r.shorter}
+                    </button>
+                  ) : null}
+                </div>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

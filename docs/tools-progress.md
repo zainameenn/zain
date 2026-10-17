@@ -68,3 +68,9 @@
 - Fast model default switched to gemini-flash-lite-latest: gemini-flash-latest was taking 45s+ (timeouts) in testing on Oct 17. Lite answers in about 2s.
 - Header: "Free Tools" hidden from the desktop bar between 768 and 1023px only (it overflowed). Still in the mobile menu, footer and desktop bar from 1024px.
 - pnpm-workspace.yaml temporary i18next exclusion removed; install passes the age check now.
+
+## Instagram bio second round design fixes (2026-10-17)
+- Generator: CSS phone mockup (app/tools/_studio/Phone.tsx) with a live draft built in the browser from the form (lib/tools/draft.ts, no AI, clearly labeled "Live draft"). After generating: "All 5 bios" list and "Profile preview" tabs, a 1 to 5 picker on the phone, Copy and Back. Results survive view and mode changes. New optional "Name or brand" field feeds the preview and the prompt (`<name>` in the instagram-bio user template).
+- Sections rebuilt to the service page pattern (eyebrow, H2 with italic serif accent line, sub on the right) on alternating cream and warm white bands. New kinds: steps with mini visuals, creator breakdown (real @khaby00 bio, checked Oct 17, 2026; photo by Sam Barnes / Web Summit, CC BY 4.0, via Wikimedia Commons), style cards with "Use this style" (StyleButton dispatches studio:style to BioStudio), practice cards with examples. InstaPreview.tsx removed.
+- No longer shown on the page: how-it-works-steps.webp, bio-anatomy.webp, notes-to-profile.webp (files kept in public/ in case they're wanted back).
+- Tested in headless Edge at 1440, 1024, 768, 390, 360: no horizontal overflow, one H1, no console errors; flow test covered live draft, Use this style, generate, preview, picker, back, edit, improve mode.
