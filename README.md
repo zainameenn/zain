@@ -1,8 +1,8 @@
 <a href="https://www.zainameen.com">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg">
-    <img alt="Zain Ul Abdin, growth marketing specialist for SaaS and service businesses" src="./assets/banner-light.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="./Readme/assets/banner-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./Readme/assets/banner-light.svg">
+    <img alt="Zain Ul Abdin, growth marketing specialist for SaaS and service businesses" src="./Readme/assets/banner-light.svg" width="100%">
   </picture>
 </a>
 
@@ -30,9 +30,9 @@ Most SaaS teams don't have a marketing problem. They have one bottleneck hiding 
 Before marketing, I ran a sales floor. So I care about closed deals more than likes.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/stats-light.svg">
-  <img alt="100K+ users brought in, 85K+ users for one SaaS with no ads, 50M+ search impressions, thousands of Reddit conversions with $0 ad spend" src="./assets/stats-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./Readme/assets/stats-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./Readme/assets/stats-light.svg">
+  <img alt="100K+ users brought in, 85K+ users for one SaaS with no ads, 50M+ search impressions, thousands of Reddit conversions with $0 ad spend" src="./Readme/assets/stats-light.svg" width="100%">
 </picture>
 
 ## 📈 Selected work
