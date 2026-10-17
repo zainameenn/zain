@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import { ArrowIcon, ChevronIcon } from "./icons";
 import { Img } from "./Img";
 
-const NAV_LINKS: { t: string; href: string }[] = [
+// wide: hidden from the desktop bar between 768 and 1023px, where six links don't fit next to the button (still in the mobile menu and footer).
+const NAV_LINKS: { t: string; href: string; wide?: boolean }[] = [
   { t: "Services", href: "/services" },
   { t: "Case Studies", href: "/case-studies" },
   { t: "Pricing", href: "/pricing" },
   { t: "About", href: "/about" },
   { t: "Blog", href: "/blog" },
-  { t: "Free Tools", href: "/tools" },
+  { t: "Free Tools", href: "/tools", wide: true },
 ];
 
 const SERVICE_MENU = [
@@ -97,7 +98,7 @@ export default function Navbar() {
               const on = navHover === i;
               const dd = on && isSvc;
               return (
-                <div key={l.t} onMouseEnter={() => setNavHover(i)} style={{ position: "relative" }}>
+                <div key={l.t} onMouseEnter={() => setNavHover(i)} style={{ position: "relative" }} className={l.wide ? "max-lg:hidden" : undefined}>
                   <a
                     href={l.href}
                     className="max-lg:!px-2"

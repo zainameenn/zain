@@ -60,3 +60,11 @@
 - AI tools now run on Google Gemini via plain fetch (lib/tools/gemini.ts), no SDK. Env: GEMINI_API_KEY (required, set in Vercel and .env.local, never committed). Optional TOOLS_MODEL_FAST / TOOLS_MODEL_STRONG; defaults gemini-flash-latest / gemini-pro-latest. JSON mode on, default temperature.
 - Only pages in LIVE (lib/tools/registry.ts) render in production: the 6 batch 1 pages. In dev, every page renders for review. Add each slug to LIVE when its batch is approved.
 - Hub copy is generic (no tool count) and hides empty groups.
+
+## Instagram bio v3 redesign (2026-10-17)
+- New studio system: app/tools/_studio/ (StudioPage, BioStudio, controls, InstaPreview, studio.module.css, Lora font loaded only here). A page opts in with `studio` on its config; the [slug] template renders StudioPage. Only Instagram bio uses it so far.
+- New field types: segmented, combobox; `group` places fields (essentials, style, format, advanced).
+- Instagram has its own prompt block `instagram-bio`. TikTok, X, Threads and Facebook still use the shared `bio` block and old template.
+- Fast model default switched to gemini-flash-lite-latest: gemini-flash-latest was taking 45s+ (timeouts) in testing on Oct 17. Lite answers in about 2s.
+- Header: "Free Tools" hidden from the desktop bar between 768 and 1023px only (it overflowed). Still in the mobile menu, footer and desktop bar from 1024px.
+- pnpm-workspace.yaml temporary i18next exclusion removed; install passes the age check now.

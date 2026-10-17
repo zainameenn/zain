@@ -1,6 +1,6 @@
 import { FAIR_USE, GUIDE_CONTENT_WRITING, LINK_SOCIAL_MEDIA_SERVICE } from "../links";
 import type { Rich, ToolExample, ToolField, ToolPage } from "../types";
-import { BIO_LANGUAGES } from "./bio";
+import { BIO_LANGUAGES } from "./common";
 import { instagramCaptionPage } from "./caption-instagram";
 import { ERROR_TEXT, dataNote, fmt, freeFaq } from "./common";
 

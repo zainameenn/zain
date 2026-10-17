@@ -12,6 +12,7 @@ import { JsonLd, breadcrumbList } from "@/app/blog/_components/JsonLd";
 import { BlogCta } from "@/app/blog/_components/parts";
 import { Blocks, Crumbs, SectionBody, plain, rich } from "../_components/content";
 import { ProfileMockup } from "../_components/ProfileMockup";
+import { StudioPage } from "../_studio/StudioPage";
 import { ToolWorkspace, UseExampleButton } from "../_components/ToolWorkspace";
 import s from "../tools.module.css";
 
@@ -215,6 +216,8 @@ function Examples({ tool }: { tool: ToolPage }) {
 export default async function ToolPageView({ params }: Props) {
   const tool = getTool((await params).slug);
   if (!tool) notFound();
+  // Redesigned pages render on the studio layout; the rest keep this template until they move over.
+  if (tool.studio) return <StudioPage tool={tool} jsonLd={jsonLd(tool)} />;
   const related = tool.related.flatMap((r) => (TOOLS[r.slug] ? [{ ...r, name: TOOLS[r.slug].name }] : []));
   const extra = tool.extraLinks.filter((l): l is { text: string; href: string } => !!l.href && !!l.text);
 
