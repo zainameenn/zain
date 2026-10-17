@@ -74,3 +74,13 @@
 - Sections rebuilt to the service page pattern (eyebrow, H2 with italic serif accent line, sub on the right) on alternating cream and warm white bands. New kinds: steps with mini visuals, creator breakdown (real @khaby00 bio, checked Oct 17, 2026; photo by Sam Barnes / Web Summit, CC BY 4.0, via Wikimedia Commons), style cards with "Use this style" (StyleButton dispatches studio:style to BioStudio), practice cards with examples. InstaPreview.tsx removed.
 - No longer shown on the page: how-it-works-steps.webp, bio-anatomy.webp, notes-to-profile.webp (files kept in public/ in case they're wanted back).
 - Tested in headless Edge at 1440, 1024, 768, 390, 360: no horizontal overflow, one H1, no console errors; flow test covered live draft, Use this style, generate, preview, picker, back, edit, improve mode.
+
+## TikTok, X, Threads and Facebook bios on the studio layout (2026-10-17)
+- Shared studio bio system: lib/tools/families/studio-bio.ts (form, workspace, prompt vars) and the "studio-bio" prompt block in blocks.ts (Instagram keeps its own approved block). Phone skins in app/tools/_studio/Phone.tsx: TikTokScreen, XScreen, ThreadsScreen, FacebookScreen, chosen by `studio.skin`.
+- Real examples, all checked October 17, 2026 from live profile data:
+  - X: Nike, NASA, Wendy's, Ryanair, Airbnb, Canva (api.fxtwitter.com, cross checked with X syndication). Creator: @MKBHD, photo by Marques Brownlee, CC BY-SA 4.0.
+  - TikTok: Nike, Duolingo, Ryanair, Canva, Gymshark, Netflix (empty bio), from the profile page JSON. Creator: @charlidamelio, photo by Brad Mondo, CC BY 3.0.
+  - Threads: Duolingo, Canva, NASA, Wendy's, Sephora, Starbucks, from the profile JSON. Creator: @adamgrant, photo World Economic Forum / Jakob Polacsek, CC BY 2.0.
+  - Facebook: Patagonia, Duolingo, Canva, Starbucks, Katz's Delicatessen, Stumptown Coffee (Intro card bio field). Creator: Gordon Ramsay, photo by Dave Pullig, CC BY 2.0.
+- Unconfirmed limits, said honestly in the copy: Threads publishes no bio limit (tool keeps 150), Facebook publishes no limit (tool keeps 101, "about 101"). TikTok 80 and X 160 are confirmed on their help pages.
+- New public domain logos: public/assets/tools/brands/nasa.svg, airbnb.svg. Brands without a free logo get a monogram.

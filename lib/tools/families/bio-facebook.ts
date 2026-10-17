@@ -1,212 +1,334 @@
-import { FAIR_USE } from "../links";
-import type { DemoProfile, ToolExample, ToolInput, ToolPage } from "../types";
+import { FAIR_USE, LINK_SOCIAL_MEDIA_SERVICE } from "../links";
+import type { BrandExample, StudioContent, ToolPage } from "../types";
+import { studioBioPage, type StudioBioPlatform } from "./studio-bio";
 
-// Facebook Bio Generator copy v2 (docs/copy/facebook-bio-generator.md), merged over the bio family page.
+// Facebook Bio Generator on the studio layout, same structure as the Instagram page.
 
+/** Old form copy, still read by the bio family. The studio form below replaces the fields on this page. */
 export const FACEBOOK_FIELD_COPY = {
   who: { placeholder: "Family run plumbing business" },
-  audience: { placeholder: "Homeowners who need a plumber they can trust", hint: "Facebook visitors often check you're legit, so say who you serve" },
   current_bio: { label: "Paste your current bio or Page intro" },
-  keywords: { label: "Words people search to find you (optional)", placeholder: "plumber, emergency repairs" },
-  location: { label: "Location (optional, important for local businesses)", placeholder: "Austin, TX" },
-  proof: { placeholder: "25 years in business, 4.8 stars on Google" },
-  action: { label: "What should visitors do next?", options: ["Follow", "Message us", "Call", "Book", "Shop", "Nothing"], defaultValue: "Message us" },
-  tone: { label: "Vibe" },
 };
 
-const base = (input: ToolInput): ToolInput => ({ mode: "new", current_bio: "", keywords: "", location: "", proof: "", emoji: true, line_breaks: true, language: "English", ...input });
+const CHECKED = "October 17, 2026";
+const logo = (path: string, alt: string) => ({ src: path, alt, width: 64, height: 64 });
+const IG = "/assets/tools/instagram-bio/brands";
 
-type Example = ToolExample & { profile: DemoProfile };
+const PLATFORM: StudioBioPlatform = {
+  platform: "Facebook",
+  skin: "facebook",
+  limit: 101,
+  target: [40, 95],
+  shortMax: 40,
+  facts:
+    "The bio shows in the Intro section of a profile or Page, which is always public. Plain and trustworthy reads best, in one or two short lines. Website, phone, hours and address have their own fields, so never put them in the bio. Local businesses should name the area if one is given.",
+  goals: ["Get more followers", "Visit my website", "Shop my products", "Book a service", "Send a message", "Call or visit us", "No CTA"],
+  defaultFormat: "Single line",
+  copy: {
+    about: "Family run plumbing for Austin homes",
+    currentBio: "Welcome to our official Facebook page!! Like and share",
+    name: "Garcia Plumbing",
+    nameHint: "Shows on the preview as your profile or Page name.",
+    audience: "Homeowners who need a plumber they can trust",
+    proof: "25 years in business, 4.8 stars on Google",
+    keywords: "plumber, emergency repairs",
+    location: "Austin, TX",
+  },
+  example: {
+    account_type: "Business",
+    category: "Small Business",
+    about: "Family run plumbing for homes, same day repairs",
+    name: "Garcia Plumbing",
+    location: "Austin, TX",
+    proof: "25 years in business",
+    tone: "Professional",
+    goal: "Send a message",
+    emoji: "None",
+    format: "Single line",
+  },
+};
 
-const EXAMPLES: Example[] = [
+/**
+ * Real Pages. Each bio is the Intro text on the brand's live Facebook Page on the date in CHECKED.
+ * Bios change often (Duolingo's is seasonal), so recheck before relying on them. Brands without a free logo get a neutral monogram.
+ */
+const BRANDS: BrandExample[] = [
   {
-    inputLabel: "Local plumber",
-    inputText: "family run plumbing · homeowners · Austin, TX · Call · Professional",
-    input: base({ account_type: "Business", who: "Family run plumbing business", audience: "Homeowners", location: "Austin, TX", proof: "Same day repairs", keywords: "plumber", action: "Call", tone: "Professional" }),
-    output: "Family run plumbing in Austin 🔧\nSame day repairs, honest quotes",
-    why: "what, where and two reasons to trust it, before anyone has to tap \"see more\".",
-    profile: { username: "austinplumbing", name: "Austin Family Plumbing", text: "", badge: "Business" },
+    brand: "Patagonia",
+    handle: "PATAGONIA",
+    url: "https://www.facebook.com/PATAGONIA/",
+    logo: null,
+    bio: "We're in business to save our home planet.",
+    checked: CHECKED,
+    style: "Brand-focused",
+    why: "Its mission in one sentence. No product, no offer, just why the company exists, which is what its customers care about.",
+    lesson: "If people buy from you because of what you stand for, say that first.",
   },
   {
-    inputLabel: "Yoga studio",
-    inputText: "yoga studio · desk workers · Denver · Book · Friendly",
-    input: base({ account_type: "Business", who: "Yoga studio for desk workers", audience: "People with stiff backs from desk jobs", location: "Denver", proof: "Free beginner class every Saturday", action: "Book", tone: "Friendly" }),
-    output: "Yoga for desk workers in Denver 🧘\nFree beginner class every Saturday",
-    why: "the free class lowers the risk of trying it, and the city tells locals it's for them.",
-    profile: { username: "deskyogadenver", name: "Desk Yoga Denver", text: "", badge: "Business" },
+    brand: "Duolingo",
+    handle: "duolingo",
+    url: "https://www.facebook.com/duolingo/",
+    logo: logo(`${IG}/duolingo.svg`, "Duolingo logo"),
+    bio: "educated girl autumn 🎃🦉",
+    checked: CHECKED,
+    style: "Personality",
+    why: "The same seasonal joke it uses on other platforms, so the brand sounds the same wherever you meet it.",
+    lesson: "Keep one voice across every profile.",
   },
   {
-    inputLabel: "Food creator",
-    inputText: "15 minute dinners · busy parents · Follow · Friendly",
-    input: base({ account_type: "Creator", who: "Quick dinner recipes", audience: "Busy parents", proof: "New recipe every Sunday", keywords: "easy dinners", action: "Follow", tone: "Friendly", emoji: false }),
-    output: "15 minute dinners for busy weeknights\nNew recipe every Sunday",
-    why: "a time, a reader and a schedule. People know exactly what following gets them.",
-    profile: { username: "fifteenminutedinners", name: "15 Minute Dinners", text: "", badge: "Creator" },
+    brand: "Canva",
+    handle: "canva",
+    url: "https://www.facebook.com/canva/",
+    logo: logo(`${IG}/canva.svg`, "Canva logo"),
+    bio: "Amazingly simple graphic design. Need a little help? https://support.canva.com",
+    checked: CHECKED,
+    style: "Action-focused",
+    why: "What it is in four words, then the most common reason people visit the Page, then where to go.",
+    lesson: "Answer the question most visitors arrive with.",
   },
   {
-    inputLabel: "Real estate agent",
-    inputText: "real estate agent · first time buyers · Toronto · Message us · Professional",
-    input: base({ account_type: "Business", who: "Real estate agent", audience: "First time buyers", location: "Toronto", action: "Message us", tone: "Professional", emoji: false }),
-    output: "Helping first time buyers in Toronto find a place they can afford",
-    why: "one line, one audience, one promise. Plain and trustworthy wins on Facebook.",
-    profile: { username: "priya.homes", name: "Priya Shah Real Estate", text: "", badge: "Business" },
+    brand: "Starbucks",
+    handle: "Starbucks",
+    url: "https://www.facebook.com/Starbucks/",
+    logo: null,
+    bio: "The Starbucks Coffee Company ☕️",
+    checked: CHECKED,
+    style: "Minimal",
+    why: "Just the full company name and one emoji. The Page category and website fill in the rest.",
+    lesson: "Only famous brands can get away with this little.",
   },
   {
-    inputLabel: "Running club",
-    inputText: "running club · all paces · Leicester · Follow · Funny",
-    input: base({ account_type: "Business", who: "Community running club", audience: "Runners of all paces", location: "Leicester", proof: "Runs every Tuesday at 7pm", action: "Follow", tone: "Funny" }),
-    output: "Leicester's slowest fast running club 🏃\nAll paces, every Tuesday at 7",
-    why: "the joke makes beginners feel welcome, and the day and time do the rest.",
-    profile: { username: "leicesterrunclub", name: "Leicester Run Club", text: "", badge: "Business" },
+    brand: "Katz's Delicatessen",
+    handle: "katzsdeli",
+    url: "https://www.facebook.com/katzsdeli/",
+    logo: null,
+    bio: "New York City's most iconic deli.",
+    checked: CHECKED,
+    style: "Brand-focused",
+    why: "Place and a confident claim in six words. The Intro card adds the address, hours and contact details from their own fields.",
+    lesson: "Local business? Name the place in the bio and let the fields carry the details.",
   },
   {
-    inputLabel: "Personal",
-    inputText: "dad, gardening, pancakes · personal profile · Nothing · Funny",
-    input: base({ account_type: "Personal", who: "Dad of two who likes gardening and cooking", audience: "", action: "Nothing", tone: "Funny", line_breaks: false }),
-    output: "Dad of two. Terrible gardener. Excellent pancakes 🥞",
-    why: "a personal bio doesn't need a pitch. Three honest details say plenty.",
-    profile: { username: "mark.r", name: "Mark Reyes", text: "", badge: "Personal" },
+    brand: "Stumptown Coffee",
+    handle: "stumptowncoffee",
+    url: "https://www.facebook.com/stumptowncoffee/",
+    logo: null,
+    bio: "Highest Quality ☕ Roasted Daily\nCertified B Corporation\n#stumptowncoffee",
+    checked: CHECKED,
+    style: "Brand-focused",
+    why: "Three short lines: a promise, a real credential and its own hashtag. Easy to scan in the Intro box.",
+    lesson: "A real credential, stated once, builds trust fast.",
   },
-].map((e) => ({ ...e, profile: { ...e.profile, text: e.output } }));
+];
+
+const STUDIO: StudioContent = {
+  lede: "This Facebook bio generator writes short, trustworthy bios for your profile or Page that fit about 101 characters.",
+  sub: "Choose your style, tell us what your account is about, and get five bios ready to copy.",
+  trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
+  sections: [
+    {
+      kind: "steps",
+      eyebrow: "How it works",
+      heading: "How to use the",
+      accent: "Facebook bio generator",
+      intro: "Three steps, about thirty seconds. The phone preview updates while you go.",
+      steps: [
+        { title: "Tell us about your account", text: "Pick a personal profile, creator or business Page, then choose your niche or type your own.", visual: "account" },
+        { title: "Choose your style", text: "Pick a tone, how many emoji you want, and one line or two.", visual: "style" },
+        { title: "Copy your favorite", text: "Compare five bios, preview any of them on the phone, then paste one into the Intro section on Facebook.", visual: "copy" },
+      ],
+    },
+    {
+      kind: "gallery",
+      eyebrow: "Real examples",
+      heading: "6 Facebook bios",
+      accent: "worth learning from",
+      intro: "How well known brands and a famous local deli use the Intro section, from a mission statement to three tidy lines.",
+      note: `Big brands can lean on name recognition, so copy the habits, not the brevity. Intros as shown on each official Facebook Page on ${CHECKED}, and they may have changed since. Logos are trademarks of their owners, shown only to identify each account.`,
+      items: BRANDS,
+    },
+    {
+      kind: "creator",
+      eyebrow: "Bio breakdown",
+      heading: "What makes a good",
+      accent: "Facebook bio",
+      intro: "People often check a Facebook Page to see if you're real and what you do. Here's a real creator Intro, taken apart piece by piece.",
+      profile: {
+        handle: "gordonramsay",
+        name: "Gordon Ramsay",
+        url: "https://www.facebook.com/gordonramsay/",
+        checked: CHECKED,
+        category: "Chef",
+        link: "gordonramsay.com",
+        photo: {
+          src: "/assets/tools/facebook-bio/gordon-ramsay.webp",
+          alt: "Gordon Ramsay",
+          width: 256,
+          height: 256,
+          credit: "Photo: Dave Pullig, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), via Wikimedia Commons, cropped.",
+        },
+      },
+      nameMark: 1,
+      categoryMark: 4,
+      linkMark: 5,
+      join: " ",
+      lines: [{ text: "The official Facebook page of" }, { text: "Chef, Restaurateur, TV Personality,", mark: 2 }, { text: "Prankster and Dad", mark: 3 }],
+      points: [
+        { title: "Page name", text: "Just his name. The category and the Intro do the describing, so the name stays clean and easy to search." },
+        { title: "Roles, most important first", text: "Chef comes first, which matches the Page category underneath. Then the other things he's known for." },
+        { title: "Personality at the end", text: "\"Prankster and Dad\" turns a list of job titles into a person. It's the line people remember." },
+        { title: "Category", text: "\"Page · Chef\" sits in the Intro and tells visitors what kind of Page this is before they read anything else." },
+        { title: "Website in its own field", text: "gordonramsay.com sits in the Links field, so the bio doesn't spend characters on it." },
+        { title: "What's missing", text: "\"The official Facebook page of\" uses almost a third of the space on something the name already says. A smaller Page should lead with what it does." },
+      ],
+      note: `Intro, category and website as shown on Gordon Ramsay's Facebook Page on ${CHECKED}. Follower counts and posts are left out on purpose.`,
+    },
+    {
+      kind: "compare",
+      eyebrow: "Before and after",
+      heading: "Fixing a weak",
+      accent: "Facebook bio",
+      intro: "Visitors want to know what you do and whether they can trust you. A greeting answers neither.",
+      before: "Welcome to our official Facebook page!! 🙏 Like and share ❤️",
+      after: "Family run plumbers serving Austin homes. Same day repairs, upfront prices.",
+      changes: [
+        "The welcome became what the business actually does.",
+        "Naming the city tells locals it's for them.",
+        "Two concrete promises replaced a request to like and share.",
+      ],
+    },
+    {
+      kind: "styles",
+      eyebrow: "Bio ideas",
+      heading: "Facebook bio ideas",
+      accent: "for every style",
+      intro: "Six different approaches for profiles and Pages. Find one that sounds like you, then send its settings straight to the generator.",
+      styles: [
+        {
+          name: "Minimal",
+          when: "For photographers, artists and personal profiles.",
+          bio: "Wedding photographer · Lake District",
+          why: "What and where. People who need you know at a glance.",
+          settings: { tone: "Minimal", emoji: "None", format: "Single line" },
+        },
+        {
+          name: "Professional",
+          when: "For trades, clinics and service businesses.",
+          bio: "Family run plumbing for Austin homes. Same day repairs, upfront prices.",
+          why: "Who you are, where you work and two reasons to trust you.",
+          settings: { tone: "Professional", emoji: "None", format: "Single line" },
+          dark: true,
+        },
+        {
+          name: "Funny",
+          when: "For personal profiles with a sense of humor.",
+          bio: "Dad, runner and the slowest marathon finisher in Leeds",
+          why: "Three real facts, and the last one makes you smile.",
+          settings: { tone: "Funny", emoji: "None", format: "Single line" },
+        },
+        {
+          name: "Aesthetic",
+          when: "For makers and lifestyle accounts.",
+          bio: "plants, pottery and slow sundays 🌿",
+          why: "A mood in a few soft words. It works when the photos match.",
+          settings: { tone: "Aesthetic", emoji: "Subtle", format: "Single line" },
+        },
+        {
+          name: "Creator",
+          when: "For food, parenting and how to creators.",
+          bio: "Easy weeknight recipes for busy families 🍝\nNew video every Sunday",
+          why: "What you make, who it's for and when to come back.",
+          settings: { tone: "Friendly", emoji: "Subtle", format: "Multiple lines" },
+        },
+        {
+          name: "Local business",
+          when: "For cafés, shops and anyone with a front door.",
+          bio: "Neighborhood bakery in Portland 🥐\nFresh bread daily, come and say hello",
+          why: "The place and a warm invitation. Hours and address go in their own fields.",
+          settings: { tone: "Friendly", emoji: "Subtle", format: "Multiple lines", goal: "Call or visit us" },
+        },
+      ],
+    },
+    {
+      kind: "practices",
+      eyebrow: "Best practices",
+      heading: "Facebook bio",
+      accent: "best practices",
+      intro: "Six habits that make the biggest difference, each one a different idea.",
+      items: [
+        {
+          title: "Make it trustworthy",
+          text: "People often visit a Facebook profile or Page to check you're legit. Say plainly what you do.",
+          featured: true,
+          example: { good: "Family run plumbers serving Austin", bad: "Living the dream ✨🙏" },
+        },
+        {
+          title: "Remember it's public",
+          text: "Facebook says the Intro section is [always public](https://www.facebook.com/help/1090724464274188), so only write what you'd tell a stranger.",
+          example: { good: "Nurse and weekend baker", bad: "Nurse at St Mary's, Ward 4, nights" },
+        },
+        {
+          title: "Use the right fields",
+          text: "Pages have separate fields for [links, contact info, hours and address](https://www.facebook.com/help/160672070698623).",
+          example: { good: "Same day repairs, upfront prices", bad: "Call 555 0123 · Open 8 to 6" },
+        },
+        { title: "Name your area", text: "Local customers want to know you serve them, and a place name tells them in one word.", example: { good: "Bakery in Portland's Pearl District" } },
+        { title: "Skip \"official page\"", text: "Your name already says it. Spend the characters on what you do.", example: { good: "New York City's most iconic deli.", bad: "The official Facebook page of us" } },
+        {
+          title: "Keep it to about 101 characters",
+          text: "Facebook doesn't publish an exact limit. 101 is the figure most guides use, and the tool keeps every bio within it.",
+          example: { count: 84 },
+        },
+      ],
+    },
+    { kind: "faq", eyebrow: "FAQ", heading: "Frequently asked", accent: "questions" },
+    {
+      kind: "related",
+      eyebrow: "Keep going",
+      heading: "More free tools for",
+      accent: "your social profiles",
+      tools: [
+        { slug: "instagram-bio-generator", text: "Your bio for Instagram, in 150 characters.", icon: "bio" },
+        { slug: "twitter-bio-generator", text: "A sharper 160 character bio for X.", icon: "x" },
+        { slug: "threads-bio-generator", text: "A warmer, chattier bio for Threads.", icon: "chat" },
+        { slug: "instagram-caption-generator", text: "Captions for the posts your bio promises.", icon: "caption" },
+      ],
+    },
+    {
+      kind: "cta",
+      heading: "A better bio is a start.",
+      accent: "Let's fix the rest of your social presence.",
+      copy: "I help SaaS and service businesses turn content, profiles and organic social into real growth.",
+      button: "Explore social media marketing",
+      href: LINK_SOCIAL_MEDIA_SERVICE ?? "/services",
+    },
+  ],
+};
 
 export function facebookPage(page: ToolPage): ToolPage {
-  return {
-    ...page,
-    metaTitle: "Facebook Bio Generator: Free AI Bios for Profiles and Pages",
-    metaDescription: "Use this free Facebook bio generator to write 5 short bios for your profile or Page, see them in a live Intro preview, and copy one that fits.",
-    h1: { regular: "Free AI Facebook", accent: "Bio Generator" },
-    heroDescription:
-      "This Facebook bio generator writes five short bios for your profile or Page, then shows them in a live Intro box so you can see how they read. Every bio stays under 101 characters, and none of them claim things you can't back up.",
-    accessNote: FAIR_USE,
-    workspace: {
-      ...page.workspace,
-      exampleInput: EXAMPLES[0].input,
-      emptyState: "",
-      dataNote: "AI can get things wrong. Read your bio before you post it, because your Facebook Intro is always public.",
-      result: { kind: "options", limit: 101, shorter: "Make them shorter", funnier: "Make them funnier" },
-      preview: {
-        skin: "facebook",
-        limit: 101,
-        demo: EXAMPLES.map((e) => e.profile),
-        labels: { pill: "Live preview", caption: "Illustrative profiles. Yours shows up here.", disclosure: "See it on a profile", previewButton: "Preview", theme: "Dark background" },
-        live: { username: "yourpage", link: "yoursite.com" },
-      },
-    },
-    howTo: {
-      heading: "How to use the Facebook bio generator",
-      intro: "It takes about a minute, which is roughly how long most people stare at the Intro box before typing \"Just living life\".",
-      steps: [
-        "**Pick the account type.** Business, creator or personal. A plumber's Page and a personal profile need very different bios.",
-        "**Say what you do and who it's for.** Facebook visitors often arrive checking whether you're real and local, so be specific: \"plumbing in Austin\" beats \"home services\".",
-        "**Add your city and one real proof point.** Years in business, a review score, a free class. One fact earns more trust than three adjectives.",
-        "**Preview, copy, paste.** Click Preview to see each bio in an Intro box. Pick one, copy it, then on Facebook go to the Intro section under your profile picture and edit your bio.",
+  return studioBioPage(
+    {
+      ...page,
+      metaTitle: "Facebook Bio Generator: Free AI Bios for Profiles and Pages",
+      metaDescription: "Use this free Facebook bio generator to write 5 short bios for your profile or Page, see them in a live Intro preview, and copy one that fits.",
+      h1: { regular: "Free Facebook", accent: "Bio Generator" },
+      heroDescription: STUDIO.lede,
+      accessNote: FAIR_USE,
+      faqs: [
+        { q: "Is this Facebook bio generator free?", a: `Yes. ${FAIR_USE}` },
+        { q: "How many characters can a Facebook bio have?", a: "Facebook doesn't publish an exact limit, and most guides put it at 101 characters. Every bio this tool writes stays within that, and the counter shows the exact total." },
+        { q: "Who can see my Facebook bio?", a: "Everyone. Meta says the information in the Intro section of your profile is always public, so only write what you're happy for anyone to read." },
+        { q: "Where do I find my bio on Facebook?", a: "In the Intro section of your profile, below your profile picture. Edit it there and paste in your new bio." },
+        { q: "Can I put a link in my Facebook bio?", a: "Use the Links and Contact info fields instead. They're built for websites, phone numbers and social links, so the bio can stay short." },
+        { q: "Is a Page bio different from a profile bio?", a: "Pages also have an Intro, plus a category that shows on the Page. Write the Page bio for customers and keep your personal bio personal." },
+        { q: "What should a local business put in its Facebook bio?", a: "What you do, the city or area you serve, and one reason to trust you. Use the contact fields for the phone number and the Links field for your website." },
+        { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real number or result, it tells you what to add." },
+        { q: "Can it write my bio in another language?", a: "Yes. Open \"More ways to personalize\", pick your language, and all five bios come out in it." },
       ],
-      outro: "Already have a bio or Page intro? Switch to **Improve my current bio**, paste it in, and get five tighter versions that keep your facts.",
+      related: [],
+      extraLinks: [],
     },
-    examples: {
-      heading: "Facebook bio examples for profiles and Pages",
-      label: "Illustrative examples",
-      intro: [{ p: "Six bios the tool wrote from the inputs shown. Click \"Use this example\" to load the inputs, then make it yours." }],
-      items: EXAMPLES,
-    },
-    sections: [
-      {
-        heading: "What to put in your Facebook bio",
-        blocks: [
-          { p: "Facebook bios get read in a very specific moment: someone found you in a group, a comment or a search, and they're deciding whether you're legit. The bio's job is to settle that in one glance." },
-          { p: "So the order matters:" },
-          {
-            ol: [
-              "**What you do, in plain words.** \"Family run plumbing\", not \"solutions for your home\".",
-              "**Where, if you're local.** A city name tells nearby people you're for them.",
-              "**One reason to trust you.** A real number, a free first visit, a promise you keep.",
-              "**What to do next,** if there's room. Facebook has buttons for messaging and calling, so this can be short.",
-            ],
-          },
-          { p: "Calling yourself \"Best plumber in town\" is the bio version of Michael Scott's \"World's Best Boss\" mug. He bought it himself, and everyone could tell. Let the reviews say it." },
-        ],
-      },
-      {
-        heading: "Profile or Page: where everything else goes",
-        blocks: [
-          { p: "The bio is only one part of your profile. Facebook gives other details their own fields, and using them keeps the bio short and clean." },
-          {
-            table: {
-              head: ["Profile part", "What it's for", "Quick tip"],
-              rows: [
-                ["Bio (in the Intro section)", "A short description of you or your Page", "What you do, for whom, and where"],
-                ["Links", "Links to your websites", "Your shop, booking page or menu goes here, not in the bio"],
-                ["Contact info", "Ways people can reach you, like phone, email and social links", "Fill it in, so the bio doesn't have to list a phone number"],
-                ["Category (Pages)", "Shows below your Page name in search", "Pick the category your customers would search for"],
-              ],
-            },
-          },
-          { p: "Meta's help pages describe the [Intro as \"a bio or brief description of yourself or your Page\"](https://www.facebook.com/help/1090724464274188) and list Links, Contact info and [Category](https://www.facebook.com/help/222732947737668) as separate details. The short version: **THE BIO SAYS WHO YOU ARE, THE OTHER FIELDS SAY HOW TO REACH YOU.**" },
-        ],
-      },
-      {
-        heading: "Facebook bio ideas you can steal",
-        blocks: [
-          { p: "Fill in the brackets with your own details, or pick the matching vibe in the tool." },
-          { h3: "Local business" },
-          { ul: ["\"[Service] in [city]. [One trust fact].\"\ne.g. \"Dog grooming in Bristol. Calm, cage free, 9 years running.\"", "\"[City]'s [specific thing]. [When or how to visit].\""] },
-          { h3: "Creator" },
-          { ul: ["\"[What you post] for [who]. New [thing] every [day].\"\ne.g. \"Budget travel tips for families. New trip guide every Friday.\""] },
-          { h3: "Personal" },
-          { ul: ["\"[Role in life]. [Hobby you're bad at]. [Thing you're good at].\"\ne.g. \"Nurse. Bad at chess. Great at lasagna.\""] },
-          { h3: "Funny" },
-          { ul: ["\"[Job], professionally. [Honest twist], unprofessionally.\"\ne.g. \"Accountant, professionally. Karaoke legend, unprofessionally.\""] },
-        ],
-      },
-      {
-        heading: "Facebook bio length, privacy and formatting",
-        blocks: [
-          { p: "Most guides put the Facebook profile bio limit at **101 characters**, and every bio this tool writes stays under that, counting spaces, emoji and line breaks. That length also works for a Page intro, so you can use the same text on both." },
-          { p: "A few things worth knowing before you paste:" },
-          {
-            ol: [
-              "**Your Intro is always public.** Meta says the information in the Intro section of your profile is always public, so leave out anything you wouldn't pin to a community noticeboard.",
-              "**Put links in the Links field.** A website, booking page or Instagram link belongs in Links or Contact info, where people can tap it.",
-              "**Short beats complete.** One clear line is easier to read on a phone than three crammed ones.",
-              "**Emoji are optional.** One that replaces a word, like 🔧 for a plumber, is plenty.",
-            ],
-          },
-        ],
-      },
-      {
-        heading: "Facebook bio mistakes that make people scroll past",
-        blocks: [
-          {
-            ol: [
-              "**A bio that could belong to anyone.** \"Living my best life\" tells a visitor nothing. Add one real detail.",
-              "**Phone numbers and opening hours in the bio.** They have their own fields, and they eat your characters.",
-              "**Business jargon.** \"Full service solutions provider\" makes people work to understand you. They won't.",
-              "**Claims you can't back up.** \"Best\", \"#1\" and \"cheapest\" invite comparison, and someone always checks.",
-              "**Forgetting the Page and profile are different.** If you run a business Page, write the Page bio for customers and keep your personal bio personal.",
-            ],
-          },
-        ],
-      },
-    ],
-    faqs: [
-      { q: "Is this Facebook bio generator free?", a: `Yes. ${FAIR_USE}` },
-      { q: "How many characters can a Facebook bio have?", a: "Most guides put the profile bio limit at 101 characters. Every bio this tool writes stays under that, and the counter shows the exact total." },
-      { q: "Who can see my Facebook bio?", a: "Everyone. Meta says the information in the Intro section of your profile is always public, so only write what you're happy for anyone to read." },
-      { q: "Where do I find my bio on Facebook?", a: "In the Intro section of your profile, below your profile picture. Edit it there and paste in your new bio." },
-      { q: "Can I put a link in my Facebook bio?", a: "Use the Links and Contact info fields instead. They're built for websites, phone numbers and social links, so the bio can stay short." },
-      { q: "Is a Page bio different from a profile bio?", a: "Pages also have an Intro, plus a category that shows under the Page name in search. Write the Page bio for customers and keep your personal bio personal." },
-      { q: "What should a local business put in its Facebook bio?", a: "What you do, the city or area you serve, and one reason to trust you. Use the contact fields for the phone number and the Links field for your website." },
-      { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real number or result, it tells you what to add." },
-      { q: "Can it write my bio in another language?", a: "Yes. Pick a language from the dropdown and all five bios come out in it." },
-    ],
-    ctas: page.ctas,
-    related: [
-      { slug: "facebook-caption-generator", text: "posts that match your new bio." },
-      { slug: "instagram-bio-generator", text: "the same idea for Instagram." },
-      { slug: "threads-bio-generator", text: "a chattier version for Threads." },
-      { slug: "linkedin-headline-generator", text: "the professional cousin of your bio." },
-      { slug: "social-media-content-calendar-generator", text: "plan a month of posts in one go." },
-    ],
-    extraLinks: [...page.extraLinks, { text: "See all free marketing tools", href: "/tools" }],
-  };
+    PLATFORM,
+    STUDIO,
+  );
 }

@@ -1446,3 +1446,204 @@
   gap: 20px 16px;
 }
 .segment { white-space: nowrap; }
+
+/* ---------- Profile screens for TikTok, X, Threads and Facebook ---------- */
+.xAvatar,
+.thAvatar,
+.fbAvatar { position: relative; flex: 0 0 auto; display: block; border-radius: 50%; }
+.xAvatar > :first-child,
+.thAvatar > :first-child,
+.fbAvatar > :first-child {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.xAvatar > .pmark,
+.thAvatar > .pmark,
+.fbAvatar > .pmark,
+.ttAvatar > .pmark { position: absolute; right: -6px; bottom: 2px; }
+.tabOn { color: #111; }
+.lineTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #EFEFEF;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  color: #8E8E8E;
+}
+.lineTabs span { padding: 10px 0; }
+.lineTabs .tabOn { box-shadow: inset 0 -2px 0 #111; }
+.postSkel {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  padding: 4px 16px 8px;
+}
+.postSkel > i { width: 36px; height: 36px; border-radius: 50%; background: #EEE8DF; }
+.postSkel span { display: flex; flex-direction: column; gap: 7px; padding-top: 4px; }
+.postSkel b { display: block; height: 9px; border-radius: 4px; background: #EEE8DF; }
+.postSkel b:nth-child(1) { width: 40%; }
+.postSkel b:nth-child(3) { width: 70%; }
+
+/* TikTok: centered profile, red Follow button, tall video tiles */
+.tt { align-items: center; gap: 10px; text-align: center; }
+.tt .instaTop { align-self: stretch; }
+.ttAvatar { width: 96px; height: 96px; padding: 0; background: none; }
+.ttAvatar > :first-child { border: 0; }
+.ttUser { font-size: 15px; font-weight: 600; }
+.ttStats {
+  display: flex;
+  gap: 22px;
+  font-size: 12px;
+  color: #737373;
+}
+.ttStats span { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.ttStats b { width: 28px; height: 11px; border-radius: 4px; background: #E9E4DC; }
+.ttButtons {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  width: 210px;
+}
+.ttButtons span { padding: 9px; border-radius: 4px; background: #F1F1F2; font-size: 14px; font-weight: 600; }
+.ttButtons span:first-child { background: #FE2C55; color: #FFFFFF; }
+.ttButtons > .pmark { position: absolute; right: -14px; top: -9px; }
+.ttBio { max-width: 280px; padding: 0 16px; }
+.ttLink { justify-content: center; color: #111; }
+.ttTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-self: stretch;
+  margin-top: 4px;
+  border-bottom: 1px solid #EFEFEF;
+}
+.ttTabs i { height: 34px; }
+.ttTabs i::before { content: ""; display: block; width: 18px; height: 14px; margin: 10px auto 0; border: 2px solid #C8C8C8; border-radius: 3px; }
+.ttTabs .tabOn { box-shadow: inset 0 -2px 0 #111; }
+.ttTabs .tabOn::before { border-color: #111; }
+.ttGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  align-self: stretch;
+  margin-top: -10px;
+}
+.ttGrid i { aspect-ratio: 3 / 4; background: #F1ECE4; }
+.ttGrid i:nth-child(even) { background: #E9E2D6; }
+
+/* X: banner, overlapping avatar, black Follow pill */
+.xp { padding-top: 0; gap: 10px; }
+.xBanner { height: 96px; background: linear-gradient(120deg, #EFE3CF, #D9C29A); }
+.xHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: -46px;
+  padding: 0 16px;
+}
+.xAvatar { width: 76px; height: 76px; border: 4px solid #FFFFFF; background: #FFFFFF; }
+.xFollow {
+  position: relative;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #0F1419;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+}
+.xFollow > .pmark { position: absolute; right: -8px; top: -10px; }
+.xName { font-size: 18px; font-weight: 800; overflow-wrap: anywhere; }
+.xHandle { color: #536471; }
+.xBio { margin-top: 8px; }
+.xMeta { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; color: #536471; }
+.xLink { display: inline-flex; align-items: center; gap: 4px; color: #1D9BF0; }
+.xLink svg { width: 14px; height: 14px; }
+.xCounts { display: flex; gap: 16px; margin-top: 6px; color: #536471; font-size: 13.5px; }
+.xCounts b { display: inline-block; width: 22px; height: 10px; margin-right: 4px; border-radius: 4px; background: #E9E4DC; vertical-align: -1px; }
+
+/* Threads: name and handle left, avatar right, black Follow and outline Mention */
+.thHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 16px 0;
+}
+.thNames { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.thName { font-size: 22px; font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; }
+.thHandle { font-size: 14.5px; }
+.thAvatar { width: 72px; height: 72px; }
+.thMeta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 8px; color: #8E8E8E; }
+.thFollowers b { display: inline-block; width: 24px; height: 10px; margin-right: 2px; border-radius: 4px; background: #E9E4DC; vertical-align: -1px; }
+.thLink { display: inline-flex; align-items: center; gap: 4px; color: #8E8E8E; }
+.thLink svg { width: 13px; height: 13px; }
+.thButtons {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 16px;
+}
+.thButtons span { padding: 8px; border: 1px solid #DBDBDB; border-radius: 10px; font-size: 14px; font-weight: 600; text-align: center; }
+.thButtons span:first-child { border-color: #000; background: #000; color: #FFFFFF; }
+.thButtons > .pmark { position: absolute; right: 8px; top: -9px; }
+
+/* Facebook: cover, round photo, blue Follow, Intro card */
+.fb { padding-top: 0; gap: 8px; background: #F0F2F5; }
+.fbCover { height: 110px; background: linear-gradient(120deg, #EFE3CF, #D9C29A); }
+.fbAvatar { width: 92px; height: 92px; margin: -52px 0 0 16px; border: 4px solid #FFFFFF; background: #FFFFFF; }
+.fbName { padding: 0 16px; font-size: 21px; font-weight: 700; line-height: 1.2; }
+.fbFollowers { padding: 0 16px; color: #65676B; font-size: 13.5px; }
+.fbFollowers b { display: inline-block; width: 24px; height: 10px; margin-right: 2px; border-radius: 4px; background: #DDD6CB; vertical-align: -1px; }
+.fbButtons {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 2px 16px 4px;
+}
+.fbButtons span { padding: 8px; border-radius: 6px; background: #E4E6EB; font-size: 14px; font-weight: 600; text-align: center; }
+.fbButtons span:first-child { background: #0866FF; color: #FFFFFF; }
+.fbButtons > .pmark { position: absolute; right: 8px; top: -9px; }
+.fb .lineTabs { background: #FFFFFF; }
+.fbIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 10px 12px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #FFFFFF;
+}
+.fbIntroTitle { font-size: 16px; font-weight: 700; }
+.fbBio { text-align: center; padding-bottom: 10px; border-bottom: 1px solid #E4E6EB; }
+.fbRow { display: inline-flex; align-items: center; gap: 6px; color: #65676B; font-size: 13.5px; }
+.fbRow svg { width: 14px; height: 14px; }
+.brandMono {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: var(--surface-2);
+  color: var(--gold-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Every phone keeps a real handset shape, whatever the platform shows. Extra content is cropped like a real screen. */
+.phoneScreen { aspect-ratio: 9 / 17.5; }
+.fbPost {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 10px 10px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #FFFFFF;
+}
+.fbPost .postSkel { padding: 0; }
+.fbPost > i { display: block; height: 120px; border-radius: 6px; background: #EEE8DF; }

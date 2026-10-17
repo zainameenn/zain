@@ -187,7 +187,7 @@ export type RelatedIcon = "caption" | "bio" | "chat" | "x";
 export type StudioHead = { eyebrow?: string; heading: string; accent?: string; intro?: Rich };
 
 /** Settings a "Use this style" button sends to the generator. */
-export type StyleSettings = { tone?: string; emoji?: string; format?: string; account_type?: string; category?: string };
+export type StyleSettings = { tone?: string; emoji?: string; format?: string; goal?: string; account_type?: string; category?: string };
 
 export type StudioSection = StudioHead &
   (
@@ -195,10 +195,15 @@ export type StudioSection = StudioHead &
     | { kind: "gallery"; note?: Rich; items: BrandExample[] }
     | {
         kind: "creator";
-        profile: { handle: string; name: string; url: string; checked: string; photo: StudioImage & { credit: Rich } };
+        profile: { handle: string; name: string; url: string; checked: string; photo: StudioImage & { credit: Rich }; link?: string; category?: string; location?: string };
         /** The real bio, line by line. `mark` numbers the line to match a point. */
         lines: { text: string; mark?: number }[];
         nameMark?: number;
+        /** Numbers the profile link to match a point. */
+        linkMark?: number;
+        categoryMark?: number;
+        /** What sits between lines. Line breaks by default; " | " for a one line bio split into marked parts. */
+        join?: string;
         points: { title: string; text: Rich }[];
         note?: Rich;
       }
@@ -218,7 +223,16 @@ export type StudioSection = StudioHead &
     | { kind: "cta"; copy: string; button: string; href: string }
   );
 
+/** Which profile the phone mockups show. */
+export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook";
+
 export type StudioContent = {
+  /** Phone skin for the generator and the creator breakdown. Defaults to Instagram. */
+  skin?: ProfileSkin;
+  /** Accessible name for the generator, e.g. "TikTok bio generator". */
+  label?: string;
+  /** Platform name in section labels, e.g. "View X profile". Defaults to Instagram. */
+  platform?: string;
   lede: Rich;
   sub: string;
   trust: string;
