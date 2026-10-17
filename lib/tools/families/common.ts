@@ -11,3 +11,6 @@ export const dataNote = (what: string) => `We send your answers to an AI model t
 export const freeFaq = (tool: string) => ({ q: `Is this ${tool} free?`, a: `Yes. ${FAIR_USE}` });
 
 export const fmt = (n: number) => n.toLocaleString("en-US");
+
+/** Languages every AI tool can write in. */
+export const BIO_LANGUAGES = ["English", "Spanish", "Portuguese", "French", "German", "Italian", "Hindi", "Urdu", "Arabic", "Indonesian"];

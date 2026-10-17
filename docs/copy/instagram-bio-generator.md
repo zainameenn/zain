@@ -392,3 +392,28 @@ The language goes into the system prompt's `{{language}}` slot, not the user mes
 **Code notes:**
 - Validate name ideas against `name_field_limit` with the same counting and retry logic as bios.
 - "Make them shorter" and "Make them funnier" resend the current 5 bios with one line: "Rewrite all 5 bios about 30% shorter, keep every fact." or "Rewrite all 5 bios in the Funny vibe, keep every fact."
+
+---
+
+## v3 redesign (October 2026): this page now runs on the studio layout
+
+The live page copy, form and sections now live in `lib/tools/families/bio-instagram.ts` (studio content) and render through `app/tools/_studio/`. Sections 1 to 10 above are the v2 copy and prompt, kept for reference.
+
+- Form: Create / Improve tabs; account type (segmented), category (searchable, accepts custom text), one optional "about" line; tone and main goal dropdowns; emoji (None / Subtle / Expressive) and formatting (Single line / Multiple lines); everything else under "More ways to personalize" (location, keywords, audience, achievements, language).
+- Prompt: `instagram-bio` block in `lib/tools/blocks.ts` (built on section 10, extended for category, goal, emoji level and format). Result labels: Clear & Professional, Short & Minimal, Friendly & Personal, Bold & Memorable, Action Focused.
+- Graphics: Zain's four illustrations, compressed to WebP in `public/assets/tools/instagram-bio/` (about 90% smaller than the PNG originals).
+
+### Brand examples: sources
+
+Each bio was read from the brand's verified Instagram profile on October 17, 2026 (the profile page HTML and its embedded biography field, fetched twice). Recheck before relying on the wording; Canva's and Duolingo's bios are seasonal.
+
+| Brand | Profile | Bio on Oct 17, 2026 | Handle confirmed on |
+| --- | --- | --- | --- |
+| NVIDIA | https://www.instagram.com/nvidia/ | NVIDIA pioneered accelerated computing to tackle challenges no one else can solve. Our work is transforming the world's industries. | nvidia.com links to it |
+| Apple | https://www.instagram.com/apple/ | Everyone has a story to tell. / #ShotoniPhone | Instagram verified badge only |
+| Nike | https://www.instagram.com/nike/ | Just Do It. | nike.com links to it |
+| Netflix | https://www.instagram.com/netflix/ | (empty, no bio) | Instagram verified badge only |
+| Canva | https://www.instagram.com/canva/ | We're so back #CanvaWorldTour | canva.com links to it |
+| Duolingo | https://www.instagram.com/duolingo/ | educated girl autumn 🎃🦉 | blog.duolingo.com links to it |
+
+Logos (stored in `public/assets/tools/instagram-bio/brands/`): Wikimedia files marked public domain and trademarked. Canva's file is public domain in the US only (en.wikipedia `File:Canva_Logo.svg`); swap it for Canva's press kit logo if you want to be strict. Trademarks are shown only to identify each account.

@@ -1,11 +1,11 @@
 import { FAIR_USE, GUIDE_SOCIAL_MEDIA, LINK_SOCIAL_MEDIA_SERVICE } from "../links";
 import type { Rich, ToolExample, ToolField, ToolPage } from "../types";
 import { FACEBOOK_FIELD_COPY, facebookPage } from "./bio-facebook";
-import { INSTAGRAM_FIELD_COPY, instagramPage } from "./bio-instagram";
+import { instagramPage } from "./bio-instagram";
 import { THREADS_FIELD_COPY, threadsPage } from "./bio-threads";
 import { TIKTOK_FIELD_COPY, tiktokPage } from "./bio-tiktok";
 import { X_FIELD_COPY, xPage } from "./bio-x";
-import { ERROR_TEXT, dataNote, freeFaq } from "./common";
+import { BIO_LANGUAGES, ERROR_TEXT, dataNote, freeFaq } from "./common";
 
 // Family 1 in docs/tools-spec.md: one shared bio page plus a small block per platform.
 
@@ -34,7 +34,7 @@ export type BioOverride = {
 
 type FieldCopy = { label?: string; placeholder?: string; hint?: string; options?: string[]; defaultValue?: string };
 
-export const BIO_LANGUAGES = ["English", "Spanish", "Portuguese", "French", "German", "Italian", "Hindi", "Urdu", "Arabic", "Indonesian"];
+export { BIO_LANGUAGES } from "./common";
 
 /** The bio form every platform shares. Platforms only change copy, never the fields themselves. */
 function bioFields(copy: Record<string, FieldCopy> = {}): ToolField[] {
@@ -176,7 +176,6 @@ export const BIO_PLATFORMS: BioOverride[] = [
     ...v2,
     related: ["instagram-caption-generator"],
     nameFieldLimit: 30,
-    fieldCopy: INSTAGRAM_FIELD_COPY,
     page: instagramPage,
   },
   {

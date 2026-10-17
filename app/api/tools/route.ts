@@ -12,9 +12,10 @@ import { countChars, fullText, nearDuplicates, resolveLimit, retryMessage, strip
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-// Google keeps these aliases pointed at its current Flash and Pro models. Override with env vars to pin a version.
+// Google keeps these aliases pointed at its current Flash Lite and Pro models. Override with env vars to pin a version.
+// Flash Lite for the short tools: it answers in seconds, while full Flash was stalling for 45s+ in testing (Oct 2026).
 const MODELS = {
-  fast: process.env.TOOLS_MODEL_FAST || "gemini-flash-latest",
+  fast: process.env.TOOLS_MODEL_FAST || "gemini-flash-lite-latest",
   strong: process.env.TOOLS_MODEL_STRONG || "gemini-pro-latest",
 };
 /** Room for the model's thinking on top of the spec's output budget, so replies are never cut short. */
@@ -51,8 +52,8 @@ function readInput(tool: ToolPage, raw: unknown): Record<string, string> | strin
     }
     const s = typeof v === "string" ? v.trim() : "";
     if (!s && "required" in f && f.required) return `Please fill in "${f.label}".`;
-    if ((f.type === "text" || f.type === "textarea") && s.length > f.maxLength) return `"${f.label}" is too long. Keep it under ${f.maxLength} characters.`;
-    if ((f.type === "select" || f.type === "chips") && s && !f.options.includes(s)) return `Please pick an option for "${f.label}".`;
+    if ((f.type === "text" || f.type === "textarea" || f.type === "combobox") && s.length > f.maxLength) return `"${f.label}" is too long. Keep it under ${f.maxLength} characters.`;
+    if ((f.type === "select" || f.type === "chips" || f.type === "segmented") && s && !f.options.includes(s)) return `Please pick an option for "${f.label}".`;
     if (f.type === "multi" && s) {
       const picked = s.split(",").map((x) => x.trim()).filter(Boolean);
       if (picked.some((p) => !f.options.includes(p))) return `Please pick options for "${f.label}".`;

@@ -47,7 +47,7 @@ export function defaults(fields: ToolField[]): ToolInput {
         ? f.defaultOn
         : f.type === "date"
           ? nextMonday()
-          : f.type === "select" || f.type === "chips" || f.type === "mode"
+          : f.type === "select" || f.type === "chips" || f.type === "mode" || f.type === "segmented"
             ? (f.defaultValue ?? "")
             : "",
     ]),
@@ -281,7 +281,8 @@ function Field({ slug, f, value, set }: { slug: string; f: ToolField; value: str
   const str = typeof value === "string" ? value : "";
   const hintId = f.hint ? `${id}-hint` : undefined;
 
-  if (f.type === "mode") return null;
+  // Mode tabs render above the form; segmented and combobox fields only exist on studio pages.
+  if (f.type === "mode" || f.type === "segmented" || f.type === "combobox") return null;
 
   if (f.type === "toggle") {
     return (

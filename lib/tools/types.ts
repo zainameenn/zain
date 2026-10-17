@@ -4,7 +4,11 @@
 export type ToolGroup = "Social" | "SEO" | "Ecommerce" | "LinkedIn";
 
 /** `when`: the field only shows (and only counts) while another field has this value. `hint`: small text under the label. */
-type Base = { name: string; label: string; hint?: string; when?: { field: string; equals: string } };
+/**
+ * `when`: the field only shows (and only counts) while another field has this value. `hint`: small text under the label.
+ * `group`: where a studio form places the field (essentials, style, format, advanced). Older forms ignore it.
+ */
+type Base = { name: string; label: string; hint?: string; when?: { field: string; equals: string }; group?: "essentials" | "style" | "format" | "advanced" };
 export type ToolField =
   | (Base & { type: "text" | "textarea"; placeholder?: string; required?: boolean; maxLength: number })
   | (Base & { type: "select"; options: string[]; required?: boolean; defaultValue?: string; placeholder?: string })
@@ -13,7 +17,11 @@ export type ToolField =
   | (Base & { type: "toggle"; defaultOn: boolean })
   | (Base & { type: "date"; required?: boolean })
   /** Tabs above the form that switch the form between modes (e.g. new or improve). */
-  | (Base & { type: "mode"; options: { value: string; label: string }[]; defaultValue: string });
+  | (Base & { type: "mode"; options: { value: string; label: string }[]; defaultValue: string })
+  /** One choice from a few options, shown as a segmented control. */
+  | (Base & { type: "segmented"; options: string[]; defaultValue: string; required?: boolean })
+  /** Searchable list of suggestions that also accepts the visitor's own wording. */
+  | (Base & { type: "combobox"; options: string[]; placeholder?: string; required?: boolean; maxLength: number; otherLabel?: string });
 
 export type ToolInput = Record<string, string | boolean>;
 
@@ -149,4 +157,55 @@ export type ToolPage = {
   extraLinks: { text: string; href: string | null }[];
   /** Server side: which prompt block runs and the fixed values it is filled with. null for tools with no AI. */
   api: { block: string; vars: Record<string, string> } | null;
+  /** Pages on the redesigned studio layout. The [slug] template renders StudioPage when this is set. */
+  studio?: StudioContent;
+};
+
+// ---------- Studio pages: the redesigned tool layout (first used by the Instagram bio generator) ----------
+
+export type StudioImage = { src: string; alt: string; width: number; height: number };
+
+/** A real account, quoted only when its bio was checked against the live profile. */
+export type BrandExample = {
+  brand: string;
+  handle: string;
+  url: string;
+  logo: StudioImage | null;
+  /** The bio as seen on the profile, or null when it could not be verified (then `illustrative` is shown instead). */
+  bio: string | null;
+  illustrative?: string;
+  /** When the bio was checked, e.g. "October 2026". */
+  checked?: string;
+  style: "Minimal" | "Brand-focused" | "Personality" | "Action-focused";
+  why: Rich;
+  lesson: Rich;
+};
+
+export type RelatedIcon = "caption" | "bio" | "chat" | "x";
+
+export type StudioSection =
+  | { kind: "steps"; heading: string; intro?: Rich; image?: StudioImage; steps: { title: string; text: Rich }[] }
+  | { kind: "gallery"; heading: string; intro?: Rich; note?: Rich; items: BrandExample[] }
+  | {
+      kind: "anatomy";
+      heading: string;
+      intro?: Rich;
+      image?: StudioImage;
+      profile: { username: string; name: string; category: string; link: string };
+      /** The sample bio, line by line, each tagged with the part it demonstrates. */
+      lines: { text: string; part: string }[];
+      parts: { key: string; label: string; text: Rich }[];
+    }
+  | { kind: "compare"; heading: string; intro?: Rich; image?: StudioImage; before: string; after: string; changes: Rich[] }
+  | { kind: "styles"; heading: string; intro?: Rich; image?: StudioImage; styles: { name: string; bio: string; note: Rich }[]; formats: { label: string; bio: string }[] }
+  | { kind: "practices"; heading: string; intro?: Rich; items: { title: string; text: Rich }[] }
+  | { kind: "faq"; heading: string; intro?: Rich }
+  | { kind: "related"; heading: string; intro?: Rich; tools: { slug: string; text: string; icon: RelatedIcon }[] }
+  | { kind: "cta"; heading: string; accent: string; copy: string; button: string; href: string };
+
+export type StudioContent = {
+  lede: Rich;
+  sub: string;
+  trust: string;
+  sections: StudioSection[];
 };
