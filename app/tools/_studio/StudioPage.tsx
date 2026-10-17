@@ -27,9 +27,9 @@ function Figure({ image }: { image: StudioImage }) {
   );
 }
 
-function SectionHead({ head, center }: { head: StudioHead; center?: boolean }) {
+function SectionHead({ head }: { head: StudioHead }) {
   return (
-    <header className={center ? `${s.sectionHead} ${s.sectionHeadCenter}` : s.sectionHead}>
+    <header className={`${s.sectionHead} ${s.sectionHeadCenter}`}>
       <div>
         {head.eyebrow ? <p className={s.kicker}>{head.eyebrow}</p> : null}
         <h2 className={s.h2}>
@@ -349,7 +349,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
       {bands.map((section, i) => (
         <section key={i} className={i % 2 === 0 ? `${s.band} ${s.bandWarm}` : s.band}>
           <div className={s.wrap}>
-            <SectionHead head={section} center={section.kind === "faq" || section.kind === "steps"} />
+            <SectionHead head={section} />
             <Body section={section} tool={tool} />
           </div>
         </section>

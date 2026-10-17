@@ -854,6 +854,7 @@
 }
 .sectionHeadCenter,
 .sectionHeadCenter .intro { text-align: center; margin-inline: auto; }
+.sectionHeadCenter .intro { max-width: 620px; }
 @media (min-width: 768px) {
   .sectionHeadCenter { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
 }
