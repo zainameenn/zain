@@ -5,13 +5,14 @@ import { cache } from "react";
 import { stegaClean } from "next-sanity";
 import { buildMetadata } from "@/lib/seo";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
-import { ArrowIcon, ChevronIcon, LinkedInIcon, PlusIcon } from "@/app/HomeComponents/icons";
+import { ArrowIcon, LinkedInIcon, PlusIcon } from "@/app/HomeComponents/icons";
 import { SITE_URL } from "@/sanity/env";
 import { fetchPublished, sanityFetch } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 import { POST_QUERY, POST_SLUGS_QUERY } from "@/sanity/lib/queries";
 import type { Post } from "@/sanity/lib/types";
 import { ArticleBody } from "../_components/ArticleBody";
+import { ArticleOutline, ArticleProgress, type OutlineItem } from "../_components/ArticleNav";
 import { CopyLinkButton } from "../_components/CopyLinkButton";
 import { JsonLd, breadcrumbList } from "../_components/JsonLd";
 import { AuthorBox, BlogCta, Byline, Eyebrow, PostCard } from "../_components/parts";
@@ -55,17 +56,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function Toc({ items }: { items: TocItem[] }) {
-  return (
-    <ul className={s.tocList}>
-      {items.map((item) => (
-        <li key={item.id} className={item.level === 3 ? s.tocSub : undefined}>
-          <a href={`#${item.id}`}>{item.text}</a>
-        </li>
-      ))}
-    </ul>
-  );
-}
+/** The outline lists main sections only (H2s), so it stays short enough to scan. */
+const outlineFrom = (toc: TocItem[], hasFaqs: boolean): OutlineItem[] => [
+  ...toc.filter((t) => t.level === 2).map((t) => ({ id: t.id, text: t.text })),
+  ...(hasFaqs ? [{ id: "faq", text: "Frequently asked questions" }] : []),
+];
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
@@ -73,8 +68,9 @@ export default async function ArticlePage({ params }: Props) {
   if (!post) notFound();
 
   const toc = buildToc(post.body);
-  // Short posts don't need a table of contents.
-  const showToc = toc.length >= 3;
+  const outline = outlineFrom(toc, Boolean(post.faqs?.length));
+  // Short posts don't need an outline.
+  const showToc = outline.length >= 3;
   const category = post.categories?.[0];
   const related = pickRelated(post, post.relatedPicked, post.relatedRefs, post.sameCategory, post.latest);
   const title = stegaClean(post.title);
@@ -139,24 +135,24 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <main id="top" style={{ overflowX: "clip" }}>
       <JsonLd data={jsonLd} />
+      <ArticleProgress targetId="article-body" />
       <article>
-        <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(32px,4vw,56px) ${PAD} 0` }}>
-          {/* HEADER: lines up with the article text, beside the table of contents column on wide screens */}
-          <div className={s.layout}>
-            <div className={s.tocDesktop} aria-hidden="true" />
-            <header style={{ minWidth: 0 }}>
+        <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(24px,3vw,40px) ${PAD} 0` }}>
+          {/* HERO: text beside the cover image on wide screens, stacked on phones. Without a cover, the text stands alone. */}
+          <header className={post.mainImage?.asset ? s.hero : `${s.hero} ${s.heroText}`}>
+            <div className={s.heroCopy}>
               <Link href="/blog" className={s.backLink} style={{ height: 36, fontSize: 14, borderBottomWidth: 1 }}>
                 <ArrowIcon />
                 Back to blog
               </Link>
               {category ? (
-                <div style={{ marginTop: 28 }}>
+                <div className={s.heroCategory}>
                   <Link href={categoryPath(stegaClean(category.slug))}>
                     <Eyebrow color="#7D6039">{category.title}</Eyebrow>
                   </Link>
                 </div>
               ) : null}
-              <h1 style={{ ...HERO_H1_STYLE, marginTop: 14, fontSize: "clamp(2rem, calc(1.7vw + 1.35rem), 3.25rem)" }}>
+              <h1 className={s.heroTitle} style={{ ...HERO_H1_STYLE, fontSize: undefined }}>
                 {hasAccent ? (
                   <>
                     {title.trim().slice(0, title.trim().length - accent!.length)}
@@ -166,45 +162,22 @@ export default async function ArticlePage({ params }: Props) {
                   post.title
                 )}
               </h1>
-              <p style={{ margin: "20px 0 28px", fontSize: "clamp(18px,1.4vw,20px)", lineHeight: 1.6, color: "#4E4C48" }}>{post.excerpt}</p>
+              <p className={s.heroExcerpt}>{post.excerpt}</p>
               <Byline author={post.author} publishedAt={post.publishedAt} updatedAt={post.updatedAt} chars={post.chars} />
-              {post.mainImage?.asset ? (
-                <figure style={{ margin: "32px 0 0" }}>
-                  {/* The image keeps its own proportions. */}
-                  <SanityImage image={post.mainImage} sizes="(min-width: 800px) 760px, 100vw" widths={[480, 760, 1080, 1520]} priority style={{ borderRadius: 20 }} />
-                  {post.mainImage.caption ? (
-                    <figcaption style={{ marginTop: 10, fontSize: 14, lineHeight: 1.5, color: "#6F6B64", textAlign: "center" }}>{post.mainImage.caption}</figcaption>
-                  ) : null}
-                </figure>
-              ) : null}
-            </header>
-          </div>
+            </div>
+            {post.mainImage?.asset ? (
+              <figure className={s.heroMedia}>
+                {/* Covers often carry text, so the whole image is shown in its own proportions, never cropped. */}
+                <SanityImage image={post.mainImage} sizes="(min-width: 1024px) 520px, 100vw" widths={[480, 640, 760, 1040, 1520]} priority className={s.heroImg} />
+                {post.mainImage.caption ? <figcaption>{post.mainImage.caption}</figcaption> : null}
+              </figure>
+            ) : null}
+          </header>
 
-          {/* BODY with table of contents */}
-          <div className={s.layout} style={{ marginTop: "clamp(40px,4vw,56px)" }}>
-            <aside className={s.tocDesktop} aria-label="Table of contents">
-              {showToc ? (
-                <>
-                  <Eyebrow>On this page</Eyebrow>
-                  <div style={{ marginTop: 14 }}>
-                    <Toc items={toc} />
-                  </div>
-                </>
-              ) : null}
-            </aside>
-            <div style={{ minWidth: 0 }}>
-              {showToc ? (
-                <details className={s.tocMobile} style={{ marginBottom: 36 }}>
-                  <summary>
-                    On this page
-                    <ChevronIcon size={12} style={{ transition: "transform 200ms" }} />
-                  </summary>
-                  <nav aria-label="Table of contents">
-                    <Toc items={toc} />
-                  </nav>
-                </details>
-              ) : null}
-
+          {/* BODY: outline beside the text on desktop, a compact sticky bar above it on smaller screens */}
+          <div className={showToc ? s.layout : `${s.layout} ${s.layoutSolo}`}>
+            {showToc ? <ArticleOutline items={outline} endId="article-end" /> : null}
+            <div style={{ minWidth: 0 }} id="article-body">
               {post.body?.length ? <ArticleBody value={post.body} toc={toc} /> : null}
 
               {post.faqs?.length ? (
@@ -231,6 +204,9 @@ export default async function ArticlePage({ params }: Props) {
                   </div>
                 </section>
               ) : null}
+
+              {/* End of the reading range for the outline and the progress line. */}
+              <div id="article-end" aria-hidden="true" />
 
               {/* ARTICLE FOOTER: categories and sharing */}
               <div style={{ marginTop: 56, paddingTop: 24, borderTop: "1px solid #DDDAD3", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>

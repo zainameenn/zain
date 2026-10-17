@@ -93,7 +93,7 @@ export const blockContent = defineType({
       name: "callout",
       type: "object",
       title: "Callout box",
-      description: "A highlighted box for a key takeaway, tip or warning.",
+      description: "A highlighted box for a key takeaway, practical example, important note, personal experience, tip or warning. Use sparingly.",
       fields: [
         defineField({
           name: "tone",
@@ -104,7 +104,9 @@ export const blockContent = defineType({
               { title: "Key takeaway", value: "takeaway" },
               { title: "Tip", value: "tip" },
               { title: "Warning", value: "warning" },
-              { title: "Note", value: "note" },
+              { title: "Important note", value: "note" },
+              { title: "Practical example", value: "example" },
+              { title: "Personal experience", value: "experience" },
             ],
             layout: "radio",
             direction: "horizontal",

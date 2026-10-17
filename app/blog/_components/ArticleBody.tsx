@@ -5,11 +5,11 @@ import { SanityImage } from "./SanityImage";
 import { paragraphs, postPath, type TocItem } from "./utils";
 import s from "../blog.module.css";
 
-type CalloutValue = { tone?: "takeaway" | "tip" | "warning" | "note"; title?: string; body?: string };
+type CalloutValue = { tone?: "takeaway" | "tip" | "warning" | "note" | "example" | "experience"; title?: string; body?: string };
 type TableValue = { table?: { rows?: { _key: string; cells?: string[] }[] }; caption?: string };
 
-const TONE_CLASS: Record<string, string> = { warning: s.calloutWarning, tip: s.calloutTip };
-const TONE_LABEL: Record<string, string> = { takeaway: "Key takeaway", tip: "Tip", warning: "Warning", note: "Note" };
+const TONE_CLASS: Record<string, string> = { warning: s.calloutWarning, tip: s.calloutTip, note: s.calloutNote, example: s.calloutExample, experience: s.calloutExperience };
+const TONE_LABEL: Record<string, string> = { takeaway: "Key takeaway", tip: "Tip", warning: "Warning", note: "Important note", example: "Practical example", experience: "From my experience" };
 
 const isOwnSite = (href: string) => href.startsWith("/") || href.startsWith("#") || /^https?:\/\/(www\.)?zainameen\.com/.test(href);
 
