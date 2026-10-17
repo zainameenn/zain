@@ -57,3 +57,22 @@ export const GROUPS: { group: ToolGroup; heading: string }[] = [
 ];
 
 export const toolsIn = (group: ToolGroup) => SHOWN.filter((p) => p.group === group);
+
+/**
+ * Development status of every tool, the single source of truth for the hub and the progress doc.
+ * published: live on zainameen.com. review: rebuilt on the studio layout, waiting for approval to merge.
+ * development: page exists in the codebase but isn't rebuilt or approved, so the hub shows it without a link.
+ */
+export type ToolStatus = "published" | "review" | "development" | "not-started";
+export const STATUS: Record<string, ToolStatus> = {
+  "instagram-bio-generator": "published",
+  "instagram-caption-generator": "published",
+  "tiktok-bio-generator": "review",
+  "twitter-bio-generator": "review",
+  "threads-bio-generator": "review",
+  "facebook-bio-generator": "review",
+};
+export const statusOf = (slug: string): ToolStatus => STATUS[slug] ?? "development";
+
+/** Every tool in the collection, live or not, for the hub directory. Unshown tools carry no link. */
+export const ALL_TOOLS = PAGES.map((p) => ({ slug: p.slug, name: p.name, group: p.group, linked: Boolean(TOOLS[p.slug]) }));
