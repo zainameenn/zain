@@ -8,7 +8,7 @@ import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import { HERO_TOOL, HUB_CARDS, HUB_CATEGORIES, choosers, helps, hubFaqs, hubImage, startPicks, toolKinds, type HelpExample } from "@/lib/tools/hub";
 import { LINK_CONTACT, LINK_SERVICES } from "@/lib/tools/links";
-import { TOOLS, toolPath, toolsIn } from "@/lib/tools/registry";
+import { ALL_TOOLS, TOOLS, toolPath } from "@/lib/tools/registry";
 import { Crumbs, rich } from "./_components/content";
 import { Directory, ToolCard, type DirectoryGroup, type DirectoryTool } from "./_hub/Directory";
 import h from "./_hub/hub.module.css";
@@ -128,7 +128,7 @@ const ToolLinks = ({ slugs, dark }: { slugs: string[]; dark?: boolean }) => (
 );
 
 export default function ToolsHub() {
-  const groups: DirectoryGroup[] = HUB_CATEGORIES.map((c) => ({ ...c, tools: toolsIn(c.group).filter((t) => HUB_CARDS[t.slug]).map((t) => card(t.slug)) })).filter((g) => g.tools.length);
+  const groups: DirectoryGroup[] = HUB_CATEGORIES.map((c) => ({ ...c, tools: ALL_TOOLS.filter((t) => t.group === c.group && HUB_CARDS[t.slug]).map((t) => (t.linked ? card(t.slug) : { slug: t.slug, href: "", name: t.name, image: hubImage(t.slug), ...HUB_CARDS[t.slug] })) })).filter((g) => g.tools.length);
   const all = groups.flatMap((g) => g.tools);
   const hero = TOOLS[HERO_TOOL.slug] ? card(HERO_TOOL.slug) : null;
   const picks = startPicks().map(card);
@@ -157,7 +157,7 @@ export default function ToolsHub() {
               url: `${SITE_URL}/tools`,
               mainEntity: {
                 "@type": "ItemList",
-                itemListElement: all.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: `${SITE_URL}${t.href}` })),
+                itemListElement: all.filter((t) => t.href).map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: `${SITE_URL}${t.href}` })),
               },
             },
             {

@@ -12,6 +12,21 @@ export type DirectoryTool = { slug: string; href: string; name: string; descript
 export type DirectoryGroup = { id: string; label: string; heading: string; intro: string; tools: DirectoryTool[] };
 
 export function ToolCard({ tool, featured, priority }: { tool: DirectoryTool; featured?: boolean; priority?: boolean }) {
+  // Tools still being built show in the directory, but without a link, so nobody lands on an unfinished page.
+  if (!tool.href) {
+    return (
+      <div className={`${h.card} ${h.cardSoon}`}>
+        <div className={h.cardArt}>
+          <Image src={tool.image} alt="" width={800} height={600} sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px" className={h.cardImg} />
+        </div>
+        <div className={h.cardBody}>
+          <h3 className={h.cardName}>{tool.name}</h3>
+          <p className={h.cardText}>{tool.description}</p>
+          <span className={h.soonTag}>In development</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <Link href={tool.href} className={featured ? `${h.card} ${h.cardFeatured}` : h.card}>
       <div className={h.cardArt}>

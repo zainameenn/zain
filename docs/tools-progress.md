@@ -84,3 +84,10 @@
   - Facebook: Patagonia, Duolingo, Canva, Starbucks, Katz's Delicatessen, Stumptown Coffee (Intro card bio field). Creator: Gordon Ramsay, photo by Dave Pullig, CC BY 2.0.
 - Unconfirmed limits, said honestly in the copy: Threads publishes no bio limit (tool keeps 150), Facebook publishes no limit (tool keeps 101, "about 101"). TikTok 80 and X 160 are confirmed on their help pages.
 - New public domain logos: public/assets/tools/brands/nasa.svg, airbnb.svg. Brands without a free logo get a monogram.
+
+## Tool checklist (2026-10-18)
+Source of truth: STATUS in lib/tools/registry.ts. Git history (8f7fbdb) has 23 tools; no 27 tool list exists in the repo.
+- Published: instagram-bio-generator (studio), instagram-caption-generator (old template, needs studio rebuild)
+- Ready for review (tools branch): tiktok-bio-generator, twitter-bio-generator, threads-bio-generator, facebook-bio-generator
+- In development (page exists, old template, not linked from the hub in production): tiktok-caption-generator, facebook-caption-generator, youtube-description-generator, pinterest-description-generator, youtube-title-generator, pinterest-title-generator, social-media-content-calendar-generator, marketing-plan-generator, seo-title-generator, meta-description-generator, utm-link-builder, etsy-title-generator, product-description-generator, linkedin-headline-generator, linkedin-about-section-generator, linkedin-post-generator, linkedin-comment-generator
+- Hub: every tool shows; unfinished ones carry an "In development" label and no link.
