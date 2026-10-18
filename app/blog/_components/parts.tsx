@@ -91,7 +91,7 @@ export function PostCard({ post, headingLevel = 3, priority }: { post: PostCardD
       <Link href={postPath(stegaClean(post.slug))} className={s.cardLink}>
         <div className={s.cardMedia}>
           {post.mainImage?.asset ? (
-            <SanityImage image={post.mainImage} aspect={16 / 10} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" widths={[400, 640, 800, 1080]} priority={priority} />
+            <SanityImage image={post.mainImage} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" widths={[400, 640, 800, 1080]} priority={priority} />
           ) : (
             <CoverFallback label={category?.title} />
           )}
@@ -118,7 +118,7 @@ export function FeaturedCard({ post }: { post: PostCardData }) {
       <Link href={postPath(stegaClean(post.slug))} className={`${s.cardLink} ${s.featured}`}>
         <div className={s.cardMedia} style={{ borderRadius: 24 }}>
           {post.mainImage?.asset ? (
-            <SanityImage image={post.mainImage} aspect={16 / 10} sizes="(min-width: 1280px) 700px, (min-width: 900px) 56vw, 100vw" priority />
+            <SanityImage image={post.mainImage} sizes="(min-width: 1280px) 700px, (min-width: 900px) 56vw, 100vw" priority />
           ) : (
             <CoverFallback label={category?.title} />
           )}
