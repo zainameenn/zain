@@ -11,7 +11,7 @@ import { BioStudio } from "./BioStudio";
 import { CaptionStudio } from "./CaptionStudio";
 import { lora } from "./fonts";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
-import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen } from "./PostScreen";
+import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, YouTubeResultsScreen } from "./PostScreen";
 import { StyleButton } from "./StyleButton";
 import s from "./studio.module.css";
 
@@ -191,7 +191,9 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
           </ol>
           <figure className={s.creatorPhone}>
             <PhoneFrame>
-              {tool.studio?.tool === "caption" && tool.studio.skin === "tiktok" ? (
+              {tool.studio?.tool === "caption" && tool.studio.skin === "youtube" ? (
+                <YouTubeResultsScreen username={p.name} caption="" captionNode={bio} />
+              ) : tool.studio?.tool === "caption" && tool.studio.skin === "tiktok" ? (
                 <TikTokVideoScreen
                   username={`@${p.handle}`}
                   type={p.postType ?? "Video"}
@@ -386,7 +388,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.sub}>{studio.sub}</p>
           <p className={s.trust}>{studio.trust}</p>
         </header>
-        {studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
+        {studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
       </div>
 
       {bands.map((section, i) => (

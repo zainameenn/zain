@@ -288,3 +288,35 @@ export function FacebookPostScreen({
     </div>
   );
 }
+
+/** A YouTube search results list: the visitor's title on the first result, cut where YouTube usually truncates. */
+export function YouTubeResultsScreen({ username, caption, placeholder, keyword, fold = 60, captionNode }: { username: string; caption: string; placeholder?: string; keyword?: string; fold?: number; captionNode?: ReactNode }) {
+  const g = graphemes(caption);
+  const cut = g.length > fold;
+  const shown = cut ? `${g.slice(0, fold).join("").trimEnd()}...` : caption;
+  return (
+    <div className={s.yt}>
+      <div className={s.ytBar}>
+        <span className={s.ytSearch}>{keyword || "search"}</span>
+      </div>
+      <div className={s.ytResult}>
+        <div className={s.ytThumb} aria-hidden>
+          <span className={s.ytTime}>12:48</span>
+        </div>
+        <div className={s.ytMeta}>
+          <p className={s.ytTitle}>{captionNode ? captionNode : caption ? shown : <span className={s.instaPlaceholder}>{placeholder ?? "Your title shows up here"}</span>}</p>
+          <span className={s.ytChannel}>{username}</span>
+        </div>
+      </div>
+      {[0, 1].map((i) => (
+        <div key={i} className={s.ytResult} aria-hidden>
+          <div className={`${s.ytThumb} ${s.ytThumbOther}`} />
+          <div className={s.ytMeta}>
+            <span className={s.ytLine} />
+            <span className={s.ytLine} style={{ width: "60%" }} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
