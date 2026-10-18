@@ -197,7 +197,7 @@ export type StudioSection = StudioHead &
     | { kind: "gallery"; note?: Rich; items: BrandExample[] }
     | {
         kind: "creator";
-        profile: { handle: string; name: string; url: string; checked: string; photo: StudioImage & { credit: Rich }; link?: string; category?: string; location?: string; postType?: "Photo" | "Carousel" | "Reel" };
+        profile: { handle: string; name: string; url: string; checked: string; photo: StudioImage & { credit: Rich }; link?: string; category?: string; location?: string; postType?: string };
         /** The real bio, line by line. `mark` numbers the line to match a point. */
         lines: { text: string; mark?: number }[];
         nameMark?: number;

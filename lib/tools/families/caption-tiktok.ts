@@ -1,0 +1,278 @@
+import { FAIR_USE, LINK_SOCIAL_MEDIA_SERVICE } from "../links";
+import type { BrandExample, StudioContent, ToolPage } from "../types";
+import { captionStudioPage, type CaptionPlatform } from "./caption-instagram";
+
+// TikTok Caption Generator: the Instagram caption studio with TikTok's video preview, limits, examples and copy.
+
+const CHECKED = "October 18, 2026";
+const NEWSROOM_TIPS = "https://newsroom.tiktok.com/5-tips-for-tiktok-creators?lang=en";
+const API_LIMIT = "https://developers.tiktok.com/doc/content-posting-api-reference-direct-post";
+
+const PLATFORM: CaptionPlatform = {
+  platform: "TikTok",
+  limit: 2200,
+  fold: 80,
+  ranges: ["20 to 100", "100 to 300", "300 to 800"],
+  hashtagMax: 5,
+  formatRules:
+    "Casual, spoken voice, like a creator talking. Usually one or two short sentences with no line breaks. The caption adds context the video can't, it never just describes the video. Hashtags go at the end. Never use #fyp, #foryou or #foryoupage.",
+  postTypes: ["Video", "Photo carousel"],
+  goals: ["Comments", "Shares", "Followers", "Saves", "Sales"],
+  copy: {
+    topic: "Testing three viral pasta recipes",
+    details: "The $5 one won. Took 15 minutes. Recipe in the comments",
+    current: "new video!! 🔥🔥 #fyp #foryou #viral",
+    name: "Five Dollar Feed",
+    audience: "Students cooking on a budget",
+    keyword: "cheap pasta recipe",
+    cta: "Which one should I try next?",
+  },
+  example: {
+    post_type: "Video",
+    topic: "Testing three viral pasta recipes",
+    details: "The $5 one won. Took 15 minutes. Recipe in the comments",
+    name: "Five Dollar Feed",
+    audience: "Students cooking on a budget",
+    keyword: "cheap pasta recipe",
+    tone: "Funny",
+    goal: "Comments",
+    length: "Short",
+    emoji: "Subtle",
+    hashtags: "3 hashtags",
+  },
+};
+
+/** Real TikTok captions, checked through TikTok's oEmbed endpoint on the date in CHECKED. Recheck before relying on them. */
+const CAPTIONS: BrandExample[] = [
+  {
+    brand: "Ryanair",
+    handle: "ryanair",
+    url: "https://www.tiktok.com/@ryanair/video/7694327424837848342",
+    logo: null,
+    bio: "act your fare 👍 #ryanair",
+    checked: CHECKED,
+    style: "Minimal",
+    why: "A three word pun on \"act your age\" and one branded hashtag. On TikTok the video does the work, so the caption just adds the joke.",
+    lesson: "Short is fine when the line adds something.",
+    linkLabel: "View video",
+  },
+  {
+    brand: "Chipotle",
+    handle: "chipotle",
+    url: "https://www.tiktok.com/@chipotle/video/7693653605705895182",
+    logo: null,
+    bio: "costume loading🔮 what’s urs?",
+    checked: CHECKED,
+    style: "Personality",
+    why: "Lowercase, texting spelling and a question anyone can answer in two words. It reads like a friend, which is the point.",
+    lesson: "Ask something people can answer without thinking.",
+    linkLabel: "View video",
+  },
+  {
+    brand: "Sephora",
+    handle: "sephora",
+    url: "https://www.tiktok.com/@sephora/video/7697357963257842958",
+    logo: null,
+    bio: "Shop the sweetest @Gisou Lip Therapy Duo on the drop shop NOW. 🍯",
+    checked: CHECKED,
+    style: "Action-focused",
+    why: "Leads with the action, names the product and tags the brand, so people know exactly what to do next.",
+    lesson: "For sales, say what to buy and where, in one line.",
+    linkLabel: "View video",
+  },
+  {
+    brand: "The Washington Post",
+    handle: "washingtonpost",
+    url: "https://www.tiktok.com/@washingtonpost/video/7697404322795064589",
+    logo: null,
+    bio: "A bear sneakily wandered through a library in Mammoth Lakes, California. Human-bear encounters are on the rise this year in at least 15 states. Across the country, agencies received more bear-related calls than last year.",
+    checked: CHECKED,
+    style: "Brand-focused",
+    why: "The video shows the bear. The caption adds what it can't: where it happened and why it matters.",
+    lesson: "Use the caption for context the video can't show.",
+    linkLabel: "View video",
+  },
+  {
+    brand: "Gymshark",
+    handle: "gymshark",
+    url: "https://www.tiktok.com/@gymshark/video/7694359043367783702",
+    logo: null,
+    bio: "it’s time to lock in. #winterarc #greatlockin #mindset #mentality #Gymshark @sara",
+    checked: CHECKED,
+    style: "Personality",
+    why: "One short line that rides a trend, then trend, topic and brand hashtags plus a creator tag.",
+    lesson: "Join a trend with hashtags that actually match it.",
+    linkLabel: "View video",
+  },
+  {
+    brand: "Nike",
+    handle: "nike",
+    url: "https://www.tiktok.com/@nike/video/7693344152347577613",
+    logo: { src: "/assets/tools/instagram-bio/brands/nike.svg", alt: "Nike logo", width: 64, height: 64 },
+    bio: "This is After Dark Tour Mexico City. 21.1 kilometers. A sisterhood of 10,000 runners. One unforgettable night. Esto es After Dark Tour Ciudad de México. 21.1 kilómetros. Una hermandad de 10,000 corredoras. Una noche inolvidable. #afterdarktour #fyp",
+    checked: CHECKED,
+    style: "Brand-focused",
+    why: "Short, dramatic sentences with real numbers, in English and Spanish. One habit to skip: TikTok says #fyp doesn't boost reach.",
+    lesson: "Real numbers make a story feel big.",
+    linkLabel: "View video",
+  },
+];
+
+const STUDIO: StudioContent = {
+  skin: "tiktok",
+  lede: "This TikTok caption generator turns a few notes into three captions that add context to your video, sound like a person, and use a few hashtags that actually fit.",
+  sub: "Say what your video is about, pick a style, and see each caption on a real looking TikTok before you copy it.",
+  trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
+  sections: [
+    {
+      kind: "steps",
+      eyebrow: "How it works",
+      heading: "How to use the",
+      accent: "TikTok caption generator",
+      intro: "Three steps, about thirty seconds. The video preview updates while you go.",
+      steps: [
+        { title: "Say what your video is about", text: "Pick video or photo carousel, then describe it in a few words. Add the real details if you have them.", visual: "account" },
+        { title: "Choose your style", text: "Pick a tone and a goal, then set the length, the emoji and how many hashtags you want.", visual: "style" },
+        { title: "Copy your favorite", text: "Compare three captions on a TikTok preview, remove any hashtag, then copy and paste it into your post.", visual: "copy" },
+      ],
+    },
+    {
+      kind: "gallery",
+      eyebrow: "Real examples",
+      heading: "6 TikTok captions",
+      accent: "worth learning from",
+      intro: "How well known accounts caption their videos, from a three word pun to real context.",
+      note: `Captions as posted on each official TikTok account, checked on ${CHECKED}. Big brands can lean on name recognition, so copy the habits, not the length. Logos are trademarks of their owners, shown only to identify each account.`,
+      items: CAPTIONS,
+    },
+    {
+      kind: "creator",
+      eyebrow: "Caption breakdown",
+      heading: "What makes a good",
+      accent: "TikTok caption",
+      intro: "On TikTok the video is the star. A good caption adds a voice or a bit of context, then gets out of the way. Here's a real one.",
+      profile: {
+        handle: "charlidamelio",
+        name: "charli d’amelio",
+        url: "https://www.tiktok.com/@charlidamelio/video/7696674142116007182",
+        checked: CHECKED,
+        postType: "Video",
+        photo: {
+          src: "/assets/tools/tiktok-bio/charli-damelio.webp",
+          alt: "Charli D'Amelio",
+          width: 256,
+          height: 256,
+          credit: "Photo: Brad Mondo, [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), via Wikimedia Commons, cropped.",
+        },
+      },
+      lines: [{ text: "this trend is stupid", mark: 1 }],
+      points: [
+        { title: "It sounds like her", text: "Four lowercase words, the way she'd say it out loud. A self aware joke about doing the trend anyway makes people smile before the video even loops." },
+        { title: "What's missing", text: "No context, no hashtags, no question. She doesn't need them. A smaller account usually does: add what the video is about and two or three hashtags that fit." },
+      ],
+      note: `Caption as posted on @charlidamelio on October 14, 2026, checked on ${CHECKED}. The video isn't shown here.`,
+    },
+    {
+      kind: "compare",
+      eyebrow: "Before and after",
+      heading: "Fixing a weak",
+      accent: "TikTok caption",
+      intro: "Most weak TikTok captions are a row of #fyp tags. TikTok says those work like any other hashtag, so spend the space on context.",
+      before: "new video!! 🔥🔥 #fyp #foryou #viral #trending",
+      after: "Tested three viral pasta recipes. The $5 one won, in 15 minutes 🍝 Which one should I try next? #cheaprecipes #pastarecipe #studentmeals",
+      changes: [
+        "\"New video\" became what's actually in it, with the price and the time.",
+        "A question gives people an easy reason to comment.",
+        "Generic tags became ones people interested in the video would follow.",
+      ],
+    },
+    {
+      kind: "styles",
+      eyebrow: "Caption ideas",
+      heading: "TikTok caption ideas",
+      accent: "for every kind of video",
+      intro: "Six different approaches for six kinds of videos. Find one that fits, then send its settings straight to the generator.",
+      styles: [
+        { name: "One liner", when: "For jokes and videos that speak for themselves.", bio: "the oven won. round two tomorrow 🥐", why: "A tiny story in five words that makes you want to watch.", settings: { tone: "Funny", emoji: "Subtle", length: "Short" } },
+        { name: "Question", when: "For videos where you want comments.", bio: "be honest, would you eat this for $5? 🍝", why: "An easy question with a real detail in it.", settings: { tone: "Friendly", emoji: "Subtle", goal: "Comments", length: "Short" }, dark: true },
+        { name: "Context", when: "For news, explainers and how tos.", bio: "Dead bugs, 3 sets of 10, five minutes. Your core will feel this tomorrow.", why: "The exact numbers the video moves past too fast to remember.", settings: { tone: "Bold", emoji: "None", goal: "Saves", length: "Short" } },
+        { name: "Story", when: "For behind the scenes and day in the life videos.", bio: "six tries to centre the clay. bowl number six survived, mostly.", why: "Opens mid moment, so people watch to see how it ends.", settings: { tone: "Calm", emoji: "None", goal: "Followers", length: "Short" } },
+        { name: "Product drop", when: "For shops launching something.", bio: "Sage green is here. Same felt desk mat, new colour. Link in bio to shop.", why: "The news, what it is, and where to buy.", settings: { tone: "Professional", emoji: "None", goal: "Sales", length: "Short" } },
+        { name: "Photo carousel", when: "For photo posts with steps or picks.", bio: "5 desk upgrades under $30. number 3 changed everything ✨", why: "A list promise and a teaser for one slide, so people swipe.", settings: { tone: "Friendly", emoji: "Subtle", post_type: "Photo carousel", goal: "Saves", length: "Short" } },
+      ],
+    },
+    {
+      kind: "practices",
+      eyebrow: "Best practices",
+      heading: "TikTok caption",
+      accent: "best practices",
+      intro: "Six habits that make the biggest difference, each one a different idea.",
+      items: [
+        {
+          title: "Add what the video can't say",
+          text: `TikTok's own tips say to [use the caption for context](${NEWSROOM_TIPS}). The price, the place, the reason, the result.`,
+          featured: true,
+          example: { good: "The $5 one won, in 15 minutes", bad: "new video!! 🔥🔥" },
+        },
+        { title: "Write like you talk", text: "TikTok captions read best in a spoken voice. Lowercase is fine. Corporate isn't.", example: { good: "be honest, would you eat this?", bad: "We are excited to share our new recipe." } },
+        {
+          title: "Skip #fyp",
+          text: `TikTok says [#FYP and #ForYou work like any other hashtag](${NEWSROOM_TIPS}), so they won't get you onto the For You feed. Use tags that describe the video.`,
+          example: { good: "#cheaprecipes #studentmeals", bad: "#fyp #foryou #viral" },
+        },
+        { title: "Use a few relevant hashtags", text: "TikTok says more hashtags won't guarantee more reach. Two to five that fit the video is plenty.", example: { good: "#pastarecipe #budgetcooking" } },
+        { title: "Give people a reason to comment", text: "An easy question or a choice between two things gets more replies than \"thoughts?\".", example: { good: "which one should I try next?", bad: "thoughts?" } },
+        { title: "Keep it short", text: `TikTok's posting API allows [up to 2,200 characters](${API_LIMIT}) for a video caption, but most good ones are a sentence or two.`, example: { count: 90 } },
+      ],
+    },
+    { kind: "faq", eyebrow: "FAQ", heading: "Frequently asked", accent: "questions" },
+    {
+      kind: "related",
+      eyebrow: "Keep going",
+      heading: "More free tools for",
+      accent: "your social profiles",
+      tools: [
+        { slug: "tiktok-bio-generator", text: "A bio that matches your videos, in 80 characters.", icon: "bio" },
+        { slug: "instagram-caption-generator", text: "Captions for your Instagram posts and reels.", icon: "caption" },
+        { slug: "youtube-title-generator", text: "Titles for your longer videos.", icon: "caption" },
+        { slug: "social-media-content-calendar-generator", text: "Plan a month of posts in one go.", icon: "caption" },
+      ],
+    },
+    {
+      kind: "cta",
+      heading: "A better caption is a start.",
+      accent: "Let's fix the rest of your social presence.",
+      copy: "I help SaaS and service businesses turn content, profiles and organic social into real growth.",
+      button: "Explore social media marketing",
+      href: LINK_SOCIAL_MEDIA_SERVICE ?? "/services",
+    },
+  ],
+};
+
+export function tiktokCaptionPage(page: ToolPage): ToolPage {
+  return captionStudioPage(
+    {
+      ...page,
+      metaTitle: "TikTok Caption Generator: Free AI Captions for Your Videos",
+      metaDescription: "Use this free TikTok caption generator to turn your notes into 3 captions with context, a natural voice and a few relevant hashtags, on a live video preview.",
+      h1: { regular: "Free TikTok", accent: "Caption Generator" },
+      heroDescription: STUDIO.lede,
+      accessNote: FAIR_USE,
+      faqs: [
+        { q: "Is this TikTok caption generator free?", a: `Yes. ${FAIR_USE}` },
+        { q: "How long can a TikTok caption be?", a: `TikTok's posting API allows up to 2,200 characters for a video caption, and the tool stays well under that. In practice, most good captions are a sentence or two.` },
+        { q: "How many hashtags should I use on TikTok?", a: "A few that describe the video. TikTok says more hashtags won't guarantee more reach. The tool suggests 3 or 5 and lets you remove any before copying." },
+        { q: "Do #fyp and #foryou help?", a: "No. TikTok's own creator tips say they work like any other hashtag and won't improve your chances of reaching the For You feed." },
+        { q: "Do captions affect what TikTok recommends?", a: "TikTok says video information, including captions, sounds and hashtags, is one of the things its recommendations look at. So a clear caption that describes the video helps." },
+        { q: "Does the tool watch my video?", a: "No. It only uses what you type, so describe the video and check the caption matches it." },
+        { q: "Will it make things up?", a: "No. It only uses your details. If a stronger caption needs a number or a fact, it tells you what to add instead of inventing one." },
+        { q: "Can it rewrite a caption I already have?", a: "Yes. Switch to \"Improve my caption\", paste it in, and get three versions that keep your facts." },
+        { q: "Can it write TikTok captions in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all three captions come out in it." },
+      ],
+      related: [],
+      extraLinks: [],
+    },
+    PLATFORM,
+    STUDIO,
+  );
+}
