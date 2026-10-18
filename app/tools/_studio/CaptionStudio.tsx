@@ -8,7 +8,7 @@ import { countChars, fullText, resolveLimit, type Option } from "@/lib/tools/val
 import { STYLE_EVENT } from "./BioStudio";
 import { Disclosure, FieldControl, Segmented, Spinner } from "./controls";
 import { initialsOf, PhoneFrame } from "./Phone";
-import { InstaPostScreen, foldCaption, type PostType } from "./PostScreen";
+import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, foldCaption, type PostType } from "./PostScreen";
 import s from "./studio.module.css";
 
 // The caption generator studio. Left: a short form. Right: a feed post that shows a live draft while you type,
@@ -22,7 +22,7 @@ function defaults(fields: ToolField[]): ToolInput {
 }
 const shows = (f: ToolField, v: ToolInput) => !f.when || v[f.when.field] === f.when.equals;
 
-export function CaptionStudio({ slug, ws, label = "Instagram caption generator" }: { slug: string; ws: Workspace; label?: string }) {
+export function CaptionStudio({ slug, ws, label = "Instagram caption generator", skin = "instagram" }: { slug: string; ws: Workspace; label?: string; skin?: string }) {
   const [values, setValues] = useState<ToolInput>(() => defaults(ws.fields));
   const [status, setStatus] = useState<Status>("idle");
   const [options, setOptions] = useState<Option[]>([]);
@@ -128,12 +128,21 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator" 
   const username = (name || "your.account").toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, ".").replace(/^\.+|\.+$/g, "").slice(0, 24) || "your.account";
   const avatar = <span className={s.instaInitials}>{name ? initialsOf(name) : "?"}</span>;
   const showPhone = !has || view === "phone";
-  const fold = foldCaption(phoneTags.length ? `${phoneText}\n\n${phoneTags.join(" ")}` : phoneText);
+  const fold =
+    skin === "tiktok"
+      ? foldCaption(phoneTags.length ? `${phoneText} ${phoneTags.join(" ")}` : phoneText, 80)
+      : foldCaption(phoneTags.length ? `${phoneText}\n\n${phoneTags.join(" ")}` : phoneText, skin === "facebook" ? 180 : 125);
 
   const phone = (
     <div className={s.phoneStage}>
       <PhoneFrame>
-        <InstaPostScreen key={`${selected}-${has}`} username={username} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
+        {skin === "tiktok" ? (
+          <TikTokVideoScreen key={`${selected}-${has}`} username={`@${username}`} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
+        ) : skin === "facebook" ? (
+          <FacebookPostScreen key={`${selected}-${has}`} username={name || "Your Page"} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
+        ) : (
+          <InstaPostScreen key={`${selected}-${has}`} username={username} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
+        )}
       </PhoneFrame>
       {loading && !has ? (
         <div className={s.phoneBusy} aria-hidden>

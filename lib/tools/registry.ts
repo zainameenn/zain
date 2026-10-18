@@ -67,6 +67,8 @@ export type ToolStatus = "published" | "review" | "development" | "not-started";
 export const STATUS: Record<string, ToolStatus> = {
   "instagram-bio-generator": "published",
   "instagram-caption-generator": "published",
+  "tiktok-caption-generator": "review",
+  "facebook-caption-generator": "review",
   "tiktok-bio-generator": "published",
   "twitter-bio-generator": "published",
   "threads-bio-generator": "published",

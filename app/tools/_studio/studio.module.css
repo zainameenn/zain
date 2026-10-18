@@ -1766,3 +1766,57 @@
 .tagRemove:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
 .foldNote { margin: 0; font-size: 13px; color: var(--muted); }
 .foldNote b { color: var(--gold-text); font-weight: 600; }
+
+/* ---------- TikTok video (caption tools) ---------- */
+.tk {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 560px;
+  padding: 0 0 18px;
+  background: linear-gradient(170deg, #3D3532 0%, #1D1B1A 70%);
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.tkTop { position: absolute; top: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 18px; font-size: 15px; color: rgba(255, 255, 255, 0.7); }
+.tkTop b { color: #FFFFFF; box-shadow: inset 0 -2px 0 #FFFFFF; padding-bottom: 4px; }
+.tkLabel { position: absolute; top: 42%; left: 0; right: 0; text-align: center; font-size: 13px; font-weight: 600; color: rgba(252, 242, 230, 0.45); }
+.tkDots { position: absolute; top: 49%; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; }
+.tkDots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); }
+.tkRail { position: absolute; right: 10px; bottom: 120px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.tkAvatar { display: grid; place-items: center; width: 44px; height: 44px; overflow: hidden; border: 2px solid #FFFFFF; border-radius: 50%; background: var(--surface-2); }
+.tkAvatar > :first-child { display: grid; place-items: center; width: 100%; height: 100%; font-size: 13px; }
+.tkAction { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.tkAction svg { width: 28px; height: 28px; color: #FFFFFF; }
+.tkAction i { width: 22px; height: 7px; border-radius: 4px; background: rgba(255, 255, 255, 0.35); }
+.tkCaption { display: flex; flex-direction: column; gap: 4px; padding: 0 70px 0 14px; }
+.tkUser { font-size: 15px; }
+.tkText { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.tkMore { padding: 0; border: 0; background: none; color: #FFFFFF; font: inherit; font-weight: 700; cursor: pointer; }
+.tkMore:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.tkPlaceholder { color: rgba(255, 255, 255, 0.55); font-style: italic; }
+.tkSound { font-size: 13px; color: rgba(255, 255, 255, 0.85); }
+.tk .pmark { background: #D3AE82; color: #222021; }
+/* The TikTok video fills the screen below the status bar exactly, so the caption sits at the bottom edge. */
+.phoneScreen:has(.tk) { display: flex; flex-direction: column; }
+.phoneScreen:has(.tk) .statusBar { background: #1D1B1A; color: #FFFFFF; }
+.phoneScreen:has(.tk) .statusIcons i { background: #FFFFFF; }
+.tk { flex: 1; min-height: 0; }
+.tk { padding-bottom: 28px; }
+
+/* ---------- Facebook Page post (caption tools) ---------- */
+.fbp { gap: 0; padding-top: 6px; }
+.fbpTop { display: grid; grid-template-columns: 40px 1fr 24px; align-items: center; gap: 10px; padding: 6px 14px 10px; }
+.fbpAvatar { display: grid; place-items: center; width: 40px; height: 40px; overflow: hidden; border-radius: 50%; background: var(--surface-2); }
+.fbpAvatar > :first-child { display: grid; place-items: center; width: 100%; height: 100%; font-size: 13px; }
+.fbpNames { display: flex; flex-direction: column; min-width: 0; font-size: 12.5px; color: #65676B; }
+.fbpNames b { overflow: hidden; color: #050505; font-size: 14.5px; text-overflow: ellipsis; white-space: nowrap; }
+.fbpText { padding: 0 14px 10px; color: #050505; }
+.fbpMore { padding: 0; border: 0; background: none; color: #65676B; font: inherit; font-weight: 600; cursor: pointer; }
+.fbpMore:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.fbp .postMedia { aspect-ratio: 1 / 1; }
+.fbp .postReel { aspect-ratio: 9 / 12; }
+.fbpBar { display: grid; grid-template-columns: repeat(3, 1fr); padding: 8px 10px; border-top: 1px solid #E4E6EB; color: #65676B; font-size: 13.5px; font-weight: 600; text-align: center; }

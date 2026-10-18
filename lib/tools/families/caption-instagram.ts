@@ -15,6 +15,8 @@ export type CaptionPlatform = {
   fold: number;
   ranges: [string, string, string];
   hashtagMax: number;
+  /** Default hashtag choice. Defaults to the second option (3 hashtags). */
+  defaultHashtags?: string;
   formatRules: string;
   postTypes: string[];
   goals: string[];
@@ -43,7 +45,7 @@ export function captionStudioFields(p: CaptionPlatform): ToolField[] {
     { name: "goal", label: "Main goal", type: "select", options: p.goals, defaultValue: p.goals[0], group: "style" },
     { name: "length", label: "Length", type: "segmented", options: ["Short", "Medium", "Long"], defaultValue: "Short", group: "format" },
     { name: "emoji", label: "Emojis", type: "segmented", options: ["None", "Subtle", "Expressive"], defaultValue: "Subtle", group: "format" },
-    { name: "hashtags", label: "Hashtags", type: "segmented", options: tagOptions, defaultValue: tagOptions[1] ?? "None", group: "format" },
+    { name: "hashtags", label: "Hashtags", type: "segmented", options: tagOptions, defaultValue: p.defaultHashtags ?? tagOptions[1] ?? "None", group: "format" },
     { name: "name", label: "Account or brand name", type: "text", placeholder: p.copy.name, hint: "Shows on the preview.", maxLength: 60, group: "advanced" },
     { name: "audience", label: "Who is it for?", type: "text", placeholder: p.copy.audience, maxLength: 160, group: "advanced" },
     { name: "keyword", label: "Search phrase", type: "text", placeholder: p.copy.keyword, hint: "Words people might search. Worked in once or twice, never stuffed.", maxLength: 100, group: "advanced" },

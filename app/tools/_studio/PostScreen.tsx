@@ -133,3 +133,158 @@ export function InstaPostScreen({
     </div>
   );
 }
+
+/** A TikTok video in the For You feed: full screen video, action rail on the right, caption at the bottom. */
+export function TikTokVideoScreen({
+  username,
+  avatar,
+  type,
+  caption,
+  hashtags = [],
+  placeholder,
+  captionNode,
+  mediaLabel,
+}: {
+  username: string;
+  avatar: ReactNode;
+  type: string;
+  caption: string;
+  hashtags?: string[];
+  placeholder?: string;
+  captionNode?: ReactNode;
+  mediaLabel?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const full = hashtags.length ? `${caption} ${hashtags.join(" ")}` : caption;
+  // TikTok shows about two lines over the video before "more".
+  const { head, cut } = foldCaption(full, 80);
+  const shown = open || !cut ? full : head;
+  return (
+    <div className={s.tk}>
+      <div className={s.tkTop} aria-hidden>
+        <span>Following</span>
+        <b>For You</b>
+      </div>
+      <span className={s.tkLabel} aria-hidden>
+        {mediaLabel ?? (type === "Photo carousel" ? "Your photos" : "Your video")}
+      </span>
+      {type === "Photo carousel" ? (
+        <span className={s.tkDots} aria-hidden>
+          <i className={s.postDotOn} />
+          <i />
+          <i />
+        </span>
+      ) : null}
+      <div className={s.tkRail} aria-hidden>
+        <span className={s.tkAvatar}>{avatar}</span>
+        {["M12 21s-7-4.4-9.3-9A5.3 5.3 0 0 1 12 6a5.3 5.3 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9Z", "M21 12a8 8 0 0 1-11.8 7L4 20l1-4.8A8 8 0 1 1 21 12Z", "M6 3h12v18l-6-4-6 4V3Z", "M14 5l7 7-7 7M21 12H9a6 6 0 0 0-6 6"].map((d) => (
+          <span key={d} className={s.tkAction}>
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinejoin="round">
+              <path d={d} />
+            </svg>
+            <i />
+          </span>
+        ))}
+      </div>
+      <div className={s.tkCaption}>
+        <b className={s.tkUser}>{username}</b>
+        <p className={s.tkText}>
+          {captionNode ? (
+            captionNode
+          ) : full ? (
+            <>
+              {shown}
+              {cut && !open ? (
+                <>
+                  {"... "}
+                  <button type="button" className={s.tkMore} onClick={() => setOpen(true)}>
+                    more
+                  </button>
+                </>
+              ) : null}
+            </>
+          ) : (
+            <span className={s.tkPlaceholder}>{placeholder ?? "Your caption shows up here"}</span>
+          )}
+        </p>
+        <span className={s.tkSound} aria-hidden>
+          ♪ original sound
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/** A Facebook Page post in the feed: page header, text above the media with "See more", then Like, Comment, Share. */
+export function FacebookPostScreen({
+  username,
+  avatar,
+  type,
+  caption,
+  hashtags = [],
+  placeholder,
+  captionNode,
+  mediaLabel,
+}: {
+  username: string;
+  avatar: ReactNode;
+  type: string;
+  caption: string;
+  hashtags?: string[];
+  placeholder?: string;
+  captionNode?: ReactNode;
+  mediaLabel?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const full = hashtags.length ? `${caption}\n\n${hashtags.join(" ")}` : caption;
+  // Facebook shows a few lines of text before "See more". Meta doesn't publish an exact number.
+  const { head, cut } = foldCaption(full, 180);
+  const shown = open || !cut ? full : head;
+  return (
+    <div className={`${s.insta} ${s.fbp}`}>
+      <div className={s.fbpTop}>
+        <span className={s.fbpAvatar} aria-hidden>
+          {avatar}
+        </span>
+        <span className={s.fbpNames}>
+          <b>{username}</b>
+          <span aria-hidden>Just now · 🌐</span>
+        </span>
+        <span className={s.instaMenu} aria-hidden>
+          <i />
+          <i />
+          <i />
+        </span>
+      </div>
+      <p className={`${s.instaBio} ${s.fbpText}`}>
+        {captionNode ? (
+          captionNode
+        ) : full ? (
+          <>
+            {shown}
+            {cut && !open ? (
+              <>
+                {"... "}
+                <button type="button" className={s.fbpMore} onClick={() => setOpen(true)}>
+                  See more
+                </button>
+              </>
+            ) : null}
+          </>
+        ) : (
+          <span className={s.instaPlaceholder}>{placeholder ?? "Your post text shows up here"}</span>
+        )}
+      </p>
+      {type === "Text only" ? null : (
+        <div className={type === "Reel" ? `${s.postMedia} ${s.postReel}` : s.postMedia} aria-hidden>
+          <span className={s.postPlaceholder}>{mediaLabel ?? (type === "Reel" ? "Your reel" : type === "Link" ? "Your link preview" : "Your photo")}</span>
+        </div>
+      )}
+      <div className={s.fbpBar} aria-hidden>
+        <span>👍 Like</span>
+        <span>💬 Comment</span>
+        <span>↗ Share</span>
+      </div>
+    </div>
+  );
+}

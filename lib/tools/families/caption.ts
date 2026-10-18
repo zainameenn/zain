@@ -2,6 +2,8 @@ import { FAIR_USE, GUIDE_CONTENT_WRITING, LINK_SOCIAL_MEDIA_SERVICE } from "../l
 import type { Rich, ToolExample, ToolField, ToolPage } from "../types";
 import { BIO_LANGUAGES } from "./common";
 import { instagramCaptionPage } from "./caption-instagram";
+import { tiktokCaptionPage } from "./caption-tiktok";
+import { facebookCaptionPage } from "./caption-facebook";
 import { ERROR_TEXT, dataNote, fmt, freeFaq } from "./common";
 
 // Family 2 in docs/tools-spec.md: captions (Instagram, TikTok, Facebook) and descriptions (YouTube, Pinterest).
@@ -190,6 +192,7 @@ export const CAPTION_PLATFORMS: CaptionOverride[] = [
   },
   {
     platform: "TikTok",
+    page: tiktokCaptionPage,
     output: "Caption",
     limit: 2200,
     fold: "70",
@@ -226,6 +229,7 @@ export const CAPTION_PLATFORMS: CaptionOverride[] = [
   },
   {
     platform: "Facebook",
+    page: facebookCaptionPage,
     output: "Caption",
     limit: 1500,
     fold: "120",
