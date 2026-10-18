@@ -11,7 +11,7 @@ import { BioStudio } from "./BioStudio";
 import { CaptionStudio } from "./CaptionStudio";
 import { lora } from "./fonts";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
-import { InstaPostScreen, TikTokVideoScreen } from "./PostScreen";
+import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen } from "./PostScreen";
 import { StyleButton } from "./StyleButton";
 import s from "./studio.module.css";
 
@@ -198,6 +198,15 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
                   caption=""
                   captionNode={bio}
                   mediaLabel="Video not shown"
+                  avatar={<Image src={p.photo.src} alt="" width={p.photo.width} height={p.photo.height} className={s.instaPhoto} />}
+                />
+              ) : tool.studio?.tool === "caption" && tool.studio.skin === "facebook" ? (
+                <FacebookPostScreen
+                  username={p.name}
+                  type={p.postType ?? "Photo"}
+                  caption=""
+                  captionNode={bio}
+                  mediaLabel="Post image not shown"
                   avatar={<Image src={p.photo.src} alt="" width={p.photo.width} height={p.photo.height} className={s.instaPhoto} />}
                 />
               ) : tool.studio?.tool === "caption" ? (

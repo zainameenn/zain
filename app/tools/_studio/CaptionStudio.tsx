@@ -8,7 +8,7 @@ import { countChars, fullText, resolveLimit, type Option } from "@/lib/tools/val
 import { STYLE_EVENT } from "./BioStudio";
 import { Disclosure, FieldControl, Segmented, Spinner } from "./controls";
 import { initialsOf, PhoneFrame } from "./Phone";
-import { InstaPostScreen, TikTokVideoScreen, foldCaption, type PostType } from "./PostScreen";
+import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, foldCaption, type PostType } from "./PostScreen";
 import s from "./studio.module.css";
 
 // The caption generator studio. Left: a short form. Right: a feed post that shows a live draft while you type,
@@ -131,13 +131,15 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
   const fold =
     skin === "tiktok"
       ? foldCaption(phoneTags.length ? `${phoneText} ${phoneTags.join(" ")}` : phoneText, 80)
-      : foldCaption(phoneTags.length ? `${phoneText}\n\n${phoneTags.join(" ")}` : phoneText);
+      : foldCaption(phoneTags.length ? `${phoneText}\n\n${phoneTags.join(" ")}` : phoneText, skin === "facebook" ? 180 : 125);
 
   const phone = (
     <div className={s.phoneStage}>
       <PhoneFrame>
         {skin === "tiktok" ? (
           <TikTokVideoScreen key={`${selected}-${has}`} username={`@${username}`} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
+        ) : skin === "facebook" ? (
+          <FacebookPostScreen key={`${selected}-${has}`} username={name || "Your Page"} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
         ) : (
           <InstaPostScreen key={`${selected}-${has}`} username={username} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
         )}

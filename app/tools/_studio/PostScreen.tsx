@@ -214,3 +214,77 @@ export function TikTokVideoScreen({
     </div>
   );
 }
+
+/** A Facebook Page post in the feed: page header, text above the media with "See more", then Like, Comment, Share. */
+export function FacebookPostScreen({
+  username,
+  avatar,
+  type,
+  caption,
+  hashtags = [],
+  placeholder,
+  captionNode,
+  mediaLabel,
+}: {
+  username: string;
+  avatar: ReactNode;
+  type: string;
+  caption: string;
+  hashtags?: string[];
+  placeholder?: string;
+  captionNode?: ReactNode;
+  mediaLabel?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const full = hashtags.length ? `${caption}\n\n${hashtags.join(" ")}` : caption;
+  // Facebook shows a few lines of text before "See more". Meta doesn't publish an exact number.
+  const { head, cut } = foldCaption(full, 180);
+  const shown = open || !cut ? full : head;
+  return (
+    <div className={`${s.insta} ${s.fbp}`}>
+      <div className={s.fbpTop}>
+        <span className={s.fbpAvatar} aria-hidden>
+          {avatar}
+        </span>
+        <span className={s.fbpNames}>
+          <b>{username}</b>
+          <span aria-hidden>Just now · 🌐</span>
+        </span>
+        <span className={s.instaMenu} aria-hidden>
+          <i />
+          <i />
+          <i />
+        </span>
+      </div>
+      <p className={`${s.instaBio} ${s.fbpText}`}>
+        {captionNode ? (
+          captionNode
+        ) : full ? (
+          <>
+            {shown}
+            {cut && !open ? (
+              <>
+                {"... "}
+                <button type="button" className={s.fbpMore} onClick={() => setOpen(true)}>
+                  See more
+                </button>
+              </>
+            ) : null}
+          </>
+        ) : (
+          <span className={s.instaPlaceholder}>{placeholder ?? "Your post text shows up here"}</span>
+        )}
+      </p>
+      {type === "Text only" ? null : (
+        <div className={type === "Reel" ? `${s.postMedia} ${s.postReel}` : s.postMedia} aria-hidden>
+          <span className={s.postPlaceholder}>{mediaLabel ?? (type === "Reel" ? "Your reel" : type === "Link" ? "Your link preview" : "Your photo")}</span>
+        </div>
+      )}
+      <div className={s.fbpBar} aria-hidden>
+        <span>👍 Like</span>
+        <span>💬 Comment</span>
+        <span>↗ Share</span>
+      </div>
+    </div>
+  );
+}
