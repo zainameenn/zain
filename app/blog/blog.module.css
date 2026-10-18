@@ -792,3 +792,39 @@
 .outlineBox:hover,
 .outlineBox:focus-within { scrollbar-width: thin; }
 .outlineDesktop .outline a { padding-top: 6px; padding-bottom: 6px; font-size: 14px; }
+
+/* ---------- Hero, refinement pass: a branded cream panel, a bigger title and a bigger cover ---------- */
+.hero {
+  max-width: 1240px;
+  padding: clamp(28px, 4vw, 56px);
+  border: 1px solid #EADBC4;
+  border-bottom: 1px solid #EADBC4;
+  border-radius: 28px;
+  background: #FCF2E6;
+}
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(40px, 4vw, 64px);
+  }
+}
+.heroTitle {
+  margin-top: 14px;
+  font-size: clamp(2.25rem, calc(2.2vw + 1.4rem), 3.75rem) !important;
+  line-height: 1.03 !important;
+  letter-spacing: -0.04em;
+}
+.heroExcerpt { margin: 20px 0 28px; font-size: clamp(17px, 1.3vw, 20px); color: #4A4540; }
+.heroCategory { margin-top: 28px; }
+.heroImg {
+  max-height: none;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 1px 0 rgba(34, 32, 33, 0.06), 0 24px 48px -32px rgba(34, 32, 33, 0.35);
+}
+.hero .heroCopy > div:last-child { border-top-color: #E3D2B8 !important; }
+@media (max-width: 767.98px) {
+  .hero { padding: 24px 20px; border-radius: 22px; }
+}
+@media (min-width: 1024px) { .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); } }
+.heroTitle { font-size: clamp(2.25rem, calc(1.8vw + 1.45rem), 3.4rem) !important; }
