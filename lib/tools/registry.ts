@@ -66,7 +66,7 @@ export const toolsIn = (group: ToolGroup) => SHOWN.filter((p) => p.group === gro
 export type ToolStatus = "published" | "review" | "development" | "not-started";
 export const STATUS: Record<string, ToolStatus> = {
   "instagram-bio-generator": "published",
-  "instagram-caption-generator": "published",
+  "instagram-caption-generator": "review",
   "tiktok-bio-generator": "published",
   "twitter-bio-generator": "published",
   "threads-bio-generator": "published",

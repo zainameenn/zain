@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import type { ToolField } from "@/lib/tools/types";
 import s from "./studio.module.css";
 
 // Studio form controls, shared by every redesigned tool page.
@@ -209,4 +210,41 @@ export function Disclosure({ label, children, count }: { label: string; children
 
 export function Spinner() {
   return <span className={s.spinner} aria-hidden />;
+}
+
+/** One form field from a ToolField config, rendered with the studio controls. Shared by every studio tool. */
+export function FieldControl({ f, slug, value, onChange }: { f: ToolField; slug: string; value: string; onChange: (v: string) => void }) {
+  const id = `${slug}-${f.name}`;
+  const hintId = f.hint ? `${id}-hint` : undefined;
+  if (f.type === "segmented")
+    return (
+      <StudioField id={id} label={f.label} hint={f.hint} as="group">
+        <Segmented id={id} options={f.options} value={value} onChange={onChange} />
+      </StudioField>
+    );
+  if (f.type === "combobox")
+    return (
+      <StudioField id={id} label={f.label} hint={f.hint}>
+        <Combobox id={id} options={f.options} value={value} onChange={onChange} placeholder={f.placeholder} otherLabel={f.otherLabel} required={f.required} maxLength={f.maxLength} />
+      </StudioField>
+    );
+  if (f.type === "select")
+    return (
+      <StudioField id={id} label={f.label} hint={f.hint}>
+        <Select id={id} options={f.options} value={value} onChange={onChange} describedBy={hintId} />
+      </StudioField>
+    );
+  if (f.type === "textarea")
+    return (
+      <StudioField id={id} label={f.label} hint={f.hint}>
+        <textarea id={id} className={`${s.input} ${s.textarea}`} rows={3} required={f.required} maxLength={f.maxLength} placeholder={f.placeholder} aria-describedby={hintId} value={value} onChange={(e) => onChange(e.target.value)} />
+      </StudioField>
+    );
+  if (f.type === "text")
+    return (
+      <StudioField id={id} label={f.label} hint={f.hint}>
+        <input id={id} className={s.input} type="text" required={f.required} maxLength={f.maxLength} placeholder={f.placeholder} aria-describedby={hintId} value={value} onChange={(e) => onChange(e.target.value)} />
+      </StudioField>
+    );
+  return null;
 }

@@ -803,7 +803,86 @@ Rules for every bio:
 </tool>`,
 };
 
+/**
+ * Studio caption pages (Instagram first, then TikTok and Facebook). Platform rules come in as vars:
+ * platform, limit, fold, short_range, medium_range, long_range, hashtag_max, format_rules.
+ */
+const STUDIO_CAPTION: ToolBlock = {
+  model: "fast",
+  temperature: 0.8,
+  maxTokens: 2500,
+  output: { type: "list", listKey: "versions", labelKey: "angle", textKey: "text", hashtagsKey: "hashtags" },
+  rewrites: {
+    shorter: "Rewrite these versions about 40% shorter. Keep the hooks, the facts, the labels and the call to action.",
+  },
+  system: `<tool>
+You are writing {{platform}} captions.
+
+<platform_facts>
+Hard limit: {{limit}} characters for the full caption, hashtags included.
+Visible before "more": roughly the first {{fold}} characters. That is the hook zone.
+Length targets: Short {{short_range}}, Medium {{medium_range}}, Long {{long_range}} characters, hashtags not included.
+Hashtags: never more than {{hashtag_max}}.
+Format rules: {{format_rules}}
+</platform_facts>
+
+<task>
+Mode is "new" or "improve". In "improve" mode, <current_caption> is the source of facts: keep every real fact in it and fix the hook, structure and call to action. Never add facts that aren't in the input.
+
+Write 3 captions that take clearly different angles, labeled exactly like this, in this order:
+1. "Scroll Stopper": opens on the payoff, the most surprising detail, or a bold claim the details support.
+2. "Story": opens in the middle of a moment and walks through what happened.
+3. "Quick Value": opens with the useful takeaway, then gives it in short scannable lines.
+
+Every caption must:
+- Put the strongest specific detail inside the hook zone, so the first line works even if nobody taps "more". Never open with "Hey guys", "New post", "Check this out", "In this video" or a question nobody would answer.
+- Match the post type: a Carousel can point people to swipe, a Reel can point to what happens in the video, a Photo should add what the picture can't show.
+- Add context the image or video can't show, using only the visitor's details.
+- Work the search phrase, if given, naturally into the first two sentences. Never use it more than twice.
+- End with exactly one call to action that fits the goal. If the visitor wrote a CTA, use it.
+- Respect the selected length.
+
+Goals:
+- "Comments": end with an easy, specific question people can answer in a few words.
+- "Saves": make the value worth keeping and say so.
+- "Shares": give people a reason to send it to someone.
+- "Link clicks": point to the link in bio. Never write a URL.
+- "Sales": name the offer from the details and the next step.
+- "Followers": say what people get by following.
+
+Emoji: "None" means no emoji at all. "Subtle" means at most 2 per caption, where they add meaning. "Expressive" means 3 to 6, used as markers or tone, never one after every word.
+
+Hashtags: return them in the separate "hashtags" array, never inside "text". Return exactly the number in <hashtags> (0 means an empty array), up to {{hashtag_max}}. Use specific tags tied to the topic, place and audience. Never generic ones like #love, #instagood, #viral, #fyp, #explorepage.
+
+Never invent prices, results, dates, quotes, names or links. Only use what is in the input.
+Write every caption in {{language}}.
+"missing_info": up to 2 short, friendly sentences naming a real detail that would make the captions stronger, like "Add your café's name so people know where to go." Leave it empty if nothing important is missing.
+</task>
+
+<output_schema>
+{"versions": [{"angle": "Scroll Stopper", "text": "...", "hashtags": ["#..."]}, {"angle": "Story", "text": "...", "hashtags": []}, {"angle": "Quick Value", "text": "...", "hashtags": []}], "missing_info": [], "warnings": []}
+</output_schema>
+</tool>`,
+  user: `<user_input>
+<mode>{{mode}}</mode>
+<post_type>{{post_type}}</post_type>
+<topic>{{topic}}</topic>
+<current_caption>{{current_caption}}</current_caption>
+<details>{{details}}</details>
+<account_name>{{name}}</account_name>
+<audience>{{audience}}</audience>
+<goal>{{goal}}</goal>
+<search_phrase>{{keyword}}</search_phrase>
+<cta>{{cta}}</cta>
+<tone>{{tone}}</tone>
+<length>{{length}}</length>
+<emoji>{{emoji}}</emoji>
+<hashtags>{{hashtags}}</hashtags>
+</user_input>`,
+};
+
 export const BLOCKS: Record<string, ToolBlock> = {
+  "studio-caption": STUDIO_CAPTION,
   bio: BIO,
   "instagram-bio": INSTAGRAM_BIO,
   "studio-bio": STUDIO_BIO,
