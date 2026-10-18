@@ -146,11 +146,11 @@ Use three different angles, labeled:
 - "Story": opens mid moment and walks through what happened.
 - "Value": opens with the useful takeaway, then gives it in short lines.
 
-Hashtags: return them in the separate "hashtags" array, never inside "text". Use specific tags tied to the topic and audience, never generic ones like #love, #instagood, #viral, #fyp. Follow the hashtag rule exactly. If hashtags are off, return an empty array.
+Hashtags: return them in the separate "hashtags" array, never inside "text". Use specific tags tied to the topic and audience, never generic ones like #love, #instagood, #viral, #fyp. Follow the hashtag rule exactly. If <hashtags> is "off" or "No", return an empty array.
 
 Never invent timestamps, links, prices, results or quotes. If the visitor gave timestamps or links, use them exactly as written.
 
-Emoji: if <emoji> is "off", use no emoji at all. If "on", follow the format rules.
+Emoji: if <emoji> is "off" or "No", use no emoji at all. If "on" or "Yes", follow the format rules.
 Write every version in {{language}}.
 </task>
 

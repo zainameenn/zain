@@ -6,6 +6,7 @@ import { ABOUT, COMMENT, HEADLINE, POST } from "./pages/linkedin";
 import { CALENDAR, MARKETING_PLAN } from "./pages/planning";
 import { META_DESCRIPTION, SEO_TITLE, UTM_BUILDER } from "./pages/seo";
 import type { ToolGroup, ToolPage } from "./types";
+import { metaDescriptionPage, seoTitlePage } from "./families/writers";
 
 // Every tool page, keyed by slug. Family pages are built from one family config plus a platform override.
 const PAGES: ToolPage[] = [
@@ -14,8 +15,8 @@ const PAGES: ToolPage[] = [
   ...TITLE_PLATFORMS.map(titlePage),
   CALENDAR,
   MARKETING_PLAN,
-  SEO_TITLE,
-  META_DESCRIPTION,
+  seoTitlePage(SEO_TITLE),
+  metaDescriptionPage(META_DESCRIPTION),
   UTM_BUILDER,
   ETSY_TITLE,
   PRODUCT_DESCRIPTION,
@@ -70,6 +71,11 @@ export const STATUS: Record<string, ToolStatus> = {
   "tiktok-caption-generator": "review",
   "facebook-caption-generator": "review",
   "youtube-title-generator": "review",
+  "youtube-description-generator": "review",
+  "pinterest-title-generator": "review",
+  "pinterest-description-generator": "review",
+  "seo-title-generator": "review",
+  "meta-description-generator": "review",
   "tiktok-bio-generator": "published",
   "twitter-bio-generator": "published",
   "threads-bio-generator": "published",

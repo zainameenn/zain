@@ -2,6 +2,7 @@ import { FAIR_USE, LINK_SEO_SERVICE } from "../links";
 import type { Rich, ToolExample, ToolPage } from "../types";
 import { ERROR_TEXT, dataNote, freeFaq } from "./common";
 import { youtubeTitlePage } from "./title-youtube";
+import { pinterestTitlePage } from "./writers";
 
 // Family 3 in docs/tools-spec.md: YouTube and Pinterest title generators.
 
@@ -123,6 +124,7 @@ export const TITLE_PLATFORMS: TitleOverride[] = [
   },
   {
     platform: "Pinterest",
+    page: pinterestTitlePage,
     visible: 40,
     goal: "Get found in Pinterest search. Descriptive beats clever.",
     styleRules: "Sentence case. Keyword first. No curiosity gaps, Pinterest users want to know exactly what they'll get.",

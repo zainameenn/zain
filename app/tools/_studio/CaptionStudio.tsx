@@ -8,7 +8,7 @@ import { countChars, fullText, resolveLimit, type Option } from "@/lib/tools/val
 import { STYLE_EVENT } from "./BioStudio";
 import { Disclosure, FieldControl, Segmented, Spinner } from "./controls";
 import { initialsOf, PhoneFrame } from "./Phone";
-import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, YouTubeResultsScreen, foldCaption, type PostType } from "./PostScreen";
+import { FacebookPostScreen, InstaPostScreen, PinScreen, SerpScreen, TikTokVideoScreen, YouTubeResultsScreen, YouTubeWatchScreen, foldCaption, type PostType } from "./PostScreen";
 import s from "./studio.module.css";
 
 // The caption generator studio. Left: a short form. Right: a feed post that shows a live draft while you type,
@@ -125,7 +125,9 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
   const draft =
     noun === "title"
       ? (mode === "improve" ? str("current_title") : str("topic")).trim()
-      : draftCaption({ mode, topic: str("topic"), details: str("details"), currentCaption: str("current_caption"), cta: str("cta"), goal: str("goal"), emoji: str("emoji"), tone: str("tone") });
+      : noun !== "caption"
+        ? ""
+        : draftCaption({ mode, topic: str("topic"), details: str("details"), currentCaption: str("current_caption"), cta: str("cta"), goal: str("goal"), emoji: str("emoji"), tone: str("tone") });
   const current = has ? options[Math.min(selected, options.length - 1)] : null;
   const phoneText = current ? current.text : draft;
   const phoneTags = current?.hashtags ?? [];
@@ -141,7 +143,13 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
   const phone = (
     <div className={s.phoneStage}>
       <PhoneFrame>
-        {skin === "youtube" ? (
+        {skin === "google-title" || skin === "google-description" ? (
+          <SerpScreen site={name || "Your site"} url={(name || "yoursite").toLowerCase().replace(/[^a-z0-9]+/g, "") + ".com › page"} title={skin === "google-title" ? phoneText : str("title")} description={skin === "google-description" ? phoneText : ""} focus={skin === "google-title" ? "title" : "description"} />
+        ) : skin === "pinterest-title" || skin === "pinterest-description" ? (
+          <PinScreen username={name || "Your account"} title={skin === "pinterest-title" ? phoneText : ""} description={skin === "pinterest-description" ? phoneText : ""} focus={skin === "pinterest-title" ? "title" : "description"} />
+        ) : skin === "youtube-watch" ? (
+          <YouTubeWatchScreen key={`${selected}-${has}`} username={name || "Your channel"} title={str("topic")} caption={phoneText} />
+        ) : skin === "youtube" ? (
           <YouTubeResultsScreen username={name || "Your channel"} caption={phoneText} keyword={str("keyword")} />
         ) : skin === "tiktok" ? (
           <TikTokVideoScreen key={`${selected}-${has}`} username={`@${username}`} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
@@ -170,10 +178,12 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
           generate();
         }}
       >
+        {ws.fields.some((f) => f.type === "mode") ? (
         <div className={s.modeRow}>
           <span className={s.srOnly}>What do you want to do?</span>
           <Segmented id={`${slug}-mode`} options={["new", "improve"]} labels={{ new: `Write a ${noun}`, improve: `Improve my ${noun}` }} value={mode} onChange={(v) => set("mode", v)} />
         </div>
+        ) : null}
 
         <div className={s.group}>
           {inGroup("essentials").map((f) => (

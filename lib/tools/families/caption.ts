@@ -4,6 +4,7 @@ import { BIO_LANGUAGES } from "./common";
 import { instagramCaptionPage } from "./caption-instagram";
 import { tiktokCaptionPage } from "./caption-tiktok";
 import { facebookCaptionPage } from "./caption-facebook";
+import { pinterestDescriptionPage, youtubeDescriptionPage } from "./writers";
 import { ERROR_TEXT, dataNote, fmt, freeFaq } from "./common";
 
 // Family 2 in docs/tools-spec.md: captions (Instagram, TikTok, Facebook) and descriptions (YouTube, Pinterest).
@@ -266,6 +267,7 @@ export const CAPTION_PLATFORMS: CaptionOverride[] = [
   },
   {
     platform: "YouTube",
+    page: youtubeDescriptionPage,
     output: "Description",
     limit: 5000,
     fold: "150",
@@ -304,6 +306,7 @@ export const CAPTION_PLATFORMS: CaptionOverride[] = [
   },
   {
     platform: "Pinterest",
+    page: pinterestDescriptionPage,
     output: "Description",
     limit: 800,
     fold: "0 (descriptions are not shown in the feed)",
