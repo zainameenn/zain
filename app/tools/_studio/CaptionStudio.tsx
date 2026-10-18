@@ -8,7 +8,7 @@ import { countChars, fullText, resolveLimit, type Option } from "@/lib/tools/val
 import { STYLE_EVENT } from "./BioStudio";
 import { Disclosure, FieldControl, Segmented, Spinner } from "./controls";
 import { initialsOf, PhoneFrame } from "./Phone";
-import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, foldCaption, type PostType } from "./PostScreen";
+import { FacebookPostScreen, InstaPostScreen, PinScreen, SerpScreen, TikTokVideoScreen, YouTubeResultsScreen, YouTubeWatchScreen, foldCaption, type PostType } from "./PostScreen";
 import s from "./studio.module.css";
 
 // The caption generator studio. Left: a short form. Right: a feed post that shows a live draft while you type,
@@ -22,7 +22,8 @@ function defaults(fields: ToolField[]): ToolInput {
 }
 const shows = (f: ToolField, v: ToolInput) => !f.when || v[f.when.field] === f.when.equals;
 
-export function CaptionStudio({ slug, ws, label = "Instagram caption generator", skin = "instagram" }: { slug: string; ws: Workspace; label?: string; skin?: string }) {
+export function CaptionStudio({ slug, ws, label = "Instagram caption generator", skin = "instagram", noun = "caption" }: { slug: string; ws: Workspace; label?: string; skin?: string; noun?: string }) {
+  const nouns = noun + "s";
   const [values, setValues] = useState<ToolInput>(() => defaults(ws.fields));
   const [status, setStatus] = useState<Status>("idle");
   const [options, setOptions] = useState<Option[]>([]);
@@ -60,7 +61,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
     setStatus("loading");
     setError("");
     setEditing(null);
-    setAnnounce("Writing your captions");
+    setAnnounce(`Writing your ${nouns}`);
     try {
       const res = await fetch("/api/tools", {
         method: "POST",
@@ -80,7 +81,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
       setSelected(0);
       setView("list");
       setStatus("done");
-      setAnnounce(`${list.length} captions ready.`);
+      setAnnounce(`${list.length} ${nouns} ready.`);
       if (window.matchMedia("(max-width: 1023.98px)").matches) outputRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch {
       setError(ws.errorText);
@@ -120,7 +121,13 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
   const has = options.length > 0;
   const name = str("name").trim();
   const postType = (str("post_type") || "Photo") as PostType;
-  const draft = draftCaption({ mode, topic: str("topic"), details: str("details"), currentCaption: str("current_caption"), cta: str("cta"), goal: str("goal"), emoji: str("emoji"), tone: str("tone") });
+  // Title tools sketch the title from the topic; caption tools build a short caption draft.
+  const draft =
+    noun === "title"
+      ? (mode === "improve" ? str("current_title") : str("topic")).trim()
+      : noun !== "caption"
+        ? ""
+        : draftCaption({ mode, topic: str("topic"), details: str("details"), currentCaption: str("current_caption"), cta: str("cta"), goal: str("goal"), emoji: str("emoji"), tone: str("tone") });
   const current = has ? options[Math.min(selected, options.length - 1)] : null;
   const phoneText = current ? current.text : draft;
   const phoneTags = current?.hashtags ?? [];
@@ -136,7 +143,15 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
   const phone = (
     <div className={s.phoneStage}>
       <PhoneFrame>
-        {skin === "tiktok" ? (
+        {skin === "google-title" || skin === "google-description" ? (
+          <SerpScreen site={name || "Your site"} url={(name || "yoursite").toLowerCase().replace(/[^a-z0-9]+/g, "") + ".com › page"} title={skin === "google-title" ? phoneText : str("title")} description={skin === "google-description" ? phoneText : ""} focus={skin === "google-title" ? "title" : "description"} />
+        ) : skin === "pinterest-title" || skin === "pinterest-description" ? (
+          <PinScreen username={name || "Your account"} title={skin === "pinterest-title" ? phoneText : ""} description={skin === "pinterest-description" ? phoneText : ""} focus={skin === "pinterest-title" ? "title" : "description"} />
+        ) : skin === "youtube-watch" ? (
+          <YouTubeWatchScreen key={`${selected}-${has}`} username={name || "Your channel"} title={str("topic")} caption={phoneText} />
+        ) : skin === "youtube" ? (
+          <YouTubeResultsScreen username={name || "Your channel"} caption={phoneText} keyword={str("keyword")} />
+        ) : skin === "tiktok" ? (
           <TikTokVideoScreen key={`${selected}-${has}`} username={`@${username}`} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
         ) : skin === "facebook" ? (
           <FacebookPostScreen key={`${selected}-${has}`} username={name || "Your Page"} avatar={avatar} type={postType} caption={phoneText} hashtags={phoneTags} />
@@ -147,7 +162,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
       {loading && !has ? (
         <div className={s.phoneBusy} aria-hidden>
           <Spinner />
-          Writing three captions
+          {`Writing your ${nouns}`}
         </div>
       ) : null}
     </div>
@@ -163,10 +178,12 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
           generate();
         }}
       >
+        {ws.fields.some((f) => f.type === "mode") ? (
         <div className={s.modeRow}>
           <span className={s.srOnly}>What do you want to do?</span>
-          <Segmented id={`${slug}-mode`} options={["new", "improve"]} labels={{ new: "Write a caption", improve: "Improve my caption" }} value={mode} onChange={(v) => set("mode", v)} />
+          <Segmented id={`${slug}-mode`} options={["new", "improve"]} labels={{ new: `Write a ${noun}`, improve: `Improve my ${noun}` }} value={mode} onChange={(v) => set("mode", v)} />
         </div>
+        ) : null}
 
         <div className={s.group}>
           {inGroup("essentials").map((f) => (
@@ -198,7 +215,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
         <div className={s.actions}>
           <button type="submit" className={`${s.btn} ${s.btnPrimary} ${s.btnLg}`} disabled={loading} aria-busy={loading}>
             {loading ? <Spinner /> : null}
-            {loading ? "Writing your captions" : mode === "improve" ? "Improve my caption" : ws.button}
+            {loading ? `Writing your ${nouns}` : mode === "improve" ? `Improve my ${noun}` : ws.button}
           </button>
           <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnLg}`} onClick={() => setValues({ ...defaults(ws.fields), ...ws.exampleInput })}>
             {ws.secondary}
@@ -216,7 +233,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
           {has ? (
             <div className={s.viewTabs} role="tablist" aria-label="Results view">
               <button type="button" role="tab" aria-selected={view === "list"} className={view === "list" ? `${s.viewTab} ${s.viewTabOn}` : s.viewTab} onClick={() => setView("list")}>
-                All {options.length} captions
+                All {options.length} {nouns}
               </button>
               <button type="button" role="tab" aria-selected={view === "phone"} className={view === "phone" ? `${s.viewTab} ${s.viewTabOn}` : s.viewTab} onClick={() => setView("phone")}>
                 Post preview
@@ -225,7 +242,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
           ) : (
             <span className={s.draftPill}>
               <span className={s.draftDot} aria-hidden />
-              {mode === "improve" ? "Your current caption" : "Live draft"}
+              {mode === "improve" ? `Your current ${noun}` : "Live draft"}
             </span>
           )}
           <span className={phoneCount > limit ? `${s.count} ${s.countOver}` : s.count}>{showPhone ? `${phoneCount.toLocaleString()} / ${limit.toLocaleString()}` : `${limit.toLocaleString()} characters max`}</span>
@@ -250,9 +267,9 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
             ) : null}
             {has ? (
               <div className={s.phoneControls}>
-                <div className={s.picker} role="group" aria-label="Choose which caption to preview">
+                <div className={s.picker} role="group" aria-label={`Choose which ${noun} to preview`}>
                   {options.map((o, i) => (
-                    <button key={i} type="button" className={i === selected ? `${s.pick} ${s.pickOn}` : s.pick} aria-pressed={i === selected} aria-label={`Preview caption ${i + 1}: ${o.label}`} onClick={() => setSelected(i)}>
+                    <button key={i} type="button" className={i === selected ? `${s.pick} ${s.pickOn}` : s.pick} aria-pressed={i === selected} aria-label={`Preview ${noun} ${i + 1}: ${o.label}`} onClick={() => setSelected(i)}>
                       {i + 1}
                     </button>
                   ))}
@@ -260,18 +277,18 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
                 <p className={s.pickLabel}>{options[selected]?.label}</p>
                 <div className={s.actionsCenter}>
                   <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnMd}`} onClick={() => copy(selected)}>
-                    {copied === selected ? "Copied" : "Copy this caption"}
+                    {copied === selected ? "Copied" : `Copy this ${noun}`}
                   </button>
                   <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnMd}`} onClick={() => setView("list")}>
-                    Back to all {options.length} captions
+                    Back to all {options.length} {nouns}
                   </button>
                 </div>
               </div>
             ) : (
               <p className={s.draftNote}>
                 {mode === "improve"
-                  ? "This is your current caption. Hit Improve my caption for three rewrites that keep your facts."
-                  : "A quick draft from your answers, updating as you type. Hit Generate for three AI written captions."}
+                  ? `This is your current ${noun}. Hit Improve my ${noun} for rewrites that keep your facts.`
+                  : `A quick draft from your answers, updating as you type. Hit Generate for AI written ${nouns}.`}
               </p>
             )}
           </div>
@@ -304,7 +321,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
                             // Opened by "Edit", so focus moves straight into the text.
                             autoFocus
                             className={`${s.input} ${s.textarea} ${s.resultEdit}`}
-                            aria-label={`Edit the ${o.label} caption`}
+                            aria-label={`Edit the ${o.label} ${noun}`}
                             rows={Math.max(4, o.text.split("\n").length + 1)}
                             value={o.text}
                             onChange={(e) => setOptions((all) => all.map((x, j) => (j === i ? { ...x, text: e.target.value } : x)))}
@@ -327,7 +344,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
                         ) : null}
                         <div className={s.resultActions}>
                           <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`} onClick={() => copy(i)}>
-                            {copied === i ? "Copied" : "Copy caption"}
+                            {copied === i ? "Copied" : `Copy ${noun}`}
                           </button>
                           <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnSm}`} onClick={() => preview(i)}>
                             Preview in post

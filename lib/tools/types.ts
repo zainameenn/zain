@@ -189,7 +189,7 @@ export type RelatedIcon = "caption" | "bio" | "chat" | "x";
 export type StudioHead = { eyebrow?: string; heading: string; accent?: string; intro?: Rich };
 
 /** Settings a "Use this style" button sends to the generator. */
-export type StyleSettings = { tone?: string; emoji?: string; format?: string; goal?: string; account_type?: string; category?: string; post_type?: string; length?: string };
+export type StyleSettings = { tone?: string; emoji?: string; format?: string; goal?: string; account_type?: string; category?: string; post_type?: string; length?: string; style?: string };
 
 export type StudioSection = StudioHead &
   (
@@ -226,13 +226,15 @@ export type StudioSection = StudioHead &
   );
 
 /** Which profile the phone mockups show. */
-export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook";
+export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook" | "youtube" | "pinterest" | "youtube-watch" | "google-title" | "google-description" | "pinterest-title" | "pinterest-description";
 
 export type StudioContent = {
   /** Phone skin for the generator and the creator breakdown. Defaults to Instagram. */
   skin?: ProfileSkin;
   /** Which generator the page runs. Bio by default; caption pages use the post preview studio. */
   tool?: "bio" | "caption";
+  /** What the caption studio calls its results ("caption", "title", "description"). */
+  noun?: string;
   /** Accessible name for the generator, e.g. "TikTok bio generator". */
   label?: string;
   /** Platform name in section labels, e.g. "View X profile". Defaults to Instagram. */

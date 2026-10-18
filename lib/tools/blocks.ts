@@ -146,11 +146,11 @@ Use three different angles, labeled:
 - "Story": opens mid moment and walks through what happened.
 - "Value": opens with the useful takeaway, then gives it in short lines.
 
-Hashtags: return them in the separate "hashtags" array, never inside "text". Use specific tags tied to the topic and audience, never generic ones like #love, #instagood, #viral, #fyp. Follow the hashtag rule exactly. If hashtags are off, return an empty array.
+Hashtags: return them in the separate "hashtags" array, never inside "text". Use specific tags tied to the topic and audience, never generic ones like #love, #instagood, #viral, #fyp. Follow the hashtag rule exactly. If <hashtags> is "off" or "No", return an empty array.
 
 Never invent timestamps, links, prices, results or quotes. If the visitor gave timestamps or links, use them exactly as written.
 
-Emoji: if <emoji> is "off", use no emoji at all. If "on", follow the format rules.
+Emoji: if <emoji> is "off" or "No", use no emoji at all. If "on" or "Yes", follow the format rules.
 Write every version in {{language}}.
 </task>
 
@@ -881,7 +881,19 @@ Write every caption in {{language}}.
 </user_input>`,
 };
 
+/** Studio title pages (YouTube, Pinterest): the title block plus an improve mode. */
+const STUDIO_TITLE: ToolBlock = {
+  ...TITLE,
+  rewrites: { shorter: "Rewrite all 6 titles shorter, aiming for under {{visible}} characters. Keep the search phrase, the facts and the labels." },
+  system: TITLE.system.replace(
+    "<task>",
+    `<task>\nMode is "new" or "improve". In "improve" mode, <current_title> is the source of facts: write 6 better versions of it, keep its facts and its search phrase if it has one.\n`,
+  ).replace("</task>", "Write every title in {{language}}.\n</task>"),
+  user: `<user_input><mode>{{mode}}</mode><current_title>{{current_title}}</current_title><topic>{{topic}}</topic><search_phrase>{{keyword}}</search_phrase><audience>{{audience}}</audience><payoff>{{payoff}}</payoff><style>{{style}}</style><language>{{language}}</language></user_input>`,
+};
+
 export const BLOCKS: Record<string, ToolBlock> = {
+  "studio-title": STUDIO_TITLE,
   "studio-caption": STUDIO_CAPTION,
   bio: BIO,
   "instagram-bio": INSTAGRAM_BIO,

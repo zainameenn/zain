@@ -1,6 +1,8 @@
 import { FAIR_USE, LINK_SEO_SERVICE } from "../links";
 import type { Rich, ToolExample, ToolPage } from "../types";
 import { ERROR_TEXT, dataNote, freeFaq } from "./common";
+import { youtubeTitlePage } from "./title-youtube";
+import { pinterestTitlePage } from "./writers";
 
 // Family 3 in docs/tools-spec.md: YouTube and Pinterest title generators.
 
@@ -12,9 +14,16 @@ export type TitleOverride = {
   tips: Rich;
   examples: ToolExample[];
   faqs: { q: string; a: Rich }[];
+  /** Page level override (studio pages). */
+  page?: (base: ToolPage) => ToolPage;
 };
 
 export function titlePage(o: TitleOverride): ToolPage {
+  const base = titleBase(o);
+  return o.page ? o.page(base) : base;
+}
+
+function titleBase(o: TitleOverride): ToolPage {
   const P = o.platform;
   const p = P.toLowerCase();
   return {
@@ -98,6 +107,7 @@ const ex = (inputLabel: string, input: ToolExample["input"], output: string, why
 export const TITLE_PLATFORMS: TitleOverride[] = [
   {
     platform: "YouTube",
+    page: youtubeTitlePage,
     visible: 60,
     goal: "Earn the click from search and suggested videos, then let the video keep the promise.",
     styleRules: "Title case or sentence case, the visitor's choice. Curiosity is allowed if honest.",
@@ -114,6 +124,7 @@ export const TITLE_PLATFORMS: TitleOverride[] = [
   },
   {
     platform: "Pinterest",
+    page: pinterestTitlePage,
     visible: 40,
     goal: "Get found in Pinterest search. Descriptive beats clever.",
     styleRules: "Sentence case. Keyword first. No curiosity gaps, Pinterest users want to know exactly what they'll get.",

@@ -6,6 +6,7 @@ import { ABOUT, COMMENT, HEADLINE, POST } from "./pages/linkedin";
 import { CALENDAR, MARKETING_PLAN } from "./pages/planning";
 import { META_DESCRIPTION, SEO_TITLE, UTM_BUILDER } from "./pages/seo";
 import type { ToolGroup, ToolPage } from "./types";
+import { metaDescriptionPage, seoTitlePage } from "./families/writers";
 
 // Every tool page, keyed by slug. Family pages are built from one family config plus a platform override.
 const PAGES: ToolPage[] = [
@@ -14,8 +15,8 @@ const PAGES: ToolPage[] = [
   ...TITLE_PLATFORMS.map(titlePage),
   CALENDAR,
   MARKETING_PLAN,
-  SEO_TITLE,
-  META_DESCRIPTION,
+  seoTitlePage(SEO_TITLE),
+  metaDescriptionPage(META_DESCRIPTION),
   UTM_BUILDER,
   ETSY_TITLE,
   PRODUCT_DESCRIPTION,
@@ -36,6 +37,14 @@ const LIVE = new Set([
   "threads-bio-generator",
   "facebook-bio-generator",
   "instagram-caption-generator",
+  "tiktok-caption-generator",
+  "facebook-caption-generator",
+  "youtube-title-generator",
+  "youtube-description-generator",
+  "pinterest-title-generator",
+  "pinterest-description-generator",
+  "seo-title-generator",
+  "meta-description-generator",
 ]);
 const SHOWN = process.env.NODE_ENV === "development" ? PAGES : PAGES.filter((p) => LIVE.has(p.slug));
 
@@ -67,8 +76,14 @@ export type ToolStatus = "published" | "review" | "development" | "not-started";
 export const STATUS: Record<string, ToolStatus> = {
   "instagram-bio-generator": "published",
   "instagram-caption-generator": "published",
-  "tiktok-caption-generator": "review",
-  "facebook-caption-generator": "review",
+  "tiktok-caption-generator": "published",
+  "facebook-caption-generator": "published",
+  "youtube-title-generator": "published",
+  "youtube-description-generator": "published",
+  "pinterest-title-generator": "published",
+  "pinterest-description-generator": "published",
+  "seo-title-generator": "published",
+  "meta-description-generator": "published",
   "tiktok-bio-generator": "published",
   "twitter-bio-generator": "published",
   "threads-bio-generator": "published",
