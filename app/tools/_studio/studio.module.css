@@ -1647,3 +1647,122 @@
 }
 .fbPost .postSkel { padding: 0; }
 .fbPost > i { display: block; height: 120px; border-radius: 6px; background: #EEE8DF; }
+
+/* ---------- Instagram feed post (caption tools) ---------- */
+.post { gap: 0; padding-top: 4px; }
+.postTop {
+  display: grid;
+  grid-template-columns: 34px 1fr 24px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 10px;
+}
+.postAvatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  border-radius: 50%;
+  background: conic-gradient(from 200deg, var(--gold), #E8CD98, var(--gold));
+}
+.postAvatar > :first-child {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.postUser { font-size: 14px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.postMedia {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: linear-gradient(160deg, #F1E7D7, #E3D3B9);
+}
+.postMedia img { width: 100%; height: 100%; object-fit: cover; }
+.postReel { aspect-ratio: 9 / 13; background: linear-gradient(160deg, #3A3431, #1D1B1A); }
+.postPlaceholder { font-size: 13px; font-weight: 600; color: rgba(34, 32, 33, 0.45); }
+.postReel .postPlaceholder { color: rgba(252, 242, 230, 0.5); }
+.postCount {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.7);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.postPlay {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.45);
+  color: #FFFFFF;
+}
+.postPlay svg { width: 24px; height: 24px; margin-left: 3px; }
+.postActions {
+  display: grid;
+  grid-template-columns: 24px 24px 24px 1fr 24px;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px 6px;
+}
+.postActions svg { width: 24px; height: 24px; color: #111; }
+.postDots { display: flex; justify-content: center; gap: 4px; }
+.postDots i { width: 6px; height: 6px; border-radius: 50%; background: #C7C7C7; }
+.postDots .postDotOn { background: #0095F6; }
+.postCaption { padding: 4px 14px 16px; }
+.postCapUser { font-weight: 700; }
+.postMore {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #737373;
+  font: inherit;
+  cursor: pointer;
+}
+.postMore:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* Hashtag chips under each caption result. */
+.hashChips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.hashChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 4px 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: #00376B;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.tagRemove {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+.tagRemove:hover { background: rgba(34, 32, 33, 0.08); color: var(--ink); }
+.tagRemove:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+.foldNote { margin: 0; font-size: 13px; color: var(--muted); }
+.foldNote b { color: var(--gold-text); font-weight: 600; }

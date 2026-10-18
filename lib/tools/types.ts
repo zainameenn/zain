@@ -179,6 +179,8 @@ export type BrandExample = {
   style: "Minimal" | "Brand-focused" | "Personality" | "Action-focused";
   why: Rich;
   lesson: Rich;
+  /** Footer link text. Defaults to "View <platform> profile"; caption examples use "View post". */
+  linkLabel?: string;
 };
 
 export type RelatedIcon = "caption" | "bio" | "chat" | "x";
@@ -187,7 +189,7 @@ export type RelatedIcon = "caption" | "bio" | "chat" | "x";
 export type StudioHead = { eyebrow?: string; heading: string; accent?: string; intro?: Rich };
 
 /** Settings a "Use this style" button sends to the generator. */
-export type StyleSettings = { tone?: string; emoji?: string; format?: string; goal?: string; account_type?: string; category?: string };
+export type StyleSettings = { tone?: string; emoji?: string; format?: string; goal?: string; account_type?: string; category?: string; post_type?: string; length?: string };
 
 export type StudioSection = StudioHead &
   (
@@ -195,7 +197,7 @@ export type StudioSection = StudioHead &
     | { kind: "gallery"; note?: Rich; items: BrandExample[] }
     | {
         kind: "creator";
-        profile: { handle: string; name: string; url: string; checked: string; photo: StudioImage & { credit: Rich }; link?: string; category?: string; location?: string };
+        profile: { handle: string; name: string; url: string; checked: string; photo: StudioImage & { credit: Rich }; link?: string; category?: string; location?: string; postType?: "Photo" | "Carousel" | "Reel" };
         /** The real bio, line by line. `mark` numbers the line to match a point. */
         lines: { text: string; mark?: number }[];
         nameMark?: number;
@@ -229,6 +231,8 @@ export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook";
 export type StudioContent = {
   /** Phone skin for the generator and the creator breakdown. Defaults to Instagram. */
   skin?: ProfileSkin;
+  /** Which generator the page runs. Bio by default; caption pages use the post preview studio. */
+  tool?: "bio" | "caption";
   /** Accessible name for the generator, e.g. "TikTok bio generator". */
   label?: string;
   /** Platform name in section labels, e.g. "View X profile". Defaults to Instagram. */

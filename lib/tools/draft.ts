@@ -122,3 +122,30 @@ export function usernameFrom(name: string, category: string, platform: string = 
     .replace(/[._]+$/, "");
   return base || (x ? "yourhandle" : "yourusername");
 }
+
+export type CaptionDraftInput = { mode: string; topic: string; details: string; currentCaption: string; cta: string; goal: string; emoji: string; tone: string };
+
+/** Calls to action the caption draft falls back on, one per goal. Neutral wording, no claims about the visitor. */
+const CAPTION_CTAS: Record<string, string> = {
+  Comments: "Tell me what you think below",
+  Saves: "Save this for later",
+  Shares: "Send this to someone who needs it",
+  "Link clicks": "Link in bio",
+  Sales: "Link in bio to shop",
+  Followers: "Follow for more like this",
+};
+
+/** A quick sketch of the caption from the visitor's own words, so the preview reacts while they type. Not AI. */
+export function draftCaption(d: CaptionDraftInput): string {
+  if (d.mode === "improve") return d.currentCaption.trim();
+  const topic = sentence(d.topic);
+  if (!topic) return "";
+  const parts = [topic + (d.emoji === "None" ? "" : d.emoji === "Expressive" ? " ✨" : "")];
+  const details = sentence(d.details);
+  if (details) parts.push(`${details}.`);
+  const cta = sentence(d.cta) || CAPTION_CTAS[d.goal] || "";
+  if (cta) parts.push(d.emoji === "Expressive" ? `${cta} 👇` : cta);
+  let text = parts.join("\n\n");
+  if (d.tone === "Aesthetic") text = text.toLowerCase();
+  return text;
+}

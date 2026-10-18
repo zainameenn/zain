@@ -8,8 +8,10 @@ import type { BrandExample, RelatedIcon, StudioHead, StudioImage, StudioSection,
 import { countChars } from "@/lib/tools/validate";
 import { Crumbs, rich } from "../_components/content";
 import { BioStudio } from "./BioStudio";
+import { CaptionStudio } from "./CaptionStudio";
 import { lora } from "./fonts";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
+import { InstaPostScreen } from "./PostScreen";
 import { StyleButton } from "./StyleButton";
 import s from "./studio.module.css";
 
@@ -107,14 +109,14 @@ function BrandCard({ b, limit, platform }: { b: BrandExample; limit: number; pla
       </div>
       <div className={s.inset}>
         {text ? <p className={s.insetBio}>{text}</p> : <p className={s.insetEmpty}>No bio right now. Just the name.</p>}
-        <span className={s.count}>{verified ? `${countChars(text ?? "")} / ${limit}` : "Illustrative example"}</span>
+        <span className={s.count}>{verified ? `${countChars(text ?? "").toLocaleString()} / ${limit.toLocaleString()}` : "Illustrative example"}</span>
       </div>
       <p className={s.why}>
         <span className={s.whyLabel}>Why it works</span>
         {rich(b.why)}
       </p>
       <a className={s.cardFoot} href={b.url} target="_blank" rel="noopener noreferrer">
-        View {platform} profile
+        {b.linkLabel ?? `View ${platform} profile`}
         <span className={s.srOnly}> for {b.brand} (opens in a new tab)</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M5 12h14M13 6l6 6-6 6" />
@@ -189,6 +191,16 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
           </ol>
           <figure className={s.creatorPhone}>
             <PhoneFrame>
+              {tool.studio?.tool === "caption" ? (
+                <InstaPostScreen
+                  username={p.handle}
+                  type={p.postType ?? "Photo"}
+                  caption=""
+                  captionNode={bio}
+                  mediaLabel="Post image not shown"
+                  avatar={<Image src={p.photo.src} alt="" width={p.photo.width} height={p.photo.height} className={s.instaPhoto} />}
+                />
+              ) : (
               <ProfileScreen
                 skin={tool.studio?.skin ?? "instagram"}
                 username={p.handle}
@@ -201,6 +213,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
                 highlights={[]}
                 avatar={<Image src={p.photo.src} alt="" width={p.photo.width} height={p.photo.height} className={s.instaPhoto} />}
               />
+              )}
             </PhoneFrame>
             <figcaption className={s.smallNote}>
               {section.note ? <>{rich(section.note)} </> : null}
@@ -221,12 +234,12 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
             <div className={s.compareCol}>
               <p className={s.compareLabel}>Before</p>
               <p className={s.compareBio}>{section.before}</p>
-              <p className={s.count}>{countChars(section.before)} / {limit}</p>
+              <p className={s.count}>{countChars(section.before)} / {limit.toLocaleString()}</p>
             </div>
             <div className={`${s.compareCol} ${s.compareAfter}`}>
               <p className={s.compareLabel}>After</p>
               <p className={s.compareBio}>{section.after}</p>
-              <p className={s.count}>{countChars(section.after)} / {limit}</p>
+              <p className={s.count}>{countChars(section.after)} / {limit.toLocaleString()}</p>
             </div>
           </div>
           <ul className={s.changes}>
@@ -245,7 +258,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
               <p className={s.styleWhen}>{st.when}</p>
               <div className={s.inset}>
                 <p className={s.insetBio}>{st.bio}</p>
-                <span className={s.count}>{countChars(st.bio)} / {limit}</span>
+                <span className={s.count}>{countChars(st.bio)} / {limit.toLocaleString()}</span>
               </div>
               <p className={s.why}>
                 <span className={s.whyLabel}>Why it works</span>
@@ -273,7 +286,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
                   <span className={s.meterBar}>
                     <i style={{ width: `${(p.example.count / limit) * 100}%` }} />
                   </span>
-                  <span className={s.count}>{p.example.count} / {limit}</span>
+                  <span className={s.count}>{p.example.count} / {limit.toLocaleString()}</span>
                 </div>
               ) : p.example ? (
                 <div className={s.examples}>
@@ -355,7 +368,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.sub}>{studio.sub}</p>
           <p className={s.trust}>{studio.trust}</p>
         </header>
-        <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />
+        {studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
       </div>
 
       {bands.map((section, i) => (
