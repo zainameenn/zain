@@ -1857,3 +1857,15 @@
 .ytwBody { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 18px; }
 .ytwDesc { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: #F2F2F2; font-size: 13.5px; }
 .pinMedia { aspect-ratio: 4 / 5; }
+
+/* ---------- Etsy listing, LinkedIn profile and post, product page ---------- */
+.etsyBtn { display: block; padding: 10px; border-radius: 999px; background: #222222; color: #FFFFFF; font-size: 14px; font-weight: 700; text-align: center; }
+.li { gap: 8px; padding-top: 0; background: #F4F2EE; }
+.liHead { display: flex; flex-direction: column; gap: 4px; padding: 0 14px 12px; background: #FFFFFF; }
+.liAvatar { display: block; width: 80px; height: 80px; margin-top: -40px; border: 4px solid #FFFFFF; border-radius: 50%; background: #E3D3B9; }
+.liHeadline { margin: 0; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
+.liBtns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.liBtns span { padding: 7px; border: 1px solid #0A66C2; border-radius: 999px; color: #0A66C2; font-size: 14px; font-weight: 600; text-align: center; }
+.liBtns span:first-child { background: #0A66C2; color: #FFFFFF; }
+.liCard { display: flex; flex-direction: column; gap: 8px; padding: 14px; background: #FFFFFF; font-size: 14px; }
+.liCard b { font-size: 17px; }

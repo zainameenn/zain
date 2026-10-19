@@ -107,3 +107,17 @@ export const realExample = (brand: string, handle: string, url: string, text: st
   lesson: "",
   linkLabel,
 });
+
+/**
+ * Moves an older tool form onto the studio: chips become segmented controls with a default,
+ * required fields go first, choices next, and optional extras under "More ways to personalize".
+ */
+export function studioFields(fields: ToolField[], extras: ToolField[] = []): ToolField[] {
+  const out = fields.map((f): ToolField => {
+    if (f.type === "chips") return { name: f.name, label: f.label, type: f.options.length > 3 ? "select" : "segmented", options: f.options, defaultValue: f.defaultValue ?? f.options[0], group: "style" } as ToolField;
+    if (f.type === "select") return { ...f, defaultValue: f.defaultValue ?? f.options[0], group: "style" };
+    if (f.type === "text" || f.type === "textarea") return { ...f, label: f.label.replace(/ \(optional[^)]*\)/i, ""), group: f.required ? "essentials" : "advanced" };
+    return f;
+  });
+  return [...out, ...extras];
+}

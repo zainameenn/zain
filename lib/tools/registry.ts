@@ -7,6 +7,7 @@ import { CALENDAR, MARKETING_PLAN } from "./pages/planning";
 import { META_DESCRIPTION, SEO_TITLE, UTM_BUILDER } from "./pages/seo";
 import type { ToolGroup, ToolPage } from "./types";
 import { metaDescriptionPage, seoTitlePage } from "./families/writers";
+import { etsyTitlePage, linkedinAboutPage, linkedinHeadlinePage, linkedinPostPage, productDescriptionPage } from "./families/writers-more";
 
 // Every tool page, keyed by slug. Family pages are built from one family config plus a platform override.
 const PAGES: ToolPage[] = [
@@ -18,11 +19,11 @@ const PAGES: ToolPage[] = [
   seoTitlePage(SEO_TITLE),
   metaDescriptionPage(META_DESCRIPTION),
   UTM_BUILDER,
-  ETSY_TITLE,
-  PRODUCT_DESCRIPTION,
-  HEADLINE,
-  ABOUT,
-  POST,
+  etsyTitlePage(ETSY_TITLE),
+  productDescriptionPage(PRODUCT_DESCRIPTION),
+  linkedinHeadlinePage(HEADLINE),
+  linkedinAboutPage(ABOUT),
+  linkedinPostPage(POST),
   COMMENT,
 ];
 
@@ -45,6 +46,11 @@ const LIVE = new Set([
   "pinterest-description-generator",
   "seo-title-generator",
   "meta-description-generator",
+  "etsy-title-generator",
+  "product-description-generator",
+  "linkedin-headline-generator",
+  "linkedin-about-section-generator",
+  "linkedin-post-generator",
 ]);
 const SHOWN = process.env.NODE_ENV === "development" ? PAGES : PAGES.filter((p) => LIVE.has(p.slug));
 
@@ -84,6 +90,11 @@ export const STATUS: Record<string, ToolStatus> = {
   "pinterest-description-generator": "published",
   "seo-title-generator": "published",
   "meta-description-generator": "published",
+  "etsy-title-generator": "published",
+  "product-description-generator": "published",
+  "linkedin-headline-generator": "published",
+  "linkedin-about-section-generator": "published",
+  "linkedin-post-generator": "published",
   "tiktok-bio-generator": "published",
   "twitter-bio-generator": "published",
   "threads-bio-generator": "published",

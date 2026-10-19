@@ -420,3 +420,135 @@ export function YouTubeWatchScreen({ username, title, caption, captionNode, plac
     </div>
   );
 }
+
+/** An Etsy listing on a phone: photo, price placeholder, then the title. */
+export function EtsyScreen({ username, title, captionNode, placeholder }: { username: string; title: string; captionNode?: ReactNode; placeholder?: string }) {
+  return (
+    <div className={s.pin}>
+      <div className={s.pinMedia} style={{ aspectRatio: "1 / 1", borderRadius: 12 }} aria-hidden>
+        <span className={s.postPlaceholder}>Your listing photo</span>
+      </div>
+      <div className={s.pinBody}>
+        <span className={s.ytChannel}>{username} · ★★★★★</span>
+        <p className={s.instaBio} style={{ fontSize: 15 }}>
+          {captionNode ?? (title || <span className={s.instaPlaceholder}>{placeholder ?? "Your title shows up here"}</span>)}
+        </p>
+        <span className={s.ytLine} style={{ width: "30%", height: 14 }} aria-hidden />
+        <span className={s.etsyBtn} aria-hidden>
+          Add to basket
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/** A LinkedIn profile: banner, photo, name, headline, then the About card. `focus` picks which one the tool writes. */
+export function LinkedInProfileScreen({ name, headline, about, focus, captionNode, placeholder }: { name: string; headline: string; about: string; focus: "headline" | "about"; captionNode?: ReactNode; placeholder?: string }) {
+  const [open, setOpen] = useState(false);
+  const { head, cut } = foldCaption(about, 220);
+  const empty = <span className={s.instaPlaceholder}>{placeholder ?? `Your ${focus} shows up here`}</span>;
+  return (
+    <div className={`${s.insta} ${s.li}`}>
+      <div className={s.xBanner} aria-hidden />
+      <div className={s.liHead}>
+        <span className={s.liAvatar} aria-hidden />
+        <b className={s.xName}>{name}</b>
+        <p className={s.liHeadline}>{focus === "headline" ? captionNode ?? (headline || empty) : headline || "Your headline"}</p>
+        <span className={s.ytChannel} aria-hidden>
+          Location · <span style={{ color: "#0A66C2", fontWeight: 600 }}>Contact info</span>
+        </span>
+        <div className={s.liBtns} aria-hidden>
+          <span>Connect</span>
+          <span>Message</span>
+        </div>
+      </div>
+      <div className={s.liCard}>
+        <b>About</b>
+        <p className={s.instaBio}>
+          {focus === "about"
+            ? captionNode ??
+              (about ? (
+                <>
+                  {open || !cut ? about : head}
+                  {cut && !open ? (
+                    <>
+                      {"... "}
+                      <button type="button" className={s.fbpMore} onClick={() => setOpen(true)}>
+                        see more
+                      </button>
+                    </>
+                  ) : null}
+                </>
+              ) : (
+                empty
+              ))
+            : <span className={s.ytLine} aria-hidden />}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/** A LinkedIn feed post: author row with headline, then text cut at "...see more". */
+export function LinkedInPostScreen({ name, caption, captionNode, placeholder }: { name: string; caption: string; captionNode?: ReactNode; placeholder?: string }) {
+  const [open, setOpen] = useState(false);
+  const { head, cut } = foldCaption(caption, 210);
+  return (
+    <div className={`${s.insta} ${s.fbp}`}>
+      <div className={s.fbpTop}>
+        <span className={s.liAvatar} style={{ width: 40, height: 40, margin: 0, border: 0 }} aria-hidden />
+        <span className={s.fbpNames}>
+          <b>{name}</b>
+          <span aria-hidden>Your headline · 1h · 🌐</span>
+        </span>
+        <span className={s.instaMenu} aria-hidden>
+          <i />
+          <i />
+          <i />
+        </span>
+      </div>
+      <p className={`${s.instaBio} ${s.fbpText}`}>
+        {captionNode ??
+          (caption ? (
+            <>
+              {open || !cut ? caption : head}
+              {cut && !open ? (
+                <>
+                  {"... "}
+                  <button type="button" className={s.fbpMore} onClick={() => setOpen(true)}>
+                    see more
+                  </button>
+                </>
+              ) : null}
+            </>
+          ) : (
+            <span className={s.instaPlaceholder}>{placeholder ?? "Your post shows up here"}</span>
+          ))}
+      </p>
+      <div className={s.fbpBar} aria-hidden>
+        <span>👍 Like</span>
+        <span>💬 Comment</span>
+        <span>↗ Repost</span>
+      </div>
+    </div>
+  );
+}
+
+/** A product page on a phone: photo, name, then the description. */
+export function ProductScreen({ name, caption, captionNode, placeholder }: { name: string; caption: string; captionNode?: ReactNode; placeholder?: string }) {
+  return (
+    <div className={s.pin}>
+      <div className={s.pinMedia} style={{ aspectRatio: "1 / 1", borderRadius: 12 }} aria-hidden>
+        <span className={s.postPlaceholder}>Your product photo</span>
+      </div>
+      <div className={s.pinBody}>
+        <p className={s.pinTitle}>{name || "Your product"}</p>
+        <span className={s.ytLine} style={{ width: "25%", height: 14 }} aria-hidden />
+        <span className={s.etsyBtn} aria-hidden>
+          Add to cart
+        </span>
+        <p className={s.pinDesc}>{captionNode ?? (caption || <span className={s.instaPlaceholder}>{placeholder ?? "Your description shows up here"}</span>)}</p>
+      </div>
+    </div>
+  );
+}

@@ -8,7 +8,7 @@ import { countChars, fullText, resolveLimit, type Option } from "@/lib/tools/val
 import { STYLE_EVENT } from "./BioStudio";
 import { Disclosure, FieldControl, Segmented, Spinner } from "./controls";
 import { initialsOf, PhoneFrame } from "./Phone";
-import { FacebookPostScreen, InstaPostScreen, PinScreen, SerpScreen, TikTokVideoScreen, YouTubeResultsScreen, YouTubeWatchScreen, foldCaption, type PostType } from "./PostScreen";
+import { EtsyScreen, FacebookPostScreen, LinkedInPostScreen, LinkedInProfileScreen, ProductScreen, InstaPostScreen, PinScreen, SerpScreen, TikTokVideoScreen, YouTubeResultsScreen, YouTubeWatchScreen, foldCaption, type PostType } from "./PostScreen";
 import s from "./studio.module.css";
 
 // The caption generator studio. Left: a short form. Right: a feed post that shows a live draft while you type,
@@ -16,6 +16,29 @@ import s from "./studio.module.css";
 
 type Status = "idle" | "loading" | "done" | "error";
 type View = "list" | "phone";
+
+/**
+ * The API returns lists for most tools, but some prompts return named fields (LinkedIn About and posts)
+ * or a product object. Every shape becomes the same result cards here.
+ */
+const NL = "\n";
+const FIELD_LABELS: Record<string, string> = { short: "Short version", full: "Full version", post: "The post" };
+function toOptions(data: Record<string, unknown> | undefined): Option[] | null {
+  if (!data) return null;
+  if (Array.isArray(data.options)) return data.options as Option[];
+  const tags = Array.isArray(data.hashtags) ? (data.hashtags as string[]) : undefined;
+  if (typeof data.description === "string") {
+    const out: Option[] = [{ label: "Description", text: data.description }];
+    if (Array.isArray(data.bullets) && data.bullets.length) out.push({ label: "Bullet points", text: (data.bullets as string[]).map((b) => `• ${b}`).join(NL) });
+    if (Array.isArray(data.faqs) && data.faqs.length) out.push({ label: "Buyer FAQs", text: (data.faqs as { q: string; a: string }[]).map((x) => `${x.q}${NL}${x.a}`).join(NL + NL) });
+    return out;
+  }
+  const out: Option[] = Object.entries(data)
+    .filter(([, v]) => typeof v === "string" && v.trim())
+    .map(([k, v]) => ({ label: FIELD_LABELS[k] ?? k, text: v as string, hashtags: k === "post" ? tags : undefined }));
+  if (Array.isArray(data.hooks) && data.hooks.length) out.push({ label: "Other opening lines", text: (data.hooks as (string | { type?: string; text?: string })[]).map((h) => (typeof h === "string" ? h : `${h.type ? `${h.type}: ` : ""}${h.text ?? ""}`)).join(NL + NL) });
+  return out.length ? out : null;
+}
 
 function defaults(fields: ToolField[]): ToolInput {
   return Object.fromEntries(fields.map((f) => [f.name, f.type === "toggle" ? f.defaultOn : "defaultValue" in f && f.defaultValue ? f.defaultValue : ""]));
@@ -69,7 +92,7 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
         body: JSON.stringify({ slug, input: values, extra: rewrite ? { rewrite, current: options.map((o) => fullText(o)).join("\n\n---\n\n") } : undefined }),
       });
       const body = await res.json().catch(() => ({}));
-      const list = Array.isArray(body?.data?.options) ? (body.data.options as Option[]) : null;
+      const list = toOptions(body?.data);
       if (!res.ok || !list) {
         setError(res.status === 429 ? BUSY_MESSAGE : typeof body.error === "string" ? body.error : ws.errorText);
         setStatus(options.length ? "done" : "error");
@@ -143,7 +166,15 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
   const phone = (
     <div className={s.phoneStage}>
       <PhoneFrame>
-        {skin === "google-title" || skin === "google-description" ? (
+        {skin === "etsy" ? (
+          <EtsyScreen username={name || "Your shop"} title={phoneText} />
+        ) : skin === "product" ? (
+          <ProductScreen name={str("name")} caption={phoneText} />
+        ) : skin === "linkedin-headline" || skin === "linkedin-about" ? (
+          <LinkedInProfileScreen key={`${selected}-${has}`} name={str("display_name") || "Your Name"} headline={skin === "linkedin-headline" ? phoneText : ""} about={skin === "linkedin-about" ? phoneText : ""} focus={skin === "linkedin-headline" ? "headline" : "about"} />
+        ) : skin === "linkedin-post" ? (
+          <LinkedInPostScreen key={`${selected}-${has}`} name={str("display_name") || "Your Name"} caption={phoneText} />
+        ) : skin === "google-title" || skin === "google-description" ? (
           <SerpScreen site={name || "Your site"} url={(name || "yoursite").toLowerCase().replace(/[^a-z0-9]+/g, "") + ".com › page"} title={skin === "google-title" ? phoneText : str("title")} description={skin === "google-description" ? phoneText : ""} focus={skin === "google-title" ? "title" : "description"} />
         ) : skin === "pinterest-title" || skin === "pinterest-description" ? (
           <PinScreen username={name || "Your account"} title={skin === "pinterest-title" ? phoneText : ""} description={skin === "pinterest-description" ? phoneText : ""} focus={skin === "pinterest-title" ? "title" : "description"} />

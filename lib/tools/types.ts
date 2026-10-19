@@ -226,7 +226,7 @@ export type StudioSection = StudioHead &
   );
 
 /** Which profile the phone mockups show. */
-export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook" | "youtube" | "pinterest" | "youtube-watch" | "google-title" | "google-description" | "pinterest-title" | "pinterest-description";
+export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook" | "youtube" | "pinterest" | "youtube-watch" | "google-title" | "google-description" | "pinterest-title" | "pinterest-description" | "etsy" | "product" | "linkedin-headline" | "linkedin-about" | "linkedin-post";
 
 export type StudioContent = {
   /** Phone skin for the generator and the creator breakdown. Defaults to Instagram. */
