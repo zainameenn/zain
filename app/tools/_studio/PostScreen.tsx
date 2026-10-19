@@ -552,3 +552,35 @@ export function ProductScreen({ name, caption, captionNode, placeholder }: { nam
     </div>
   );
 }
+
+/** A LinkedIn post with the visitor's comment underneath it. */
+export function LinkedInCommentScreen({ name, post, caption, captionNode, placeholder }: { name: string; post: string; caption: string; captionNode?: ReactNode; placeholder?: string }) {
+  const { head, cut } = foldCaption(post, 160);
+  return (
+    <div className={`${s.insta} ${s.fbp}`}>
+      <div className={s.fbpTop} aria-hidden>
+        <span className={s.liAvatar} style={{ width: 40, height: 40, margin: 0, border: 0 }} />
+        <span className={s.fbpNames}>
+          <b>Post author</b>
+          <span>2h · 🌐</span>
+        </span>
+        <span />
+      </div>
+      <p className={`${s.instaBio} ${s.fbpText}`} style={{ color: "#555" }}>
+        {post ? (cut ? `${head}...` : post) : "The post you're replying to shows here."}
+      </p>
+      <div className={s.fbpBar} aria-hidden>
+        <span>👍 Like</span>
+        <span>💬 Comment</span>
+        <span>↗ Repost</span>
+      </div>
+      <div className={s.liComment}>
+        <span className={s.liAvatar} style={{ width: 32, height: 32, margin: 0, border: 0, flex: "0 0 auto" }} aria-hidden />
+        <div className={s.liCommentBox}>
+          <b>{name}</b>
+          <p className={s.instaBio}>{captionNode ?? (caption || <span className={s.instaPlaceholder}>{placeholder ?? "Your comment shows up here"}</span>)}</p>
+        </div>
+      </div>
+    </div>
+  );
+}

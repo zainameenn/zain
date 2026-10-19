@@ -46,3 +46,21 @@ export async function generate({ model, system, turns, maxOutputTokens }: { mode
     .join("");
   return { text, blocked };
 }
+
+/** Models tried in order when one is overloaded (503) or out of quota (429). */
+const FALLBACKS = ["gemini-flash-latest", "gemini-flash-lite-latest"];
+
+/** Like generate, but moves on to the next model when Google says the current one is busy or out of quota. */
+export async function generateWithFallback(args: Parameters<typeof generate>[0]) {
+  const chain = [args.model, ...FALLBACKS.filter((m) => m !== args.model)];
+  let last: unknown;
+  for (const model of chain) {
+    try {
+      return await generate({ ...args, model });
+    } catch (error) {
+      last = error;
+      if (!(error instanceof ModelError) || (error.status !== 429 && error.status !== 503)) throw error;
+    }
+  }
+  throw last;
+}

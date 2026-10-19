@@ -9,6 +9,7 @@ import { countChars } from "@/lib/tools/validate";
 import { Crumbs, rich } from "../_components/content";
 import { BioStudio } from "./BioStudio";
 import { CaptionStudio } from "./CaptionStudio";
+import { ToolWorkspace } from "../_components/ToolWorkspace";
 import { lora } from "./fonts";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
 import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, YouTubeResultsScreen } from "./PostScreen";
@@ -284,9 +285,12 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
                 <span className={s.whyLabel}>Why it works</span>
                 {rich(st.why)}
               </p>
-              <div className={s.cardActions}>
-                <StyleButton name={st.name} settings={st.settings} dark={st.dark} />
-              </div>
+              {/* Only tools on the studio form can take a style's settings. */}
+              {tool.studio?.tool !== "legacy" && Object.keys(st.settings).length ? (
+                <div className={s.cardActions}>
+                  <StyleButton name={st.name} settings={st.settings} dark={st.dark} />
+                </div>
+              ) : null}
             </li>
           ))}
         </ul>
@@ -388,7 +392,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.sub}>{studio.sub}</p>
           <p className={s.trust}>{studio.trust}</p>
         </header>
-        {studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
+        {studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
       </div>
 
       {bands.map((section, i) => (

@@ -8,7 +8,7 @@ import { countChars, fullText, resolveLimit, type Option } from "@/lib/tools/val
 import { STYLE_EVENT } from "./BioStudio";
 import { Disclosure, FieldControl, Segmented, Spinner } from "./controls";
 import { initialsOf, PhoneFrame } from "./Phone";
-import { EtsyScreen, FacebookPostScreen, LinkedInPostScreen, LinkedInProfileScreen, ProductScreen, InstaPostScreen, PinScreen, SerpScreen, TikTokVideoScreen, YouTubeResultsScreen, YouTubeWatchScreen, foldCaption, type PostType } from "./PostScreen";
+import { EtsyScreen, FacebookPostScreen, LinkedInCommentScreen, LinkedInPostScreen, LinkedInProfileScreen, ProductScreen, InstaPostScreen, PinScreen, SerpScreen, TikTokVideoScreen, YouTubeResultsScreen, YouTubeWatchScreen, foldCaption, type PostType } from "./PostScreen";
 import s from "./studio.module.css";
 
 // The caption generator studio. Left: a short form. Right: a feed post that shows a live draft while you type,
@@ -172,6 +172,8 @@ export function CaptionStudio({ slug, ws, label = "Instagram caption generator",
           <ProductScreen name={str("name")} caption={phoneText} />
         ) : skin === "linkedin-headline" || skin === "linkedin-about" ? (
           <LinkedInProfileScreen key={`${selected}-${has}`} name={str("display_name") || "Your Name"} headline={skin === "linkedin-headline" ? phoneText : ""} about={skin === "linkedin-about" ? phoneText : ""} focus={skin === "linkedin-headline" ? "headline" : "about"} />
+        ) : skin === "linkedin-comment" ? (
+          <LinkedInCommentScreen name={str("display_name") || "Your Name"} post={str("post")} caption={phoneText} />
         ) : skin === "linkedin-post" ? (
           <LinkedInPostScreen key={`${selected}-${has}`} name={str("display_name") || "Your Name"} caption={phoneText} />
         ) : skin === "google-title" || skin === "google-description" ? (

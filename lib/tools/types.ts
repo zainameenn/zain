@@ -226,13 +226,14 @@ export type StudioSection = StudioHead &
   );
 
 /** Which profile the phone mockups show. */
-export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook" | "youtube" | "pinterest" | "youtube-watch" | "google-title" | "google-description" | "pinterest-title" | "pinterest-description" | "etsy" | "product" | "linkedin-headline" | "linkedin-about" | "linkedin-post";
+export type ProfileSkin = "instagram" | "tiktok" | "x" | "threads" | "facebook" | "youtube" | "pinterest" | "youtube-watch" | "google-title" | "google-description" | "pinterest-title" | "pinterest-description" | "etsy" | "product" | "linkedin-headline" | "linkedin-about" | "linkedin-post" | "linkedin-comment";
+
 
 export type StudioContent = {
   /** Phone skin for the generator and the creator breakdown. Defaults to Instagram. */
   skin?: ProfileSkin;
   /** Which generator the page runs. Bio by default; caption pages use the post preview studio. */
-  tool?: "bio" | "caption";
+  tool?: "bio" | "caption" | "legacy";
   /** What the caption studio calls its results ("caption", "title", "description"). */
   noun?: string;
   /** Accessible name for the generator, e.g. "TikTok bio generator". */

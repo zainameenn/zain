@@ -7,6 +7,7 @@ import { CALENDAR, MARKETING_PLAN } from "./pages/planning";
 import { META_DESCRIPTION, SEO_TITLE, UTM_BUILDER } from "./pages/seo";
 import type { ToolGroup, ToolPage } from "./types";
 import { metaDescriptionPage, seoTitlePage } from "./families/writers";
+import { contentCalendarPage, linkedinCommentPage, marketingPlanPage, utmBuilderPage } from "./families/writers-final";
 import { etsyTitlePage, linkedinAboutPage, linkedinHeadlinePage, linkedinPostPage, productDescriptionPage } from "./families/writers-more";
 
 // Every tool page, keyed by slug. Family pages are built from one family config plus a platform override.
@@ -14,17 +15,17 @@ const PAGES: ToolPage[] = [
   ...BIO_PLATFORMS.map(bioPage),
   ...CAPTION_PLATFORMS.map(captionPage),
   ...TITLE_PLATFORMS.map(titlePage),
-  CALENDAR,
-  MARKETING_PLAN,
+  contentCalendarPage(CALENDAR),
+  marketingPlanPage(MARKETING_PLAN),
   seoTitlePage(SEO_TITLE),
   metaDescriptionPage(META_DESCRIPTION),
-  UTM_BUILDER,
+  utmBuilderPage(UTM_BUILDER),
   etsyTitlePage(ETSY_TITLE),
   productDescriptionPage(PRODUCT_DESCRIPTION),
   linkedinHeadlinePage(HEADLINE),
   linkedinAboutPage(ABOUT),
   linkedinPostPage(POST),
-  COMMENT,
+  linkedinCommentPage(COMMENT),
 ];
 
 /**
@@ -51,6 +52,10 @@ const LIVE = new Set([
   "linkedin-headline-generator",
   "linkedin-about-section-generator",
   "linkedin-post-generator",
+  "linkedin-comment-generator",
+  "social-media-content-calendar-generator",
+  "marketing-plan-generator",
+  "utm-link-builder",
 ]);
 const SHOWN = process.env.NODE_ENV === "development" ? PAGES : PAGES.filter((p) => LIVE.has(p.slug));
 
@@ -95,6 +100,10 @@ export const STATUS: Record<string, ToolStatus> = {
   "linkedin-headline-generator": "published",
   "linkedin-about-section-generator": "published",
   "linkedin-post-generator": "published",
+  "linkedin-comment-generator": "published",
+  "social-media-content-calendar-generator": "published",
+  "marketing-plan-generator": "published",
+  "utm-link-builder": "published",
   "tiktok-bio-generator": "published",
   "twitter-bio-generator": "published",
   "threads-bio-generator": "published",

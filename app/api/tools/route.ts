@@ -1,6 +1,6 @@
 import { BLOCKS, calendarSlots, fill, type ToolBlock } from "@/lib/tools/blocks";
 import { CORE_PROMPT } from "@/lib/tools/core";
-import { ModelError, generate, type Turn } from "@/lib/tools/gemini";
+import { ModelError, generateWithFallback, type Turn } from "@/lib/tools/gemini";
 import { getTool } from "@/lib/tools/registry";
 import type { ToolInput, ToolPage } from "@/lib/tools/types";
 import { countChars, fullText, nearDuplicates, resolveLimit, retryMessage, stripTrailingSeparators, type Option, type Problem } from "@/lib/tools/validate";
@@ -16,7 +16,8 @@ export const maxDuration = 60;
 // Flash Lite for the short tools: it answers in seconds, while full Flash was stalling for 45s+ in testing (Oct 2026).
 const MODELS = {
   fast: process.env.TOOLS_MODEL_FAST || "gemini-flash-lite-latest",
-  strong: process.env.TOOLS_MODEL_STRONG || "gemini-pro-latest",
+  // gemini-pro-latest has no free tier quota on this key (429, Oct 19 2026), so the planning tools use Flash.
+  strong: process.env.TOOLS_MODEL_STRONG || "gemini-flash-latest",
 };
 /** Room for the model's thinking on top of the spec's output budget, so replies are never cut short. */
 const THINKING_ROOM = { fast: 4000, strong: 8000 };
@@ -157,7 +158,7 @@ export async function POST(req: Request) {
   const turns: Turn[] = [{ role: "user", text: user }];
 
   try {
-    const first = await generate({ ...request, turns });
+    const first = await generateWithFallback({ ...request, turns });
     if (first.blocked) return json({ error: failText }, 422);
     const reply = parseReply(first.text);
     if (reply && typeof reply.error === "string") return json({ error: reply.error }, 422);
@@ -167,7 +168,7 @@ export async function POST(req: Request) {
 
     /** One retry naming only the failing items. Anything still over shows with a red counter. */
     const retry = async (problems: Problem[]) => {
-      const second = await generate({ ...request, turns: [...turns, { role: "model", text: first.text }, { role: "user", text: retryMessage(problems, limit) }] });
+      const second = await generateWithFallback({ ...request, turns: [...turns, { role: "model", text: first.text }, { role: "user", text: retryMessage(problems, limit) }] });
       return second.blocked ? null : parseReply(second.text);
     };
 

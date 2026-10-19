@@ -1869,3 +1869,5 @@
 .liBtns span:first-child { background: #0A66C2; color: #FFFFFF; }
 .liCard { display: flex; flex-direction: column; gap: 8px; padding: 14px; background: #FFFFFF; font-size: 14px; }
 .liCard b { font-size: 17px; }
+.liComment { display: flex; gap: 8px; padding: 10px 14px 16px; }
+.liCommentBox { flex: 1; padding: 8px 12px; border-radius: 0 10px 10px 10px; background: #F2F2F2; font-size: 13.5px; }
