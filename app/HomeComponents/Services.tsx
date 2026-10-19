@@ -53,7 +53,7 @@ export default function Services() {
         </div>
         <figure style={{ margin: 0, minWidth: 0, position: "sticky", top: 112, borderRadius: 28, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "clamp(20px,2.4vw,32px) clamp(12px,1.6vw,24px)" }}>
           <BgImage
-            src="/assets/v9/g10.png"
+            src="/assets/v9/g10.webp"
             alt="Illustration: ads, search and content channels feeding one growth engine that outputs performance and revenue"
             fit={100}
             style={{ aspectRatio: "1448/880" }}

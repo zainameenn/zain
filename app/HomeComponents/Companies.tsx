@@ -10,7 +10,7 @@ const BRANDS: { t: string; img?: string; h: string; w: string }[] = [
   { t: "Virtarix", img: "/assets/v8/logos/virtarix.png", h: "38px", w: "150px" },
   { t: "LoomPad", img: "/assets/v8/logos/loompad.png", h: "32px", w: "150px" },
   { t: "Eplie", img: "/assets/v8/logos/eplie.png", h: "34px", w: "110px" },
-  { t: "NeonRev", img: "/assets/v9/l_neonrev.png", h: "30px", w: "150px" },
+  { t: "NeonRev", img: "/assets/v9/l_neonrev.webp", h: "30px", w: "150px" },
   { t: "TechEon", img: "/assets/v8/logos/techeon.png", h: "32px", w: "150px" },
   { t: "HiFy", img: "/assets/v8/logos/hify.png", h: "36px", w: "90px" },
 ];

@@ -88,7 +88,7 @@ export default function Process() {
         <div style={{ minWidth: 0 }}>
           <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2DBCD", padding: "clamp(24px,3vw,40px) clamp(16px,2vw,28px)" }}>
             <BgImage
-              src="/assets/v9/g08.png"
+              src="/assets/v9/g08.webp"
               alt="Illustration: diagnose, prioritize, execute and learn, with a loop back to the start"
               fit={100}
               style={{ aspectRatio: "1448/620" }}

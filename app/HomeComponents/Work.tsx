@@ -179,7 +179,7 @@ export const CASES = {
         visual={
           <Frame bg="#E9E4DA">
             <div style={{ position: "absolute", left: 24, top: 24, width: "calc(80% - 24px)", borderRadius: 12, overflow: "hidden", border: "1px solid #2F3033", background: "#18191A", boxShadow: "0 20px 40px -28px rgba(20,20,20,.5)" }}>
-              <BgImage src="/assets/v8/ed-160k.png" alt="Everdry Waterproofing Facebook page overview: 160,235 views in the last 28 days" position="76.5% 50.3%" fit={168} style={{ aspectRatio: "1500/870", background: "#242526" }} />
+              <BgImage src="/assets/v8/ed-160k.webp" alt="Everdry Waterproofing Facebook page overview: 160,235 views in the last 28 days" position="76.5% 50.3%" fit={168} style={{ aspectRatio: "1500/870", background: "#242526" }} />
             </div>
             <div style={{ position: "absolute", right: 24, top: "45%", width: "58%", borderRadius: 12, overflow: "hidden", border: "1px solid #2F3033", background: "#202124", boxShadow: "0 28px 56px -26px rgba(20,20,20,.55)" }}>
               <Img loading="lazy" src="/assets/case-studies/everdry/facebook-141k-views.webp" alt="Everdry Facebook professional dashboard: 141,889 views and 36,284 reach in 28 days" style={{ display: "block", width: "100%" }} />
@@ -189,7 +189,7 @@ export const CASES = {
               <span style={{ fontSize: 12.5, color: "#B7B2A8" }}>Facebook views in 28 days</span>
             </div>
             <div style={{ position: "absolute", left: 24, bottom: 24, width: "34%", aspectRatio: "4/3", border: "6px solid #fff", boxShadow: "0 24px 44px -24px rgba(20,20,20,.5)", transform: "rotate(-2deg)", borderRadius: 12, overflow: "hidden" }}>
-              <BgImage src="/assets/v8/ed-design.png" alt="Everdry social content creative" fit="cover" style={{ width: "100%", height: "100%", background: "#fff" }} />
+              <BgImage src="/assets/v8/ed-design.webp" alt="Everdry social content creative" fit="cover" style={{ width: "100%", height: "100%", background: "#fff" }} />
             </div>
           </Frame>
         }
@@ -223,11 +223,11 @@ export const CASES = {
         visual={
           <div style={{ position: "relative", minWidth: 0, aspectRatio: "1/0.86", borderRadius: 20, overflow: "hidden", background: "#1E2130" }}>
             <div style={{ position: "absolute", left: "3.5%", top: "4%", width: "70%", zIndex: 3, borderRadius: 12, overflow: "hidden", border: "1px solid #2C3042", boxShadow: "0 24px 48px -24px rgba(0,0,0,.75)" }}>
-              <Img loading="lazy" src="/assets/v8/vx-70k.png" alt="Virtarix Facebook page insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%" }} />
+              <Img loading="lazy" src="/assets/v8/vx-70k.webp" alt="Virtarix Facebook page insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%" }} />
             </div>
             <span style={{ position: "absolute", left: "calc(3.5% + 12px)", top: "calc(4% + 12px)", zIndex: 6, padding: "5px 9px", borderRadius: 7, background: "#EEF0F8", color: "#15171F", border: "1px solid #EEF0F8", fontSize: 10, fontWeight: 600, letterSpacing: ".12em", whiteSpace: "nowrap" }}>AFTER · 71,459 VIEWS</span>
             <div style={{ position: "absolute", right: "3%", top: "30%", width: "42%", zIndex: 4, borderRadius: 12, overflow: "hidden", border: "1px solid #2C3042", boxShadow: "0 24px 48px -24px rgba(0,0,0,.75)" }}>
-              <Img loading="lazy" src="/assets/v12/vx-before.png" alt="Virtarix Facebook dashboard: views flat at zero through September, then rising from October" style={{ display: "block", width: "100%" }} />
+              <Img loading="lazy" src="/assets/v12/vx-before.webp" alt="Virtarix Facebook dashboard: views flat at zero through September, then rising from October" style={{ display: "block", width: "100%" }} />
             </div>
             <span style={{ position: "absolute", right: "calc(3% + 10px)", top: "calc(30% - 12px)", zIndex: 6, padding: "5px 9px", borderRadius: 7, background: "#15171F", color: "#EEF0F8", border: "1px solid #3A3F55", fontSize: 10, fontWeight: 600, letterSpacing: ".12em", whiteSpace: "nowrap" }}>BEFORE · FLAT UNTIL OCT</span>
             <div style={{ position: "absolute", left: "3.5%", bottom: "4%", width: "48%", zIndex: 5, borderRadius: 12, overflow: "hidden", border: "1px solid #2C3042", boxShadow: "0 24px 48px -24px rgba(0,0,0,.75)" }}>

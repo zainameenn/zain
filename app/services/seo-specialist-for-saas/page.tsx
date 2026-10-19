@@ -73,7 +73,7 @@ const LAYERS = [
     d: "Find the searches worth winning before spending months trying to rank for things that will never become customers.",
     tags: ["Commercial intent", "Keyword opportunities", "SERP research", "Competitors", "Content architecture"],
     alt: "Illustration of Search strategy: queries clustered by intent, SERP research, then one page built to win",
-    img: "04-layer-1__search-strategy.png",
+    img: "04-layer-1__search-strategy.webp",
   },
   {
     n: "02",
@@ -81,7 +81,7 @@ const LAYERS = [
     d: "Make sure search engines can crawl, load and understand the site before asking better content to do all the work.",
     tags: ["Crawlability", "Indexing", "Site structure", "Internal links", "Search Console"],
     alt: "Illustration of Technical SEO: crawl blocks and orphan pages fixed into a clean, indexed site structure",
-    img: "04-layer-2__technical-seo.png",
+    img: "04-layer-2__technical-seo.webp",
   },
   {
     n: "03",
@@ -89,7 +89,7 @@ const LAYERS = [
     d: "Build pages around what people actually want to know, then give them something better than the thirty pages already saying the same thing.",
     tags: ["Search intent", "Original content", "Landing pages", "Metadata", "Content refreshes"],
     alt: "Illustration of Content: search inputs shaped into an outline, then a complete page that ranks",
-    img: "04-layer-3__content-on-page.png",
+    img: "04-layer-3__content-on-page.webp",
   },
   {
     n: "04",
@@ -97,7 +97,7 @@ const LAYERS = [
     d: "Earn mentions and links from places search engines already trust.",
     tags: ["Link outreach", "Brand mentions", "Citations", "Publisher relationships", "Community visibility"],
     alt: "Illustration of Authority: links and mentions from blogs, Reddit, podcasts and partners pointing to one page",
-    img: "04-layer-4__authority-off-page.png",
+    img: "04-layer-4__authority-off-page.webp",
   },
 ];
 
@@ -255,7 +255,7 @@ export default function SeoPage() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%", maxWidth: 680 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/seo/01-hero__search-queries-to-top-result.png" alt="Illustration: search queries leading to a top-ranked page, which feeds traffic, audience growth and sales" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/pages/seo/01-hero__search-queries-to-top-result.webp" alt="Illustration: search queries leading to a top-ranked page, which feeds traffic, audience growth and sales" style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
@@ -286,7 +286,7 @@ export default function SeoPage() {
               The wrong traffic still wastes your time.
             </p>
             <figure className="max-md:!mx-auto" style={{ margin: "clamp(28px,3vw,44px) 0 0", maxWidth: 680 }}>
-              <Img loading="lazy" src="/assets/pages/seo/03-problem__ranking-isnt-growing.png" alt="Illustration: rankings and impressions flow into one search hub with several possible blockers before qualified demand, conversion and revenue" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/seo/03-problem__ranking-isnt-growing.webp" alt="Illustration: rankings and impressions flow into one search hub with several possible blockers before qualified demand, conversion and revenue" style={{ display: "block", width: "100%", height: "auto" }} />
             </figure>
           </div>
           <div style={{ maxWidth: 560, minWidth: 0 }}>
@@ -361,7 +361,7 @@ export default function SeoPage() {
             </div>
           </div>
           <figure style={{ margin: 0, minWidth: 0 }}>
-            <Img loading="lazy" src="/assets/pages/seo/04-layer-5__geo-ai-search-visibility.png" alt="Illustration: one page of original content cited as a source by ChatGPT, Gemini, Claude, Meta AI and Google, fed by data, links, mentions and research" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/seo/04-layer-5__geo-ai-search-visibility.webp" alt="Illustration: one page of original content cited as a source by ChatGPT, Gemini, Claude, Meta AI and Google, fed by data, links, mentions and research" style={{ display: "block", width: "100%", height: "auto" }} />
           </figure>
         </div>
       </section>
@@ -384,7 +384,7 @@ export default function SeoPage() {
             sub="SEO only matters when visibility turns into the right visitor, and the right visitor knows what to do next. Search demand, intent, content, visibility and conversion have to work as one path."
           />
           <figure style={{ margin: 0 }}>
-            <Img loading="lazy" src="/assets/pages/seo/05-search-to-customer__dark-journey.png" alt="Illustration: a search query, intent, a page, Google and ChatGPT visibility, a qualified visitor and a conversion" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/seo/05-search-to-customer__dark-journey.webp" alt="Illustration: a search query, intent, a page, Google and ChatGPT visibility, a qualified visitor and a conversion" style={{ display: "block", width: "100%", height: "auto" }} />
             <figcaption style={{ marginTop: 0, display: "grid", gap: "0 20px", borderTop: "1px solid #33322F" }} className="sm:!grid-cols-2 lg:!grid-cols-5">
               {SEARCH_STEPS.map((s) => (
                 <div key={s.n} style={{ padding: "18px 0" }}>
@@ -552,7 +552,7 @@ export default function SeoPage() {
             </div>
             <div style={{ marginTop: 12 }}>
               <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #DAD8D1", background: "#fff", boxShadow: "0 24px 48px -34px rgba(20,40,40,.4)" }}>
-                <Img loading="lazy" src="/assets/pages/seo/06-results-turnaround__before-search-console.png" alt="Before: Google Search Console, 1 May to 29 Aug 2026: 2.97K clicks, 1.12M impressions, 0.3% CTR, average position 40, flat or declining" style={{ display: "block", width: "100%" }} />
+                <Img loading="lazy" src="/assets/pages/seo/06-results-turnaround__before-search-console.webp" alt="Before: Google Search Console, 1 May to 29 Aug 2026: 2.97K clicks, 1.12M impressions, 0.3% CTR, average position 40, flat or declining" style={{ display: "block", width: "100%" }} />
               </div>
             </div>
             <div style={{ display: "grid", borderTop: "1px solid #DDDAD3", marginTop: 14 }} className="grid-cols-2 sm:!grid-cols-4">
@@ -578,7 +578,7 @@ export default function SeoPage() {
             </div>
             <div style={{ marginTop: 12 }}>
               <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #C9B9A2", background: "#fff", boxShadow: "0 24px 48px -34px rgba(20,40,40,.4)" }}>
-                <Img loading="lazy" src="/assets/pages/seo/06-results-turnaround__after-search-console.png" alt="After: Google Search Console, 31 Aug to 26 Sep 2026: 11.8K clicks, 665K impressions, 1.8% CTR, average position 13.4, sharp rise from 8 September" style={{ display: "block", width: "100%" }} />
+                <Img loading="lazy" src="/assets/pages/seo/06-results-turnaround__after-search-console.webp" alt="After: Google Search Console, 31 Aug to 26 Sep 2026: 11.8K clicks, 665K impressions, 1.8% CTR, average position 13.4, sharp rise from 8 September" style={{ display: "block", width: "100%" }} />
               </div>
             </div>
             <div style={{ display: "grid", borderTop: "1px solid #1C1C1C", marginTop: 14 }} className="grid-cols-2 sm:!grid-cols-4">
@@ -606,7 +606,7 @@ export default function SeoPage() {
             <SeoStepsTabs />
           </div>
           <figure style={{ margin: 0, minWidth: 0 }}>
-            <Img loading="lazy" src="/assets/pages/seo/07-process__five-steps.png" alt="Illustration: five steps rising left to right, from audit and demand mapping to fixes, new pages and measured growth" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/seo/07-process__five-steps.webp" alt="Illustration: five steps rising left to right, from audit and demand mapping to fixes, new pages and measured growth" style={{ display: "block", width: "100%", height: "auto" }} />
           </figure>
         </div>
       </section>
@@ -730,7 +730,7 @@ export default function SeoPage() {
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>answered straight.</em>
           </h2>
           <div className="max-md:!mx-auto" style={{ marginTop: "clamp(28px,3vw,40px)", width: "100%", maxWidth: 420 }}>
-            <Img loading="lazy" src="/assets/pages/seo/10-faq__seo-questions.png" alt="Illustration: a search leading to query refinements, a useful page, supporting links and a growth chart" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/seo/10-faq__seo-questions.webp" alt="Illustration: a search leading to query refinements, a useful page, supporting links and a growth chart" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
         <FAQAccordion faqs={FAQS} />

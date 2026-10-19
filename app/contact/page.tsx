@@ -222,7 +222,7 @@ export default function ContactPage() {
         <div style={{ width: "100%", maxWidth: 1040, margin: "clamp(12px,2vw,28px) auto 0" }}>
           <Img
             loading="eager" fetchPriority="high"
-            src="/assets/pages/contact/01-hero__desk-coffee-30-min-call.png"
+            src="/assets/pages/contact/01-hero__desk-coffee-30-min-call.webp"
             alt="Illustration: scattered questions, a laptop and coffee, a 30 minute calendar slot and clear checked next steps"
             style={{ display: "block", width: "100%", height: "auto" }}
           />
@@ -235,7 +235,7 @@ export default function ContactPage() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16 }} className="md:!grid-cols-3">
           <ReachCard
             alt="Calendar with a booked slot, video call bubble and coffee"
-            imgSrc="/assets/pages/contact/02-ways-to-reach__book-a-call.png"
+            imgSrc="/assets/pages/contact/02-ways-to-reach__book-a-call.webp"
             title="Book a call"
             desc="Bring the problem. I'll bring the coffee. 30 minutes, free, and you'll leave with at least one thing to fix."
             ctaText="Book a meeting"
@@ -244,7 +244,7 @@ export default function ContactPage() {
           />
           <ReachCard
             alt="Envelope with a paper plane"
-            imgSrc="/assets/pages/contact/02-ways-to-reach__email.png"
+            imgSrc="/assets/pages/contact/02-ways-to-reach__email.webp"
             title="Email"
             desc="For projects, questions, or if you hate scheduling tools. Fair."
             ctaText="Send an email"
@@ -252,7 +252,7 @@ export default function ContactPage() {
           />
           <ReachCard
             alt="Connected profiles with a message bubble and briefcase"
-            imgSrc="/assets/pages/contact/02-ways-to-reach__linkedin.png"
+            imgSrc="/assets/pages/contact/02-ways-to-reach__linkedin.webp"
             title="LinkedIn"
             desc="For a quick hello, a question, or if you want to check I'm a real person first."
             ctaText="Message me"
@@ -319,7 +319,7 @@ export default function ContactPage() {
         <div style={{ width: "100%", maxWidth: 900, margin: "clamp(8px,2vw,24px) auto 0" }}>
           <Img
             loading="lazy"
-            src="/assets/pages/contact/04-topics__video-call-topics.png"
+            src="/assets/pages/contact/04-topics__video-call-topics.webp"
             alt="Illustration: a video call surrounded by growth, SEO, Reddit, social, design, ads and strategy topics"
             style={{ display: "block", width: "100%", height: "auto" }}
           />
@@ -395,7 +395,7 @@ export default function ContactPage() {
         <div style={{ width: "100%", maxWidth: 1100, margin: "0 auto 8px" }}>
           <Img
             loading="lazy"
-            src="/assets/pages/contact/08-social-links__social-banner.png"
+            src="/assets/pages/contact/08-social-links__social-banner.webp"
             alt="Illustration: working from a desk with coffee while LinkedIn, email, Calendly, Instagram, Threads, X and Pinterest connect around the world"
             style={{ display: "block", width: "100%", height: "auto" }}
           />

@@ -66,12 +66,12 @@ const SYMPTOMS = [
 ];
 
 const SIX_PARTS = [
-  { n: "01", t: "Positioning", d: "Who it's for, what it replaces and why it's better. If this is fuzzy, every channel underperforms.", tags: ["ICP", "Competitors", "Differentiation", "Messaging"], alt: "Illustration: a target surrounded by audience, message, value and differentiation", img: "04-part-1__positioning.png" },
-  { n: "02", t: "Offer", d: "What people get, what it costs and why now.", tags: ["Pricing", "Packaging", "Free entry points", "Risk reversal"], alt: "Illustration: an offer box opening into pricing, packaging, value and guarantee", img: "04-part-2__offer.png" },
-  { n: "03", t: "Acquisition", d: "The channels that bring the right people. Usually one or two, not seven.", tags: ["SEO", "Reddit", "Social", "Paid", "Partnerships"], alt: "Illustration: search, social, community, paid and referral paths feeding one funnel", img: "04-part-3__acquisition.png" },
-  { n: "04", t: "Conversion", d: "What happens after someone lands. The page, the pitch and the next step.", tags: ["Landing pages", "CTAs", "Signup flow", "Tracking"], alt: "Illustration: attention and interest turning into signups through one clear page", img: "04-part-4__conversion.png" },
-  { n: "05", t: "Activation & retention", d: "Getting signups to actually use the product, then keeping them.", tags: ["Onboarding", "Lifecycle email", "Segmentation", "Churn signals"], alt: "Illustration: a customer at the centre of onboarding, email, support and community loops", img: "04-part-5__activation-retention.png" },
-  { n: "06", t: "Measurement & prioritization", d: "Knowing which numbers matter and deciding what to fix first.", tags: ["KPIs", "Attribution", "Experiments", "Priorities"], alt: "Illustration: a growth dashboard with KPIs, targets and experiments", img: "04-part-6__measurement.png" },
+  { n: "01", t: "Positioning", d: "Who it's for, what it replaces and why it's better. If this is fuzzy, every channel underperforms.", tags: ["ICP", "Competitors", "Differentiation", "Messaging"], alt: "Illustration: a target surrounded by audience, message, value and differentiation", img: "04-part-1__positioning.webp" },
+  { n: "02", t: "Offer", d: "What people get, what it costs and why now.", tags: ["Pricing", "Packaging", "Free entry points", "Risk reversal"], alt: "Illustration: an offer box opening into pricing, packaging, value and guarantee", img: "04-part-2__offer.webp" },
+  { n: "03", t: "Acquisition", d: "The channels that bring the right people. Usually one or two, not seven.", tags: ["SEO", "Reddit", "Social", "Paid", "Partnerships"], alt: "Illustration: search, social, community, paid and referral paths feeding one funnel", img: "04-part-3__acquisition.webp" },
+  { n: "04", t: "Conversion", d: "What happens after someone lands. The page, the pitch and the next step.", tags: ["Landing pages", "CTAs", "Signup flow", "Tracking"], alt: "Illustration: attention and interest turning into signups through one clear page", img: "04-part-4__conversion.webp" },
+  { n: "05", t: "Activation & retention", d: "Getting signups to actually use the product, then keeping them.", tags: ["Onboarding", "Lifecycle email", "Segmentation", "Churn signals"], alt: "Illustration: a customer at the centre of onboarding, email, support and community loops", img: "04-part-5__activation-retention.webp" },
+  { n: "06", t: "Measurement & prioritization", d: "Knowing which numbers matter and deciding what to fix first.", tags: ["KPIs", "Attribution", "Experiments", "Priorities"], alt: "Illustration: a growth dashboard with KPIs, targets and experiments", img: "04-part-6__measurement.webp" },
 ];
 
 const SYSTEM_STEPS = [
@@ -169,7 +169,7 @@ export default function GrowthStrategyPage() {
           </div>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/growth-strategy/01-hero__growth-system.png" alt="Illustration: strategy, content, audience, channels, offer and results all connected to one growth system" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/pages/growth-strategy/01-hero__growth-system.webp" alt="Illustration: strategy, content, audience, channels, offer and results all connected to one growth system" style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
@@ -268,7 +268,7 @@ export default function GrowthStrategyPage() {
                 </li>
               ))}
             </ol>
-            <Img loading="lazy" src="/assets/pages/growth-strategy/05-bottleneck-to-system__dark-journey.png" alt="Illustration: a tangled knot of activity turning into a clear path of strategy, content, channels, audience and growth" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/growth-strategy/05-bottleneck-to-system__dark-journey.webp" alt="Illustration: a tangled knot of activity turning into a clear path of strategy, content, channels, audience and growth" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
       </section>
@@ -277,7 +277,7 @@ export default function GrowthStrategyPage() {
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="The whole system" title={<>I check the whole system<em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>before recommending anything.</em></>} sub="If I only looked at SEO, I'd only ever recommend SEO." />
         <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(20px,3vw,40px) clamp(12px,2vw,28px) clamp(24px,3vw,36px)" }}>
-          <Img loading="lazy" src="/assets/pages/growth-strategy/06-constraint-map__nine-stage-system.png" alt="Growth system: market, ICP, positioning, offer, channel, landing page, activation, retention and revenue as nine connected stages, with a magnifier on the weak points" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="lazy" src="/assets/pages/growth-strategy/06-constraint-map__nine-stage-system.webp" alt="Growth system: market, ICP, positioning, offer, channel, landing page, activation, retention and revenue as nine connected stages, with a magnifier on the weak points" style={{ display: "block", width: "100%", height: "auto" }} />
           <div className="max-md:!justify-center" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "8px 16px", marginTop: 20 }}>
             {STAGES.map((s, i) => (
               <span key={s} style={{ fontFamily: "var(--nf-general-sans)", fontSize: 14.5, fontWeight: 600, letterSpacing: "-0.01em", color: i === STAGES.length - 1 ? "#7D6039" : "#1C1C1C" }}>
@@ -379,10 +379,10 @@ export default function GrowthStrategyPage() {
                   <span style={{ fontSize: 12.5, color: "#9C978D" }}>3.9M+ views · last 90 days</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__instagram-90-days.png" alt="Blainy Instagram, last 90 days: 3,952,443 views, 2,139,992 accounts reached" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__instagram-90-days.webp" alt="Blainy Instagram, last 90 days: 3,952,443 views, 2,139,992 accounts reached" style={{ display: "block", width: "100%" }} />
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__instagram-top-reels.png" alt="Blainy Instagram top reels: 53.9K, 24.9K, 21.8K views" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__instagram-top-reels.webp" alt="Blainy Instagram top reels: 53.9K, 24.9K, 21.8K views" style={{ display: "block", width: "100%" }} />
                 </div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -409,7 +409,7 @@ export default function GrowthStrategyPage() {
                   <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__pinterest-90-days.png" alt="Blainy Pinterest, last 90 days: 479k impressions, up 410%" style={{ display: "block", width: "100%" }} />
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__pinterest-top-pin.png" alt="Blainy top Pinterest video pin: 225.75k impressions, 8.41k pin clicks" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__pinterest-top-pin.webp" alt="Blainy top Pinterest video pin: 225.75k impressions, 8.41k pin clicks" style={{ display: "block", width: "100%" }} />
                 </div>
               </div>
             </div>
@@ -467,11 +467,11 @@ export default function GrowthStrategyPage() {
                   <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Last 28 days</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__facebook-160k-views.png" alt="Everdry Facebook dashboard, last 28 days: 160,235 views" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__facebook-160k-views.webp" alt="Everdry Facebook dashboard, last 28 days: 160,235 views" style={{ display: "block", width: "100%" }} />
                 </div>
                 <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#6F6B64", marginTop: 6 }}>THE CONTENT BEHIND IT</div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__post-graphics-grid.png" alt="Grid of Everdry post graphics: client feedback, education and service posts" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__post-graphics-grid.webp" alt="Grid of Everdry post graphics: client feedback, education and service posts" style={{ display: "block", width: "100%" }} />
                 </div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -537,7 +537,7 @@ export default function GrowthStrategyPage() {
                   <span style={{ fontSize: 12.5, color: "#9C978D" }}>4 Oct to 23 Jan</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)" }}>
-                  <Img loading="lazy" src="/assets/v8/vx-70k.png" alt="Virtarix Facebook insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%" }} />
+                  <Img loading="lazy" src="/assets/v8/vx-70k.webp" alt="Virtarix Facebook insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%" }} />
                 </div>
               </div>
               <div>
@@ -658,7 +658,7 @@ export default function GrowthStrategyPage() {
               </li>
             ))}
           </ol>
-          <Img loading="lazy" src="/assets/pages/growth-strategy/11-process__mountain-path-five-stops.png" alt="Illustration: a mountain path with five stops, strategy, plan, channels, audience and growth, up to a flag" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="lazy" src="/assets/pages/growth-strategy/11-process__mountain-path-five-stops.webp" alt="Illustration: a mountain path with five stops, strategy, plan, channels, audience and growth, up to a flag" style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
       </section>
 
@@ -782,7 +782,7 @@ export default function GrowthStrategyPage() {
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
           </h2>
           <div className="max-md:!mx-auto" style={{ marginTop: 32, width: "100%", maxWidth: 420 }}>
-            <Img loading="lazy" src="/assets/pages/growth-strategy/14-faq__growth-questions.png" alt="Illustration: growth questions answered and checked off, on a path toward a target" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/growth-strategy/14-faq__growth-questions.webp" alt="Illustration: growth questions answered and checked off, on a path toward a target" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
         <FAQAccordion faqs={FAQS} />

@@ -156,7 +156,7 @@ export default function InsightsPage() {
         </div>
         <Img
           loading="eager" fetchPriority="high"
-          src="/assets/about/content-hub-t.png"
+          src="/assets/about/content-hub-t.webp"
           alt="Illustration: one guide at the centre, connected to research, email, distribution, sharing, analytics and the website"
           style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "clamp(40px,4vw,56px) auto 0", mixBlendMode: "multiply" }}
         />

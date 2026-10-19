@@ -21,7 +21,7 @@ export default function FAQ() {
           usually ask first.
         </h2>
         <Img
-          src="/assets/v12/art-b.png"
+          src="/assets/v12/art-b.webp"
           alt="Illustration: questions flowing to a marketer at a desk and coming out as checked answers"
           width={1086}
           height={1448}
