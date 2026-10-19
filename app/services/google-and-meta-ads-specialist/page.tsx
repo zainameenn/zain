@@ -111,12 +111,12 @@ const PROBLEM_LIST = [
 ];
 
 const SIX_PARTS = [
-  { n: "01", t: "Offer & goal", d: "What are we actually asking someone to do, and why would they want to?", tags: ["Offer review", "Conversion goal", "Funnel review", "Unit economics"], alt: "Icon: offer and goal", img: "04-part-1__offer.png" },
-  { n: "02", t: "Tracking", d: "If we can't measure leads, sales, calls and signups correctly, every decision after is a guess.", tags: ["Google Ads conversions", "GA4", "Meta Pixel", "Conversions API", "UTMs"], alt: "Icon: tracking", img: "04-part-2__tracking.png" },
-  { n: "03", t: "Audience & intent", d: "Who should see the ad, and what are they looking for when they do?", tags: ["Keyword research", "Search intent", "Audiences", "Exclusions"], alt: "Icon: audience and intent", img: "04-part-3__audience.png" },
-  { n: "04", t: "Campaign structure", d: "Campaigns, ad sets, keywords, negatives and budgets, organized so the data actually means something.", tags: ["Campaign setup", "Negative keywords", "Budget allocation", "Bidding"], alt: "Icon: campaign structure", img: "04-part-4__campaign-structure.png" },
-  { n: "05", t: "Creative & landing page", d: "The ad earns the click. The page earns the conversion. I write and design both.", tags: ["Ad copy", "Ad graphics", "Landing page review", "Message match"], alt: "Icon: creative and landing page", img: "04-part-5__creative.png" },
-  { n: "06", t: "Optimization & scaling", d: "Cut waste, test one thing at a time, and move budget into what proves itself.", tags: ["Search-term cleanup", "Creative testing", "Budget shifts", "Weekly optimization"], alt: "Icon: optimization and scaling", img: "04-part-6__optimization.png" },
+  { n: "01", t: "Offer & goal", d: "What are we actually asking someone to do, and why would they want to?", tags: ["Offer review", "Conversion goal", "Funnel review", "Unit economics"], alt: "Icon: offer and goal", img: "04-part-1__offer.webp" },
+  { n: "02", t: "Tracking", d: "If we can't measure leads, sales, calls and signups correctly, every decision after is a guess.", tags: ["Google Ads conversions", "GA4", "Meta Pixel", "Conversions API", "UTMs"], alt: "Icon: tracking", img: "04-part-2__tracking.webp" },
+  { n: "03", t: "Audience & intent", d: "Who should see the ad, and what are they looking for when they do?", tags: ["Keyword research", "Search intent", "Audiences", "Exclusions"], alt: "Icon: audience and intent", img: "04-part-3__audience.webp" },
+  { n: "04", t: "Campaign structure", d: "Campaigns, ad sets, keywords, negatives and budgets, organized so the data actually means something.", tags: ["Campaign setup", "Negative keywords", "Budget allocation", "Bidding"], alt: "Icon: campaign structure", img: "04-part-4__campaign-structure.webp" },
+  { n: "05", t: "Creative & landing page", d: "The ad earns the click. The page earns the conversion. I write and design both.", tags: ["Ad copy", "Ad graphics", "Landing page review", "Message match"], alt: "Icon: creative and landing page", img: "04-part-5__creative.webp" },
+  { n: "06", t: "Optimization & scaling", d: "Cut waste, test one thing at a time, and move budget into what proves itself.", tags: ["Search-term cleanup", "Creative testing", "Budget shifts", "Weekly optimization"], alt: "Icon: optimization and scaling", img: "04-part-6__optimization.webp" },
 ];
 
 const CLICK_STEPS = [
@@ -145,7 +145,7 @@ const AD_RESULTS = [
       { v: "3.97%", l: "hold rate" },
       { v: "0:03", l: "avg. play time" },
     ],
-    img: "08-paid-work-blainy__meta-ad-464k.png",
+    img: "08-paid-work-blainy__meta-ad-464k.webp",
     alt: "Meta Ads Manager video performance for a Blainy ad: 464,779 video plays, 0:03 average play time, 20% hook rate, 3.97% hold rate",
   },
   {
@@ -159,7 +159,7 @@ const AD_RESULTS = [
       { v: "18.77%", l: "hold rate" },
       { v: "0:05", l: "avg. play time" },
     ],
-    img: "08-paid-work-blainy__meta-ad-14k.png",
+    img: "08-paid-work-blainy__meta-ad-14k.webp",
     alt: "Meta Ads Manager video performance for a Blainy ad: 14,950 video plays, 0:05 average play time, 32% hook rate, 18.77% hold rate",
   },
 ];
@@ -261,7 +261,7 @@ export default function GoogleMetaAdsPage() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/ads/01-hero__ad-spend-leaking-funnel.png" alt="Illustration: ad spend poured into a leaking pipe, losing coins at targeting, offer, landing page, tracking and funnel before reaching customers" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/pages/ads/01-hero__ad-spend-leaking-funnel.webp" alt="Illustration: ad spend poured into a leaking pipe, losing coins at targeting, offer, landing page, tracking and funnel before reaching customers" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
         </figure>
       </section>
 
@@ -342,7 +342,7 @@ export default function GoogleMetaAdsPage() {
             mb={8}
           />
           <div style={{ margin: "0 auto", maxWidth: 1120 }}>
-            <Img loading="lazy" src="/assets/pages/ads/05-click-to-customer__dark-journey.png" alt="Journey: ad click, landing page, attention, evaluation, sign up or lead, qualified customer" style={{ display: "block", width: "100%", aspectRatio: "1448/460", borderRadius: 12, objectFit: "cover" }} />
+            <Img loading="lazy" src="/assets/pages/ads/05-click-to-customer__dark-journey.webp" alt="Journey: ad click, landing page, attention, evaluation, sign up or lead, qualified customer" style={{ display: "block", width: "100%", aspectRatio: "1448/460", borderRadius: 12, objectFit: "cover" }} />
           </div>
           <ol style={{ margin: "32px 0 0", padding: 0, listStyle: "none", display: "grid", gap: 24 }} className="grid-cols-2 sm:!grid-cols-3 lg:!grid-cols-6">
             {CLICK_STEPS.map((s, i) => (
@@ -360,7 +360,7 @@ export default function GoogleMetaAdsPage() {
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Two platforms" title={<>Same budget. <ItalicInline>Different job.</ItalicInline></>} mb={24} />
         <div style={{ margin: "0 auto 28px", maxWidth: 880 }}>
-          <Img loading="lazy" src="/assets/pages/ads/06-google-vs-meta__budget-split.png" alt="Illustration: the same budget split into Google, capturing existing demand, and Meta, creating future demand" style={{ display: "block", width: "100%", aspectRatio: "16/9", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="lazy" src="/assets/pages/ads/06-google-vs-meta__budget-split.webp" alt="Illustration: the same budget split into Google, capturing existing demand, and Meta, creating future demand" style={{ display: "block", width: "100%", aspectRatio: "16/9", borderRadius: 12, objectFit: "cover" }} />
         </div>
         <div style={{ display: "grid", gap: 20 }} className="md:!grid-cols-2">
           <div style={{ minWidth: 0, borderRadius: 24, background: "#FBFBF9", color: "#1C1C1C", border: "1px solid #E2DFD8", padding: "clamp(24px,3vw,40px)" }}>
@@ -432,7 +432,7 @@ export default function GoogleMetaAdsPage() {
               ))}
             </ul>
           </div>
-          <Img loading="lazy" src="/assets/pages/ads/07-tracking__broken-tracking.png" alt="Illustration: tangled, broken tracking across Google, Meta and store feeding a dark dashboard, versus clean connected tracking into one data source and a clear dashboard" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="lazy" src="/assets/pages/ads/07-tracking__broken-tracking.webp" alt="Illustration: tangled, broken tracking across Google, Meta and store feeding a dark dashboard, versus clean connected tracking into one data source and a clear dashboard" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
         </div>
       </section>
 
@@ -541,7 +541,7 @@ export default function GoogleMetaAdsPage() {
                 <span aria-hidden="true" style={{ color: "#B8A68C", fontSize: 18 }}>↺</span>
               </div>
             </div>
-            <Img loading="lazy" src="/assets/pages/ads/09-testing__one-dial-at-a-time.png" alt="Illustration: adjusting one dial feeds audience, ads, landing page, checkout and conversions" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
+            <Img loading="lazy" src="/assets/pages/ads/09-testing__one-dial-at-a-time.webp" alt="Illustration: adjusting one dial feeds audience, ads, landing page, checkout and conversions" style={{ display: "block", width: "100%", aspectRatio: "4/3", borderRadius: 12, objectFit: "cover" }} />
           </div>
         </div>
       </section>
@@ -597,7 +597,7 @@ export default function GoogleMetaAdsPage() {
       <section id="process" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <CenterHead eyebrow="Process" title={<>Five steps. <ItalicInline>No &ldquo;launch everything and pray.&rdquo;</ItalicInline></>} mb={28} max={1100} />
         <div style={{ margin: "0 auto 28px", maxWidth: 1120 }}>
-          <Img loading="lazy" src="/assets/pages/ads/10-process__five-steps.png" alt="Five-step process illustration: audit, research, build, optimize, measure" style={{ display: "block", width: "100%", aspectRatio: "1448/500", borderRadius: 12, objectFit: "cover" }} />
+          <Img loading="lazy" src="/assets/pages/ads/10-process__five-steps.webp" alt="Five-step process illustration: audit, research, build, optimize, measure" style={{ display: "block", width: "100%", aspectRatio: "1448/500", borderRadius: 12, objectFit: "cover" }} />
         </div>
         <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: "16px 24px" }} className="grid-cols-1 sm:!grid-cols-3 lg:!grid-cols-5">
           {PROCESS_STEPS.map((s) => (
@@ -722,7 +722,7 @@ export default function GoogleMetaAdsPage() {
         <CenterHead eyebrow="FAQ" title={<>Ads questions, <ItalicInline>answered straight.</ItalicInline></>} mb={8} />
         <div style={{ display: "grid", gap: "24px clamp(40px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.5fr)_minmax(0,1fr)]">
           <div style={{ minWidth: 0, display: "flex", justifyContent: "center" }}>
-            <Img loading="lazy" src="/assets/pages/ads/14-faq__ad-questions.png" alt="Illustration: scattered ad questions going into a laptop and coming out as clear, checked answers" style={{ display: "block", width: "100%", aspectRatio: "1/1", borderRadius: 12, objectFit: "cover" }} />
+            <Img loading="lazy" src="/assets/pages/ads/14-faq__ad-questions.webp" alt="Illustration: scattered ad questions going into a laptop and coming out as clear, checked answers" style={{ display: "block", width: "100%", aspectRatio: "1/1", borderRadius: 12, objectFit: "cover" }} />
           </div>
           <FAQAccordion faqs={FAQS} />
         </div>

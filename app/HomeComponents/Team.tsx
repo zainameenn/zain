@@ -36,7 +36,7 @@ export default function Team() {
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%" }}>
           <Img
-            src="/assets/v12/art-a.png"
+            src="/assets/v12/art-a.webp"
             alt="Illustration: strategy, search, Reddit, social, design and ads cards all connecting to one marketer at a desk"
             width={1448}
             height={1086}

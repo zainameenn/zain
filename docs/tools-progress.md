@@ -91,3 +91,9 @@ Source of truth: STATUS in lib/tools/registry.ts. Git history (8f7fbdb) has 23 t
 - Published 2026-10-18: tiktok-bio-generator, twitter-bio-generator, threads-bio-generator, facebook-bio-generator
 - In development (page exists, old template, not linked from the hub in production): tiktok-caption-generator, facebook-caption-generator, youtube-description-generator, pinterest-description-generator, youtube-title-generator, pinterest-title-generator, social-media-content-calendar-generator, marketing-plan-generator, seo-title-generator, meta-description-generator, utm-link-builder, etsy-title-generator, product-description-generator, linkedin-headline-generator, linkedin-about-section-generator, linkedin-post-generator, linkedin-comment-generator
 - Hub: every tool shows; unfinished ones carry an "In development" label and no link.
+
+## Storage cleanup (2026-10-19)
+- public/ went from 130 MB to 35 MB: 102 PNG illustrations converted to WebP at quality 90 (visually identical, and next/image re-encodes them for visitors anyway), 6 unused files deleted, the rest of the PNGs recompressed losslessly.
+- Old PNG URLs 308 redirect to the WebP files (scripts/converted-images.json, read by next.config.ts). Kept as PNG: the share image v9/g07.png, logos, icons, og- files.
+- Server source maps turned off (experimental.serverSourceMaps: false): .next/server went from 133 MB to 66 MB.
+- New images: run `npm run audit:assets` before committing. Anything over 400 KB should become WebP at quality 90.

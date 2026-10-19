@@ -58,11 +58,11 @@ const PROBLEMS = [
 ];
 
 const PARTS = [
-  { n: "01", t: "Strategy", d: "Who you're talking to, which platforms matter, and what each post is supposed to do.", tags: ["Audience research", "Platform priorities", "Content pillars", "Monthly plans"], alt: "Illustration: audience, pillars and platforms connected into one content plan", img: "04-part-1__strategy.png", span: 2 },
-  { n: "02", t: "Content", d: "Posts written for real people, not the algorithm. Each one teaches, shows, proves or starts a conversation.", tags: ["Copywriting", "Post ideas", "Platform native formats", "Captions and hooks"], alt: "Illustration: ideas moving through content pillars and drafts into a weekly content board", img: "04-part-2__content.png", span: 2 },
-  { n: "03", t: "Creative", d: "Graphics people stop scrolling for, designed by the same person who writes the posts.", tags: ["Graphics", "Carousels", "Brand visuals"], alt: "Illustration: ideas edited into reels and carousels", img: "04-part-3__creative.png", span: 2 },
-  { n: "04", t: "Distribution and community", d: "Posting is half the job. The other half is showing up in groups and communities where your buyers ask for recommendations.", tags: ["Group engagement", "Community monitoring", "Conversations", "Publishing"], alt: "Illustration: one post distributed across platforms and communities", img: "04-part-4__distribution-community.png", span: 3 },
-  { n: "05", t: "Measurement and iteration", d: "What got seen, what got clicked, what brought leads. Then more of what worked.", tags: ["Reach and engagement", "Website visits", "Leads", "Monthly reporting"], alt: "Illustration: a social performance dashboard", img: "04-part-5__measurement.png", span: 3 },
+  { n: "01", t: "Strategy", d: "Who you're talking to, which platforms matter, and what each post is supposed to do.", tags: ["Audience research", "Platform priorities", "Content pillars", "Monthly plans"], alt: "Illustration: audience, pillars and platforms connected into one content plan", img: "04-part-1__strategy.webp", span: 2 },
+  { n: "02", t: "Content", d: "Posts written for real people, not the algorithm. Each one teaches, shows, proves or starts a conversation.", tags: ["Copywriting", "Post ideas", "Platform native formats", "Captions and hooks"], alt: "Illustration: ideas moving through content pillars and drafts into a weekly content board", img: "04-part-2__content.webp", span: 2 },
+  { n: "03", t: "Creative", d: "Graphics people stop scrolling for, designed by the same person who writes the posts.", tags: ["Graphics", "Carousels", "Brand visuals"], alt: "Illustration: ideas edited into reels and carousels", img: "04-part-3__creative.webp", span: 2 },
+  { n: "04", t: "Distribution and community", d: "Posting is half the job. The other half is showing up in groups and communities where your buyers ask for recommendations.", tags: ["Group engagement", "Community monitoring", "Conversations", "Publishing"], alt: "Illustration: one post distributed across platforms and communities", img: "04-part-4__distribution-community.webp", span: 3 },
+  { n: "05", t: "Measurement and iteration", d: "What got seen, what got clicked, what brought leads. Then more of what worked.", tags: ["Reach and engagement", "Website visits", "Leads", "Monthly reporting"], alt: "Illustration: a social performance dashboard", img: "04-part-5__measurement.webp", span: 3 },
 ];
 
 const JOURNEY = [
@@ -182,7 +182,7 @@ export default function SocialMediaManagementPage() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/social/01-hero__calendar-to-posts.png" alt="Illustration: a content calendar turning into posts published across Instagram, TikTok, LinkedIn, YouTube, X, Pinterest and Threads, feeding a growth dashboard" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/pages/social/01-hero__calendar-to-posts.webp" alt="Illustration: a content calendar turning into posts published across Instagram, TikTok, LinkedIn, YouTube, X, Pinterest and Threads, feeding a growth dashboard" style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
@@ -265,7 +265,7 @@ export default function SocialMediaManagementPage() {
             title={<>From an idea<em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1, color: "#D3AE82" }}>to actual attention.</em></>}
             sub="Good social isn't about posting more. It's about making each post do a job, then putting it where the right people see it."
           />
-          <Img loading="lazy" src="/assets/pages/social/05-idea-to-attention__dark-journey.png" alt="Illustration: idea, plan, create, distribute, engage and attention as one connected path" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="lazy" src="/assets/pages/social/05-idea-to-attention__dark-journey.webp" alt="Illustration: idea, plan, create, distribute, engage and attention as one connected path" style={{ display: "block", width: "100%", height: "auto" }} />
           <ol style={{ margin: "32px 0 0", padding: "24px 0 0", listStyle: "none", display: "grid", gap: "28px 20px", borderTop: "1px solid #33322F" }} className="grid-cols-2 sm:!grid-cols-4 lg:!grid-cols-7">
             {JOURNEY.map((j) => (
               <li key={j.n} style={{ minWidth: 0 }}>
@@ -284,7 +284,7 @@ export default function SocialMediaManagementPage() {
       {/* CONTENT PILLARS */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Content pillars" title={<>Five kinds of posts.<em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em", lineHeight: 1 }}>All of them useful.</em></>} sub="A good feed isn't random. Every post falls into one of these." />
-        <Img loading="lazy" src="/assets/pages/social/06-content-pillars__teach-show-prove-join-sell.png" alt="Illustration: five post types, Teach, Show, Prove, Join and Sell, on one timeline" style={{ display: "block", width: "100%", height: "auto" }} />
+        <Img loading="lazy" src="/assets/pages/social/06-content-pillars__teach-show-prove-join-sell.webp" alt="Illustration: five post types, Teach, Show, Prove, Join and Sell, on one timeline" style={{ display: "block", width: "100%", height: "auto" }} />
         <div style={{ marginTop: 24, display: "grid", gap: "24px 20px" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-5">
           {PILLARS.map((p) => (
             <div key={p.t} style={{ minWidth: 0, minHeight: 96, paddingTop: 16, borderTop: "1px solid #DDDAD3" }}>
@@ -352,7 +352,7 @@ export default function SocialMediaManagementPage() {
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#4E4C48", maxWidth: 640 }}>Before-and-after visuals and seasonal problem posts, shared into local community groups.</p>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#1F2022", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                  <Img loading="lazy" src="/assets/pages/social/07-results-everdry__facebook-160k-views.png" alt="Everdry Facebook dashboard, last 28 days: 160,235 views, 40,153 reach" style={{ display: "block", width: "100%", height: "auto" }} />
+                  <Img loading="lazy" src="/assets/pages/social/07-results-everdry__facebook-160k-views.webp" alt="Everdry Facebook dashboard, last 28 days: 160,235 views, 40,153 reach" style={{ display: "block", width: "100%", height: "auto" }} />
                 </div>
               </div>
               <div style={{ minWidth: 0, display: "flex", flexDirection: "column", gap: 14 }}>
@@ -432,7 +432,7 @@ export default function SocialMediaManagementPage() {
                 </div>
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>Views flat until October, then climbing as the posting rhythm and formats settled.</p>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                  <Img loading="lazy" src="/assets/v8/vx-70k.png" alt="Virtarix Facebook insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%", height: "auto" }} />
+                  <Img loading="lazy" src="/assets/v8/vx-70k.webp" alt="Virtarix Facebook insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%", height: "auto" }} />
                 </div>
               </div>
               <div style={{ display: "grid", gap: "40px 32px" }} className="md:!grid-cols-2">
@@ -463,7 +463,7 @@ export default function SocialMediaManagementPage() {
                   </div>
                   <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>The same dashboard before the new content started.</p>
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <Img loading="lazy" src="/assets/v12/vx-before.png" alt="Virtarix Facebook dashboard: views flat through September, rising from October" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <Img loading="lazy" src="/assets/v12/vx-before.webp" alt="Virtarix Facebook dashboard: views flat through September, rising from October" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                 </div>
               </div>
@@ -526,10 +526,10 @@ export default function SocialMediaManagementPage() {
                 <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>Relatable student reels. 98% of views came from non-followers, so the content did the finding.</p>
                 <div style={{ display: "grid", gap: 14, alignItems: "start" }} className="sm:!grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__instagram-90-days.png" alt="Blainy Instagram, last 90 days: 3,952,443 views, 2,139,992 accounts reached" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__instagram-90-days.webp" alt="Blainy Instagram, last 90 days: 3,952,443 views, 2,139,992 accounts reached" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__instagram-top-reels.png" alt="Blainy Instagram top reels: 53.9K, 24.9K, 21.8K views" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__instagram-top-reels.webp" alt="Blainy Instagram top reels: 53.9K, 24.9K, 21.8K views" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                 </div>
               </div>
@@ -550,7 +550,7 @@ export default function SocialMediaManagementPage() {
                     <Img loading="lazy" src="/assets/pages/social/07-results-blainy__pinterest-90-days.png" alt="Blainy Pinterest, last 90 days: 479k impressions, up 410%" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__pinterest-top-video-pin.png" alt="Blainy top Pinterest video pin: 225.75k impressions, 8.41k pin clicks" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__pinterest-top-video-pin.webp" alt="Blainy top Pinterest video pin: 225.75k impressions, 8.41k pin clicks" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                 </div>
               </div>
@@ -583,7 +583,7 @@ export default function SocialMediaManagementPage() {
                   </div>
                   <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.5, color: "#C9C4BA", maxWidth: 640 }}>The best reels re-cut as Shorts, so each idea earned views twice.</p>
                   <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)", boxShadow: "0 18px 40px -30px rgba(0,0,0,.45)" }}>
-                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__youtube-analytics.png" alt="Blainy YouTube channel analytics: 78,267 views in the last 28 days" style={{ display: "block", width: "100%", height: "auto" }} />
+                    <Img loading="lazy" src="/assets/pages/social/07-results-blainy__youtube-analytics.webp" alt="Blainy YouTube channel analytics: 78,267 views in the last 28 days" style={{ display: "block", width: "100%", height: "auto" }} />
                   </div>
                 </div>
               </div>
@@ -717,7 +717,7 @@ export default function SocialMediaManagementPage() {
             <p className="max-md:!text-base" style={{ margin: "16px 0 0", maxWidth: 460, fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>Not copy and paste. Each version is rewritten for how people use that platform.</p>
           </div>
           <figure style={{ margin: 0, minWidth: 0 }}>
-            <Img loading="lazy" src="/assets/pages/social/08-one-idea__many-formats.png" alt="Illustration: one idea branching into a carousel, a feed post, an X thread, a short video, a story and an email" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/social/08-one-idea__many-formats.webp" alt="Illustration: one idea branching into a carousel, a feed post, an X thread, a short video, a story and an email" style={{ display: "block", width: "100%", height: "auto" }} />
           </figure>
         </div>
       </section>
@@ -757,7 +757,7 @@ export default function SocialMediaManagementPage() {
             </h2>
           </div>
         </div>
-        <Img loading="lazy" src="/assets/pages/social/10-process__five-steps.png" alt="Illustration: five steps, audit, plan, create, distribute and learn, connected by one path" style={{ display: "block", width: "100%", height: "auto" }} />
+        <Img loading="lazy" src="/assets/pages/social/10-process__five-steps.webp" alt="Illustration: five steps, audit, plan, create, distribute and learn, connected by one path" style={{ display: "block", width: "100%", height: "auto" }} />
         <ol style={{ margin: "28px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "24px" }} className="grid-cols-1 sm:!grid-cols-3 lg:!grid-cols-5">
           {PROCESS_STEPS.map((s, i) => (
             <li key={s.t} style={{ minWidth: 0, padding: "20px 0 0", borderTop: `2px solid ${s.gold ? "#C4A47C" : "#1C1C1C"}` }}>
@@ -785,7 +785,7 @@ export default function SocialMediaManagementPage() {
             </ul>
           </div>
           <figure style={{ margin: 0, minWidth: 0, display: "flex", alignItems: "center" }}>
-            <Img loading="lazy" src="/assets/pages/social/11-good-social__filtered-posts.png" alt="Illustration: a pile of scattered posts filtered into a few strong posts that feed growth" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/social/11-good-social__filtered-posts.webp" alt="Illustration: a pile of scattered posts filtered into a few strong posts that feed growth" style={{ display: "block", width: "100%", height: "auto" }} />
           </figure>
           <div style={{ borderRadius: 22, background: "#F4EFE8", border: "1px solid #C9B9A2", padding: 28 }}>
             <h3 style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>Good social</h3>
@@ -912,7 +912,7 @@ export default function SocialMediaManagementPage() {
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
           </h2>
           <div className="max-md:!mx-auto" style={{ marginTop: 32, width: "100%", maxWidth: 420 }}>
-            <Img loading="lazy" src="/assets/pages/social/14-faq__social-questions.png" alt="Illustration: questions from Instagram, TikTok, YouTube, X, Facebook and LinkedIn answered by one marketer and turned into scheduled posts, community replies and analytics" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/social/14-faq__social-questions.webp" alt="Illustration: questions from Instagram, TikTok, YouTube, X, Facebook and LinkedIn answered by one marketer and turned into scheduled posts, community replies and analytics" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
         <FAQAccordion faqs={FAQS} />

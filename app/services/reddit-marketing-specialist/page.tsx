@@ -63,7 +63,7 @@ const LAYERS = [
     d: "Find the subreddits where your buyers actually ask questions, not just the biggest ones.",
     tags: ["Subreddit research", "Community rules", "Recurring questions", "Competitor mentions", "Audience language"],
     alt: "Subreddits mapped to the people and interests inside them",
-    img: "04-layer-1__community-mapping.png",
+    img: "04-layer-1__community-mapping.webp",
   },
   {
     n: "02",
@@ -71,7 +71,7 @@ const LAYERS = [
     d: "Real accounts with real history. Karma and context come before any product mention.",
     tags: ["Account building", "Beginner-friendly communities", "Karma history", "Transparent identity"],
     alt: "Searching and filtering communities to find the threads worth joining",
-    img: "04-layer-2__research-filtering.png",
+    img: "04-layer-2__research-filtering.webp",
   },
   {
     n: "03",
@@ -79,7 +79,7 @@ const LAYERS = [
     d: "Posts people would still care about if your product name disappeared.",
     tags: ["Useful posts", "Side-project shares", "Feedback requests", "Lessons and results"],
     alt: "An idea turned into a structured post that earns upvotes",
-    img: "04-layer-3__structured-post.png",
+    img: "04-layer-3__structured-post.webp",
   },
   {
     n: "04",
@@ -87,7 +87,7 @@ const LAYERS = [
     d: "Replies, answers and follow ups. Most of the trust gets built in the comments, not the post.",
     tags: ["Helpful comments", "Answering questions", "Recommendation threads", "Community monitoring"],
     alt: "One post branching into replies, shares and saves",
-    img: "04-layer-4__replies-and-shares.png",
+    img: "04-layer-4__replies-and-shares.webp",
   },
 ];
 
@@ -228,7 +228,7 @@ export default function RedditMarketingPage() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%", maxWidth: 680 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/reddit/01-hero__threads-to-engaged-users.png" alt="Reddit threads flowing through search into engaged users" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/pages/reddit/01-hero__threads-to-engaged-users.webp" alt="Reddit threads flowing through search into engaged users" style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
@@ -256,7 +256,7 @@ export default function RedditMarketingPage() {
               It hates <Emphasis>bad marketing.</Emphasis>
             </p>
             <div style={{ marginTop: "clamp(28px,3vw,40px)" }}>
-              <Img loading="lazy" src="/assets/pages/reddit/03-problem__promo-blocked-vs-helpful.png" alt="Promotional posts getting blocked versus helpful posts gaining upvotes" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/03-problem__promo-blocked-vs-helpful.webp" alt="Promotional posts getting blocked versus helpful posts gaining upvotes" style={{ display: "block", width: "100%", height: "auto" }} />
             </div>
           </div>
           <div style={{ maxWidth: 560 }}>
@@ -316,7 +316,7 @@ export default function RedditMarketingPage() {
                 ))}
               </div>
             </div>
-            <Img loading="lazy" src="/assets/pages/reddit/04-layer-5__thread-to-page-to-user.png" alt="A thread leading to a page, a signup and revenue" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/reddit/04-layer-5__thread-to-page-to-user.webp" alt="A thread leading to a page, a signup and revenue" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
       </section>
@@ -340,7 +340,7 @@ export default function RedditMarketingPage() {
             </div>
           </div>
           <div style={{ marginTop: "clamp(20px,2.4vw,32px)" }}>
-            <Img loading="lazy" src="/assets/pages/reddit/05-thread-to-users__dark-journey.png" alt="Reddit threads turning into clicks, visits, signups and growth" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/reddit/05-thread-to-users__dark-journey.webp" alt="Reddit threads turning into clicks, visits, signups and growth" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
           <ol style={{ margin: "clamp(20px,2.4vw,32px) 0 0", padding: 0, listStyle: "none", display: "grid", gap: "20px 16px" }} className="grid-cols-2 sm:!grid-cols-3 lg:!grid-cols-6">
             {JOURNEY_STAGES.map((s, i) => (
@@ -370,7 +370,7 @@ export default function RedditMarketingPage() {
               <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48" }}>Useful Reddit threads can surface in Google and be referenced by AI answer tools long after the original posting window.</p>
             </div>
           </div>
-          <Img loading="lazy" src="/assets/pages/reddit/06-why-reddit__few-posts-large-audience.png" alt="A few posts read by a large crowd of silent readers" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="lazy" src="/assets/pages/reddit/06-why-reddit__few-posts-large-audience.webp" alt="A few posts read by a large crowd of silent readers" style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
       </section>
 
@@ -396,7 +396,7 @@ export default function RedditMarketingPage() {
               </p>
             </div>
             <figure style={{ margin: 0, minWidth: 0 }}>
-              <Img loading="lazy" src="/assets/pages/reddit/07-results-blainy__subreddit-map.png" alt="Illustration: Blainy Reddit posts across subreddits feeding one tracked link, 6,089 clicks with $0 on ads" style={{ display: "block", width: "100%", height: "auto" }} />
+              <Img loading="lazy" src="/assets/pages/reddit/07-results-blainy__subreddit-map.webp" alt="Illustration: Blainy Reddit posts across subreddits feeding one tracked link, 6,089 clicks with $0 on ads" style={{ display: "block", width: "100%", height: "auto" }} />
             </figure>
           </div>
           <div style={{ marginTop: "clamp(24px,3vw,36px)", display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="grid-cols-1 sm:!grid-cols-3">
@@ -519,7 +519,7 @@ export default function RedditMarketingPage() {
           ))}
         </ol>
         <figure style={{ margin: "clamp(28px,3vw,40px) 0 0" }}>
-          <Img loading="lazy" src="/assets/pages/reddit/09-process__five-steps.png" alt="Five steps: listen, research, participate, publish, measure" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="lazy" src="/assets/pages/reddit/09-process__five-steps.webp" alt="Five steps: listen, research, participate, publish, measure" style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
@@ -655,7 +655,7 @@ export default function RedditMarketingPage() {
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em" }}>answered straight.</em>
           </h2>
           <div className="max-md:!mx-auto" style={{ marginTop: "clamp(24px,3vw,36px)", width: "100%", maxWidth: 420 }}>
-            <Img loading="lazy" src="/assets/pages/reddit/12-faq__reddit-questions.png" alt="Reddit questions flowing through search into clear answers" style={{ display: "block", width: "100%", height: "auto" }} />
+            <Img loading="lazy" src="/assets/pages/reddit/12-faq__reddit-questions.webp" alt="Reddit questions flowing through search into clear answers" style={{ display: "block", width: "100%", height: "auto" }} />
           </div>
         </div>
         <FAQAccordion faqs={FAQS} />

@@ -74,7 +74,7 @@ const COMPANIES: { t: string; img?: string; h?: string; w?: string }[] = [
   { t: "Virtarix", img: "/assets/v8/logos/virtarix.png", h: "38px", w: "150px" },
   { t: "LoomPad", img: "/assets/v8/logos/loompad.png", h: "32px", w: "150px" },
   { t: "Eplie", img: "/assets/v8/logos/eplie.png", h: "34px", w: "110px" },
-  { t: "NeonRev", img: "/assets/v9/l_neonrev.png", h: "30px", w: "150px" },
+  { t: "NeonRev", img: "/assets/v9/l_neonrev.webp", h: "30px", w: "150px" },
   { t: "TechEon", img: "/assets/v8/logos/techeon.png", h: "32px", w: "150px" },
   { t: "HiFy", img: "/assets/v8/logos/hify.png", h: "36px", w: "90px" },
   { t: "Commenty" },
@@ -101,7 +101,7 @@ const V9 = "/assets/v9/";
 const TOOLS_DEF: [string, string | null, string?, number?, number?][] = [
   ["Ahrefs", null, "t_ahrefs.png", 26, 3.49],
   ["Semrush", "semrush"],
-  ["Ubersuggest", null, "t_ubersuggest.png", 20, 6.03],
+  ["Ubersuggest", null, "t_ubersuggest.webp", 20, 6.03],
   ["Google Search Console", "googlesearchconsole"],
   ["Google Analytics", "googleanalytics"],
   ["Google Tag Manager", "googletagmanager"],
@@ -110,13 +110,13 @@ const TOOLS_DEF: [string, string | null, string?, number?, number?][] = [
   ["Looker Studio", "looker"],
   ["Screaming Frog", null, "t_sfword.png", 22, 6.18],
   ["Buffer", "buffer"],
-  ["Multilogin", null, "t_multilogin.png", 22, 4.8],
+  ["Multilogin", null, "t_multilogin.webp", 22, 4.8],
   ["HubSpot", "hubspot"],
   ["GoLogin", null, "t_gologin.png", 38, 1.36],
   ["Microsoft Clarity", null, "t_clarity2.png", 30, 3.11],
   ["Hotjar", "hotjar"],
   ["Notion", "notion"],
-  ["Canva", null, "t_canva.png", 30, 3.08],
+  ["Canva", null, "t_canva.webp", 30, 3.08],
   ["WordPress", "wordpress"],
   ["Reddit", "reddit"],
   ["LinkedIn", null, "t_linkedin.png", 24, 4.05],
@@ -148,8 +148,8 @@ const WORKING = [
 
 const REVIEWS = [
   { name: "Khalid Bashir", role: "Founder, Blainy", src: "LinkedIn", avatar: "/assets/avatars/khalid.png", link: "/assets/reviews/linkedin-khalid-mirza.png", q: "I can confidently say he played a key role in driving our product Blainy from 0 to 80,000 users organically. His ability to craft smart growth strategies and execute them effectively made a real difference in our journey." },
-  { name: "Cam Kaminsky", role: "Director, Everdry Waterproofing", src: "Upwork", initials: "CK", link: "/assets/reviews/upwork-virtarix-everdry.png", q: "He came in, got up to speed quick, and delivered what we needed without me having to micromanage. His communication is clean, turnaround time is solid, and he takes feedback well. Critically, he suggested how to approach things I didn't know that we needed to approach and the results were phenomenal." },
-  { name: "Peter French", role: "Virtarix", src: "Upwork", initials: "PF", link: "/assets/reviews/upwork-virtarix-everdry.png", q: "Zain is an exceptionally skilled and professional freelancer. We hired him to optimize our online and social media presence, and his work directly addressed our goal of turning our growth plateau into predictable, scalable momentum." },
+  { name: "Cam Kaminsky", role: "Director, Everdry Waterproofing", src: "Upwork", initials: "CK", link: "/assets/reviews/upwork-virtarix-everdry.webp", q: "He came in, got up to speed quick, and delivered what we needed without me having to micromanage. His communication is clean, turnaround time is solid, and he takes feedback well. Critically, he suggested how to approach things I didn't know that we needed to approach and the results were phenomenal." },
+  { name: "Peter French", role: "Virtarix", src: "Upwork", initials: "PF", link: "/assets/reviews/upwork-virtarix-everdry.webp", q: "Zain is an exceptionally skilled and professional freelancer. We hired him to optimize our online and social media presence, and his work directly addressed our goal of turning our growth plateau into predictable, scalable momentum." },
   { name: "Muhammad Dawood Ahmad", role: "Founder & CEO, Elixs Bikes", src: "LinkedIn", avatar: "/assets/avatars/dawood.png", link: "/assets/reviews/linkedin-dawood-fahad.png", q: "He shared some of the smartest ideas I've ever come across after just hearing about my idea, with quick strategies and clear advice." },
   { name: "Mirza Zain Ali Nasir", role: "AI Product Development, AEC Automations", src: "LinkedIn", avatar: "/assets/avatars/mirza.png", link: "/assets/reviews/linkedin-khalid-mirza.png", q: "Great Experience while Working with Zain ul Abidin, strong grasp on business flows, attention to details." },
   { name: "Muhammad Faique Arshad", role: "GTME, managed Zain directly", src: "LinkedIn", avatar: "/assets/avatars/faique.png", link: "/assets/reviews/linkedin-usman-faique.png", q: "He consistently delivers high-quality work, driving tangible business growth. An outstanding professional with a strategic mindset." },
@@ -210,7 +210,7 @@ export default function AboutPage() {
         </div>
         <Img
           loading="eager" fetchPriority="high"
-          src="/assets/about/hero-t.png"
+          src="/assets/about/hero-t.webp"
           alt="Illustration: content, search, testing, community, distribution and growth all orbiting one central growth system"
           style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "clamp(40px,4vw,56px) auto 0", mixBlendMode: "multiply" }}
         />
@@ -241,7 +241,7 @@ export default function AboutPage() {
           }
           sub="I studied computer science, started writing to pay the bills, and realized the writing only mattered if people found it, read it and did something about it. Everything since has been chasing that one question."
         />
-        <Img loading="lazy" src="/assets/about/story-t.png" alt="Illustration: ideas, writing, research, distribution, testing and growth connected around one centre" style={{ display: "block", width: "100%", maxWidth: 760, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/about/story-t.webp" alt="Illustration: ideas, writing, research, distribution, testing and growth connected around one centre" style={{ display: "block", width: "100%", maxWidth: 760, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: "32px 24px" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-6">
           {STORY_STEPS.map((s) => (
             <li key={s.n} style={{ position: "relative", paddingTop: 28, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
@@ -267,7 +267,7 @@ export default function AboutPage() {
             }
             sub="Each skill exposed a problem the last one couldn’t solve."
           />
-          <Img loading="lazy" src="/assets/about/growth-path-t.png" alt="Illustration: a path from writing to search to community to growth to a hit target" style={{ display: "block", width: "100%", maxWidth: 900, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+          <Img loading="lazy" src="/assets/about/growth-path-t.webp" alt="Illustration: a path from writing to search to community to growth to a hit target" style={{ display: "block", width: "100%", maxWidth: 900, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
           <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 16 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-5">
             {GROWTH_PATH.map((p) => (
               <li
@@ -314,7 +314,7 @@ export default function AboutPage() {
           }
           sub="I have the certifications. But the lessons that stuck came from real campaigns, real clients and real mistakes."
         />
-        <Img loading="lazy" src="/assets/about/loop-t.png" alt="Illustration: writing, testing, measuring, conversation and distribution feeding back into one loop" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/about/loop-t.webp" alt="Illustration: writing, testing, measuring, conversation and distribution feeding back into one loop" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,40px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {LESSONS.map((l) => (
             <div key={l.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
@@ -377,7 +377,7 @@ export default function AboutPage() {
           }
           sub="The short version."
         />
-        <Img loading="lazy" src="/assets/about/results-t.png" alt="Illustration: several growth dashboards rising around one central result" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/about/results-t.webp" alt="Illustration: several growth dashboards rising around one central result" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {CASES.map((c) => (
             <article key={c.logoAlt} style={{ borderRadius: 24, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "28px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 18 }}>
@@ -418,7 +418,7 @@ export default function AboutPage() {
           }
           sub="Grouped, because keyword soup helps nobody."
         />
-        <Img loading="lazy" src="/assets/about/skills-t.png" alt="Illustration: analytics, content, targeting, search, sharing and conversation around one core skill set" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/about/skills-t.webp" alt="Illustration: analytics, content, targeting, search, sharing and conversation around one core skill set" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
           {SKILLS_GROUPS.map((g) => (
             <div key={g.n} style={{ borderRadius: 20, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "24px 22px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 16 }}>
@@ -484,7 +484,7 @@ export default function AboutPage() {
           }
           sub="Usually it’s fixing the thing already there."
         />
-        <Img loading="lazy" src="/assets/about/bottleneck-t.png" alt="Illustration: many channels pouring into a funnel where a magnifying glass finds the blockage before growth" style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/about/bottleneck-t.webp" alt="Illustration: many channels pouring into a funnel where a magnifying glass finds the blockage before growth" style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div role="img" aria-label="Diagnose, prioritize, execute, measure, learn, then repeat" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "10px 8px", margin: "0 auto 48px", maxWidth: 980 }}>
           {PHILOSOPHY_FLOW.map((t, i) => (
             <span key={t} style={{ display: "contents" }}>
@@ -523,7 +523,7 @@ export default function AboutPage() {
           }
           sub="The short version: you’ll always know what I’m doing and why."
         />
-        <Img loading="lazy" src="/assets/about/how-i-work-t.png" alt="Illustration: conversation, plan, execution and results linked in order" style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/about/how-i-work-t.webp" alt="Illustration: conversation, plan, execution and results linked in order" style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,40px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {WORKING.map((w) => (
             <div key={w.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
@@ -636,7 +636,7 @@ export default function AboutPage() {
           }
           sub="Here it is. Dates and everything."
         />
-        <Img loading="lazy" src="/assets/about/resume-t.png" alt="Illustration: calendar, checklists, timeline, documents and invoices organised around one folder" style={{ display: "block", width: "100%", maxWidth: 640, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/about/resume-t.webp" alt="Illustration: calendar, checklists, timeline, documents and invoices organised around one folder" style={{ display: "block", width: "100%", maxWidth: 640, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ maxWidth: 1040, margin: "0 auto", borderTop: "1px solid #1C1C1C" }}>
           {RESUME_ITEMS.map((r, i) => (
             <div key={i} style={{ display: "flex", flexDirection: "column", gap: 6, padding: "20px 0", borderBottom: "1px solid #DDDAD3" }} className="md:!grid md:!grid-cols-[minmax(0,260px)_minmax(0,1fr)_140px] md:!gap-x-6 md:!items-baseline">
