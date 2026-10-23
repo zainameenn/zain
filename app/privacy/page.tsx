@@ -6,7 +6,7 @@ import { Emphasis } from "../HomeComponents/icons";
 // Zain: read this page, then set REVIEWED to true. Until then the page shows a
 // draft note and asks search engines not to index it.
 const REVIEWED = true;
-const LAST_UPDATED = "October 11, 2026";
+const LAST_UPDATED = "October 24, 2026";
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const metadata = buildMetadata({
@@ -70,6 +70,19 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
       <p style={P}>
         The booking calendar is run by <strong style={{ color: "#1C1C1C" }}>Calendly</strong>. It only loads when you click to open it. If you book, Calendly collects the details you enter, like your name, email and the time you pick, under its own privacy policy, and shares them with me so I can show up for the call.
       </p>
+    ),
+  },
+  {
+    h: "The free tools",
+    body: (
+      <>
+        <p style={P}>
+          When you use one of the <a href="/tools" className={A}>free tools</a>, what you type and any photo, PDF or text file you upload are sent to <strong style={{ color: "#1C1C1C" }}>Google&apos;s Gemini API</strong> to write your result. This site doesn&apos;t store your inputs, your uploads or your results, and doesn&apos;t log what they say. Photos are resized in your browser before they&apos;re sent, which also removes their location data.
+        </p>
+        <p style={P}>
+          Google handles that content under its own terms. While the tools run on Gemini&apos;s free tier, Google may use what&apos;s sent to improve its products, so please don&apos;t enter anything private or sensitive. The UTM link builder runs entirely in your browser and sends nothing.
+        </p>
+      </>
     ),
   },
   {

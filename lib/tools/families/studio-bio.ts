@@ -77,7 +77,7 @@ export function studioBioPage(page: ToolPage, p: StudioBioPlatform, studio: Stud
     workspace: {
       ...page.workspace,
       fields: studioBioFields(p),
-      button: "Generate 5 bios",
+      button: "Generate my bio",
       secondary: "Try an example",
       exampleInput: { ...defaults, ...p.example },
       more: "Try another style",

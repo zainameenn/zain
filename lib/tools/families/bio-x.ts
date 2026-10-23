@@ -126,7 +126,7 @@ const BRANDS: BrandExample[] = [
 
 const STUDIO: StudioContent = {
   lede: "This Twitter bio generator writes X bios that sound like you, fit the 160 character limit, and tell people why to follow.",
-  sub: "Choose your style, tell us what your account is about, and get five bios ready to copy.",
+  sub: "Choose your style, tell us what your account is about, and get a bio ready to copy.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -138,7 +138,7 @@ const STUDIO: StudioContent = {
       steps: [
         { title: "Tell us about your account", text: "Pick personal, creator or business, then choose your niche or type your own.", visual: "account" },
         { title: "Choose your style", text: "Pick a tone, how many emoji you want, and one line or two.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare five bios, preview any of them on the phone, then paste one into Edit profile on X.", visual: "copy" },
+        { title: "Tweak and copy", text: "Preview your bio on the phone, ask for a fresh take or a small change, then paste it into Edit profile on X.", visual: "copy" },
       ],
     },
     {
@@ -320,8 +320,8 @@ export function xPage(page: ToolPage): ToolPage {
         { q: "Should I put my website or location in my bio?", a: "No. X has separate fields for both, so the bio can spend all 160 characters on what you do and why to follow." },
         { q: "Should I use hashtags in my X bio?", a: "Usually not. They take characters away from what you do. If you want topics in your bio, write them as plain words." },
         { q: "Will the AI make up achievements?", a: "No. It only uses what you type. If a bio would be stronger with a real number, it tells you what to add instead of inventing one." },
-        { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my bio\", paste it in, and you'll get five rewrites that keep your facts." },
-        { q: "Can it write X bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all five bios come out in it." },
+        { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my bio\", paste it in, and you'll get a rewrite that keeps your facts." },
+        { q: "Can it write X bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your bio comes out in it." },
       ],
       related: [],
       extraLinks: [],

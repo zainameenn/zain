@@ -239,7 +239,7 @@ export default function ToolsHub() {
             {[
               { t: "Choose a tool", d: "Find the tool that matches your task, whether you're writing a bio, planning content, or improving a page title." },
               { t: "Add your details", d: "Share your topic, audience, style, or other details the tool needs. The more useful your input, the more relevant the output can be." },
-              { t: "Review and use the result", d: "Compare the suggestions, make any necessary edits, and copy what works for your project." },
+              { t: "Review and use the result", d: "Read the result, regenerate or refine it if you want a different take, and copy what works for your project." },
             ].map((step, i) => (
               <li key={step.t} className={s.step}>
                 <StepArt step={i + 1} />
@@ -313,7 +313,7 @@ export default function ToolsHub() {
               <div className={`${h.splitCard} ${h.toneDark}`}>
                 <span className={h.splitTag}>AI writing tools</span>
                 <p className={h.splitText}>
-                  AI writing tools can produce different options from the details you enter. They&apos;re useful for brainstorming and first drafts, but you should still review names, facts, claims, and wording before publishing.
+                  AI writing tools write a draft from the details you enter. They&apos;re useful for brainstorming and first drafts, but you should still review names, facts, claims, and wording before publishing.
                 </p>
                 <ToolLinks slugs={kinds.ai} dark />
               </div>

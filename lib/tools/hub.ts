@@ -19,7 +19,7 @@ export const HUB_CARDS: Record<string, HubCard> = {
   "facebook-caption-generator": { description: "Create Facebook captions for updates, announcements, promotions, and everyday posts.", cta: "Write Facebook captions" },
   "youtube-description-generator": { description: "Write organized YouTube descriptions that explain your videos and make important details easier to find.", cta: "Write a description" },
   "pinterest-description-generator": { description: "Create Pinterest descriptions that explain your Pins and include relevant search terms naturally.", cta: "Write Pin descriptions" },
-  "youtube-title-generator": { description: "Explore YouTube title ideas that describe your video clearly and give viewers a reason to click.", cta: "Get title ideas" },
+  "youtube-title-generator": { description: "Write a YouTube title that describes your video clearly and gives viewers a reason to click.", cta: "Write a title" },
   "pinterest-title-generator": { description: "Write descriptive Pinterest titles that communicate your content and match what people are searching for.", cta: "Write Pin titles" },
   "social-media-content-calendar-generator": { description: "Build a practical posting plan with content ideas, platforms, and a schedule you can actually follow.", cta: "Plan your content" },
   "marketing-plan-generator": { description: "Create a practical 30 day marketing plan based on your business, audience, goals, and available time.", cta: "Create marketing plan" },
@@ -100,7 +100,7 @@ export const HELPS: { title: string; text: Rich; tools: string[]; example: HelpE
   },
   {
     title: "Improve page titles and meta descriptions",
-    text: "Search results often give people only a small amount of information about a page. A clear title and description can help explain what the page offers. Use the SEO tools to draft options, then choose the wording that best reflects your content and search intent.",
+    text: "Search results often give people only a small amount of information about a page. A clear title and description can help explain what the page offers. Use the SEO tools to draft a title and description, then refine the wording so it best reflects your content and search intent.",
     tools: ["seo-title-generator", "meta-description-generator"],
     example: { kind: "serp", title: "Same Day Plumber in Austin: Upfront Prices", url: "example.com › plumbing", text: "Family run plumbers serving Austin homes. Same day repairs, upfront prices and tidy work. Book online in two minutes." },
   },

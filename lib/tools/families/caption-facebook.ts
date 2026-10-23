@@ -43,8 +43,8 @@ const PLATFORM: CaptionPlatform = {
 
 const STUDIO: StudioContent = {
   skin: "facebook",
-  lede: "This Facebook caption generator turns a few notes into three Page post captions that get to the point fast, sound human, and ask for one clear next step.",
-  sub: "Say what you're posting, pick a style, and see each caption on a real looking Facebook post before you copy it.",
+  lede: "This Facebook caption generator turns a few notes into a Page post caption that gets to the point fast, sound human, and ask for one clear next step.",
+  sub: "Say what you're posting, pick a style, and see your caption on a real looking Facebook post before you copy it.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -56,7 +56,7 @@ const STUDIO: StudioContent = {
       steps: [
         { title: "Say what you're posting", text: "Pick photo, text, link or reel, then describe the post in a few words. Add the real details if you have them.", visual: "account" },
         { title: "Choose your style", text: "Pick a tone and a goal, like comments, link clicks, messages or visits, then set the length and emoji.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare three captions on a Facebook post, see where \"See more\" cuts in, then copy and post.", visual: "copy" },
+        { title: "Tweak and copy", text: "See your caption on a Facebook post and where \"See more\" cuts in, ask for a fresh take or a small change, then copy and post.", visual: "copy" },
       ],
     },
     {
@@ -146,11 +146,11 @@ export function facebookCaptionPage(page: ToolPage): ToolPage {
         { q: "How long should a Facebook post be?", a: "Facebook allows very long posts, but the feed cuts them with \"See more\". Put the point in the first sentence. The tool keeps every caption under 2,000 characters." },
         { q: "Should I use hashtags on Facebook?", a: "They're optional. If you use them, a couple of specific ones is enough. The tool defaults to none, and can add up to 3." },
         { q: "Can I edit a Facebook post after publishing?", a: "Yes. Meta's help center explains how to edit a Page post from the three dot menu. Posts that are boosted or part of an ad campaign can't be edited." },
-        { q: "Does it work for link posts?", a: "Yes. Pick Link as the post type and the captions tell people what they'll get when they click." },
-        { q: "Does the tool see my photo or video?", a: "No. It only uses what you type, so describe the post and check the caption matches it." },
+        { q: "Does it work for link posts?", a: "Yes. Pick Link as the post type and the caption tells people what they'll get when they click." },
+        { q: "Does the tool see my photo or video?", a: "It sees your photo if you upload one, and uses what it can clearly see to write the caption. The photo isn't stored. It can't watch video, so describe a video in your notes and check the caption matches it." },
         { q: "Will it make things up?", a: "No. It only uses your details. If a stronger caption needs a number or a fact, it tells you what to add instead of inventing one." },
-        { q: "Can it rewrite a post I already have?", a: "Yes. Switch to \"Improve my caption\", paste it in, and get three versions that keep your facts." },
-        { q: "Can it write Facebook captions in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all three captions come out in it." },
+        { q: "Can it rewrite a post I already have?", a: "Yes. Switch to \"Improve my caption\", paste it in, and get a stronger version that keeps your facts." },
+        { q: "Can it write Facebook captions in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your caption comes out in it." },
       ],
       related: [],
       extraLinks: [],

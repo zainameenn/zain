@@ -34,7 +34,7 @@ export function titleStudioFields(p: TitlePlatform): ToolField[] {
     },
     { name: "topic", label: "What's it about?", type: "text", placeholder: p.copy.topic, required: true, maxLength: 300, when: NEW, group: "essentials" },
     { name: "current_title", label: `Paste your current ${p.platform} title`, type: "text", placeholder: p.copy.current, required: true, maxLength: 200, when: IMPROVE, group: "essentials" },
-    { name: "keyword", label: "Main search phrase", type: "text", placeholder: p.copy.keyword, hint: "The words people would type to find it. Every title includes it once.", maxLength: 100, group: "essentials" },
+    { name: "keyword", label: "Main search phrase", type: "text", placeholder: p.copy.keyword, hint: "The words people would type to find it. The title includes it once.", maxLength: 100, group: "essentials" },
     { name: "style", label: "Style", type: "segmented", options: ["Clear", "Curious", "Bold", "Calm"], defaultValue: "Clear", group: "format" },
     { name: "audience", label: "Who's it for?", type: "text", placeholder: p.copy.audience, maxLength: 160, group: "advanced" },
     { name: "payoff", label: "What do they get?", type: "text", placeholder: p.copy.payoff, hint: "A real result or detail. The tool only promises what you give it.", maxLength: 200, group: "advanced" },
@@ -50,7 +50,7 @@ export function titleStudioPage(page: ToolPage, p: TitlePlatform, studio: Studio
     workspace: {
       ...page.workspace,
       fields: titleStudioFields(p),
-      button: "Generate 6 titles",
+      button: "Generate my title",
       secondary: "Try an example",
       exampleInput: { ...defaults, ...p.example },
       more: "Try another angle",
@@ -111,8 +111,8 @@ const TITLES: BrandExample[] = [
 ];
 
 const STUDIO: StudioContent = {
-  lede: "This YouTube title generator writes six titles around the phrase people search, each under 100 characters, with the important words where viewers actually see them.",
-  sub: "Say what your video is about, add your search phrase, and see each title on a YouTube search result before you copy it.",
+  lede: "This YouTube title generator writes a title around the phrase people search, under 100 characters, with the important words where viewers actually see them.",
+  sub: "Say what your video is about, add your search phrase, and see your title on a YouTube search result before you copy it.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -123,8 +123,8 @@ const STUDIO: StudioContent = {
       intro: "Three steps, about thirty seconds. The search result preview updates while you go.",
       steps: [
         { title: "Say what the video is about", text: "Describe it in a few words and add the phrase people would search for.", visual: "account" },
-        { title: "Choose your style", text: "Clear, curious, bold or calm. Add who it's for and what they get if you want sharper titles.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare six titles on a YouTube result, see where each one gets cut, then copy.", visual: "copy" },
+        { title: "Choose your style", text: "Clear, curious, bold or calm. Add who it's for and what they get if you want a sharper title.", visual: "style" },
+        { title: "Tweak and copy", text: "See your title on a YouTube result and where it gets cut, ask for a fresh take or a small change, then copy.", visual: "copy" },
       ],
     },
     {
@@ -245,8 +245,8 @@ export function youtubeTitlePage(page: ToolPage): ToolPage {
         { q: "How much of my title do people see?", a: "It depends on the screen. Long titles get cut on phones and in suggested videos, so the tool puts the important words in roughly the first 60 characters." },
         { q: "Should I put the year in my title?", a: "Only if the video truly depends on it, like a yearly review. Otherwise it dates your video. The tool never adds a year you didn't type." },
         { q: "Will it write clickbait?", a: "No. It writes titles your video can back up. If the payoff isn't in your details, it won't be in the title." },
-        { q: "Can it improve a title I already have?", a: "Yes. Switch to \"Improve my title\", paste it in, and get six better versions that keep your facts." },
-        { q: "Can it write titles in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all six titles come out in it." },
+        { q: "Can it improve a title I already have?", a: "Yes. Switch to \"Improve my title\", paste it in, and get a better version that keeps your facts." },
+        { q: "Can it write titles in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your title comes out in it." },
       ],
       related: [],
       extraLinks: [],

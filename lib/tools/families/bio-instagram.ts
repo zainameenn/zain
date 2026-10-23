@@ -46,7 +46,7 @@ export const INSTAGRAM_FIELDS: ToolField[] = [
     label: "Tell us a little about your account",
     type: "text",
     placeholder: "Handmade candles for cozy homes",
-    hint: "Optional, but a few specific words make your bios much more personal.",
+    hint: "Optional, but a few specific words make your bio much more personal.",
     maxLength: 160,
     when: NEW,
     group: "essentials",
@@ -56,7 +56,7 @@ export const INSTAGRAM_FIELDS: ToolField[] = [
     label: "Paste your current Instagram bio",
     type: "textarea",
     placeholder: "Entrepreneur | Dreamer | Coffee lover",
-    hint: "We'll keep your information and rewrite it in five different styles.",
+    hint: "We'll keep your information and rewrite it in a fresh style.",
     required: true,
     maxLength: 500,
     when: IMPROVE,
@@ -178,7 +178,7 @@ export const BRAND_EXAMPLES: BrandExample[] = [
 
 const STUDIO: StudioContent = {
   lede: "This Instagram bio generator writes bios that sound like you, fit the 150 character limit, and give people a reason to follow.",
-  sub: "Choose your style, tell us what your account is about, and get five bios ready to copy.",
+  sub: "Choose your style, tell us what your account is about, and get a bio ready to copy.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -190,7 +190,7 @@ const STUDIO: StudioContent = {
       steps: [
         { title: "Tell us about your account", text: "Pick personal, creator or business, then choose your niche or type your own.", visual: "account" },
         { title: "Choose your style", text: "Pick a tone, how many emoji you want, and one line or several.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare five bios, preview any of them on the phone, then copy the one you like.", visual: "copy" },
+        { title: "Tweak and copy", text: "Preview your bio on the phone, ask for a fresh take or a small change, then copy it.", visual: "copy" },
       ],
     },
     {
@@ -369,10 +369,10 @@ export function instagramPage(page: ToolPage): ToolPage {
     workspace: {
       ...page.workspace,
       fields: INSTAGRAM_FIELDS,
-      button: "Generate 5 bios",
+      button: "Generate my bio",
       secondary: "Try an example",
       exampleInput: EXAMPLE_INPUT,
-      resultsHeading: "Your Instagram bios",
+      resultsHeading: "Your Instagram bio",
       emptyState: "",
       more: "Try another style",
       dataNote: "AI can get things wrong. Read your bio before you post it, because it goes out under your name.",
@@ -390,12 +390,13 @@ export function instagramPage(page: ToolPage): ToolPage {
       { q: "Is this Instagram bio generator free?", a: "Yes. It's free to use and there's no signup. Fair use limits apply." },
       { q: "How many characters can an Instagram bio have?", a: "150, including spaces, emoji and line breaks. Every bio this tool writes fits, and the counter shows the exact total." },
       { q: "What should I put in my Instagram bio for a business?", a: "What you sell, who it's for, your city if you're local, one reason to trust you, and one next step. Use the contact buttons and links for everything else." },
-      { q: "What if I don't fill in any details?", a: "You'll still get five usable bios for your category. They'll be more general, because the tool never invents facts about you, so add a short line about your account for more personal results." },
+      { q: "What if I don't fill in any details?", a: "You'll still get a usable bio for your category. They'll be more general, because the tool never invents facts about you, so add a short line about your account for more personal results." },
       { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real number or result, it suggests what to add instead of inventing one." },
       { q: "Can I put a link in my Instagram bio?", a: "Not in the bio text itself, because typed links aren't clickable there. Add up to 5 links in the Links section of your profile, and use your bio to point to them." },
       { q: "How do I add line breaks to my Instagram bio?", a: "Choose Multiple lines in the formatting options, then copy your bio. The breaks paste straight into Instagram's Bio field." },
-      { q: "Can it write bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all five bios come out in it." },
-      { q: "Can it improve the bio I already have?", a: "Yes. Switch to Improve my bio, paste it in, and you'll get five rewrites that keep your facts, shown next to your original so you can compare." },
+      { q: "Can it write bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your bio comes out in it." },
+      { q: "Can it improve the bio I already have?", a: "Yes. Switch to Improve my bio, paste it in, and you'll get a rewrite that keeps your facts, shown next to your original so you can compare." },
+      { q: "How many bios do I get?", a: "One bio written for your account. Click Regenerate for a fresh take, or use Refine to type a change or tap a chip like Shorter." },
     ],
     related: [],
     extraLinks: [],

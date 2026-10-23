@@ -17,7 +17,7 @@ export function linkedinCommentPage(page: ToolPage): ToolPage {
       steps: [
         ["Paste the post", "Copy the LinkedIn post you want to reply to."],
         ["Add your take", "One line on what you think, plus any related experience. Pick the kind of comment and the length."],
-        ["Copy your favorite", "Compare comments under the post, then copy the one that sounds like you."],
+        ["Tweak and copy", "See your comment under the post, ask for a fresh take or a small change, then copy it."],
       ],
       compare: {
         intro: "Most weak comments say \"Great post!\" A good one adds something the author and readers didn't have.",
@@ -49,12 +49,12 @@ export function linkedinCommentPage(page: ToolPage): ToolPage {
       ],
       cta: "social",
     },
-    "This LinkedIn comment generator turns your take on a post into thoughtful comments that add insight, ask a real question or push back respectfully.",
-    "Paste the post, add your take, and see each comment under the post before you copy it.",
+    "This LinkedIn comment generator turns your take on a post into a thoughtful comment that adds insight, asks a real question or pushes back respectfully.",
+    "Paste the post, add your take, and see your comment under the post before you copy it.",
   );
   return studioWriterPage(
     { ...page, heroDescription: studio.lede },
-    { platform: "LinkedIn", noun: "comment", skin: "linkedin-comment", fields: studioFields(page.workspace.fields, [DISPLAY_NAME]), button: "Write comments", limit: 600, example: { ...page.workspace.exampleInput, display_name: "Maya Ortiz" }, dataNote: "AI can get things wrong. Only post comments that reflect what you really think." },
+    { platform: "LinkedIn", noun: "comment", skin: "linkedin-comment", fields: studioFields(page.workspace.fields, [DISPLAY_NAME]), button: "Write my comment", limit: 600, example: { ...page.workspace.exampleInput, display_name: "Maya Ortiz" }, dataNote: "AI can get things wrong. Only post comments that reflect what you really think." },
     studio,
   );
 }

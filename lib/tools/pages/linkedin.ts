@@ -15,7 +15,7 @@ export const HEADLINE: ToolPage = {
   metaDescription: "This free LinkedIn headline generator writes 5 headlines from your role, audience and real proof, each under 220 characters with the key words up front.",
   h1: { regular: "Free LinkedIn", accent: "Headline Generator" },
   heroDescription:
-    "This LinkedIn headline generator writes five headlines from your role, your audience and the proof you actually have. Each one fits LinkedIn's 220 characters and puts the important words in the part people really see.",
+    "This LinkedIn headline generator writes a headline from your role, your audience and the proof you actually have. It fits LinkedIn's 220 characters and puts the important words in the part people really see.",
   accessNote: FAIR_USE,
   workspace: {
     fields: [
@@ -27,12 +27,12 @@ export const HEADLINE: ToolPage = {
       { name: "goal", label: "Main goal", type: "select", options: ["Get clients", "Get hired", "Build an audience", "Raise money"] },
       { name: "tone", label: "Tone", type: "chips", options: ["Clear", "Bold", "Friendly", "Witty"] },
     ],
-    button: "Write my LinkedIn headlines",
+    button: "Write my LinkedIn headline",
     secondary: "Try an example",
     exampleInput: { role: "Growth marketer", audience: "B2B SaaS startups", outcome: "More demo calls from SEO and Reddit", proof: "Grew a SaaS from 0 to 2,000 signups", keywords: "SaaS SEO, GTM", goal: "Get clients", tone: "Clear" },
-    resultsHeading: "Your LinkedIn headlines",
-    emptyState: "Five headlines show up here, each with a counter and a marker where search and comments usually cut it off.",
-    more: "Write 5 more",
+    resultsHeading: "Your LinkedIn headline",
+    emptyState: "Your headline shows up here, with a counter and a marker where search and comments usually cut it off.",
+    more: "Regenerate",
     dataNote: dataNote("headlines"),
     errorText: ERROR_TEXT,
     result: { kind: "options", limit: 220, fold: { chars: 65, label: "what shows in search and comments" } },
@@ -42,7 +42,7 @@ export const HEADLINE: ToolPage = {
     steps: [
       "**Fill in role, audience and outcome.** Those three make up 90% of a great headline.",
       "**Add proof only if it's real.** A real number beats a big adjective.",
-      "**Pick one and check the first 65 characters.** That's often all people see in comments and search.",
+      "**Check the first 65 characters.** That's often all people see in comments and search.",
     ],
   },
   examples: {
@@ -65,7 +65,7 @@ export const HEADLINE: ToolPage = {
       heading: "Choose between role, audience and outcome headlines",
       blocks: [
         { p: "Your headline follows you everywhere on LinkedIn: comments, search, connection requests. It's your name tag at every party LinkedIn throws." },
-        { p: "There are three ways to write it, and the tool gives you each:" },
+        { p: "There are three ways to write it, and the tool can write any of them:" },
         {
           ol: [
             "**Role led:** \"Growth marketer for B2B SaaS\". Best if you're job hunting, because recruiters search titles.",
@@ -90,7 +90,7 @@ export const HEADLINE: ToolPage = {
     { q: "How long can a LinkedIn headline be?", a: "220 characters. Only the first 60 to 70 usually show in comments and search." },
     { q: "What if I have no results yet?", a: "Leave proof empty. The tool focuses on who you help and how, without inventing achievements." },
     { q: "Can I include several services?", a: "You can, but one clear focus usually works better. Use your About section for the rest." },
-    { q: "How do I choose between the options?", a: "Pick the one your ideal client would understand in two seconds." },
+    { q: "How many headlines do I get?", a: "One headline written for you. Click Regenerate for a fresh take, or use Refine to type a change or tap a chip like Shorter. Keep the one your ideal client would understand in two seconds." },
   ],
   ctas: [
     {
@@ -125,7 +125,7 @@ export const ABOUT: ToolPage = {
   metaDescription: "This free LinkedIn About section generator turns your real experience into a short and a full About section. No invented wins, no corporate fluff.",
   h1: { regular: "Free LinkedIn About", accent: "Section Generator" },
   heroDescription:
-    "This LinkedIn About section generator turns your real experience into two versions: a short one and a full one. It writes in first person, keeps your actual wins, and never invents the ones you don't have.",
+    "This LinkedIn About section generator turns your real experience into a first person summary that reads like you. It keeps your actual wins and never invents the ones you don't have.",
   accessNote: FAIR_USE,
   workspace: {
     fields: [
@@ -142,7 +142,7 @@ export const ABOUT: ToolPage = {
     secondary: "Try an example",
     exampleInput: aboutFounder,
     resultsHeading: "Your About section",
-    emptyState: "A short version and a full version show up here, with the lines people see before \"See more\" highlighted.",
+    emptyState: "Your About section shows up here, with the lines people see before \"See more\" highlighted.",
     more: "Write it again",
     dataNote: dataNote("About section"),
     errorText: ERROR_TEXT,
@@ -217,7 +217,7 @@ export const ABOUT: ToolPage = {
     freeFaq("LinkedIn About section generator"),
     { q: "How long can a LinkedIn About section be?", a: "2,600 characters. Only the first few lines show before \"See more\", so those matter most." },
     { q: "Should I write in first or third person?", a: "First person. It's friendlier and it's how almost everyone writes theirs now." },
-    { q: "Will it invent achievements?", a: "No. It only uses what you type. If a stronger version needs a real number, it tells you." },
+    { q: "Will it invent achievements?", a: "No. It only uses what you type. If it would be stronger with a real number, it tells you." },
     { q: "Is this the same as a LinkedIn bio?", a: "Yes. People call it the About section, the summary or the bio. Same box." },
   ],
   ctas: [
@@ -261,7 +261,7 @@ export const POST: ToolPage = {
   metaDescription: "This free LinkedIn post generator turns your rough notes into 3 hooks and a full post that sounds like you. No fake stories, no cringe templates.",
   h1: { regular: "Free LinkedIn", accent: "Post Generator" },
   heroDescription:
-    "This LinkedIn post generator turns your rough notes into three hooks and one full post. It keeps your details, your opinions and your voice, and it never makes up a story you didn't live.",
+    "This LinkedIn post generator turns your rough notes into one full post with a strong hook. It keeps your details, your opinions and your voice, and it never makes up a story you didn't live.",
   accessNote: FAIR_USE,
   workspace: {
     fields: [
@@ -278,7 +278,7 @@ export const POST: ToolPage = {
     secondary: "Try an example",
     exampleInput: postCase,
     resultsHeading: "Your LinkedIn post",
-    emptyState: "Three hooks and a full post show up here. Click a hook to rebuild the post around it.",
+    emptyState: "Your post shows up here. Regenerate for a fresh take, or refine it with a change of your own.",
     more: "Write it again",
     dataNote: dataNote("post"),
     errorText: ERROR_TEXT,
@@ -289,7 +289,7 @@ export const POST: ToolPage = {
     steps: [
       "**Dump your notes.** Numbers, what happened, what you'd do differently. This is the part no generator can fake.",
       "**Say the one takeaway.** One post, one point.",
-      "**Pick a hook, read it once, then post.** If a line doesn't sound like you, change it. Your followers know your voice better than any tool.",
+      "**Read it once, then post.** If a line doesn't sound like you, change it. Your followers know your voice better than any tool.",
     ],
   },
   examples: {
@@ -361,7 +361,7 @@ export const POST: ToolPage = {
     freeFaq("LinkedIn post generator"),
     { q: "Can it rewrite a draft I already have?", a: "Yes. Paste your draft into the notes field and pick the format you want." },
     { q: "Will it invent personal stories?", a: "No. It only uses what's in your notes. If the post needs a detail, it asks for it instead." },
-    { q: "Can I change the tone?", a: "Yes. Switch the tone and regenerate, or use Punchier and Shorter." },
+    { q: "Can I change the tone?", a: "Yes. Switch the tone and regenerate, or use Refine to tap a chip like Shorter or type your own change." },
     { q: "How long should a LinkedIn post be?", a: "LinkedIn allows 3,000 characters. Most good posts are a few hundred to about 1,500." },
   ],
   ctas: postCtas,
@@ -382,7 +382,7 @@ export const COMMENT: ToolPage = {
   metaDescription: "This free LinkedIn comment generator turns any post and your own take into 3 thoughtful comments. No \"Great post!\", no auto posting.",
   h1: { regular: "Free LinkedIn", accent: "Comment Generator" },
   heroDescription:
-    "This LinkedIn comment generator turns any post plus your own take into three comments worth reading: one adds an insight, one asks a smart question, one politely pushes back. You copy, tweak and post it yourself.",
+    "This LinkedIn comment generator turns any post plus your own take into a comment worth reading that adds an insight, asks a smart question or politely pushes back. You copy, tweak and post it yourself.",
   accessNote: FAIR_USE,
   workspace: {
     fields: [
@@ -392,7 +392,7 @@ export const COMMENT: ToolPage = {
       { name: "type", label: "What kind of comment?", type: "chips", options: ["All three", "Add insight", "Ask a question", "Respectful pushback"], defaultValue: "All three" },
       { name: "length", label: "Length", type: "chips", options: [SHORT, MEDIUM], defaultValue: SHORT },
     ],
-    button: "Write my comments",
+    button: "Write my comment",
     secondary: "Try an example",
     exampleInput: {
       post: "Most SaaS pricing pages have too many plans. Every extra plan is one more decision a buyer has to make before they sign up. Fewer plans, faster yes.",
@@ -401,9 +401,9 @@ export const COMMENT: ToolPage = {
       type: "All three",
       length: SHORT,
     },
-    resultsHeading: "Your LinkedIn comments",
-    emptyState: "Your comments show up here, each with its type and a counter.",
-    more: "Write 3 more",
+    resultsHeading: "Your LinkedIn comment",
+    emptyState: "Your comment shows up here, with its type and a counter.",
+    more: "Regenerate",
     dataNote: dataNote("comments"),
     resultsNote: "We never post for you. Read it, tweak it, post it.",
     errorText: ERROR_TEXT,
@@ -414,7 +414,7 @@ export const COMMENT: ToolPage = {
     steps: [
       "**Paste the post.** The whole thing, so the tool gets the context.",
       "**Add your take in one line.** Agree, disagree, add a twist. This is what makes the comment yours.",
-      "**Pick one, make it sound like you, post it.** Change at least one word. Seriously.",
+      "**Make it sound like you, then post it.** Change at least one word. Seriously.",
     ],
   },
   examples: {
@@ -482,7 +482,7 @@ export const COMMENT: ToolPage = {
   ],
   faqs: [
     freeFaq("LinkedIn comment generator"),
-    { q: "Will it post automatically?", a: "No. It only writes drafts. You copy and post them yourself." },
+    { q: "Will it post automatically?", a: "No. It only writes a draft. You copy and post it yourself." },
     { q: "Can it disagree respectfully?", a: "Yes. Pick \"Respectful pushback\" and it writes a polite counterpoint based on your take." },
     { q: "What if I have no experience to add?", a: "Pick \"Ask a question\". A sharp question is one of the best comments you can leave." },
     { q: "How long can a LinkedIn comment be?", a: "Up to 1,250 characters. Most good comments are 1 to 4 lines." },

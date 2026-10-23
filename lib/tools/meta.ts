@@ -1,4 +1,4 @@
-// SEO titles and meta descriptions for every free tool, set by Zain (Oct 23, 2026).
+// SEO titles and meta descriptions for every free tool, set by Zain (Oct 23, 2026). Upload aware descriptions added for tools v2 (Oct 24, 2026).
 // These override whatever the page configs say, so this file is the one place to change them.
 
 export const TOOL_META: Record<string, { title: string; description: string }> = {
@@ -24,15 +24,15 @@ export const TOOL_META: Record<string, { title: string; description: string }> =
   },
   "instagram-caption-generator": {
     title: "Instagram Caption Generator (100% FREE)",
-    description: "Create Instagram captions for photos, Reels, and everyday posts. Choose your tone, describe your content, and write a caption that sounds like you.",
+    description: "Upload your photo or describe your post, pick a tone, and get an Instagram caption written for it. Tweak it with your own instructions. Free, no signup.",
   },
   "tiktok-caption-generator": {
     title: "TikTok Caption Generator (100% FREE)",
-    description: "Write TikTok captions that match your videos and get your message across. Add your topic, choose your style, and create a caption ready to share.",
+    description: "Describe your video or upload a cover frame, pick a style, and get a TikTok caption that matches what's actually in it. Free, no signup.",
   },
   "facebook-caption-generator": {
     title: "Facebook Caption Generator (100% FREE)",
-    description: "Create Facebook captions for photos, updates, promotions, and business posts. Turn your ideas into natural captions that connect with your audience.",
+    description: "Upload a photo or describe your update, event, or offer, and get a Facebook caption that sounds like you. Tweak it until it's right. Free.",
   },
   "youtube-title-generator": {
     title: "YouTube Title Generator (100% FREE)",
@@ -40,23 +40,23 @@ export const TOOL_META: Record<string, { title: string; description: string }> =
   },
   "youtube-description-generator": {
     title: "YouTube Description Generator (100% FREE)",
-    description: "Write a YouTube video description that explains your content clearly. Include relevant keywords, important details, and links without starting from scratch.",
+    description: "Paste your transcript or key points and get a YouTube description with your links, chapters, and search phrase in the right places. Free.",
   },
   "pinterest-title-generator": {
     title: "Pinterest Title Generator (100% FREE)",
-    description: "Create Pinterest titles that describe your Pins and include relevant search terms naturally. Write clear, engaging titles for your Pinterest content.",
+    description: "Upload your Pin or describe it and get a clear Pinterest title with your main search phrase up front, under 100 characters. Free, no signup.",
   },
   "pinterest-description-generator": {
     title: "Pinterest Description Generator (100% FREE)",
-    description: "Write Pinterest descriptions that explain your Pins and naturally include relevant keywords. Make your content clearer and easier to discover.",
+    description: "Upload your Pin or describe it and get a Pinterest description that explains what people will find after they click. Free, no signup.",
   },
   "linkedin-headline-generator": {
     title: "LinkedIn Headline Generator (100% FREE)",
-    description: "Create a LinkedIn headline that highlights your skills, experience, and professional value. Write a clear headline that fits your career or business goals.",
+    description: "Upload your resume or describe your role and get a LinkedIn headline that shows what you do and who you help, within 220 characters. Free.",
   },
   "linkedin-about-section-generator": {
     title: "LinkedIn Summary Generator (100% FREE)",
-    description: "Write a LinkedIn About section that tells your professional story. Highlight your experience, achievements, and skills in a natural, personal tone.",
+    description: "Upload your resume or paste rough notes and get a LinkedIn About section that tells your story in your own voice. Free, no signup.",
   },
   "linkedin-post-generator": {
     title: "LinkedIn Post Generator (100% FREE)",
@@ -64,15 +64,15 @@ export const TOOL_META: Record<string, { title: string; description: string }> =
   },
   "linkedin-comment-generator": {
     title: "LinkedIn Comment Generator (100% FREE)",
-    description: "Write thoughtful LinkedIn comments that add value to conversations. Share the original post and create a relevant, natural comment in your own tone.",
+    description: "Paste a post or upload a screenshot, add your view, and get a LinkedIn comment that responds to what the author actually said. Free.",
   },
   "seo-title-generator": {
     title: "SEO Title Generator (100% FREE)",
-    description: "Create SEO titles that match your content, target keywords, and search intent. Write clear, relevant page titles for your website and blog posts.",
+    description: "Paste your page URL or describe the page and get an SEO title that matches your content, target keyword, and search intent. Free, no signup.",
   },
   "meta-description-generator": {
     title: "Meta Description Generator (100% FREE)",
-    description: "Write SEO meta descriptions that summarize your pages and give searchers a reason to click. Create relevant descriptions for blogs, products, and websites.",
+    description: "Paste your page URL or describe the page and get a meta description that summarizes it honestly and gives searchers a reason to click. Free.",
   },
   "marketing-plan-generator": {
     title: "Marketing Plan Generator (100% FREE)",
@@ -88,11 +88,11 @@ export const TOOL_META: Record<string, { title: string; description: string }> =
   },
   "etsy-title-generator": {
     title: "Etsy Title Generator (100% FREE)",
-    description: "Create Etsy listing titles that describe your products clearly and include relevant search terms. Write buyer friendly titles for your Etsy shop.",
+    description: "Upload a product photo or list its details and get a clear Etsy listing title that follows Etsy's shorter title guidance. Free, no signup.",
   },
   "product-description-generator": {
     title: "Product Description Generator (100% FREE)",
-    description: "Write product descriptions that explain features, highlight benefits, and help shoppers understand your products. Create clear descriptions for your online store.",
+    description: "Upload a product photo, add your specs, and get a product description for Etsy, Shopify, or Amazon built only from your details. Free.",
   },
 };
 

@@ -20,7 +20,7 @@ export function etsyTitlePage(page: ToolPage): ToolPage {
       steps: [
         ["Describe the item", "Say what it is in plain words, then add the traits buyers filter by: color, material, size, style."],
         ["Add the search phrase", "The phrase buyers type goes first. Paste your current title to see a before and after."],
-        ["Copy your favorite", "Compare titles on an Etsy listing and see what changed and why."],
+        ["Tweak and copy", "See your title on an Etsy listing, see what changed and why, then ask for a fresh take or a small change."],
       ],
       compare: {
         intro: "Most weak Etsy titles are a pile of repeated keywords. Buyers, and Etsy's own guidance, prefer a clear description.",
@@ -52,8 +52,8 @@ export function etsyTitlePage(page: ToolPage): ToolPage {
       ],
       cta: "seo",
     },
-    "This Etsy title generator turns your item details into clear listing titles that put the search phrase first and describe the item the way buyers search.",
-    "Describe the item, add the phrase buyers type, and see each title on an Etsy listing before you copy it.",
+    "This Etsy title generator turns your item details into a clear listing title that puts the search phrase first and describe the item the way buyers search.",
+    "Describe the item, add the phrase buyers type, and see your title on an Etsy listing before you copy it.",
   );
   return studioWriterPage(
     { ...page, heroDescription: studio.lede },
@@ -62,7 +62,7 @@ export function etsyTitlePage(page: ToolPage): ToolPage {
       noun: "title",
       skin: "etsy",
       fields: studioFields(page.workspace.fields, [SHOP_NAME]),
-      button: "Generate titles",
+      button: "Generate my title",
       limit: limitOf(page, 140),
       example: { ...page.workspace.exampleInput, name: "SoftDeskCo" },
       dataNote: "AI can get things wrong. Check every trait in the title matches your item.",
@@ -138,7 +138,7 @@ export function linkedinHeadlinePage(page: ToolPage): ToolPage {
       steps: [
         ["Say what you do and for whom", "Your role, who you help, and what they get."],
         ["Pick your goal and tone", "Clients, a job, an audience or investors. Add real proof if you have it."],
-        ["Copy your favorite", "Compare headlines on a LinkedIn profile and see what shows in search and comments."],
+        ["Tweak and copy", "See your headline on a LinkedIn profile and what shows in search and comments, then ask for a fresh take or a small change."],
       ],
       compare: {
         intro: "Most weak headlines are a job title and a list of buzzwords. A good one says who you help and how.",
@@ -170,12 +170,12 @@ export function linkedinHeadlinePage(page: ToolPage): ToolPage {
       ],
       cta: "social",
     },
-    "This LinkedIn headline generator turns your role, audience and outcome into headlines that show up in search and tell people why to connect.",
-    "Say what you do and for whom, pick your goal, and see each headline on a LinkedIn profile before you copy it.",
+    "This LinkedIn headline generator turns your role, audience and outcome into a headline that shows up in search and tell people why to connect.",
+    "Say what you do and for whom, pick your goal, and see your headline on a LinkedIn profile before you copy it.",
   );
   return studioWriterPage(
     { ...page, heroDescription: studio.lede },
-    { platform: "LinkedIn", noun: "headline", skin: "linkedin-headline", fields: studioFields(page.workspace.fields, [DISPLAY_NAME]), button: "Generate headlines", limit: limitOf(page, 220), example: { ...page.workspace.exampleInput, display_name: "Maya Ortiz" }, dataNote: "AI can get things wrong. Only keep claims you can back up." },
+    { platform: "LinkedIn", noun: "headline", skin: "linkedin-headline", fields: studioFields(page.workspace.fields, [DISPLAY_NAME]), button: "Generate my headline", limit: limitOf(page, 220), example: { ...page.workspace.exampleInput, display_name: "Maya Ortiz" }, dataNote: "AI can get things wrong. Only keep claims you can back up." },
     studio,
   );
 }
@@ -188,7 +188,7 @@ export function linkedinAboutPage(page: ToolPage): ToolPage {
       steps: [
         ["Share your background", "A few lines on what you've done, who you want reading, and what you offer."],
         ["Add what makes you different", "How you work, real wins and one personal detail make it sound like you."],
-        ["Copy a version", "You get a short and a full version, shown on a LinkedIn profile with the \"see more\" cut."],
+        ["Tweak and copy", "See your About section on a LinkedIn profile with the \"see more\" cut, then ask for a fresh take or a small change."],
       ],
       compare: {
         intro: "Most weak About sections read like a CV. A good one talks to the reader and gives them a next step.",
@@ -220,8 +220,8 @@ export function linkedinAboutPage(page: ToolPage): ToolPage {
       ],
       cta: "social",
     },
-    "This LinkedIn summary generator turns your background and real wins into a short and a full About section that sound like you and end with a clear next step.",
-    "Share your background, pick a tone, and see each version on a LinkedIn profile before you copy it.",
+    "This LinkedIn summary generator turns your background and real wins into an About section that sounds like you and end with a clear next step.",
+    "Share your background, pick a tone, and see your About section on a LinkedIn profile before you copy it.",
   );
   return studioWriterPage(
     { ...page, heroDescription: studio.lede, h1: { regular: "Free LinkedIn", accent: "Summary Generator" } },
@@ -238,7 +238,7 @@ export function linkedinPostPage(page: ToolPage): ToolPage {
       steps: [
         ["Dump your notes", "What happened, what you learned, the numbers. Messy is fine."],
         ["Pick the format and tone", "Story, lesson list, how to, opinion, case study or announcement."],
-        ["Copy the post", "See it in a LinkedIn feed with the \"see more\" cut, plus other opening lines to try."],
+        ["Copy the post", "See it in a LinkedIn feed with the \"see more\" cut, then ask for a fresh take or a small change."],
       ],
       compare: {
         intro: "Most weak LinkedIn posts bury the point. A good one opens with it, then backs it up.",

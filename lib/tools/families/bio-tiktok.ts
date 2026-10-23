@@ -125,7 +125,7 @@ const BRANDS: BrandExample[] = [
 
 const STUDIO: StudioContent = {
   lede: "This TikTok bio generator writes tiny bios that tell viewers exactly why to follow, and every one fits in 80 characters.",
-  sub: "Choose your style, tell us what your account is about, and get five bios ready to copy.",
+  sub: "Choose your style, tell us what your account is about, and get a bio ready to copy.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -137,7 +137,7 @@ const STUDIO: StudioContent = {
       steps: [
         { title: "Tell us about your account", text: "Pick personal, creator or business, then choose your niche or type your own.", visual: "account" },
         { title: "Choose your style", text: "Pick a tone and how many emoji you want. One line usually reads best in 80 characters.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare five bios, preview any of them on the phone, then paste one into Edit profile on TikTok.", visual: "copy" },
+        { title: "Tweak and copy", text: "Preview your bio on the phone, ask for a fresh take or a small change, then paste it into Edit profile on TikTok.", visual: "copy" },
       ],
     },
     {
@@ -316,8 +316,8 @@ export function tiktokPage(page: ToolPage): ToolPage {
         { q: "How long can my TikTok name and username be?", a: "Your name can be up to 30 characters. Your username can be 2 to 24 characters, using letters, numbers, underscores and periods, and you can change it once every 30 days." },
         { q: "What should a business put in its TikTok bio?", a: "What you sell, who it's for, your city if you're local, and one tiny next step like \"Shop below\". Keep the brand name for the name field." },
         { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real detail, it suggests what to add instead of inventing one." },
-        { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my bio\", paste it in, and get five shorter, sharper versions that keep your facts." },
-        { q: "Can it write TikTok bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all five bios come out in it." },
+        { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my bio\", paste it in, and get a shorter, sharper version that keeps your facts." },
+        { q: "Can it write TikTok bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your bio comes out in it." },
       ],
       related: [],
       extraLinks: [],
