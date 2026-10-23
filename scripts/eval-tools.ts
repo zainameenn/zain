@@ -14,6 +14,7 @@ const BUSINESS = "Crumb & Co, a small sourdough bakery in Leeds with a cafe coun
 
 /** Example input from the registry, or a sensible input built from the required fields. */
 function inputFor(tool: any): Record<string, unknown> {
+  if (tool.output_contract === "deterministic_url") return { destination_url: "crumbandco.co.uk/workshops#dates", utm_source: "Instagram", utm_medium: "social", utm_campaign: "Winter Workshops" };
   const m = String(tool.tool_spec ?? "").match(/<example_1>\s*<input>([\s\S]*?)<\/input>/);
   if (m) {
     try {
