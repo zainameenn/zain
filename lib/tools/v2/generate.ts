@@ -227,7 +227,8 @@ async function callOpenRouter(system: string, parts: any[], schema: object, maxT
 }
 
 async function callWithFallback(system: string, parts: object[], schema: object, thinking: string, maxTokens: number, eu = false) {
-  if (eu) return { text: await callOpenRouter(system, parts, schema, maxTokens), model: OPENROUTER_MODEL };
+  // Until OPENROUTER_API_KEY is set, UK and EU visitors use Gemini like everyone else.
+  if (eu && process.env.OPENROUTER_API_KEY) return { text: await callOpenRouter(system, parts, schema, maxTokens), model: OPENROUTER_MODEL };
   let last: unknown;
   for (const model of MODELS) {
     try {
