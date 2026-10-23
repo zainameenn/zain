@@ -77,10 +77,10 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     body: (
       <>
         <p style={P}>
-          When you use one of the <a href="/tools" className={A}>free tools</a>, what you type and any photo, PDF or text file you upload are sent to <strong style={{ color: "#1C1C1C" }}>Google&apos;s Gemini API</strong> to write your result. This site doesn&apos;t store your inputs, your uploads or your results, and doesn&apos;t log what they say. Photos are resized in your browser before they&apos;re sent, which also removes their location data.
+          When you use one of the <a href="/tools" className={A}>free tools</a>, what you type and any photo, PDF or text file you upload are sent to <strong style={{ color: "#1C1C1C" }}>Google&apos;s Gemini API</strong> to write your result. If you&apos;re in the UK or Europe, it goes to <strong style={{ color: "#1C1C1C" }}>OpenRouter</strong> instead, which passes it to an NVIDIA model. This site doesn&apos;t store your inputs, your uploads or your results, and doesn&apos;t log what they say. Photos are resized in your browser before they&apos;re sent, which also removes their location data.
         </p>
         <p style={P}>
-          Google handles that content under its own terms. While the tools run on Gemini&apos;s free tier, Google may use what&apos;s sent to improve its products, so please don&apos;t enter anything private or sensitive. The UTM link builder runs entirely in your browser and sends nothing.
+          Google and OpenRouter handle that content under their own terms. Because the tools use free tiers, the providers may use what&apos;s sent to improve their products, so please don&apos;t enter anything private or sensitive. The UTM link builder runs entirely in your browser and sends nothing.
         </p>
       </>
     ),

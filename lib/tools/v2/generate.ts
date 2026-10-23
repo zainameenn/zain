@@ -18,6 +18,8 @@ export type GenerateRequest = {
   previousOutput?: string;
   regenCount?: number;
   media?: MediaPart[];
+  /** UK and EU visitors go to OpenRouter instead of Gemini, which can't be used on the free tier there. */
+  eu?: boolean;
 };
 export type CalendarPost = { slot_id: string; date: string; platform: string; pillar?: string; format?: string; topic?: string; hook?: string; details?: string; cta?: string; asset_needed?: string };
 export type GenerateResult = { content: string; tip: string; warnings: string[]; model: string; posts?: CalendarPost[]; calendar_name?: string; notice?: string };
@@ -185,7 +187,47 @@ async function callModel(model: string, system: string, parts: object[], schema:
   return text;
 }
 
-async function callWithFallback(system: string, parts: object[], schema: object, thinking: string, maxTokens: number) {
+// UK and EU visitors: Gemini's free tier isn't allowed there, so these requests go to OpenRouter.
+const OPENROUTER_MODEL = process.env.TOOLS_EU_MODEL || "nvidia/nemotron-3.5-super-vl";
+
+async function callOpenRouter(system: string, parts: any[], schema: object, maxTokens: number): Promise<string> {
+  const key = process.env.OPENROUTER_API_KEY;
+  if (!key) throw new ToolError(500, "missing OpenRouter key");
+  const content = parts.map((p) =>
+    p.inlineData
+      ? p.inlineData.mimeType === "application/pdf"
+        ? { type: "file", file: { filename: "upload.pdf", file_data: `data:application/pdf;base64,${p.inlineData.data}` } }
+        : { type: "image_url", image_url: { url: `data:${p.inlineData.mimeType};base64,${p.inlineData.data}` } }
+      : { type: "text", text: p.text ?? "" },
+  );
+  let res: Response;
+  try {
+    res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}`, "HTTP-Referer": "https://www.zainameen.com/tools", "X-Title": "Zain Ameen free tools" },
+      body: JSON.stringify({
+        model: OPENROUTER_MODEL,
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content },
+        ],
+        response_format: { type: "json_schema", json_schema: { name: "result", strict: true, schema } },
+        max_tokens: maxTokens,
+      }),
+      signal: AbortSignal.timeout(Math.max(CALL_TIMEOUT_MS, 45_000)),
+    });
+  } catch {
+    throw new ToolError(504, "timeout");
+  }
+  if (!res.ok) throw new ToolError(res.status, `OpenRouter ${res.status}`);
+  const body: any = await res.json();
+  const text = body?.choices?.[0]?.message?.content ?? "";
+  if (!text) throw new ToolError(503, "empty response");
+  return text;
+}
+
+async function callWithFallback(system: string, parts: object[], schema: object, thinking: string, maxTokens: number, eu = false) {
+  if (eu) return { text: await callOpenRouter(system, parts, schema, maxTokens), model: OPENROUTER_MODEL };
   let last: unknown;
   for (const model of MODELS) {
     try {
@@ -252,7 +294,7 @@ export async function generateV2(req: GenerateRequest): Promise<GenerateResult> 
   const thinking = tool.thinking_level ?? "low";
   const media = mediaParts(req.media);
 
-  let { text, model } = await callWithFallback(system, [...media, { text: userTurn }], schema, thinking, tool.max_output_tokens);
+  let { text, model } = await callWithFallback(system, [...media, { text: userTurn }], schema, thinking, tool.max_output_tokens, req.eu);
   let parsed = safeJson(text);
 
   // One focused repair pass at most. Never a hidden batch of alternatives.
@@ -260,7 +302,7 @@ export async function generateV2(req: GenerateRequest): Promise<GenerateResult> 
   if (errors.length) {
     const repair = `${userTurn}\n\n<repair>\nYour last answer was:\n${text}\n\nFix only these problems and return the corrected single result as JSON:\n- ${errors.join("\n- ")}\n</repair>`;
     try {
-      const fixed = await callWithFallback(system, [...media, { text: repair }], schema, thinking, tool.max_output_tokens);
+      const fixed = await callWithFallback(system, [...media, { text: repair }], schema, thinking, tool.max_output_tokens, req.eu);
       const p2 = safeJson(fixed.text);
       if (p2) ({ text, model, parsed } = { text: fixed.text, model: fixed.model, parsed: p2 });
     } catch {

@@ -9,6 +9,8 @@ export const maxDuration = 60;
 const BY_SLUG = new Map(Object.entries(TOOLS_V2).map(([id, t]) => [t.slug as string, id]));
 const IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 const MB = 1024 * 1024;
+// UK, EU and EEA countries. Vercel sets x-vercel-ip-country on every request.
+const EU = new Set("GB AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO CH".split(" "));
 const FAIL = "Something broke on our side. Your answers are still here, so try again in a moment.";
 
 const json = (body: unknown, status = 200) => Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
@@ -60,6 +62,7 @@ export async function POST(request: Request) {
       previousOutput: str(body.previousOutput, 12000),
       previousOutputs: Array.isArray(body.previousOutputs) ? body.previousOutputs.slice(-3).map((p) => String(p).slice(0, 12000)) : undefined,
       regenCount: Number(body.regenCount) || 1,
+      eu: EU.has((request.headers.get("x-vercel-ip-country") ?? "").toUpperCase()),
     });
     return json(result);
   } catch (error) {
