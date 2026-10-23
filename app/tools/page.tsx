@@ -6,6 +6,7 @@ import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { JsonLd, breadcrumbList } from "@/app/blog/_components/JsonLd";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
+import { HUB_META } from "@/lib/tools/meta";
 import { HERO_TOOL, HUB_CARDS, HUB_CATEGORIES, choosers, helps, hubFaqs, hubImage, startPicks, toolKinds, type HelpExample } from "@/lib/tools/hub";
 import { LINK_CONTACT, LINK_SERVICES } from "@/lib/tools/links";
 import { ALL_TOOLS, TOOLS, toolPath } from "@/lib/tools/registry";
@@ -18,8 +19,8 @@ import s from "./_studio/studio.module.css";
 // The /tools hub: hero with one featured tool, starting points, the full directory with search,
 // then short guides that point to the right tool. Built from lib/tools/hub.ts, so only live tools ever appear.
 
-const TITLE = "Free Marketing Tools for SEO & Social Media | Zain Ul Abdin";
-const DESCRIPTION = "Explore free marketing tools for Instagram, TikTok, LinkedIn, SEO, ecommerce, and more. Create bios, captions, content plans, and marketing copy.";
+const TITLE = HUB_META.title;
+const DESCRIPTION = HUB_META.description;
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: "/tools" });
 

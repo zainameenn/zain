@@ -5,6 +5,7 @@ import { ETSY_TITLE, PRODUCT_DESCRIPTION } from "./pages/ecommerce";
 import { ABOUT, COMMENT, HEADLINE, POST } from "./pages/linkedin";
 import { CALENDAR, MARKETING_PLAN } from "./pages/planning";
 import { META_DESCRIPTION, SEO_TITLE, UTM_BUILDER } from "./pages/seo";
+import { TOOL_META } from "./meta";
 import type { ToolGroup, ToolPage } from "./types";
 import { metaDescriptionPage, seoTitlePage } from "./families/writers";
 import { contentCalendarPage, linkedinCommentPage, marketingPlanPage, utmBuilderPage } from "./families/writers-final";
@@ -57,7 +58,9 @@ const LIVE = new Set([
   "marketing-plan-generator",
   "utm-link-builder",
 ]);
-const SHOWN = process.env.NODE_ENV === "development" ? PAGES : PAGES.filter((p) => LIVE.has(p.slug));
+// SEO titles and descriptions from lib/tools/meta.ts override the page configs.
+const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));
+const SHOWN = process.env.NODE_ENV === "development" ? WITH_META : WITH_META.filter((p) => LIVE.has(p.slug));
 
 /** Every page that renders: the hub, sitemap, static params, related links and the API all read from this. */
 export const TOOLS: Record<string, ToolPage> = Object.fromEntries(SHOWN.map((p) => [p.slug, p]));
