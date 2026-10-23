@@ -51,3 +51,6 @@ next-env.d.ts
 
 # General Sans font files are downloaded from a private Vercel Blob during the build (licence: never commit them)
 /public/fonts/general-sans/
+
+# Local reference material, never committed
+reference/

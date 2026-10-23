@@ -1871,3 +1871,36 @@
 .liCard b { font-size: 17px; }
 .liComment { display: flex; gap: 8px; padding: 10px 14px 16px; }
 .liCommentBox { flex: 1; padding: 8px 12px; border-radius: 0 10px 10px 10px; background: #F2F2F2; font-size: 13.5px; }
+
+/* ---------- Free tools v2 ---------- */
+.v2Markdown { display: grid; gap: 10px; font-size: 15px; line-height: 1.6; color: var(--ink); }
+.v2Markdown p { margin: 0; }
+.v2Heading { font-weight: 700; font-size: 16px; margin-top: 8px !important; }
+.v2List { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.v2Toggle { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.v2Toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.v2Switch { flex: none; position: relative; width: 36px; height: 20px; border-radius: 999px; background: rgba(34, 32, 33, 0.2); transition: background 0.15s; margin-top: 1px; }
+.v2Switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform 0.15s; }
+.v2Toggle input:checked + .v2Switch { background: var(--gold); }
+.v2Toggle input:checked + .v2Switch::after { transform: translateX(16px); }
+.v2Toggle input:focus-visible + .v2Switch { outline: 2px solid var(--gold); outline-offset: 2px; }
+.v2Chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.v2Chip { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(34, 32, 33, 0.16); background: #fff; color: var(--ink); cursor: pointer; }
+.v2Chip:hover:not(:disabled) { border-color: var(--gold); }
+.v2Chip:disabled { opacity: 0.5; cursor: default; }
+.v2Chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+.v2ChipOn { background: var(--ink); color: #fff; border-color: var(--ink); }
+.v2Drop { display: grid; gap: 4px; justify-items: center; text-align: center; padding: 18px; border: 1.5px dashed rgba(34, 32, 33, 0.22); border-radius: 12px; cursor: pointer; font-size: 14px; color: var(--ink); }
+.v2Drop:hover, .v2Drop:focus-within { border-color: var(--gold); }
+.v2Files { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+.v2Files li { display: flex; align-items: center; gap: 10px; }
+.v2Files img { border-radius: 8px; object-fit: cover; }
+.v2FileIcon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px; background: rgba(34, 32, 33, 0.06); font-size: 11px; font-weight: 700; color: var(--muted); }
+.v2FileName { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+.v2TableWrap { overflow-x: auto; }
+.v2Table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; }
+.v2Table th, .v2Table td { text-align: left; vertical-align: top; padding: 8px 10px 8px 0; border-bottom: 1px solid rgba(34, 32, 33, 0.08); }
+.v2Table th { font-weight: 600; white-space: nowrap; }
+.v2Refine { display: grid; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(34, 32, 33, 0.08); }
+.v2RefineRow { display: flex; gap: 8px; }
+.v2RefineRow .input { flex: 1; min-width: 0; }
