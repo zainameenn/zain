@@ -220,11 +220,11 @@ export function linkedinAboutPage(page: ToolPage): ToolPage {
       ],
       cta: "social",
     },
-    "This LinkedIn About section generator turns your background and real wins into a short and a full About section that sound like you and end with a clear next step.",
+    "This LinkedIn summary generator turns your background and real wins into a short and a full About section that sound like you and end with a clear next step.",
     "Share your background, pick a tone, and see each version on a LinkedIn profile before you copy it.",
   );
   return studioWriterPage(
-    { ...page, heroDescription: studio.lede },
+    { ...page, heroDescription: studio.lede, h1: { regular: "Free LinkedIn", accent: "Summary Generator" } },
     { platform: "LinkedIn", noun: "version", skin: "linkedin-about", fields: studioFields(page.workspace.fields, [DISPLAY_NAME]), button: "Write my About section", limit: limitOf(page, 2600), example: { ...page.workspace.exampleInput, display_name: "Maya Ortiz" }, dataNote: "AI can get things wrong. Only keep claims you can back up." },
     studio,
   );
