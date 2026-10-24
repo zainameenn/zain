@@ -123,7 +123,7 @@ const BRANDS: BrandExample[] = [
 
 const STUDIO: StudioContent = {
   lede: "This Facebook bio generator writes short, trustworthy bios for your profile or Page that fit about 101 characters.",
-  sub: "Choose your style, tell us what your account is about, and get five bios ready to copy.",
+  sub: "Choose your style, tell us what your account is about, and get a bio ready to copy.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -135,7 +135,7 @@ const STUDIO: StudioContent = {
       steps: [
         { title: "Tell us about your account", text: "Pick a personal profile, creator or business Page, then choose your niche or type your own.", visual: "account" },
         { title: "Choose your style", text: "Pick a tone, how many emoji you want, and one line or two.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare five bios, preview any of them on the phone, then paste one into the Intro section on Facebook.", visual: "copy" },
+        { title: "Tweak and copy", text: "Preview your bio on the phone, ask for a fresh take or a small change, then paste it into the Intro section on Facebook.", visual: "copy" },
       ],
     },
     {
@@ -323,7 +323,7 @@ export function facebookPage(page: ToolPage): ToolPage {
         { q: "Is a Page bio different from a profile bio?", a: "Pages also have an Intro, plus a category that shows on the Page. Write the Page bio for customers and keep your personal bio personal." },
         { q: "What should a local business put in its Facebook bio?", a: "What you do, the city or area you serve, and one reason to trust you. Use the contact fields for the phone number and the Links field for your website." },
         { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real number or result, it tells you what to add." },
-        { q: "Can it write my bio in another language?", a: "Yes. Open \"More ways to personalize\", pick your language, and all five bios come out in it." },
+        { q: "Can it write my bio in another language?", a: "Yes. Open \"More ways to personalize\", pick your language, and your bio comes out in it." },
       ],
       related: [],
       extraLinks: [],

@@ -120,8 +120,8 @@ const CAPTIONS: BrandExample[] = [
 
 const STUDIO: StudioContent = {
   skin: "tiktok",
-  lede: "This TikTok caption generator turns a few notes into three captions that add context to your video, sound like a person, and use a few hashtags that actually fit.",
-  sub: "Say what your video is about, pick a style, and see each caption on a real looking TikTok before you copy it.",
+  lede: "This TikTok caption generator turns a few notes into a caption that adds context to your video, sounds like a person, and uses a few hashtags that actually fit.",
+  sub: "Say what your video is about, pick a style, and see your caption on a real looking TikTok before you copy it.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -133,7 +133,7 @@ const STUDIO: StudioContent = {
       steps: [
         { title: "Say what your video is about", text: "Pick video or photo carousel, then describe it in a few words. Add the real details if you have them.", visual: "account" },
         { title: "Choose your style", text: "Pick a tone and a goal, then set the length, the emoji and how many hashtags you want.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare three captions on a TikTok preview, remove any hashtag, then copy and paste it into your post.", visual: "copy" },
+        { title: "Tweak and copy", text: "See your caption on a TikTok preview, ask for a fresh take or a small change, remove any hashtag, then copy and paste it into your post.", visual: "copy" },
       ],
     },
     {
@@ -266,8 +266,8 @@ export function tiktokCaptionPage(page: ToolPage): ToolPage {
         { q: "Do captions affect what TikTok recommends?", a: "TikTok says video information, including captions, sounds and hashtags, is one of the things its recommendations look at. So a clear caption that describes the video helps." },
         { q: "Does the tool watch my video?", a: "No. It only uses what you type, so describe the video and check the caption matches it." },
         { q: "Will it make things up?", a: "No. It only uses your details. If a stronger caption needs a number or a fact, it tells you what to add instead of inventing one." },
-        { q: "Can it rewrite a caption I already have?", a: "Yes. Switch to \"Improve my caption\", paste it in, and get three versions that keep your facts." },
-        { q: "Can it write TikTok captions in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all three captions come out in it." },
+        { q: "Can it rewrite a caption I already have?", a: "Yes. Switch to \"Improve my caption\", paste it in, and get a stronger version that keeps your facts." },
+        { q: "Can it write TikTok captions in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your caption comes out in it." },
       ],
       related: [],
       extraLinks: [],

@@ -18,7 +18,7 @@ export const SEO_TITLE: ToolPage = {
   metaDescription: "This free SEO title generator writes 5 title tags from your page and keyword, with a pixel width check and an approximate Google preview.",
   h1: { regular: "Free SEO", accent: "Title Generator" },
   heroDescription:
-    "This SEO title generator writes five title tags from your page summary and target keyword. Each one gets a width check and a rough Google preview, so you see what gets cut off before Google does.",
+    "This SEO title generator writes a title tag from your page summary and target keyword. It gets a width check and a rough Google preview, so you see what gets cut off before Google does.",
   accessNote: FAIR_USE,
   workspace: {
     fields: [
@@ -28,12 +28,12 @@ export const SEO_TITLE: ToolPage = {
       { name: "brand", label: "Brand name (optional)", type: "text", placeholder: "Zain", maxLength: 60 },
       { name: "intent", label: "What does the searcher want?", type: "select", options: ["Learn", "Compare", "Buy", "Hire", "Use a tool"] },
     ],
-    button: "Write my SEO titles",
+    button: "Write my SEO title",
     secondary: "Try an example",
     exampleInput: seoService,
-    resultsHeading: "Your SEO titles",
-    emptyState: "Five title tags show up here, each with a character count, a width bar and an approximate Google preview.",
-    more: "Write 5 more",
+    resultsHeading: "Your SEO title",
+    emptyState: "Your title tag shows up here, with a character count, a width bar and an approximate Google preview.",
+    more: "Regenerate",
     dataNote: dataNote("titles"),
     smallPrint: "Approximate. Google may show a different title.",
     errorText: ERROR_TEXT,
@@ -44,7 +44,7 @@ export const SEO_TITLE: ToolPage = {
     steps: [
       "**Describe the page honestly.** The title has to match what's actually on it, or Google is more likely to rewrite it.",
       "**Add the keyword people search.** One keyword, not five.",
-      "**Pick the title that's both accurate and clickable,** then check the width bar.",
+      "**Make sure the title is both accurate and clickable,** then check the width bar.",
     ],
   },
   examples: {
@@ -125,7 +125,7 @@ export const META_DESCRIPTION: ToolPage = {
   metaDescription: "This free meta description generator writes 3 descriptions from your page and keyword, sized to show in full on Google, with a live preview.",
   h1: { regular: "Free Meta", accent: "Description Generator" },
   heroDescription:
-    "This meta description generator writes three descriptions from your page summary and keyword, each sized to show in full on Google. Pick one, check the preview, paste it into your SEO plugin.",
+    "This meta description generator writes a description from your page summary and keyword, sized to show in full on Google. Check the preview, paste it into your SEO plugin.",
   accessNote: FAIR_USE,
   workspace: {
     fields: [
@@ -135,12 +135,12 @@ export const META_DESCRIPTION: ToolPage = {
       { name: "facts", label: "Key facts worth showing (optional)", type: "text", placeholder: "Starts at $299/month, 48 hour turnaround", maxLength: 300 },
       { name: "title", label: "Your SEO title (optional)", type: "text", placeholder: "Restaurant Bookkeeping Services by Ledgerly", maxLength: 120 },
     ],
-    button: "Write my meta descriptions",
+    button: "Write my meta description",
     secondary: "Try an example",
     exampleInput: metaService,
-    resultsHeading: "Your meta descriptions",
-    emptyState: "Three descriptions show up here, each with a counter and a Google style preview.",
-    more: "Write 3 more",
+    resultsHeading: "Your meta description",
+    emptyState: "Your description shows up here, with a counter and a Google style preview.",
+    more: "Regenerate",
     dataNote: dataNote("descriptions"),
     smallPrint: "Preview is approximate. Google may show different text.",
     errorText: ERROR_TEXT,
@@ -151,7 +151,7 @@ export const META_DESCRIPTION: ToolPage = {
     steps: [
       "**Summarize the page.** What's on it, who it's for, what they can do there.",
       "**Add one keyword and any hard facts.** Prices, timeframes and specs make descriptions specific.",
-      "**Pick, preview, paste.** Drop it into Yoast, Rank Math, Webflow or your page's meta tag.",
+      "**Preview, then paste.** Drop it into Yoast, Rank Math, Webflow or your page's meta tag.",
     ],
   },
   examples: {

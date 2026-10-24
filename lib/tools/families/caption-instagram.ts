@@ -39,7 +39,7 @@ export function captionStudioFields(p: CaptionPlatform): ToolField[] {
     },
     { name: "post_type", label: "What are you posting?", type: "segmented", options: p.postTypes, defaultValue: p.postTypes[0], group: "essentials" },
     { name: "topic", label: "What's the post about?", type: "text", placeholder: p.copy.topic, required: true, maxLength: 300, when: NEW, group: "essentials" },
-    { name: "current_caption", label: `Paste your current ${p.platform} caption`, type: "textarea", placeholder: p.copy.current, hint: "We'll keep your facts and rewrite it three different ways.", required: true, maxLength: 2500, when: IMPROVE, group: "essentials" },
+    { name: "current_caption", label: `Paste your current ${p.platform} caption`, type: "textarea", placeholder: p.copy.current, hint: "We'll keep your facts and rewrite it into a stronger caption.", required: true, maxLength: 2500, when: IMPROVE, group: "essentials" },
     { name: "details", label: "Key details to include", type: "textarea", placeholder: p.copy.details, hint: "Optional. Real numbers, places and names make captions far better. The tool never invents them.", maxLength: 800, when: NEW, group: "essentials" },
     { name: "tone", label: "Tone", type: "select", options: ["Friendly", "Funny", "Bold", "Calm", "Professional", "Aesthetic"], defaultValue: "Friendly", group: "style" },
     { name: "goal", label: "Main goal", type: "select", options: p.goals, defaultValue: p.goals[0], group: "style" },
@@ -62,7 +62,7 @@ export function captionStudioPage(page: ToolPage, p: CaptionPlatform, studio: St
     workspace: {
       ...page.workspace,
       fields: captionStudioFields(p),
-      button: "Generate 3 captions",
+      button: "Generate my caption",
       secondary: "Try an example",
       exampleInput: { ...defaults, ...p.example },
       more: "Try another angle",
@@ -130,7 +130,7 @@ const SECTIONS: StudioSection[] = [
     steps: [
       { title: "Say what you're posting", text: "Pick photo, carousel or reel, then describe the post in a few words. Add the real details if you have them.", visual: "account" },
       { title: "Choose your style", text: "Pick a tone and a goal, then set the length, the emoji and how many hashtags you want.", visual: "style" },
-      { title: "Copy your favorite", text: "Compare three captions, see each one cut at the \"more\" point, remove any hashtag, then copy.", visual: "copy" },
+      { title: "Tweak and copy", text: "See your caption cut at the \"more\" point, ask for a fresh take or a small change, remove any hashtag, then copy.", visual: "copy" },
     ],
   },
   ...IG_CAPTION_GALLERY,
@@ -244,8 +244,8 @@ const SECTIONS: StudioSection[] = [
 ];
 
 const STUDIO: StudioContent = {
-  lede: "This Instagram caption generator turns a few notes into three captions with a strong first line, the right length and a handful of specific hashtags.",
-  sub: "Say what you're posting, pick a style, and see each caption on a real looking post before you copy it.",
+  lede: "This Instagram caption generator turns a few notes into a caption with a strong first line, the right length and a handful of specific hashtags.",
+  sub: "Say what you're posting, pick a style, and see your caption on a real looking post before you copy it.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: SECTIONS,
 };
@@ -266,9 +266,10 @@ export function instagramCaptionPage(page: ToolPage): ToolPage {
         { q: "Where does Instagram cut my caption off?", a: "In the feed, people usually see the first line or two before \"more\". Instagram doesn't publish an exact number, so the preview shows a typical cut point." },
         { q: "Do keywords in captions help on Instagram?", a: "Instagram doesn't publish exactly how search ranks posts, but plain words that describe the post make it clearer to people and to search. Add a search phrase and the tool works it in naturally, without stuffing." },
         { q: "Can I edit my Instagram caption after posting?", a: "Yes. Instagram lets you edit a caption on a post you've already shared." },
-        { q: "Does the tool see my photo or video?", a: "No. It only uses what you type, so describe the post and check the caption matches it." },
+        { q: "Does the tool see my photo or video?", a: "It sees your photo if you upload one, and uses what it can clearly see to write the caption. The photo isn't stored. It can't watch video, so describe a reel in your notes and check the caption matches it." },
+        { q: "How many captions do I get?", a: "One caption written for your post. Click Regenerate for a fresh take, or use Refine to type a change or tap a chip like Shorter." },
         { q: "Will it make things up?", a: "No. It only uses your details. If a stronger caption needs a number or a fact, it tells you what to add instead of inventing one." },
-        { q: "Can it write captions in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all three captions come out in it." },
+        { q: "Can it write captions in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your caption comes out in it." },
       ],
       related: [],
       extraLinks: [],

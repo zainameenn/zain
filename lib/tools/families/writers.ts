@@ -10,7 +10,7 @@ import { titleStudioPage } from "./title-youtube";
 const CHECKED = "October 18, 2026";
 const LANG: ToolField = { name: "language", label: "Language", type: "select", options: BIO_LANGUAGES, defaultValue: "English", group: "advanced" };
 const free = (tool: string) => ({ q: `Is this ${tool} free?`, a: `Yes. ${FAIR_USE}` });
-const langFaq = (n: string) => ({ q: `Can it write ${n} in other languages?`, a: "Yes. Open \"More ways to personalize\", pick your language, and every result comes out in it." });
+const langFaq = (n: string) => ({ q: `Can it write ${n} in other languages?`, a: "Yes. Open \"More ways to personalize\", pick your language, and your result comes out in it." });
 
 // ---------- YouTube Description Generator ----------
 
@@ -37,7 +37,7 @@ export function youtubeDescriptionPage(page: ToolPage): ToolPage {
       steps: [
         ["Say what the video covers", "Add the topic, the key points and the phrase people would search for."],
         ["Choose your style", "Pick a tone, a goal and a length. Paste timestamps and links if you have them."],
-        ["Copy your favorite", "Compare three descriptions on a YouTube watch page, see where \"...more\" cuts in, then copy."],
+        ["Tweak and copy", "See your description on a YouTube watch page and where \"...more\" cuts in, ask for a fresh take or a small change, then copy."],
       ],
       compare: {
         intro: "Most weak descriptions are an afterthought. The first two lines are a second chance to sell the video.",
@@ -69,8 +69,8 @@ export function youtubeDescriptionPage(page: ToolPage): ToolPage {
       ],
       cta: "social",
     },
-    "This YouTube description generator turns your notes into three descriptions with a strong first line, your timestamps and links in the right place, and the phrase people search.",
-    "Say what your video covers, pick a style, and see each description on a YouTube watch page before you copy it.",
+    "This YouTube description generator turns your notes into a description with a strong first line, your timestamps and links in the right place, and the phrase people search.",
+    "Say what your video covers, pick a style, and see your description on a YouTube watch page before you copy it.",
   );
   return studioWriterPage(
     {
@@ -96,7 +96,7 @@ export function youtubeDescriptionPage(page: ToolPage): ToolPage {
       noun: "description",
       skin: "youtube-watch",
       fields,
-      button: "Generate 3 descriptions",
+      button: "Generate my description",
       limit: 5000,
       example: { topic: "How I cut my grocery bill in half without coupons", notes: "$30 weekly list, 3 meals a day, batch cooks on Sunday", keyword: "cheap grocery list", tone: "Friendly", goal: "Watch time", length: "Medium", emoji: "No", chapters: "0:00 Intro\n1:12 The list\n4:30 Batch cooking", links: "", audience: "Students living alone", cta: "", name: "Five Dollar Feed", language: "English" },
       dataNote: "AI can get things wrong. Check that every detail matches your video before you publish.",
@@ -128,7 +128,7 @@ export function pinterestDescriptionPage(page: ToolPage): ToolPage {
       steps: [
         ["Say what the pin is about", "Add the topic, the real details and the phrase pinners search for."],
         ["Choose your style", "Pick a tone, a goal and a length."],
-        ["Copy your favorite", "Compare three descriptions on a pin, then copy the one you like."],
+        ["Tweak and copy", "See your description on a pin, ask for a fresh take or a small change, then copy it."],
       ],
       compare: {
         intro: "Pinterest works like a search engine. A good description tells it, and pinners, exactly what the pin is.",
@@ -160,8 +160,8 @@ export function pinterestDescriptionPage(page: ToolPage): ToolPage {
       ],
       cta: "social",
     },
-    "This Pinterest description generator turns your notes into three descriptions written the way pinners search, with real details and one clear next step.",
-    "Say what your pin is about, pick a style, and see each description on a pin before you copy it.",
+    "This Pinterest description generator turns your notes into a description written the way pinners search, with real details and one clear next step.",
+    "Say what your pin is about, pick a style, and see your description on a pin before you copy it.",
   );
   return studioWriterPage(
     {
@@ -186,7 +186,7 @@ export function pinterestDescriptionPage(page: ToolPage): ToolPage {
       noun: "description",
       skin: "pinterest-description",
       fields,
-      button: "Generate 3 descriptions",
+      button: "Generate my description",
       limit: 800,
       example: { topic: "Small balcony garden setup for renters", notes: "$40 total, herbs and trailing plants, nothing drilled into the walls", keyword: "small balcony garden ideas", tone: "Calm", goal: "Saves", length: "Short", audience: "Renters", cta: "", name: "Tiny Green Flat", language: "English" },
       dataNote: "AI can get things wrong. Make sure the description matches your pin and the page it links to.",
@@ -206,8 +206,8 @@ export function pinterestTitlePage(page: ToolPage): ToolPage {
       noun: "Pinterest title",
       steps: [
         ["Say what the pin is about", "Add the topic and the phrase pinners would search for."],
-        ["Choose your style", "Clear, curious, bold or calm. Add who it's for and the payoff for sharper titles."],
-        ["Copy your favorite", "Compare six titles on a pin, then copy the one you like."],
+        ["Choose your style", "Clear, curious, bold or calm. Add who it's for and the payoff for a sharper title."],
+        ["Tweak and copy", "See your title on a pin, ask for a fresh take or a small change, then copy it."],
       ],
       compare: {
         intro: "Pinterest rewards titles that say exactly what the pin is. Clever rarely beats clear here.",
@@ -239,8 +239,8 @@ export function pinterestTitlePage(page: ToolPage): ToolPage {
       ],
       cta: "social",
     },
-    "This Pinterest title generator writes six pin titles around the phrase pinners search, each under 100 characters and clear about what the pin is.",
-    "Say what your pin is about, add your search phrase, and see each title on a pin before you copy it.",
+    "This Pinterest title generator writes a pin title around the phrase pinners search, under 100 characters and clear about what the pin is.",
+    "Say what your pin is about, add your search phrase, and see your title on a pin before you copy it.",
   );
   return titleStudioPage(
     {
@@ -298,7 +298,7 @@ export function seoTitlePage(page: ToolPage): ToolPage {
       steps: [
         ["Say what's on the page", "Describe the page and add the keyword you want it to rank for."],
         ["Pick the page type and intent", "A blog post and a service page need different titles. So do learners and buyers."],
-        ["Copy your favorite", "Compare the titles on a Google result, check the length, then copy."],
+        ["Tweak and copy", "See your title on a Google result, check the length, ask for a fresh take or a small change, then copy."],
       ],
       gallery: {
         heading: "6 SEO titles",
@@ -344,7 +344,7 @@ export function seoTitlePage(page: ToolPage): ToolPage {
       cta: "seo",
     },
     "This SEO title generator writes title tags around your target keyword, sized to show in full on Google and matched to what searchers want.",
-    "Describe the page, add your keyword, and see each title on a Google result before you copy it.",
+    "Describe the page, add your keyword, and see your title on a Google result before you copy it.",
   );
   return studioWriterPage(
     {
@@ -355,7 +355,7 @@ export function seoTitlePage(page: ToolPage): ToolPage {
         { q: "How long should an SEO title be?", a: "Google doesn't publish a fixed limit, but titles over about 60 characters often get cut. The tool aims for 50 to 60." },
         { q: "Does Google always use my title?", a: "Not always. Google can rewrite titles it thinks don't match the page. A clear, accurate title makes that less likely." },
         { q: "Should my brand name be in the title?", a: "Usually at the end, after a separator. Add it under \"More ways to personalize\"." },
-        { q: "Can these titles guarantee rankings?", a: "No. A good title helps people click and helps Google understand the page, but rankings depend on much more." },
+        { q: "Can this title guarantee rankings?", a: "No. A good title helps people click and helps Google understand the page, but rankings depend on much more." },
         { q: "Will it make things up?", a: "No. It only uses what you describe. It won't promise anything the page doesn't offer." },
       ],
       related: [],
@@ -366,10 +366,10 @@ export function seoTitlePage(page: ToolPage): ToolPage {
       noun: "title",
       skin: "google-title",
       fields,
-      button: "Generate titles",
+      button: "Generate my title",
       limit: 65,
       example: { summary: "A guide to fixing slow WordPress sites without plugins, with 7 fixes", keyword: "speed up wordpress", page_type: "Blog post", intent: "Learn", brand: "" },
-      dataNote: "AI can get things wrong. Make sure each title matches what's really on the page.",
+      dataNote: "AI can get things wrong. Make sure the title matches what's really on the page.",
     },
     studio,
   );
@@ -388,7 +388,7 @@ export function metaDescriptionPage(page: ToolPage): ToolPage {
       steps: [
         ["Say what's on the page", "Describe the page and add the keyword you want it to rank for."],
         ["Add your facts", "Prices, numbers and features make a description worth clicking. Add your title to see the full result."],
-        ["Copy your favorite", "Compare descriptions on a Google result, check the length, then copy."],
+        ["Tweak and copy", "See your description on a Google result, check the length, ask for a fresh take or a small change, then copy."],
       ],
       gallery: {
         heading: "6 meta descriptions",
@@ -434,7 +434,7 @@ export function metaDescriptionPage(page: ToolPage): ToolPage {
       cta: "seo",
     },
     "This meta description generator writes search snippets around your keyword and real facts, sized for Google, so searchers have a reason to pick your page.",
-    "Describe the page, add your facts, and see each description on a Google result before you copy it.",
+    "Describe the page, add your facts, and see your description on a Google result before you copy it.",
   );
   return studioWriterPage(
     {
@@ -456,7 +456,7 @@ export function metaDescriptionPage(page: ToolPage): ToolPage {
       noun: "description",
       skin: "google-description",
       fields,
-      button: "Generate descriptions",
+      button: "Generate my description",
       limit: 160,
       example: { summary: "Service page for bookkeeping for restaurants, monthly packages, free review call", keyword: "restaurant bookkeeping", page_type: "Service page", facts: "Starts at $299/month, 48 hour turnaround", title: "Restaurant Bookkeeping Services | Ledgerly", name: "Ledgerly" },
       dataNote: "AI can get things wrong. Make sure every fact is true for your page.",

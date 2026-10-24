@@ -9,6 +9,8 @@ import { countChars } from "@/lib/tools/validate";
 import { Crumbs, rich } from "../_components/content";
 import { BioStudio } from "./BioStudio";
 import { CaptionStudio } from "./CaptionStudio";
+import { V2Tool } from "./V2Tool";
+import { v2SpecForSlug } from "@/lib/tools/v2/client-spec";
 import { ToolWorkspace } from "../_components/ToolWorkspace";
 import { lora } from "./fonts";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
@@ -377,6 +379,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
 
 export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<string, unknown> }) {
   const studio = tool.studio!;
+  const v2 = v2SpecForSlug(tool.slug);
   const cta = studio.sections.find((x) => x.kind === "cta");
   const bands = studio.sections.filter((x) => x.kind !== "cta" && (x.kind !== "related" || x.tools.some((t) => TOOLS[t.slug])));
   return (
@@ -392,7 +395,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.sub}>{studio.sub}</p>
           <p className={s.trust}>{studio.trust}</p>
         </header>
-        {studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
+        {v2 ? <V2Tool spec={v2} skin={"skin" in studio ? studio.skin : undefined} label={"label" in studio ? studio.label : undefined} /> : studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
       </div>
 
       {bands.map((section, i) => (

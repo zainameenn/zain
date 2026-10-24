@@ -121,7 +121,7 @@ const BRANDS: BrandExample[] = [
 
 const STUDIO: StudioContent = {
   lede: "This Threads bio generator writes bios that sound like a real person, start conversations, and fit in 150 characters.",
-  sub: "Choose your style, tell us what your account is about, and get five bios ready to copy.",
+  sub: "Choose your style, tell us what your account is about, and get a bio ready to copy.",
   trust: `Free to use, no signup required. ${FAIR_USE.replace("Free to use. ", "")}`,
   sections: [
     {
@@ -133,7 +133,7 @@ const STUDIO: StudioContent = {
       steps: [
         { title: "Tell us about your account", text: "Pick personal, creator or business, then choose your niche or type your own.", visual: "account" },
         { title: "Choose your style", text: "Pick a tone, how many emoji you want, and one line or several.", visual: "style" },
-        { title: "Copy your favorite", text: "Compare five bios, preview any of them on the phone, then paste one into Edit profile on Threads.", visual: "copy" },
+        { title: "Tweak and copy", text: "Preview your bio on the phone, ask for a fresh take or a small change, then paste it into Edit profile on Threads.", visual: "copy" },
       ],
     },
     {
@@ -321,8 +321,8 @@ export function threadsPage(page: ToolPage): ToolPage {
         { q: "What are Interests on a Threads profile?", a: "Topics you add to your profile, up to 10. Tapping one takes people to conversations about that topic, so they're the best place to list what you post about." },
         { q: "Should I use hashtags in my Threads bio?", a: "Use the Interests field for topics instead. It was built for exactly that, and it keeps your bio free for personality." },
         { q: "Will the AI make things up about me?", a: "No. It only uses what you type. If a bio would be stronger with a real number or result, it suggests what to add instead of inventing one." },
-        { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my bio\", paste your Threads, Instagram or X bio, and you'll get five Threads versions that keep your facts." },
-        { q: "Can it write bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and all five bios come out in it." },
+        { q: "Can it rewrite the bio I already have?", a: "Yes. Switch to \"Improve my bio\", paste your Threads, Instagram or X bio, and you'll get a Threads version that keeps your facts." },
+        { q: "Can it write bios in other languages?", a: "Yes. Open \"More ways to personalize\", pick your language, and your bio comes out in it." },
       ],
       related: [],
       extraLinks: [],
