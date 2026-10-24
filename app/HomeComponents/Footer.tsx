@@ -1,5 +1,7 @@
 import { ArrowIcon, ChevronIcon, MailIcon, LinkedInIcon } from "./icons";
+import Link from "next/link";
 import { Img } from "./Img";
+import { TOOL_MENU } from "@/lib/tools/menu";
 
 const FOOT_GROUPS = [
   {
@@ -104,6 +106,28 @@ export default function Footer() {
                 </div>
               </details>
             ))}
+            <details className="group" style={{ borderBottom: "1px solid #2F2E2B" }}>
+              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D9D5CC" }}>
+                Free tools
+                <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-200 group-open:rotate-180" style={{ border: "1px solid #33322F", color: "#D3AE82" }}>
+                  <ChevronIcon size={12} />
+                </span>
+              </summary>
+              <div style={{ paddingBottom: 12 }}>
+                {TOOL_MENU.map((g) => (
+                  <div key={g.h} style={{ paddingTop: 8 }}>
+                    <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" }}>{g.h}</div>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", columnGap: 16 }}>
+                      {g.items.map(([name, href]) => (
+                        <a key={href} href={href} className="flex min-h-11 items-center" style={{ fontSize: 15, color: "#B7B2A8" }}>
+                          {name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </details>
           </div>
 
           {FOOT_GROUPS.map((g) => (
@@ -141,6 +165,31 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Tablet and desktop: every free tool, grouped, in one band under the main columns */}
+        <div className="max-md:!hidden" style={{ padding: "clamp(32px,4vw,44px) 0", borderBottom: "1px solid #2F2E2B", display: "grid", gap: "28px 24px" }}>
+          <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 24 }}>
+            <div style={{ ...HEADING_STYLE, marginBottom: 0 }}>Free tools</div>
+            <Link href="/tools" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 13.5, fontWeight: 600, color: "#D3AE82" }}>
+              All free, no signup
+              <ArrowIcon />
+            </Link>
+          </div>
+          <div style={{ display: "grid", gap: "28px 24px" }} className="grid-cols-3 lg:grid-cols-5">
+            {TOOL_MENU.map((g) => (
+              <div key={g.h}>
+                <div style={{ marginBottom: 12, fontSize: 13, fontWeight: 600, color: "#F2EFEA" }}>{g.h}</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+                  {g.items.map(([name, href]) => (
+                    <a key={href} href={href} style={{ fontSize: 14, color: "#B7B2A8" }}>
+                      {name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

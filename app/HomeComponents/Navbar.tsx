@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowIcon, ChevronIcon } from "./icons";
 import { Img } from "./Img";
+import { TOOL_MENU, type ToolMenuGroup } from "@/lib/tools/menu";
 
 // wide: hidden from the desktop bar between 768 and 1023px, where six links don't fit next to the button (still in the mobile menu and footer).
 const NAV_LINKS: { t: string; href: string; wide?: boolean }[] = [
@@ -30,10 +31,11 @@ const CASE_STUDY_MENU = [
   { t: "LoomPad", d: "My own Etsy store: $4,381 from 120 orders.", href: "/case-studies/loompad" },
 ];
 
-/** Nav items that open a dropdown, with the "view all" link at the bottom. */
-const DROPDOWNS: Record<string, { items: { t: string; d: string; href: string }[]; all: { t: string; href: string } }> = {
+/** Nav items that open a dropdown, with the "view all" link at the bottom. Free Tools opens a wider, grouped panel. */
+const DROPDOWNS: Record<string, { items: { t: string; d: string; href: string }[]; all: { t: string; href: string }; groups?: ToolMenuGroup[] }> = {
   Services: { items: SERVICE_MENU, all: { t: "View all services", href: "/services" } },
   "Case Studies": { items: CASE_STUDY_MENU, all: { t: "View all case studies", href: "/case-studies" } },
+  "Free Tools": { items: [], groups: TOOL_MENU, all: { t: "View all 23 free tools", href: "/tools" } },
 };
 
 export default function Navbar() {
@@ -132,7 +134,45 @@ export default function Navbar() {
                       }}
                     />
                   </a>
-                  {dd && (
+                  {dd && menu.groups && (
+                    <div style={{ position: "absolute", right: -150, top: "100%", paddingTop: 10, width: 880, zIndex: 90, animation: "zddin 180ms ease-out both" }}>
+                      <div style={{ background: "#F8F6F4", border: "1px solid #DDDAD3", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: "22px 22px 8px" }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: "4px 20px" }}>
+                          {[[menu.groups[0]], [menu.groups[1]], [menu.groups[2], menu.groups[4]], [menu.groups[3]]].map((col, ci) => (
+                            <div key={ci}>
+                              {col.map((g, gi) => (
+                                <div key={g.h} style={{ marginTop: gi ? 18 : 0 }}>
+                                  <div style={{ padding: "0 10px 8px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>{g.h}</div>
+                                  {g.items.map(([name, href]) => (
+                                    <a
+                                      key={href}
+                                      href={href}
+                                      style={{ display: "block", padding: "7px 10px", borderRadius: 8, fontSize: 14.5, fontWeight: 500, color: "#1C1C1C", transition: "background 160ms" }}
+                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#EEEDE7")}
+                                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                                    >
+                                      {name}
+                                    </a>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                        <a
+                          href={menu.all.href}
+                          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 14, padding: "14px 10px 10px", borderTop: "1px solid #DDDAD3", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}
+                        >
+                          <span>
+                            {menu.all.t}
+                            <span style={{ marginLeft: 10, fontWeight: 400, color: "#5A5854" }}>All free, no signup.</span>
+                          </span>
+                          <ArrowIcon />
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                  {dd && !menu.groups && (
                     <div style={{ position: "absolute", left: -8, top: "100%", paddingTop: 10, width: 380, zIndex: 90, animation: "zddin 180ms ease-out both" }}>
                       <div style={{ background: "#F8F6F4", border: "1px solid #DDDAD3", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: 8 }}>
                         {menu.items.map((m) => (
@@ -237,6 +277,18 @@ export default function Navbar() {
                       <a key={m.t} href={m.href} onClick={() => setMenuOpen(false)} style={{ padding: "10px 0", fontSize: 16, color: "#4E4C48" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
                         {m.t}
                       </a>
+                    ))}
+                    {menu.groups?.map((g) => (
+                      <div key={g.h} style={{ paddingTop: 10 }}>
+                        <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>{g.h}</div>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", columnGap: 16 }}>
+                          {g.items.map(([name, href]) => (
+                            <a key={href} href={href} onClick={() => setMenuOpen(false)} style={{ fontSize: 15.5, color: "#4E4C48" }} className="flex min-h-11 items-center">
+                              {name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                     <a href={menu.all.href} onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }} className="max-md:!min-h-11">
                       {menu.all.t}
