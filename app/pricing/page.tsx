@@ -155,7 +155,7 @@ export default function PricingPage() {
       </section>
 
       {/* Complete Growth */}
-      <section id="complete-growth" className={s.section} aria-labelledby="complete-heading">
+      <section id="complete-growth" className={`${s.section} ${s.readable}`} aria-labelledby="complete-heading">
         <PricingHeading
           id="complete-heading"
           eyebrow="Complete Growth"
@@ -171,7 +171,7 @@ export default function PricingPage() {
               <li>You want one person deciding what matters this month.</li>
               <li>You&apos;d rather not manage several specialists.</li>
             </ul>
-            <h3 className={s.smallHeading} style={{ marginTop: 28 }}>
+            <h3 className={s.smallHeading}>
               How priorities are picked
             </h3>
             <ul className={s.list}>
@@ -193,7 +193,7 @@ export default function PricingPage() {
             <p className={s.benefit} style={{ marginTop: 0 }}>
               Work is allocated by the strategy, not by package. It isn&apos;t the same as buying every service package at once, and it isn&apos;t unlimited. If one channel needs more for a while, it gets more, and another gets less.
             </p>
-            <h3 className={s.smallHeading} style={{ marginTop: 28 }}>
+            <h3 className={s.smallHeading}>
               Not included
             </h3>
             <ul className={s.list}>
@@ -224,14 +224,20 @@ export default function PricingPage() {
         <PricingHeading id="onetime-heading" eyebrow="One time" regular="Not ready for monthly?" accent="Start here." intro="Fixed scope, fixed price, and a clear next step at the end." />
         <div className={`${s.grid} ${s.gridFive}`}>
           {ONE_TIME.map((o) => (
-            <article key={o.name} className={s.card} style={{ gridRow: "auto", gridTemplateRows: "none" }} aria-label={o.name}>
-              <h3 className={s.cardName}>{o.name}</h3>
-              <div className={s.price}>
+            <article key={o.name} className={s.otCard} aria-labelledby={`ot-${o.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+              <div className={s.otHead}>
+                <h3 id={`ot-${o.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className={s.otTitle}>
+                  {o.name}
+                </h3>
+              </div>
+              <div className={s.otPrice}>
                 <span className={s.amount}>{o.price ? `$${o.price.toLocaleString("en-US")}` : "Free"}</span>
                 <span className={s.per}>{o.price ? "one time" : "no cost"}</span>
               </div>
-              <p className={s.benefit}>{o.scope}</p>
-              <p className={s.notIncluded}>Next step: {o.next}</p>
+              <p className={s.otScope}>{o.scope}</p>
+              <p className={s.otNext}>
+                <b>Next step:</b> {o.next}
+              </p>
               <div className={s.cardFoot}>
                 <a href={o.href} className={s.btn}>
                   {o.price ? "See details" : "Get the free check"}
