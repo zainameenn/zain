@@ -1,0 +1,458 @@
+/* Pricing system. Colors follow the site: cream page, near black ink, gold accent used sparingly. */
+
+.section {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: clamp(88px, 8vw, 112px) clamp(20px, 4vw, 48px) 0;
+}
+
+/* ---------- Centered headings ---------- */
+.head {
+  max-width: 850px;
+  margin: 0 auto clamp(32px, 4vw, 48px);
+  text-align: center;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6f6b64;
+}
+.h1,
+.h2 {
+  margin: 12px auto 0;
+  font-family: var(--nf-general-sans);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  color: #222021;
+}
+.h1 {
+  font-size: clamp(2rem, calc(2.6vw + 1.25rem), 3.625rem);
+  line-height: 1.08;
+}
+.h2 {
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: 1.06;
+}
+.intro {
+  max-width: 650px;
+  margin: 16px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4e4c48;
+  text-wrap: pretty;
+}
+
+/* ---------- Cards ---------- */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gridFive { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .gridFour { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.card {
+  /* Subgrid keeps names, prices, lists and buttons on the same lines across a row of cards. */
+  display: grid;
+  grid-row: span 8;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  min-width: 0;
+  padding: clamp(24px, 2.4vw, 32px);
+  border: 1px solid #ddd8ce;
+  border-radius: 22px;
+  background: #fffaf3;
+}
+.cardLabeled {
+  border-color: #b38842;
+  box-shadow: 0 0 0 1px #b38842 inset;
+}
+.cardLabel {
+  min-height: 18px;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7d6039;
+}
+.cardName {
+  margin: 8px 0 0;
+  text-align: center;
+  font-family: var(--nf-general-sans);
+  font-size: clamp(21px, 1.8vw, 25px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.cardFor {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: #6e6b66;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 18px;
+  padding: 16px 0;
+  border-top: 1px solid #e6e1d6;
+  border-bottom: 1px solid #e6e1d6;
+}
+.amount {
+  font-family: var(--nf-general-sans);
+  font-size: clamp(34px, 3.2vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  color: #222021;
+}
+.per {
+  font-size: 13.5px;
+  color: #6e6b66;
+}
+.benefit {
+  margin: 16px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #222021;
+}
+.list {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.notIncluded:empty {
+  margin: 0;
+}
+.list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: #4e4c48;
+}
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.58em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b38842;
+}
+.notIncluded {
+  margin: 14px 0 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #6e6b66;
+}
+.cardFoot {
+  display: grid;
+  gap: 12px;
+  justify-items: stretch;
+  text-align: center;
+  margin-top: 22px;
+}
+
+/* ---------- Buttons and links ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border: 1px solid #222021;
+  color: #222021;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  transition: background 160ms, color 160ms;
+}
+.btn:hover {
+  background: #222021;
+  color: #fcf2e6;
+}
+.btnDark {
+  background: #222021;
+  color: #fcf2e6;
+}
+.btnDark:hover {
+  background: #b38842;
+  border-color: #b38842;
+  color: #222021;
+}
+.btnLight {
+  width: auto;
+  background: #f2efea;
+  border-color: #f2efea;
+  color: #171717;
+}
+.btnLight:hover {
+  background: #d3ae82;
+  border-color: #d3ae82;
+  color: #171717;
+}
+.btn:focus-visible,
+.compareLink:focus-visible,
+.textLink:focus-visible,
+.tableWrap:focus-visible {
+  outline: 2px solid #b38842;
+  outline-offset: 3px;
+}
+.compareLink {
+  display: inline-block;
+  padding: 6px 2px;
+  font-size: 13.5px;
+  color: #6e6b66;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.compareLink:hover {
+  color: #222021;
+}
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-weight: 600;
+  color: #222021;
+  border-bottom: 1.5px solid #222021;
+}
+
+/* ---------- SEO audit strip ---------- */
+.extra {
+  display: grid;
+  gap: 20px 40px;
+  align-items: center;
+  margin-top: 16px;
+  padding: clamp(22px, 2.6vw, 32px);
+  border: 1px solid #ddd8ce;
+  border-radius: 22px;
+}
+@media (min-width: 768px) {
+  .extra {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+.extraHeading {
+  margin: 0 0 12px;
+  text-align: center;
+  font-family: var(--nf-general-sans);
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.inlineList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.inlineList li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #f3ece1;
+  font-size: 13.5px;
+  color: #4e4c48;
+}
+.extraPrice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ---------- Comparison table ---------- */
+.block {
+  margin-top: clamp(64px, 7vw, 96px);
+}
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid #ddd8ce;
+  border-radius: 18px;
+  background: #fffaf3;
+}
+.table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.table th,
+.table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid #ece6db;
+  vertical-align: top;
+}
+.table thead th {
+  text-align: center;
+  font-family: var(--nf-general-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: #222021;
+  background: #f6efe4;
+}
+.table td {
+  text-align: center;
+  color: #4e4c48;
+}
+.rowHead {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 180px;
+  text-align: left !important;
+  font-weight: 500;
+  color: #222021;
+  background: #fffaf3;
+}
+.table thead .rowHead {
+  background: #f6efe4;
+}
+.groupRow th {
+  position: sticky;
+  left: 0;
+  text-align: left;
+  padding-top: 18px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7d6039;
+  background: #fffaf3;
+}
+.table tbody:last-child tr:last-child > * {
+  border-bottom: 0;
+}
+.yes {
+  color: #7d6039;
+  font-weight: 700;
+}
+.dash {
+  display: inline-block;
+  width: 10px;
+  height: 1.5px;
+  vertical-align: middle;
+  background: #b9b3a8;
+}
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Definitions, exclusions, quick answers ---------- */
+.twoCol {
+  display: grid;
+  gap: 40px clamp(32px, 4vw, 56px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+.smallHeading {
+  margin: 0 0 14px;
+  text-align: center;
+  font-family: var(--nf-general-sans);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.defs,
+.faqs {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.defs dt,
+.faqs dt {
+  font-weight: 600;
+  font-size: 15px;
+  color: #222021;
+}
+.defs dd,
+.faqs dd {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #4e4c48;
+}
+.helpLine {
+  margin: clamp(40px, 5vw, 56px) 0 0;
+  text-align: center;
+  font-size: 15.5px;
+  color: #4e4c48;
+}
+
+/* ---------- Dark CTA ---------- */
+.cta {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
+  border-radius: 28px;
+  background: #171717;
+  color: #f2efea;
+  text-align: center;
+}
+.ctaHeading {
+  margin: 0;
+  max-width: 850px;
+  font-family: var(--nf-general-sans);
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.ctaText {
+  margin: 0;
+  max-width: 650px;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: #c9c4ba;
+}
+
+@media (max-width: 767.98px) {
+  .helpLine,
+  .intro,
+  .list li,
+  .defs dd,
+  .faqs dd {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

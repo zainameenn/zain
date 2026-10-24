@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { ServicePricing } from "@/app/_pricing/Pricing";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
@@ -8,7 +9,7 @@ import { Img } from "../../HomeComponents/Img";
 export const metadata = buildMetadata({
   title: "Google and Meta Ads Specialist | Fix the Funnel First | Zain",
   description:
-    "Google and Meta ads specialist. Tracking set up first, landing pages fixed, budget moved to what converts. $1,499/mo, and you own the account.",
+    "Google and Meta ads specialist. Tracking set up first, landing pages fixed, budget moved to what converts. From $899/mo, and you own the account.",
   path: "/services/google-and-meta-ads-specialist",
 });
 
@@ -25,13 +26,6 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
-function LightPill({ children }: { children: React.ReactNode }) {
-  return (
-    <span style={{ display: "inline-flex", alignItems: "center", height: 34, padding: "0 14px", borderRadius: 999, background: "#F2EFEA", color: "#1C1C1C", fontSize: 13, fontWeight: 500, whiteSpace: "nowrap" }}>
-      {children}
-    </span>
-  );
-}
 
 /** Italic Instrument Serif, no hand-drawn underline, used for most heading emphasis on this page. */
 function ItalicInline({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
@@ -206,13 +200,12 @@ const PERF_CARDS = [
   { n: "06", tag: "WHAT MATTERS", t: "Revenue / ROAS", d: "Did the economics make sense?", dark: true },
 ];
 
-const PRICING_INCLUDED = ["Campaign setup", "Conversion tracking", "Landing-page review", "Keyword research", "Audience research", "Ad copy", "Ad graphics", "Creative testing", "Budget reallocation", "Weekly optimization"];
 
 const FIT_GOOD = ["Your offer already has proven demand.", "You can handle more leads or customers.", "You're willing to set up tracking properly.", "You have enough budget to test.", "You want acquisition you can measure."];
 const FIT_BAD = ["You want guaranteed ROAS.", "You expect $5 a day to scale immediately.", "The offer has no demand yet.", "You'd rather skip tracking.", "You want to launch on every platform at once."];
 
 const FAQS: [string, string[]][] = [
-  ["How much does Google or Meta Ads management cost?", ["Management usually costs 10% to 20% of your monthly ad spend or a flat monthly fee, with freelancers typically charging $500 to $2,500 a month. My fee is $1,499 a month, and your ad budget is paid directly to Google or Meta."]],
+  ["How much does Google or Meta Ads management cost?", ["Management usually costs 10% to 20% of your monthly ad spend or a flat monthly fee, with freelancers typically charging $500 to $2,500 a month. My fee starts at $899 a month for one platform and $1,699 for Google and Meta together. Your ad budget is paid directly to Google or Meta."]],
   ["How much ad spend do I need?", ["For testing, $100 to $500 a month is usually enough to learn which keywords or audiences convert. At an average of about $5.42 per Google click, $300 to $600 gets you roughly 55 to 110 clicks. Scaling needs more, and only after something has proven itself."]],
   ["Which is better: Google Ads or Meta Ads?", ["Neither. They do different jobs. Google works when people already search for what you sell. Meta works when you need to reach people who don't know you exist yet. Many businesses need Google first, then Meta for retargeting and growth."]],
   ["Do you create the ads too?", ["Yes. I write the ad copy and design the graphics myself, so you don't need a separate designer."]],
@@ -578,7 +571,7 @@ export default function GoogleMetaAdsPage() {
               Covers the work: tracking, campaigns, creative, landing-page review and weekly optimization. Not a percentage of your spend.
             </p>
             <div style={{ marginTop: 24, display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(48px,4.6vw,64px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,499</span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(48px,4.6vw,64px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>From $899</span>
               <span style={{ color: "#9C978D" }}>per month</span>
             </div>
             <ul style={{ margin: "22px 0 0", padding: 0, listStyle: "none" }}>
@@ -631,57 +624,7 @@ export default function GoogleMetaAdsPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <CenterHead eyebrow="Pricing" title={<>One fee. <ItalicInline>Your budget stays yours.</ItalicInline></>} />
-        <div style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #D9CBB6", padding: "clamp(24px,3.4vw,48px)" }}>
-          <div style={{ display: "grid", gap: "32px 56px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
-            <div className="max-md:!text-center">
-              <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
-                GOOGLE + META ADS MANAGEMENT
-              </div>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(30px,3vw,42px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>
-                Tracking, campaigns, creative and weekly optimization.
-              </h3>
-              <div style={{ marginTop: 22, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>INCLUDED</div>
-              <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2 max-md:!text-left">
-                {PRICING_INCLUDED.map((it) => (
-                  <li key={it} className="max-md:!text-base" style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4, fontWeight: 500 }}>
-                    <span style={{ fontSize: 12, color: "#7D6039" }}>✓</span>
-                    {it}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 18 }} className="md:!pl-14 md:!border-l md:!border-[#E6E1D8] max-md:!text-center">
-              <div>
-                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(56px,5.6vw,76px)", fontWeight: 600, letterSpacing: "-0.045em", lineHeight: 1 }}>$1,499</span>
-                <span style={{ marginLeft: 10, fontSize: 15, color: "#6E6B66" }}>per month</span>
-              </div>
-              <p className="max-md:!text-base" style={{ margin: 0, fontSize: 15, lineHeight: 1.55, color: "#4E4C48" }}>Ad spend is paid directly to Google or Meta. You own the ad account.</p>
-              <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
-                Tell me about your ads
-                <ArrowIcon />
-              </a>
-              <p className="max-md:!text-base" style={{ margin: 0, paddingTop: 14, borderTop: "1px solid #E6E1D8", fontSize: 13.5, lineHeight: 1.5, color: "#6E6B66" }}>
-                Freelancers typically charge $500 to $2,500 a month for ads management. Tracking, creative and landing-page review are in this fee, not add-ons.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div style={{ marginTop: 20, borderRadius: 24, background: "#171717", color: "#F2EFEA", padding: "clamp(24px,3vw,40px)", display: "grid", gap: "24px 48px", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>NEED THE REST OF THE FUNNEL TOO?</div>
-            <div className="phone-heading" style={{ marginTop: 12, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1 }}>Everything, handled</div>
-            <p style={{ margin: "10px 0 0", color: "#C9C4BA" }}>$3,999 a month for SEO, Reddit, social, content and design. Add ads management for $1,499.</p>
-          </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "flex-start" }} className="sm:!justify-end max-sm:!justify-center">
-            {["SEO", "Reddit", "Social", "Content", "Design", "+ Ads $1,499"].map((t) => (
-              <LightPill key={t}>{t}</LightPill>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicePricing service="ads" />
 
       {/* FIT */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>

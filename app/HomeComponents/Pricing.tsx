@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import { ArrowIcon } from "./icons";
+import { COMPLETE_GROWTH, SEO_AUDIT, SERVICES } from "@/lib/pricing";
+
+// Prices come from lib/pricing.ts so the homepage always matches the pricing and service pages.
+const monthlyFrom = (id: keyof typeof SERVICES) => `$${Math.min(...SERVICES[id].packages.filter((p) => p.interval === "month" && p.price).map((p) => p.price!)).toLocaleString("en-US")}`;
 
 function Row({ n, title, children, price, sub, cta }: { n: string; title: string; children: React.ReactNode; price: string; sub?: string; cta?: { label: string } }) {
   const [hover, setHover] = useState(false);
@@ -63,7 +67,7 @@ export default function Pricing() {
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>I&apos;ll look at why your posts aren&apos;t getting seen.</p>
           <p style={{ margin: "6px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#6E6B66" }}>Coffee&apos;s on me.</p>
         </Row>
-        <Row n="02" title="Full website & SEO audit" price="$499" sub="one time" cta={{ label: "Start with an audit" }}>
+        <Row n="02" title="Full SEO audit" price={`$${SEO_AUDIT.price}`} sub="one time" cta={{ label: "Start with an audit" }}>
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
             Everything on your site, ranked by what to fix first. Most audits give you a list. This one tells you the order.
           </p>
@@ -77,20 +81,20 @@ export default function Pricing() {
         Ongoing
       </div>
       <div style={{ borderBottom: "1px solid #DDDAD3" }}>
-        <Row n="03" title="Social media management" price="$1,199" sub="per month">
+        <Row n="03" title="Social media management" price={`From ${monthlyFrom("social")}`} sub="per month">
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
-            Five posts a week, strategy, graphics, and I keep an eye on the groups and communities where your buyers hang out.
+            Planned, designed and scheduled posts for the platforms your customers use.
           </p>
-          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>Adding video or extra platforms? $1,199 to $1,499, depending on how many platforms I&apos;m handling.</p>
+          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>Three packages, from 2 platforms and 8 posts a month up to 4 platforms with short video edits.</p>
         </Row>
-        <Row n="04" title="Reddit marketing" price="$1,199" sub="per month">
+        <Row n="04" title="Reddit marketing" price={`From ${monthlyFrom("reddit")}`} sub="per month">
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
             Posts, comments and threads in the communities your buyers actually read. Built to rank on Google and get picked up by AI answers, without getting banned.
           </p>
           <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>The same approach behind thousands of Reddit conversions with $0 on ads.</p>
         </Row>
-        <Row n="05" title="SEO" price="$1,999" sub="per month">
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>Research, original articles and backlinks.</p>
+        <Row n="05" title="SEO" price={`From ${monthlyFrom("seo")}`} sub="per month">
+          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>Research, technical fixes, page optimization and, from SEO Growth, original articles.</p>
           <p style={{ margin: "6px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#6E6B66" }}>
             The part everyone quietly hates doing.
           </p>
@@ -104,18 +108,18 @@ export default function Pricing() {
         <div className="max-md:!text-center">
           <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82" }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#D3AE82" }} />
-            06 · Best value
+            06 · Complete Growth
           </div>
           <h3 style={{ margin: "18px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Everything, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>handled.</em>
+            Several channels, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>one plan.</em>
           </h3>
           <p className="max-md:!mx-auto" style={{ margin: "18px 0 0", maxWidth: 460, fontSize: 17, lineHeight: 1.55, color: "#C9C4BA" }}>
-            SEO, Reddit, social media, content and design.
+            Strategy plus up to two active channels at a time, chosen by what will move the numbers.
             <br />
             <span style={{ color: "#F2EFEA" }}>One person, one plan, one invoice.</span>
           </p>
           <ul style={{ margin: "28px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 32px", maxWidth: 520, borderTop: "1px solid #33322F" }} className="grid-cols-1 sm:!grid-cols-2 max-md:!mx-auto max-md:!text-left">
-            {["Growth strategy", "SEO", "Reddit marketing", "Social media", "Content", "Design"].map((t) => (
+            {COMPLETE_GROWTH.highlights.map((t) => (
               <li key={t} style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 0", borderBottom: "1px solid #33322F", fontSize: 15, color: "#E6E1D8" }}>
                 <span aria-hidden="true" style={{ width: 5, height: 5, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
                 {t}
@@ -124,19 +128,15 @@ export default function Pricing() {
           </ul>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }} className="md:!pl-[clamp(32px,4vw,56px)] md:!border-l md:!border-[#33322F] max-md:!text-center">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, paddingBottom: 14, borderBottom: "1px solid #33322F", fontSize: 14.5, color: "#9C978D" }}>
-            <span>Separately</span>
-            <span style={{ textDecoration: "line-through", textDecorationColor: "#6B675F", fontVariantNumeric: "tabular-nums" }}>$4,397/month</span>
-          </div>
           <div>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Together</div>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Starts at</div>
             <div className="max-md:!justify-center" style={{ marginTop: 6, display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(48px,5vw,68px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(48px,5vw,68px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>${COMPLETE_GROWTH.price?.toLocaleString("en-US")}</span>
               <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
             </div>
           </div>
           <p className="max-md:!mx-auto max-md:!text-base" style={{ margin: 0, fontSize: 14, lineHeight: 1.5, color: "#9C978D", maxWidth: 340 }}>
-            Plus you&apos;d skip managing four freelancers, which is honestly worth more than the $398.
+            It isn&apos;t every service at once. Work goes where the plan says it pays off, and bigger scopes are priced after a call.
           </p>
           <a
             href="#contact"

@@ -1,7 +1,7 @@
 const OPTIONS = [
   { t: "Agency", d: "A team, an account manager and a retainer to match. Great if you need ten people. Overkill if you need one bottleneck fixed.", dark: false },
   { t: "Full time hire", d: "Salary, benefits, recruiting time and usually one specialty. Worth it once a channel is proven.", dark: false },
-  { t: "Me", d: "One person across SEO, Reddit, social, content and ads. Plans from $1,199/mo, everything handled for $3,999/mo. No 87 slide strategy deck.", dark: true },
+  { t: "Me", d: "One person across SEO, Reddit, social, content and ads. Plans from $799/mo, Complete Growth from $4,499/mo. No 87 slide strategy deck.", dark: true },
 ];
 
 // 3 columns on desktop and tablet, stacked cards under 768px.

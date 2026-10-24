@@ -290,8 +290,8 @@ export default function ServicesPage() {
         <div className="max-[1080px]:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 20 }}>
           {[
             { n: "01", t: "I know exactly what I need", d: "Choose one of the six services above.", href: "#all-services", cta: "Pick a service", up: true },
-            { n: "02", t: "Something is wrong. I’m not sure what.", d: "Start with the $499 Growth Audit. I’ll review the current system, identify the bottlenecks and rank what I would fix first.", price: "$499 one time", href: "/services/saas-growth-consultant#pricing", cta: "Start with the growth audit", featured: true },
-            { n: "03", t: "I want someone to handle the whole thing.", d: "SEO, Reddit, social, content and design managed as one system. One person. One plan. One invoice.", price: "$3,999/month", href: "/contact", cta: "Tell me what’s stuck" },
+            { n: "02", t: "Something is wrong. I’m not sure what.", d: "Start with the $499 Growth Diagnosis. I’ll review the current system, identify the bottlenecks and rank what I would fix first.", price: "$499 one time", href: "/services/saas-growth-consultant#pricing", cta: "Start with the diagnosis", featured: true },
+            { n: "03", t: "I want someone to handle the whole thing.", d: "Strategy plus up to two active channels at a time, coordinated as one plan. One person. One invoice.", price: "From $4,499/month", href: "/contact", cta: "Tell me what’s stuck" },
           ].map((o) => (
             <div key={o.n} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "clamp(28px,3vw,40px) clamp(22px,2.4vw,32px)", borderRadius: 24, background: o.featured ? "#F4F0E8" : "#F8F6F4", border: `1px solid ${o.featured ? "#D3AE82" : "#E2DFD8"}` }}>
               <span style={{ ...SERIF, fontSize: 32, lineHeight: 1, color: "#AE834E" }}>{o.n}</span>

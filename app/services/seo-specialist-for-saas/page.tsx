@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { ServicePricing } from "@/app/_pricing/Pricing";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, Squiggle } from "../../HomeComponents/icons";
@@ -9,7 +10,7 @@ import { Img } from "../../HomeComponents/Img";
 export const metadata = buildMetadata({
   title: "SEO Specialist for SaaS | Google and AI Search | Zain",
   description:
-    "SEO specialist for SaaS. Keyword research, technical fixes, original content and links built to rank on Google and show up in AI answers. $1,999/mo.",
+    "SEO specialist for SaaS. Keyword research, technical fixes, original content and links built to rank on Google and show up in AI answers. From $1,499/mo.",
   path: "/services/seo-specialist-for-saas",
 });
 
@@ -138,13 +139,6 @@ const AFTER_STATS = [
   { v: "800 to 900", l: "daily visitors" },
 ];
 
-const PRICING_CATEGORIES = [
-  { h: "Search & strategy", items: ["Keyword research", "Competitor research", "Commercial intent", "SERP analysis"] },
-  { h: "Technical", items: ["Search Console", "Indexing / crawling", "Internal links", "Page improvements"] },
-  { h: "Content", items: ["Original articles", "Content refreshes", "Landing pages", "Search-intent optimization"] },
-  { h: "Authority", items: ["Link outreach", "Citations", "Brand mentions"] },
-  { h: "AI / GEO", items: ["AI crawler access review", "Original-data opportunities", "Brand/source visibility", "AI referral monitoring"] },
-];
 
 const FIT_GOOD = [
   "People already search for what you sell.",
@@ -161,7 +155,7 @@ const FAQS: [string, string[]][] = [
   [
     "How much does it cost to hire an SEO expert?",
     [
-      "My SEO plan is $1,999 a month, billed weekly or every two weeks. If you are not ready for monthly work, the full website and SEO audit is $499.",
+      "SEO Foundations is $1,499 a month and SEO Growth, which adds original articles, is $2,499. Larger sites start around $3,999. Monthly work is billed weekly or every two weeks. If you are not ready for monthly work, the full SEO audit is $499.",
       "For context, most SEO freelancers charge around $1,350 a month and agencies average around $3,200. You get senior work, one person to talk to, and no agency markup.",
     ],
   ],
@@ -612,75 +606,7 @@ export default function SeoPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="max-md:!pt-12" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
-        <SectionHead
-          eyebrow="Pricing"
-          title={
-            <>
-              One plan.
-              <br />
-              <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Everything SEO needs.</em>
-            </>
-          }
-          sub="No article quotas, no mystery hours. Billed weekly or every two weeks."
-        />
-        <div style={{ borderRadius: 28, background: "#171717", color: "#F2EFEA", padding: "clamp(32px,4vw,56px)", display: "grid", gap: "40px clamp(32px,5vw,72px)" }} className="md:!grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
-          <div>
-            <h3 className="max-md:!text-center" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(34px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em" }}>SEO</h3>
-            <p style={{ margin: "14px 0 0", maxWidth: 500, fontSize: 16.5, lineHeight: 1.6, color: "#C9C4BA" }}>
-              Keyword and competitor research, technical fixes, original articles, internal linking, link building through outreach, and monthly reporting on rankings, traffic and conversions.
-            </p>
-            <div style={{ marginTop: 28, display: "grid", gap: "24px 32px" }} className="sm:!grid-cols-2">
-              {PRICING_CATEGORIES.map((c) => (
-                <div key={c.h}>
-                  <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82", marginBottom: 8 }}>{c.h}</div>
-                  <ul style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #33322F" }}>
-                    {c.items.map((it) => (
-                      <li key={it} className="max-md:!text-base" style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 0", borderBottom: "1px solid #33322F", fontSize: 14.5, color: "#E6E1D8" }}>
-                        <span aria-hidden="true" style={{ width: 5, height: 5, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-                        {it}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }} className="md:!pl-14 md:!border-l md:!border-[#33322F] max-md:!text-center">
-            <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(52px,5.4vw,72px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,999</span>
-              <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
-            </div>
-            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
-              Start SEO
-              <ArrowIcon />
-            </a>
-            <div style={{ marginTop: 8, paddingTop: 18, borderTop: "1px solid #33322F" }}>
-              <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Market context</div>
-              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 14, lineHeight: 1.55, color: "#B7B2A8" }}>Most SEO freelancers average around $1,350/month and agencies around $3,200.</p>
-              <p style={{ margin: "6px 0 0", fontSize: 12.5, color: "#8B877F" }}>Source: Ahrefs survey of 439 SEO providers.</p>
-            </div>
-          </div>
-        </div>
-
-        <div style={{ marginTop: 16, borderRadius: 22, border: "1px solid #DAD8D1", background: "#FBFBF9", padding: "clamp(24px,2.6vw,36px)", display: "grid", gap: "20px clamp(24px,3vw,48px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_auto] max-md:!text-center">
-          <div>
-            <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em" }}>Not ready for monthly?</h3>
-            <p style={{ margin: "6px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 24, color: "#6B6862" }}>Start with the audit.</p>
-          </div>
-          <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48", maxWidth: 440 }}>Everything on your site, ranked by what to fix first. Most audits give you a list. This one tells you the order.</p>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 }} className="md:!items-end max-md:!items-center">
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
-              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.035em" }}>$499</span>
-              <span style={{ fontSize: 13.5, color: "#6E6B66" }}>one time</span>
-            </div>
-            <a href="#contact" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, borderBottom: "1.5px solid #1C1C1C", paddingBottom: 3 }}>
-              Start with the $499 audit
-              <ArrowIcon />
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServicePricing service="seo" />
 
       {/* FIT */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>

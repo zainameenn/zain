@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { ServicePricing } from "@/app/_pricing/Pricing";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
@@ -8,7 +9,7 @@ import { Img } from "../../HomeComponents/Img";
 export const metadata = buildMetadata({
   title: "Social Media Marketing Specialist | 5 Posts a Week | Zain",
   description:
-    "Social media marketing specialist for Facebook, Instagram and LinkedIn. Strategy, 5 posts a week, graphics and community monitoring. From $1,199/mo.",
+    "Social media marketing specialist for Facebook, Instagram and LinkedIn. Planning, original posts, graphics and scheduling. From $799/mo.",
   path: "/services/social-media-marketing-specialist",
 });
 
@@ -111,18 +112,13 @@ const PROCESS_STEPS = [
 const BUSY = ["Posts every day, same format every time", "Likes from friends and employees", "Same post copied to every platform", "No one knows if it brings customers"];
 const GOOD = ["Fewer posts, each with a clear job", "Comments and questions from real buyers", "Content rewritten for each platform", "Visits and leads tracked every month"];
 
-const PRICING_ROWS = [
-  { n: "01", t: "Social media check", d: "I'll look at why your posts aren't getting seen. ", em: "Coffee's on me.", price: "Free", per: null as string | null },
-  { n: "02", t: "Social media management", d: "Facebook, Instagram and LinkedIn. Strategy, five posts a week, graphics, publishing, community monitoring and monthly reporting.", em: null as string | null, price: "$1,199", per: "per month" },
-  { n: "03", t: "Expanded", d: "Adding video or more platforms like X, Threads or Pinterest. The price depends on how many platforms I'm handling. Bigger scopes get a custom quote.", em: null as string | null, price: "Up to $1,499", per: "per month" },
-];
 
 const FIT_GOOD = ["You have a real product or service people need", "Your buyers use Facebook, Instagram or LinkedIn", "You want posts that bring visits and leads, not just likes", "You'd rather run your business than write captions"];
 const FIT_BAD = ["You want to go viral by Friday", "You want 3 posts a day just to look active", "You'd rather buy followers than earn them"];
 
 const FAQS: [string, string[]][] = [
   ["How much should I pay someone to manage my social media?", [
-    "Most businesses pay between $500 and $5,000 a month, with most landing between $1,000 and $3,000. My plan is $1,199 a month for Facebook, Instagram and LinkedIn: strategy, five posts a week, graphics and community monitoring. Adding video or more platforms takes it up to $1,499.",
+    "Most businesses pay between $500 and $5,000 a month, with most landing between $1,000 and $3,000. My plans start at $799 a month for two platforms and 8 original pieces, $1,499 for three platforms and 16 pieces, and $2,299 for four platforms, 20 pieces and short video edits.",
     "You can find someone for $800. Just check what you're getting. If your buyers are in the US, a lot of the action happens in Facebook groups, where people ask for recommendations every day. Someone needs to show up there, not just schedule posts.",
   ]],
   ["Is it worth hiring a social media manager?", [
@@ -814,55 +810,7 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(28px,3vw,40px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
-          <div>
-            <Eyebrow>Pricing</Eyebrow>
-            <h2 className="max-md:!text-balance max-md:[&_em]:!block" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-              Three platforms.
-              <br />
-              <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>One person handling all of it.</em>
-            </h2>
-          </div>
-          <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 420 }}>No long contracts. Billed weekly or every two weeks.</p>
-        </div>
-        <div style={{ borderBottom: "1px solid #DDDAD3" }}>
-          {PRICING_ROWS.map((r) => (
-            <div key={r.n} style={{ display: "grid", gap: "10px 24px", alignItems: "center", padding: "clamp(24px,3vw,38px) clamp(8px,1vw,16px)", borderTop: "1px solid #DDDAD3" }} className="sm:!grid-cols-[48px_minmax(0,1.3fr)_minmax(0,2.6fr)_minmax(0,0.9fr)] max-sm:!justify-items-center max-sm:!text-center">
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{r.n}</span>
-              <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.7vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{r.t}</h3>
-              <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48", maxWidth: 540 }}>
-                {r.d}
-                {r.em && <Emphasis style={{ fontSize: 18, color: "#6E6B66" }}>{r.em}</Emphasis>}
-              </p>
-              <div className="sm:!justify-self-end sm:!text-right">
-                <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,32px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, whiteSpace: "nowrap" }}>{r.price}</p>
-                {r.per && <span style={{ display: "block", marginTop: 4, fontSize: 13, fontWeight: 500, color: "#6E6B66" }}>{r.per}</span>}
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="max-md:!mx-auto max-md:!text-center max-md:!text-base" style={{ margin: "14px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#6F6B64", maxWidth: 640 }}>Most businesses pay between $500 and $5,000 a month for social media management, with most landing in the $1,000 to $3,000 range.</p>
-        <div style={{ marginTop: "clamp(32px,4vw,48px)", borderRadius: 28, background: "#171717", color: "#F2EFEA", padding: "clamp(28px,3.5vw,48px)", display: "grid", gap: "28px clamp(32px,5vw,72px)", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82" }}>Want social, SEO and Reddit together?</div>
-            <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(28px,2.8vw,40px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
-              Everything, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>handled.</em>
-            </h3>
-            <p className="max-sm:!mx-auto" style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.55, color: "#C9C4BA", maxWidth: 460 }}>SEO, Reddit, social media, content and design. One person, one plan, one invoice.</p>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            <div className="max-sm:!justify-center" style={{ display: "flex", alignItems: "baseline", gap: 14, flexWrap: "wrap" }}>
-              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
-              <span style={{ fontSize: 14, color: "#9C978D" }}>per month · <span style={{ textDecoration: "line-through" }}>$4,397</span> separately</span>
-            </div>
-            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
-              Get a free social check
-              <ArrowIcon />
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServicePricing service="social" />
 
       {/* FIT */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>

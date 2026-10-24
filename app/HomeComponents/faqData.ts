@@ -8,7 +8,7 @@ export const FAQS: [string, string[]][] = [
   [
     "How much does it cost to hire a marketing specialist?",
     [
-      "A social media check is free. A full website and SEO audit is $500. Social media management runs $800 to $1,200 a month, and SEO is $2,000 a month, billed weekly or every two weeks.",
+      "A social media check is free. A full SEO audit is $499. Social media management starts at $799 a month, and SEO starts at $1,499 a month, billed weekly or every two weeks.",
       "Compared with hiring an SEO expert, a social media manager and a designer separately, you pay one person and manage one person. And unlike an agency, you talk to the person doing the work.",
     ],
   ],
@@ -46,7 +46,7 @@ export const FAQS: [string, string[]][] = [
   [
     "How much does a growth marketing specialist cost?",
     [
-      "My plans run from $1,199 to $3,999 a month depending on how many channels you need. Social or Reddit is $1,199/mo, ads management is $1,499/mo plus your ad spend, SEO is $1,999/mo, and everything handled is $3,999/mo. Not sure where to start? The full audit is $499.",
+      "Monthly plans start at $799 for social media, $899 for ads management plus your ad spend, $1,499 for SEO or Reddit, and Complete Growth starts at $4,499. Not sure where to start? The SEO audit and the Growth Diagnosis are $499 each.",
     ],
   ],
   [

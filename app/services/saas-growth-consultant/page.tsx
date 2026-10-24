@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { ServicePricing } from "@/app/_pricing/Pricing";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis } from "../../HomeComponents/icons";
@@ -118,8 +119,6 @@ const PROCESS_STEPS = [
   { n: "05", t: "Learn & scale", d: "Keep what works, cut what doesn't, repeat." },
 ];
 
-const AUDIT_REVIEW = ["What is holding growth back", "Which parts of the funnel are weak", "Which channels help, and which waste effort", "Whether the positioning is clear", "Whether the offer makes sense", "Whether traffic reaches the right people", "Where conversion is leaking", "Whether activation or retention is the real issue", "Missed opportunities"];
-const AUDIT_RECEIVE = ["Current growth diagnosis", "Bottleneck map", "Positioning / offer review", "Channel assessment", "Funnel issues", "Missed opportunities", "Ranked priorities", "Recommended next steps"];
 
 const FIT_GOOD = ["Your product or service already exists and has customers.", "You have some traction but growth is inconsistent.", "You're running several channels with no clear priority.", "You're launching something new or repositioning.", "The founder still owns too much of the growth work."];
 const FIT_BAD = ["You want guaranteed growth.", "You haven't validated the product yet.", "You only want a list of random tactics.", "You would rather not measure anything."];
@@ -127,7 +126,7 @@ const FIT_BAD = ["You want guaranteed growth.", "You haven't validated the produ
 const FAQS: [string, string[]][] = [
   ["What is GTM?", ["Go-to-market: how a product reaches the people who should buy it. Who it's for, what you say, what it costs, which channels you use and what happens after someone lands."]],
   ["What does a growth strategist actually do?", ["Finds what is actually blocking growth, decides what to fix first, and builds the plan around it. In my case I also do the work: SEO, Reddit, social, content and design."]],
-  ["How much does it cost to hire a marketing person?", ["The growth audit is $499 one time. Everything, handled, strategy plus execution across SEO, Reddit, social, content and design, is $3,999 a month. That is one person instead of a strategist, writer, designer and channel specialists."]],
+  ["How much does it cost to hire a marketing person?", ["The Growth Diagnosis is $499 one time, and the Growth Strategy Sprint with a full 90 day roadmap is $1,499. Integrated Growth Management, strategy plus hands on work on up to two channels at a time, starts at $4,499 a month. That is one person instead of a strategist and several channel specialists."]],
   ["Do you do strategy or execution?", ["Both. I don't hand over a plan and disappear. Most clients start with the audit, then decide whether they want me to run it."]],
   ["Can you work with our existing team?", ["Yes. I can own a channel, fill gaps, or set the priorities and work alongside the people you have."]],
   ["What does the $499 audit include?", ["I review your current growth system, including positioning, offer, channels, funnel, messaging and data.", "Then I identify what's holding growth back, rank the issues by priority, show where you're wasting effort, highlight missed opportunities, and give you a clear action list for what to fix first and what to do next.", "The goal is simple: you leave knowing where growth is stuck and what to do about it."]],
@@ -663,76 +662,7 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="max-md:!pt-12" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <SectionHead eyebrow="Pricing" title={<>Start with the diagnosis.<em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>Then decide.</em></>} sub="Most clients begin with the audit. You leave knowing what is wrong and what to do next, whether or not we keep working together." />
-        <div style={{ borderRadius: 28, background: "#FBFBF9", border: "1px solid #D9CBB6", padding: "clamp(24px,3.4vw,48px)" }}>
-          <div style={{ display: "grid", gap: "32px 56px", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-            <div className="max-md:!text-center">
-              <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
-                01 · DIAGNOSE · THE FIRST STEP
-              </div>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(32px,3.2vw,44px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.05 }}>Growth audit</h3>
-              <p className="max-md:!mx-auto" style={{ margin: "14px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 520 }}>
-                Not a list of marketing ideas. I review your business as it exists today, the whole growth system, and find what is actually holding it back.
-              </p>
-              <div style={{ marginTop: 24, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>WHAT I REVIEW</div>
-              <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2 max-md:!text-left">
-                {AUDIT_REVIEW.map((it) => (
-                  <li key={it} className="max-md:!text-base" style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4 }}>
-                    <span style={{ width: 5, height: 5, marginTop: ".5em", borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-                    {it}
-                  </li>
-                ))}
-              </ul>
-              <div style={{ marginTop: 24, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>WHAT YOU RECEIVE</div>
-              <ul style={{ margin: "10px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 28px", borderTop: "1px solid #E6E1D8" }} className="sm:!grid-cols-2 max-md:!text-left">
-                {AUDIT_RECEIVE.map((it) => (
-                  <li key={it} className="max-md:!text-base" style={{ display: "flex", gap: 10, padding: "10px 0", borderBottom: "1px solid #E6E1D8", fontSize: 15, lineHeight: 1.4, fontWeight: 500 }}>
-                    <span style={{ fontSize: 12, color: "#7D6039" }}>✓</span>
-                    {it}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 18 }} className="md:!pl-14 md:!border-l md:!border-[#D9CBB6] max-md:!text-center">
-              <div>
-                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(56px,5.6vw,76px)", fontWeight: 600, letterSpacing: "-0.045em", lineHeight: 1 }}>$499</span>
-                <span style={{ marginLeft: 10, fontSize: 15, color: "#6E6B66" }}>one time</span>
-              </div>
-              <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
-                Start the growth audit
-                <ArrowIcon />
-              </a>
-              <div style={{ marginTop: 8, fontSize: 12, fontWeight: 700, letterSpacing: ".12em" }}>YOU LEAVE KNOWING</div>
-              <div className="max-md:!justify-center" style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {["What's wrong", "What matters", "What to fix first", "What to do next"].map((t) => (
-                  <Pill key={t}>{t}</Pill>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style={{ marginTop: 20, borderRadius: 24, background: "#171717", color: "#F2EFEA", padding: "clamp(28px,3.4vw,44px)", display: "grid", gap: "28px 48px", alignItems: "center" }} className="sm:!grid-cols-2 max-sm:!text-center">
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>02 · THEN EXECUTE · EVERYTHING, HANDLED</div>
-            <div className="max-sm:!justify-center" style={{ marginTop: 12, display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(44px,4.4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,999</span>
-              <span style={{ color: "#9C978D" }}>per month</span>
-            </div>
-            <p className="max-sm:!mx-auto" style={{ margin: "12px 0 0", color: "#C9C4BA", maxWidth: 460, lineHeight: 1.55 }}>Strategy plus execution across SEO, Reddit, social media, content and design.</p>
-            <p style={{ margin: "8px 0 0", color: "#F2EFEA", fontWeight: 500 }}>One person. One plan. One invoice.</p>
-          </div>
-          <div className="sm:!pl-12 sm:!border-l sm:!border-[#33322F]">
-            <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Running ads too?</h3>
-            <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.55, color: "#B7B2A8" }}>Ads management can be added separately.</p>
-            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 12, height: 48, padding: "0 22px", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15, fontWeight: 600 }}>
-              Tell me what&apos;s stuck
-              <ArrowIcon />
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServicePricing service="growth" />
 
       {/* FIT */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
