@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { ServicePricing } from "@/app/_pricing/Pricing";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import Link from "next/link";
 import { ArrowIcon, Emphasis, UpArrowIcon } from "../../HomeComponents/icons";
@@ -8,7 +9,7 @@ import { Img } from "../../HomeComponents/Img";
 export const metadata = buildMetadata({
   title: "Reddit Marketing Specialist for SaaS | No Ad Spend | Zain",
   description:
-    "Reddit marketing specialist for SaaS and service brands. Subreddit research, real accounts and useful posts that keep ranking on Google. $1,199/mo.",
+    "Reddit marketing specialist for SaaS and service brands. Subreddit research, real accounts and useful posts that keep ranking on Google. From $599.",
   path: "/services/reddit-marketing-specialist",
 });
 
@@ -116,8 +117,6 @@ const PROCESS_STEPS = [
   { n: "05", t: "Measure", d: "Track what brings users, not just upvotes. Then do more of that." },
 ];
 
-const PLAN_RESEARCH = ["Subreddit research", "Community rules", "Recurring questions", "Content opportunities", "Account / reputation strategy"];
-const PLAN_EXECUTION = ["Posts", "Helpful comments", "Replies", "Community monitoring", "Opportunity tracking", "Monthly reporting"];
 
 const FIT_GOOD = [
   "Your buyers already discuss the problem you solve.",
@@ -136,7 +135,7 @@ const FAQS: [string, string[]][] = [
   [
     "How much does Reddit marketing cost, and what results can I expect?",
     [
-      "Reddit marketing is $1,199 a month, billed weekly or every two weeks. It is organic only, so there is no ad budget on top.",
+      "Reddit Strategy & Community Research is $599 one time. Ongoing plans are $1,499 or $2,499 a month, billed weekly or every two weeks. It is organic only, so there is no ad budget on top.",
       "Results depend on the niche, the communities and the product. In my experience, a strong post in a focused subreddit can bring a steady stream of users while it is active and keep bringing some for weeks after. I will tell you up front if I do not think your audience is on Reddit.",
     ],
   ],
@@ -545,67 +544,7 @@ export default function RedditMarketingPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(96px,9vw,128px) ${PAD} 0` }}>
-        <div style={{ display: "grid", gap: "16px 48px", alignItems: "end", marginBottom: "clamp(32px,3vw,44px)" }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
-          <div>
-            <Eyebrow>Pricing</Eyebrow>
-            <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Reddit marketing,</h2>
-            <p style={{ margin: "10px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(26px,2.5vw,34px)", lineHeight: 1.12, color: "#6B6862" }}>without getting banned.</p>
-          </div>
-          <p className="max-md:!mx-auto" style={{ margin: 0, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 420 }}>Organic only. No ad spend needed. Billed weekly or every two weeks.</p>
-        </div>
-        <div style={{ borderRadius: 28, background: "#171717", color: "#F2EFEA", padding: "clamp(32px,4vw,56px)", display: "grid", gap: "40px clamp(32px,5vw,72px)" }} className="md:!grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] max-md:!px-6">
-          <div>
-            <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: 0, maxWidth: 520, fontSize: 17, lineHeight: 1.55, color: "#E6E1D8" }}>Subreddit research, account building, posts, helpful comments, community monitoring and monthly reporting.</p>
-            <div style={{ marginTop: 28, display: "grid", gap: "28px 32px" }} className="sm:!grid-cols-2">
-              <div>
-                <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82" }}>Research &amp; strategy</div>
-                <ul style={{ margin: "14px 0 0", padding: 0, listStyle: "none", borderTop: "1px solid #33322F" }}>
-                  {PLAN_RESEARCH.map((it) => (
-                    <li key={it} style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 0", borderBottom: "1px solid #33322F", fontSize: 15.5, color: "#E6E1D8" }}>
-                      <span aria-hidden="true" style={{ width: 5, height: 5, borderRadius: "50%", background: "#C4A47C" }} />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82" }}>Execution &amp; monitoring</div>
-                <ul style={{ margin: "14px 0 0", padding: 0, listStyle: "none", borderTop: "1px solid #33322F" }}>
-                  {PLAN_EXECUTION.map((it) => (
-                    <li key={it} style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 0", borderBottom: "1px solid #33322F", fontSize: 15.5, color: "#E6E1D8" }}>
-                      <span aria-hidden="true" style={{ width: 5, height: 5, borderRadius: "50%", background: "#C4A47C" }} />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }} className="md:!pl-12 md:!border-l md:!border-[#33322F] max-md:!text-center">
-            <div>
-              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>Reddit marketing</div>
-              <div className="max-md:!justify-center" style={{ marginTop: 6, display: "flex", alignItems: "baseline", gap: 10 }}>
-                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(52px,5.4vw,72px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>$1,199</span>
-                <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
-              </div>
-            </div>
-            <a href="#contact" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center max-md:!mx-auto max-md:!whitespace-normal max-md:!text-center max-md:!px-4 max-lg:!whitespace-normal max-lg:!text-center" style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", whiteSpace: "nowrap", borderRadius: 12, background: "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600 }}>
-              Show me my Reddit opportunity
-              <ArrowIcon />
-            </a>
-            <div style={{ paddingTop: 18, borderTop: "1px solid #33322F" }}>
-              <p className="max-md:!text-base" style={{ margin: 0, fontSize: 14.5, color: "#E6E1D8" }}>Want Reddit, SEO and social together?</p>
-              <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.5, color: "#9C978D" }}>
-                <Link href="/pricing" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ color: "#D3AE82", borderBottom: "1px solid #6B5A40" }}>
-                  Everything, handled
-                </Link>{" "}
-                is $3,999/month. Separately, <span style={{ textDecoration: "line-through" }}>$4,397/month</span>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicePricing service="reddit" />
 
       {/* FIT */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(96px,9vw,128px) ${PAD} 0` }}>
