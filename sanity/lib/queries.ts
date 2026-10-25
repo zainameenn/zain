@@ -94,7 +94,7 @@ export const AUTHOR_SLUGS_QUERY = defineQuery(`
 `);
 
 export const SITEMAP_QUERY = defineQuery(`{
-  "posts": *[${VISIBLE_POST} && noindex != true && !defined(canonicalUrl)]{"slug": slug.current, "date": coalesce(updatedAt, publishedAt, _updatedAt)},
+  "posts": *[${VISIBLE_POST} && noindex != true && !defined(canonicalUrl)] | order(publishedAt desc){title, "slug": slug.current, "date": coalesce(updatedAt, publishedAt, _updatedAt)},
   "categories": *[_type == "category" && defined(slug.current) && hidden != true && count(*[${VISIBLE_POST} && references(^._id)]) > 0]{"slug": slug.current, _updatedAt},
   "authors": *[_type == "author" && defined(slug.current) && count(*[${VISIBLE_POST} && author._ref == ^._id]) > 0]{"slug": slug.current, _updatedAt}
 }`);

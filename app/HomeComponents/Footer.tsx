@@ -1,49 +1,52 @@
-import { ArrowIcon, ChevronIcon, MailIcon, LinkedInIcon } from "./icons";
 import Link from "next/link";
+import { ArrowIcon, MailIcon, LinkedInIcon } from "./icons";
 import { Img } from "./Img";
-import { TOOL_MENU } from "@/lib/tools/menu";
+import { TOOLS } from "@/lib/tools/registry";
 
-const FOOT_GROUPS = [
+// Four clear groups, left aligned. Every link here points to a live page.
+// Free tools are one link to the directory; the full tool list lives on /tools and /sitemap.
+const FOOT_GROUPS: { h: string; items: [string, string][] }[] = [
+  {
+    h: "Services",
+    items: [
+      ["Growth Strategy", "/services/saas-growth-consultant"],
+      ["SEO", "/services/seo-specialist-for-saas"],
+      ["Reddit Marketing", "/services/reddit-marketing-specialist"],
+      ["Social Media Management", "/services/social-media-marketing-specialist"],
+      ["Google & Meta Ads", "/services/google-and-meta-ads-specialist"],
+    ],
+  },
   {
     h: "Work",
     items: [
+      ["Case Studies", "/case-studies"],
       ["Blainy", "/case-studies/blainy"],
       ["Everdry Waterproofing", "/case-studies/everdry"],
       ["Virtarix", "/case-studies/virtarix"],
       ["LoomPad", "/case-studies/loompad"],
-      ["View all", "/case-studies"],
     ],
   },
   {
-    h: "Services",
+    h: "Resources",
     items: [
-      ["Growth strategy and GTM", "/services/saas-growth-consultant"],
-      ["SEO", "/services/seo-specialist-for-saas"],
-      ["Reddit marketing", "/services/reddit-marketing-specialist"],
-      ["Social media marketing", "/services/social-media-marketing-specialist"],
-      ["Google and Meta ads", "/services/google-and-meta-ads-specialist"],
+      ["Blog", "/blog"],
+      ["Free Tools", "/tools"],
+      ["Changelog", "/changelog"],
+      ["Sitemap", "/sitemap"],
     ],
   },
   {
     h: "Explore",
     items: [
-      ["Pricing", "/pricing"],
       ["About", "/about"],
-      ["Blog", "/blog"],
-      ["Free Tools", "/tools"],
-      ["Insights", "/insights"],
+      ["Pricing", "/pricing"],
       ["Contact", "/contact"],
-      ["Privacy", "/privacy"],
+      ["Privacy Policy", "/privacy"],
     ],
   },
 ];
 
-// Tablet: four columns under the brand block. Desktop: brand plus four columns in one row.
-// Phones: these columns are hidden and the same links appear as tap-to-open rows instead.
-const GROUP_CLASS = "max-md:!hidden";
-const CONNECT_CLASS = "col-span-2 md:col-span-1";
-
-const HEADING_STYLE: React.CSSProperties = { fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F", marginBottom: 18 };
+const HEADING_STYLE: React.CSSProperties = { margin: "0 0 16px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" };
 
 const SOCIALS: { t: string; href: string; kind: "in" | "mail" | "icon"; icon?: string }[] = [
   { t: "LinkedIn", href: "https://www.linkedin.com/in/zain-ameen/", kind: "in" },
@@ -58,148 +61,76 @@ const SOCIALS: { t: string; href: string; kind: "in" | "mail" | "icon"; icon?: s
   { t: "Email", href: "mailto:hello@zainameen.com", kind: "mail" },
 ];
 
+const LINK_CLASS = "footer-link inline-flex min-h-10 items-center md:min-h-0";
+
 export default function Footer() {
   return (
     <footer style={{ background: "#171717", color: "#F2EFEA", overflow: "hidden" }}>
+      <style>{`.footer-link{color:#C9C4BA;transition:color 150ms}.footer-link:hover{color:#F2EFEA}.footer-link:focus-visible,.footer-social:focus-visible{outline:2px solid #D3AE82;outline-offset:3px;border-radius:4px}.footer-social{transition:border-color 150ms}.footer-social:hover{border-color:#8B877F}`}</style>
       <div style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(64px,7vw,96px) clamp(20px,4vw,48px) 0" }}>
-        <div
-          style={{ display: "grid", gap: "40px 24px", alignItems: "start", justifyContent: "space-between", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }}
-          className="grid-cols-2 md:grid-cols-[repeat(4,auto)] lg:grid-cols-[repeat(5,auto)]"
-        >
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 16 }} className="col-span-2 md:col-span-4 lg:col-span-1 max-md:!items-center max-md:!text-center">
-            {/* logo-dark.png has empty space around the mark; this window crops to the mark (56px tall). */}
-            <span style={{ position: "relative", display: "block", width: 62, height: 56, overflow: "hidden" }}>
-              <Img loading="lazy" src="/logo-dark-288.png" alt="Zain Ul Abdin logo" style={{ position: "absolute", left: -18.9, top: -19.3, width: 93.8, height: 93.8, maxWidth: "none" }} />
-            </span>
-            <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15, whiteSpace: "nowrap" }}>
-              Growth marketing
-              <br />
-              without the stress.
-            </p>
-            <p style={{ margin: 0, fontSize: 13, color: "#8B877F", whiteSpace: "nowrap" }}>
-              Free 30 minute call.
-              <br />
-              You&apos;ll leave with at least one thing to fix.
-            </p>
-            <a href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#D3AE82", borderBottom: "1.5px solid #D3AE82" }}>
-              Tell me what&apos;s stuck
-              <ArrowIcon />
+        <div style={{ display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "start", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }} className="lg:grid-cols-[minmax(0,1.3fr)_minmax(0,3fr)]">
+          {/* Brand */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 18, maxWidth: 400 }}>
+            <Link href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              {/* logo-dark.png has empty space around the mark; this window crops to the mark. */}
+              <span style={{ position: "relative", display: "block", width: 44, height: 40, overflow: "hidden", flex: "0 0 auto" }}>
+                <Img loading="lazy" src="/logo-dark-288.png" alt="" style={{ position: "absolute", left: -13.4, top: -13.8, width: 67, height: 67, maxWidth: "none" }} />
+              </span>
+              <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Zain Ul Abdin</span>
+            </Link>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>Helping SaaS and service businesses grow through SEO, Reddit, social media and practical marketing.</p>
+            <a href="mailto:hello@zainameen.com" className="footer-link" style={{ display: "inline-flex", alignItems: "center", gap: 10, minHeight: 40, fontSize: 15, fontWeight: 500, color: "#D3AE82" }}>
+              <MailIcon size={15} color="#D3AE82" />
+              hello@zainameen.com
             </a>
-          </div>
-
-          {/* Phones only: link groups as tap-to-open rows (native details, works without JavaScript) */}
-          <div className="col-span-2 md:hidden" style={{ borderTop: "1px solid #2F2E2B" }}>
-            {FOOT_GROUPS.map((g) => (
-              <details key={g.h} className="group" style={{ borderBottom: "1px solid #2F2E2B" }}>
-                <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D9D5CC" }}>
-                  {g.h}
-                  <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-200 group-open:rotate-180" style={{ border: "1px solid #33322F", color: "#D3AE82" }}>
-                    <ChevronIcon size={12} />
-                  </span>
-                </summary>
-                <div style={{ display: "flex", flexDirection: "column", paddingBottom: 12 }}>
-                  {g.items.map(([t, href]) => (
-                    <a key={t} href={href} className="flex min-h-11 items-center" style={{ fontSize: 15, color: "#B7B2A8" }}>
-                      {t}
-                    </a>
-                  ))}
-                </div>
-              </details>
-            ))}
-            <details className="group" style={{ borderBottom: "1px solid #2F2E2B" }}>
-              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D9D5CC" }}>
-                Free tools
-                <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-200 group-open:rotate-180" style={{ border: "1px solid #33322F", color: "#D3AE82" }}>
-                  <ChevronIcon size={12} />
-                </span>
-              </summary>
-              <div style={{ paddingBottom: 12 }}>
-                {TOOL_MENU.map((g) => (
-                  <div key={g.h} style={{ paddingTop: 8 }}>
-                    <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" }}>{g.h}</div>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", columnGap: 16 }}>
-                      {g.items.map(([name, href]) => (
-                        <a key={href} href={href} className="flex min-h-11 items-center" style={{ fontSize: 15, color: "#B7B2A8" }}>
-                          {name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </details>
-          </div>
-
-          {FOOT_GROUPS.map((g) => (
-            <div key={g.h} className={GROUP_CLASS}>
-              <div style={HEADING_STYLE}>{g.h}</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 11 }} className="max-md:!gap-0">
-                {g.items.map(([t, href]) => (
-                  <a key={t} href={href} style={{ fontSize: 15, color: "#D9D5CC" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
-                    {t}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
-
-          <div className={CONNECT_CLASS}>
-            <div style={HEADING_STYLE} className="max-md:!text-center">Connect</div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 36px)", gap: 10, justifyContent: "start" }} className="max-md:!mx-auto max-md:!flex max-md:!max-w-[260px] max-md:!flex-wrap max-md:!justify-center">
-              {SOCIALS.map((so) => (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }} aria-label="Social profiles">
+              {SOCIALS.filter((so) => so.kind !== "mail").map((so) => (
                 <a
                   key={so.t}
                   href={so.href}
-                  target={so.kind === "mail" ? undefined : "_blank"}
-                  rel={so.kind === "mail" ? undefined : "noreferrer"}
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label={so.t}
                   title={so.t}
-                  style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center", color: "#D9D5CC" }}
-                  className="max-md:!h-11 max-md:!w-11"
+                  className="footer-social max-md:!h-11 max-md:!w-11"
+                  style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
-                  {so.kind === "in" && <LinkedInIcon size={14} color="#F2EFEA" />}
-                  {so.kind === "mail" && <MailIcon size={15} color="#F2EFEA" />}
-                  {so.kind === "icon" && (
-                    <Img src={`/icons/${so.icon}-F2EFEA.svg`} alt="" aria-hidden="true" width={15} height={15} style={{ display: "block", width: 15, height: 15, objectFit: "contain" }} />
-                  )}
+                  {so.kind === "in" ? <LinkedInIcon size={14} color="#F2EFEA" /> : <Img src={`/icons/${so.icon}-F2EFEA.svg`} alt="" aria-hidden="true" width={15} height={15} style={{ display: "block", width: 15, height: 15, objectFit: "contain" }} />}
                 </a>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Tablet and desktop: every free tool, grouped, in one band under the main columns */}
-        <div className="max-md:!hidden" style={{ padding: "clamp(32px,4vw,44px) 0", borderBottom: "1px solid #2F2E2B", display: "grid", gap: "28px 24px" }}>
-          <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 24 }}>
-            <div style={{ ...HEADING_STYLE, marginBottom: 0 }}>Free tools</div>
-            <Link href="/tools" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 13.5, fontWeight: 600, color: "#D3AE82" }}>
-              All free, no signup
-              <ArrowIcon />
-            </Link>
-          </div>
-          <div style={{ display: "grid", gap: "28px 24px" }} className="grid-cols-3 lg:grid-cols-5">
-            {TOOL_MENU.map((g) => (
+          {/* Link groups: four columns on desktop and tablet, two on phones */}
+          <nav aria-label="Footer" style={{ display: "grid", gap: "36px 24px" }} className="grid-cols-2 md:grid-cols-4">
+            {FOOT_GROUPS.map((g) => (
               <div key={g.h}>
-                <div style={{ marginBottom: 12, fontSize: 13, fontWeight: 600, color: "#F2EFEA" }}>{g.h}</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-                  {g.items.map(([name, href]) => (
-                    <a key={href} href={href} style={{ fontSize: 14, color: "#B7B2A8" }}>
-                      {name}
-                    </a>
+                <h2 style={HEADING_STYLE}>{g.h}</h2>
+                <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }} className="max-md:!gap-0">
+                  {g.items.map(([t, href]) => (
+                    <li key={href}>
+                      <Link href={href} className={LINK_CLASS} style={{ fontSize: 15, lineHeight: 1.35 }}>
+                        {t === "Free Tools" ? (
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+                            Free Tools
+                            <span style={{ padding: "2px 7px", borderRadius: 999, border: "1px solid #4A473F", fontSize: 11, fontWeight: 600, color: "#D3AE82" }}>{Object.keys(TOOLS).length}</span>
+                          </span>
+                        ) : (
+                          t
+                        )}
+                      </Link>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
-          </div>
+          </nav>
         </div>
 
-        <div style={{ padding: "24px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "12px 32px", fontSize: 13, color: "#8B877F" }} className="max-md:!flex-col max-md:!items-center max-md:!gap-1 max-md:!text-center">
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }} className="max-md:!items-center">
-            <span>© 2026 Zain Ul Abdin</span>
-            <span>Built for useful growth, not vanity metrics.</span>
-          </div>
-          <a href="#top" style={{ color: "#8B877F" }} className="max-md:!inline-flex max-md:!min-h-11 max-md:!items-center">
-            Back to top ↑
+        <div style={{ padding: "22px 0 26px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "8px 24px", fontSize: 13.5, color: "#8B877F" }}>
+          <span>© {new Date().getFullYear()} Zain Ul Abdin. Built for useful growth, not vanity metrics.</span>
+          <a href="#top" className="footer-link inline-flex min-h-11 items-center gap-2" style={{ color: "#8B877F" }}>
+            Back to top <ArrowIcon style={{ transform: "rotate(-90deg)" }} />
           </a>
         </div>
       </div>

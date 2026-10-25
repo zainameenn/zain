@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
     serverSourceMaps: false,
   },
   productionBrowserSourceMaps: false,
+  // The sitemap and changelog pages read content/changelog/*.md at request time on the server.
+  outputFileTracingIncludes: {
+    "/sitemap.xml": ["./content/changelog/**/*"],
+    "/sitemap": ["./content/changelog/**/*"],
+    "/changelog/**": ["./content/changelog/**/*"],
+  },
   // Old URLs permanently redirect to the new keyword URLs.
   async redirects() {
     return [
