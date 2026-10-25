@@ -2,8 +2,8 @@
 title: Ten New Free Tools for Names, Scripts, Ads and Profit
 summary: New name generators, a Shorts script writer, Google Ads and SEO helpers, two profit calculators, a review link generator and an llms.txt builder.
 category: new-tool
-status: draft
-publishedAt:
+status: published
+publishedAt: 2026-10-25
 updatedAt:
 featuredImage: /assets/changelog/ten-new-free-tools.jpg
 imageAlt: The Etsy Offsite Ads Calculator showing profit after fees
