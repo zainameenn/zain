@@ -1,6 +1,7 @@
 import { FAIR_USE } from "./links";
 import { TOOLS } from "./registry";
 import type { Rich, ToolGroup } from "./types";
+import { V3_CONTENT } from "./v3/pages";
 
 // Content for the /tools hub. Everything is keyed by tool slug and filtered against TOOLS,
 // so a tool (and every box, link and FAQ that mentions it) only appears once its page is live.
@@ -32,6 +33,7 @@ export const HUB_CARDS: Record<string, HubCard> = {
   "linkedin-about-section-generator": { description: "Turn your experience and achievements into a readable LinkedIn About section that sounds like you.", cta: "Write your About section" },
   "linkedin-post-generator": { description: "Create LinkedIn posts from your ideas, experiences, or observations without making them sound overly corporate.", cta: "Write a post" },
   "linkedin-comment-generator": { description: "Write relevant, thoughtful LinkedIn comments that contribute something useful to the conversation.", cta: "Write a comment" },
+  ...Object.fromEntries(V3_CONTENT.map((c) => [c.slug, c.hubCard])),
 };
 
 export const hubImage = (slug: string) => `/assets/tools/hub/${slug}.webp`;
@@ -47,6 +49,8 @@ export const HUB_CATEGORIES: { group: ToolGroup; label: string; id: string; head
   { group: "SEO", label: "SEO & Planning", id: "seo-planning", heading: "Free SEO and planning tools", intro: "Page titles, meta descriptions, campaign links and a marketing plan." },
   { group: "Ecommerce", label: "Ecommerce", id: "ecommerce", heading: "Free ecommerce tools", intro: "Listing titles and product descriptions that help people buy." },
   { group: "LinkedIn", label: "LinkedIn", id: "linkedin", heading: "Free LinkedIn tools", intro: "Headlines, About sections, posts and comments that sound like you." },
+  { group: "Naming", label: "Business Naming", id: "business-naming", heading: "Free business name generators", intro: "Names for Etsy shops, Shopify stores and YouTube channels." },
+  { group: "Utilities", label: "Calculators & Utilities", id: "calculators-utilities", heading: "Free calculators and utilities", intro: "Profit calculators, review links and an llms.txt builder. No AI, all in your browser." },
 ];
 
 /** The hero's featured tool. */

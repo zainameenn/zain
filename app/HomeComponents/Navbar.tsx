@@ -35,7 +35,7 @@ const CASE_STUDY_MENU = [
 const DROPDOWNS: Record<string, { items: { t: string; d: string; href: string }[]; all: { t: string; href: string }; groups?: ToolMenuGroup[] }> = {
   Services: { items: SERVICE_MENU, all: { t: "View all services", href: "/services" } },
   "Case Studies": { items: CASE_STUDY_MENU, all: { t: "View all case studies", href: "/case-studies" } },
-  "Free Tools": { items: [], groups: TOOL_MENU, all: { t: "View all 23 free tools", href: "/tools" } },
+  "Free Tools": { items: [], groups: TOOL_MENU, all: { t: `View all ${TOOL_MENU.reduce((n, g) => n + g.items.length, 0)} free tools`, href: "/tools" } },
 };
 
 export default function Navbar() {
@@ -138,7 +138,7 @@ export default function Navbar() {
                     <div style={{ position: "absolute", right: -150, top: "100%", paddingTop: 10, width: 880, zIndex: 90, animation: "zddin 180ms ease-out both" }}>
                       <div style={{ background: "#F8F6F4", border: "1px solid #DDDAD3", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: "22px 22px 8px" }}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: "4px 20px" }}>
-                          {[[menu.groups[0]], [menu.groups[1]], [menu.groups[2], menu.groups[4]], [menu.groups[3]]].map((col, ci) => (
+                          {[[menu.groups[0], menu.groups[5]], [menu.groups[1]], [menu.groups[2], menu.groups[4]], [menu.groups[3], menu.groups[6]]].map((col, ci) => (
                             <div key={ci}>
                               {col.map((g, gi) => (
                                 <div key={g.h} style={{ marginTop: gi ? 18 : 0 }}>

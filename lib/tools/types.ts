@@ -1,7 +1,7 @@
 // Shapes shared by the page template, the client workspace and the API route.
 // Everything here is plain data, so it can cross from server to client as props.
 
-export type ToolGroup = "Social" | "SEO" | "Ecommerce" | "LinkedIn";
+export type ToolGroup = "Social" | "SEO" | "Ecommerce" | "LinkedIn" | "Naming" | "Utilities";
 
 /** `when`: the field only shows (and only counts) while another field has this value. `hint`: small text under the label. */
 /**
@@ -218,7 +218,7 @@ export type StudioSection = StudioHead &
       }
     | {
         kind: "practices";
-        items: { title: string; text: Rich; featured?: boolean; example?: { good: string; bad?: string } | { count: number } }[];
+        items: { title: string; text: Rich; featured?: boolean; example?: { good: string; bad?: string; goodLabel?: string } | { count: number } }[];
       }
     | { kind: "faq" }
     | { kind: "related"; tools: { slug: string; text: string; icon: RelatedIcon }[] }
@@ -233,7 +233,7 @@ export type StudioContent = {
   /** Phone skin for the generator and the creator breakdown. Defaults to Instagram. */
   skin?: ProfileSkin;
   /** Which generator the page runs. Bio by default; caption pages use the post preview studio. */
-  tool?: "bio" | "caption" | "legacy";
+  tool?: "bio" | "caption" | "legacy" | "v3";
   /** What the caption studio calls its results ("caption", "title", "description"). */
   noun?: string;
   /** Accessible name for the generator, e.g. "TikTok bio generator". */

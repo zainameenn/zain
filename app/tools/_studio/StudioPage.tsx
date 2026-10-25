@@ -10,6 +10,7 @@ import { Crumbs, rich } from "../_components/content";
 import { BioStudio } from "./BioStudio";
 import { CaptionStudio } from "./CaptionStudio";
 import { V2Tool } from "./V2Tool";
+import { V3Generator } from "./V3Generator";
 import { v2SpecForSlug } from "@/lib/tools/v2/client-spec";
 import { ToolWorkspace } from "../_components/ToolWorkspace";
 import { lora } from "./fonts";
@@ -317,7 +318,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
               ) : p.example ? (
                 <div className={s.examples}>
                   <p className={s.exGood}>
-                    <span className={s.exMark}>Do</span>
+                    <span className={s.exMark}>{p.example.goodLabel ?? "Do"}</span>
                     <span className={s.exText}>{p.example.good}</span>
                   </p>
                   {p.example.bad ? (
@@ -395,7 +396,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.sub}>{studio.sub}</p>
           <p className={s.trust}>{studio.trust}</p>
         </header>
-        {v2 ? <V2Tool spec={v2} skin={("skin" in studio ? studio.skin : undefined) ?? (studio.tool === "legacy" ? undefined : "instagram")} label={"label" in studio ? studio.label : undefined} /> : studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
+        {studio.tool === "v3" ? <V3Generator slug={tool.slug} name={tool.name} /> : v2 ? <V2Tool spec={v2} skin={("skin" in studio ? studio.skin : undefined) ?? (studio.tool === "legacy" ? undefined : "instagram")} label={"label" in studio ? studio.label : undefined} /> : studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
       </div>
 
       {bands.map((section, i) => (
