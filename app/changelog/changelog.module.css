@@ -190,8 +190,8 @@
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
+  object-position: center;
   transition: transform 300ms ease;
 }
 .thumb:hover img {

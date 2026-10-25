@@ -57,6 +57,7 @@ const SOCIALS: { t: string; href: string; kind: "in" | "mail" | "icon"; icon?: s
   { t: "Pinterest", href: "https://www.pinterest.com/zainameenn", kind: "icon", icon: "pinterest" },
   { t: "GitHub", href: "https://github.com/zainameenn", kind: "icon", icon: "github" },
   { t: "Upwork", href: "https://www.upwork.com/freelancers/~0135cf0916aa8d26bf", kind: "icon", icon: "upwork" },
+  { t: "Substack", href: "https://substack.com/@zainameen", kind: "icon", icon: "substack" },
   { t: "Calendly", href: "https://calendly.com/zain-ameen/30min", kind: "icon", icon: "calendly" },
   { t: "Email", href: "mailto:hello@zainameen.com", kind: "mail" },
 ];
@@ -68,9 +69,9 @@ export default function Footer() {
     <footer style={{ background: "#171717", color: "#F2EFEA", overflow: "hidden" }}>
       <style>{`.footer-link{color:#C9C4BA;transition:color 150ms}.footer-link:hover{color:#F2EFEA}.footer-link:focus-visible,.footer-social:focus-visible{outline:2px solid #D3AE82;outline-offset:3px;border-radius:4px}.footer-social{transition:border-color 150ms}.footer-social:hover{border-color:#8B877F}`}</style>
       <div style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(64px,7vw,96px) clamp(20px,4vw,48px) 0" }}>
-        <div style={{ display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "start", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }} className="lg:grid-cols-[minmax(0,1.3fr)_minmax(0,3fr)]">
+        <div style={{ display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "start", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }} className="lg:grid-cols-[auto_minmax(0,1fr)]">
           {/* Brand */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 18, maxWidth: 400 }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 20 }}>
             <Link href="/" aria-label="Zain Ul Abdin, home" style={{ display: "flex", alignItems: "center", gap: 12 }}>
               {/* logo-dark.png has empty space around the mark; this window crops to the mark. */}
               <span style={{ position: "relative", display: "block", width: 44, height: 40, overflow: "hidden", flex: "0 0 auto" }}>
@@ -78,12 +79,18 @@ export default function Footer() {
               </span>
               <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Zain Ul Abdin</span>
             </Link>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>Helping SaaS and service businesses grow through SEO, Reddit, social media and practical marketing.</p>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>
+              Helping SaaS and service businesses
+              <br />
+              grow through SEO, Reddit, social media
+              <br />
+              and practical marketing.
+            </p>
             <a href="mailto:hello@zainameen.com" className="footer-link" style={{ display: "inline-flex", alignItems: "center", gap: 10, minHeight: 40, fontSize: 15, fontWeight: 500, color: "#D3AE82" }}>
               <MailIcon size={15} color="#D3AE82" />
               hello@zainameen.com
             </a>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }} aria-label="Social profiles">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 42px)", gap: 10 }} aria-label="Social profiles">
               {SOCIALS.filter((so) => so.kind !== "mail").map((so) => (
                 <a
                   key={so.t}
@@ -92,8 +99,8 @@ export default function Footer() {
                   rel="noreferrer"
                   aria-label={so.t}
                   title={so.t}
-                  className="footer-social max-md:!h-11 max-md:!w-11"
-                  style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center" }}
+                  className="footer-social"
+                  style={{ width: 42, height: 42, borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
                   {so.kind === "in" ? <LinkedInIcon size={14} color="#F2EFEA" /> : <Img src={`/icons/${so.icon}-F2EFEA.svg`} alt="" aria-hidden="true" width={15} height={15} style={{ display: "block", width: 15, height: 15, objectFit: "contain" }} />}
                 </a>
@@ -102,7 +109,7 @@ export default function Footer() {
           </div>
 
           {/* Link groups: four columns on desktop and tablet, two on phones */}
-          <nav aria-label="Footer" style={{ display: "grid", gap: "36px 24px" }} className="grid-cols-2 md:grid-cols-4">
+          <nav aria-label="Footer" style={{ display: "grid", gap: "36px 24px" }} className="grid-cols-2 md:grid-cols-[repeat(4,max-content)] md:justify-between lg:pl-[clamp(32px,6vw,120px)]">
             {FOOT_GROUPS.map((g) => (
               <div key={g.h}>
                 <h2 style={HEADING_STYLE}>{g.h}</h2>
