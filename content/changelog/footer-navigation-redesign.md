@@ -2,8 +2,8 @@
 title: A Cleaner Footer and Easier Website Navigation
 summary: A simpler footer with clearer links to services, work, resources, updates and the sitemap.
 category: improvement
-status: draft
-publishedAt: 
+status: published
+publishedAt: 2026-10-25
 updatedAt: 
 featuredImage: /assets/changelog/footer-navigation-redesign.jpg
 imageAlt: The redesigned site footer

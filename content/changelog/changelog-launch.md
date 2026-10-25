@@ -2,8 +2,8 @@
 title: Introducing the Website Changelog
 summary: A permanent place to follow new tools, improvements, fixes and important updates.
 category: website
-status: draft
-publishedAt: 
+status: published
+publishedAt: 2026-10-25
 updatedAt: 
 featuredImage: /assets/changelog/changelog-launch.jpg
 imageAlt: The changelog page

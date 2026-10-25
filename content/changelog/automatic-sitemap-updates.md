@@ -2,8 +2,8 @@
 title: Better Site Navigation and Automatic Sitemap Updates
 summary: A new sitemap page and improved XML sitemap management for published website content.
 category: improvement
-status: draft
-publishedAt: 
+status: published
+publishedAt: 2026-10-25
 updatedAt: 
 featuredImage: /assets/changelog/automatic-sitemap-updates.jpg
 imageAlt: The human readable sitemap page
