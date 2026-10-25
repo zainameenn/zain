@@ -395,7 +395,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
           <p className={s.sub}>{studio.sub}</p>
           <p className={s.trust}>{studio.trust}</p>
         </header>
-        {v2 ? <V2Tool spec={v2} skin={"skin" in studio ? studio.skin : undefined} label={"label" in studio ? studio.label : undefined} /> : studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
+        {v2 ? <V2Tool spec={v2} skin={("skin" in studio ? studio.skin : undefined) ?? (studio.tool === "legacy" ? undefined : "instagram")} label={"label" in studio ? studio.label : undefined} /> : studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
       </div>
 
       {bands.map((section, i) => (
