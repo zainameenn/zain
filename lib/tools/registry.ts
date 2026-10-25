@@ -7,6 +7,7 @@ import { CALENDAR, MARKETING_PLAN } from "./pages/planning";
 import { META_DESCRIPTION, SEO_TITLE, UTM_BUILDER } from "./pages/seo";
 import { TOOL_META } from "./meta";
 import type { ToolGroup, ToolPage } from "./types";
+import { V3_PAGES } from "./v3/pages";
 import { metaDescriptionPage, seoTitlePage } from "./families/writers";
 import { contentCalendarPage, linkedinCommentPage, marketingPlanPage, utmBuilderPage } from "./families/writers-final";
 import { etsyTitlePage, linkedinAboutPage, linkedinHeadlinePage, linkedinPostPage, productDescriptionPage } from "./families/writers-more";
@@ -27,6 +28,7 @@ const PAGES: ToolPage[] = [
   linkedinAboutPage(ABOUT),
   linkedinPostPage(POST),
   linkedinCommentPage(COMMENT),
+  ...V3_PAGES,
 ];
 
 /**
@@ -57,6 +59,17 @@ const LIVE = new Set([
   "social-media-content-calendar-generator",
   "marketing-plan-generator",
   "utm-link-builder",
+  // October 2026: ten new tools (lib/tools/v3).
+  "etsy-shop-name-generator",
+  "shopify-store-name-generator",
+  "youtube-channel-name-generator",
+  "youtube-shorts-script-generator",
+  "google-ads-negative-keyword-generator",
+  "seo-search-intent-classifier",
+  "llms-txt-generator",
+  "etsy-offsite-ads-calculator",
+  "shopify-profit-margin-calculator",
+  "google-review-link-generator",
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));

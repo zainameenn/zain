@@ -25,6 +25,7 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["YouTube description", "/tools/youtube-description-generator"],
       ["Pinterest title", "/tools/pinterest-title-generator"],
       ["Pinterest description", "/tools/pinterest-description-generator"],
+      ["YouTube Shorts script", "/tools/youtube-shorts-script-generator"],
     ],
   },
   {
@@ -44,6 +45,9 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Marketing plan", "/tools/marketing-plan-generator"],
       ["Content calendar", "/tools/social-media-content-calendar-generator"],
       ["UTM link builder", "/tools/utm-link-builder"],
+      ["Negative keywords", "/tools/google-ads-negative-keyword-generator"],
+      ["Search intent classifier", "/tools/seo-search-intent-classifier"],
+      ["llms.txt generator", "/tools/llms-txt-generator"],
     ],
   },
   {
@@ -51,6 +55,22 @@ export const TOOL_MENU: ToolMenuGroup[] = [
     items: [
       ["Etsy title", "/tools/etsy-title-generator"],
       ["Product description", "/tools/product-description-generator"],
+    ],
+  },
+  {
+    h: "Business names",
+    items: [
+      ["Etsy shop name", "/tools/etsy-shop-name-generator"],
+      ["Shopify store name", "/tools/shopify-store-name-generator"],
+      ["YouTube channel name", "/tools/youtube-channel-name-generator"],
+    ],
+  },
+  {
+    h: "Calculators",
+    items: [
+      ["Etsy Offsite Ads", "/tools/etsy-offsite-ads-calculator"],
+      ["Shopify profit margin", "/tools/shopify-profit-margin-calculator"],
+      ["Google review link", "/tools/google-review-link-generator"],
     ],
   },
 ];

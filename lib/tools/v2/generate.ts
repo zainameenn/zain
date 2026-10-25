@@ -188,7 +188,7 @@ async function callModel(model: string, system: string, parts: object[], schema:
 }
 
 // UK and EU visitors: Gemini's free tier isn't allowed there, so these requests go to OpenRouter.
-const OPENROUTER_MODEL = process.env.TOOLS_EU_MODEL || "nvidia/nemotron-3.5-super-vl";
+const OPENROUTER_MODEL = process.env.TOOLS_EU_MODEL || "nvidia/nemotron-3.5-super-vl:free";
 
 async function callOpenRouter(system: string, parts: any[], schema: object, maxTokens: number): Promise<string> {
   const key = process.env.OPENROUTER_API_KEY;
@@ -228,7 +228,8 @@ async function callOpenRouter(system: string, parts: any[], schema: object, maxT
 
 async function callWithFallback(system: string, parts: object[], schema: object, thinking: string, maxTokens: number, eu = false) {
   // Until OPENROUTER_API_KEY is set, UK and EU visitors use Gemini like everyone else.
-  if (eu && process.env.OPENROUTER_API_KEY) return { text: await callOpenRouter(system, parts, schema, maxTokens), model: OPENROUTER_MODEL };
+  // Off until TOOLS_EU_ROUTING=on, even though the OpenRouter key now exists for the newer tools.
+  if (eu && process.env.TOOLS_EU_ROUTING === "on" && process.env.OPENROUTER_API_KEY) return { text: await callOpenRouter(system, parts, schema, maxTokens), model: OPENROUTER_MODEL };
   let last: unknown;
   for (const model of MODELS) {
     try {
