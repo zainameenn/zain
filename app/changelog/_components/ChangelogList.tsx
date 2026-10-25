@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import s from "../changelog.module.css";
 
 // Category filters, search and Load More, all in the browser. The page passes summaries only, never full articles.
@@ -27,6 +27,7 @@ export function ChangelogList({ items, categories }: { items: ListItem[]; catego
   const [q, setQ] = useState("");
   const [shown, setShown] = useState(PAGE);
   const searchId = useId();
+  const sentinel = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
     const words = q.toLowerCase().split(/\s+/).filter(Boolean);
@@ -35,6 +36,19 @@ export function ChangelogList({ items, categories }: { items: ListItem[]; catego
 
   const counts = useMemo(() => Object.fromEntries(categories.map((c) => [c.id, items.filter((i) => i.category === c.id).length])), [items, categories]);
   const visible = filtered.slice(0, shown);
+  const hasMore = filtered.length > shown;
+
+  // Load the next batch automatically as the reader gets near the end of the list.
+  // The button stays as a fallback for keyboards and browsers without IntersectionObserver.
+  useEffect(() => {
+    const el = sentinel.current;
+    if (!el || !hasMore || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) setShown((n) => n + PAGE);
+    }, { rootMargin: "600px 0px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [hasMore, shown]);
 
   return (
     <div className={s.listWrap}>
@@ -109,8 +123,8 @@ export function ChangelogList({ items, categories }: { items: ListItem[]; catego
         <p className={s.empty}>No updates match that. Try another word or category.</p>
       )}
 
-      {filtered.length > shown ? (
-        <div className={s.more}>
+      {hasMore ? (
+        <div className={s.more} ref={sentinel}>
           <button type="button" className={s.moreBtn} onClick={() => setShown((n) => n + PAGE)}>
             Load more updates
             <span className={s.filterCount}>{filtered.length - shown} more</span>
