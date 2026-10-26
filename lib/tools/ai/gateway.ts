@@ -23,22 +23,52 @@ export class AiError extends Error {
   }
 }
 
-type ModelConfig = { id: string; reasoning: Record<string, unknown> };
+// Providers, all on free plans. A model id is "provider:model"; a bare id means OpenRouter.
+// A provider whose key isn't set is skipped.
+export type Provider = "openrouter" | "groq" | "nvidia";
 
-/** Per model request settings. Flint can't switch reasoning off, so it runs with low effort. */
-const REASONING: Record<string, Record<string, unknown>> = {
-  "recursive/flint-v1.0:free": { effort: "low" },
+const PROVIDERS: Record<Provider, { url: string; keyEnv: string }> = {
+  openrouter: { url: "https://openrouter.ai/api/v1/chat/completions", keyEnv: "OPENROUTER_API_KEY" },
+  groq: { url: "https://api.groq.com/openai/v1/chat/completions", keyEnv: "GROQ_API_KEY" },
+  nvidia: { url: "https://integrate.api.nvidia.com/v1/chat/completions", keyEnv: "NVIDIA_API_KEY" },
 };
 
-export const DEFAULT_MODELS = ["nvidia/nemotron-3.5-super-vl:free", "xingchen-agi/xing4.0-29b-a4b:free", "recursive/flint-v1.0:free"];
+type ModelConfig = { id: string; provider: Provider; model: string; extra: Record<string, unknown>; reasoningTokens: number };
+
+/** Per model request settings. Flint can't switch reasoning off, so it runs with low effort. */
+function settings(provider: Provider, model: string): Pick<ModelConfig, "extra" | "reasoningTokens"> {
+  if (provider === "groq") return { extra: { reasoning_effort: "low" }, reasoningTokens: 800 };
+  if (provider === "nvidia") return { extra: {}, reasoningTokens: 0 };
+  if (model === "recursive/flint-v1.0:free") return { extra: { reasoning: { effort: "low" } }, reasoningTokens: 1200 };
+  return { extra: { reasoning: { enabled: false } }, reasoningTokens: 0 };
+}
+
+export const DEFAULT_MODELS = [
+  "groq:openai/gpt-oss-120b",
+  "groq:qwen/qwen3.8-27b",
+  "nvidia/nemotron-3.5-super-vl:free",
+  "xingchen-agi/xing4.0-29b-a4b:free",
+  "recursive/flint-v1.0:free",
+  "nvidia:z-ai/glm-5.2",
+];
 
 export function aiModels(): ModelConfig[] {
-  const ids = (process.env.OPENROUTER_MODELS || process.env.OPENROUTER_MODEL || DEFAULT_MODELS.join(","))
+  const ids = (process.env.AI_MODELS || process.env.OPENROUTER_MODELS || DEFAULT_MODELS.join(","))
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
   const allowPaid = process.env.OPENROUTER_ALLOW_PAID === "true";
-  return ids.filter((id) => allowPaid || id.endsWith(":free")).map((id) => ({ id, reasoning: REASONING[id] ?? { enabled: false } }));
+  const out: ModelConfig[] = [];
+  for (const id of ids) {
+    const m = id.match(/^(groq|nvidia):(.+)$/);
+    const provider: Provider = m ? (m[1] as Provider) : "openrouter";
+    const model = m ? m[2] : id;
+    if (provider !== "openrouter" && !process.env[PROVIDERS[provider].keyEnv]) continue;
+    // OpenRouter bills non :free models, so those need an explicit opt in.
+    if (provider === "openrouter" && !allowPaid && !model.endsWith(":free")) continue;
+    out.push({ id, provider, model, ...settings(provider, model) });
+  }
+  return out;
 }
 
 const num = (v: string | undefined, d: number) => (v && Number.isFinite(Number(v)) && Number(v) >= 0 ? Number(v) : d);
@@ -47,12 +77,20 @@ export function aiLimits() {
   return {
     /** Successful generations per visitor per UTC day. */
     visitorDaily: num(process.env.AI_VISITOR_DAILY, 2),
-    /** Provider attempts per UTC day across the whole site, kept under OpenRouter's free allowance. */
-    globalDaily: num(process.env.AI_GLOBAL_DAILY, 40),
-    /** Provider attempts per minute across the site, under OpenRouter's 20 a minute. */
-    globalMinute: num(process.env.AI_GLOBAL_MINUTE, 15),
+    /** Provider attempts per UTC day across the whole site, per provider, kept under each free allowance. */
+    daily: {
+      openrouter: num(process.env.AI_GLOBAL_DAILY, 40),
+      groq: num(process.env.AI_DAILY_GROQ, 800),
+      nvidia: num(process.env.AI_DAILY_NVIDIA, 200),
+    } as Record<Provider, number>,
+    /** Provider attempts per minute across the site, per provider, under each one's per minute limit. */
+    minute: {
+      openrouter: num(process.env.AI_GLOBAL_MINUTE, 15),
+      groq: num(process.env.AI_MINUTE_GROQ, 20),
+      nvidia: num(process.env.AI_MINUTE_NVIDIA, 20),
+    } as Record<Provider, number>,
     /** Models tried per request at most. */
-    maxAttempts: num(process.env.AI_MAX_ATTEMPTS, 3),
+    maxAttempts: num(process.env.AI_MAX_ATTEMPTS, 4),
     timeoutMs: num(process.env.OPENROUTER_TIMEOUT_MS, 45_000),
   };
 }
@@ -119,24 +157,27 @@ class ProviderError extends Error {
   constructor(
     public status: number,
     public retryAfter?: number,
+    /** True when the limit covers the whole account, not just this model. */
+    public accountWide = false,
   ) {
     super(`provider ${status}`);
   }
 }
 
 async function callModel(model: ModelConfig, a: Attempt, timeoutMs: number): Promise<unknown> {
-  const key = process.env.OPENROUTER_API_KEY;
-  if (!key) throw new AiError("config", "OPENROUTER_API_KEY is not set");
+  const p = PROVIDERS[model.provider];
+  const key = process.env[p.keyEnv];
+  if (!key) throw new ProviderError(401);
   let res: Response;
   try {
-    res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    res = await fetch(p.url, {
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json", "HTTP-Referer": "https://www.zainameen.com/tools", "X-Title": "Zain Ul Abdin free tools" },
       body: JSON.stringify({
-        model: model.id,
-        reasoning: model.reasoning,
+        model: model.model,
+        ...model.extra,
         temperature: 0.8,
-        max_tokens: a.maxTokens + (model.reasoning.effort ? 1200 : 0),
+        max_tokens: a.maxTokens + model.reasoningTokens,
         messages: [
           { role: "system", content: a.system },
           { role: "user", content: a.user },
@@ -152,13 +193,17 @@ async function callModel(model: ModelConfig, a: Attempt, timeoutMs: number): Pro
   }
   if (!res.ok) {
     let ra = Number(res.headers.get("retry-after"));
+    let accountWide = false;
     // The account wide free daily limit is shared by every free model, so wait for its reset.
     if (res.status === 429 && !(ra > 0)) {
       const text = await res.text().catch(() => "");
       const reset = Number(text.match(/"X-RateLimit-Reset":"?(\d+)/)?.[1]);
-      if (/free-models-per-day|openrouter_free_tier_daily/.test(text) && reset > Date.now()) ra = Math.ceil((reset - Date.now()) / 1000);
+      if (/free-models-per-day|openrouter_free_tier_daily/.test(text) && reset > Date.now()) {
+        ra = Math.ceil((reset - Date.now()) / 1000);
+        accountWide = true;
+      }
     }
-    throw new ProviderError(res.status, Number.isFinite(ra) && ra > 0 ? Math.min(ra, 86_400) : undefined);
+    throw new ProviderError(res.status, Number.isFinite(ra) && ra > 0 ? Math.min(ra, 86_400) : undefined, accountWide);
   }
   let body: { choices?: { message?: { content?: string | null } }[]; error?: { code?: number } };
   try {
@@ -172,7 +217,7 @@ async function callModel(model: ModelConfig, a: Attempt, timeoutMs: number): Pro
   const text = body.choices?.[0]?.message?.content?.trim();
   if (!text) throw new ProviderError(204);
   try {
-    return JSON.parse(text.replace(/^```(?:json)?\s*|\s*```$/g, ""));
+    return JSON.parse(text.replace(/<think>[\s\S]*?<\/think>/g, "").trim().replace(/^```(?:json)?\s*|\s*```$/g, ""));
   } catch {
     throw new ProviderError(422);
   }
@@ -198,10 +243,6 @@ export async function runAi<T>(req: RunRequest<T>): Promise<RunResult<T>> {
   const store = counterStore();
   const d = day();
 
-  // Everyone waits while the provider has told us to back off.
-  const cooldown = await store.ttl("ai:cooldown");
-  if (cooldown > 0) throw new AiError("busy", "provider cooldown", cooldown);
-
   const used = await store.get(`ai:v:${req.visitor}:${d}`);
   if (used >= L.visitorDaily) throw new AiError("visitor_limit", "visitor allowance used", secondsToMidnight());
 
@@ -209,13 +250,29 @@ export async function runAi<T>(req: RunRequest<T>): Promise<RunResult<T>> {
 
   let attempts = 0;
   let sawInvalid = false;
-  for (const model of models.slice(0, Math.max(1, L.maxAttempts))) {
-    // Reserve the attempt in the shared budget first, so parallel requests can't overshoot it.
-    const minuteKey = `ai:m:${new Date().toISOString().slice(0, 16)}`;
-    const [dayCount, minuteCount] = await Promise.all([store.incr(`ai:g:${d}`, 90_000), store.incr(minuteKey, 120)]);
-    if (dayCount > L.globalDaily || minuteCount > L.globalMinute) {
-      await Promise.all([store.incr(`ai:g:${d}`, 90_000, -1), store.incr(minuteKey, 120, -1)]);
-      throw new AiError("busy", dayCount > L.globalDaily ? "global daily budget used" : "global minute budget used", dayCount > L.globalDaily ? secondsToMidnight() : 60);
+  let sawDown = false;
+  let wait = Infinity;
+  const skip = new Set<Provider>();
+  for (const model of models) {
+    if (attempts >= Math.max(1, L.maxAttempts)) break;
+    const p = model.provider;
+    if (skip.has(p)) continue;
+    // A provider or model that told us to back off is skipped by everyone until then.
+    const [providerRest, modelRest] = await Promise.all([store.ttl(`ai:cooldown:${p}`), store.ttl(`ai:cooldown:${model.id}`)]);
+    if (providerRest > 0 || modelRest > 0) {
+      wait = Math.min(wait, Math.max(providerRest, modelRest));
+      if (providerRest > 0) skip.add(p);
+      continue;
+    }
+    // Reserve the attempt in the provider's shared budget first, so parallel requests can't overshoot it.
+    const dayKey = `ai:g:${p}:${d}`;
+    const minuteKey = `ai:m:${p}:${new Date().toISOString().slice(0, 16)}`;
+    const [dayCount, minuteCount] = await Promise.all([store.incr(dayKey, 90_000), store.incr(minuteKey, 120)]);
+    if (dayCount > L.daily[p] || minuteCount > L.minute[p]) {
+      await Promise.all([store.incr(dayKey, 90_000, -1), store.incr(minuteKey, 120, -1)]);
+      wait = Math.min(wait, dayCount > L.daily[p] ? secondsToMidnight() : 60);
+      skip.add(p);
+      continue;
     }
     attempts++;
     try {
@@ -233,17 +290,29 @@ export async function runAi<T>(req: RunRequest<T>): Promise<RunResult<T>> {
       const err = e as ProviderError;
       if (process.env.AI_DEBUG === "1") console.error(`[ai] ${model.id} failed: ${err.status}`);
       if (err.status === 422) sawInvalid = true;
-      // A rate limit with a known wait: pause everyone, don't retry now.
+      // A rate limit with a known wait: pause it for everyone and move on. OpenRouter's free limits are
+      // shared by the whole account, so they pause every OpenRouter model; Groq's are per model.
       if (err.status === 429 && err.retryAfter) {
-        await store.setIfAbsent("ai:cooldown", "1", err.retryAfter);
-        throw new AiError("busy", "provider rate limited", err.retryAfter);
+        const wide = err.accountWide || p === "openrouter";
+        await store.setIfAbsent(`ai:cooldown:${wide ? p : model.id}`, "1", err.retryAfter);
+        wait = Math.min(wait, err.retryAfter);
+        if (wide) skip.add(p);
+        continue;
       }
-      // 401/403 mean the key is wrong: no other model will do better.
-      if (err.status === 401 || err.status === 403) throw new AiError("config", `provider ${err.status}`);
+      // 401/403 mean this provider's key is wrong: its other models won't do better.
+      if (err.status === 401 || err.status === 403) {
+        console.error(`[ai] ${p} rejected the API key (${err.status})`);
+        skip.add(p);
+        continue;
+      }
       // Anything else (429 without Retry-After, 400 for an unsupported setting, 5xx, timeout, empty): next model.
+      sawDown = true;
     }
   }
-  throw new AiError(sawInvalid ? "invalid" : "down", "all models failed");
+  if (sawInvalid) throw new AiError("invalid", "all models failed");
+  if (sawDown) throw new AiError("down", "all models failed");
+  if (wait < Infinity) throw new AiError("busy", "every provider is resting", wait);
+  throw new AiError("config", "no provider accepted the request");
 }
 
 /** Safe usage counters for the logs: no prompts, no results, no IPs. */

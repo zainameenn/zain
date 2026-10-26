@@ -27,6 +27,9 @@ beforeEach(() => {
   calls = [];
   process.env.OPENROUTER_API_KEY = "test";
   delete process.env.OPENROUTER_MODEL;
+  delete process.env.AI_MODELS;
+  process.env.GROQ_API_KEY = "test";
+  delete process.env.NVIDIA_API_KEY;
   process.env.OPENROUTER_MODELS = "a:free,b:free,c:free";
   process.env.AI_VISITOR_DAILY = "2";
   process.env.AI_GLOBAL_DAILY = "40";
@@ -107,11 +110,31 @@ test("duplicate clicks are refused while the first is running", async () => {
   await runAi({ ...base, visitor: "d", dedupeKey: "other" });
 });
 
+test("a resting or broken provider hands over to the next provider", async () => {
+  process.env.AI_MODELS = "groq:g1,groq:g2,a:free";
+  replies = [{ status: 429, headers: { "retry-after": "20" } }, ok('{"name":"From OpenRouter"}')];
+  const out = await runAi({ ...base, visitor: "p1" });
+  assert.deepEqual(calls, ["g1", "g2"], "Groq limits are per model, so its next model still gets a go");
+  assert.equal(out.model, "groq:g2");
+  replies = [{ status: 401 }, ok('{"name":"x"}')];
+  calls = [];
+  setCounterStore(new MemoryStore());
+  assert.equal((await runAi({ ...base, visitor: "p2" })).model, "a:free");
+  assert.deepEqual(calls, ["g1", "a:free"]);
+});
+
+test("providers without a key are left out, and NVIDIA joins when its key is set", () => {
+  process.env.AI_MODELS = "groq:g1,nvidia:z-ai/glm-5.2,a:free";
+  assert.deepEqual(aiModels().map((m) => m.id), ["groq:g1", "a:free"]);
+  process.env.NVIDIA_API_KEY = "test";
+  assert.deepEqual(aiModels().map((m) => m.provider), ["groq", "nvidia", "openrouter"]);
+});
+
 test("only free models unless paid is explicitly allowed", () => {
   process.env.OPENROUTER_MODELS = "x/paid,y:free";
   assert.deepEqual(aiModels().map((m) => m.id), ["y:free"]);
   process.env.OPENROUTER_MODELS = "recursive/flint-v1.0:free";
-  assert.deepEqual(aiModels()[0].reasoning, { effort: "low" }, "Flint needs reasoning on");
+  assert.deepEqual(aiModels()[0].extra, { reasoning: { effort: "low" } }, "Flint needs reasoning on");
 });
 
 test("sensitive data is caught before it's sent", () => {
