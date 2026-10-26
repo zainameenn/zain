@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { V3Field, V3Tool } from "@/lib/tools/v3/fields";
+import type { FieldsResult } from "@/lib/tools/v3/specs-batch3";
 import type { ClusterResult, FaqResult, IntentResult, LongScriptResult, NameResult, NegativesResult, ScriptResult, TaglineResult, TitleResult } from "@/lib/tools/v3/specs";
 import { lexicalClusters, parseKeywordList } from "@/lib/tools/v3/cluster";
 import { csvCell, downloadFile, track } from "@/lib/tools/v3/track";
@@ -11,7 +12,7 @@ import s from "./studio.module.css";
 // The six AI tools added in October 2026 (OpenRouter, free model). One result per run, editable,
 // with Copy and Regenerate. Tables (negative keywords, search intent) also export to CSV.
 
-type Result = NameResult | ScriptResult | NegativesResult | IntentResult | TitleResult | LongScriptResult | FaqResult | ClusterResult;
+type Result = NameResult | ScriptResult | NegativesResult | IntentResult | TitleResult | LongScriptResult | FaqResult | ClusterResult | FieldsResult;
 
 const faqText = (items: FaqResult["items"]) => items.map((f) => `${f.question}\n${f.answer}`).join("\n\n");
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -49,6 +50,7 @@ export function V3AiTool({ tool, name }: { tool: V3Tool; name: string }) {
   const [copied, setCopied] = useState("");
   const [announce, setAnnounce] = useState("");
   const [faqs, setFaqs] = useState<FaqResult["items"]>([]);
+  const [fv, setFv] = useState<Record<string, string>>({});
   const [clusters, setClusters] = useState<EditableCluster[]>([]);
   const [ungrouped, setUngrouped] = useState<string[]>([]);
   const [clusterMode, setClusterMode] = useState(CLUSTER_MODES[0]);
@@ -67,6 +69,7 @@ export function V3AiTool({ tool, name }: { tool: V3Tool; name: string }) {
     if (tool.output === "title") setText((result as TitleResult).productTitle);
     if (tool.output === "longscript") setText((result as LongScriptResult).sections.map((s) => `${s.heading.toUpperCase()}\n${s.spokenText}`).join("\n\n"));
     if (tool.output === "faq") setFaqs((result as FaqResult).items);
+    if (tool.output === "fields") setFv(Object.fromEntries((result as FieldsResult).fields.map((f) => [f.key, f.value])));
     if (tool.output === "clusters") {
       const r = result as ClusterResult;
       setClusters(r.clusters.map((c) => ({ label: c.label, keywords: [c.primaryKeyword, ...c.secondaryKeywords], intent: c.intent, pageType: c.pageType, rationale: c.rationale, confidence: c.confidence })));
@@ -487,6 +490,72 @@ export function V3AiTool({ tool, name }: { tool: V3Tool; name: string }) {
         </div>
       </div>
     );
+  } else if (result && tool.output === "fields") {
+    const r = result as FieldsResult;
+    const val = (k: string) => fv[k] ?? "";
+    const all = [...r.fields.map((f) => `${r.fields.length > 1 ? `${f.label}: ` : ""}${f.prefix ?? ""}${val(f.key)}`), ...r.lists.map((l) => `${l.label}:\n${l.items.map((i) => `- ${i}`).join("\n")}`)].join("\n\n");
+    view = (
+      <div className={s.result}>
+        {r.fields.map((f) => {
+          const id = `${tool.slug}-out-${f.key}`;
+          const n = val(f.key).length;
+          return (
+            <div key={f.key} style={{ marginBottom: 14 }}>
+              <div className={s.resultTop}>
+                <label htmlFor={id} className={s.resultLabel}>
+                  {f.label}
+                </label>
+                {f.limit ? <span className={n > f.limit ? `${s.count} ${s.countOver}` : s.count}>{n} / {f.limit.toLocaleString()}</span> : null}
+              </div>
+              <div style={{ position: "relative" }}>
+                {f.prefix ? <span aria-hidden style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", fontSize: f.large ? 24 : 16, fontWeight: 600, color: "#7D6039" }}>{f.prefix}</span> : null}
+                {f.multiline ? (
+                  <textarea id={id} className={`${s.input} ${s.textarea}`} rows={Math.min(14, Math.max(3, Math.ceil(n / 70)))} value={val(f.key)} onChange={(e) => { setFv((o) => ({ ...o, [f.key]: e.target.value })); onEdit(e.target.value); }} style={{ lineHeight: 1.6, fontSize: f.large ? 18 : undefined, fontWeight: f.large ? 600 : undefined }} />
+                ) : (
+                  <input id={id} className={s.input} value={val(f.key)} onChange={(e) => { setFv((o) => ({ ...o, [f.key]: e.target.value })); onEdit(e.target.value); }} style={{ fontSize: f.large ? 24 : undefined, fontWeight: f.large ? 600 : undefined, height: f.large ? 58 : undefined, paddingLeft: f.prefix ? (f.large ? 34 : 28) : undefined }} />
+                )}
+              </div>
+            </div>
+          );
+        })}
+        {r.lists.map((l) => (
+          <div key={l.label} style={{ marginBottom: 12 }}>
+            <span className={s.resultLabel}>{l.label}</span>
+            <ul style={{ margin: "6px 0 0", paddingLeft: 20, display: "grid", gap: 4, fontSize: 15, lineHeight: 1.55 }}>
+              {l.items.map((i) => (
+                <li key={i}>{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        {r.notes.map((n) => (
+          <p key={n} className={s.note}>
+            {n}
+          </p>
+        ))}
+        <div className={s.resultActions}>
+          <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`} onClick={() => copy(r.fields.length === 1 && !r.lists.length ? `${r.fields[0].prefix ?? ""}${val(r.fields[0].key)}` : all)}>
+            {copied ? "Copied" : "Copy"}
+          </button>
+          {r.markdown ? (
+            <button
+              type="button"
+              className={`${s.btn} ${s.btnGhost} ${s.btnSm}`}
+              onClick={() => {
+                downloadFile(`${tool.slug.replace(/-generator$/, "")}.md`, r.markdown!, "text/markdown");
+                track("tool_download", tool.slug);
+              }}
+            >
+              Download .md
+            </button>
+          ) : null}
+          <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnSm}`} disabled={loading} onClick={() => run(true)}>
+            {loading ? <Spinner /> : null}
+            Regenerate
+          </button>
+        </div>
+      </div>
+    );
   } else if (tool.output === "clusters" && (clusters.length || ungrouped.length)) {
     const move = (kw: string, to: number) => {
       setClusters((all) => {
@@ -568,7 +637,7 @@ export function V3AiTool({ tool, name }: { tool: V3Tool; name: string }) {
     );
   }
 
-  const wide = tool.output === "negatives" || tool.output === "intent" || tool.output === "clusters" || tool.output === "faq";
+  const wide = tool.output === "negatives" || tool.output === "intent" || tool.output === "clusters" || tool.output === "faq" || tool.slug === "seo-content-brief-generator";
 
   return (
     <section className={s.tool} aria-label={name} style={wide ? { gridTemplateColumns: "1fr" } : undefined}>

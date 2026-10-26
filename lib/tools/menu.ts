@@ -13,6 +13,8 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["X (Twitter) bio", "/tools/twitter-bio-generator"],
       ["Threads bio", "/tools/threads-bio-generator"],
       ["Facebook bio", "/tools/facebook-bio-generator"],
+      ["Instagram username", "/tools/instagram-username-generator"],
+      ["TikTok username", "/tools/tiktok-username-generator"],
     ],
   },
   {
@@ -27,6 +29,8 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Pinterest description", "/tools/pinterest-description-generator"],
       ["YouTube Shorts script", "/tools/youtube-shorts-script-generator"],
       ["YouTube video script", "/tools/youtube-video-script-generator"],
+      ["YouTube thumbnail text", "/tools/youtube-thumbnail-text-generator"],
+      ["YouTube chapters", "/tools/youtube-chapters-generator"],
     ],
   },
   {
@@ -52,6 +56,10 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Keyword clusters", "/tools/seo-keyword-cluster-generator"],
       ["Robots.txt tester", "/tools/robots-txt-tester"],
       ["Local business FAQs", "/tools/local-business-faq-generator"],
+      ["SEO content brief", "/tools/seo-content-brief-generator"],
+      ["Robots.txt generator", "/tools/robots-txt-generator"],
+      ["XML sitemap validator", "/tools/xml-sitemap-validator"],
+      ["Local business schema", "/tools/local-business-schema-generator"],
     ],
   },
   {
@@ -60,6 +68,9 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Etsy title", "/tools/etsy-title-generator"],
       ["Product description", "/tools/product-description-generator"],
       ["Shopify product title", "/tools/shopify-product-title-generator"],
+      ["Shopify collection description", "/tools/shopify-collection-description-generator"],
+      ["Etsy shop announcement", "/tools/etsy-shop-announcement-generator"],
+      ["Etsy shop About section", "/tools/etsy-shop-about-section-generator"],
     ],
   },
   {
@@ -71,6 +82,18 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Newsletter name", "/tools/newsletter-name-generator"],
       ["Podcast name", "/tools/podcast-name-generator"],
       ["Domain name ideas", "/tools/domain-name-ideas-generator"],
+      ["Business name", "/tools/business-name-generator"],
+      ["Business slogan", "/tools/business-slogan-generator"],
+      ["Blog name", "/tools/blog-name-generator"],
+    ],
+  },
+  {
+    h: "Copywriting",
+    items: [
+      ["Website hero headline", "/tools/website-hero-headline-generator"],
+      ["SaaS value proposition", "/tools/saas-value-proposition-generator"],
+      ["Email preheader", "/tools/email-preheader-generator"],
+      ["Changelog entry", "/tools/changelog-entry-generator"],
     ],
   },
   {
@@ -80,6 +103,8 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Shopify profit margin", "/tools/shopify-profit-margin-calculator"],
       ["Etsy fees", "/tools/etsy-fee-calculator"],
       ["Customer acquisition cost", "/tools/customer-acquisition-cost-calculator"],
+      ["Break-even ROAS", "/tools/break-even-roas-calculator"],
+      ["LTV to CAC ratio", "/tools/ltv-cac-ratio-calculator"],
       ["Google review link", "/tools/google-review-link-generator"],
     ],
   },

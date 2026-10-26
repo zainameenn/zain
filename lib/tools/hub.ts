@@ -50,6 +50,7 @@ export const HUB_CATEGORIES: { group: ToolGroup; label: string; id: string; head
   { group: "Ecommerce", label: "Ecommerce", id: "ecommerce", heading: "Free ecommerce tools", intro: "Listing titles and product descriptions that help people buy." },
   { group: "LinkedIn", label: "LinkedIn", id: "linkedin", heading: "Free LinkedIn tools", intro: "Headlines, About sections, posts and comments that sound like you." },
   { group: "Naming", label: "Business Naming", id: "business-naming", heading: "Free business name generators", intro: "Names for Etsy shops, Shopify stores and YouTube channels." },
+  { group: "Copy", label: "Copywriting", id: "copywriting", heading: "Free copywriting tools", intro: "Headlines, value propositions, email preheaders and changelog entries, one clear result at a time." },
   { group: "Utilities", label: "Calculators & Utilities", id: "calculators-utilities", heading: "Free calculators and utilities", intro: "Profit calculators, review links and an llms.txt builder. No AI, all in your browser." },
 ];
 

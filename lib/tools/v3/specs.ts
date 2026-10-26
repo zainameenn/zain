@@ -1,4 +1,5 @@
 import { MAX_CLUSTER_KEYWORDS, MAX_INTENT_KEYWORDS, V3_TOOLS } from "./fields";
+import { BATCH3_SPECS } from "./specs-batch3";
 
 // Server only: prompts, output schemas and the code checks every model answer goes through.
 // The model is never trusted to get limits or formats right; each validator fixes what it safely can
@@ -388,6 +389,9 @@ Put keywords that fit no cluster in "ungrouped". Every keyword appears exactly o
     validate: checkClusters,
   },
 };
+
+// Tools 21 to 40 live in specs-batch3.ts.
+Object.assign(SPECS, BATCH3_SPECS);
 
 /** Cleans visitor input: only known fields, trimmed to their limits. Returns an error message for the visitor or the clean input. */
 export function cleanInput(slug: string, raw: unknown): { input: Record<string, string> } | { error: string } {

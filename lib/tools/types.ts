@@ -1,7 +1,7 @@
 // Shapes shared by the page template, the client workspace and the API route.
 // Everything here is plain data, so it can cross from server to client as props.
 
-export type ToolGroup = "Social" | "SEO" | "Ecommerce" | "LinkedIn" | "Naming" | "Utilities";
+export type ToolGroup = "Social" | "SEO" | "Ecommerce" | "LinkedIn" | "Naming" | "Utilities" | "Copy";
 
 /** `when`: the field only shows (and only counts) while another field has this value. `hint`: small text under the label. */
 /**

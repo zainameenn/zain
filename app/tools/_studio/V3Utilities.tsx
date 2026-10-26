@@ -12,12 +12,12 @@ import s from "./studio.module.css";
 // Everything runs in the browser. Nothing is sent anywhere.
 
 const money = (n: number) => `${n < 0 ? "-" : ""}$${Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-const num = (v: string) => {
+export const num = (v: string) => {
   const n = Number(v.replace(/[^0-9.]/g, ""));
   return Number.isFinite(n) ? n : 0;
 };
 
-function NumberField({ id, label, value, onChange, prefix = "$", hint }: { id: string; label: string; value: string; onChange: (v: string) => void; prefix?: string; hint?: string }) {
+export function NumberField({ id, label, value, onChange, prefix = "$", hint }: { id: string; label: string; value: string; onChange: (v: string) => void; prefix?: string; hint?: string }) {
   return (
     <StudioField id={id} label={label} hint={hint}>
       <div style={{ position: "relative" }}>
@@ -32,7 +32,7 @@ function NumberField({ id, label, value, onChange, prefix = "$", hint }: { id: s
   );
 }
 
-function Rows({ rows }: { rows: [string, string, ("good" | "bad" | "strong")?][] }) {
+export function Rows({ rows }: { rows: [string, string, ("good" | "bad" | "strong")?][] }) {
   return (
     <table className={s.v2Table}>
       <tbody>
