@@ -29,7 +29,7 @@ export async function blogContent(): Promise<SitemapContent> {
   }
 }
 
-const TOOL_GROUP_NAMES: Record<string, string> = { Social: "Social media", LinkedIn: "LinkedIn", SEO: "SEO and planning", Ecommerce: "Ecommerce", Naming: "Business naming", Utilities: "Calculators and utilities" };
+const TOOL_GROUP_NAMES: Record<string, string> = { Social: "Social media", LinkedIn: "LinkedIn", SEO: "SEO and planning", Ecommerce: "Ecommerce", Naming: "Business naming", Utilities: "Calculators and utilities", Copy: "Copywriting" };
 
 /** Live tools only (the registry hides unpublished ones), grouped for display. */
 export function toolUrls(): SiteUrl[] {
