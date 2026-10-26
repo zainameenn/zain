@@ -1,5 +1,6 @@
-import { MAX_CLUSTER_KEYWORDS, MAX_INTENT_KEYWORDS, V3_TOOLS } from "./fields";
+import { MAX_CLUSTER_KEYWORDS, MAX_INTENT_KEYWORDS, MAX_MAP_KEYWORDS, V3_TOOLS } from "./fields";
 import { BATCH3_SPECS } from "./specs-batch3";
+import { BATCH4_SPECS } from "./specs-batch4";
 
 // Server only: prompts, output schemas and the code checks every model answer goes through.
 // The model is never trusted to get limits or formats right; each validator fixes what it safely can
@@ -391,7 +392,7 @@ Put keywords that fit no cluster in "ungrouped". Every keyword appears exactly o
 };
 
 // Tools 21 to 40 live in specs-batch3.ts.
-Object.assign(SPECS, BATCH3_SPECS);
+Object.assign(SPECS, BATCH3_SPECS, BATCH4_SPECS);
 
 /** Cleans visitor input: only known fields, trimmed to their limits. Returns an error message for the visitor or the clean input. */
 export function cleanInput(slug: string, raw: unknown): { input: Record<string, string> } | { error: string } {
@@ -412,6 +413,11 @@ export function cleanInput(slug: string, raw: unknown): { input: Record<string, 
     const n = clusterKeywords(input.keywords ?? "").length;
     if (n < 3) return { error: "Add at least 3 keywords to group." };
     if (n > MAX_CLUSTER_KEYWORDS) return { error: `AI grouping takes up to ${MAX_CLUSTER_KEYWORDS} keywords at a time. Use word grouping for longer lists, or split them.` };
+  }
+  if (slug === "keyword-to-page-mapper") {
+    const n = (input.keywords ?? "").split(/\n/).filter((k) => k.trim()).length;
+    if (n < 2) return { error: "Add at least 2 keywords to map." };
+    if (n > MAX_MAP_KEYWORDS) return { error: `Up to ${MAX_MAP_KEYWORDS} keywords at a time. Map the rest in another batch.` };
   }
   return { input };
 }

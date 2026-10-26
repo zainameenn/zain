@@ -345,6 +345,64 @@ const BATCH3: V3Tool[] = [
 
 for (const tool of BATCH3) V3_TOOLS[tool.slug] = tool;
 
+// ---------- Tools 41 to 60 (AI). Public, non-sensitive details only. ----------
+
+export const MAX_MAP_KEYWORDS = 30;
+
+const BATCH4: V3Tool[] = [
+  {
+    slug: "keyword-to-page-mapper",
+    output: "fields",
+    button: "Map Keywords",
+    fields: [ta("keywords", "Keywords (one per line)", true, 2000, "etsy fee calculator\nhow much are etsy seller fees\netsy transaction fee"), ta("pages", "Your existing pages (optional)", false, 3000, "One per line: URL | page title\n/tools/etsy-fee-calculator | Etsy Fee Calculator"), sel("plan", "What should the map use?", ["My pages, plus proposed new ones", "Proposed new pages only"]), t("business", "Business type", false, 120, "e.g. ecommerce tools site", true), t("market", "Target market", false, 80, "e.g. US sellers", true), t("pageTypes", "Preferred page types", false, 120, "e.g. tools, guides, comparisons", true), LANGUAGE],
+    example: { keywords: "etsy fee calculator\nhow much are etsy seller fees\netsy transaction fee\netsy refund policy\netsy listing fee", pages: "/tools/etsy-fee-calculator | Etsy Fee Calculator\n/blog/etsy-store-setup | How to set up an Etsy store", plan: "My pages, plus proposed new ones" },
+  },
+  {
+    slug: "seo-content-gap-planner",
+    output: "fields",
+    button: "Plan Content Gaps",
+    fields: [ta("covered", "Topics or titles you've already published", true, 3000, "One per line"), ta("questions", "Audience questions or public competitor page titles", true, 3000, "One per line"), t("audience", "Audience", false, 120, "e.g. small Instagram sellers", true), t("goals", "Content goals", false, 150, "e.g. tool sign ups, newsletter", true), t("exclude", "Topics to leave out", false, 150, undefined, true), LANGUAGE],
+    example: { covered: "Instagram Bio Generator\nInstagram Caption Generator\nHow to write an Instagram bio", questions: "How to plan a week of posts?\nWhat are Instagram highlights covers?\nBest time to post on Instagram\nHow to write a caption with a call to action" },
+  },
+  {
+    slug: "saas-product-name-generator",
+    output: "fields",
+    button: "Generate SaaS Name",
+    fields: [ta("product", "What does the software do? (public, high level)", true, 300, "e.g. appointment scheduling for independent fitness coaches"), t("users", "Who uses it?", true, 150, "e.g. small fitness studios"), sel("style", "Name style", ["Friendly", "Professional", "Playful", "Technical"]), t("keywords", "Words to include", false, 80, undefined, true), { ...AVOID }, t("competitors", "Competitor names to steer clear of", false, 150, undefined, true), sel("length", "Length", ["Short (one word)", "Any length"], true), LANGUAGE],
+    example: { product: "Appointment scheduling for independent fitness coaches", users: "Small fitness studios", style: "Friendly" },
+  },
+  {
+    slug: "product-hunt-launch-copy-generator",
+    output: "fields",
+    button: "Draft Launch Copy",
+    fields: [t("name", "Product name", true, 60, "e.g. ChatShelf"), ta("does", "What it does", true, 400, "e.g. a browser extension that organises saved AI conversations"), t("who", "Who benefits", true, 150, "e.g. people who use AI chat tools every day"), t("why", "Why you built it (only if true)", false, 300, undefined, true), t("different", "Main difference from alternatives", false, 200, undefined, true), ta("features", "Features that have actually shipped", false, 500, undefined, true), sel("tone", "Maker tone", ["Friendly", "Straightforward", "Thoughtful", "Playful"], true), LANGUAGE],
+    example: { name: "ChatShelf", does: "A browser extension that saves and organises your AI chat conversations into searchable folders", who: "People who use AI chat tools every day", why: "I kept losing useful answers in long chat histories" },
+  },
+  {
+    slug: "shopify-abandoned-checkout-email-generator",
+    output: "fields",
+    button: "Draft Reminder Email",
+    fields: [t("product", "What product or category was left behind?", true, 150, "e.g. desk mats"), sel("tone", "Brand tone", ["Friendly", "Direct", "Premium", "Understated"]), t("benefit", "A real product benefit", false, 200, "e.g. easy clean surface", true), t("policy", "Public shipping or returns policy (exact wording)", false, 250, undefined, true), t("offer", "Approved discount (only if real)", false, 120, undefined, true), t("cta", "Button wording", false, 40, "e.g. Return to checkout", true), LANGUAGE],
+    example: { product: "Desk mats", tone: "Understated", benefit: "Easy clean surface that doesn't curl at the edges" },
+  },
+  {
+    slug: "local-service-page-outline-generator",
+    output: "fields",
+    button: "Create Page Outline",
+    fields: [t("service", "Service", true, 120, "e.g. roof leak inspection"), t("area", "Service area you actually cover", true, 120, "e.g. Denver and nearby suburbs"), t("customer", "Target customer", false, 120, "e.g. homeowners", true), t("qualifications", "Real qualifications or licences", false, 200, undefined, true), ta("process", "Your actual process", false, 500, undefined, true), t("exclusions", "What you don't do", false, 200, undefined, true), sel("cta", "Main call to action", ["Request a quote", "Call now", "Book an inspection", "Send a message"], true), LANGUAGE],
+    example: { service: "Basement waterproofing", area: "Lahore", customer: "Homeowners" },
+  },
+  {
+    slug: "landing-page-copy-generator",
+    output: "fields",
+    button: "Create Landing Page Copy",
+    fields: [ta("offer", "What do you offer?", true, 400, "e.g. an SEO audit for small ecommerce stores"), t("audience", "Who is it for?", true, 150, "e.g. Shopify store owners"), t("action", "What should visitors do?", true, 80, "e.g. request an audit"), ta("differentiators", "Confirmed differentiators", false, 400, undefined, true), ta("evidence", "Public proof you can show (real only)", false, 500, undefined, true), t("objections", "Common objections", false, 250, undefined, true), sel("tone", "Tone", ["Clear and direct", "Warm", "Premium", "Technical"], true), LANGUAGE],
+    example: { offer: "A one off SEO audit for small ecommerce stores, delivered as a prioritised fix list", audience: "Shopify store owners with under 500 products", action: "Request an audit" },
+  },
+];
+
+for (const tool of BATCH4) V3_TOOLS[tool.slug] = tool;
+
 /** YouTube chapters: the page has its own component; this entry only defines what its AI step may send. */
 V3_TOOLS["youtube-chapters-generator"] = {
   slug: "youtube-chapters-generator",

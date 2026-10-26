@@ -247,7 +247,7 @@ async function callWithFallback(system: string, parts: object[], schema: object,
   const textOnly = parts.every((p) => "text" in (p as Record<string, unknown>));
   if (textOnly && process.env.OPENROUTER_API_KEY) {
     try {
-      const out = await runAi({ system, user: parts.map((p) => (p as { text: string }).text).join("\n\n"), schemaName: "result", schema, maxTokens, visitor, validate: (raw) => (raw && typeof raw === "object" ? raw : null) });
+      const out = await runAi({ system, user: parts.map((p) => (p as { text: string }).text).join("\n\n"), schemaName: "result", schema, maxTokens, visitor, skipProviders: ["google"], validate: (raw) => (raw && typeof raw === "object" ? raw : null) });
       return { text: JSON.stringify(out.value), model: out.model };
     } catch {
       // Report the original Gemini error, which the route already maps to a friendly message.

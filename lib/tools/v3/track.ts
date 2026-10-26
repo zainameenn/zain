@@ -18,4 +18,8 @@ export function downloadFile(name: string, text: string, type = "text/plain") {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-export const csvCell = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+/** One CSV cell. Values that a spreadsheet would run as a formula get a leading apostrophe. */
+export const csvCell = (v: unknown) => {
+  const text = String(v ?? "");
+  return `"${(/^[=+\-@\t\r]/.test(text) ? `'${text}` : text).replace(/"/g, '""')}"`;
+};

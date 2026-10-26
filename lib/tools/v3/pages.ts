@@ -40,6 +40,26 @@ import b3_email_preheader_generator from "./content/email-preheader-generator";
 import b3_website_hero_headline_generator from "./content/website-hero-headline-generator";
 import b3_saas_value_proposition_generator from "./content/saas-value-proposition-generator";
 import b3_changelog_entry_generator from "./content/changelog-entry-generator";
+import b4_xml_sitemap_generator from "./content/xml-sitemap-generator";
+import b4_hreflang_tag_generator from "./content/hreflang-tag-generator";
+import b4_canonical_url_checker from "./content/canonical-url-checker";
+import b4_redirect_chain_checker from "./content/redirect-chain-checker";
+import b4_json_ld_schema_validator from "./content/json-ld-schema-validator";
+import b4_open_graph_tags_generator from "./content/open-graph-tags-generator";
+import b4_product_schema_generator from "./content/product-schema-generator";
+import b4_internal_link_opportunity_finder from "./content/internal-link-opportunity-finder";
+import b4_keyword_to_page_mapper from "./content/keyword-to-page-mapper";
+import b4_seo_content_gap_planner from "./content/seo-content-gap-planner";
+import b4_saas_product_name_generator from "./content/saas-product-name-generator";
+import b4_product_hunt_launch_copy_generator from "./content/product-hunt-launch-copy-generator";
+import b4_shopify_sku_generator from "./content/shopify-sku-generator";
+import b4_shopify_abandoned_checkout_email_generator from "./content/shopify-abandoned-checkout-email-generator";
+import b4_local_service_page_outline_generator from "./content/local-service-page-outline-generator";
+import b4_local_seo_keyword_modifier_generator from "./content/local-seo-keyword-modifier-generator";
+import b4_landing_page_copy_generator from "./content/landing-page-copy-generator";
+import b4_mrr_calculator from "./content/mrr-calculator";
+import b4_customer_retention_rate_calculator from "./content/customer-retention-rate-calculator";
+import b4_ab_test_sample_size_calculator from "./content/ab-test-sample-size-calculator";
 
 // The ten tools added in October 2026, turned into regular registry pages on the studio layout.
 // Copy lives in lib/tools/v3/content/<slug>.ts; the generators in app/tools/_studio/V3Generator.tsx.
@@ -128,6 +148,27 @@ export const V3_PAGES: ToolPage[] = [
   page(b3_website_hero_headline_generator, "Copy", true),
   page(b3_saas_value_proposition_generator, "Copy", true),
   page(b3_changelog_entry_generator, "Copy", true),
+  // Tools 41 to 60 (October 26, 2026).
+  page(b4_xml_sitemap_generator, "SEO", false),
+  page(b4_hreflang_tag_generator, "SEO", false),
+  page(b4_canonical_url_checker, "SEO", false),
+  page(b4_redirect_chain_checker, "SEO", false),
+  page(b4_json_ld_schema_validator, "SEO", false),
+  page(b4_open_graph_tags_generator, "SEO", false),
+  page(b4_product_schema_generator, "SEO", false),
+  page(b4_internal_link_opportunity_finder, "SEO", false),
+  page(b4_keyword_to_page_mapper, "SEO", true),
+  page(b4_seo_content_gap_planner, "SEO", true),
+  page(b4_saas_product_name_generator, "Naming", true),
+  page(b4_product_hunt_launch_copy_generator, "Copy", true),
+  page(b4_shopify_sku_generator, "Ecommerce", false),
+  page(b4_shopify_abandoned_checkout_email_generator, "Ecommerce", true),
+  page(b4_local_service_page_outline_generator, "SEO", true),
+  page(b4_local_seo_keyword_modifier_generator, "SEO", false),
+  page(b4_landing_page_copy_generator, "Copy", true),
+  page(b4_mrr_calculator, "Utilities", false),
+  page(b4_customer_retention_rate_calculator, "Utilities", false),
+  page(b4_ab_test_sample_size_calculator, "Utilities", false),
 ];
 
-export const V3_CONTENT: NewToolContent[] = [etsyShopName, shopifyName, channelName, shortsScript, negativeKeywords, searchIntent, llmsTxt, etsyOffsite, shopifyMargin, reviewLink, etsyFee, newsletterName, productTitle, cacCalc, podcastName, keywordCluster, robotsTester, domainIdeas, videoScript, localFaq, b3_instagram_username_generator, b3_tiktok_username_generator, b3_business_name_generator, b3_business_slogan_generator, b3_blog_name_generator, b3_youtube_thumbnail_text_generator, b3_youtube_chapters_generator, b3_seo_content_brief_generator, b3_robots_txt_generator, b3_xml_sitemap_validator, b3_local_business_schema_generator, b3_shopify_collection_description_generator, b3_etsy_shop_announcement_generator, b3_etsy_shop_about_section_generator, b3_break_even_roas_calculator, b3_ltv_cac_ratio_calculator, b3_email_preheader_generator, b3_website_hero_headline_generator, b3_saas_value_proposition_generator, b3_changelog_entry_generator];
+export const V3_CONTENT: NewToolContent[] = [etsyShopName, shopifyName, channelName, shortsScript, negativeKeywords, searchIntent, llmsTxt, etsyOffsite, shopifyMargin, reviewLink, etsyFee, newsletterName, productTitle, cacCalc, podcastName, keywordCluster, robotsTester, domainIdeas, videoScript, localFaq, b3_instagram_username_generator, b3_tiktok_username_generator, b3_business_name_generator, b3_business_slogan_generator, b3_blog_name_generator, b3_youtube_thumbnail_text_generator, b3_youtube_chapters_generator, b3_seo_content_brief_generator, b3_robots_txt_generator, b3_xml_sitemap_validator, b3_local_business_schema_generator, b3_shopify_collection_description_generator, b3_etsy_shop_announcement_generator, b3_etsy_shop_about_section_generator, b3_break_even_roas_calculator, b3_ltv_cac_ratio_calculator, b3_email_preheader_generator, b3_website_hero_headline_generator, b3_saas_value_proposition_generator, b3_changelog_entry_generator, b4_xml_sitemap_generator, b4_hreflang_tag_generator, b4_canonical_url_checker, b4_redirect_chain_checker, b4_json_ld_schema_validator, b4_open_graph_tags_generator, b4_product_schema_generator, b4_internal_link_opportunity_finder, b4_keyword_to_page_mapper, b4_seo_content_gap_planner, b4_saas_product_name_generator, b4_product_hunt_launch_copy_generator, b4_shopify_sku_generator, b4_shopify_abandoned_checkout_email_generator, b4_local_service_page_outline_generator, b4_local_seo_keyword_modifier_generator, b4_landing_page_copy_generator, b4_mrr_calculator, b4_customer_retention_rate_calculator, b4_ab_test_sample_size_calculator];

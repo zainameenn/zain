@@ -10,7 +10,7 @@ process.env.AI_VISITOR_DAILY ??= "1000";
 process.env.AI_GLOBAL_DAILY ??= "1000";
 process.env.AI_GLOBAL_MINUTE ??= "1000";
 for (const line of readFileSync(".env.local", "utf8").split(/\r?\n/)) {
-  const m = line.match(/^\s*([A-Z_]+)\s*=\s*"?([^"]*)"?\s*$/);
+  const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*"?([^"]*)"?\s*$/);
   if (m && !process.env[m[1]]) process.env[m[1]] = m[2];
 }
 
