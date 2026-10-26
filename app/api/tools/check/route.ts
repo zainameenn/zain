@@ -36,7 +36,8 @@ async function trace(start: string, method: "HEAD" | "GET"): Promise<Hop[]> {
       break;
     }
     try {
-      let r = await safeRequest(url, { method, maxBytes: 1 });
+      // One retry for a temporary DNS failure, which happens now and then on serverless hosts.
+      let r = await safeRequest(url, { method, maxBytes: 1 }).catch((e) => ((e as NodeJS.ErrnoException)?.code === "EAI_AGAIN" ? safeRequest(url, { method, maxBytes: 1 }) : Promise.reject(e)));
       // Some servers reject HEAD; ask again with GET before calling it an error.
       if (method === "HEAD" && (r.status === 405 || r.status === 501 || r.status === 403)) r = await safeRequest(url, { method: "GET", maxBytes: 1 });
       hops.push({ url, status: r.status, location: r.location, timeMs: r.timeMs });

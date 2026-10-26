@@ -709,7 +709,7 @@ export function V3AiTool({ tool, name }: { tool: V3Tool; name: string }) {
         <p className={s.note}>
           {tool.output === "clusters" && clusterMode === CLUSTER_MODES[0]
             ? "Similar wording runs in your browser. Nothing is sent anywhere."
-            : "What you type is sent to an AI provider (OpenRouter) to write your result and isn't stored. Don't include anything private. AI can get things wrong, so check the result before you use it."}
+            : "What you type is sent to a free AI provider (Groq, Google Gemini or OpenRouter) to write your result and isn't stored. Don't include anything private. AI can get things wrong, so check the result before you use it."}
         </p>
       </form>
 

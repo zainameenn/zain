@@ -22,7 +22,7 @@ const TONE = { ok: "#2F6B3A", warn: "#8A5A12", bad: "#A23B2A", info: "#5B5853" }
 function Table({ columns, rows, minWidth = 520 }: { columns: string[]; rows: ReactNode[][]; minWidth?: number }) {
   return (
     <div style={tableWrap}>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, lineHeight: 1.5, minWidth }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, lineHeight: 1.5, minWidth, tableLayout: minWidth ? "auto" : "fixed" }}>
         <thead>
           <tr>
             {columns.map((c) => (
@@ -320,6 +320,9 @@ export function CanonicalChecker() {
           </div>
         </Disclosure>
         <div className={s.actions}>
+          <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnLg}`} onClick={() => (setMode("Public URL"), setUrl("https://www.zainameen.com/tools/etsy-fee-calculator?utm_source=ig"))}>
+            Try an example
+          </button>
           <button type="submit" className={`${s.btn} ${s.btnPrimary} ${s.btnLg}`} disabled={loading || (mode === "Public URL" ? !url.trim() : !html.trim())}>
             {loading ? <Spinner /> : null}
             Check Canonical
@@ -467,8 +470,8 @@ export function JsonLdValidator() {
             <span className={s.resultLabel}>Result</span>
             <p style={{ ...big, fontSize: 30, color: errors.length ? TONE.bad : TONE.ok }}>{errors.length ? `${errors.length} error${errors.length === 1 ? "" : "s"}` : "No errors found"}</p>
             <Rows rows={[["Valid JSON", report.validJson ? "Yes" : "No", report.validJson ? "good" : "bad"], ["JSON-LD blocks", String(report.blocks)], ["Types found", report.types.join(", ") || "None"], ["@id values", String(report.ids.length)], ["Warnings", String(warnings.length)]]} />
-            {errors.length ? <Table columns={["Error", "Where"]} rows={errors.map((e) => [e.message, e.path])} minWidth={380} /> : null}
-            {warnings.length ? <Table columns={["Worth reviewing", "Where"]} rows={warnings.map((e) => [e.message, e.path])} minWidth={380} /> : null}
+            {errors.length ? <Table columns={["Error", "Where"]} rows={errors.map((e) => [e.message, e.path])} minWidth={0} /> : null}
+            {warnings.length ? <Table columns={["Worth reviewing", "Where"]} rows={warnings.map((e) => [e.message, e.path])} minWidth={0} /> : null}
             <div className={s.resultActions}>
               <CopyButton text={summary} slug={slug} label="Copy findings" />
               <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnSm}`} onClick={() => (downloadFile("json-ld-report.txt", summary), track("tool_download", slug))}>

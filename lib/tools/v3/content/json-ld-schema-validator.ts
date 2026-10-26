@@ -19,7 +19,7 @@ export default {
     accent: "in plain words.",
     intro: "Illustrative snippets and what the validator reports.",
     items: [
-      { title: "A minimal product", input: "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"Desk Mat\"}", output: "Valid JSON, type Product. Warnings: no image or offers.", why: "Fine as basic markup, but not enough for merchant listings." },
+      { title: "A minimal product", input: "{ \"@context\": \"https://schema.org\", \"@type\": \"Product\", \"name\": \"Desk Mat\" }", output: "Valid JSON, type Product. Warnings: no image or offers.", why: "Fine as basic markup, but not enough for merchant listings." },
       { title: "A trailing comma", input: "A LocalBusiness block with a comma after the last property.", output: "Error: invalid JSON, with the line and column.", why: "One stray comma makes the whole block unreadable." },
       { title: "Several blocks on one page", input: "HTML with an Organization script and a BreadcrumbList script.", output: "2 blocks found, each checked separately.", why: "Pages often carry more than one schema block." },
     ],

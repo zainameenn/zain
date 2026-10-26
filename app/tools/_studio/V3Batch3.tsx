@@ -151,7 +151,7 @@ export function YouTubeChaptersTool() {
             Try an example
           </button>
         </div>
-        <p className={s.note}>Times are read from what you paste and never guessed. The AI buttons only rewrite titles or choose among your own times, and send the text to an AI provider (OpenRouter) without storing it.</p>
+        <p className={s.note}>Times are read from what you paste and never guessed. The AI buttons only rewrite titles or choose among your own times, and send the text to a free AI provider (Groq, Google Gemini or OpenRouter) without storing it.</p>
       </form>
       <div className={s.output}>
         {error ? (
