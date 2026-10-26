@@ -25,12 +25,15 @@ export class AiError extends Error {
 
 // Providers, all on free plans. A model id is "provider:model"; a bare id means OpenRouter.
 // A provider whose key isn't set is skipped.
-export type Provider = "openrouter" | "groq" | "nvidia";
+export type Provider = "openrouter" | "or2" | "groq" | "nvidia" | "google";
 
 const PROVIDERS: Record<Provider, { url: string; keyEnv: string }> = {
   openrouter: { url: "https://openrouter.ai/api/v1/chat/completions", keyEnv: "OPENROUTER_API_KEY" },
+  // A second OpenRouter account: its own free daily allowance, written "or2:model".
+  or2: { url: "https://openrouter.ai/api/v1/chat/completions", keyEnv: "OPENROUTER_API_KEY_2" },
   groq: { url: "https://api.groq.com/openai/v1/chat/completions", keyEnv: "GROQ_API_KEY" },
   nvidia: { url: "https://integrate.api.nvidia.com/v1/chat/completions", keyEnv: "NVIDIA_API_KEY" },
+  google: { url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", keyEnv: "GEMINI_API_KEY" },
 };
 
 type ModelConfig = { id: string; provider: Provider; model: string; extra: Record<string, unknown>; reasoningTokens: number };
@@ -39,17 +42,25 @@ type ModelConfig = { id: string; provider: Provider; model: string; extra: Recor
 function settings(provider: Provider, model: string): Pick<ModelConfig, "extra" | "reasoningTokens"> {
   if (provider === "groq") return { extra: { reasoning_effort: "low" }, reasoningTokens: 800 };
   if (provider === "nvidia") return { extra: {}, reasoningTokens: 0 };
+  if (provider === "google") return { extra: { reasoning_effort: "low" }, reasoningTokens: 1000 };
   if (model === "recursive/flint-v1.0:free") return { extra: { reasoning: { effort: "low" } }, reasoningTokens: 1200 };
   return { extra: { reasoning: { enabled: false } }, reasoningTokens: 0 };
 }
 
+/** Best first. Models that fail or hit a limit move to the back of the line for a while (see runAi). */
 export const DEFAULT_MODELS = [
   "groq:openai/gpt-oss-120b",
-  "groq:qwen/qwen3.8-27b",
+  "google:gemini-3.6-flash",
+  "google:gemini-3.8-flash",
   "nvidia/nemotron-3.5-super-vl:free",
-  "xingchen-agi/xing4.0-29b-a4b:free",
-  "recursive/flint-v1.0:free",
+  "or2:nvidia/nemotron-3.5-super-vl:free",
+  "groq:qwen/qwen3.8-27b",
+  "google:gemini-3.5-flash-lite",
   "nvidia:z-ai/glm-5.2",
+  "xingchen-agi/xing4.0-29b-a4b:free",
+  "or2:xingchen-agi/xing4.0-29b-a4b:free",
+  "recursive/flint-v1.0:free",
+  "or2:recursive/flint-v1.0:free",
 ];
 
 export function aiModels(): ModelConfig[] {
@@ -60,12 +71,12 @@ export function aiModels(): ModelConfig[] {
   const allowPaid = process.env.OPENROUTER_ALLOW_PAID === "true";
   const out: ModelConfig[] = [];
   for (const id of ids) {
-    const m = id.match(/^(groq|nvidia):(.+)$/);
+    const m = id.match(/^(or2|groq|nvidia|google):(.+)$/);
     const provider: Provider = m ? (m[1] as Provider) : "openrouter";
     const model = m ? m[2] : id;
     if (provider !== "openrouter" && !process.env[PROVIDERS[provider].keyEnv]) continue;
     // OpenRouter bills non :free models, so those need an explicit opt in.
-    if (provider === "openrouter" && !allowPaid && !model.endsWith(":free")) continue;
+    if ((provider === "openrouter" || provider === "or2") && !allowPaid && !model.endsWith(":free")) continue;
     out.push({ id, provider, model, ...settings(provider, model) });
   }
   return out;
@@ -80,18 +91,24 @@ export function aiLimits() {
     /** Provider attempts per UTC day across the whole site, per provider, kept under each free allowance. */
     daily: {
       openrouter: num(process.env.AI_GLOBAL_DAILY, 40),
+      or2: num(process.env.AI_DAILY_OR2, 40),
       groq: num(process.env.AI_DAILY_GROQ, 800),
       nvidia: num(process.env.AI_DAILY_NVIDIA, 200),
+      google: num(process.env.AI_DAILY_GOOGLE, 400),
     } as Record<Provider, number>,
     /** Provider attempts per minute across the site, per provider, under each one's per minute limit. */
     minute: {
       openrouter: num(process.env.AI_GLOBAL_MINUTE, 15),
+      or2: num(process.env.AI_MINUTE_OR2, 15),
       groq: num(process.env.AI_MINUTE_GROQ, 20),
       nvidia: num(process.env.AI_MINUTE_NVIDIA, 20),
+      google: num(process.env.AI_MINUTE_GOOGLE, 10),
     } as Record<Provider, number>,
     /** Models tried per request at most. */
-    maxAttempts: num(process.env.AI_MAX_ATTEMPTS, 4),
-    timeoutMs: num(process.env.OPENROUTER_TIMEOUT_MS, 45_000),
+    maxAttempts: num(process.env.AI_MAX_ATTEMPTS, 5),
+    /** Longest wait for one model, and for the whole request (the route allows 60 seconds). */
+    timeoutMs: num(process.env.AI_TIMEOUT_MS, 25_000),
+    totalMs: num(process.env.AI_TOTAL_MS, 52_000),
   };
 }
 
@@ -230,6 +247,8 @@ export type RunRequest<T> = Attempt & {
   visitor: string;
   /** Stable key for the request's content, to stop duplicate clicks. */
   dedupeKey?: string;
+  /** Providers to leave out for this request, e.g. Google for UK and EU visitors. */
+  skipProviders?: Provider[];
   /** Checks and cleans the model's answer. Return null to reject it and try the next model. */
   validate: (raw: unknown) => T | null;
 };
@@ -252,9 +271,16 @@ export async function runAi<T>(req: RunRequest<T>): Promise<RunResult<T>> {
   let sawInvalid = false;
   let sawDown = false;
   let wait = Infinity;
-  const skip = new Set<Provider>();
-  for (const model of models) {
+  const skip = new Set<Provider>(req.skipProviders);
+  // Models that recently failed or hit a limit go to the back of the line, so healthy ones take their place.
+  const benched = await Promise.all(models.map((m) => store.ttl(`ai:bench:${m.id}`)));
+  const ordered = models.map((m, i) => ({ m, b: benched[i] > 0 })).sort((x, y) => Number(x.b) - Number(y.b)).map((x) => x.m);
+  const bench = (id: string, seconds: number) => store.setIfAbsent(`ai:bench:${id}`, "1", seconds);
+  const started = Date.now();
+  for (const model of ordered) {
     if (attempts >= Math.max(1, L.maxAttempts)) break;
+    const left = L.totalMs - (Date.now() - started);
+    if (left < 4_000) break;
     const p = model.provider;
     if (skip.has(p)) continue;
     // A provider or model that told us to back off is skipped by everyone until then.
@@ -276,10 +302,11 @@ export async function runAi<T>(req: RunRequest<T>): Promise<RunResult<T>> {
     }
     attempts++;
     try {
-      const raw = await callModel(model, req, L.timeoutMs);
+      const raw = await callModel(model, req, Math.min(L.timeoutMs, left));
       const value = req.validate(raw);
       if (value === null) {
         if (process.env.AI_DEBUG === "1") console.error(`[ai] ${model.id} answer rejected by the validator`);
+        await bench(model.id, 300);
         sawInvalid = true;
         continue;
       }
@@ -290,10 +317,12 @@ export async function runAi<T>(req: RunRequest<T>): Promise<RunResult<T>> {
       const err = e as ProviderError;
       if (process.env.AI_DEBUG === "1") console.error(`[ai] ${model.id} failed: ${err.status}`);
       if (err.status === 422) sawInvalid = true;
+      // Whatever went wrong, this model waits at the back of the line for a while.
+      await bench(model.id, err.status === 429 ? Math.max(err.retryAfter ?? 0, 120) : 600);
       // A rate limit with a known wait: pause it for everyone and move on. OpenRouter's free limits are
       // shared by the whole account, so they pause every OpenRouter model; Groq's are per model.
       if (err.status === 429 && err.retryAfter) {
-        const wide = err.accountWide || p === "openrouter";
+        const wide = err.accountWide || p === "openrouter" || p === "or2";
         await store.setIfAbsent(`ai:cooldown:${wide ? p : model.id}`, "1", err.retryAfter);
         wait = Math.min(wait, err.retryAfter);
         if (wide) skip.add(p);

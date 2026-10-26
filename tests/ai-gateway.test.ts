@@ -123,11 +123,34 @@ test("a resting or broken provider hands over to the next provider", async () =>
   assert.deepEqual(calls, ["g1", "a:free"]);
 });
 
+test("a model that fails or hits a limit goes to the back of the line", async () => {
+  process.env.AI_VISITOR_DAILY = "100";
+  process.env.AI_MODELS = "groq:g1,google:m1,a:free";
+  process.env.GEMINI_API_KEY = "test";
+  replies = [{ status: 503 }, ok('{"name":"x"}')];
+  await runAi({ ...base, visitor: "b1" });
+  calls = [];
+  await runAi({ ...base, visitor: "b2" });
+  assert.deepEqual(calls, ["m1"], "the healthy model goes first now");
+  replies = [{ status: 503 }, { status: 503 }, ok('{"name":"x"}')];
+  calls = [];
+  await runAi({ ...base, visitor: "b3" });
+  assert.deepEqual(calls, ["m1", "a:free", "g1"], "benched models are still used, just last");
+});
+
+test("a request can leave a provider out", async () => {
+  process.env.AI_MODELS = "google:m1,a:free";
+  process.env.GEMINI_API_KEY = "test";
+  await runAi({ ...base, visitor: "eu", skipProviders: ["google"] });
+  assert.deepEqual(calls, ["a:free"]);
+});
+
 test("providers without a key are left out, and NVIDIA joins when its key is set", () => {
-  process.env.AI_MODELS = "groq:g1,nvidia:z-ai/glm-5.2,a:free";
-  assert.deepEqual(aiModels().map((m) => m.id), ["groq:g1", "a:free"]);
+  process.env.OPENROUTER_API_KEY_2 = "test";
+  process.env.AI_MODELS = "or2:x/paid,or2:o:free,groq:g1,nvidia:z-ai/glm-5.2,a:free";
+  assert.deepEqual(aiModels().map((m) => m.id), ["or2:o:free", "groq:g1", "a:free"], "the second OpenRouter account is free only too");
   process.env.NVIDIA_API_KEY = "test";
-  assert.deepEqual(aiModels().map((m) => m.provider), ["groq", "nvidia", "openrouter"]);
+  assert.deepEqual(aiModels().map((m) => m.provider), ["or2", "groq", "nvidia", "openrouter"]);
 });
 
 test("only free models unless paid is explicitly allowed", () => {

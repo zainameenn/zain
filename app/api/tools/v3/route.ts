@@ -8,6 +8,9 @@ import { SPECS, SYSTEM, cleanInput } from "@/lib/tools/v3/specs";
 
 export const maxDuration = 60;
 
+// UK, EU and EEA countries. Gemini's free tier isn't offered there, so those visitors skip Google.
+const EU = new Set("GB AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO CH".split(" "));
+
 const json = (body: unknown, status = 200, headers: Record<string, string> = {}) => Response.json(body, { status, headers: { "Cache-Control": "no-store", ...headers } });
 
 export async function POST(request: Request) {
@@ -48,6 +51,7 @@ ${JSON.stringify(cleaned.input)}
       signal: request.signal,
       visitor: visitorId(ip),
       dedupeKey,
+      skipProviders: EU.has((request.headers.get("x-vercel-ip-country") ?? "").toUpperCase()) ? ["google"] : [],
       validate: (raw) => {
         const checked = spec.validate(raw, cleaned.input);
         return checked.ok ? checked.value : null;
