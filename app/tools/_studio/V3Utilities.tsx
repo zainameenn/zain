@@ -2,9 +2,10 @@
 
 import qrcode from "qrcode-generator";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ETSY_DEFAULTS, buildLlmsTxt, checkLlmsTxt, etsyOffsite, isHttpUrl, reviewLink, shopifyMargin, type LlmsSection } from "@/lib/tools/v3/calc";
-import { downloadFile, track } from "@/lib/tools/v3/track";
-import { Disclosure, Segmented, StudioField } from "./controls";
+import { ETSY_DEFAULTS, ETSY_FEE_RULES_REVIEWED_AT, ETSY_PROCESSING, buildLlmsTxt, cac, checkLlmsTxt, etsyOffsite, isHttpUrl, reviewLink, shopifyMargin, type LlmsSection } from "@/lib/tools/v3/calc";
+import { testRobots } from "@/lib/tools/v3/robots";
+import { csvCell, downloadFile, track } from "@/lib/tools/v3/track";
+import { Disclosure, Segmented, Select, StudioField } from "./controls";
 import s from "./studio.module.css";
 
 // The four tools that need no AI: two calculators, the review link generator and the llms.txt generator.
@@ -37,7 +38,7 @@ function Rows({ rows }: { rows: [string, string, ("good" | "bad" | "strong")?][]
       <tbody>
         {rows.map(([k, v, tone]) => (
           <tr key={k}>
-            <th scope="row" style={{ fontWeight: tone === "strong" ? 700 : 500 }}>
+            <th scope="row" style={{ fontWeight: tone === "strong" ? 700 : 500, whiteSpace: "normal" }}>
               {k}
             </th>
             <td style={{ textAlign: "right", fontVariantNumeric: "tabular-nums", fontWeight: tone ? 700 : 400, color: tone === "bad" ? "#A23B2A" : tone === "good" ? "#2F6B3A" : undefined }}>{v}</td>
@@ -189,6 +190,347 @@ export function ShopifyMarginCalculator() {
 }
 
 // ---------- Google review link ----------
+
+// ---------- Etsy fee calculator ----------
+
+const OTHER_COUNTRY = "Other country (enter your rates)";
+
+export function EtsyFeeCalculator() {
+  const [country, setCountry] = useState("United States");
+  const preset = ETSY_PROCESSING.find((p) => p.country === country);
+  const [international, setInternational] = useState("Domestic");
+  const [v, setV] = useState<Record<string, string>>({ price: "30", shippingCharged: "5", productCost: "9", shippingCost: "4", giftWrap: "0", packaging: "0", otherCosts: "0", adsPerOrder: "0", transactionPct: String(ETSY_DEFAULTS.transactionPct), listingFee: String(ETSY_DEFAULTS.listingFee), processingPct: "3", processingFixed: "0.25" });
+  const [offsite, setOffsite] = useState("No");
+  const [rate, setRate] = useState("15%");
+  const [includeListing, setIncludeListing] = useState("Yes");
+  const [copied, setCopied] = useState(false);
+  const set = (k: string) => (x: string) => setV((o) => ({ ...o, [k]: x }));
+
+  // Picking a confirmed country fills its processing rate. Every rate stays editable.
+  const applyPreset = (c: string, where: string) => {
+    const p = ETSY_PROCESSING.find((x) => x.country === c);
+    if (!p) return;
+    const pct = where === "International" && p.intlPct ? p.intlPct : p.pct;
+    setV((o) => ({ ...o, processingPct: String(pct), processingFixed: String(p.fixed) }));
+  };
+
+  const sym = preset?.symbol ?? "";
+  const cur = (n: number) => `${n < 0 ? "-" : ""}${sym}${Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const r = useMemo(
+    () =>
+      etsyOffsite({
+        price: num(v.price),
+        shippingCharged: num(v.shippingCharged),
+        giftWrap: num(v.giftWrap),
+        productCost: num(v.productCost),
+        shippingCost: num(v.shippingCost),
+        packaging: num(v.packaging),
+        otherCosts: num(v.otherCosts) + num(v.adsPerOrder),
+        transactionPct: num(v.transactionPct),
+        listingFee: includeListing === "Yes" ? num(v.listingFee) : 0,
+        processingPct: num(v.processingPct),
+        processingFixed: num(v.processingFixed),
+        offsitePct: offsite === "Yes" ? (rate === "12%" ? 12 : 15) : 0,
+        offsiteCap: ETSY_DEFAULTS.offsiteCap,
+      }),
+    [v, offsite, rate, includeListing],
+  );
+  useTracked("etsy-fee-calculator", [v, offsite, country]);
+  const id = (k: string) => `ef-${k}`;
+  const etsyFees = r.transactionFee + r.listingFee + r.processingFee + r.offsiteFee;
+  const rows: [string, string, ("good" | "bad" | "strong")?][] = [
+    ["Order revenue (item, shipping, gift wrap)", cur(r.revenue)],
+    [`Transaction fee (${v.transactionPct}%)`, `-${cur(r.transactionFee)}`],
+    ["Listing fee", includeListing === "Yes" ? `-${cur(r.listingFee)}` : "Not included"],
+    [`Payment processing (${v.processingPct}% + ${cur(num(v.processingFixed))})`, `-${cur(r.processingFee)}`],
+    ...(offsite === "Yes" ? ([[`Offsite Ads (${rate}${r.offsiteCapped ? ", capped" : ""})`, `-${cur(r.offsiteFee)}`, "bad"]] as [string, string, "bad"][]) : []),
+    ["Total Etsy fees", `-${cur(etsyFees)}`],
+    ["Your costs (product, shipping, packaging, other)", `-${cur(r.costs)}`],
+    ["Estimated profit", cur(r.profit), "strong"],
+    ["Break-even item price", r.breakEvenPrice === null ? "Not reachable" : cur(r.breakEvenPrice)],
+  ];
+  const summary = rows.map(([k, x]) => `${k}: ${x}`).join("\n") + `\nEstimated margin: ${r.margin}%`;
+
+  return (
+    <section className={s.tool} aria-label="Etsy fee calculator">
+      <form className={s.panel} onSubmit={(e) => e.preventDefault()}>
+        <div className={s.group}>
+          <StudioField id={id("country")} label="Seller country (your bank account)">
+            <Select
+              id={id("country")}
+              options={[...ETSY_PROCESSING.map((p) => p.country), OTHER_COUNTRY]}
+              value={country}
+              onChange={(c) => {
+                setCountry(c);
+                setInternational("Domestic");
+                applyPreset(c, "Domestic");
+              }}
+            />
+          </StudioField>
+          {preset?.intlPct ? (
+            <StudioField id={id("intl")} label="Where is the buyer?" as="group">
+              <Segmented
+                id={id("intl")}
+                options={["Domestic", "International"]}
+                value={international}
+                onChange={(w) => {
+                  setInternational(w);
+                  applyPreset(country, w);
+                }}
+              />
+            </StudioField>
+          ) : null}
+          <NumberField id={id("price")} label="Item selling price" prefix={sym} value={v.price} onChange={set("price")} />
+          <NumberField id={id("shippingCharged")} label="Shipping charged to buyer" prefix={sym} value={v.shippingCharged} onChange={set("shippingCharged")} />
+          <NumberField id={id("productCost")} label="Product cost" prefix={sym} value={v.productCost} onChange={set("productCost")} />
+          <NumberField id={id("shippingCost")} label="Shipping you pay" prefix={sym} value={v.shippingCost} onChange={set("shippingCost")} />
+          <StudioField id={id("offsite")} label="Did this order come from Offsite Ads?" as="group">
+            <Segmented id={id("offsite")} options={["No", "Yes"]} value={offsite} onChange={setOffsite} />
+          </StudioField>
+          {offsite === "Yes" ? (
+            <StudioField id={id("rate")} label="Your Offsite Ads rate" hint="15% until your shop makes USD 10,000 in a year, then 12%. Capped at USD 100 per order." as="group">
+              <Segmented id={id("rate")} options={["15%", "12%"]} value={rate} onChange={setRate} />
+            </StudioField>
+          ) : null}
+        </div>
+        <Disclosure label="More options">
+          <div className={s.group}>
+            <NumberField id={id("giftWrap")} label="Gift wrap charged" prefix={sym} value={v.giftWrap} onChange={set("giftWrap")} />
+            <NumberField id={id("packaging")} label="Packaging" prefix={sym} value={v.packaging} onChange={set("packaging")} />
+            <NumberField id={id("otherCosts")} label="Other costs per order" prefix={sym} value={v.otherCosts} onChange={set("otherCosts")} />
+            <NumberField id={id("adsPerOrder")} label="Etsy Ads spend per order" prefix={sym} value={v.adsPerOrder} onChange={set("adsPerOrder")} hint="Your Etsy Ads budget divided by the orders it brought in." />
+            <StudioField id={id("listing")} label="Count a listing fee for this sale?" hint="Etsy charges USD 0.20 when you list, and again when a sale auto renews the listing." as="group">
+              <Segmented id={id("listing")} options={["Yes", "No"]} value={includeListing} onChange={setIncludeListing} />
+            </StudioField>
+            <NumberField id={id("listingFee")} label="Listing fee (in your currency)" prefix={sym} value={v.listingFee} onChange={set("listingFee")} />
+            <NumberField id={id("transactionPct")} label="Transaction fee" prefix="%" value={v.transactionPct} onChange={set("transactionPct")} />
+            <NumberField id={id("processingPct")} label="Payment processing rate" prefix="%" value={v.processingPct} onChange={set("processingPct")} hint={preset ? `Filled in from Etsy's published rate for ${country}.` : "Find your rate on Etsy's payment processing fees page."} />
+            <NumberField id={id("processingFixed")} label="Payment processing fixed fee" prefix={sym} value={v.processingFixed} onChange={set("processingFixed")} />
+          </div>
+        </Disclosure>
+        <p className={s.note}>Runs in your browser. Single item order. Sales tax, VAT on fees, regulatory fees and currency conversion aren&apos;t included. Rates checked {ETSY_FEE_RULES_REVIEWED_AT}; verify final charges in your Etsy Payment account.</p>
+      </form>
+      <div className={s.output}>
+        <div className={s.result} aria-live="polite">
+          <span className={s.resultLabel}>Estimated profit per order</span>
+          <p style={{ margin: "4px 0 2px", fontFamily: "var(--nf-general-sans)", fontSize: 40, fontWeight: 600, letterSpacing: "-0.03em", color: r.profit < 0 ? "#A23B2A" : undefined }}>{cur(r.profit)}</p>
+          <p className={s.note} style={{ marginTop: 0 }}>
+            {r.margin}% estimated margin.{offsite === "Yes" ? ` Without Offsite Ads: ${cur(r.profitWithoutOffsite)}.` : ""}
+          </p>
+          <Rows rows={rows} />
+          <p className={s.note}>Estimated profit = order revenue minus Etsy fees minus the costs you entered. Margin = profit divided by order revenue.</p>
+          <div className={s.resultActions}>
+            <button
+              type="button"
+              className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`}
+              onClick={async () => {
+                await navigator.clipboard.writeText(summary).catch(() => undefined);
+                setCopied(true);
+                track("tool_copy", "etsy-fee-calculator");
+                setTimeout(() => setCopied(false), 1800);
+              }}
+            >
+              {copied ? "Copied" : "Copy summary"}
+            </button>
+            <button
+              type="button"
+              className={`${s.btn} ${s.btnGhost} ${s.btnSm}`}
+              onClick={() => {
+                downloadFile("etsy-fees.csv", ["Line,Amount", ...rows.map(([k, x]) => [k, x].map(csvCell).join(","))].join("\n"), "text/csv");
+                track("tool_download", "etsy-fee-calculator");
+              }}
+            >
+              Download CSV
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Customer acquisition cost ----------
+
+const CAC_BREAKDOWN: [string, "marketing" | "sales"][] = [
+  ["Paid advertising", "marketing"],
+  ["Content and creative", "marketing"],
+  ["Marketing tools", "marketing"],
+  ["Agencies and contractors", "marketing"],
+  ["Marketing salaries (acquisition share)", "marketing"],
+  ["Sales salaries and commissions", "sales"],
+  ["Sales tools", "sales"],
+  ["Other acquisition costs", "marketing"],
+];
+const CURRENCIES: Record<string, string> = { USD: "$", EUR: "€", GBP: "£", CAD: "$", AUD: "$", INR: "₹", PKR: "Rs " };
+
+export function CacCalculator() {
+  const [currency, setCurrency] = useState("USD");
+  const [period, setPeriod] = useState("Month");
+  const [v, setV] = useState<Record<string, string>>({ marketing: "2000", sales: "1000", customers: "30", ltv: "" });
+  const [parts, setParts] = useState<Record<string, string>>({});
+  const set = (k: string) => (x: string) => setV((o) => ({ ...o, [k]: x }));
+  const sym = CURRENCIES[currency];
+  // When a breakdown is filled in, its totals replace the two main fields, so nothing is counted twice.
+  const usingBreakdown = Object.values(parts).some((x) => num(x) > 0);
+  const marketing = usingBreakdown ? CAC_BREAKDOWN.filter(([, t]) => t === "marketing").reduce((n, [k]) => n + num(parts[k] ?? ""), 0) : num(v.marketing);
+  const sales = usingBreakdown ? CAC_BREAKDOWN.filter(([, t]) => t === "sales").reduce((n, [k]) => n + num(parts[k] ?? ""), 0) : num(v.sales);
+  const customers = Math.floor(num(v.customers));
+  const r = cac({ marketing, sales, customers, ltv: num(v.ltv) || undefined });
+  useTracked("customer-acquisition-cost-calculator", [v, parts]);
+  const cur = (n: number) => `${sym}${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const id = (k: string) => `cac-${k}`;
+
+  return (
+    <section className={s.tool} aria-label="Customer acquisition cost calculator">
+      <form className={s.panel} onSubmit={(e) => e.preventDefault()}>
+        <div className={s.group}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <StudioField id={id("currency")} label="Currency">
+              <Select id={id("currency")} options={Object.keys(CURRENCIES)} value={currency} onChange={setCurrency} />
+            </StudioField>
+            <StudioField id={id("period")} label="Period">
+              <Select id={id("period")} options={["Month", "Quarter", "Year"]} value={period} onChange={setPeriod} />
+            </StudioField>
+          </div>
+          {usingBreakdown ? (
+            <p className={s.note}>Using your breakdown below: marketing {cur(marketing)}, sales {cur(sales)}.</p>
+          ) : (
+            <>
+              <NumberField id={id("marketing")} label={`Marketing costs this ${period.toLowerCase()}`} prefix={sym} value={v.marketing} onChange={set("marketing")} />
+              <NumberField id={id("sales")} label={`Sales costs this ${period.toLowerCase()}`} prefix={sym} value={v.sales} onChange={set("sales")} />
+            </>
+          )}
+          <NumberField id={id("customers")} label={`New customers this ${period.toLowerCase()}`} prefix="" value={v.customers} onChange={set("customers")} />
+        </div>
+        <Disclosure label="Cost breakdown and LTV (optional)">
+          <div className={s.group}>
+            <p className={s.note} style={{ margin: 0 }}>Fill these in instead of the two totals above. Leave them empty to use the totals.</p>
+            {CAC_BREAKDOWN.map(([k]) => (
+              <NumberField key={k} id={id(k.replace(/\W+/g, "-").toLowerCase())} label={k} prefix={sym} value={parts[k] ?? ""} onChange={(x) => setParts((o) => ({ ...o, [k]: x }))} />
+            ))}
+            <NumberField id={id("ltv")} label="Customer lifetime value (gross profit), if you know it" prefix={sym} value={v.ltv} onChange={set("ltv")} hint="Only fill this in if you've worked it out from real retention and margin data." />
+          </div>
+        </Disclosure>
+        <p className={s.note}>Runs in your browser. Nothing is sent anywhere.</p>
+      </form>
+      <div className={s.output}>
+        <div className={s.result} aria-live="polite">
+          <span className={s.resultLabel}>Customer acquisition cost</span>
+          <p style={{ margin: "4px 0 2px", fontFamily: "var(--nf-general-sans)", fontSize: 40, fontWeight: 600, letterSpacing: "-0.03em" }}>{r.cac === null ? "No customers acquired" : cur(r.cac)}</p>
+          <p className={s.note} style={{ marginTop: 0 }}>
+            {r.cac === null ? `You spent ${cur(r.total)} with no new customers, so CAC can't be calculated.` : `Blended CAC for one ${period.toLowerCase()}.`}
+          </p>
+          <Rows
+            rows={[
+              ["Marketing costs", cur(marketing)],
+              ["Sales costs", cur(sales)],
+              ["Total acquisition costs", cur(r.total), "strong"],
+              ["New customers", customers.toLocaleString("en-US")],
+              ["Marketing share", `${r.marketingShare}%`],
+              ["Sales share", `${r.salesShare}%`],
+              ...(r.ltvToCac !== null ? ([["LTV to CAC", `${r.ltvToCac} : 1`, "good"]] as [string, string, "good"][]) : []),
+            ]}
+          />
+          <p className={s.note}>
+            CAC = ({cur(marketing)} + {cur(sales)}) ÷ {customers || 0}
+            {r.cac !== null ? ` = ${cur(r.cac)}` : ""}. It&apos;s an average across every channel, not the cost of any one customer.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Robots.txt tester ----------
+
+const CRAWLERS = ["Googlebot", "Googlebot-Image", "Bingbot", "GPTBot", "ClaudeBot", "PerplexityBot", "Custom"];
+
+export function RobotsTxtTester() {
+  const [text, setText] = useState("");
+  const [crawler, setCrawler] = useState("Googlebot");
+  const [custom, setCustom] = useState("");
+  const [path, setPath] = useState("");
+  const [copied, setCopied] = useState(false);
+  const agent = crawler === "Custom" ? custom.trim() || "*" : crawler;
+  const report = useMemo(() => (text.trim() && path.trim() ? testRobots(text, agent, path) : null), [text, agent, path]);
+  useTracked("robots-txt-tester", [report?.decision]);
+
+  return (
+    <section className={s.tool} aria-label="Robots.txt tester">
+      <form className={s.panel} onSubmit={(e) => e.preventDefault()}>
+        <div className={s.group}>
+          <StudioField id="rt-text" label="Robots.txt content" hint="Copy it from yoursite.com/robots.txt and paste it here.">
+            <textarea id="rt-text" className={`${s.input} ${s.textarea}`} rows={9} value={text} onChange={(e) => setText(e.target.value)} placeholder={"User-agent: *\nDisallow: /private/"} spellCheck={false} style={{ fontFamily: "ui-monospace, Menlo, Consolas, monospace", fontSize: 14 }} />
+          </StudioField>
+          <StudioField id="rt-path" label="URL or path to test">
+            <input id="rt-path" className={s.input} value={path} onChange={(e) => setPath(e.target.value)} placeholder="/private/report/ or https://example.com/page" />
+          </StudioField>
+          <StudioField id="rt-crawler" label="Crawler">
+            <Select id="rt-crawler" options={CRAWLERS} value={crawler} onChange={setCrawler} />
+          </StudioField>
+          {crawler === "Custom" ? (
+            <StudioField id="rt-custom" label="Custom user agent token">
+              <input id="rt-custom" className={s.input} value={custom} onChange={(e) => setCustom(e.target.value)} placeholder="e.g. AhrefsBot" />
+            </StudioField>
+          ) : null}
+        </div>
+        <div className={s.actions}>
+          <button
+            type="button"
+            className={`${s.btn} ${s.btnGhost} ${s.btnLg}`}
+            onClick={() => {
+              setText("User-agent: *\nDisallow: /drafts/\nAllow: /drafts/public/\n\nUser-agent: GPTBot\nDisallow: /\n\nSitemap: https://example.com/sitemap.xml");
+              setPath("/drafts/public/guide");
+            }}
+          >
+            Try an example
+          </button>
+        </div>
+        <p className={s.note}>Runs in your browser. This checks the rules you paste, not a live crawl, and says nothing about indexing or rankings.</p>
+      </form>
+      <div className={s.output}>
+        {!report ? (
+          <p className={s.draftNote} style={{ margin: "24px auto" }}>
+            Paste your robots.txt and a URL to see whether that crawler may request it.
+          </p>
+        ) : (
+          <div className={s.result} aria-live="polite">
+            <span className={s.resultLabel}>Result for {agent}</span>
+            <p style={{ margin: "4px 0 6px", fontFamily: "var(--nf-general-sans)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.03em", color: report.decision === "allowed" ? "#2F6B3A" : "#A23B2A" }}>{report.decision === "allowed" ? "Allowed" : "Disallowed"}</p>
+            <p className={s.resultText} style={{ margin: 0 }}>{report.explanation}</p>
+            {report.matched ? (
+              <p className={s.note}>
+                Matched rule: <code>{report.matched.text}</code> (line {report.matched.line})
+              </p>
+            ) : null}
+            {report.sitemaps.length ? <p className={s.note}>Sitemaps listed: {report.sitemaps.join(", ")}</p> : null}
+            {report.warnings.length ? (
+              <ul className={s.note} style={{ color: "#7D6039", paddingLeft: 18 }}>
+                {report.warnings.slice(0, 8).map((w) => (
+                  <li key={w}>{w}</li>
+                ))}
+              </ul>
+            ) : null}
+            <div className={s.resultActions}>
+              <button
+                type="button"
+                className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`}
+                onClick={async () => {
+                  await navigator.clipboard.writeText(`${agent} ${path}: ${report.decision}\n${report.explanation}${report.warnings.length ? `\nWarnings:\n${report.warnings.join("\n")}` : ""}`).catch(() => undefined);
+                  setCopied(true);
+                  track("tool_copy", "robots-txt-tester");
+                  setTimeout(() => setCopied(false), 1800);
+                }}
+              >
+                {copied ? "Copied" : "Copy report"}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
 
 export function GoogleReviewLinkTool() {
   const [raw, setRaw] = useState("");

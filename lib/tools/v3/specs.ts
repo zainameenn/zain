@@ -1,4 +1,4 @@
-import { MAX_INTENT_KEYWORDS, V3_TOOLS } from "./fields";
+import { MAX_CLUSTER_KEYWORDS, MAX_INTENT_KEYWORDS, V3_TOOLS } from "./fields";
 
 // Server only: prompts, output schemas and the code checks every model answer goes through.
 // The model is never trusted to get limits or formats right; each validator fixes what it safely can
@@ -153,6 +153,115 @@ function checkIntent(raw: unknown, input: Record<string, string>): Validated<Int
   return { ok: true, value: { rows } };
 }
 
+// ---------- Tools 11 to 20: names with taglines, domains, product titles, long scripts, FAQs, clusters ----------
+
+export type TaglineResult = NameResult & { tagline: string };
+
+function checkTagline(raw: unknown): Validated<TaglineResult> {
+  const r = raw as Record<string, unknown>;
+  const name = str(r?.name, 80);
+  if (name.length < 2 || name.length > 60) return { ok: false, reason: "length" };
+  return { ok: true, value: { name, tagline: str(r.tagline, 120), reason: str(r.reason, 400), characterCount: name.length, availabilityVerified: false } };
+}
+
+function checkDomain(raw: unknown, input: Record<string, string>): Validated<NameResult> {
+  const r = raw as Record<string, unknown>;
+  // The extension is whatever the visitor picked, never the model's choice.
+  const ext = input.extension ?? ".com";
+  let label = str(r?.name, 80).toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "");
+  if (label.endsWith(ext)) label = label.slice(0, -ext.length);
+  label = label.split(".")[0].replace(/[^a-z0-9-]/g, "").replace(/^-+|-+$/g, "").replace(/--+/g, "-");
+  // DNS label rules: 1 to 63 characters, letters, digits and hyphens, no hyphen at either end.
+  if (label.length < 2 || label.length > 63) return { ok: false, reason: "label length" };
+  const domain = `${label}${ext}`;
+  return { ok: true, value: { name: domain, domain, reason: str(r.reason, 400), characterCount: label.length, availabilityVerified: false } };
+}
+
+export type TitleResult = { productTitle: string; seoTitle: string | null; factsUsed: string[]; unverifiedClaims: string[]; titleLength: number; seoLength: number };
+
+function checkProductTitle(raw: unknown, input: Record<string, string>): Validated<TitleResult> {
+  const r = raw as Record<string, unknown>;
+  // Shopify product titles can be up to 255 characters.
+  const productTitle = str(r?.productTitle, 255);
+  if (productTitle.length < 3) return { ok: false, reason: "empty title" };
+  const seoTitle = input.seo === "Yes" ? str(r.seoTitle, 120) || null : null;
+  const arr = (v: unknown) => (Array.isArray(v) ? v.map((x) => str(x, 140)).filter(Boolean).slice(0, 10) : []);
+  return { ok: true, value: { productTitle, seoTitle, factsUsed: arr(r.factsUsed), unverifiedClaims: arr(r.unverifiedClaims), titleLength: productTitle.length, seoLength: seoTitle?.length ?? 0 } };
+}
+
+export type LongScriptResult = { titleIdea: string | null; sections: { heading: string; spokenText: string }[]; words: number; minutes: number; unverifiedClaims: string[] };
+
+function checkLongScript(raw: unknown): Validated<LongScriptResult> {
+  const r = raw as Record<string, unknown>;
+  const sections = (Array.isArray(r?.sections) ? (r.sections as Record<string, unknown>[]) : []).map((s) => ({ heading: str(s?.heading, 100), spokenText: str(s?.spokenText, 4000) })).filter((s) => s.spokenText).slice(0, 12);
+  if (sections.length < 3) return { ok: false, reason: "too few sections" };
+  const total = sections.reduce((n, s) => n + words(s.spokenText), 0);
+  if (total < 150) return { ok: false, reason: "too short" };
+  const unverified = Array.isArray(r.unverifiedClaims) ? (r.unverifiedClaims as unknown[]).map((x) => str(x, 200)).filter(Boolean).slice(0, 8) : [];
+  // Spoken length is an estimate at 140 words a minute.
+  return { ok: true, value: { titleIdea: str(r.titleIdea, 100) || null, sections, words: total, minutes: Math.round((total / 140) * 10) / 10, unverifiedClaims: unverified } };
+}
+
+export type FaqItem = { question: string; answer: string; needsVerification: boolean; missingFact: string | null };
+export type FaqResult = { items: FaqItem[]; disclaimer: string };
+
+function checkFaq(raw: unknown, input: Record<string, string>): Validated<FaqResult> {
+  const r = raw as Record<string, unknown>;
+  const want = Math.min(8, Math.max(5, Number(input.count) || 5));
+  const seen = new Set<string>();
+  const items: FaqItem[] = [];
+  for (const it of Array.isArray(r?.items) ? (r.items as Record<string, unknown>[]) : []) {
+    // Plain text only: any HTML the model slips in is stripped.
+    const question = str(it?.question, 200).replace(/<[^>]*>/g, "");
+    const answer = str(it?.answer, 700).replace(/<[^>]*>/g, "");
+    if (!question || !answer || seen.has(question.toLowerCase())) continue;
+    seen.add(question.toLowerCase());
+    const missing = str(it?.missingFact, 160);
+    items.push({ question, answer, needsVerification: it?.needsVerification === true || Boolean(missing), missingFact: missing || null });
+    if (items.length >= want) break;
+  }
+  if (items.length < Math.min(5, want)) return { ok: false, reason: "too few FAQs" };
+  return { ok: true, value: { items, disclaimer: "Check every answer against how your business really works before you publish it. Answers flagged for checking depend on a fact you didn't give." } };
+}
+
+export type Cluster = { label: string; primaryKeyword: string; secondaryKeywords: string[]; intent: Intent; pageType: string; rationale: string; confidence: "high" | "medium" | "low" };
+export type ClusterResult = { clusters: Cluster[]; ungrouped: string[]; method: "ai"; verifiedSerpOverlap: false };
+
+export const clusterKeywords = (s: string) => [...new Map(s.split(/\n/).map((k) => k.split("\t")[0].trim().replace(/\s+/g, " ")).filter(Boolean).map((k) => [k.toLowerCase(), k])).values()];
+
+function checkClusters(raw: unknown, input: Record<string, string>): Validated<ClusterResult> {
+  const r = raw as Record<string, unknown>;
+  const wanted = clusterKeywords(input.keywords ?? "");
+  const canon = new Map(wanted.map((k) => [k.toLowerCase(), k]));
+  const used = new Set<string>();
+  // Keep only keywords the visitor sent, each once. Anything the model drops goes to "ungrouped".
+  const take = (k: unknown) => {
+    const key = str(k, 200).toLowerCase();
+    const real = canon.get(key);
+    if (!real || used.has(key)) return null;
+    used.add(key);
+    return real;
+  };
+  const clusters: Cluster[] = [];
+  for (const c of Array.isArray(r?.clusters) ? (r.clusters as Record<string, unknown>[]) : []) {
+    const all = [c?.primaryKeyword, ...(Array.isArray(c?.secondaryKeywords) ? c.secondaryKeywords : [])].map(take).filter(Boolean) as string[];
+    if (!all.length) continue;
+    clusters.push({
+      label: str(c.label, 80) || all[0],
+      primaryKeyword: all[0],
+      secondaryKeywords: all.slice(1),
+      intent: (INTENTS.includes(c.intent as Intent) ? c.intent : "informational") as Intent,
+      pageType: str(c.pageType, 60),
+      rationale: str(c.rationale, 240),
+      confidence: (["high", "medium", "low"].includes(String(c.confidence)) ? c.confidence : "medium") as Cluster["confidence"],
+    });
+  }
+  const ungrouped = wanted.filter((k) => !used.has(k.toLowerCase()));
+  // If the model grouped almost nothing, the answer isn't useful.
+  if (used.size < Math.ceil(wanted.length / 2)) return { ok: false, reason: "too few grouped" };
+  return { ok: true, value: { clusters, ungrouped, method: "ai", verifiedSerpOverlap: false } };
+}
+
 // ---------- Specs ----------
 
 export const SPECS: Record<string, Spec> = {
@@ -215,6 +324,69 @@ Never mention search volume, difficulty, rankings or live results. You have not 
     maxTokens: 3000,
     validate: checkIntent,
   },
+  "newsletter-name-generator": {
+    task: `Task: suggest ONE newsletter name and ONE short tagline (5 to 12 words).
+The name should hint at the topic or point of view, be easy to say and spell, and still make sense after many issues. Don't force "newsletter", "weekly" or a frequency into the name unless asked. Match the requested style and publisher type.
+"reason": one sentence linking it to the topic and readers. Never claim the name, domain or handles are available or unique.`,
+    schema: obj({ name: S, tagline: S, reason: S }),
+    maxTokens: 300,
+    validate: checkTagline,
+  },
+  "podcast-name-generator": {
+    task: `Task: suggest ONE podcast name and ONE short show tagline (5 to 12 words).
+Prioritise topic relevance, easy pronunciation (it will be said out loud at the start of every episode) and distinctiveness. Don't add the word "podcast" unless it helps. Never copy or closely imitate well known shows.
+"reason": one sentence on why it fits the topic and listeners. Never claim it's available, unique or legally clear.`,
+    schema: obj({ name: S, tagline: S, reason: S }),
+    maxTokens: 300,
+    validate: checkTagline,
+  },
+  "domain-name-ideas-generator": {
+    task: `Task: suggest ONE domain name using the requested extension.
+"name": the part before the extension: lowercase letters and numbers, hyphens only if unavoidable, 3 to 20 characters ideally, easy to say and spell, no imitation of established brands. "extension": exactly the requested one.
+"reason": one or two sentences. Never say it is available, unregistered or trademark safe.`,
+    schema: obj({ name: S, extension: S, reason: S }),
+    maxTokens: 300,
+    validate: checkDomain,
+  },
+  "shopify-product-title-generator": {
+    task: `Task: write ONE clear Shopify product title from the details given.
+Write it in Title Case. Start with what the product is, then add only the details that help a shopper choose (brand, model, size, material, colour, compatibility, quantity). Use only details the visitor supplied. Treat "current" as messy supplier text: keep what is true and useful, drop filler like "premium", "luxury", "best", years and repeated words. Never invent compatibility, materials, certifications or claims.
+Length: Short under 60 characters, Medium 60 to 90, Detailed up to 140.
+"seoTitle": if "seo" is "Yes", a search page title under 70 characters that may add one natural keyword, otherwise an empty string.
+"factsUsed": the supplied details you included. "unverifiedClaims": anything in the title that the visitor should double check (for example a compatibility claim), or an empty array.`,
+    schema: obj({ productTitle: S, seoTitle: S, factsUsed: { type: "array", items: S }, unverifiedClaims: { type: "array", items: S } }),
+    maxTokens: 500,
+    validate: checkProductTitle,
+  },
+  "youtube-video-script-generator": {
+    task: `Task: write ONE complete YouTube video script that can be read aloud.
+Structure, as "sections" in order: an opening that states what viewers will learn and starts delivering quickly (no long channel intro), a short setup, 3 to 6 content sections with natural transitions, a summary, and a closing with the call to action if one was given. Each section has a short "heading" and the full "spokenText".
+Length at about 140 spoken words a minute: 3 minutes about 420 words, 5 minutes about 700, 8 minutes about 1100. Stay close to it.
+Use only facts and examples the visitor supplied, or clearly general statements. Never invent personal stories, tests, numbers, sources or results. For reviews, never pretend to have used a product.
+"titleIdea": one possible video title, plain, no clickbait. "unverifiedClaims": any statement the creator should fact check before recording, or an empty array.`,
+    schema: obj({ titleIdea: S, sections: { type: "array", items: obj({ heading: S, spokenText: S }) }, unverifiedClaims: { type: "array", items: S } }),
+    maxTokens: 3500,
+    validate: checkLongScript,
+  },
+  "local-business-faq-generator": {
+    task: `Task: write ONE set of website FAQs for this local business. Exactly the number in "count" (5 if missing).
+Each item: a question a real customer would ask before calling or booking, and a direct answer in one to three sentences. Cover different topics: service area, what's included, how estimates or pricing work, booking, timing, preparation, policies.
+Use only facts the visitor gave. Never invent prices, opening hours, licences, insurance, guarantees, refund or cancellation terms, emergency availability or service areas. When a useful answer needs a fact that wasn't given, say how the customer can confirm (call, ask for a quote) and set "needsVerification" true with "missingFact" naming what's missing; otherwise "missingFact" is an empty string. No medical or legal advice. Plain text only, no HTML or markdown.`,
+    schema: obj({ items: { type: "array", items: obj({ question: S, answer: S, needsVerification: { type: "boolean" }, missingFact: S }) } }),
+    maxTokens: 1800,
+    validate: checkFaq,
+  },
+  "seo-keyword-cluster-generator": {
+    task: `Task: group EVERY keyword in "keywords" (one per line) into topic clusters a single page could serve. Group by the searcher's need and intent, not just shared words: "how to price handmade jewelry" and "buy gold earrings" belong apart.
+Each cluster: "label" (short topic name), "primaryKeyword" (the keyword that best represents the cluster, copied exactly), "secondaryKeywords" (the other keywords, copied exactly), "intent" (informational, navigational, commercial or transactional), "pageType" (e.g. blog guide, comparison page, product page, category page, tool page), "rationale" (one sentence), "confidence" (high, medium or low).
+Put keywords that fit no cluster in "ungrouped". Every keyword appears exactly once across clusters and ungrouped. Never invent volume, difficulty or rankings, and never claim to have checked live search results.`,
+    schema: obj({
+      clusters: { type: "array", items: obj({ label: S, primaryKeyword: S, secondaryKeywords: { type: "array", items: S }, intent: { type: "string", enum: ["informational", "navigational", "commercial", "transactional"] }, pageType: S, rationale: S, confidence: { type: "string", enum: ["high", "medium", "low"] } }) },
+      ungrouped: { type: "array", items: S },
+    }),
+    maxTokens: 4000,
+    validate: checkClusters,
+  },
 };
 
 /** Cleans visitor input: only known fields, trimmed to their limits. Returns an error message for the visitor or the clean input. */
@@ -231,6 +403,11 @@ export function cleanInput(slug: string, raw: unknown): { input: Record<string, 
   if (slug === "seo-search-intent-classifier") {
     const n = (input.keywords ?? "").split(/\n/).filter((k) => k.trim()).length;
     if (n > MAX_INTENT_KEYWORDS) return { error: `Up to ${MAX_INTENT_KEYWORDS} keywords at a time. Split the rest into another batch.` };
+  }
+  if (slug === "seo-keyword-cluster-generator") {
+    const n = clusterKeywords(input.keywords ?? "").length;
+    if (n < 3) return { error: "Add at least 3 keywords to group." };
+    if (n > MAX_CLUSTER_KEYWORDS) return { error: `AI grouping takes up to ${MAX_CLUSTER_KEYWORDS} keywords at a time. Use word grouping for longer lists, or split them.` };
   }
   return { input };
 }

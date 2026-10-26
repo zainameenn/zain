@@ -70,6 +70,17 @@ const LIVE = new Set([
   "etsy-offsite-ads-calculator",
   "shopify-profit-margin-calculator",
   "google-review-link-generator",
+  // October 26, 2026: tools 11 to 20.
+  "etsy-fee-calculator",
+  "newsletter-name-generator",
+  "shopify-product-title-generator",
+  "customer-acquisition-cost-calculator",
+  "podcast-name-generator",
+  "seo-keyword-cluster-generator",
+  "robots-txt-tester",
+  "domain-name-ideas-generator",
+  "youtube-video-script-generator",
+  "local-business-faq-generator",
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));

@@ -26,6 +26,7 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Pinterest title", "/tools/pinterest-title-generator"],
       ["Pinterest description", "/tools/pinterest-description-generator"],
       ["YouTube Shorts script", "/tools/youtube-shorts-script-generator"],
+      ["YouTube video script", "/tools/youtube-video-script-generator"],
     ],
   },
   {
@@ -48,6 +49,9 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Negative keywords", "/tools/google-ads-negative-keyword-generator"],
       ["Search intent classifier", "/tools/seo-search-intent-classifier"],
       ["llms.txt generator", "/tools/llms-txt-generator"],
+      ["Keyword clusters", "/tools/seo-keyword-cluster-generator"],
+      ["Robots.txt tester", "/tools/robots-txt-tester"],
+      ["Local business FAQs", "/tools/local-business-faq-generator"],
     ],
   },
   {
@@ -55,6 +59,7 @@ export const TOOL_MENU: ToolMenuGroup[] = [
     items: [
       ["Etsy title", "/tools/etsy-title-generator"],
       ["Product description", "/tools/product-description-generator"],
+      ["Shopify product title", "/tools/shopify-product-title-generator"],
     ],
   },
   {
@@ -63,6 +68,9 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["Etsy shop name", "/tools/etsy-shop-name-generator"],
       ["Shopify store name", "/tools/shopify-store-name-generator"],
       ["YouTube channel name", "/tools/youtube-channel-name-generator"],
+      ["Newsletter name", "/tools/newsletter-name-generator"],
+      ["Podcast name", "/tools/podcast-name-generator"],
+      ["Domain name ideas", "/tools/domain-name-ideas-generator"],
     ],
   },
   {
@@ -70,6 +78,8 @@ export const TOOL_MENU: ToolMenuGroup[] = [
     items: [
       ["Etsy Offsite Ads", "/tools/etsy-offsite-ads-calculator"],
       ["Shopify profit margin", "/tools/shopify-profit-margin-calculator"],
+      ["Etsy fees", "/tools/etsy-fee-calculator"],
+      ["Customer acquisition cost", "/tools/customer-acquisition-cost-calculator"],
       ["Google review link", "/tools/google-review-link-generator"],
     ],
   },

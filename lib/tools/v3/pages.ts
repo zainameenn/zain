@@ -10,6 +10,16 @@ import shopifyName from "./content/shopify-store-name-generator";
 import shopifyMargin from "./content/shopify-profit-margin-calculator";
 import reviewLink from "./content/google-review-link-generator";
 import llmsTxt from "./content/llms-txt-generator";
+import etsyFee from "./content/etsy-fee-calculator";
+import newsletterName from "./content/newsletter-name-generator";
+import productTitle from "./content/shopify-product-title-generator";
+import cacCalc from "./content/customer-acquisition-cost-calculator";
+import podcastName from "./content/podcast-name-generator";
+import keywordCluster from "./content/seo-keyword-cluster-generator";
+import robotsTester from "./content/robots-txt-tester";
+import domainIdeas from "./content/domain-name-ideas-generator";
+import videoScript from "./content/youtube-video-script-generator";
+import localFaq from "./content/local-business-faq-generator";
 
 // The ten tools added in October 2026, turned into regular registry pages on the studio layout.
 // Copy lives in lib/tools/v3/content/<slug>.ts; the generators in app/tools/_studio/V3Generator.tsx.
@@ -66,6 +76,17 @@ export const V3_PAGES: ToolPage[] = [
   page(etsyOffsite, "Utilities", false),
   page(shopifyMargin, "Utilities", false),
   page(reviewLink, "Utilities", false),
+  // Tools 11 to 20 (October 26, 2026).
+  page(etsyFee, "Utilities", false),
+  page(newsletterName, "Naming", true),
+  page(productTitle, "Ecommerce", true),
+  page(cacCalc, "Utilities", false),
+  page(podcastName, "Naming", true),
+  page(keywordCluster, "SEO", true),
+  page(robotsTester, "SEO", false),
+  page(domainIdeas, "Naming", true),
+  page(videoScript, "Social", true),
+  page(localFaq, "SEO", true),
 ];
 
-export const V3_CONTENT: NewToolContent[] = [etsyShopName, shopifyName, channelName, shortsScript, negativeKeywords, searchIntent, llmsTxt, etsyOffsite, shopifyMargin, reviewLink];
+export const V3_CONTENT: NewToolContent[] = [etsyShopName, shopifyName, channelName, shortsScript, negativeKeywords, searchIntent, llmsTxt, etsyOffsite, shopifyMargin, reviewLink, etsyFee, newsletterName, productTitle, cacCalc, podcastName, keywordCluster, robotsTester, domainIdeas, videoScript, localFaq];

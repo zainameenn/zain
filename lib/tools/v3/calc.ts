@@ -231,3 +231,37 @@ export function checkLlmsTxt(md: string): string[] {
   }
   return problems;
 }
+
+// ---------- Etsy fee calculator: payment processing presets ----------
+
+/**
+ * Etsy Payments processing rates by the seller's bank country, from Etsy's Payments Policy and Help Center
+ * (reviewed October 26, 2026). Only countries we could confirm are listed; everyone else enters their own rate.
+ * Canada and Australia charge a higher rate on international orders.
+ */
+export const ETSY_FEE_RULES_REVIEWED_AT = "2026-10-26";
+export const ETSY_PROCESSING: { country: string; currency: string; symbol: string; pct: number; fixed: number; intlPct?: number }[] = [
+  { country: "United States", currency: "USD", symbol: "$", pct: 3, fixed: 0.25 },
+  { country: "United Kingdom", currency: "GBP", symbol: "£", pct: 4, fixed: 0.2 },
+  { country: "Germany", currency: "EUR", symbol: "€", pct: 4, fixed: 0.3 },
+  { country: "Canada", currency: "CAD", symbol: "$", pct: 3, fixed: 0.25, intlPct: 4 },
+  { country: "Australia", currency: "AUD", symbol: "$", pct: 3, fixed: 0.25, intlPct: 4 },
+];
+
+// ---------- Customer acquisition cost ----------
+
+export type CacInput = { marketing: number; sales: number; customers: number; ltv?: number };
+export type CacResult = { total: number; cac: number | null; marketingShare: number; salesShare: number; ltvToCac: number | null };
+
+/** CAC = (marketing + sales acquisition costs) / new customers. Undefined (null) with zero customers. */
+export function cac(i: CacInput): CacResult {
+  const total = i.marketing + i.sales;
+  const value = i.customers > 0 ? total / i.customers : null;
+  return {
+    total: r2(total),
+    cac: value === null ? null : r2(value),
+    marketingShare: total > 0 ? r2((i.marketing / total) * 100) : 0,
+    salesShare: total > 0 ? r2((i.sales / total) * 100) : 0,
+    ltvToCac: value && i.ltv && i.ltv > 0 ? r2(i.ltv / value) : null,
+  };
+}
