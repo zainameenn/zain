@@ -1,3 +1,4 @@
+import { visitorId } from "@/lib/tools/ai/gateway";
 import { BUSY_MESSAGE } from "@/lib/tools/links";
 import { TOOLS_V2, ToolError, generateV2, type MediaPart, type Mode } from "@/lib/tools/v2/generate";
 
@@ -63,6 +64,7 @@ export async function POST(request: Request) {
       previousOutputs: Array.isArray(body.previousOutputs) ? body.previousOutputs.slice(-3).map((p) => String(p).slice(0, 12000)) : undefined,
       regenCount: Number(body.regenCount) || 1,
       eu: EU.has((request.headers.get("x-vercel-ip-country") ?? "").toUpperCase()),
+      visitor: visitorId(request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown"),
     });
     return json(result);
   } catch (error) {

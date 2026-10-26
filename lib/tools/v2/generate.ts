@@ -1,6 +1,7 @@
 import registry from "./prompts.json";
 import { buildUtmUrl, computeCalendarSlots } from "./shared";
 import { fetchPageContent } from "./page-fetch";
+import { runAi } from "../ai/gateway";
 
 // Free tools v2 generation pipeline. Server only: the Gemini key never reaches the browser.
 // One result per request. Prompts, fields, limits and schemas all come from prompts.json (the registry).
@@ -20,6 +21,8 @@ export type GenerateRequest = {
   media?: MediaPart[];
   /** UK and EU visitors go to OpenRouter instead of Gemini, which can't be used on the free tier there. */
   eu?: boolean;
+  /** Salted visitor id, used only when a request falls back to the shared OpenRouter gateway. */
+  visitor?: string;
 };
 export type CalendarPost = { slot_id: string; date: string; platform: string; pillar?: string; format?: string; topic?: string; hook?: string; details?: string; cta?: string; asset_needed?: string };
 export type GenerateResult = { content: string; tip: string; warnings: string[]; model: string; posts?: CalendarPost[]; calendar_name?: string; notice?: string };
@@ -226,7 +229,7 @@ async function callOpenRouter(system: string, parts: any[], schema: object, maxT
   return text;
 }
 
-async function callWithFallback(system: string, parts: object[], schema: object, thinking: string, maxTokens: number, eu = false) {
+async function callWithFallback(system: string, parts: object[], schema: object, thinking: string, maxTokens: number, eu = false, visitor = "v2") {
   // Until OPENROUTER_API_KEY is set, UK and EU visitors use Gemini like everyone else.
   // Off until TOOLS_EU_ROUTING=on, even though the OpenRouter key now exists for the newer tools.
   if (eu && process.env.TOOLS_EU_ROUTING === "on" && process.env.OPENROUTER_API_KEY) return { text: await callOpenRouter(system, parts, schema, maxTokens), model: OPENROUTER_MODEL };
@@ -237,6 +240,17 @@ async function callWithFallback(system: string, parts: object[], schema: object,
     } catch (e) {
       last = e;
       if (!(e instanceof ToolError) || !RETRYABLE.has(e.status)) throw e;
+    }
+  }
+  // Every Gemini model is busy or down: text only requests fall back to the shared OpenRouter free models
+  // (same budgets and rate limits as the newer tools). Uploads stay on Gemini, which can read them.
+  const textOnly = parts.every((p) => "text" in (p as Record<string, unknown>));
+  if (textOnly && process.env.OPENROUTER_API_KEY) {
+    try {
+      const out = await runAi({ system, user: parts.map((p) => (p as { text: string }).text).join("\n\n"), schemaName: "result", schema, maxTokens, visitor, validate: (raw) => (raw && typeof raw === "object" ? raw : null) });
+      return { text: JSON.stringify(out.value), model: out.model };
+    } catch {
+      // Report the original Gemini error, which the route already maps to a friendly message.
     }
   }
   throw last;
@@ -296,7 +310,7 @@ export async function generateV2(req: GenerateRequest): Promise<GenerateResult> 
   const thinking = tool.thinking_level ?? "low";
   const media = mediaParts(req.media);
 
-  let { text, model } = await callWithFallback(system, [...media, { text: userTurn }], schema, thinking, tool.max_output_tokens, req.eu);
+  let { text, model } = await callWithFallback(system, [...media, { text: userTurn }], schema, thinking, tool.max_output_tokens, req.eu, req.visitor);
   let parsed = safeJson(text);
 
   // One focused repair pass at most. Never a hidden batch of alternatives.
@@ -304,7 +318,7 @@ export async function generateV2(req: GenerateRequest): Promise<GenerateResult> 
   if (errors.length) {
     const repair = `${userTurn}\n\n<repair>\nYour last answer was:\n${text}\n\nFix only these problems and return the corrected single result as JSON:\n- ${errors.join("\n- ")}\n</repair>`;
     try {
-      const fixed = await callWithFallback(system, [...media, { text: repair }], schema, thinking, tool.max_output_tokens, req.eu);
+      const fixed = await callWithFallback(system, [...media, { text: repair }], schema, thinking, tool.max_output_tokens, req.eu, req.visitor);
       const p2 = safeJson(fixed.text);
       if (p2) ({ text, model, parsed } = { text: fixed.text, model: fixed.model, parsed: p2 });
     } catch {
