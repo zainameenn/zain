@@ -528,13 +528,39 @@ export function V3AiTool({ tool, name }: { tool: V3Tool; name: string }) {
             </ul>
           </div>
         ))}
+        {r.table ? (
+          <div style={{ overflowX: "auto", margin: "4px 0 14px", border: "1px solid #DDDAD3", borderRadius: 12 }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, lineHeight: 1.5, minWidth: 560 }}>
+              <thead>
+                <tr>
+                  {r.table.columns.map((c) => (
+                    <th key={c} scope="col" style={{ textAlign: "left", padding: "8px 10px", background: "#F8F6F4", borderBottom: "1px solid #DDDAD3", fontWeight: 600 }}>
+                      {c}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {r.table.rows.map((row, i) => (
+                  <tr key={i}>
+                    {row.map((cell, j) => (
+                      <td key={j} style={{ padding: "8px 10px", borderTop: i ? "1px solid #EEEBE6" : undefined, verticalAlign: "top" }}>
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
         {r.notes.map((n) => (
           <p key={n} className={s.note}>
             {n}
           </p>
         ))}
         <div className={s.resultActions}>
-          <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`} onClick={() => copy(r.fields.length === 1 && !r.lists.length ? `${r.fields[0].prefix ?? ""}${val(r.fields[0].key)}` : all)}>
+          <button type="button" className={`${s.btn} ${s.btnPrimary} ${s.btnSm}`} onClick={() => copy(r.table ? [r.table.columns.join("\t"), ...r.table.rows.map((x) => x.join("\t"))].join("\n") : r.fields.length === 1 && !r.lists.length ? `${r.fields[0].prefix ?? ""}${val(r.fields[0].key)}` : all)}>
             {copied ? "Copied" : "Copy"}
           </button>
           {r.markdown ? (
@@ -547,6 +573,18 @@ export function V3AiTool({ tool, name }: { tool: V3Tool; name: string }) {
               }}
             >
               Download .md
+            </button>
+          ) : null}
+          {r.table ? (
+            <button
+              type="button"
+              className={`${s.btn} ${s.btnGhost} ${s.btnSm}`}
+              onClick={() => {
+                downloadFile(r.table!.file, [r.table!.columns, ...r.table!.rows].map((x) => x.map(csvCell).join(",")).join("\n"), "text/csv");
+                track("tool_download", tool.slug);
+              }}
+            >
+              Download CSV
             </button>
           ) : null}
           <button type="button" className={`${s.btn} ${s.btnGhost} ${s.btnSm}`} disabled={loading} onClick={() => run(true)}>

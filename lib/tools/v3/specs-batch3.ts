@@ -5,7 +5,8 @@ import { INSTAGRAM_HANDLE_MAX, TIKTOK_HANDLE_MAX } from "./fields";
 
 export type ResultField = { key: string; label: string; value: string; multiline?: boolean; limit?: number; prefix?: string; large?: boolean };
 export type ResultList = { label: string; items: string[] };
-export type FieldsResult = { fields: ResultField[]; lists: ResultList[]; notes: string[]; markdown?: string };
+export type ResultTable = { columns: string[]; rows: string[][]; file: string };
+export type FieldsResult = { fields: ResultField[]; lists: ResultList[]; notes: string[]; markdown?: string; table?: ResultTable };
 
 type Validated<T> = { ok: true; value: T } | { ok: false; reason: string };
 type Spec = { task: string; schema: object; maxTokens: number; validate: (raw: unknown, input: Record<string, string>) => Validated<unknown> };

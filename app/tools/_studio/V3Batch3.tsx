@@ -11,7 +11,7 @@ import s from "./studio.module.css";
 // Tools 21 to 40 that run in the browser: YouTube chapters (AI optional), robots.txt generator,
 // XML sitemap validator, LocalBusiness schema, break-even ROAS and LTV to CAC.
 
-function CopyButton({ text, slug, label = "Copy", primary = true }: { text: string; slug: string; label?: string; primary?: boolean }) {
+export function CopyButton({ text, slug, label = "Copy", primary = true }: { text: string; slug: string; label?: string; primary?: boolean }) {
   const [done, setDone] = useState(false);
   return (
     <button
@@ -29,7 +29,7 @@ function CopyButton({ text, slug, label = "Copy", primary = true }: { text: stri
   );
 }
 
-const mono = { fontFamily: "ui-monospace, Menlo, Consolas, monospace", fontSize: 14 } as const;
+export const mono = { fontFamily: "ui-monospace, Menlo, Consolas, monospace", fontSize: 14 } as const;
 const big = (danger?: boolean) => ({ margin: "4px 0 2px", fontFamily: "var(--nf-general-sans)", fontSize: 40, fontWeight: 600, letterSpacing: "-0.03em", color: danger ? "#A23B2A" : undefined }) as const;
 
 // ---------- YouTube chapters ----------

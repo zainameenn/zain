@@ -102,6 +102,27 @@ const LIVE = new Set([
   "website-hero-headline-generator",
   "saas-value-proposition-generator",
   "changelog-entry-generator",
+  // October 26, 2026: tools 41 to 60.
+  "xml-sitemap-generator",
+  "hreflang-tag-generator",
+  "canonical-url-checker",
+  "redirect-chain-checker",
+  "json-ld-schema-validator",
+  "open-graph-tags-generator",
+  "product-schema-generator",
+  "internal-link-opportunity-finder",
+  "keyword-to-page-mapper",
+  "seo-content-gap-planner",
+  "saas-product-name-generator",
+  "product-hunt-launch-copy-generator",
+  "shopify-sku-generator",
+  "shopify-abandoned-checkout-email-generator",
+  "local-service-page-outline-generator",
+  "local-seo-keyword-modifier-generator",
+  "landing-page-copy-generator",
+  "mrr-calculator",
+  "customer-retention-rate-calculator",
+  "ab-test-sample-size-calculator",
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));
