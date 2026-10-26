@@ -2,8 +2,8 @@
 title: More Reliable Free AI Tools
 summary: The free AI tools now switch to another free model when one is busy or down, with fair daily limits for every visitor.
 category: improvement
-status: draft
-publishedAt:
+status: published
+publishedAt: 2026-10-26
 updatedAt:
 relatedUrl: /tools
 relatedLabel: Browse all free tools

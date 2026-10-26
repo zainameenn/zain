@@ -2,8 +2,8 @@
 title: Twenty More Free Tools for Technical SEO, Launches and SaaS Metrics
 summary: A sitemap generator, hreflang and schema tools, canonical and redirect checkers, keyword mapping, Shopify SKUs and checkout emails, landing page copy, and MRR, retention and A/B test calculators.
 category: new-tool
-status: draft
-publishedAt:
+status: published
+publishedAt: 2026-10-26
 updatedAt:
 featuredImage:
 imageAlt:

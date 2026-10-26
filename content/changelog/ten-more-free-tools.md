@@ -2,8 +2,8 @@
 title: Ten More Free Tools for Names, Scripts, SEO and Costs
 summary: An Etsy fee calculator, a CAC calculator, a robots.txt tester, a keyword clusterer and six new writing tools, from newsletter names to local business FAQs.
 category: new-tool
-status: draft
-publishedAt:
+status: published
+publishedAt: 2026-10-26
 updatedAt:
 featuredImage: /assets/changelog/ten-more-free-tools.jpg
 imageAlt: The SEO Keyword Cluster Generator grouping Etsy keywords into topics

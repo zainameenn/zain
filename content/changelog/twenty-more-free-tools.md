@@ -2,8 +2,8 @@
 title: Twenty New Free Tools for Names, Copy, SEO and SaaS Metrics
 summary: Username and business name generators, YouTube chapters and thumbnail text, SEO briefs, a robots.txt generator, a sitemap validator, schema markup, Etsy and Shopify copy, ROAS and LTV calculators, and startup copywriting tools.
 category: new-tool
-status: draft
-publishedAt:
+status: published
+publishedAt: 2026-10-26
 updatedAt:
 featuredImage: /assets/changelog/twenty-more-free-tools.jpg
 imageAlt: The YouTube Chapter Generator checking timestamps against YouTube's rules
