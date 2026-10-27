@@ -2,8 +2,8 @@
 title: New Illustrations Across the Site and Every Free Tool
 summary: Every one of the 83 free tools now has its own illustration, and the homepage, services, about, pricing, contact and case study pages use a new set of original drawings.
 category: website
-status: draft
-publishedAt:
+status: published
+publishedAt: 2026-10-28
 updatedAt:
 featuredImage:
 imageAlt:
