@@ -21,6 +21,8 @@ A new set of original illustrations, drawn in one consistent style.
 
 - Each of the 83 tools has its own drawing in its "how it works" section, showing what that tool actually does: a robots.txt rule being matched, an MRR breakdown, a SERP snippet, and so on.
 - Non bio tools no longer show the small bio form previews (account type, style, "Copy bio") in their steps. Those now appear only on the bio generators.
+- New thumbnails for all 83 tools in the directory, the featured tool, search results and the "more free tools" links on each tool page, replacing the old 3D graphics. Each tool keeps the same thumbnail everywhere it appears.
+- The directory search box no longer makes the page scroll sideways on phones.
 - The tools directory explains the three steps with one drawing.
 
 **The rest of the site**

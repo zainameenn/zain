@@ -1,3 +1,4 @@
+import { THUMBNAIL_SIZE, toolThumbnail } from "./thumbnails";
 import { FAIR_USE } from "./links";
 import { TOOLS } from "./registry";
 import type { Rich, ToolGroup } from "./types";
@@ -5,7 +6,7 @@ import { V3_CONTENT } from "./v3/pages";
 
 // Content for the /tools hub. Everything is keyed by tool slug and filtered against TOOLS,
 // so a tool (and every box, link and FAQ that mentions it) only appears once its page is live.
-// Adding a tool to the hub: add its card copy below and a graphic at public/assets/tools/hub/<slug>.webp.
+// Adding a tool to the hub: add its card copy below and its thumbnail to lib/tools/thumbnails.ts.
 
 export type HubCard = { description: string; cta: string };
 
@@ -36,9 +37,9 @@ export const HUB_CARDS: Record<string, HubCard> = {
   ...Object.fromEntries(V3_CONTENT.map((c) => [c.slug, c.hubCard])),
 };
 
-export const hubImage = (slug: string) => `/assets/tools/hub/${slug}.webp`;
-/** Every hub graphic is trimmed and fitted to the same 4:3 frame. */
-export const HUB_IMAGE_SIZE = { width: 800, height: 600 };
+/** A tool's directory thumbnail (T01 to T83, all 4:3). Every card, featured slot and related link reads it from here. */
+export const hubImage = (slug: string) => toolThumbnail(slug) ?? "";
+export const HUB_IMAGE_SIZE = THUMBNAIL_SIZE;
 
 const live = (slug: string) => Boolean(TOOLS[slug]) && Boolean(HUB_CARDS[slug]);
 const allLive = (slugs: string[]) => slugs.every(live);

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
@@ -163,7 +162,8 @@ export default function ToolsHub() {
               </div>
             </div>
             <div className={h.featureArt}>
-              <Image src={hero.image} alt="An Instagram profile with a finished bio, highlights and a post grid" width={800} height={600} sizes="(max-width: 1023px) 88vw, 560px" priority className={h.featureImg} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={hero.image} alt="" width={1200} height={900} fetchPriority="high" className={h.featureImg} />
             </div>
           </section>
         ) : null}
@@ -226,7 +226,8 @@ export default function ToolsHub() {
             <ul className={h.choose}>
               {choose.map((c) => (
                 <li key={c.title} className={`${h.chooseCard} ${c.tone === "dark" ? h.toneDark : c.tone === "cream" ? h.toneCream : ""}`}>
-                  <Image src={hubImage(c.tools[0])} alt="" width={800} height={600} sizes="160px" className={h.chooseImg} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={hubImage(c.tools[0])} alt="" width={1200} height={900} loading="lazy" decoding="async" className={h.chooseImg} />
                   <div>
                     <h3 className={h.chooseTitle}>{c.title}</h3>
                     <p className={h.chooseText}>{c.text}</p>

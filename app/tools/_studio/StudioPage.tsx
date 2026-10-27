@@ -15,6 +15,7 @@ import { v2SpecForSlug } from "@/lib/tools/v2/client-spec";
 import { ToolWorkspace } from "../_components/ToolWorkspace";
 import { lora } from "./fonts";
 import { toolIllustration } from "@/lib/illustrations";
+import { hubImage } from "@/lib/tools/hub";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
 import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, YouTubeResultsScreen } from "./PostScreen";
 import { StyleButton } from "./StyleButton";
@@ -371,9 +372,15 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
             {live.map((t) => (
               <li key={t.slug}>
                 <Link href={toolPath(t.slug)} className={s.relatedCard}>
-                  <svg className={s.relatedIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    {ICONS[t.icon]}
-                  </svg>
+                  {hubImage(t.slug) ? (
+                    // The same directory thumbnail the tool has everywhere. Decorative: its name follows.
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={hubImage(t.slug)} alt="" width={1200} height={900} loading="lazy" decoding="async" className={s.relatedThumb} />
+                  ) : (
+                    <svg className={s.relatedIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      {ICONS[t.icon]}
+                    </svg>
+                  )}
                   <span className={s.relatedName}>{TOOLS[t.slug].name}</span>
                   <span className={s.relatedText}>{t.text}</span>
                 </Link>
