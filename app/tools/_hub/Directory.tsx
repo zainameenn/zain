@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import h from "./hub.module.css";
@@ -11,13 +10,19 @@ import h from "./hub.module.css";
 export type DirectoryTool = { slug: string; href: string; name: string; description: string; cta: string; image: string };
 export type DirectoryGroup = { id: string; label: string; heading: string; intro: string; tools: DirectoryTool[] };
 
+/** The tool's thumbnail. Decorative: the card title right below names the tool. A local SVG, so no next/image round trip. */
+function Thumb({ src, priority }: { src: string; priority?: boolean }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt="" width={1200} height={900} loading={priority ? "eager" : "lazy"} decoding="async" className={h.cardImg} />;
+}
+
 export function ToolCard({ tool, featured, priority }: { tool: DirectoryTool; featured?: boolean; priority?: boolean }) {
   // Tools still being built show in the directory, but without a link, so nobody lands on an unfinished page.
   if (!tool.href) {
     return (
       <div className={`${h.card} ${h.cardSoon}`}>
         <div className={h.cardArt}>
-          <Image src={tool.image} alt="" width={800} height={600} sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px" className={h.cardImg} />
+          <Thumb src={tool.image} />
         </div>
         <div className={h.cardBody}>
           <h3 className={h.cardName}>{tool.name}</h3>
@@ -30,15 +35,7 @@ export function ToolCard({ tool, featured, priority }: { tool: DirectoryTool; fe
   return (
     <Link href={tool.href} className={featured ? `${h.card} ${h.cardFeatured}` : h.card}>
       <div className={h.cardArt}>
-        <Image
-          src={tool.image}
-          alt=""
-          width={800}
-          height={600}
-          sizes={featured ? "(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 380px" : "(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"}
-          className={h.cardImg}
-          priority={priority}
-        />
+        <Thumb src={tool.image} priority={priority} />
       </div>
       <div className={h.cardBody}>
         <h3 className={h.cardName}>{tool.name}</h3>

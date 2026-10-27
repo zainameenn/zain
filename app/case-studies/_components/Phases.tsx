@@ -1,4 +1,5 @@
 import type { CaseStudy, Phase } from "../_data/types";
+import { Art } from "../../HomeComponents/Art";
 import { ArrowIcon } from "../../HomeComponents/icons";
 import { ScreenshotFigure } from "./Lightbox";
 import { Rich } from "./Rich";
@@ -151,6 +152,7 @@ export function Phases({ data }: { data: NonNullable<CaseStudy["phases"]> }) {
         <div style={EYEBROW}>{data.eyebrow}</div>
         <h2 style={SECTION_H2}>{data.heading.text}<span style={ACCENT_LINE}>{data.heading.accent}</span></h2>
       </div>
+      {data.diagram && <Art id={data.diagram} maxWidth={760} style={{ marginTop: "clamp(28px,3vw,40px)" }} />}
       <div style={{ position: "relative", marginTop: "clamp(36px,4vw,56px)" }}>
         <span aria-hidden="true" className="left-[19.5px] md:left-[27.5px]" style={{ position: "absolute", top: 8, bottom: 8, width: 1, background: "#CFCBC2" }} />
         <ol style={{ position: "relative", margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "clamp(48px,5vw,72px)" }}>

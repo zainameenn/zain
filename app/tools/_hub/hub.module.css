@@ -44,7 +44,6 @@
 .featureActions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .featureArt {
   border-radius: 20px;
-  background: #FAF4EA;
   overflow: hidden;
 }
 .featureImg { display: block; width: 100%; height: auto; }
@@ -63,14 +62,15 @@
   border-radius: 22px;
   background: var(--surface);
   color: var(--ink);
-  transition: border-color 150ms, transform 150ms;
+  transition: border-color 150ms, box-shadow 150ms;
 }
-.card:hover { border-color: var(--ink); }
+.card:hover { border-color: #CFC7B8; box-shadow: 0 6px 20px rgba(28, 28, 28, 0.06); }
 .card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+/* The thumbnails carry their own background, so the frame only clips their corners. */
 .cardArt {
   margin: 10px 10px 0;
+  overflow: hidden;
   border-radius: 14px;
-  background: #FAF4EA;
 }
 .cardImg {
   display: block;
@@ -114,7 +114,6 @@
 .card:hover .cardCta { color: var(--gold-text); }
 .card:hover .cardCta svg { transform: translateX(3px); }
 .cardFeatured .cardName { font-size: 21px; }
-.cardFeatured .cardArt { background: #F6ECDD; }
 
 .startGrid,
 .grid {
@@ -209,7 +208,8 @@
 .searchInput::placeholder { color: #9A928A; }
 .searchInput:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px var(--gold-soft); }
 @media (max-width: 767.98px) {
-  .toolbar { flex-direction: column-reverse; align-items: stretch; }
+  /* No wrap: a wrapping column takes the width of the unwrapped category row and widens the page. */
+  .toolbar { flex-direction: column-reverse; flex-wrap: nowrap; align-items: stretch; }
   .search { max-width: none; flex-basis: auto; }
 }
 
@@ -306,7 +306,6 @@
   width: 120px;
   height: auto;
   border-radius: 14px;
-  background: #FAF4EA;
 }
 .chooseTitle {
   margin: 0;

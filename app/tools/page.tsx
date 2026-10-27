@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { JsonLd, breadcrumbList } from "@/app/blog/_components/JsonLd";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
+import { ILLUSTRATIONS } from "@/lib/illustrations";
 import { HUB_META } from "@/lib/tools/meta";
 import { HERO_TOOL, HUB_CARDS, HUB_CATEGORIES, choosers, helps, hubFaqs, hubImage, startPicks, toolKinds, type HelpExample } from "@/lib/tools/hub";
 import { LINK_CONTACT, LINK_SERVICES } from "@/lib/tools/links";
@@ -46,43 +46,6 @@ const Arrow = () => (
     <path d="M5 12h14M13 6l6 6-6 6" />
   </svg>
 );
-
-/** Small decorative pictures of each step. The step text carries the meaning. */
-function StepArt({ step }: { step: number }) {
-  if (step === 1)
-    return (
-      <div className={s.mini} aria-hidden>
-        <div className={s.miniChips}>
-          <span className={s.miniOn}>Bio</span>
-          <span>Caption</span>
-        </div>
-        <div className={s.miniChips}>
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>X</span>
-        </div>
-      </div>
-    );
-  if (step === 2)
-    return (
-      <div className={s.mini} aria-hidden>
-        <div className={s.miniField}>Sourdough bakery in Austin</div>
-        <div className={s.miniChips}>
-          <span className={s.miniOn}>Friendly</span>
-          <span>Professional</span>
-        </div>
-      </div>
-    );
-  return (
-    <div className={s.mini} aria-hidden>
-      <div className={s.miniCard}>
-        <span className={s.miniLine} />
-        <span className={s.miniLine} style={{ width: "72%" }} />
-        <span className={s.miniBtn}>Copy</span>
-      </div>
-    </div>
-  );
-}
 
 function Example({ example }: { example: HelpExample }) {
   if (example.kind === "bio") return <p className={h.exBio}>{example.text}</p>;
@@ -199,7 +162,8 @@ export default function ToolsHub() {
               </div>
             </div>
             <div className={h.featureArt}>
-              <Image src={hero.image} alt="An Instagram profile with a finished bio, highlights and a post grid" width={800} height={600} sizes="(max-width: 1023px) 88vw, 560px" priority className={h.featureImg} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={hero.image} alt="" width={1200} height={900} fetchPriority="high" className={h.featureImg} />
             </div>
           </section>
         ) : null}
@@ -235,6 +199,10 @@ export default function ToolsHub() {
             accent="free marketing tools"
             intro="You don't need a complicated setup. Pick the task you're working on, provide a little context, and use the result as your starting point."
           />
+          <figure className={s.figure}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={ILLUSTRATIONS.A100.src} alt={ILLUSTRATIONS.A100.alt} width={ILLUSTRATIONS.A100.width} height={ILLUSTRATIONS.A100.height} loading="lazy" decoding="async" className={s.figureImg} />
+          </figure>
           <ol className={s.steps}>
             {[
               { t: "Choose a tool", d: "Find the tool that matches your task, whether you're writing a bio, planning content, or improving a page title." },
@@ -242,7 +210,6 @@ export default function ToolsHub() {
               { t: "Review and use the result", d: "Read the result, regenerate or refine it if you want a different take, and copy what works for your project." },
             ].map((step, i) => (
               <li key={step.t} className={s.step}>
-                <StepArt step={i + 1} />
                 <span className={`${s.stepNum} ${lora.className}`}>{String(i + 1).padStart(2, "0")}</span>
                 <h3 className={s.h3}>{step.t}</h3>
                 <p className={s.body}>{step.d}</p>
@@ -259,7 +226,8 @@ export default function ToolsHub() {
             <ul className={h.choose}>
               {choose.map((c) => (
                 <li key={c.title} className={`${h.chooseCard} ${c.tone === "dark" ? h.toneDark : c.tone === "cream" ? h.toneCream : ""}`}>
-                  <Image src={hubImage(c.tools[0])} alt="" width={800} height={600} sizes="160px" className={h.chooseImg} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={hubImage(c.tools[0])} alt="" width={1200} height={900} loading="lazy" decoding="async" className={h.chooseImg} />
                   <div>
                     <h3 className={h.chooseTitle}>{c.title}</h3>
                     <p className={h.chooseText}>{c.text}</p>

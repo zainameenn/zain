@@ -1,3 +1,5 @@
+import type { IllustrationId } from "@/lib/illustrations";
+
 // Shape of one case study page. Each case study is one data file in this folder,
 // rendered by the shared components in ../_components.
 
@@ -80,6 +82,8 @@ export type CaseStudy = {
   phases?: {
     eyebrow: string;
     heading: AccentHeading;
+    /** Explanatory illustration under the heading. It never stands in for a screenshot or a result. */
+    diagram?: IllustrationId;
     items: Phase[];
     /** Shown after the timeline: a bullet callout, then screenshots. */
     outro?: { callout?: { title: string; bullets: RichText[] }; screenshots?: Screenshot[]; note?: string };

@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import { ArrowIcon } from "@/app/HomeComponents/icons";
 import { FAQAccordion } from "@/app/HomeComponents/FAQAccordion";
 import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
+import { Art } from "../HomeComponents/Art";
 import Work from "../HomeComponents/Work";
 import Reviews from "../HomeComponents/Reviews";
 import { ComparisonTable, PricingCTA, PricingHeading } from "../_pricing/Pricing";
@@ -163,6 +164,7 @@ export default function PricingPage() {
           accent="coordinated for you."
           intro="For businesses that want strategy and execution in one place, without hiring a separate person for every channel."
         />
+        <Art id="A104" maxWidth={720} style={{ marginBottom: "clamp(24px,3vw,40px)" }} />
         <div className={s.twoCol}>
           <div>
             <h3 className={s.smallHeading}>Who it&apos;s for</h3>

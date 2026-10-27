@@ -109,6 +109,7 @@ export const loompad: CaseStudy = {
   phases: {
     eyebrow: "What I did",
     heading: { text: "Four moves.", accent: "One very ignored ad dashboard." },
+    diagram: "A108",
     items: [
       {
         number: "01",

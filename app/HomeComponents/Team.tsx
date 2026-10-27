@@ -1,4 +1,4 @@
-import { Img } from "./Img";
+import { Art } from "./Art";
 export default function Team() {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
@@ -35,14 +35,7 @@ export default function Team() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%" }}>
-          <Img
-            src="/assets/v12/art-a.webp"
-            alt="Illustration: strategy, search, Reddit, social, design and ads cards all connecting to one marketer at a desk"
-            width={1448}
-            height={1086}
-            loading="lazy"
-            style={{ display: "block", width: "100%", height: "auto", objectFit: "contain", mixBlendMode: "multiply" }}
-          />
+          <Art id="A102" />
         </figure>
       </div>
     </section>
