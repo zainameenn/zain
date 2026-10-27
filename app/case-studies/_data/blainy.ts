@@ -103,6 +103,7 @@ export const blainy: CaseStudy = {
   phases: {
     eyebrow: "What I did",
     heading: { text: "Three phases.", accent: "One compounding system." },
+    diagram: "A106",
     items: [
       {
         number: "01",

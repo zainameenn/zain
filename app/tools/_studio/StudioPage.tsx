@@ -14,6 +14,7 @@ import { V3Generator } from "./V3Generator";
 import { v2SpecForSlug } from "@/lib/tools/v2/client-spec";
 import { ToolWorkspace } from "../_components/ToolWorkspace";
 import { lora } from "./fonts";
+import { toolIllustration } from "@/lib/illustrations";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
 import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, YouTubeResultsScreen } from "./PostScreen";
 import { StyleButton } from "./StyleButton";
@@ -142,19 +143,33 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
   const limit = r.kind === "options" && typeof r.limit === "number" ? r.limit : 150;
   const platform = tool.studio?.platform ?? "Instagram";
   switch (section.kind) {
-    case "steps":
+    case "steps": {
+      // The small form mockups (account type, style, Copy bio) only describe the bio generators.
+      // Every tool shows its own illustration above the steps.
+      const isBio = !tool.studio?.tool || tool.studio.tool === "bio";
+      const art = toolIllustration(tool.slug);
       return (
+        <>
+        {art ? (
+          <figure className={s.figure}>
+            {/* A local SVG: next/image would only add an optimization round trip. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={art.src} alt={art.alt} width={art.width} height={art.height} loading="lazy" decoding="async" className={s.figureImg} />
+          </figure>
+        ) : null}
         <ol className={s.steps}>
           {section.steps.map((step, i) => (
             <li key={step.title} className={s.step}>
-              <StepVisual kind={step.visual} />
+              {isBio ? <StepVisual kind={step.visual} /> : null}
               <span className={`${s.stepNum} ${lora.className}`}>{pad(i + 1)}</span>
               <h3 className={s.h3}>{step.title}</h3>
               <p className={s.body}>{rich(step.text)}</p>
             </li>
           ))}
         </ol>
+        </>
       );
+    }
     case "gallery":
       return (
         <>

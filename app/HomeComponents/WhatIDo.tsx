@@ -1,3 +1,4 @@
+import { Art } from "./Art";
 export default function WhatIDo() {
   return (
     <section className="max-md:!pt-20" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
@@ -10,6 +11,7 @@ export default function WhatIDo() {
           Most SaaS teams don&apos;t have a marketing problem. They have one bottleneck hiding behind ten tasks. My job is to find it, fix it, then build the channel that brings users in. Usually that&apos;s SEO, Reddit, social or ads. Sometimes it&apos;s the landing page nobody wanted to touch.
         </p>
       </div>
+      <Art id="A96" maxWidth={760} style={{ marginTop: "clamp(24px,4vw,48px)" }} />
     </section>
   );
 }

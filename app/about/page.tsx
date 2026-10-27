@@ -210,8 +210,8 @@ export default function AboutPage() {
         </div>
         <Img
           loading="eager" fetchPriority="high"
-          src="/assets/about/hero-t.webp"
-          alt="Illustration: content, search, testing, community, distribution and growth all orbiting one central growth system"
+          src="/assets/illustrations/A16-about-marketing-field-notes.svg" width={1600} height={1000}
+          alt="An original top-down desk scene with research notes, magnifier, campaign pathways and coffee. No stock headshot."
           style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "clamp(40px,4vw,56px) auto 0", mixBlendMode: "multiply" }}
         />
       </section>
@@ -267,7 +267,7 @@ export default function AboutPage() {
             }
             sub="Each skill exposed a problem the last one couldn’t solve."
           />
-          <Img loading="lazy" src="/assets/about/growth-path-t.webp" alt="Illustration: a path from writing to search to community to growth to a hit target" style={{ display: "block", width: "100%", maxWidth: 900, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+          <Img loading="lazy" src="/assets/illustrations/A103-about-career-chapters-map.svg" width={1200} height={800} alt="An editorial journey from writing toward broader acquisition strategy, represented as career chapters rather than claimed numerical results." style={{ display: "block", width: "100%", maxWidth: 900, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
           <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 16 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-5">
             {GROWTH_PATH.map((p) => (
               <li
@@ -484,7 +484,7 @@ export default function AboutPage() {
           }
           sub="Usually it’s fixing the thing already there."
         />
-        <Img loading="lazy" src="/assets/about/bottleneck-t.webp" alt="Illustration: many channels pouring into a funnel where a magnifying glass finds the blockage before growth" style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/illustrations/A03-funnel-before-after.svg" width={1400} height={840} alt="Two visual process flows: one loses potential customers between stages, and the other closes the gap to connect traffic, interest and customers. Contains no fabricated data." style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div role="img" aria-label="Diagnose, prioritize, execute, measure, learn, then repeat" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "10px 8px", margin: "0 auto 48px", maxWidth: 980 }}>
           {PHILOSOPHY_FLOW.map((t, i) => (
             <span key={t} style={{ display: "contents" }}>
@@ -523,7 +523,7 @@ export default function AboutPage() {
           }
           sub="The short version: you’ll always know what I’m doing and why."
         />
-        <Img loading="lazy" src="/assets/about/how-i-work-t.webp" alt="Illustration: conversation, plan, execution and results linked in order" style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
+        <Img loading="lazy" src="/assets/illustrations/A97-how-i-work-four-stages.svg" width={1200} height={800} alt="Four connected stages show research, priority selection, execution and measurement as a practical marketing delivery workflow." style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,40px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {WORKING.map((w) => (
             <div key={w.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>

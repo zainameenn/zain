@@ -222,8 +222,8 @@ export default function ContactPage() {
         <div style={{ width: "100%", maxWidth: 1040, margin: "clamp(12px,2vw,28px) auto 0" }}>
           <Img
             loading="eager" fetchPriority="high"
-            src="/assets/pages/contact/01-hero__desk-coffee-30-min-call.webp"
-            alt="Illustration: scattered questions, a laptop and coffee, a 30 minute calendar slot and clear checked next steps"
+            src="/assets/illustrations/A19-contact-coffee-brief.svg" width={1200} height={800}
+            alt="A warm, useful visual of coffee and a half-written marketing brief, with no fake booking widget."
             style={{ display: "block", width: "100%", height: "auto" }}
           />
         </div>
@@ -319,8 +319,8 @@ export default function ContactPage() {
         <div style={{ width: "100%", maxWidth: 900, margin: "clamp(8px,2vw,24px) auto 0" }}>
           <Img
             loading="lazy"
-            src="/assets/pages/contact/04-topics__video-call-topics.webp"
-            alt="Illustration: a video call surrounded by growth, SEO, Reddit, social, design, ads and strategy topics"
+            src="/assets/illustrations/A105-contact-book-discuss-next-steps.svg" width={1200} height={800}
+            alt="A three-step illustrated process: book a conversation, discuss the bottleneck, receive clear next steps."
             style={{ display: "block", width: "100%", height: "auto" }}
           />
         </div>

@@ -178,7 +178,7 @@ export default function SocialMediaManagementPage() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/social/01-hero__calendar-to-posts.webp" alt="Illustration: a content calendar turning into posts published across Instagram, TikTok, LinkedIn, YouTube, X, Pinterest and Threads, feeding a growth dashboard" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/illustrations/A07-social-idea-to-conversation.svg" width={1600} height={1000} alt="A single original idea becomes a planned post and multiple platform formats, then leads to real audience feedback." style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 

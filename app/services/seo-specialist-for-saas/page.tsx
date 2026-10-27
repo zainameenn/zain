@@ -249,7 +249,7 @@ export default function SeoPage() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%", maxWidth: 680 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/seo/01-hero__search-queries-to-top-result.webp" alt="Illustration: search queries leading to a top-ranked page, which feeds traffic, audience growth and sales" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/illustrations/A05-seo-search-to-customer.svg" width={1600} height={1000} alt="A search query becomes a genuinely useful article and leads the right reader toward an appropriate action, without fictional metrics." style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 

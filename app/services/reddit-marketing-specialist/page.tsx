@@ -227,7 +227,7 @@ export default function RedditMarketingPage() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%", maxWidth: 680 }}>
-          <Img loading="eager" fetchPriority="high" src="/assets/pages/reddit/01-hero__threads-to-engaged-users.webp" alt="Reddit threads flowing through search into engaged users" style={{ display: "block", width: "100%", height: "auto" }} />
+          <Img loading="eager" fetchPriority="high" src="/assets/illustrations/A06-reddit-useful-conversations.svg" width={1600} height={1000} alt="A genuine question creates thoughtful branching replies, trust and later search discovery. No artificial engagement or manipulation." style={{ display: "block", width: "100%", height: "auto" }} />
         </figure>
       </section>
 
