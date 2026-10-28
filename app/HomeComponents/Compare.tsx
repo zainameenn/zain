@@ -1,4 +1,3 @@
-import { Art } from "./Art";
 const OPTIONS = [
   { t: "Agency", d: "A team, an account manager and a retainer to match. Great if you need ten people. Overkill if you need one bottleneck fixed.", dark: false },
   { t: "Full time hire", d: "Salary, benefits, recruiting time and usually one specialty. Worth it once a channel is proven.", dark: false },
@@ -13,7 +12,6 @@ export default function Compare() {
         Growth marketing specialist vs agency{" "}
         <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>vs full time hire</em>
       </h2>
-      <Art id="A101" maxWidth={640} decorative style={{ marginBottom: 32 }} />
       <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 md:!grid-cols-3">
         {OPTIONS.map((o) => (
           <div

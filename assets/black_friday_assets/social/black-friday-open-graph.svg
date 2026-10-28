@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Black Friday 2026 SEO social sharing image</title><desc id="desc">Open Graph image for Zainameen: Black Friday 2026, 10 percent off growth marketing services.</desc>
+<defs>
+  <linearGradient id="forestGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F3F32"/><stop offset="1" stop-color="#256D54"/></linearGradient>
+  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F6E3B6"/><stop offset="0.45" stop-color="#D7B16A"/><stop offset="1" stop-color="#B88941"/></linearGradient>
+  <linearGradient id="softGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFDF8"/><stop offset="1" stop-color="#F1F0E8"/></linearGradient>
+  <linearGradient id="greenSoft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C8DFD2"/><stop offset="1" stop-color="#87B49A"/></linearGradient>
+  <filter id="shadow" x="-35%" y="-40%" width="170%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#163F33" flood-opacity="0.13"/></filter>
+  <filter id="softShadow" x="-35%" y="-40%" width="170%" height="180%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#163F33" flood-opacity="0.10"/></filter>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#B88A45" opacity=".27"/></pattern>
+  <symbol id="spark" viewBox="0 0 34 34"><path d="M17 1 Q19 15 33 17 Q19 19 17 33 Q15 19 1 17 Q15 15 17 1Z" fill="currentColor"/></symbol>
+  <symbol id="arrowUp" viewBox="0 0 28 28"><path d="M14 22V6M7 13l7-7 7 7" stroke="currentColor" stroke-width="2.7" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m4 13 5 5L20 6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs>
+<rect x="0" y="0" width="1200" height="630" rx="0" fill="#F5F1E8" stroke="none" stroke-width="1" />
+<rect x="0" y="0" width="31" height="630" fill="#0F3F32"/>
+<circle cx="1041" cy="330" r="275" fill="#0F3F32"/>
+<circle cx="1041" cy="330" r="220" fill="none" stroke="#8CB39A" stroke-width="2" opacity=".45"/>
+<circle cx="1041" cy="330" r="165" fill="none" stroke="#8CB39A" stroke-width="2" opacity=".45"/>
+<rect x="88" y="77" width="193" height="43" rx="21.5" fill="#0F3F32" stroke="none" stroke-width="1" /><text x="184.5" y="103.75" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#FFFDF8" text-anchor="middle" >BLACK FRIDAY 2026</text>
+<text x="84" y="220" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="750" fill="#0F3F32" text-anchor="start" >GOOD WORK.</text>
+<text x="84" y="291" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="750" fill="#0F3F32" text-anchor="start" >BETTER PRICE.</text>
+<text x="88" y="363" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="520" fill="#205B48" text-anchor="start" >10% off growth marketing services</text>
+<rect x="88" y="423" width="398" height="56" rx="15" fill="#0F3F32" stroke="none" stroke-width="1" />
+<text x="287" y="459" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="680" fill="#FFFDF8" text-anchor="middle" >SEO    REDDIT    SOCIAL    GROWTH</text>
+<text x="88" y="564" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#64796E" text-anchor="start" >zainameen.com</text>
+<g transform="translate(972 313) rotate(10)"><path d="M-152-96h290q20 0 20 20v37a22 22 0 0 0 0 44v71q0 20-20 20h-290q-20 0-20-20V5a22 22 0 0 0 0-44v-37q0-20 20-20Z" fill="url(#goldGrad)" stroke="#F8DFAA" stroke-width="3"/><text x="-134" y="14" font-family="Inter, Arial, sans-serif" font-size="73" font-weight="800" fill="#0F3F32" text-anchor="start" >10%</text><text x="67" y="12" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="800" fill="#0F3F32" text-anchor="start" >OFF</text></g>
+<use href="#spark" x="849" y="101" width="25.5" height="25.5" style="color:#EBD6A6"/>
+<use href="#spark" x="1117" y="505" width="42.0" height="42.0" style="color:#EBD6A6"/>
+</svg>

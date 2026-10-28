@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+<title id="title">Black Friday square social marketing post</title><desc id="desc">Square forest green Black Friday artwork promoting 10 percent off SEO, Reddit, social and advertising marketing services.</desc>
+<defs>
+  <linearGradient id="forestGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F3F32"/><stop offset="1" stop-color="#256D54"/></linearGradient>
+  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F6E3B6"/><stop offset="0.45" stop-color="#D7B16A"/><stop offset="1" stop-color="#B88941"/></linearGradient>
+  <linearGradient id="softGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFDF8"/><stop offset="1" stop-color="#F1F0E8"/></linearGradient>
+  <linearGradient id="greenSoft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C8DFD2"/><stop offset="1" stop-color="#87B49A"/></linearGradient>
+  <filter id="shadow" x="-35%" y="-40%" width="170%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#163F33" flood-opacity="0.13"/></filter>
+  <filter id="softShadow" x="-35%" y="-40%" width="170%" height="180%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#163F33" flood-opacity="0.10"/></filter>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#B88A45" opacity=".27"/></pattern>
+  <symbol id="spark" viewBox="0 0 34 34"><path d="M17 1 Q19 15 33 17 Q19 19 17 33 Q15 19 1 17 Q15 15 17 1Z" fill="currentColor"/></symbol>
+  <symbol id="arrowUp" viewBox="0 0 28 28"><path d="M14 22V6M7 13l7-7 7 7" stroke="currentColor" stroke-width="2.7" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m4 13 5 5L20 6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs>
+<rect x="0" y="0" width="1080" height="1080" rx="0" fill="#0F3F32" stroke="none" stroke-width="1" />
+<circle cx="880" cy="860" r="500" fill="#2F6F56" opacity=".37"/>
+<circle cx="880" cy="860" r="390" fill="none" stroke="#8DBCA3" stroke-width="2" opacity=".3"/>
+<circle cx="880" cy="860" r="285" fill="none" stroke="#8DBCA3" stroke-width="2" opacity=".3"/>
+<text x="88" y="130" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="750" fill="#EBD6A6" text-anchor="start" letter-spacing="5">ZAINAMEEN</text>
+<rect x="86" y="159" width="908" height="3" rx="2" fill="#85AC94" stroke="none" stroke-width="1" opacity=".45"/>
+<text x="88" y="304" font-family="Inter, Arial, sans-serif" font-size="110" font-weight="800" fill="#FFFDF8" text-anchor="start" >BLACK</text>
+<text x="88" y="416" font-family="Inter, Arial, sans-serif" font-size="110" font-weight="800" fill="#FFFDF8" text-anchor="start" >FRIDAY.</text>
+<text x="86" y="578" font-family="Inter, Arial, sans-serif" font-size="153" font-weight="800" fill="#EBD6A6" text-anchor="start" >10%</text>
+<text x="440" y="568" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="750" fill="#EBD6A6" text-anchor="start" >OFF</text>
+<text x="91" y="698" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" fill="#FFFDF8" text-anchor="start" >GROWTH MARKETING SERVICES</text>
+<rect x="90" y="736" width="646" height="4" rx="2" fill="#B88A45" stroke="none" stroke-width="1" />
+<text x="91" y="813" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="550" fill="#C3D5C6" text-anchor="start" >SEO   /   REDDIT   /   SOCIAL   /   ADS</text>
+<text x="91" y="985" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="450" fill="#FFFDF8" text-anchor="start" >zainameen.com/black-friday</text>
+<use href="#spark" x="887" y="462" width="69.0" height="69.0" style="color:#B88A45"/>
+<use href="#spark" x="786" y="235" width="24.0" height="24.0" style="color:#EBD6A6"/>
+</svg>

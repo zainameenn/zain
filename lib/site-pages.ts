@@ -19,6 +19,7 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/about", name: "About", section: "main", priority: 0.7, files: ["app/about"] },
   { path: "/pricing", name: "Pricing", section: "main", priority: 0.8, files: ["app/pricing", "app/_pricing", "lib/pricing.ts"] },
   { path: "/contact", name: "Contact", section: "main", priority: 0.8, files: ["app/contact"] },
+  { path: "/black-friday-marketing-deals", name: "Black Friday Marketing Deals", section: "main", priority: 0.7, files: ["app/black-friday-marketing-deals", "lib/pricing.ts"] },
 
   { path: "/services", name: "All services", section: "services", priority: 0.8, files: ["app/services/page.tsx"] },
   { path: "/services/saas-growth-consultant", name: "Growth Strategy", section: "services", priority: 0.8, files: ["app/services/saas-growth-consultant", "app/_pricing", "lib/pricing.ts"] },

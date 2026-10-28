@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-labelledby="title desc">
+<title id="title">Growth strategy roadmap illustration</title><desc id="desc">A sequence of three growth steps, a progress route and a star, using green and gold editorial vector shapes.</desc>
+<defs>
+  <linearGradient id="forestGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F3F32"/><stop offset="1" stop-color="#256D54"/></linearGradient>
+  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F6E3B6"/><stop offset="0.45" stop-color="#D7B16A"/><stop offset="1" stop-color="#B88941"/></linearGradient>
+  <linearGradient id="softGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFDF8"/><stop offset="1" stop-color="#F1F0E8"/></linearGradient>
+  <linearGradient id="greenSoft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C8DFD2"/><stop offset="1" stop-color="#87B49A"/></linearGradient>
+  <filter id="shadow" x="-35%" y="-40%" width="170%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#163F33" flood-opacity="0.13"/></filter>
+  <filter id="softShadow" x="-35%" y="-40%" width="170%" height="180%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#163F33" flood-opacity="0.10"/></filter>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#B88A45" opacity=".27"/></pattern>
+  <symbol id="spark" viewBox="0 0 34 34"><path d="M17 1 Q19 15 33 17 Q19 19 17 33 Q15 19 1 17 Q15 15 17 1Z" fill="currentColor"/></symbol>
+  <symbol id="arrowUp" viewBox="0 0 28 28"><path d="M14 22V6M7 13l7-7 7 7" stroke="currentColor" stroke-width="2.7" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m4 13 5 5L20 6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs>
+<circle cx="412" cy="313" r="263" fill="#F5F1E8"/>
+<circle cx="412" cy="313" r="205" fill="none" stroke="#BCD3C2" stroke-width="1.5" stroke-dasharray="4 12"/>
+<path d="M128 547C182 582 623 587 688 535" stroke="#B88A45" stroke-width="2" stroke-linecap="round" opacity=".5" fill="none"/>
+<use href="#spark" x="149" y="158" width="22.5" height="22.5" style="color:#B88A45"/>
+<use href="#spark" x="660" y="146" width="18.0" height="18.0" style="color:#45816A"/>
+<circle cx="142" cy="482" r="9" fill="#EBD6A6" stroke="none" stroke-width="1" />
+<circle cx="662" cy="488" r="7" fill="#45816A" stroke="none" stroke-width="1" />
+<rect x="171" y="182" width="458" height="301" rx="32" fill="#FFFDF8" stroke="#DDE5DB" stroke-width="1" filter="url(#shadow)"/>
+<text x="211" y="226" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="750" fill="#64796E" text-anchor="start" >GROWTH ROADMAP</text>
+<rect x="213" y="267" width="106" height="89" rx="17" fill="#E7EFE6" stroke="none" stroke-width="1" />
+<text x="229" y="295" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="750" fill="#0F3F32" text-anchor="start" >01</text>
+<rect x="229" y="311" width="74" height="8" rx="4" fill="#0F3F32" stroke="none" stroke-width="1" opacity=".54"/>
+<rect x="229" y="329" width="59" height="6" rx="3" fill="#0F3F32" stroke="none" stroke-width="1" opacity=".23"/>
+<rect x="347" y="267" width="111" height="89" rx="17" fill="#BFD5C4" stroke="none" stroke-width="1" />
+<text x="363" y="295" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="750" fill="#0F3F32" text-anchor="start" >02</text>
+<rect x="363" y="311" width="79" height="8" rx="4" fill="#0F3F32" stroke="none" stroke-width="1" opacity=".54"/>
+<rect x="363" y="329" width="64" height="6" rx="3" fill="#0F3F32" stroke="none" stroke-width="1" opacity=".23"/>
+<rect x="486" y="267" width="106" height="89" rx="17" fill="#E7D3AA" stroke="none" stroke-width="1" />
+<text x="502" y="295" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="750" fill="#0F3F32" text-anchor="start" >03</text>
+<rect x="502" y="311" width="74" height="8" rx="4" fill="#0F3F32" stroke="none" stroke-width="1" opacity=".54"/>
+<rect x="502" y="329" width="59" height="6" rx="3" fill="#0F3F32" stroke="none" stroke-width="1" opacity=".23"/>
+<path d="M322 310h20m-7-7 7 7-7 7M461 310h20m-7-7 7 7-7 7" fill="none" stroke="#B88A45" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M217 439c77-64 130 8 202-39 67-44 108-7 171-37" stroke="#45816A" stroke-width="5" fill="none" stroke-linecap="round"/>
+<circle cx="217" cy="439" r="10" fill="#B88A45" stroke="none" stroke-width="1" />
+<circle cx="419" cy="400" r="10" fill="#B88A45" stroke="none" stroke-width="1" />
+<circle cx="590" cy="363" r="10" fill="#B88A45" stroke="none" stroke-width="1" />
+<circle cx="636" cy="166" r="48" fill="url(#goldGrad)" stroke="none" stroke-width="1" filter="url(#softShadow)"/>
+<path d="M636 135l9 20 22 3-16 16 4 23-19-11-20 11 4-23-16-16 22-3Z" fill="#0F3F32"/>
+</svg>

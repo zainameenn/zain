@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Art } from "./Art";
+import { BgImage } from "./Img";
 
 const STEPS = [
   { t: "Diagnose", d: "Find where growth is leaking.", art: "Signals, one problem" },
@@ -87,7 +87,12 @@ export default function Process() {
         </div>
         <div style={{ minWidth: 0 }}>
           <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2DBCD", padding: "clamp(24px,3vw,40px) clamp(16px,2vw,28px)" }}>
-            <Art id="A97" />
+            <BgImage
+              src="/assets/v9/g08.webp"
+              alt="Illustration: diagnose, prioritize, execute and learn, with a loop back to the start"
+              fit={100}
+              style={{ aspectRatio: "1448/620" }}
+            />
             <div style={{ position: "relative", height: 3, marginTop: 12, borderRadius: 2, background: "#E2DBCD" }}>
               <span style={{ position: "absolute", top: 0, height: 3, width: "19%", borderRadius: 2, background: "#C4A47C", left: 0, transform: `translateX(${(parseFloat(BAR_LEFT[step]) / 19) * 100}%)`, transition: "transform 500ms cubic-bezier(.3,.7,.2,1)" }} />
             </div>
