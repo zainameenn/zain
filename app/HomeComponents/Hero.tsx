@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowIcon, UpArrowIcon } from "./icons";
 import { H1_STYLE } from "./heading";
-import { Art } from "./Art";
+import { BgImage } from "./Img";
 
 export default function Hero() {
   const [drawn, setDrawn] = useState(false);
@@ -86,7 +86,15 @@ export default function Hero() {
       </div>
 
       <figure className="xl:!-mr-12" style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
-        <Art id="A01" priority />
+        <BgImage
+          src="/assets/v9/g07.png"
+          alt="Illustration of a founder calmly reviewing marketing dashboards"
+          position="56% 50.4%"
+          fit={105.5}
+          loading="eager"
+          fetchPriority="high"
+          style={{ aspectRatio: "1373/666" }}
+        />
       </figure>
     </section>
   );

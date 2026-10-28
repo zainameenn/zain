@@ -1,4 +1,4 @@
-import { Art } from "./Art";
+import { BgImage } from "./Img";
 export default function Philosophy() {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
@@ -24,7 +24,12 @@ export default function Philosophy() {
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
-          <Art id="A03" />
+          <BgImage
+            src="/assets/v9/g04.webp"
+            alt="Illustration: disconnected channels pouring into a leaking funnel, next to a connected system feeding growth"
+            fit={100}
+            style={{ aspectRatio: "1672/900" }}
+          />
           <figcaption
             className="max-md:!text-center"
             style={{
