@@ -40,6 +40,7 @@ const FOOT_GROUPS: { h: string; items: [string, string][] }[] = [
     items: [
       ["About", "/about"],
       ["Pricing", "/pricing"],
+      ["Black Friday Deals", "/black-friday-marketing-deals"],
       ["Contact", "/contact"],
       ["Privacy Policy", "/privacy"],
     ],

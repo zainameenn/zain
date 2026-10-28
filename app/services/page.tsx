@@ -168,6 +168,9 @@ export default function ServicesPage() {
 
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(48px,5.4vw,72px) ${PAD} 0`, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <Link href="/black-friday-marketing-deals" className="transition-colors hover:!border-[#C4A47C]" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 20, padding: "8px 14px", borderRadius: 999, border: "1px solid #E2DFD8", background: "#FBFBF9", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}>
+          Black Friday: 10% off eligible services, November 23 to 30 <span aria-hidden="true">→</span>
+        </Link>
         <div style={{ ...EYEBROW, display: "flex", alignItems: "center", gap: 10, color: "#5A5854" }}>
           <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
           Services

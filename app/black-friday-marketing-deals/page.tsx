@@ -13,7 +13,7 @@ export const metadata = buildMetadata({
 });
 
 const DISCOUNT = 0.1;
-const ART = "/assets/black-friday/v2";
+const ART = "/assets/black-friday";
 const PACKAGES = "#black-friday-packages";
 
 /** Regular and Black Friday price, both from lib/pricing.ts so the sale can never drift from the real price. */
@@ -61,7 +61,7 @@ const BLOCKS: Block[] = [
     ],
     bestFor: "SaaS products, service businesses and sites with useful offers that aren't getting enough qualified search traffic.",
     workOn: "Search research, technical priorities, page optimization, useful content and measurement. Exact deliverables depend on the package.",
-    art: "BF02-seo-service.svg",
+    art: "BFV3-02-search-story.svg",
     artAlt: "Search results page with a rising visibility chart",
     offers: [
       ...offersFor("seo"),
@@ -80,7 +80,7 @@ const BLOCKS: Block[] = [
     ],
     bestFor: "Businesses whose customers discuss problems, products, or recommendations in active communities.",
     workOn: "Community research, participation plans, useful content, subreddit strategy and referral measurement, depending on the scope.",
-    art: "BF03-reddit-service.svg",
+    art: "BFV3-03-community-voices.svg",
     artAlt: "Community discussion threads with helpful replies",
     offers: offersFor("reddit"),
     cta: "Compare Black Friday Reddit packages",
@@ -96,7 +96,7 @@ const BLOCKS: Block[] = [
     ],
     bestFor: "Teams that need a consistent organic presence without filling their feed with generic marketing copy.",
     workOn: "Content strategy, planning, copy, graphics, publishing support and platform specific improvements, subject to the selected plan.",
-    art: "BF04-social-service.svg",
+    art: "BFV3-04-content-storyboard.svg",
     artAlt: "Social posts and a content calendar",
     offers: offersFor("social"),
     cta: "Compare Black Friday social media packages",
@@ -112,7 +112,7 @@ const BLOCKS: Block[] = [
     ],
     bestFor: "Businesses with a defined offer, a realistic testing budget and a way to track inquiries or purchases.",
     workOn: "Campaign planning, creative direction, setup, testing, and reporting for the ad platforms actually included in your service agreement.",
-    art: "BF05-paid-ads-service.svg",
+    art: "BFV3-05-campaign-megaphone.svg",
     artAlt: "Ad campaign dashboard with conversion tracking",
     offers: offersFor("ads"),
     cta: "Compare Black Friday ads packages",
@@ -129,7 +129,7 @@ const BLOCKS: Block[] = [
     ],
     bestFor: "SaaS founders and service business owners who aren't sure which marketing problem to solve first.",
     workOn: "Positioning, offers, acquisition channels, conversion, retention signals, and prioritization. Confirmed scope determines the deliverables.",
-    art: "BF06-growth-strategy-service.svg",
+    art: "BFV3-06-growing-steps.svg",
     artAlt: "Funnel diagram with the bottleneck highlighted",
     offers: offersFor("growth"),
     cta: "Compare growth consulting packages",
@@ -137,12 +137,10 @@ const BLOCKS: Block[] = [
   },
 ];
 
-const CHOOSER: [string, string][] = [
-  ["People can't find your website through relevant searches", "SEO"],
-  ["Buyers ask questions and compare options in communities you rarely join", "Reddit marketing"],
-  ["Your business has expertise but no consistent content presence", "Social media marketing"],
-  ["Your offer converts and you want to test paid demand", "Paid ads"],
-  ["You're unsure whether the problem is traffic, messaging, conversion or retention", "Growth strategy"],
+const CHOICES = [
+  { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>, title: "People can't find you", body: "Search visibility, technical issues, or pages that don't answer the questions your customers ask.", link: "Explore SEO", href: "#bf-seo" },
+  { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"><path d="M4 5h16v10H9l-5 4z" /></svg>, title: "You're missing conversations", body: "Potential customers discuss problems relevant to your business, but you're absent from those discussions.", link: "Explore Reddit", href: "#bf-reddit" },
+  { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z" /><path d="m13 7 4 4" /></svg>, title: "Content is inconsistent", body: "You've got useful ideas, but no clear system for publishing content where your audience spends time.", link: "Explore social", href: "#bf-social" },
 ];
 
 const PROOF = [
@@ -193,12 +191,14 @@ function OfferCard({ o }: { o: Offer }) {
   const from = o.from ? "From " : "";
   return (
     <li className={b.card}>
-      <h4 className={b.cardName}>{o.name}</h4>
-      <p className={b.cardFor}>{o.forWho}</p>
+      <div className={b.cardHead}>
+        <h4 className={b.cardName}>{o.name}</h4>
+        <p className={b.cardFor}>{o.forWho}</p>
+      </div>
       <p className={b.was}>
         Regular <s>{from}{p.regular}{o.once ? "" : "/month"}</s>
       </p>
-      <p className={b.now}>{from}{p.now}</p>
+      <p className={b.now}>{o.from ? <span className={b.from}>From</span> : null}{p.now}</p>
       <p className={b.billing}>{o.once ? "One time, 10% off" : "First month, 10% off"}</p>
       <ul className={b.scope}>
         {o.scope.map((s) => <li key={s}>{s}</li>)}
@@ -232,7 +232,7 @@ export default function BlackFridayPage() {
               </div>
               <p className={b.trust}>Real deliverables. Clear scope. No promises of overnight rankings or guaranteed sales.</p>
             </div>
-            <Art src="BF01-black-friday-hero.svg" alt="Black Friday growth illustration with search, analytics and a 10% off tag" priority />
+            <div className={b.heroArt}><Art src="BFV3-01-gift-and-growth.svg" alt="A gift box beside a growing plant and rising steps" priority /></div>
           </div>
 
           {/* Offer details */}
@@ -243,10 +243,11 @@ export default function BlackFridayPage() {
               <div><dt>Who can claim</dt><dd>New engagements confirmed during the promotion window.</dd></div>
               <div><dt>How the discount works</dt><dd>10% off the first month of monthly services, or 10% off a one time project. Regular pricing after that. Ad spend is not included.</dd></div>
             </dl>
-            <div className={b.stripFoot}>
-              <p className={e.small} style={{ margin: 0 }}>Not combined with other promotions. Scope and start date are confirmed before work begins.</p>
-              <a href={PACKAGES} className={e.link}>See eligible packages</a>
-            </div>
+            <p className={`${e.small} ${b.stripNote}`}>Not combined with other promotions. Scope and start date are confirmed before work begins.</p>
+          </div>
+          <div className={b.actions}>
+            <a href={PACKAGES} className={`${e.btn} ${e.btnPrimary}`}>See eligible packages <ArrowIcon /></a>
+            <a href="#help-me-choose" className={`${e.btn} ${e.btnSecondary}`}>Help me choose</a>
           </div>
         </div>
       </section>
@@ -280,15 +281,13 @@ export default function BlackFridayPage() {
                 <div className={b.svcArt}><Art src={s.art} alt={s.artAlt} /></div>
               </div>
 
-              <ul className={`${b.cards} ${cols}`} aria-label={`${svc.name} Black Friday packages`}>
+              <ul className={`${b.cards} ${cols} ${s.offers.length === 2 ? b.cards2 : ""}`} aria-label={`${svc.name} Black Friday packages`}>
                 {s.offers.map((o) => <OfferCard key={o.name} o={o} />)}
               </ul>
-              <div className={b.svcFoot}>
-                {s.note ? <p className={b.note}>{s.note}</p> : <span />}
-                <div className={e.actions}>
-                  <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>{s.cta} <ArrowIcon /></a>
-                  <a href={svc.href} className={`${e.btn} ${e.btnSecondary}`}>{s.link}</a>
-                </div>
+              {s.note ? <p className={b.fine}>{s.note}</p> : null}
+              <div className={b.actions}>
+                <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>{s.cta} <ArrowIcon /></a>
+                <a href={svc.href} className={`${e.btn} ${e.btnSecondary}`}>{s.link}</a>
               </div>
             </div>
           </section>
@@ -300,21 +299,22 @@ export default function BlackFridayPage() {
         <section id="help-me-choose" className={b.sec}>
           <div className={`${e.container} ${b.center}`}>
             <p className={e.eyebrow}>Start with the problem, not the package</p>
-            <h2 className={e.h2} style={{ maxWidth: 820 }}>Not sure which Black Friday marketing package <em className={e.emGreen}>you need?</em></h2>
-            <div className={b.chooseLines}>
-              <p>If people can&apos;t find your website, SEO might be the best starting point. If potential customers are asking questions on Reddit and nobody from your business is part of those conversations, community marketing could make more sense.</p>
-              <p>If you already have an audience but struggle to publish useful content consistently, social media support may be what you need. And if you&apos;re getting traffic but few inquiries or signups, buying more traffic might be the last thing I&apos;d recommend.</p>
-            </div>
-            <table className={b.table}>
-              <thead><tr><th scope="col">If your biggest problem is...</th><th scope="col">Start by looking at</th></tr></thead>
-              <tbody>
-                {CHOOSER.map(([problem, svc]) => <tr key={svc}><td>{problem}</td><td>{svc}</td></tr>)}
-              </tbody>
-            </table>
-            <p className={e.small} style={{ marginTop: 16 }}>This is guidance, not a substitute for reviewing your business and current results.</p>
-            <p className={e.body} style={{ marginTop: 24 }}><strong>Not sure what&apos;s holding you back?</strong> Tell me what you&apos;re working on, what&apos;s happening now, and what you&apos;ve already tried.</p>
-            <div className={e.actions} style={{ justifyContent: "center", marginTop: 20 }}>
-              <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>Help me choose a service <ArrowIcon /></a>
+            <h2 className={e.h2} style={{ maxWidth: 820 }}>Not sure which Black Friday marketing package <em className={e.emGreen}>fits?</em></h2>
+            <p className={e.body} style={{ marginTop: 16 }}>Start with what is holding your growth back. The right package depends on the problem, not the biggest discount.</p>
+            <ul className={b.choices}>
+              {CHOICES.map((c) => (
+                <li key={c.title} className={b.choice}>
+                  <span className={b.choiceIcon} aria-hidden="true">{c.icon}</span>
+                  <h3>{c.title}</h3>
+                  <p>{c.body}</p>
+                  <a href={c.href} className={b.choiceLink}>{c.link} <span aria-hidden="true">→</span></a>
+                </li>
+              ))}
+            </ul>
+            <p className={b.fine}>Getting traffic but few inquiries or signups? Buying more traffic might be the last thing I&apos;d recommend. <a href="#bf-growth" className={e.link}>Start with growth strategy</a>.</p>
+            <div className={b.actions}>
+              <a href={PACKAGES} className={`${e.btn} ${e.btnPrimary}`}>See eligible packages <ArrowIcon /></a>
+              <a href={CONTACT_HREF} className={`${e.btn} ${e.btnSecondary}`}>Help me choose a service</a>
             </div>
           </div>
         </section>
@@ -341,7 +341,7 @@ export default function BlackFridayPage() {
             ))}
           </ul>
           <p className={e.small} style={{ marginTop: 16 }}>These are examples of past work, not promises of future results.</p>
-          <div className={e.actions} style={{ justifyContent: "center", marginTop: 20 }}>
+          <div className={b.actions}>
             <a href="/case-studies" className={`${e.btn} ${e.btnSecondary}`}>See selected work <ArrowIcon /></a>
           </div>
         </div>
@@ -356,7 +356,7 @@ export default function BlackFridayPage() {
               <h2 className={e.h2}>A practical Black Friday marketing <em className={e.emGreen}>checklist for 2026.</em></h2>
               <p className={e.body} style={{ marginTop: 16 }}>A discount won&apos;t help much if people can&apos;t find your offer or don&apos;t understand it when they arrive. Before you start promoting, check these six things.</p>
             </div>
-            <div className={b.svcArt}><Art src="BF07-seo-landing-page-checklist.svg" alt="Landing page checklist with title, URL, heading and first sentence ticked" /></div>
+            <div className={b.svcArt}><Art src="BFV3-09-preparation-list.svg" alt="A preparation checklist with items being ticked off" /></div>
           </div>
           <ol className={b.checklist}>
             {CHECKLIST.map(([t, d], i) => (
@@ -366,8 +366,8 @@ export default function BlackFridayPage() {
               </li>
             ))}
           </ol>
-          <div className={b.svcFoot}>
-            <p className={b.note}><strong>Need help preparing your marketing?</strong> I can help you identify what matters most and build a plan around it.</p>
+          <p className={b.fine} style={{ fontSize: 16 }}><strong>Need help preparing your marketing?</strong> I can help you identify what matters most and build a plan around it.</p>
+          <div className={b.actions}>
             <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>Tell me what you&apos;re growing <ArrowIcon /></a>
           </div>
         </div>
@@ -387,8 +387,9 @@ export default function BlackFridayPage() {
                 </li>
               ))}
             </ol>
-            <div className={e.actions} style={{ justifyContent: "center", marginTop: 28 }}>
+            <div className={b.actions}>
               <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>Ask about the Black Friday offer <ArrowIcon /></a>
+              <a href={PACKAGES} className={`${e.btn} ${e.btnSecondary}`}>See eligible packages</a>
             </div>
           </div>
         </section>
