@@ -1,20 +1,20 @@
 import { buildMetadata } from "@/lib/seo";
-import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { ArrowIcon } from "../HomeComponents/icons";
 import { FAQAccordion } from "../HomeComponents/FAQAccordion";
+import { EditorialPage, ed as e } from "../_design/ui";
 import { COMPLETE_GROWTH, CONTACT_HREF, SEO_AUDIT, SERVICES, type Package, type ServiceId } from "@/lib/pricing";
+import b from "./bf.module.css";
 
 export const metadata = buildMetadata({
-  title: "Black Friday Marketing Deals: 10% Off SEO, Reddit & Social",
+  title: "Black Friday Marketing Deals 2026 | SEO, Reddit & Social | Zain",
   description:
-    "Black Friday marketing deals: 10% off SEO, Reddit marketing, social media, Google and Meta ads and growth strategy. November 23 to 30, 2026.",
+    "Explore Black Friday marketing deals on SEO, Reddit, social media, paid ads and growth consulting. Compare services, review the 10% offer and find the right fit.",
   path: "/black-friday-marketing-deals",
 });
 
-const MAX = 1280;
-const PAD = "clamp(20px,2.5vw,32px)";
 const DISCOUNT = 0.1;
 const ART = "/assets/black-friday";
+const PACKAGES = "#black-friday-packages";
 
 /** Regular and Black Friday price, both from lib/pricing.ts so the sale can never drift from the real price. */
 function sale(price: number) {
@@ -22,263 +22,410 @@ function sale(price: number) {
   return { regular: fmt(price), now: fmt(Math.round(price * (1 - DISCOUNT) * 100) / 100) };
 }
 
-type Offer = { name: string; price: number; from?: boolean; once?: boolean; note: string };
+type Offer = { name: string; forWho: string; price: number; from: boolean; once: boolean; scope: string[] };
 
-const pkgOffer = (p: Package, note?: string): Offer => ({ name: p.name, price: p.price ?? 0, from: p.priceType === "from", once: p.interval === "once", note: note ?? p.benefit });
+const toOffer = (p: Package): Offer => ({
+  name: p === COMPLETE_GROWTH ? "Complete Growth" : p.name,
+  forWho: p.forWho,
+  price: p.price ?? 0,
+  from: p.priceType === "from",
+  once: p.interval === "once",
+  scope: p.highlights.slice(0, 4),
+});
 
-type Block = { id: ServiceId; title: string; lead: string; body: string[]; art: string; artAlt: string; offers: Offer[]; small?: string; servicesLabel: string; claimLabel: string };
+const offersFor = (id: ServiceId) => SERVICES[id].packages.filter((p) => p.price).map(toOffer);
+
+type Block = {
+  id: ServiceId;
+  eyebrow: string;
+  title: React.ReactNode;
+  body: string[];
+  bestFor: string;
+  workOn: string;
+  art: string;
+  artAlt: string;
+  offers: Offer[];
+  cta: string;
+  link: string;
+  note?: string;
+};
 
 const BLOCKS: Block[] = [
   {
     id: "seo",
-    title: "Black Friday SEO Services",
-    lead: "Get found by people already searching for what you sell.",
+    eyebrow: "01 / Search visibility",
+    title: <>SEO that helps the <em className={e.emGreen}>right people</em> find you.</>,
     body: [
-      "SEO isn't about publishing articles just to have more pages on Google.",
-      "I research the keywords your potential customers use, examine competing pages, improve technical foundations, and create content around searches that can bring relevant traffic.",
+      "More keywords aren't the goal. Relevant visitors who understand what you offer are.",
+      "I look at how your audience searches, where your site is losing visibility, and which pages deserve attention first. Depending on the package, that can include technical fixes, keyword research, content planning, content creation, and search performance reviews.",
     ],
-    art: "seo-research.svg",
-    artAlt: "Search results and keyword research illustration",
+    bestFor: "SaaS products, service businesses and sites with useful offers that aren't getting enough qualified search traffic.",
+    workOn: "Search research, technical priorities, page optimization, useful content and measurement. Exact deliverables depend on the package.",
+    art: "BFV3-02-search-story.svg",
+    artAlt: "Search results page with a rising visibility chart",
     offers: [
-      ...SERVICES.seo.packages.map((p) => pkgOffer(p)),
-      { name: SEO_AUDIT.name, price: SEO_AUDIT.price, once: true, note: "Not sure you're ready for monthly SEO? Start with an audit. You'll get a prioritized list of what needs fixing." },
+      ...offersFor("seo"),
+      { name: SEO_AUDIT.name, forWho: "Not ready for monthly SEO? Start with a ranked list of what to fix.", price: SEO_AUDIT.price, from: false, once: true, scope: SEO_AUDIT.covers.slice(0, 4) },
     ],
-    servicesLabel: "See My SEO Services",
-    claimLabel: "Claim the SEO Offer",
+    cta: "Compare Black Friday SEO packages",
+    link: "See my SEO services",
   },
   {
     id: "reddit",
-    title: "Black Friday Reddit Marketing Deals",
-    lead: "Your potential customers are already having conversations. Let's find the right ones.",
+    eyebrow: "02 / Community discovery",
+    title: <>Show up in conversations your customers <em className={e.emGreen}>already care about.</em></>,
     body: [
-      "Reddit can be useful for reaching people who are actively asking questions, comparing products, and discussing problems your business solves. But the approach matters.",
-      "I research the right subreddits, understand their rules, study relevant conversations, and develop content and participation strategies that fit each community.",
+      "Reddit isn't a place to paste promotions and hope nobody notices. People go there to ask questions, compare options, and hear what others actually think.",
+      "The work starts with finding relevant communities, understanding their rules and contributing where there's something genuinely useful to say. The goal is stronger visibility and more relevant conversations, without treating a community like an ad slot.",
     ],
-    art: "reddit-community.svg",
-    artAlt: "Community conversations illustration",
-    offers: SERVICES.reddit.packages.map((p) => pkgOffer(p)),
-    servicesLabel: "Explore Reddit Marketing Packages",
-    claimLabel: "Claim the Reddit Marketing Offer",
+    bestFor: "Businesses whose customers discuss problems, products, or recommendations in active communities.",
+    workOn: "Community research, participation plans, useful content, subreddit strategy and referral measurement, depending on the scope.",
+    art: "BFV3-03-community-voices.svg",
+    artAlt: "Community discussion threads with helpful replies",
+    offers: offersFor("reddit"),
+    cta: "Compare Black Friday Reddit packages",
+    link: "Explore Reddit marketing",
   },
   {
     id: "social",
-    title: "Black Friday Social Media Management",
-    lead: "Consistent content, without spending every day figuring out what to post.",
+    eyebrow: "03 / Content and community",
+    title: <>Social media that gives people <em className={e.emGreen}>a reason to follow.</em></>,
     body: [
-      "If you're running a business, you probably have more important things to do than write captions, design graphics, and manage multiple social profiles.",
-      "I handle the planning, writing, design and publishing, with content based on the audience you want to reach.",
+      "Posting every day doesn't help much when every post says the same thing.",
+      "I build content around your customers, your expertise and the questions people already ask. The right mix depends on the business: educational posts, short form ideas, carousels, community conversations, and content worth saving or sharing.",
     ],
-    art: "social-content.svg",
-    artAlt: "Social media content planning illustration",
-    offers: SERVICES.social.packages.map((p) => pkgOffer(p)),
-    servicesLabel: "Explore Social Media Management",
-    claimLabel: "Claim the Social Media Offer",
+    bestFor: "Teams that need a consistent organic presence without filling their feed with generic marketing copy.",
+    workOn: "Content strategy, planning, copy, graphics, publishing support and platform specific improvements, subject to the selected plan.",
+    art: "BFV3-04-content-storyboard.svg",
+    artAlt: "Social posts and a content calendar",
+    offers: offersFor("social"),
+    cta: "Compare Black Friday social media packages",
+    link: "See social media services",
   },
   {
     id: "ads",
-    title: "Black Friday Google & Meta Ads Management",
-    lead: "Stop spending money on clicks without knowing what happens afterward.",
+    eyebrow: "04 / Paid acquisition",
+    title: <>Run paid campaigns with a <em className={e.emGreen}>clearer reason</em> behind the spend.</>,
     body: [
-      "Google and Meta ads can bring traffic quickly, but paying for visitors doesn't automatically make them customers.",
-      "I work on the campaigns, targeting, tracking, creative tests and landing page opportunities that affect your results.",
+      "A larger budget won't rescue a weak offer or a confusing landing page.",
+      "Before scaling spend, I look at targeting, the message, the conversion path, and what success should be measured against. Campaign work should be built around the outcome you're actually trying to achieve.",
     ],
-    art: "paid-ads.svg",
-    artAlt: "Ad campaign performance illustration",
-    offers: SERVICES.ads.packages.filter((p) => p.price).map((p) => pkgOffer(p)),
-    small: "Larger accounts can be scoped separately. Important: these prices cover management fees. Your advertising budget is separate and paid directly to the advertising platforms.",
-    servicesLabel: "See Google & Meta Ads Services",
-    claimLabel: "Claim the Ads Management Offer",
+    bestFor: "Businesses with a defined offer, a realistic testing budget and a way to track inquiries or purchases.",
+    workOn: "Campaign planning, creative direction, setup, testing, and reporting for the ad platforms actually included in your service agreement.",
+    art: "BFV3-05-campaign-megaphone.svg",
+    artAlt: "Ad campaign dashboard with conversion tracking",
+    offers: offersFor("ads"),
+    cta: "Compare Black Friday ads packages",
+    link: "See Google and Meta ads services",
+    note: "Advertising spend and third party platform fees are separate and paid directly to the platforms. Larger accounts are scoped separately.",
   },
   {
     id: "growth",
-    title: "Black Friday Growth Strategy & Consulting",
-    lead: "Sometimes the problem isn't that you're doing too little marketing. You're working on the wrong thing.",
+    eyebrow: "05 / Growth priorities",
+    title: <>Find the bottleneck <em className={e.emGreen}>before paying</em> to send more traffic into it.</>,
     body: [
-      "You might have traffic but no signups. Signups but no customers. Content going out every week but little to show for it.",
-      "Before recommending another channel, I look at what's happening across your positioning, acquisition, conversion and retention.",
+      "You can improve traffic and still struggle to grow. Maybe the offer isn't clear. Maybe the page isn't converting. Maybe visitors sign up and never reach the moment your product becomes valuable.",
+      "A growth review looks at the whole journey, then helps you decide what to fix first. The aim is a shorter list of better priorities, not an impressive document that nobody uses.",
     ],
-    art: "growth-strategy.svg",
-    artAlt: "Growth strategy roadmap illustration",
-    offers: SERVICES.growth.packages.map((p) => ({ ...pkgOffer(p), name: p === COMPLETE_GROWTH ? "Complete Growth" : p.name })),
-    servicesLabel: "Explore Growth Consulting",
-    claimLabel: "Discuss Your Growth Strategy",
+    bestFor: "SaaS founders and service business owners who aren't sure which marketing problem to solve first.",
+    workOn: "Positioning, offers, acquisition channels, conversion, retention signals, and prioritization. Confirmed scope determines the deliverables.",
+    art: "BFV3-06-growing-steps.svg",
+    artAlt: "Funnel diagram with the bottleneck highlighted",
+    offers: offersFor("growth"),
+    cta: "Compare growth consulting packages",
+    link: "Explore growth strategy",
   },
 ];
 
-const PROOF = [
-  { title: "Blainy: 85K+ signups organically", body: "I helped build organic acquisition through SEO, content and Reddit, without paid advertising." },
-  { title: "Everdry Waterproofing: 160K+ Facebook views in 28 days", body: "A content strategy built around real homeowner questions, useful information and better creative." },
-  { title: "Virtarix: 70K+ Facebook views in under four months", body: "Building social visibility through technical content and community distribution." },
+const CHOICES = [
+  { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>, title: "People can't find you", body: "Search visibility, technical issues, or pages that don't answer the questions your customers ask.", link: "Explore SEO", href: "#bf-seo" },
+  { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"><path d="M4 5h16v10H9l-5 4z" /></svg>, title: "You're missing conversations", body: "Potential customers discuss problems relevant to your business, but you're absent from those discussions.", link: "Explore Reddit", href: "#bf-reddit" },
+  { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z" /><path d="m13 7 4 4" /></svg>, title: "Content is inconsistent", body: "You've got useful ideas, but no clear system for publishing content where your audience spends time.", link: "Explore social", href: "#bf-social" },
 ];
 
-const STEPS = [
-  { title: "Choose a service", body: "Review the packages above or tell me what's going on with your business if you're unsure." },
-  { title: "Tell me about your project", body: "Send your website, what you're trying to achieve, and the service you're interested in." },
-  { title: "Confirm the scope and discounted price", body: "I'll review what you need and confirm the work, your Black Friday price and the starting arrangements before we proceed." },
+const PROOF = [
+  { name: "Blainy", result: "85K+ users with no paid acquisition", body: "Organic acquisition through SEO, content and Reddit for a SaaS product.", shot: "/assets/site/blainy-gsc-full.jpg", alt: "Blainy Google Search Console: 297K clicks, 25.3M impressions", meta: "SEO and Reddit, SaaS", href: "/case-studies/blainy" },
+  { name: "Everdry Waterproofing", result: "160K+ Facebook views in 28 days", body: "Content built around real homeowner questions, useful information and better creative.", shot: "/assets/pages/growth-strategy/07-results-everdry__facebook-160k-views.webp", alt: "Everdry Facebook dashboard, last 28 days: 160,235 views", meta: "Organic social, Facebook, 28 days", href: "/case-studies/everdry" },
+  { name: "Virtarix", result: "70K+ Facebook views in under four months", body: "Social visibility through technical content and community distribution.", shot: "/assets/v8/vx-70k.webp", alt: "Virtarix Facebook insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions", meta: "Organic social, Facebook, 4 months", href: "/case-studies/virtarix" },
+];
+
+const CHECKLIST: [string, string][] = [
+  ["Make the offer obvious", "What are you selling? Who is it for? How much does it cost? When does the deal end? People shouldn't have to scroll through five sections to find those answers."],
+  ["Give your offer a dedicated page", "Use a clear page title, descriptive URL, relevant H1, and opening paragraph that explains the offer naturally. Don't make someone work out whether they're looking at a Black Friday deal or a regular service page."],
+  ["Make the pricing easy to compare", "Show what each package includes, the normal price, the discounted price, and whether the charge is one time or monthly. If something costs extra, say so."],
+  ["Promote it where your customers actually spend time", "That might mean Google, Reddit, Facebook, LinkedIn, Pinterest, email, or paid advertising. You don't need every channel. You need the channels that make sense for your audience."],
+  ["Test the buying journey", "Open the page on your phone. Click the buttons. Submit the form. Check your tracking. A campaign isn't ready just because the graphics look good."],
+  ["Plan what happens after the promotion", "How will new customers get started? What information do you need? Which work happens first? A good offer should lead to a clear next step."],
+];
+
+const STEPS: [string, string][] = [
+  ["Tell me about your business", "Share what you're selling, who you're trying to reach, and the biggest problem you're facing."],
+  ["We'll confirm the scope", "You'll know what the package includes, what it costs, which discount terms apply, and what happens next."],
+  ["We start with the priorities", "No random list of marketing activities. We focus on the work that makes the most sense for your business."],
 ];
 
 const FAQS: [string, string[]][] = [
-  ["When is Black Friday 2026?", ["Black Friday falls on November 27, 2026. This promotion runs from November 23 through Cyber Monday, November 30."]],
-  ["Does the 10% discount apply to every service?", ["The offer covers eligible paid SEO, Reddit marketing, social media management, Google and Meta ads management, and growth strategy services. Custom services can receive the same percentage off an agreed service fee."]],
-  ["Does the discount apply every month?", ["No. Monthly engagements receive 10% off the first month of service. Regular pricing applies afterward. One time projects receive 10% off the qualifying project fee."]],
-  ["Is ad spend included in the discount?", ["No. The discount applies to my service or management fees, not advertising budgets paid to Google, Meta or other platforms."]],
-  ["Do I have to sign a long contract?", ["No long contracts are required for the standard monthly services. The scope, billing and cancellation arrangements are confirmed before work begins."]],
-  ["Can I start with just an SEO audit or strategy session?", ["Absolutely. You don't need to commit to ongoing marketing management. One time services are available if you want to understand the problems before investing further."]],
-  ["Can I combine the discount with another offer?", ["No. The Black Friday discount applies to the eligible service fee and is not combined with other promotional discounts."]],
-  ["When does the Black Friday deal end?", ["The offer closes November 30, 2026, at 11:59 PM US Eastern Time. Bookings must be confirmed within the promotion window to qualify."]],
+  ["Are these Black Friday marketing deals only for ecommerce businesses?", ["No. The services can also be relevant to SaaS products and service businesses. The right work depends on your audience, offer, and growth bottleneck."]],
+  ["What's included in a Black Friday SEO package?", ["That depends on the package selected. It may include search research, technical priorities, content planning, page optimization, and ongoing measurement. Each card above lists the main deliverables."]],
+  ["Can I book Reddit marketing without SEO?", ["Yes. Reddit and SEO can complement each other, but they're different services with different methods and deliverables, and each can be booked on its own."]],
+  ["Is social media marketing included in every package?", ["No. Check the selected package for included platforms, content quantities, design work, and publishing responsibilities. Extra platforms aren't included unless the package says so."]],
+  ["Is ad spend part of the discounted price?", ["No. The discount applies to my management fee only. Ad spend is paid directly to Google, Meta or other platforms. Paid advertising also needs a suitable budget, an offer, and conversion tracking."]],
+  ["How is the 10% Black Friday discount applied?", ["Monthly services get 10% off the first month, then regular pricing applies. One time projects get 10% off the project fee. The card for each package shows the regular price, the Black Friday price and whether it's monthly or one time."]],
+  ["When does the Black Friday offer end?", ["The offer runs from November 23 to November 30, 2026, and closes at 11:59 PM US Eastern Time. Bookings must be confirmed within that window to qualify."]],
+  ["Can I combine services?", ["You can ask for a combined scope. Each eligible service gets 10% off, but the discount doesn't stack with any other promotion."]],
+  ["Do you guarantee rankings, leads, or sales?", ["No responsible marketing work can guarantee those outcomes. The focus is on agreed deliverables, useful strategy, careful execution, and transparent measurement."]],
+  ["What if I don't know which service I need?", ["Tell me what you're selling, what's happening now, and what you've tried. I'll recommend where I'd start, including when a smaller service makes more sense."]],
 ];
 
-const btnDark = { display: "inline-flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 15, fontWeight: 600 } as const;
-const btnLine = { display: "inline-flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 15, fontWeight: 600 } as const;
-const h2Style = { margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3.2vw,46px)", lineHeight: 1.06, letterSpacing: "-0.035em", textWrap: "balance" } as const;
-const muted = { color: "#5A5854", fontSize: 17, lineHeight: 1.6 } as const;
-
-function Section({ children, tint, id }: { children: React.ReactNode; tint?: boolean; id?: string }) {
+function Art({ src, alt, priority }: { src: string; alt: string; priority?: boolean }) {
   return (
-    <section id={id} style={{ background: tint ? "#F3F1EC" : undefined, padding: `clamp(64px,8vw,112px) ${PAD}`, scrollMarginTop: 80 }}>
-      <div style={{ maxWidth: MAX, margin: "0 auto", textAlign: "center" }}>{children}</div>
-    </section>
+    <div className={b.media}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`${ART}/${src}`} alt={alt} width={1200} height={800} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async" />
+    </div>
   );
 }
 
 function OfferCard({ o }: { o: Offer }) {
   const p = sale(o.price);
-  const per = o.once ? "one time" : "for the first month";
+  const from = o.from ? "From " : "";
   return (
-    <div style={{ flex: "1 1 260px", maxWidth: 300, minWidth: 0, display: "flex", flexDirection: "column", padding: 24, borderRadius: 18, background: "#FBFBF9", border: "1px solid #E2DFD8" }}>
-      <h4 style={{ margin: 0, fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>{o.name}</h4>
-      <p style={{ margin: "14px 0 0", fontSize: 14, color: "#6F6B64" }}>
-        Regular price: <s>{o.from ? "From " : ""}{p.regular}{o.once ? "" : "/month"}</s>
+    <li className={b.card}>
+      <div className={b.cardHead}>
+        <h4 className={b.cardName}>{o.name}</h4>
+        <p className={b.cardFor}>{o.forWho}</p>
+      </div>
+      <p className={b.was}>
+        Regular <s>{from}{p.regular}{o.once ? "" : "/month"}</s>
       </p>
-      <p style={{ margin: "4px 0 0", fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>
-        {o.from ? "From " : ""}{p.now}
-      </p>
-      <p style={{ margin: "2px 0 0", fontSize: 14, color: "#6F6B64" }}>Black Friday, {per}</p>
-      <p style={{ margin: "14px 0 0", fontSize: 15, lineHeight: 1.55, color: "#5A5854" }}>{o.note}</p>
-    </div>
+      <p className={b.now}>{o.from ? <span className={b.from}>From</span> : null}{p.now}</p>
+      <p className={b.billing}>{o.once ? "One time, 10% off" : "First month, 10% off"}</p>
+      <ul className={b.scope}>
+        {o.scope.map((s) => <li key={s}>{s}</li>)}
+      </ul>
+      <a href={CONTACT_HREF} className={`${e.btn} ${e.btnSecondary} ${b.cardBtn}`}>Claim this offer</a>
+    </li>
   );
 }
 
 export default function BlackFridayPage() {
   return (
-    <main id="top" style={{ overflowX: "clip" }}>
+    <EditorialPage>
       {/* Hero */}
-      <section style={{ padding: `clamp(120px,12vw,160px) ${PAD} clamp(56px,6vw,88px)` }}>
-        <div style={{ maxWidth: MAX, margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          <div style={{ minWidth: 0, maxWidth: 900 }}>
-            <p style={{ margin: "0 0 18px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Black Friday 2026 | November 23 to November 30</p>
-            <h1 style={HERO_H1_STYLE}>
-              Black Friday marketing deals: <span style={H1_ACCENT_STYLE}>10% off SEO, Reddit and social.</span>
-            </h1>
-            <p style={{ ...muted, margin: "24px auto 0", maxWidth: 720 }}>
-              Black Friday marketing deals for SaaS founders and small businesses: 10% off my SEO, Reddit marketing, social media management, paid ads management and growth strategy services.
-            </p>
-            <p style={{ ...muted, margin: "14px auto 0", maxWidth: 720 }}>
-              Whether you&apos;re struggling to get traffic, turn visitors into customers, or figure out which marketing channel deserves your budget, I can help you work on the problem that&apos;s actually slowing you down. Same services. Same hands on work. Just 10% less to get started.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, marginTop: 28 }}>
-              <a href="#black-friday-packages" style={btnDark}>Explore Black Friday Deals <ArrowIcon /></a>
-              <a href={CONTACT_HREF} style={btnLine}>Talk About Your Project <ArrowIcon /></a>
+      <section className={b.hero}>
+        <div className={e.container}>
+          <div className={b.heroGrid}>
+            <div style={{ minWidth: 0 }}>
+              <p className={e.eyebrow}>Black Friday marketing deals 2026</p>
+              <h1 className={`${e.h1} ${b.h1}`}>
+                Black Friday marketing deals. <span className={b.h1Accent}>Better growth, 10% less.</span>
+              </h1>
+              <p className={e.lede} style={{ marginTop: 24 }}>
+                These Black Friday marketing deals are for SaaS founders and service businesses that need more than another month of random marketing tasks.
+              </p>
+              <p className={e.body} style={{ marginTop: 14 }}>
+                Save 10% on eligible SEO, Reddit marketing, social media, paid advertising and growth consulting packages. Pick the work your business actually needs, not the biggest package on the page.
+              </p>
+              <div className={e.actions} style={{ marginTop: 28 }}>
+                <a href={PACKAGES} className={`${e.btn} ${e.btnPrimary}`}>Explore Black Friday packages <ArrowIcon /></a>
+                <a href="#help-me-choose" className={`${e.btn} ${e.btnSecondary}`}>Help me choose</a>
+              </div>
+              <p className={b.trust}>Real deliverables. Clear scope. No promises of overnight rankings or guaranteed sales.</p>
             </div>
-            <p style={{ margin: "20px 0 0", fontSize: 13, lineHeight: 1.55, color: "#6F6B64", maxWidth: 640, marginInline: "auto" }}>
-              Offer starts November 23 and ends November 30, 2026. Discount applies to the first month of eligible monthly services or the quoted fee of an eligible one time project.
-            </p>
+            <div className={b.heroArt}><Art src="BFV3-01-gift-and-growth.svg" alt="A gift box beside a growing plant and rising steps" priority /></div>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${ART}/black-friday-growth-hero.svg`} alt="Search, analytics and growth charts with a 10 percent off ticket" width={1440} height={900} fetchPriority="high" style={{ width: "100%", maxWidth: 1080, height: "auto", marginTop: "clamp(16px,3vw,40px)" }} />
+
+          {/* Offer details */}
+          <div className={b.strip}>
+            <dl className={b.stripGrid}>
+              <div><dt>Seasonal offer</dt><dd>10% off eligible marketing packages: SEO, Reddit, social media, paid ads and growth strategy.</dd></div>
+              <div><dt>When it applies</dt><dd>November 23 to November 30, 2026, closing at 11:59 PM US Eastern Time.</dd></div>
+              <div><dt>Who can claim</dt><dd>New engagements confirmed during the promotion window.</dd></div>
+              <div><dt>How the discount works</dt><dd>10% off the first month of monthly services, or 10% off a one time project. Regular pricing after that. Ad spend is not included.</dd></div>
+            </dl>
+            <p className={`${e.small} ${b.stripNote}`}>Not combined with other promotions. Scope and start date are confirmed before work begins.</p>
+          </div>
+          <div className={b.actions}>
+            <a href={PACKAGES} className={`${e.btn} ${e.btnPrimary}`}>See eligible packages <ArrowIcon /></a>
+            <a href="#help-me-choose" className={`${e.btn} ${e.btnSecondary}`}>Help me choose</a>
+          </div>
         </div>
       </section>
 
-      {/* Packages */}
-      <Section tint id="black-friday-packages">
-        <h2 style={h2Style}>Black Friday packages and pricing</h2>
-        <p style={{ ...muted, margin: "16px auto 0", maxWidth: 680 }}>Pick what your business actually needs. You don&apos;t have to buy five marketing services when one could solve the problem.</p>
-
-        {BLOCKS.map((b, i) => {
-          const svc = SERVICES[b.id];
-          return (
-            <div key={b.id} id={`bf-${b.id}`} style={{ marginTop: "clamp(56px,6vw,88px)", scrollMarginTop: 80 }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${ART}/${b.art}`} alt={b.artAlt} width={800} height={640} loading="lazy" decoding="async" style={{ width: "100%", maxWidth: 340, height: "auto", marginBottom: 8 }} />
-                <div style={{ minWidth: 0, maxWidth: 760 }}>
-                  <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(24px,2.2vw,32px)", letterSpacing: "-0.025em", lineHeight: 1.15 }}>
-                    {i + 1}. {b.title}
-                  </h3>
-                  <p style={{ margin: "12px 0 0", textWrap: "balance", fontSize: 19, fontWeight: 600, lineHeight: 1.4 }}>{b.lead}</p>
-                  {b.body.map((t) => <p key={t} style={{ ...muted, margin: "12px 0 0" }}>{t}</p>)}
-                </div>
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginTop: 32 }}>
-                {b.offers.map((o) => <OfferCard key={o.name} o={o} />)}
-              </div>
-              {b.small ? <p style={{ margin: "16px 0 0", fontSize: 14, lineHeight: 1.55, color: "#6F6B64", maxWidth: 760, marginInline: "auto" }}>{b.small}</p> : null}
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, marginTop: 24 }}>
-                <a href={CONTACT_HREF} style={btnDark}>{b.claimLabel} <ArrowIcon /></a>
-                <a href={svc.href} style={btnLine}>{b.servicesLabel} <ArrowIcon /></a>
-              </div>
-            </div>
-          );
-        })}
-      </Section>
-
-      {/* Proof */}
-      <Section>
-        <h2 style={h2Style}>Why work with me?</h2>
-        <p style={{ ...muted, margin: "16px auto 0", maxWidth: 760 }}>
-          You don&apos;t need a bigger list of marketing tasks. You need someone who can figure out what matters and actually do the work. I&apos;ve worked across SaaS, service businesses and ecommerce, helping businesses improve search visibility, community marketing and organic distribution.
-        </p>
-        <div className="grid gap-4 md:grid-cols-3" style={{ marginTop: 32 }}>
-          {PROOF.map((p) => (
-            <div key={p.title} style={{ padding: 24, borderRadius: 18, border: "1px solid #E2DFD8", background: "#FBFBF9" }}>
-              <h3 style={{ margin: 0, fontSize: 18, fontWeight: 600, lineHeight: 1.35 }}>{p.title}</h3>
-              <p style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#5A5854" }}>{p.body}</p>
-            </div>
-          ))}
+      {/* Services intro */}
+      <section id="black-friday-packages" className={b.sec}>
+        <div className={`${e.container} ${b.center}`}>
+          <h2 className={e.h2} style={{ maxWidth: 820 }}>Choose the marketing work that will <em className={e.emGreen}>actually move things forward.</em></h2>
+          <p className={e.body} style={{ marginTop: 18 }}>
+            A bigger marketing plan isn&apos;t always a better one. Sometimes the problem is poor search visibility. Sometimes you&apos;re getting attention from the wrong audience. Sometimes the traffic is fine, but the page doesn&apos;t give people a reason to act. Here&apos;s what each service is designed to help with.
+          </p>
         </div>
-        <p style={{ margin: "16px 0 0", fontSize: 13, color: "#6F6B64" }}>These are examples of past work, not promises of future results.</p>
-        <a href="/case-studies" style={{ ...btnLine, marginTop: 24 }}>See More of My Work <ArrowIcon /></a>
-      </Section>
+      </section>
 
-      {/* How to claim */}
-      <Section tint>
-        <h2 style={h2Style}>How to claim the Black Friday discount</h2>
-        <ol className="grid gap-4 md:grid-cols-3" style={{ listStyle: "none", padding: 0, margin: "32px 0 0" }}>
-          {STEPS.map((s, i) => (
-            <li key={s.title} style={{ padding: 24, borderRadius: 18, background: "#FBFBF9", border: "1px solid #E2DFD8" }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#6F6B64" }}>Step {i + 1}</span>
-              <h3 style={{ margin: "6px 0 0", fontSize: 18, fontWeight: 600 }}>{s.title}</h3>
-              <p style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#5A5854" }}>{s.body}</p>
-            </li>
-          ))}
-        </ol>
-        <a href={CONTACT_HREF} style={{ ...btnDark, marginTop: 28 }}>Get in Touch <ArrowIcon /></a>
-      </Section>
+      {BLOCKS.map((s, i) => {
+        const svc = SERVICES[s.id];
+        const cols = s.offers.length >= 4 ? b.cards4 : b.cards3;
+        return (
+          <section key={s.id} id={`bf-${s.id}`} className={b.sec}>
+            <div className={e.container}>
+              <div className={`${b.svcGrid} ${i % 2 ? b.svcFlip : ""}`}>
+                <div style={{ minWidth: 0 }}>
+                  <p className={e.eyebrow}>{s.eyebrow}</p>
+                  <h2 className={e.h2}>{s.title}</h2>
+                  {s.body.map((t) => <p key={t} className={e.body} style={{ marginTop: 16 }}>{t}</p>)}
+                  <div className={b.meta}>
+                    <p><strong>Best for:</strong> {s.bestFor}</p>
+                    <p><strong>What we can work on:</strong> {s.workOn}</p>
+                  </div>
+                </div>
+                <div className={b.svcArt}><Art src={s.art} alt={s.artAlt} /></div>
+              </div>
+
+              <ul className={`${b.cards} ${cols} ${s.offers.length === 2 ? b.cards2 : ""}`} aria-label={`${svc.name} Black Friday packages`}>
+                {s.offers.map((o) => <OfferCard key={o.name} o={o} />)}
+              </ul>
+              {s.note ? <p className={b.fine}>{s.note}</p> : null}
+              <div className={b.actions}>
+                <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>{s.cta} <ArrowIcon /></a>
+                <a href={svc.href} className={`${e.btn} ${e.btnSecondary}`}>{s.link}</a>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Help me choose */}
+      <div className={b.band}>
+        <section id="help-me-choose" className={b.sec}>
+          <div className={`${e.container} ${b.center}`}>
+            <p className={e.eyebrow}>Start with the problem, not the package</p>
+            <h2 className={e.h2} style={{ maxWidth: 820 }}>Not sure which Black Friday marketing package <em className={e.emGreen}>fits?</em></h2>
+            <p className={e.body} style={{ marginTop: 16 }}>Start with what is holding your growth back. The right package depends on the problem, not the biggest discount.</p>
+            <ul className={b.choices}>
+              {CHOICES.map((c) => (
+                <li key={c.title} className={b.choice}>
+                  <span className={b.choiceIcon} aria-hidden="true">{c.icon}</span>
+                  <h3>{c.title}</h3>
+                  <p>{c.body}</p>
+                  <a href={c.href} className={b.choiceLink}>{c.link} <span aria-hidden="true">→</span></a>
+                </li>
+              ))}
+            </ul>
+            <p className={b.fine}>Getting traffic but few inquiries or signups? Buying more traffic might be the last thing I&apos;d recommend. <a href="#bf-growth" className={e.link}>Start with growth strategy</a>.</p>
+            <div className={b.actions}>
+              <a href={PACKAGES} className={`${e.btn} ${e.btnPrimary}`}>See eligible packages <ArrowIcon /></a>
+              <a href={CONTACT_HREF} className={`${e.btn} ${e.btnSecondary}`}>Help me choose a service</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Evidence */}
+      <section className={b.sec}>
+        <div className={`${e.container} ${b.center}`}>
+          <p className={e.eyebrow}>Selected work</p>
+          <h2 className={e.h2} style={{ maxWidth: 760 }}>Marketing decisions should <em className={e.emGreen}>come with evidence.</em></h2>
+          <ul className={b.proof}>
+            {PROOF.map((p) => (
+              <li key={p.name} className={b.proofCard}>
+                <div className={b.proofShot}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.shot} alt={p.alt} loading="lazy" decoding="async" />
+                </div>
+                <div className={b.proofBody}>
+                  <h3 className={e.h3}>{p.name}: {p.result}</h3>
+                  <p>{p.body}</p>
+                  <p className={e.small}>{p.meta}. <a href={p.href} className={e.link}>Read the case study</a></p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className={e.small} style={{ marginTop: 16 }}>These are examples of past work, not promises of future results.</p>
+          <div className={b.actions}>
+            <a href="/case-studies" className={`${e.btn} ${e.btnSecondary}`}>See selected work <ArrowIcon /></a>
+          </div>
+        </div>
+      </section>
+
+      {/* Checklist */}
+      <section className={b.sec}>
+        <div className={e.container}>
+          <div className={b.svcGrid}>
+            <div style={{ minWidth: 0 }}>
+              <p className={e.eyebrow}>Useful even if you don&apos;t book</p>
+              <h2 className={e.h2}>A practical Black Friday marketing <em className={e.emGreen}>checklist for 2026.</em></h2>
+              <p className={e.body} style={{ marginTop: 16 }}>A discount won&apos;t help much if people can&apos;t find your offer or don&apos;t understand it when they arrive. Before you start promoting, check these six things.</p>
+            </div>
+            <div className={b.svcArt}><Art src="BFV3-09-preparation-list.svg" alt="A preparation checklist with items being ticked off" /></div>
+          </div>
+          <ol className={b.checklist}>
+            {CHECKLIST.map(([t, d], i) => (
+              <li key={t}>
+                <h3><span>{String(i + 1).padStart(2, "0")}</span>{t}</h3>
+                <p>{d}</p>
+              </li>
+            ))}
+          </ol>
+          <p className={b.fine} style={{ fontSize: 16 }}><strong>Need help preparing your marketing?</strong> I can help you identify what matters most and build a plan around it.</p>
+          <div className={b.actions}>
+            <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>Tell me what you&apos;re growing <ArrowIcon /></a>
+          </div>
+        </div>
+      </section>
+
+      {/* What happens next */}
+      <div className={b.band}>
+        <section className={b.sec}>
+          <div className={`${e.container} ${b.center}`}>
+            <h2 className={e.h2}>What happens after you <em className={e.emGreen}>choose a package?</em></h2>
+            <ol className={b.steps}>
+              {STEPS.map(([t, d], i) => (
+                <li key={t}>
+                  <span className={b.stepNum}>{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                </li>
+              ))}
+            </ol>
+            <div className={b.actions}>
+              <a href={CONTACT_HREF} className={`${e.btn} ${e.btnPrimary}`}>Ask about the Black Friday offer <ArrowIcon /></a>
+              <a href={PACKAGES} className={`${e.btn} ${e.btnSecondary}`}>See eligible packages</a>
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* FAQ */}
-      <Section>
-        <h2 style={{ ...h2Style, marginBottom: 32 }}>Black Friday marketing deals: frequently asked questions</h2>
-        <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "left" }}><FAQAccordion faqs={FAQS} /></div>
-      </Section>
-
-      {/* Closing CTA */}
-      <section style={{ background: "#1C1C1C", color: "#F2EFEA", padding: `clamp(64px,8vw,112px) ${PAD}` }}>
-        <div style={{ maxWidth: 860, margin: "0 auto", display: "flex", flexDirection: "column-reverse", alignItems: "center", gap: 24, textAlign: "center" }}>
-          <div style={{ minWidth: 0 }}>
-            <h2 style={{ ...h2Style, color: "#F2EFEA" }}>Planning to grow your business? Start with the right problem.</h2>
-            <p style={{ ...muted, color: "#B7B2A8", margin: "18px 0 0" }}>
-              You might need SEO. You might need better social media content. You might need to fix your landing page before spending anything on more traffic. I won&apos;t recommend a service just because it&apos;s on sale. Tell me about your business and what you&apos;re trying to achieve, and I&apos;ll help you figure out where to start.
-            </p>
-            <p style={{ margin: "18px 0 0", fontSize: 17, fontWeight: 600 }}>Get 10% off eligible marketing services this Black Friday.</p>
-            <a href={CONTACT_HREF} style={{ ...btnDark, background: "#F8F6F4", color: "#1C1C1C", marginTop: 24 }}>Let&apos;s Talk About Your Business <ArrowIcon /></a>
-            <p style={{ margin: "24px 0 0", fontSize: 13, lineHeight: 1.55, color: "#8F8A80" }}>
-              Offer applies to new qualifying engagements booked during the promotion period. First month discounts apply across that month&apos;s invoices even when billing is weekly or biweekly. Standard pricing resumes afterward. Custom scopes, availability and starting arrangements are confirmed before booking. Results are not guaranteed.
-            </p>
+      <section className={b.sec}>
+        <div className={`${e.container} ${e.faq}`}>
+          <div>
+            <p className={e.eyebrow}>FAQ</p>
+            <h2 className={e.h2}>Black Friday marketing deals: <em className={e.emGreen}>your questions.</em></h2>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${ART}/10-percent-off-seal.svg`} alt="" aria-hidden width={640} height={640} loading="lazy" style={{ width: "100%", maxWidth: 180, height: "auto" }} />
+          <FAQAccordion faqs={FAQS} />
         </div>
       </section>
-    </main>
+
+      {/* Final CTA */}
+      <section className={`${b.sec} ${b.last}`}>
+        <div className={e.container}>
+          <div className={e.cta}>
+            <div>
+              <h2 className={e.h2}>Start with the right problem. Make the offer count.</h2>
+              <p className={e.body} style={{ marginTop: 18 }}>
+                You don&apos;t need to spend more on everything. You need a clearer idea of what&apos;s holding your business back and the right work to address it. If you&apos;re considering SEO, Reddit, social media, ads, or growth consulting, tell me a little about your business and I&apos;ll help you work out where to start.
+              </p>
+              <p className={b.legal}>
+                Offer applies to new qualifying engagements booked November 23 to 30, 2026. First month discounts apply across that month&apos;s invoices even when billing is weekly or biweekly. Standard pricing resumes afterward. Custom scopes, availability and starting arrangements are confirmed before booking. Results are not guaranteed.
+              </p>
+            </div>
+            <div className={e.ctaActions}>
+              <a href={CONTACT_HREF} className={`${e.btn} ${e.btnLight}`}>Let&apos;s talk about your business <ArrowIcon /></a>
+              <a href={PACKAGES} className={`${e.btn} ${e.btnGhostLight}`}>Review the packages again</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </EditorialPage>
   );
 }
