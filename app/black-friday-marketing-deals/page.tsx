@@ -164,28 +164,28 @@ export default function BlackFridayPage() {
     <main id="top" style={{ overflowX: "clip" }}>
       {/* Hero */}
       <section style={{ padding: `clamp(120px,12vw,160px) ${PAD} clamp(56px,6vw,88px)` }}>
-        <div style={{ maxWidth: MAX, margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          <div style={{ minWidth: 0, maxWidth: 900 }}>
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center" style={{ maxWidth: MAX, margin: "0 auto", textAlign: "left" }}>
+          <div style={{ minWidth: 0 }}>
             <p style={{ margin: "0 0 18px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Black Friday 2026 | November 23 to November 30</p>
             <h1 style={HERO_H1_STYLE}>
               Black Friday marketing deals: <span style={H1_ACCENT_STYLE}>10% off SEO, Reddit and social.</span>
             </h1>
-            <p style={{ ...muted, margin: "24px auto 0", maxWidth: 720 }}>
+            <p style={{ ...muted, margin: "24px 0 0", maxWidth: 620 }}>
               Black Friday marketing deals for SaaS founders and small businesses: 10% off my SEO, Reddit marketing, social media management, paid ads management and growth strategy services.
             </p>
-            <p style={{ ...muted, margin: "14px auto 0", maxWidth: 720 }}>
+            <p style={{ ...muted, margin: "14px 0 0", maxWidth: 620 }}>
               Whether you&apos;re struggling to get traffic, turn visitors into customers, or figure out which marketing channel deserves your budget, I can help you work on the problem that&apos;s actually slowing you down. Same services. Same hands on work. Just 10% less to get started.
             </p>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, marginTop: 28 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 28 }}>
               <a href="#black-friday-packages" style={btnDark}>Explore Black Friday Deals <ArrowIcon /></a>
               <a href={CONTACT_HREF} style={btnLine}>Talk About Your Project <ArrowIcon /></a>
             </div>
-            <p style={{ margin: "20px 0 0", fontSize: 13, lineHeight: 1.55, color: "#6F6B64", maxWidth: 640, marginInline: "auto" }}>
+            <p style={{ margin: "20px 0 0", fontSize: 13, lineHeight: 1.55, color: "#6F6B64", maxWidth: 600 }}>
               Offer starts November 23 and ends November 30, 2026. Discount applies to the first month of eligible monthly services or the quoted fee of an eligible one time project.
             </p>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${ART}/black-friday-growth-hero.svg`} alt="Search, analytics and growth charts with a 10 percent off ticket" width={1440} height={900} fetchPriority="high" style={{ width: "100%", maxWidth: 1080, height: "auto", marginTop: "clamp(16px,3vw,40px)" }} />
+          <img src={`${ART}/black-friday-growth-hero.svg`} alt="Search, analytics and growth charts with a 10 percent off ticket" width={1440} height={900} fetchPriority="high" style={{ width: "100%", maxWidth: 640, height: "auto", aspectRatio: "780/900", objectFit: "cover", objectPosition: "100% 50%", justifySelf: "center" }} />
         </div>
       </section>
 
@@ -198,10 +198,10 @@ export default function BlackFridayPage() {
           const svc = SERVICES[b.id];
           return (
             <div key={b.id} id={`bf-${b.id}`} style={{ marginTop: "clamp(56px,6vw,88px)", scrollMarginTop: 80 }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div className="grid gap-8 md:grid-cols-2 md:items-center" style={{ textAlign: "left" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${ART}/${b.art}`} alt={b.artAlt} width={800} height={640} loading="lazy" decoding="async" style={{ width: "100%", maxWidth: 340, height: "auto", marginBottom: 8 }} />
-                <div style={{ minWidth: 0, maxWidth: 760 }}>
+                <img src={`${ART}/${b.art}`} alt={b.artAlt} width={800} height={640} loading="lazy" decoding="async" className={i % 2 ? "" : "md:order-2"} style={{ width: "100%", maxWidth: 440, height: "auto", justifySelf: "center" }} />
+                <div style={{ minWidth: 0 }}>
                   <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(24px,2.2vw,32px)", letterSpacing: "-0.025em", lineHeight: 1.15 }}>
                     {i + 1}. {b.title}
                   </h3>
@@ -263,7 +263,7 @@ export default function BlackFridayPage() {
 
       {/* Closing CTA */}
       <section style={{ background: "#1C1C1C", color: "#F2EFEA", padding: `clamp(64px,8vw,112px) ${PAD}` }}>
-        <div style={{ maxWidth: 860, margin: "0 auto", display: "flex", flexDirection: "column-reverse", alignItems: "center", gap: 24, textAlign: "center" }}>
+        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr] md:items-center" style={{ maxWidth: MAX, margin: "0 auto" }}>
           <div style={{ minWidth: 0 }}>
             <h2 style={{ ...h2Style, color: "#F2EFEA" }}>Planning to grow your business? Start with the right problem.</h2>
             <p style={{ ...muted, color: "#B7B2A8", margin: "18px 0 0" }}>
@@ -276,7 +276,7 @@ export default function BlackFridayPage() {
             </p>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${ART}/10-percent-off-seal.svg`} alt="" aria-hidden width={640} height={640} loading="lazy" style={{ width: "100%", maxWidth: 180, height: "auto" }} />
+          <img src={`${ART}/10-percent-off-seal.svg`} alt="" aria-hidden width={640} height={640} loading="lazy" className="max-md:!max-w-[160px]" style={{ width: "100%", maxWidth: 300, height: "auto", justifySelf: "center" }} />
         </div>
       </section>
     </main>
