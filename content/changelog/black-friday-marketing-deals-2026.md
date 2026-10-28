@@ -4,7 +4,7 @@ summary: A new page lists the Black Friday offer, 10% off SEO, Reddit marketing,
 category: website
 status: published
 publishedAt: 2026-10-28
-updatedAt:
+updatedAt: 2026-10-28
 featuredImage:
 imageAlt:
 relatedUrl: /black-friday-marketing-deals
@@ -26,3 +26,9 @@ A Black Friday page with every eligible package, its regular price and its Black
 **Also changed**
 
 The homepage is back to its previous graphics. The other pages keep the new illustrations.
+
+## Update: redesigned page
+
+- A new look with new illustrations, and clearer price cards for every package.
+- Three short cards to help you pick a starting point, and a simpler "what happens next" section.
+- The page is now linked from the footer and the services page.
