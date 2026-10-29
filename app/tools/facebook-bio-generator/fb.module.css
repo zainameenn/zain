@@ -120,3 +120,12 @@
 .socialLink { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; color: var(--forest); font-size: 15px; font-weight: 600; transition: border-color 150ms, background 150ms; }
 .socialLink:hover { border-color: var(--forest); background: var(--sage); }
 .socialLink:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* Optional details panel */
+.more { margin: 0 0 18px; border-top: 1px solid var(--line); padding-top: 14px; text-align: center; }
+.moreToggle { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 0; border-radius: 10px; background: none; color: var(--forest); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+.moreToggle:hover { background: var(--ivory); }
+.moreToggle:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.morePanel { margin-top: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--ivory); text-align: left; }
+.moreHint { margin: 0 0 14px; font-size: 14px; color: var(--muted); text-align: center; }
+.morePanel textarea { min-height: 72px; }

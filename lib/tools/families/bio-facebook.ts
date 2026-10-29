@@ -1,7 +1,7 @@
 import { FAIR_USE, LINK_SOCIAL_MEDIA_SERVICE } from "../links";
 import type { BrandExample, StudioContent, ToolPage } from "../types";
 import { studioBioPage, type StudioBioPlatform } from "./studio-bio";
-import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_TONES } from "./facebook-bio-choices";
+import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_CTAS, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_TONES } from "./facebook-bio-choices";
 
 // Facebook Bio Generator on the studio layout, same structure as the Instagram page.
 
@@ -323,6 +323,12 @@ function dropdownOnly(page: ToolPage): ToolPage {
         { name: "tone", label: "Tone", type: "select", options: FACEBOOK_BIO_TONES, defaultValue: "Simple and Natural", required: true },
         { name: "language", label: "Language", type: "select", options: FACEBOOK_BIO_LANGUAGES, defaultValue: "English", required: true },
         { name: "emoji", label: "Include emoji", type: "select", options: ["No", "Yes"], defaultValue: "No", required: true },
+        // Optional details: typed by the visitor only if they want to.
+        { name: "about", label: "About", type: "text", maxLength: 200 },
+        { name: "name", label: "Name", type: "text", maxLength: 60 },
+        { name: "offer", label: "What you offer or who it's for", type: "text", maxLength: 120 },
+        { name: "location", label: "Location", type: "text", maxLength: 60 },
+        { name: "cta", label: "Call to action", type: "select", options: FACEBOOK_BIO_CTAS, defaultValue: "No call to action" },
       ],
       // Group descriptions are a longer field; every other bio keeps the 101 character Intro limit.
       result: { ...page.workspace.result, limit: { field: "profile_type", map: { "Facebook Group": 255 }, fallback: 101 } },

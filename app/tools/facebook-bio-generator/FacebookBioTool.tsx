@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_TONES } from "@/lib/tools/families/facebook-bio-choices";
+import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_CTAS, FACEBOOK_BIO_DETAILS, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_TONES } from "@/lib/tools/families/facebook-bio-choices";
 import { track } from "@/lib/tools/v3/track";
 import f from "./fb.module.css";
 
@@ -15,6 +15,7 @@ const KINDS = Object.keys(FACEBOOK_BIO_CHOICES) as Kind[];
 // Facebook Group descriptions are a longer field than the 101 character Intro.
 const limitFor = (k: Kind) => (k === "Facebook Group" ? 255 : 101);
 const PREVIEW_NAME: Record<Kind, string> = { "Personal Profile": "Your profile", "Business Page": "Your business Page", Creator: "Your creator profile", "Facebook Group": "Your group" };
+const DEFAULT_CTA: Record<Kind, string> = { "Personal Profile": "No call to action", "Business Page": "Send a message", Creator: "Follow for more", "Facebook Group": "Join the group" };
 const first = (k: Kind) => ({ describes: FACEBOOK_BIO_CHOICES[k].describes.options[0] as string, focus: FACEBOOK_BIO_CHOICES[k].focus.options[0] as string });
 const LABELS = ["Clear and simple", "A little personality", "Short and punchy"];
 const MESSAGES = ["Putting your words together...", "Trying a few different angles...", "Finishing your bio ideas..."];
@@ -28,6 +29,13 @@ export function FacebookBioTool() {
   const [tone, setTone] = useState(FACEBOOK_BIO_TONES[0]);
   const [emoji, setEmoji] = useState(false);
   const [language, setLanguage] = useState("English");
+  // Optional details, hidden until the visitor asks for them.
+  const [more, setMore] = useState(false);
+  const [about, setAbout] = useState("");
+  const [name, setName] = useState("");
+  const [offer, setOffer] = useState("");
+  const [location, setLocation] = useState("");
+  const [cta, setCta] = useState(DEFAULT_CTA["Personal Profile"]);
   const [stage, setStage] = useState<"form" | "loading" | "results">("form");
   const [bios, setBios] = useState<string[]>([]);
   const [active, setActive] = useState(0);
@@ -56,7 +64,7 @@ export function FacebookBioTool() {
     setStage("loading");
     track("tool_generate", SLUG, { kind });
     // Field names match the Facebook bio fields the API validates (lib/tools/families/bio-facebook.ts).
-    const input = { profile_type: kind, describes, focus, tone, language, emoji: emoji ? "Yes" : "No" };
+    const input = { profile_type: kind, describes, focus, tone, language, emoji: emoji ? "Yes" : "No", about: about.trim(), name: name.trim(), offer: d.offer ? offer.trim() : "", location: location.trim(), cta };
     try {
       const res = await fetch("/api/tools", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ slug: SLUG, input }) });
       const body = await res.json().catch(() => ({}));
@@ -90,9 +98,12 @@ export function FacebookBioTool() {
     setKind(k);
     setDescribes(first(k).describes);
     setFocus(first(k).focus);
+    setCta(DEFAULT_CTA[k]);
   };
   const LIMIT = limitFor(kind);
   const q = FACEBOOK_BIO_CHOICES[kind];
+  const d = FACEBOOK_BIO_DETAILS[kind];
+  const filled = [about, name, d.offer ? offer : "", location].filter((x) => x.trim()).length;
 
   return (
     <div className={f.shell} id="bio-tool">
@@ -152,6 +163,44 @@ export function FacebookBioTool() {
             <label className={f.toggle}>
               <input type="checkbox" checked={emoji} onChange={(e) => setEmoji(e.target.checked)} /> Include emoji
             </label>
+            <div className={f.more}>
+              <button type="button" className={f.moreToggle} aria-expanded={more} aria-controls="fb-more" onClick={() => setMore((m) => !m)}>
+                <span aria-hidden="true">{more ? "−" : "+"}</span> Add more details <span className={f.optional}>(optional{filled ? `, ${filled} added` : ""})</span>
+              </button>
+              {more ? (
+                <div id="fb-more" className={f.morePanel}>
+                  <p className={f.moreHint}>Fill in anything you like, or nothing at all. The more you share, the more personal your bio gets.</p>
+                  <div className={f.field}>
+                    <label htmlFor="fb-about">{d.about[0]}</label>
+                    <textarea id="fb-about" rows={2} maxLength={200} value={about} onChange={(e) => setAbout(e.target.value)} placeholder={d.about[1]} />
+                  </div>
+                  <div className={f.row}>
+                    <div className={f.field}>
+                      <label htmlFor="fb-name">{d.name[0]}</label>
+                      <input id="fb-name" maxLength={60} value={name} onChange={(e) => setName(e.target.value)} placeholder={d.name[1]} />
+                    </div>
+                    <div className={f.field}>
+                      <label htmlFor="fb-location">{d.location[0]}</label>
+                      <input id="fb-location" maxLength={60} value={location} onChange={(e) => setLocation(e.target.value)} placeholder={d.location[1]} />
+                    </div>
+                  </div>
+                  {d.offer ? (
+                    <div className={f.field}>
+                      <label htmlFor="fb-offer">{d.offer[0]}</label>
+                      <input id="fb-offer" maxLength={120} value={offer} onChange={(e) => setOffer(e.target.value)} placeholder={d.offer[1]} />
+                    </div>
+                  ) : null}
+                  <div className={f.field}>
+                    <label htmlFor="fb-cta">What should people do next?</label>
+                    <select id="fb-cta" value={cta} onChange={(e) => setCta(e.target.value)}>
+                      {FACEBOOK_BIO_CTAS.map((o) => (
+                        <option key={o}>{o}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              ) : null}
+            </div>
             {error ? <p className={f.error} role="alert">{error}</p> : null}
             <div className={f.submitRow}>
               <button className={f.action} type="submit">

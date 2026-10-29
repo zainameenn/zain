@@ -927,6 +927,14 @@ Profile type:
 - Creator: reflect the content niche and what the bio should communicate. No follower counts or brand deals.
 - Facebook Group: write a welcoming community introduction that says who the group is for and what members do there, based on the topic and purpose. It is not a personal bio, so never write in the first person singular.
 
+Optional details (any of these may be empty; an empty one means "not given", never "make one up"):
+- <about>: the visitor's own words. Treat them as the main source of facts and personality. Keep their meaning, but don't copy them word for word.
+- <name>: a person's, business's, creator's or group's name. If given, use it naturally in at least one bio. Never invent a name.
+- <offer>: what a business sells or does, what followers get from a creator, or who a group is for. If given, it beats the generic category, so be specific with it.
+- <location>: if given, include it in at least two bios. Never invent a place.
+- <cta>: if it isn't "No call to action", end at least two bios with that call to action, rephrased naturally to fit the bio (for example "Message us to order your cake" or "DM us for a quote" for "Send a message"). Never copy the option label as it is, and vary the wording between bios. Never write a phone number, address or URL.
+Anything that isn't in the options or these details must stay general. Never invent numbers, years, awards, prices, products, dishes or clients.
+
 Tone: follow <tone>. "Simple and Natural" is plain and calm. "Professional" is polished and clear. "Funny" has a light, friendly joke. "Aesthetic" is soft and visual. "Confident" is direct and self assured. "Friendly" is warm and welcoming.
 
 Style rules:
@@ -947,6 +955,11 @@ Style rules:
 <focus>{{focus}}</focus>
 <tone>{{tone}}</tone>
 <emoji>{{emoji}}</emoji>
+<about>{{about}}</about>
+<name>{{name}}</name>
+<offer>{{offer}}</offer>
+<location>{{location}}</location>
+<cta>{{cta}}</cta>
 </user_input>`,
 };
 
