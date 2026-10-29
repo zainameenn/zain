@@ -31,6 +31,7 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/case-studies", name: "All case studies", section: "resources", priority: 0.7, files: ["app/case-studies/page.tsx", "app/case-studies/_data/index.ts"] },
   { path: "/blog", name: "Blog", section: "resources", priority: 0.7, files: [] },
   { path: "/tools", name: "Free Tools", section: "resources", priority: 0.7, files: ["app/tools/page.tsx", "lib/tools/hub.ts"] },
+  { path: "/tools/seo", name: "Free SEO Tools", section: "resources", priority: 0.6, files: ["app/tools/seo/page.tsx", "lib/tools/hub.ts"] },
   { path: "/changelog", name: "Changelog", section: "resources", priority: 0.6, files: [] },
   { path: "/insights", name: "Insights", section: "resources", priority: 0.5, files: ["app/insights"] },
   { path: "/sitemap", name: "Sitemap", section: "resources", priority: 0.3, files: ["app/sitemap/page.tsx"] },

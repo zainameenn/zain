@@ -91,3 +91,9 @@ export const TOOL_THUMBNAILS: Record<string, string> = {
 };
 
 export const toolThumbnail = (slug: string): string | null => (TOOL_THUMBNAILS[slug] ? `/assets/tools/thumbnails/${TOOL_THUMBNAILS[slug]}` : null);
+
+/**
+ * New tools that are live or in review before their own artwork exists (thumbnail and page illustration).
+ * See docs/seo-tools/asset-manifest.md for the brief each one is waiting on. Remove a slug once its art lands.
+ */
+export const ART_PENDING = new Set(["website-metadata-extractor", "website-seo-checker", "broken-link-checker", "sitemap-url-status-checker", "long-tail-keyword-generator", "seo-question-generator", "core-web-vitals-checker"]);

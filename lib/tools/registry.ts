@@ -123,6 +123,12 @@ const LIVE = new Set([
   "mrr-calculator",
   "customer-retention-rate-calculator",
   "ab-test-sample-size-calculator",
+  // October 29, 2026: SEO tools that only need a safe page fetch. The Brave and CrUX tools stay
+  // development only until a shared quota counter (Upstash) is connected in production.
+  "website-metadata-extractor",
+  "website-seo-checker",
+  "broken-link-checker",
+  "sitemap-url-status-checker",
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));

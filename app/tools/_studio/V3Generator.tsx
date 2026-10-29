@@ -2,6 +2,7 @@ import { V3_TOOLS } from "@/lib/tools/v3/fields";
 import { V3AiTool } from "./V3AiTool";
 import { BreakEvenRoasCalculator, LocalBusinessSchemaGenerator, LtvCacCalculator, RobotsTxtGenerator, XmlSitemapValidator, YouTubeChaptersTool } from "./V3Batch3";
 import { AbSampleSizeCalculator, CanonicalChecker, HreflangGenerator, InternalLinkFinder, JsonLdValidator, LocalKeywordModifier, MrrCalculator, OpenGraphGenerator, ProductSchemaGenerator, RedirectChecker, RetentionCalculator, SkuGenerator, XmlSitemapGenerator } from "./V3Batch4";
+import { BrokenLinkChecker, CoreWebVitalsChecker, LongTailKeywordGenerator, MetadataExtractor, SeoQuestionGenerator, SitemapUrlStatusChecker, WebsiteSeoChecker } from "./SeoTools";
 import { CacCalculator, EtsyFeeCalculator, EtsyOffsiteCalculator, GoogleReviewLinkTool, LlmsTxtTool, RobotsTxtTester, ShopifyMarginCalculator } from "./V3Utilities";
 
 // Picks the generator or calculator for one of the tools added in October 2026.
@@ -25,6 +26,13 @@ export function V3Generator({ slug, name }: { slug: string; name: string }) {
   if (slug === "mrr-calculator") return <MrrCalculator />;
   if (slug === "customer-retention-rate-calculator") return <RetentionCalculator />;
   if (slug === "ab-test-sample-size-calculator") return <AbSampleSizeCalculator />;
+  if (slug === "website-metadata-extractor") return <MetadataExtractor />;
+  if (slug === "website-seo-checker") return <WebsiteSeoChecker />;
+  if (slug === "broken-link-checker") return <BrokenLinkChecker />;
+  if (slug === "sitemap-url-status-checker") return <SitemapUrlStatusChecker />;
+  if (slug === "long-tail-keyword-generator") return <LongTailKeywordGenerator />;
+  if (slug === "seo-question-generator") return <SeoQuestionGenerator />;
+  if (slug === "core-web-vitals-checker") return <CoreWebVitalsChecker />;
   if (V3_TOOLS[slug]) return <V3AiTool tool={V3_TOOLS[slug]} name={name} />;
   if (slug === "etsy-offsite-ads-calculator") return <EtsyOffsiteCalculator />;
   if (slug === "shopify-profit-margin-calculator") return <ShopifyMarginCalculator />;
