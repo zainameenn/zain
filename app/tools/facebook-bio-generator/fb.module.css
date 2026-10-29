@@ -112,3 +112,11 @@
   .starMain, .starSmall, .starLeft, .dots i, .results { animation: none; }
 }
 .split p { margin: 0 0 14px; }
+
+/* Social follow section at the very end: small and quiet, not a banner. */
+.social { padding: clamp(48px, 6vw, 72px) 0 clamp(64px, 8vw, 96px); background: var(--ivory); border-top: 1px solid var(--line); text-align: center; }
+.social p { margin-left: auto; margin-right: auto; }
+.socialLinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 26px 0 0; padding: 0; list-style: none; }
+.socialLink { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; color: var(--forest); font-size: 15px; font-weight: 600; transition: border-color 150ms, background 150ms; }
+.socialLink:hover { border-color: var(--forest); background: var(--sage); }
+.socialLink:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }

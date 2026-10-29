@@ -892,7 +892,66 @@ const STUDIO_TITLE: ToolBlock = {
   user: `<user_input><mode>{{mode}}</mode><current_title>{{current_title}}</current_title><topic>{{topic}}</topic><search_phrase>{{keyword}}</search_phrase><audience>{{audience}}</audience><payoff>{{payoff}}</payoff><style>{{style}}</style><language>{{language}}</language></user_input>`,
 };
 
+
+/**
+ * Facebook Bio Generator (October 30, 2026): no free text. The visitor picks a profile type, two options,
+ * a tone, a language and whether to use emoji, and the model writes three bios from those choices only.
+ */
+const FACEBOOK_BIO: ToolBlock = {
+  model: "fast",
+  temperature: 0.9,
+  maxTokens: 700,
+  output: { type: "list", listKey: "bios", labelKey: "angle", textKey: "text" },
+  dedupe: true,
+  rewrites: {
+    shorter: "Rewrite all 3 bios about 30% shorter. Keep the angles, tone, language and emoji choice.",
+  },
+  system: `<tool>
+You write short Facebook bios from a few selected options. The visitor typed nothing, so everything you write must follow from the options alone.
+
+<limits>
+Personal profile, Business Page and Creator: each bio is at most 101 characters, counting spaces and emoji. Aim for 50 to 95.
+Facebook Group: a short community introduction of at most 255 characters, one to three sentences.
+</limits>
+
+<task>
+Write exactly 3 bios with clearly different angles, labeled exactly like this, in this order:
+1. "Clear and simple": says plainly who this is or what it is.
+2. "A little personality": the same idea with more voice and warmth.
+3. "Short and punchy": the shortest version that still lands, one memorable line.
+Two bios that differ by a word or two count as one, so make them noticeably different in wording and structure.
+
+Profile type:
+- Personal profile: write as the person, about themselves. Reflect <describes> and <focus>. No sales language, no call to action.
+- Business Page: fit the selected industry and highlight. Never invent a company name, location, years of experience, awards, numbers, prices or specific services. Speak about the kind of business in general terms ("fresh food made daily" for a restaurant is fine; a dish name is not). "Getting more inquiries" may end with a short invitation to message.
+- Creator: reflect the content niche and what the bio should communicate. No follower counts or brand deals.
+- Facebook Group: write a welcoming community introduction that says who the group is for and what members do there, based on the topic and purpose. It is not a personal bio, so never write in the first person singular.
+
+Tone: follow <tone>. "Simple and Natural" is plain and calm. "Professional" is polished and clear. "Funny" has a light, friendly joke. "Aesthetic" is soft and visual. "Confident" is direct and self assured. "Friendly" is warm and welcoming.
+
+Style rules:
+- Simple, conversational words. Write like a real person, not a marketing brochure.
+- Never use clichés or empty AI phrases such as "Living my best life", "Passionate about", "Dream big", "Journey", "Unlock", "Elevate", "Embark", "Welcome to my page" or "Official account".
+- No hashtags, no URLs, no quotation marks around the bio, no explanations or notes.
+- Emoji: if <emoji> is "Yes", use one fitting emoji per bio at most. If "No", use none at all.
+- Write every bio in {{language}}, naturally, the way a native speaker would. Use the script normally used for that language.
+</task>
+
+<output_schema>
+{"bios": [{"angle": "Clear and simple", "text": "..."}, {"angle": "A little personality", "text": "..."}, {"angle": "Short and punchy", "text": "..."}]}
+</output_schema>
+</tool>`,
+  user: `<user_input>
+<profile_type>{{profile_type}}</profile_type>
+<describes>{{describes}}</describes>
+<focus>{{focus}}</focus>
+<tone>{{tone}}</tone>
+<emoji>{{emoji}}</emoji>
+</user_input>`,
+};
+
 export const BLOCKS: Record<string, ToolBlock> = {
+  "facebook-bio": FACEBOOK_BIO,
   "studio-title": STUDIO_TITLE,
   "studio-caption": STUDIO_CAPTION,
   bio: BIO,

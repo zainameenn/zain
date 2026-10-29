@@ -20,6 +20,14 @@ export const metadata: Metadata = buildMetadata({ title: TITLE, description: DES
 
 const ART = "/assets/tools/facebook-bio";
 
+// The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
+const SOCIALS = [
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/zain-ameen/", icon: "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.95 1.32-1.95 2.69V21h-4V9.5Z" },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61560222560607", icon: "M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46h1.55V4.47A20.7 20.7 0 0 0 14.3 4.3c-2.2 0-3.8 1.35-3.8 3.84v2.36H8v3h2.5V21h3Z" },
+  { name: "Instagram", href: "https://www.instagram.com/zainn.ms/", icon: "M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm6.1-8.1a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 3.6c2.73 0 3.05.01 4.13.06 2.77.13 4.07 1.44 4.2 4.2.05 1.08.06 1.4.06 4.14s-.01 3.06-.06 4.13c-.13 2.76-1.42 4.07-4.2 4.2-1.08.05-1.4.06-4.13.06s-3.06-.01-4.14-.06c-2.78-.13-4.07-1.44-4.2-4.2C3.61 15.06 3.6 14.74 3.6 12s.01-3.06.06-4.14c.13-2.76 1.43-4.07 4.2-4.2C8.94 3.61 9.27 3.6 12 3.6Z" },
+  { name: "X", href: "https://x.com/zainnameen", icon: "M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78L17.75 3Zm-1.08 16.17h1.7L7.4 4.73H5.57l11.1 14.44Z" },
+];
+
 const FAQS: [string, string][] = [
   ["What is a good simple bio for Facebook?", "Something clear and specific about you. For example: \"Coffee, good books, and a camera roll full of small moments.\" If it's for a business Page, try to say what the business offers rather than writing a generic quote."],
   ["How can I create a Facebook bio?", "Start with one or two details about yourself, your work or your interests. Pick a tone, generate a few options, then edit the wording until it feels natural. You can use the tool at the top of this page to get started."],
@@ -296,6 +304,26 @@ export default function FacebookBioGeneratorPage() {
               <a href="#top" className={`${e.btn} ${e.btnLight}`}>Create my Facebook bio ↑</a>
             </div>
           </div>
+        </div>
+      </section>
+      <section className={f.social} aria-labelledby="social-h">
+        <div className={e.container}>
+          <h2 id="social-h" className={e.h2}>Want more simple <em className={e.emGreen}>marketing tips?</em></h2>
+          <p className={e.body} style={{ margin: "14px auto 0" }}>
+            I share practical tips on SEO, social media, content marketing, and growing your business online. Follow along if that&apos;s something you&apos;re working on.
+          </p>
+          <ul className={f.socialLinks}>
+            {SOCIALS.map((x) => (
+              <li key={x.name}>
+                <a href={x.href} target="_blank" rel="noopener noreferrer" className={f.socialLink}>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                    <path d={x.icon} />
+                  </svg>
+                  {x.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </EditorialPage>

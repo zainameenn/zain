@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BIO_LANGUAGES } from "@/lib/tools/families/common";
+import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_TONES } from "@/lib/tools/families/facebook-bio-choices";
 import { track } from "@/lib/tools/v3/track";
 import f from "./fb.module.css";
 
@@ -10,46 +10,22 @@ import f from "./fb.module.css";
 // same one every bio generator uses; nothing is generated locally or faked.
 
 const SLUG = "facebook-bio-generator";
-const LIMIT = 101;
-
-type Kind = "personal" | "business" | "creator" | "group";
-const KINDS: { id: Kind; label: string }[] = [
-  { id: "personal", label: "Personal profile" },
-  { id: "business", label: "Business Page" },
-  { id: "creator", label: "Creator" },
-  { id: "group", label: "Facebook Group" },
-];
-const LABEL: Record<Kind, string> = { personal: "Tell us a little about yourself", business: "What does your business do?", creator: "What kind of content do you make?", group: "What is your group about?" };
-const PLACEHOLDER: Record<Kind, string> = {
-  personal: "For example: I love books, Sunday walks and taking photos of little things people usually miss.",
-  business: "For example: A small bakery in Lahore making fresh brownies and birthday cakes to order.",
-  creator: "For example: I share simple photography tips and behind the scenes videos.",
-  group: "For example: A community for beginner gardeners to share tips and ask questions.",
-};
-const SAMPLE: Record<Kind, string> = {
-  personal: "I love books, weekend walks, photography and finding new places to get coffee.",
-  business: "A small bakery in Lahore making fresh brownies and birthday cakes to order.",
-  creator: "I share simple tips about taking better photos using your phone.",
-  group: "A friendly community for first time gardeners sharing ideas and helping each other.",
-};
-const PREVIEW_NAME: Record<Kind, string> = { personal: "Your profile", business: "Your business Page", creator: "Your creator profile", group: "Your group" };
-const TONES = [
-  ["Simple and natural", "Minimal"],
-  ["Friendly", "Friendly"],
-  ["Professional", "Professional"],
-  ["A little funny", "Funny"],
-  ["Creative", "Aesthetic"],
-] as const;
+type Kind = keyof typeof FACEBOOK_BIO_CHOICES;
+const KINDS = Object.keys(FACEBOOK_BIO_CHOICES) as Kind[];
+// Facebook Group descriptions are a longer field than the 101 character Intro.
+const limitFor = (k: Kind) => (k === "Facebook Group" ? 255 : 101);
+const PREVIEW_NAME: Record<Kind, string> = { "Personal Profile": "Your profile", "Business Page": "Your business Page", Creator: "Your creator profile", "Facebook Group": "Your group" };
+const first = (k: Kind) => ({ describes: FACEBOOK_BIO_CHOICES[k].describes.options[0] as string, focus: FACEBOOK_BIO_CHOICES[k].focus.options[0] as string });
 const LABELS = ["Clear and simple", "A little personality", "Short and punchy"];
 const MESSAGES = ["Putting your words together...", "Trying a few different angles...", "Finishing your bio ideas..."];
 
 const count = (t: string) => [...t].length;
 
 export function FacebookBioTool() {
-  const [kind, setKind] = useState<Kind>("personal");
-  const [details, setDetails] = useState("");
-  const [tone, setTone] = useState<string>(TONES[0][0]);
-  const [focus, setFocus] = useState("");
+  const [kind, setKind] = useState<Kind>("Personal Profile");
+  const [describes, setDescribes] = useState(first("Personal Profile").describes);
+  const [focus, setFocus] = useState(first("Personal Profile").focus);
+  const [tone, setTone] = useState(FACEBOOK_BIO_TONES[0]);
   const [emoji, setEmoji] = useState(false);
   const [language, setLanguage] = useState("English");
   const [stage, setStage] = useState<"form" | "loading" | "results">("form");
@@ -60,7 +36,6 @@ export function FacebookBioTool() {
   const [message, setMessage] = useState(MESSAGES[0]);
   const busy = useRef(false);
   const resultsRef = useRef<HTMLElement>(null);
-  const detailsRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (stage !== "loading") return;
@@ -80,19 +55,8 @@ export function FacebookBioTool() {
     setMessage(MESSAGES[0]);
     setStage("loading");
     track("tool_generate", SLUG, { kind });
-    // Field names match the Facebook bio schema the API validates (lib/tools/families/studio-bio.ts).
-    const input = {
-      mode: "new",
-      account_type: kind === "business" ? "Business" : kind === "creator" ? "Creator" : "Personal",
-      category: kind === "group" ? "Facebook Group" : kind === "business" ? "Business Page" : kind === "creator" ? "Content creator" : "Personal profile",
-      about: details.trim().slice(0, 160),
-      tone: TONES.find(([l]) => l === tone)?.[1] ?? "Friendly",
-      goal: kind === "business" ? "Send a message" : kind === "creator" ? "Get more followers" : "No CTA",
-      emoji: emoji ? "Subtle" : "None",
-      format: "Single line",
-      keywords: focus.trim().slice(0, 120),
-      language,
-    };
+    // Field names match the Facebook bio fields the API validates (lib/tools/families/bio-facebook.ts).
+    const input = { profile_type: kind, describes, focus, tone, language, emoji: emoji ? "Yes" : "No" };
     try {
       const res = await fetch("/api/tools", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ slug: SLUG, input }) });
       const body = await res.json().catch(() => ({}));
@@ -122,71 +86,77 @@ export function FacebookBioTool() {
     } catch {}
   }
 
-  const tooShort = details.trim().length < 8;
+  const pick = (k: Kind) => {
+    setKind(k);
+    setDescribes(first(k).describes);
+    setFocus(first(k).focus);
+  };
+  const LIMIT = limitFor(kind);
+  const q = FACEBOOK_BIO_CHOICES[kind];
 
   return (
     <div className={f.shell} id="bio-tool">
       {stage === "form" ? (
         <section className={f.stage} aria-label="Bio generator form">
-          <p className={f.stageLabel}>Your intro, in your words</p>
+          <p className={f.stageLabel}>Your intro, in a few clicks</p>
           <h2 className={f.toolHeading}>What are we writing a bio for?</h2>
-          <p className={f.hint}>Pick a profile type, then tell us what you&apos;d like people to know.</p>
           <div className={f.types} role="group" aria-label="Select profile type">
             {KINDS.map((k) => (
-              <button key={k.id} type="button" className={f.type} aria-pressed={kind === k.id} onClick={() => setKind(k.id)}>
-                {k.label}
+              <button key={k} type="button" className={f.type} aria-pressed={kind === k} onClick={() => pick(k)}>
+                {k}
               </button>
             ))}
           </div>
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              if (!tooShort) generate();
+              generate();
             }}
           >
-            <div className={f.field}>
-              <label htmlFor="fb-details">{LABEL[kind]} <span aria-hidden="true">*</span></label>
-              <textarea id="fb-details" ref={detailsRef} required minLength={8} maxLength={160} value={details} onChange={(e) => setDetails(e.target.value)} placeholder={PLACEHOLDER[kind]} autoComplete="off" />
-              <div className={f.fieldFoot}>
-                <button type="button" className={f.fill} onClick={() => (setDetails(SAMPLE[kind]), detailsRef.current?.focus())}>
-                  Try an example
-                </button>
-                <span>{details.length} / 160 characters</span>
-              </div>
-            </div>
             <div className={f.row}>
               <div className={f.field}>
-                <label htmlFor="fb-tone">What kind of tone?</label>
-                <select id="fb-tone" value={tone} onChange={(e) => setTone(e.target.value)}>
-                  {TONES.map(([l]) => (
-                    <option key={l}>{l}</option>
+                <label htmlFor="fb-describes">{q.describes.label}</label>
+                <select id="fb-describes" value={describes} onChange={(e) => setDescribes(e.target.value)}>
+                  {q.describes.options.map((o) => (
+                    <option key={o}>{o}</option>
                   ))}
                 </select>
               </div>
               <div className={f.field}>
-                <label htmlFor="fb-focus">Anything specific to mention? <span className={f.optional}>Optional</span></label>
-                <input id="fb-focus" maxLength={70} value={focus} onChange={(e) => setFocus(e.target.value)} placeholder="e.g. Lahore, design tips, photography" />
+                <label htmlFor="fb-focus">{q.focus.label}</label>
+                <select id="fb-focus" value={focus} onChange={(e) => setFocus(e.target.value)}>
+                  {q.focus.options.map((o) => (
+                    <option key={o}>{o}</option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className={f.row}>
+              <div className={f.field}>
+                <label htmlFor="fb-tone">Tone</label>
+                <select id="fb-tone" value={tone} onChange={(e) => setTone(e.target.value)}>
+                  {FACEBOOK_BIO_TONES.map((o) => (
+                    <option key={o}>{o}</option>
+                  ))}
+                </select>
+              </div>
               <div className={f.field}>
                 <label htmlFor="fb-lang">Language</label>
                 <select id="fb-lang" value={language} onChange={(e) => setLanguage(e.target.value)}>
-                  {BIO_LANGUAGES.map((l) => (
-                    <option key={l}>{l}</option>
+                  {FACEBOOK_BIO_LANGUAGES.map((o) => (
+                    <option key={o}>{o}</option>
                   ))}
                 </select>
               </div>
-              <label className={f.toggle}>
-                <input type="checkbox" checked={emoji} onChange={(e) => setEmoji(e.target.checked)} /> Include an emoji
-              </label>
             </div>
+            <label className={f.toggle}>
+              <input type="checkbox" checked={emoji} onChange={(e) => setEmoji(e.target.checked)} /> Include emoji
+            </label>
             {error ? <p className={f.error} role="alert">{error}</p> : null}
             <div className={f.submitRow}>
-              <button className={f.action} type="submit" disabled={tooShort}>
-                <span aria-hidden="true">✧</span> Generate my bios <span aria-hidden="true">→</span>
+              <button className={f.action} type="submit">
+                <span aria-hidden="true">✧</span> Generate My Bio <span aria-hidden="true">→</span>
               </button>
-              <p className={f.fine}>Short bio ideas of about {LIMIT} characters each.</p>
             </div>
           </form>
         </section>
@@ -220,7 +190,7 @@ export function FacebookBioTool() {
               <p className={f.hint}>Pick one, make any changes, and copy it to Facebook.</p>
             </div>
             <button type="button" className={f.ghost} onClick={() => setStage("form")}>
-              ← Edit details
+              ← Change options
             </button>
           </div>
           {error ? <p className={f.error} role="alert">{error}</p> : null}
