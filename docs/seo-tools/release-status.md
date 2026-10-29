@@ -18,6 +18,15 @@ Last updated October 29, 2026. Source drafts: the SEO Tools Copy and Graphics Pa
 - **Public versus owner mode:** public mode only uses providers marked `publicFree`. Paid keys (DataForSEO, Serper, SerpApi, Mangools, Keywords Everywhere, Bing) are stored in `.env.local` only. No code path reads them yet.
 - **No substitute data:** no fallback provider is wired. If a source is unavailable, the tool says so instead of substituting a different kind of data.
 
+## Wave 2 (paid data, approved for public use under caps on October 29, 2026)
+
+- **Serper:** SERP Checker, Keyword Rank Checker (top 30, because Google dropped 100 results per page), People Also Ask Tool, SERP Features Checker and Local SERP Checker. All working against the live API.
+- **DataForSEO Labs:** Keyword Search Volume Checker, Keyword Difficulty Checker, Keyword Research Tool, Organic Keywords Finder, Website Traffic Checker, SEO Competitor Finder and Competitor Keyword Gap. All working against the live API.
+- **Monthly caps (env):** `SERPER_MONTHLY` (default 500 requests) and `DATAFORSEO_MONTHLY_USD` (default $0.90). Requests stop at 90% of the cap.
+- **Daily cap per visitor:** `SEO_PAID_DAILY` (default 8).
+- **Backlink tools stay blocked:** the DataForSEO plan's backlink limits are all 0.
+- **Publishing:** every metered tool goes live automatically once Upstash (or Vercel KV) env vars are set and the site is redeployed (`METERED` in `lib/tools/registry.ts`). Until then they show only in a local preview build (`TOOLS_PREVIEW=1`).
+
 ## Route status
 
 | ID | Tool | Route | Status | Data |

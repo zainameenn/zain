@@ -114,8 +114,8 @@ export async function serpCheck(q: string, cc: string, device: "desktop" | "mobi
       actual: r.credits,
       data: {
         heading: `Top ${organic.length} organic results for "${q}"`,
-        columns: ["Position", "Page", "Domain"],
-        rows: organic.map((o) => [o.position ?? null, `${o.title ?? ""}\n${o.link ?? ""}`, host(o.link)]),
+        columns: ["Position", "Page"],
+        rows: organic.map((o) => [o.position ?? null, `${o.title ?? ""}\n${o.link ?? ""}`]),
         summary: [["Market", market(cc).name], ["Device", device], ["Other result types returned", features(r.res).join(", ") || "None"]],
         notes: ["Organic results only. Ads, maps and other features are listed separately and are not given a position."],
         source: "Google results via Serper",
