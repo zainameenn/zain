@@ -7,7 +7,7 @@ import { CacCalculator, EtsyFeeCalculator, EtsyOffsiteCalculator, GoogleReviewLi
 
 // The paid data tools share one component; a plain list here because objects from a client module
 // can't be read on the server.
-const DATA_TOOL_SLUGS = ["serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap"];
+const DATA_TOOL_SLUGS = ["serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap", "ai-overview-checker", "keyword-trends-tool", "bulk-keyword-rank-checker", "domain-comparison-tool", "website-audit-tool"];
 
 // Picks the generator or calculator for one of the tools added in October 2026.
 export function V3Generator({ slug, name }: { slug: string; name: string }) {

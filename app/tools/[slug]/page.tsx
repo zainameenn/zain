@@ -13,8 +13,7 @@ import { BlogCta } from "@/app/blog/_components/parts";
 import { Blocks, Crumbs, SectionBody, plain, rich } from "../_components/content";
 import { ProfileMockup } from "../_components/ProfileMockup";
 import { StudioPage } from "../_studio/StudioPage";
-import { EDITORIAL_TOOLS, EditorialToolPage } from "../_studio/EditorialToolPage";
-import { V3_CONTENT } from "@/lib/tools/v3/pages";
+import { EDITORIAL_TOOLS } from "../_studio/EditorialToolPage";
 import { ToolWorkspace, UseExampleButton } from "../_components/ToolWorkspace";
 import s from "../tools.module.css";
 
@@ -25,7 +24,8 @@ type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return Object.keys(TOOLS).map((slug) => ({ slug }));
+  // Editorial SEO tools have their own static routes (app/tools/<slug>), so they're left out here.
+  return Object.keys(TOOLS).filter((slug) => !EDITORIAL_TOOLS.has(slug)).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -219,8 +219,6 @@ export default async function ToolPageView({ params }: Props) {
   const tool = getTool((await params).slug);
   if (!tool) notFound();
   // Redesigned pages render on the studio layout; the rest keep this template until they move over.
-  const editorial = EDITORIAL_TOOLS.has(tool.slug) ? V3_CONTENT.find((c) => c.slug === tool.slug) : undefined;
-  if (editorial) return <EditorialToolPage c={editorial} jsonLd={jsonLd(tool)} />;
   if (tool.studio) return <StudioPage tool={tool} jsonLd={jsonLd(tool)} />;
   const related = tool.related.flatMap((r) => (TOOLS[r.slug] ? [{ ...r, name: TOOLS[r.slug].name }] : []));
   const extra = tool.extraLinks.filter((l): l is { text: string; href: string } => !!l.href && !!l.text);

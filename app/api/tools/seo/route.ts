@@ -2,7 +2,7 @@ import { visitorId } from "@/lib/tools/ai/gateway";
 import { counterStore } from "@/lib/tools/ai/store";
 import { checkPage, extractFacts, parseSitemap, resolveUrl } from "@/lib/tools/seo/html";
 import { braveSuggest, cruxRecord } from "@/lib/tools/seo/providers";
-import { MARKETS, cleanDomain, keywordGap, keywordIdeas, keywordMetrics, localSerp, organicKeywords, paaQuestions, rankCheck, seoCompetitors, serpCheck, serpFeatures, trafficEstimate, type Outcome } from "@/lib/tools/seo/paid";
+import { MARKETS, aiOverview, bulkRank, cleanDomain, domainCompare, keywordGap, keywordTrends, keywordIdeas, keywordMetrics, localSerp, organicKeywords, paaQuestions, rankCheck, seoCompetitors, serpCheck, serpFeatures, trafficEstimate, type Outcome } from "@/lib/tools/seo/paid";
 import { fetchError, safeRequest, urlProblem, type Fetched } from "@/lib/tools/v3/safe-fetch";
 
 // Public SEO tools (October 2026 wave). Page fetches go through lib/tools/v3/safe-fetch.ts: public
@@ -82,6 +82,73 @@ async function pool<T, R>(items: T[], fn: (x: T) => Promise<R>): Promise<R[]> {
     }
   }));
   return out;
+}
+
+const AUDIT_CAP = 15;
+
+/** Bounded crawl of one site: up to 15 internal HTML pages, breadth first, five at a time. */
+async function audit(start: string) {
+  const origin = new URL(start).hostname.replace(/^www\./, "");
+  const queue = [start];
+  const seen = new Set([start.replace(/#.*$/, "")]);
+  type PageRow = { url: string; status: number | null; title: string; description: string; h1: number; canonical: string; noindex: boolean; error?: string };
+  const pages: PageRow[] = [];
+  const startedAt = Date.now();
+  while (queue.length && pages.length < AUDIT_CAP && Date.now() - startedAt < 40_000) {
+    const batch = queue.splice(0, Math.min(POOL, AUDIT_CAP - pages.length));
+    const got = await Promise.all(batch.map(async (url) => {
+      try {
+        const r = await safeRequest(url, { method: "GET", maxBytes: 800_000, timeoutMs: 7000 });
+        if (r.status >= 300 && r.status < 400 && r.location) {
+          const next = new URL(r.location, url).href.replace(/#.*$/, "");
+          if (new URL(next).hostname.replace(/^www\./, "") === origin && !seen.has(next)) (seen.add(next), queue.push(next));
+          return { url, status: r.status, title: "", description: "", h1: 0, canonical: "", noindex: false, error: `Redirects to ${next}` } as PageRow;
+        }
+        const f = r.status < 300 && isHtml(r) ? extractFacts(r.body, url) : null;
+        for (const l of f?.links ?? []) {
+          const href = l.href.replace(/#.*$/, "");
+          if (l.internal && /^https?:/.test(href) && !seen.has(href) && !/\.(pdf|jpe?g|png|gif|webp|svg|zip|mp4|xml|txt)$/i.test(href)) (seen.add(href), queue.push(href));
+        }
+        return { url, status: r.status, title: f?.title[0] ?? "", description: f?.description[0] ?? "", h1: f?.headings.filter((h) => h.level === 1).length ?? 0, canonical: f?.canonicals[0] ?? "", noindex: [...(f?.robots ?? []), r.headers["x-robots-tag"] ?? ""].some((v) => /\bnoindex\b|\bnone\b/i.test(v)) } as PageRow;
+      } catch (e) {
+        return { url, status: null, title: "", description: "", h1: 0, canonical: "", noindex: false, error: fetchError(e) } as PageRow;
+      }
+    }));
+    pages.push(...got);
+  }
+  const ok = pages.filter((p) => p.status !== null && p.status < 300);
+  const dupe = (key: "title" | "description") => {
+    const m = new Map<string, number>();
+    ok.forEach((p) => p[key] && m.set(p[key], (m.get(p[key]) ?? 0) + 1));
+    return new Set([...m].filter(([, n]) => n > 1).map(([v]) => v));
+  };
+  const dupT = dupe("title");
+  const dupD = dupe("description");
+  const issues = (p: PageRow) => {
+    if (p.status === null) return [`Couldn't load: ${p.error}`];
+    if (p.status >= 400) return [`Returns ${p.status}`];
+    if (p.status >= 300) return [p.error ?? "Redirects"];
+    const out: string[] = [];
+    if (!p.title) out.push("No title");
+    else if (dupT.has(p.title)) out.push("Duplicate title");
+    if (!p.description) out.push("No meta description");
+    else if (dupD.has(p.description)) out.push("Duplicate description");
+    if (p.h1 === 0) out.push("No H1");
+    if (p.h1 > 1) out.push(`${p.h1} H1s`);
+    if (p.noindex) out.push("noindex");
+    return out;
+  };
+  const rows = pages.map((p) => [p.url, p.status, issues(p).join(", ") || "OK"]);
+  const withIssues = rows.filter((r) => r[2] !== "OK").length;
+  return {
+    heading: `${withIssues} of ${pages.length} pages have something worth a look`,
+    columns: ["Page", "Status", "Findings"],
+    rows,
+    summary: [["Pages checked", `${pages.length} (limit ${AUDIT_CAP})`], ["Links found but not checked", String(Math.max(0, seen.size - pages.length))], ["Duplicate titles", String(dupT.size)], ["Duplicate descriptions", String(dupD.size)]],
+    notes: ["A bounded crawl that follows internal links from the page you entered. It reads the HTML each page returns, so content added by JavaScript isn't seen.", "Repeated titles on template pages aren't always a problem; check whether the pages serve different purposes."],
+    source: "Our crawler (public pages only)",
+    checkedAt: new Date().toISOString(),
+  };
 }
 
 const isHtml = (p: Fetched) => !p.headers["content-type"] || /html|xml/i.test(p.headers["content-type"]);
@@ -264,6 +331,34 @@ export async function POST(request: Request) {
         problem = a && b ? (a === b ? "Use two different domains." : null) : "Enter both domains, like example.com.";
         run = () => keywordGap(a!, b!, cc);
         break;
+      }
+      case "aio": problem = needQ(); run = () => aiOverview(q, cc); break;
+      case "trends": {
+        const list = String(body.keywords ?? "").split(/[\n,]/).map((k) => k.trim()).filter(Boolean);
+        problem = !list.length ? "Enter at least one keyword." : list.length > 5 ? "Up to 5 keywords at a time." : null;
+        run = () => keywordTrends(list, cc);
+        break;
+      }
+      case "bulk": {
+        const list = String(body.keywords ?? "").split(/[\n,]/).map((k) => k.trim()).filter(Boolean);
+        const d = dom(body.domain);
+        problem = !d ? "Enter a domain like example.com." : !list.length ? "Enter at least one keyword." : list.length > 10 ? "Up to 10 keywords at a time." : null;
+        run = () => bulkRank(list, d!, cc);
+        break;
+      }
+      case "compare": {
+        const list = String(body.domains ?? "").split(/[\n,]/).map((x) => cleanDomain(x)).filter((x): x is string => Boolean(x));
+        problem = list.length < 2 ? "Enter at least two domains, like example.com." : list.length > 4 ? "Up to 4 domains at a time." : null;
+        run = () => domainCompare(list, cc);
+        break;
+      }
+      case "audit": {
+        const start = withScheme(String(body.url ?? "").trim());
+        problem = urlProblem(start);
+        if (problem) break;
+        const lim = await allowed(visitor, "crawl", AUDIT_CAP);
+        if (lim) return json({ error: lim }, 429);
+        return json(await audit(start));
       }
       default:
         return json({ error: "Unknown check." }, 400);

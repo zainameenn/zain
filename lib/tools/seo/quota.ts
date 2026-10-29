@@ -11,7 +11,7 @@ import { counterStore, type CounterStore } from "@/lib/tools/ai/store";
 //   shared store a metered provider fails closed, because per instance memory could overspend.
 // - Allowances come from env so they can be corrected from the provider dashboard without a deploy.
 
-export type ProviderId = "brave-suggest" | "brave-search" | "google-crux" | "serper" | "dataforseo";
+export type ProviderId = "brave-suggest" | "brave-search" | "google-crux" | "serper" | "dataforseo" | "serpapi";
 
 export type Provider = {
   id: ProviderId;
@@ -39,6 +39,8 @@ export const PROVIDERS: Record<ProviderId, Provider> = {
   // Paid sources. Zain approved public use on October 29, 2026, under these hard monthly caps.
   // Serper credits are a one off pool, so the monthly cap spreads it out. Counted in requests.
   serper: { id: "serper", label: "Serper (Google results)", envKey: "SERPER_API_KEY", monthlyAllowance: envNum("SERPER_MONTHLY", 500), stopAt: 0.9, publicFree: true },
+  // SerpApi free plan: 100 searches a month. Used only for AI Overview checks.
+  serpapi: { id: "serpapi", label: "SerpApi", envKey: "SERPAPI_KEY", monthlyAllowance: envNum("SERPAPI_MONTHLY", 100), stopAt: 0.9, publicFree: true },
   // DataForSEO is billed in dollars, so this ledger counts micro dollars (1,000,000 = $1).
   dataforseo: { id: "dataforseo", label: "DataForSEO", envKey: "DATAFORSEO_LOGIN", monthlyAllowance: Math.round(envNum("DATAFORSEO_MONTHLY_USD", 0.9) * 1_000_000), stopAt: 0.9, publicFree: true },
 };

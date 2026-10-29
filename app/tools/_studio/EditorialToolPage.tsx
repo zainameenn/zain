@@ -7,7 +7,7 @@ import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { HUB_CARDS, hubImage } from "@/lib/tools/hub";
 import { TOOLS, toolPath } from "@/lib/tools/registry";
 import type { NewToolContent } from "@/lib/tools/v3/content-types";
-import { V3Generator } from "./V3Generator";
+import { SeoWidget } from "./SeoWidget";
 import s from "./studio.module.css";
 import t from "./edtool.module.css";
 
@@ -15,7 +15,7 @@ import t from "./edtool.module.css";
 // rhythm as the Black Friday page: sections without art are centred, cards sit on white over ivory bands.
 // The tool widget keeps its studio markup; its tokens are remapped to the editorial palette below.
 
-export const EDITORIAL_TOOLS = new Set(["website-metadata-extractor", "website-seo-checker", "broken-link-checker", "sitemap-url-status-checker", "long-tail-keyword-generator", "seo-question-generator", "core-web-vitals-checker", "serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap"]);
+export const EDITORIAL_TOOLS = new Set(["website-metadata-extractor", "website-seo-checker", "broken-link-checker", "sitemap-url-status-checker", "long-tail-keyword-generator", "seo-question-generator", "core-web-vitals-checker", "serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap", "ai-overview-checker", "keyword-trends-tool", "bulk-keyword-rank-checker", "domain-comparison-tool", "website-audit-tool"]);
 
 /** Studio tokens re-pointed at the editorial ones, so the shared widgets match the page. */
 const WIDGET_TOKENS = {
@@ -60,7 +60,7 @@ export function EditorialToolPage({ c, jsonLd }: { c: NewToolContent; jsonLd: Re
           <p className={e.lede} style={{ marginTop: 20 }}>{c.lede}</p>
           <p className={t.trust}>{c.trust}</p>
           <div className={`${s.page} ${t.workspace}`} style={WIDGET_TOKENS}>
-            <V3Generator slug={c.slug} name={c.name} />
+            <SeoWidget slug={c.slug} />
           </div>
         </div>
       </section>

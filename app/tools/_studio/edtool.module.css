@@ -79,3 +79,10 @@
 .hero p { margin-left: auto; margin-right: auto; }
 .thumbEmpty { display: grid; place-items: center; color: var(--forest); }
 .thumbEmpty svg { width: 56px; height: 56px; opacity: 0.55; }
+
+/* Everything in the page sections is centred, on desktop and mobile, like the Black Friday page. */
+.hero .h1 { margin-left: auto; margin-right: auto; text-align: center; text-wrap: balance; }
+.steps li, .example, .guide li { text-align: center; }
+.example { align-items: center; }
+.out { width: 100%; }
+.guide li { padding-left: 12px; padding-right: 12px; }

@@ -409,3 +409,150 @@ export async function keywordGap(you: string, rival: string, cc: string): Promis
     };
   });
 }
+
+// ---------- Wave 3: AI Overview (SerpApi), trends and domain comparison (DataForSEO), bulk rank (Serper) ----------
+
+type SerpApiAio = { text_blocks?: { snippet?: string; type?: string; list?: { snippet?: string }[] }[]; references?: { title?: string; link?: string; source?: string }[]; page_token?: string; error?: string };
+
+async function serpapi(params: Record<string, string>): Promise<{ body: Record<string, unknown> } | { error: string }> {
+  const qs = new URLSearchParams({ ...params, api_key: process.env.SERPAPI_KEY ?? "" });
+  const res = await fetch(`https://serpapi.com/search.json?${qs}`, { signal: AbortSignal.timeout(25000), cache: "no-store" });
+  if (res.status === 401 || res.status === 403) return { error: "This data source isn't connected yet." };
+  if (res.status === 429) return { error: "This data source has reached its current allowance. Try again when it renews." };
+  if (!res.ok) return { error: busy };
+  return { body: (await res.json()) as Record<string, unknown> };
+}
+
+export async function aiOverview(q: string, cc: string): Promise<Outcome> {
+  const key = `aio:${cc}:${q.toLowerCase()}`;
+  return guarded("serpapi", key, DAY / 2, 1, async () => {
+    const first = await serpapi({ engine: "google", q, gl: cc.toLowerCase(), hl: market(cc).lang });
+    if ("error" in first) return first;
+    let aio = first.body.ai_overview as SerpApiAio | undefined;
+    let used = 1;
+    // Some overviews load separately; SerpApi returns a token for one follow up request.
+    if (aio?.page_token && !aio.text_blocks) {
+      const more = await serpapi({ engine: "google_ai_overview", page_token: aio.page_token });
+      used++;
+      if (!("error" in more)) aio = more.body.ai_overview as SerpApiAio | undefined;
+    }
+    const text = (aio?.text_blocks ?? []).flatMap((b) => [b.snippet, ...(b.list ?? []).map((l) => l.snippet)]).filter(Boolean).join(" ").slice(0, 600);
+    const refs = aio?.references ?? [];
+    return {
+      actual: used,
+      data: {
+        heading: aio ? `An AI Overview appeared for "${q}"` : `No AI Overview in this sample for "${q}"`,
+        columns: ["Cited source", "Page"],
+        rows: refs.slice(0, 15).map((r) => [r.source ?? host(r.link), `${r.title ?? ""}\n${r.link ?? ""}`]),
+        summary: [["Market", market(cc).name], ["AI Overview", aio ? "Present" : "Not present in this sample"], ...(text ? [["Opening of the overview", `${text}${text.length >= 600 ? "…" : ""}`] as [string, string]] : [])],
+        notes: ["One dated observation. AI Overviews appear selectively and change between checks; not present here doesn't mean Google never shows one for this query.", "A citation isn't a ranking position and doesn't guarantee future inclusion."],
+        source: "Google results via SerpApi",
+        checkedAt: now(),
+      },
+    };
+  });
+}
+
+export async function bulkRank(keywords: string[], domain: string, cc: string): Promise<Outcome> {
+  const list = [...new Set(keywords.map((k) => k.trim().toLowerCase()).filter(Boolean))].slice(0, 10);
+  const key = `bulk:${cc}:${domain}:${list.join("|")}`;
+  return guarded("serper", key, DAY / 4, list.length, async () => {
+    let credits = 0;
+    const rows: Cell[][] = [];
+    for (const q of list) {
+      const r = await serper("search", { q, gl: cc.toLowerCase() });
+      if ("error" in r) {
+        rows.push([q, null, "Check failed", null]);
+        continue;
+      }
+      credits += r.credits;
+      const hit = (r.res.organic ?? []).find((o) => host(o.link) === domain || host(o.link).endsWith(`.${domain}`));
+      rows.push([q, hit?.position ?? null, hit ? "Found" : `Not in top ${r.res.organic?.length ?? 10}`, hit?.link ?? null]);
+    }
+    const found = rows.filter((r) => r[2] === "Found").length;
+    return {
+      actual: credits,
+      data: {
+        heading: `${domain} found in the top 10 for ${found} of ${list.length} keywords`,
+        columns: ["Keyword", "Position", "Status", "Ranking URL"],
+        rows,
+        summary: [["Market", market(cc).name], ["Depth per keyword", "Top 10 organic results"]],
+        notes: ["Each row is its own snapshot. Check failed is not the same as not ranking, and not in the top 10 doesn't mean not indexed."],
+        source: "Google results via Serper",
+        checkedAt: now(),
+      },
+    };
+  });
+}
+
+export async function keywordTrends(keywords: string[], cc: string): Promise<Outcome> {
+  const list = [...new Set(keywords.map((k) => k.trim().toLowerCase()).filter(Boolean))].slice(0, 5);
+  const key = `trends:${cc}:${list.join("|")}`;
+  return guarded("dataforseo", key, DAY, EST, async () => {
+    const auth = Buffer.from(`${process.env.DATAFORSEO_LOGIN ?? ""}:${process.env.DATAFORSEO_PASSWORD ?? ""}`).toString("base64");
+    const res = await fetch("https://api.dataforseo.com/v3/keywords_data/google_trends/explore/live", { method: "POST", headers: { Authorization: `Basic ${auth}`, "Content-Type": "application/json" }, body: JSON.stringify([{ keywords: list, location_code: market(cc).dfs, time_range: "past_12_months", type: "web" }]), signal: AbortSignal.timeout(55000), cache: "no-store" });
+    if (!res.ok) return { error: busy };
+    const body = (await res.json()) as { tasks?: { status_code?: number; cost?: number; result?: { items?: { type?: string; keywords?: string[]; data?: { date_from?: string; values?: (number | null)[] }[] }[] }[] }[] };
+    const t = body.tasks?.[0];
+    if (!t || t.status_code !== 20000) return { error: busy };
+    const graph = t.result?.[0]?.items?.find((i) => i.type === "google_trends_graph");
+    const points = graph?.data ?? [];
+    const kws = graph?.keywords ?? list;
+    // Monthly view: the highest weekly value in each month, so a peak week (like Black Friday) is never hidden.
+    const months = new Map<string, (number | null)[]>();
+    for (const p of points) {
+      const m = (p.date_from ?? "").slice(0, 7);
+      const prev = months.get(m) ?? kws.map(() => null);
+      months.set(m, prev.map((v, i) => (typeof p.values?.[i] === "number" ? Math.max(v ?? 0, p.values![i]!) : v)));
+    }
+    return {
+      actual: Math.round((t.cost ?? 0.03) * MICRO),
+      data: {
+        heading: points.length ? `Relative search interest over the past 12 months in ${market(cc).name}` : "No trend data returned for these keywords",
+        columns: ["Month", ...kws],
+        rows: [...months].map(([m, vals]) => [m, ...vals]),
+        summary: [["Scale", "0 to 100, relative to the highest point in this comparison"], ["Keywords compared", kws.join(", ")]],
+        notes: ["These are Google Trends style relative interest values, not monthly search volumes. 100 is the peak within this comparison only.", "One row per month, showing the highest weekly value in that month, so seasonal peaks stay visible."],
+        source: "Google Trends via DataForSEO",
+        checkedAt: now(),
+      },
+    };
+  });
+}
+
+export async function domainCompare(domains: string[], cc: string): Promise<Outcome> {
+  const list = [...new Set(domains)].slice(0, 4);
+  const key = `cmp:${cc}:${list.join("|")}`;
+  return guarded("dataforseo", key, DAY * 3, EST * list.length, async () => {
+    let cost = 0;
+    const cols: (Record<string, unknown> | null)[] = [];
+    for (const d of list) {
+      const r = await dfs("dataforseo_labs/google/domain_rank_overview/live", { target: d, ...loc(cc) });
+      if ("error" in r) {
+        cols.push(null);
+        continue;
+      }
+      cost += r.cost;
+      cols.push((get(r.items[0], "metrics.organic") as Record<string, unknown>) ?? null);
+    }
+    const row = (label: string, f: (m: Record<string, unknown> | null) => Cell): Cell[] => [label, ...cols.map(f)];
+    return {
+      actual: cost,
+      data: {
+        heading: `Organic search metrics for ${list.length} domains in ${market(cc).name}`,
+        columns: ["Measure", ...list],
+        rows: [
+          row("Estimated monthly organic visits", (m) => (num(get(m, "etv")) === null ? null : Math.round(num(get(m, "etv"))!))),
+          row("Ranking keywords on record", (m) => num(get(m, "count"))),
+          row("Keywords in position 1", (m) => num(get(m, "pos_1"))),
+          row("Keywords in positions 2 to 10", (m) => (m ? (num(get(m, "pos_2_3")) ?? 0) + (num(get(m, "pos_4_10")) ?? 0) : null)),
+          row("Keywords in positions 11 to 20", (m) => num(get(m, "pos_11_20"))),
+        ],
+        summary: [["Market", market(cc).name], ["Source and date", "Same source, same market, checked together"]],
+        notes: ["Every column uses the same source, market and check time, so the comparison is fair. No combined score is calculated, and backlink metrics aren't included.", "Estimated visits are organic search only, not total traffic."],
+        source: "DataForSEO Labs (Google)",
+        checkedAt: now(),
+      },
+    };
+  });
+}

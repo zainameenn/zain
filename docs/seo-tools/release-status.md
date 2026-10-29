@@ -27,6 +27,16 @@ Last updated October 29, 2026. Source drafts: the SEO Tools Copy and Graphics Pa
 - **Backlink tools stay blocked:** the DataForSEO plan's backlink limits are all 0.
 - **Publishing:** every metered tool goes live automatically once Upstash (or Vercel KV) env vars are set and the site is redeployed (`METERED` in `lib/tools/registry.ts`). Until then they show only in a local preview build (`TOOLS_PREVIEW=1`).
 
+## Wave 3 (October 29, 2026)
+
+- **AI Overview Checker:** uses SerpApi. `SERPAPI_MONTHLY` defaults to 100 searches, stopping at 90.
+- **Keyword Trends Tool:** uses Google Trends via DataForSEO. Each month shows its highest weekly value.
+- **Bulk Keyword Rank Checker:** uses Serper. Up to 10 keywords, top 10 each.
+- **Domain Comparison Tool:** uses DataForSEO. 2 to 4 domains, organic metrics only, no combined score.
+- **Website Audit Tool:** a free crawler of up to 15 public pages. It needs no paid data, so it is in LIVE.
+- **Static routes:** every editorial SEO tool has its own route (`app/tools/<slug>/page.tsx` via `app/tools/_studio/editorialRoute.tsx`), so it doesn't ship every older tool's code. On throttled mobile the page's own JS dropped from 378KB to 66KB.
+- **AdSense:** about 220KB on every tool page, from `app/tools/layout.tsx`. That is the biggest remaining cost.
+
 ## Route status
 
 | ID | Tool | Route | Status | Data |
