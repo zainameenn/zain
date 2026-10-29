@@ -12,6 +12,8 @@ export type DirectoryGroup = { id: string; label: string; heading: string; intro
 
 /** The tool's thumbnail. Decorative: the card title right below names the tool. A local SVG, so no next/image round trip. */
 function Thumb({ src, priority }: { src: string; priority?: boolean }) {
+  // New tools whose thumbnail is still being drawn get a plain panel instead of a broken image.
+  if (!src) return <span aria-hidden="true" className={h.cardImg} style={{ display: "block", aspectRatio: "4 / 3", background: "#F4F0E8" }} />;
   // eslint-disable-next-line @next/next/no-img-element
   return <img src={src} alt="" width={1200} height={900} loading={priority ? "eager" : "lazy"} decoding="async" className={h.cardImg} />;
 }

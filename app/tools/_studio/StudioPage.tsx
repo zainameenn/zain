@@ -13,7 +13,7 @@ import { V2Tool } from "./V2Tool";
 import { V3Generator } from "./V3Generator";
 import { v2SpecForSlug } from "@/lib/tools/v2/client-spec";
 import { ToolWorkspace } from "../_components/ToolWorkspace";
-import { lora } from "./fonts";
+import { bodyFont, displayFont } from "@/app/_design/fonts";
 import { toolIllustration } from "@/lib/illustrations";
 import { hubImage } from "@/lib/tools/hub";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
@@ -162,7 +162,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
           {section.steps.map((step, i) => (
             <li key={step.title} className={s.step}>
               {isBio ? <StepVisual kind={step.visual} /> : null}
-              <span className={`${s.stepNum} ${lora.className}`}>{pad(i + 1)}</span>
+              <span className={`${s.stepNum} ${displayFont.className}`}>{pad(i + 1)}</span>
               <h3 className={s.h3}>{step.title}</h3>
               <p className={s.body}>{rich(step.text)}</p>
             </li>
@@ -319,7 +319,7 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
         <ol className={s.practices}>
           {section.items.map((p, i) => (
             <li key={p.title} className={p.featured ? `${s.practice} ${s.dark}` : s.practice}>
-              <span className={`${s.bigNum} ${lora.className}`} aria-hidden>
+              <span className={`${s.bigNum} ${displayFont.className}`} aria-hidden>
                 {pad(i + 1)}
               </span>
               <h3 className={s.h3}>{p.title}</h3>
@@ -406,7 +406,7 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
   const cta = studio.sections.find((x) => x.kind === "cta");
   const bands = studio.sections.filter((x) => x.kind !== "cta" && (x.kind !== "related" || x.tools.some((t) => TOOLS[t.slug])));
   return (
-    <main className={`${s.page} ${lora.variable}`}>
+    <main className={`${s.page} ${s.edFonts} ${displayFont.variable} ${bodyFont.variable}`}>
       <JsonLd data={jsonLd} />
       <div className={s.wrap}>
         <Crumbs items={[{ name: "Home", href: "/" }, { name: "Free Tools", href: "/tools" }, { name: tool.name }]} />

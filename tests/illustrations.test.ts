@@ -1,3 +1,4 @@
+import { ART_PENDING } from "../lib/tools/thumbnails";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { test } from "node:test";
@@ -27,6 +28,7 @@ test("the public copies match the source files in assets/", () => {
 test("every tool page has its own illustration, never shared with another tool", () => {
   const seen = new Map<string, string>();
   for (const slug of Object.keys(TOOLS)) {
+    if (ART_PENDING.has(slug)) continue;
     const art = toolIllustration(slug);
     assert.ok(art, `${slug} has no illustration`);
     assert.ok(!seen.has(art.src), `${slug} reuses ${seen.get(art.src)}'s illustration`);

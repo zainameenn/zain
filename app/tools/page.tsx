@@ -13,7 +13,7 @@ import { ALL_TOOLS, TOOLS, toolPath } from "@/lib/tools/registry";
 import { Crumbs, rich } from "./_components/content";
 import { Directory, ToolCard, type DirectoryGroup, type DirectoryTool } from "./_hub/Directory";
 import h from "./_hub/hub.module.css";
-import { lora } from "./_studio/fonts";
+import { bodyFont, displayFont } from "@/app/_design/fonts";
 import s from "./_studio/studio.module.css";
 
 // The /tools hub: hero with one featured tool, starting points, the full directory with search,
@@ -105,7 +105,7 @@ export default function ToolsHub() {
   const bandClass = () => (band++ % 2 === 0 ? `${s.band} ${s.bandWarm}` : s.band);
 
   return (
-    <main className={`${s.page} ${lora.variable}`}>
+    <main className={`${s.page} ${s.edFonts} ${displayFont.variable} ${bodyFont.variable}`}>
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -210,7 +210,7 @@ export default function ToolsHub() {
               { t: "Review and use the result", d: "Read the result, regenerate or refine it if you want a different take, and copy what works for your project." },
             ].map((step, i) => (
               <li key={step.t} className={s.step}>
-                <span className={`${s.stepNum} ${lora.className}`}>{String(i + 1).padStart(2, "0")}</span>
+                <span className={`${s.stepNum} ${displayFont.className}`}>{String(i + 1).padStart(2, "0")}</span>
                 <h3 className={s.h3}>{step.t}</h3>
                 <p className={s.body}>{step.d}</p>
               </li>

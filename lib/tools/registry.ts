@@ -123,10 +123,22 @@ const LIVE = new Set([
   "mrr-calculator",
   "customer-retention-rate-calculator",
   "ab-test-sample-size-calculator",
+  // October 29, 2026: SEO tools that only need a safe page fetch. The Brave and CrUX tools stay
+  // development only until a shared quota counter (Upstash) is connected in production.
+  "website-metadata-extractor",
+  "website-seo-checker",
+  "broken-link-checker",
+  "sitemap-url-status-checker",
+  "website-audit-tool",
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));
-const SHOWN = process.env.NODE_ENV === "development" ? WITH_META : WITH_META.filter((p) => LIVE.has(p.slug));
+// Tools that spend a metered data allowance. They go live automatically once a shared usage counter
+// (Upstash or Vercel KV) is configured, because without one the monthly caps can't be enforced.
+export const METERED = new Set(["core-web-vitals-checker", "long-tail-keyword-generator", "seo-question-generator", "serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap", "ai-overview-checker", "keyword-trends-tool", "bulk-keyword-rank-checker", "domain-comparison-tool"]);
+const SHARED_COUNTER = Boolean((process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) || (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN));
+// TOOLS_PREVIEW=1 shows unreleased tools in a local production build. Never set it on Vercel.
+const SHOWN = process.env.NODE_ENV === "development" || process.env.TOOLS_PREVIEW === "1" ? WITH_META : WITH_META.filter((p) => LIVE.has(p.slug) || (SHARED_COUNTER && METERED.has(p.slug)));
 
 /** Every page that renders: the hub, sitemap, static params, related links and the API all read from this. */
 export const TOOLS: Record<string, ToolPage> = Object.fromEntries(SHOWN.map((p) => [p.slug, p]));

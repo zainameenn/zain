@@ -1,0 +1,88 @@
+/* Editorial tool pages (the new SEO tools and /tools/seo), matching the Black Friday page:
+   Lora display headings, Figtree text, forest, ivory and sage. Tokens come from app/_design. */
+
+.hero { padding: clamp(28px, 4vw, 56px) 0 0; text-align: center; }
+.hero > * { margin-left: auto; margin-right: auto; }
+.h1 { font-size: clamp(2.5rem, 4.6vw, 4rem) !important; max-width: 900px; }
+.accent { color: var(--accent); font-style: italic; }
+.trust { margin: 16px auto 0; max-width: 640px; font-size: 14px; color: var(--muted); }
+.crumbs { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; font-size: 14px; color: var(--muted); }
+.crumbs li + li::before { content: "/"; margin-right: 8px; color: var(--line-strong); }
+.crumbs a { color: var(--muted); }
+.crumbs a:hover { color: var(--accent); }
+
+.sec { padding-top: clamp(56px, 8vw, 104px); scroll-margin-top: 80px; }
+.center { text-align: center; }
+.center > * { margin-left: auto; margin-right: auto; }
+.band { margin-top: clamp(56px, 8vw, 104px); padding: clamp(56px, 8vw, 104px) 0; background: var(--ivory); }
+.band > .sec:first-child, .band .sec:first-child { padding-top: 0; }
+.last { padding-bottom: clamp(56px, 8vw, 104px); }
+
+/* The tool itself: studio widgets re-tokened to the editorial palette. */
+.workspace { margin-top: clamp(32px, 4vw, 48px); text-align: left; }
+.workspace [class*="btnPrimary"] { background: var(--forest) !important; color: #fff !important; }
+.workspace [class*="btnPrimary"]:hover:not(:disabled) { background: var(--forest-hover) !important; }
+.workspace [class*="panel"], .workspace [class*="output"] { border-radius: 20px; }
+.workspace [class*="segment"][aria-checked="true"], .workspace [class*="segment"][aria-pressed="true"], .workspace [class*="segmentOn"] { background: var(--forest) !important; color: #fff !important; }
+.workspace [class*="resultLabel"] { color: var(--gold-text); }
+.workspace input:focus, .workspace textarea:focus, .workspace select:focus { border-color: var(--forest) !important; outline: 2px solid var(--sage); outline-offset: 1px; }
+
+/* Numbered step cards */
+.steps { display: grid; gap: 16px; margin: 32px 0 0; padding: 0; list-style: none; text-align: left; }
+@media (min-width: 900px) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.steps li { padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+.num { display: block; font-family: var(--font-display); font-size: 32px; line-height: 1; color: var(--accent); }
+.steps h3 { margin: 14px 0 0; font-size: 18px; font-weight: 600; }
+.steps p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+
+/* Example cards */
+.examples { display: grid; gap: 16px; margin: 32px 0 0; padding: 0; list-style: none; text-align: left; }
+@media (min-width: 900px) { .examples { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.example { display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+.example h3 { margin: 0; font-size: 18px; font-weight: 600; }
+.example p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+.tag { display: block; margin-bottom: 2px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-text); }
+.out { padding: 12px 14px; border-radius: 12px; background: var(--ivory); color: var(--ink) !important; }
+
+/* Guidance list, two columns like the Black Friday checklist */
+.guide { display: grid; gap: 0; margin: 32px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); text-align: left; }
+@media (min-width: 768px) { .guide { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; } }
+.guide li { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.guide h3 { margin: 0; font-size: 18px; font-weight: 600; }
+.guide p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+
+/* Related tools and directory cards */
+.cards { display: grid; gap: 20px; margin: 32px 0 0; padding: 0; list-style: none; text-align: left; }
+@media (min-width: 640px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fff; transition: border-color 150ms, box-shadow 150ms; }
+.card:hover { border-color: var(--line-strong); box-shadow: 0 6px 24px rgba(32, 40, 33, 0.06); }
+.card:focus-within { outline: 2px solid var(--focus); outline-offset: 2px; }
+.thumb { aspect-ratio: 4 / 3; background: var(--ivory); border-bottom: 1px solid var(--line); }
+.thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cardBody { display: flex; flex-direction: column; flex: 1; gap: 8px; padding: 22px 24px 24px; }
+.card h3 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+.card p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.cardLink { margin-top: auto; padding-top: 10px; font-size: 15px; font-weight: 600; color: var(--accent); }
+.cardLink::after { content: ""; position: absolute; inset: 0; }
+.card { position: relative; }
+
+.actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px; width: 100%; margin: 26px auto 0; }
+@media (max-width: 640px) { .actions { flex-direction: column; } .actions > * { width: min(100%, 420px); } }
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 24px auto 0; }
+.chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; font-size: 14px; font-weight: 600; color: var(--ink); }
+.chip:hover { border-color: var(--forest); color: var(--forest); }
+.ordered { display: grid; gap: 12px; max-width: 760px; margin: 24px auto 0; padding: 0; list-style: none; text-align: left; counter-reset: s; }
+.ordered li { counter-increment: s; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 16px; background: #fff; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.ordered li::before { content: counter(s, decimal-leading-zero); font-family: var(--font-display); font-size: 24px; line-height: 1.2; color: var(--accent); }
+.ordered strong { color: var(--ink); }
+.hero p { margin-left: auto; margin-right: auto; }
+.thumbEmpty { display: grid; place-items: center; color: var(--forest); }
+.thumbEmpty svg { width: 56px; height: 56px; opacity: 0.55; }
+
+/* Everything in the page sections is centred, on desktop and mobile, like the Black Friday page. */
+.hero .h1 { margin-left: auto; margin-right: auto; text-align: center; text-wrap: balance; }
+.steps li, .example, .guide li { text-align: center; }
+.example { align-items: center; }
+.out { width: 100%; }
+.guide li { padding-left: 12px; padding-right: 12px; }

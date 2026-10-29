@@ -43,6 +43,30 @@ import b3_changelog_entry_generator from "./content/changelog-entry-generator";
 import b4_xml_sitemap_generator from "./content/xml-sitemap-generator";
 import b4_hreflang_tag_generator from "./content/hreflang-tag-generator";
 import b4_canonical_url_checker from "./content/canonical-url-checker";
+import seo_website_metadata_extractor from "./content/website-metadata-extractor";
+import seo_website_seo_checker from "./content/website-seo-checker";
+import seo_broken_link_checker from "./content/broken-link-checker";
+import seo_sitemap_url_status_checker from "./content/sitemap-url-status-checker";
+import seo_long_tail_keyword_generator from "./content/long-tail-keyword-generator";
+import seo_seo_question_generator from "./content/seo-question-generator";
+import seo_core_web_vitals_checker from "./content/core-web-vitals-checker";
+import seo_serp_checker from "./content/serp-checker";
+import seo_keyword_rank_checker from "./content/keyword-rank-checker";
+import seo_people_also_ask_tool from "./content/people-also-ask-tool";
+import seo_serp_features_checker from "./content/serp-features-checker";
+import seo_local_serp_checker from "./content/local-serp-checker";
+import seo_keyword_search_volume_checker from "./content/keyword-search-volume-checker";
+import seo_keyword_difficulty_checker from "./content/keyword-difficulty-checker";
+import seo_keyword_research_tool from "./content/keyword-research-tool";
+import seo_organic_keywords_finder from "./content/organic-keywords-finder";
+import seo_website_traffic_checker from "./content/website-traffic-checker";
+import seo_seo_competitor_finder from "./content/seo-competitor-finder";
+import seo_competitor_keyword_gap from "./content/competitor-keyword-gap";
+import seo_ai_overview_checker from "./content/ai-overview-checker";
+import seo_keyword_trends_tool from "./content/keyword-trends-tool";
+import seo_bulk_keyword_rank_checker from "./content/bulk-keyword-rank-checker";
+import seo_domain_comparison_tool from "./content/domain-comparison-tool";
+import seo_website_audit_tool from "./content/website-audit-tool";
 import b4_redirect_chain_checker from "./content/redirect-chain-checker";
 import b4_json_ld_schema_validator from "./content/json-ld-schema-validator";
 import b4_open_graph_tags_generator from "./content/open-graph-tags-generator";
@@ -169,6 +193,32 @@ export const V3_PAGES: ToolPage[] = [
   page(b4_mrr_calculator, "Utilities", false),
   page(b4_customer_retention_rate_calculator, "Utilities", false),
   page(b4_ab_test_sample_size_calculator, "Utilities", false),
+  // SEO tools wave 1 (October 29, 2026): real data only, see lib/tools/seo.
+  page(seo_website_metadata_extractor, "SEO", false),
+  page(seo_website_seo_checker, "SEO", false),
+  page(seo_broken_link_checker, "SEO", false),
+  page(seo_sitemap_url_status_checker, "SEO", false),
+  page(seo_long_tail_keyword_generator, "SEO", false),
+  page(seo_seo_question_generator, "SEO", false),
+  page(seo_core_web_vitals_checker, "SEO", false),
+  // SEO tools wave 2 (October 29, 2026): paid data under monthly caps, see lib/tools/seo/paid.ts.
+  page(seo_serp_checker, "SEO", false),
+  page(seo_keyword_rank_checker, "SEO", false),
+  page(seo_people_also_ask_tool, "SEO", false),
+  page(seo_serp_features_checker, "SEO", false),
+  page(seo_local_serp_checker, "SEO", false),
+  page(seo_keyword_search_volume_checker, "SEO", false),
+  page(seo_keyword_difficulty_checker, "SEO", false),
+  page(seo_keyword_research_tool, "SEO", false),
+  page(seo_organic_keywords_finder, "SEO", false),
+  page(seo_website_traffic_checker, "SEO", false),
+  page(seo_seo_competitor_finder, "SEO", false),
+  page(seo_competitor_keyword_gap, "SEO", false),
+  page(seo_ai_overview_checker, "SEO", false),
+  page(seo_keyword_trends_tool, "SEO", false),
+  page(seo_bulk_keyword_rank_checker, "SEO", false),
+  page(seo_domain_comparison_tool, "SEO", false),
+  page(seo_website_audit_tool, "SEO", false),
 ];
 
-export const V3_CONTENT: NewToolContent[] = [etsyShopName, shopifyName, channelName, shortsScript, negativeKeywords, searchIntent, llmsTxt, etsyOffsite, shopifyMargin, reviewLink, etsyFee, newsletterName, productTitle, cacCalc, podcastName, keywordCluster, robotsTester, domainIdeas, videoScript, localFaq, b3_instagram_username_generator, b3_tiktok_username_generator, b3_business_name_generator, b3_business_slogan_generator, b3_blog_name_generator, b3_youtube_thumbnail_text_generator, b3_youtube_chapters_generator, b3_seo_content_brief_generator, b3_robots_txt_generator, b3_xml_sitemap_validator, b3_local_business_schema_generator, b3_shopify_collection_description_generator, b3_etsy_shop_announcement_generator, b3_etsy_shop_about_section_generator, b3_break_even_roas_calculator, b3_ltv_cac_ratio_calculator, b3_email_preheader_generator, b3_website_hero_headline_generator, b3_saas_value_proposition_generator, b3_changelog_entry_generator, b4_xml_sitemap_generator, b4_hreflang_tag_generator, b4_canonical_url_checker, b4_redirect_chain_checker, b4_json_ld_schema_validator, b4_open_graph_tags_generator, b4_product_schema_generator, b4_internal_link_opportunity_finder, b4_keyword_to_page_mapper, b4_seo_content_gap_planner, b4_saas_product_name_generator, b4_product_hunt_launch_copy_generator, b4_shopify_sku_generator, b4_shopify_abandoned_checkout_email_generator, b4_local_service_page_outline_generator, b4_local_seo_keyword_modifier_generator, b4_landing_page_copy_generator, b4_mrr_calculator, b4_customer_retention_rate_calculator, b4_ab_test_sample_size_calculator];
+export const V3_CONTENT: NewToolContent[] = [etsyShopName, shopifyName, channelName, shortsScript, negativeKeywords, searchIntent, llmsTxt, etsyOffsite, shopifyMargin, reviewLink, etsyFee, newsletterName, productTitle, cacCalc, podcastName, keywordCluster, robotsTester, domainIdeas, videoScript, localFaq, b3_instagram_username_generator, b3_tiktok_username_generator, b3_business_name_generator, b3_business_slogan_generator, b3_blog_name_generator, b3_youtube_thumbnail_text_generator, b3_youtube_chapters_generator, b3_seo_content_brief_generator, b3_robots_txt_generator, b3_xml_sitemap_validator, b3_local_business_schema_generator, b3_shopify_collection_description_generator, b3_etsy_shop_announcement_generator, b3_etsy_shop_about_section_generator, b3_break_even_roas_calculator, b3_ltv_cac_ratio_calculator, b3_email_preheader_generator, b3_website_hero_headline_generator, b3_saas_value_proposition_generator, b3_changelog_entry_generator, b4_xml_sitemap_generator, b4_hreflang_tag_generator, b4_canonical_url_checker, b4_redirect_chain_checker, b4_json_ld_schema_validator, b4_open_graph_tags_generator, b4_product_schema_generator, b4_internal_link_opportunity_finder, b4_keyword_to_page_mapper, b4_seo_content_gap_planner, b4_saas_product_name_generator, b4_product_hunt_launch_copy_generator, b4_shopify_sku_generator, b4_shopify_abandoned_checkout_email_generator, b4_local_service_page_outline_generator, b4_local_seo_keyword_modifier_generator, b4_landing_page_copy_generator, b4_mrr_calculator, b4_customer_retention_rate_calculator, b4_ab_test_sample_size_calculator, seo_website_metadata_extractor, seo_website_seo_checker, seo_broken_link_checker, seo_sitemap_url_status_checker, seo_long_tail_keyword_generator, seo_seo_question_generator, seo_core_web_vitals_checker, seo_serp_checker, seo_keyword_rank_checker, seo_people_also_ask_tool, seo_serp_features_checker, seo_local_serp_checker, seo_keyword_search_volume_checker, seo_keyword_difficulty_checker, seo_keyword_research_tool, seo_organic_keywords_finder, seo_website_traffic_checker, seo_seo_competitor_finder, seo_competitor_keyword_gap, seo_ai_overview_checker, seo_keyword_trends_tool, seo_bulk_keyword_rank_checker, seo_domain_comparison_tool, seo_website_audit_tool];

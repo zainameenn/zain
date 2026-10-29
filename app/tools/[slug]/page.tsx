@@ -13,6 +13,7 @@ import { BlogCta } from "@/app/blog/_components/parts";
 import { Blocks, Crumbs, SectionBody, plain, rich } from "../_components/content";
 import { ProfileMockup } from "../_components/ProfileMockup";
 import { StudioPage } from "../_studio/StudioPage";
+import { EDITORIAL_TOOLS } from "../_studio/EditorialToolPage";
 import { ToolWorkspace, UseExampleButton } from "../_components/ToolWorkspace";
 import s from "../tools.module.css";
 
@@ -23,7 +24,8 @@ type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return Object.keys(TOOLS).map((slug) => ({ slug }));
+  // Editorial SEO tools have their own static routes (app/tools/<slug>), so they're left out here.
+  return Object.keys(TOOLS).filter((slug) => !EDITORIAL_TOOLS.has(slug)).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

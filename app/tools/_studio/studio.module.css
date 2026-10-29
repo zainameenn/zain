@@ -1905,3 +1905,60 @@
 .v2Refine { display: grid; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(34, 32, 33, 0.08); }
 .v2RefineRow { display: flex; gap: 8px; }
 .v2RefineRow .input { flex: 1; min-width: 0; }
+
+/* The Black Friday type system on every tool page: Lora (regular) for headings, Figtree for everything else.
+   Fonts come from app/_design/fonts.ts; the old font variables are re-pointed so existing rules follow. */
+.edFonts {
+  --nf-inter: var(--ed-body);
+  --nf-general-sans: var(--ed-body);
+  --nf-serif: var(--ed-display);
+  --studio-lora: var(--ed-display);
+  font-family: var(--ed-body), system-ui, sans-serif;
+}
+.edFonts h1,
+.edFonts .h2,
+.edFonts .ctaHeading,
+.edFonts .resultsTitle {
+  font-family: var(--ed-display), Georgia, serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
+}
+/* Accents as on the Black Friday page: forest green; section headings upright, the H1 accent italic. */
+.edFonts .h2Accent { font-style: normal !important; color: #174b3a !important; font-weight: 400 !important; }
+.edFonts h1 em, .edFonts h1 span[style*="italic"] { color: #174b3a !important; font-size: 1em !important; }
+.edFonts .h3, .edFonts .faqQ { font-family: var(--ed-body), system-ui, sans-serif; font-weight: 600; letter-spacing: -0.01em; }
+
+/* The Black Friday palette on every tool page: white page, ivory bands, ink text, forest actions,
+   sage soft fills, muted gold labels. Phone mockups keep their own device colours. */
+.edFonts {
+  --cream: #f8f5ee;
+  --ink: #202821;
+  --ink-2: #4a524b;
+  --muted: #687068;
+  --gold: #b38842;
+  --gold-text: #7f5f26;
+  --gold-soft: #d8e4d7;
+  --surface: #ffffff;
+  --surface-2: #f8f5ee;
+  --line: #e4e0d6;
+  --line-strong: #cbc5b7;
+  --error: #a4472a;
+  background: #ffffff;
+}
+:global(body):has(.edFonts) { background: #ffffff; }
+.edFonts .bandWarm { background: #f8f5ee; }
+.edFonts .btnPrimary { background: #174b3a; color: #ffffff; }
+.edFonts .btnPrimary:hover:not(:disabled) { background: #10382b; }
+.edFonts .btnGhost:hover:not(:disabled) { border-color: #174b3a; color: #174b3a; background: transparent; }
+.edFonts .segmentOn, .edFonts .segmentOn:hover { background: #174b3a; color: #ffffff; }
+.edFonts .tag { background: #d8e4d7; color: #174b3a; }
+.edFonts .inset, .edFonts .mini, .edFonts .exGood { background: #f8f5ee; }
+.edFonts .dark { background: #174b3a; color: #ffffff; }
+.edFonts .dark .bigNum, .edFonts .dark .whyLabel, .edFonts .dark .exMark { color: #d8e4d7; }
+.edFonts .cta { background: #174b3a; color: #ffffff; }
+.edFonts .cta .kicker { color: #b9cbb8; }
+.edFonts .ctaHeading .h2Accent { color: #d8e4d7 !important; }
+.edFonts .cta .btnPrimary { background: #ffffff; color: #174b3a; }
+.edFonts .cta .btnPrimary:hover:not(:disabled) { background: #f8f5ee; }
+.edFonts input:focus, .edFonts textarea:focus, .edFonts select:focus { border-color: #174b3a; }
+.edFonts .input:focus, .edFonts .select:focus { border-color: #174b3a; }
