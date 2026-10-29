@@ -132,7 +132,8 @@ const LIVE = new Set([
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));
-const SHOWN = process.env.NODE_ENV === "development" ? WITH_META : WITH_META.filter((p) => LIVE.has(p.slug));
+// TOOLS_PREVIEW=1 shows unreleased tools in a local production build. Never set it on Vercel.
+const SHOWN = process.env.NODE_ENV === "development" || process.env.TOOLS_PREVIEW === "1" ? WITH_META : WITH_META.filter((p) => LIVE.has(p.slug));
 
 /** Every page that renders: the hub, sitemap, static params, related links and the API all read from this. */
 export const TOOLS: Record<string, ToolPage> = Object.fromEntries(SHOWN.map((p) => [p.slug, p]));

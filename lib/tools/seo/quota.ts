@@ -58,7 +58,8 @@ export async function reserve(id: ProviderId, n = 1, opts: { mode?: "public" | "
   if (mode === "public" && !p.publicFree) return { ok: false, reason: "not-public", message: "This data source isn't available on the free tools." };
   if (!process.env[p.envKey]) return { ok: false, reason: "no-key", message: "This data source isn't connected yet." };
   const store = opts.store ?? counterStore();
-  const production = opts.production ?? process.env.NODE_ENV === "production";
+  // A local preview build (TOOLS_PREVIEW=1) may use the per instance counter; Vercel never sets it.
+  const production = opts.production ?? (process.env.NODE_ENV === "production" && process.env.TOOLS_PREVIEW !== "1");
   if (production && !store.shared) return { ok: false, reason: "no-shared-store", message: "This data source is switched off until usage tracking is connected." };
   const now = opts.now ?? new Date();
   const used = await store.incr(`quota:${id}:${monthKey(now)}`, 40 * 86400, n);

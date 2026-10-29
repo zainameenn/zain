@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { JsonLd, breadcrumbList } from "@/app/blog/_components/JsonLd";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import { HUB_CARDS, hubImage } from "@/lib/tools/hub";
 import { TOOLS, toolPath } from "@/lib/tools/registry";
 import { FAQAccordion } from "@/app/HomeComponents/FAQAccordion";
-import { Crumbs } from "../_components/content";
-import { ToolCard, type DirectoryTool } from "../_hub/Directory";
-import h from "../_hub/hub.module.css";
-import { lora } from "../_studio/fonts";
-import s from "../_studio/studio.module.css";
+import { EditorialPage, ed as e } from "@/app/_design/ui";
+import { ArrowIcon } from "@/app/HomeComponents/icons";
+import t from "../_studio/edtool.module.css";
+
+type DirectoryTool = { slug: string; href: string; name: string; image: string; description: string; cta: string };
 
 // The SEO tools directory. Lists only tools whose pages are live (TOOLS), grouped by the job they do,
 // so an unfinished or unavailable tool never appears here.
@@ -59,10 +58,10 @@ const FAQS: [string, string[]][] = [
 const card = (slug: string): DirectoryTool => ({ slug, href: toolPath(slug), name: TOOLS[slug].name, image: hubImage(slug), ...HUB_CARDS[slug] });
 
 export default function SeoToolsPage() {
-  const groups = TASKS.map((t) => ({ ...t, tools: t.slugs.filter((x) => TOOLS[x] && HUB_CARDS[x]).map(card) })).filter((g) => g.tools.length);
+  const groups = TASKS.map((g) => ({ ...g, tools: g.slugs.filter((x) => TOOLS[x] && HUB_CARDS[x]).map(card) })).filter((g) => g.tools.length);
   const all = groups.flatMap((g) => g.tools);
   return (
-    <main className={`${s.page} ${lora.variable}`}>
+    <EditorialPage>
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -77,83 +76,115 @@ export default function SeoToolsPage() {
               name: TITLE,
               description: DESCRIPTION,
               url: `${SITE_URL}/tools/seo`,
-              mainEntity: { "@type": "ItemList", itemListElement: all.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: `${SITE_URL}${t.href}` })) },
+              mainEntity: { "@type": "ItemList", itemListElement: all.map((x, i) => ({ "@type": "ListItem", position: i + 1, name: x.name, url: `${SITE_URL}${x.href}` })) },
             },
           ],
         }}
       />
-      <div className={s.wrap}>
-        <Crumbs items={[{ name: "Home", href: "/" }, { name: "Free Tools", href: "/tools" }, { name: "SEO Tools" }]} />
-        <header className={s.hero}>
-          <h1 style={HERO_H1_STYLE}>
-            Free SEO tools <em style={H1_ACCENT_STYLE}>for the work you actually need to do.</em>
+      <section className={t.hero}>
+        <div className={e.container}>
+          <nav aria-label="Breadcrumb">
+            <ol className={t.crumbs}>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/tools">Free Tools</Link></li>
+              <li aria-current="page">SEO Tools</li>
+            </ol>
+          </nav>
+          <p className={e.eyebrow}>Free SEO tools</p>
+          <h1 className={`${e.h1} ${t.h1}`}>
+            Free SEO tools <span className={t.accent}>for the work you actually need to do.</span>
           </h1>
-          <p className={s.lede}>
+          <p className={e.lede} style={{ marginTop: 20 }}>
             Free SEO tools to find keyword ideas, check your pages, fix links and sitemaps, and make better decisions with data you can examine. No complicated dashboard required to get started.
           </p>
-          <p className={s.note}>Some tools run in your browser. Others fetch a public page or use a free data source with a monthly allowance. Each tool says what it checks, where its data comes from and its current limits.</p>
-          <nav aria-label="SEO tool tasks" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 20 }}>
+          <p className={t.trust}>Some tools run in your browser. Others fetch a public page or use a free data source with a monthly allowance. Each tool says what it checks, where its data comes from and its current limits.</p>
+          <nav aria-label="SEO tool tasks" className={t.chips}>
             {groups.map((g) => (
-              <a key={g.id} href={`#${g.id}`} className={`${s.btn} ${s.btnGhost} ${s.btnSm}`}>
-                {g.heading}
-              </a>
+              <a key={g.id} href={`#${g.id}`} className={t.chip}>{g.heading}</a>
             ))}
           </nav>
-        </header>
+        </div>
+      </section>
 
-        {groups.map((g) => (
-          <section key={g.id} id={g.id} aria-labelledby={`${g.id}-h`} style={{ marginTop: "clamp(48px,6vw,80px)", scrollMarginTop: 90 }}>
-            <h2 id={`${g.id}-h`} className={s.h2} style={{ margin: 0 }}>
-              {g.heading}
-            </h2>
-            <p className={s.note} style={{ maxWidth: 680, fontSize: 16 }}>{g.intro}</p>
-            <div className={h.grid} style={{ marginTop: 24 }}>
-              {g.tools.map((t) => (
-                <ToolCard key={t.slug} tool={t} />
-              ))}
+      {groups.map((g, gi) => {
+        const inner = (
+          <section id={g.id} aria-labelledby={`${g.id}-h`} className={t.sec}>
+            <div className={`${e.container} ${t.center}`}>
+              <h2 id={`${g.id}-h`} className={e.h2}>{g.heading}</h2>
+              <p className={e.body} style={{ marginTop: 14 }}>{g.intro}</p>
+              <ul className={t.cards}>
+                {g.tools.map((x) => (
+                  <li key={x.slug} className={t.card}>
+                    {x.image ? (
+                      <div className={t.thumb}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={x.image} alt="" width={1200} height={900} loading="lazy" decoding="async" />
+                      </div>
+                    ) : (
+                      <div className={`${t.thumb} ${t.thumbEmpty}`} aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+                      </div>
+                    )}
+                    <div className={t.cardBody}>
+                      <h3>{x.name}</h3>
+                      <p>{x.description}</p>
+                      <Link href={x.href} className={t.cardLink}>{x.cta} <span aria-hidden="true">→</span></Link>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
-        ))}
+        );
+        return gi % 2 ? <div key={g.id} className={t.band}>{inner}</div> : <div key={g.id}>{inner}</div>;
+      })}
 
-        <section aria-labelledby="start-h" style={{ marginTop: "clamp(56px,7vw,96px)" }}>
-          <h2 id="start-h" className={s.h2} style={{ margin: 0 }}>
-            Start with these practical SEO checks
-          </h2>
-          <ol style={{ margin: "20px 0 0", paddingLeft: 20, display: "grid", gap: 12, maxWidth: 760, fontSize: 17, lineHeight: 1.6 }}>
-            <li><strong>Check one important page.</strong> Review its title, structure, canonical and indexing directives with the <Link href="/tools/website-seo-checker">Website SEO Checker</Link>.</li>
-            <li><strong>Research one real customer problem.</strong> Find related searches and questions, then look at the results to see what readers expect.</li>
-            <li><strong>Check the evidence you own.</strong> Use Search Console to see which pages and queries already earn impressions and clicks.</li>
-            <li><strong>Pick one improvement.</strong> Write a better explanation, fix a broken link or make a page easier to navigate. Then measure what changes.</li>
+      <section className={t.sec}>
+        <div className={`${e.container} ${t.center}`}>
+          <p className={e.eyebrow}>Where to start</p>
+          <h2 className={e.h2}>Start with these <em className={e.emGreen}>practical SEO checks.</em></h2>
+          <ol className={t.ordered}>
+            <li><span><strong>Check one important page.</strong> Review its title, structure, canonical and indexing directives with the <Link href="/tools/website-seo-checker" className={e.link}>Website SEO Checker</Link>.</span></li>
+            <li><span><strong>Research one real customer problem.</strong> Find related searches and questions, then look at the results to see what readers expect.</span></li>
+            <li><span><strong>Check the evidence you own.</strong> Use Search Console to see which pages and queries already earn impressions and clicks.</span></li>
+            <li><span><strong>Pick one improvement.</strong> Write a better explanation, fix a broken link or make a page easier to navigate. Then measure what changes.</span></li>
           </ol>
-        </section>
+        </div>
+      </section>
 
-        <section aria-labelledby="useful-h" style={{ marginTop: "clamp(56px,7vw,96px)", maxWidth: 760 }}>
-          <h2 id="useful-h" className={s.h2} style={{ margin: 0 }}>
-            What makes an SEO tool useful?
-          </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.65 }}>
-            A good tool tells you what it checked, where the result came from and what the result means. A keyword suggestion isn&apos;t a search volume estimate. An authority score isn&apos;t Google&apos;s own rating of your website. A page that can be crawled isn&apos;t necessarily indexed.
+      <section className={t.sec}>
+        <div className={`${e.container} ${t.center}`}>
+          <h2 className={e.h2}>What makes an SEO tool <em className={e.emGreen}>useful?</em></h2>
+          <p className={e.body} style={{ marginTop: 16 }}>
+            A good tool tells you what it checked, where the result came from and what the result means. A keyword suggestion isn&apos;t a search volume estimate. An authority score isn&apos;t Google&apos;s own rating of your website. A page that can be crawled isn&apos;t necessarily indexed. That&apos;s why these tools label the source and check time, and show missing data as missing instead of guessing.
           </p>
-          <p style={{ fontSize: 17, lineHeight: 1.65 }}>That&apos;s why these tools label the source and check time, and show missing data as missing instead of guessing.</p>
-        </section>
+        </div>
+      </section>
 
-        <section aria-labelledby="faq-h" style={{ marginTop: "clamp(56px,7vw,96px)", maxWidth: 860 }}>
-          <h2 id="faq-h" className={s.h2} style={{ margin: "0 0 20px" }}>
-            Questions, answered.
-          </h2>
+      <section className={t.sec}>
+        <div className={`${e.container} ${e.faq}`}>
+          <div>
+            <p className={e.eyebrow}>FAQ</p>
+            <h2 className={e.h2}>Questions, <em className={e.emGreen}>answered.</em></h2>
+          </div>
           <FAQAccordion faqs={FAQS} />
-        </section>
+        </div>
+      </section>
 
-        <section style={{ margin: "clamp(56px,7vw,96px) 0", maxWidth: 760 }}>
-          <h2 className={s.h2} style={{ margin: 0 }}>
-            Need help deciding what to fix first?
-          </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.65 }}>Tell me what your website does and where you&apos;re getting stuck. I can help you make sense of the findings and prioritise useful next steps.</p>
-          <Link href="/contact" className={`${s.btn} ${s.btnPrimary} ${s.btnLg}`}>
-            Get help with SEO
-          </Link>
-        </section>
-      </div>
-    </main>
+      <section className={`${t.sec} ${t.last}`}>
+        <div className={e.container}>
+          <div className={e.cta}>
+            <div>
+              <h2 className={e.h2}>Need help deciding what to fix first?</h2>
+              <p className={e.body} style={{ marginTop: 16 }}>Tell me what your website does and where you&apos;re getting stuck. I can help you make sense of the findings and prioritise useful next steps.</p>
+            </div>
+            <div className={e.ctaActions}>
+              <Link href="/contact" className={`${e.btn} ${e.btnLight}`}>Get help with SEO <ArrowIcon /></Link>
+              <Link href="/services/seo-specialist-for-saas" className={`${e.btn} ${e.btnGhostLight}`}>See SEO services</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </EditorialPage>
   );
 }
