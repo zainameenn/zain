@@ -1,35 +1,60 @@
 // Shared by the Facebook Bio Generator page (client) and its API field list (server). Keep it data only.
+// Every profile type has an optional free text box and four dropdown questions; each question ends
+// with "Other", which opens a small text input on the page.
 
-/** The dropdown choices on the Facebook Bio Generator, per profile type. The page and the API both read these. */
-export const FACEBOOK_BIO_CHOICES = {
+export type FacebookBioKind = "Personal Profile" | "Business Page" | "Creator" | "Facebook Group";
+
+type Question = { label: string; options: string[] };
+type KindConfig = { title: string; hint: string; placeholder: string; questions: [Question, Question, Question, Question] };
+
+export const FACEBOOK_BIO_CHOICES: Record<FacebookBioKind, KindConfig> = {
   "Personal Profile": {
-    describes: { label: "What best describes you?", options: ["Just Myself", "Student", "Professional", "Parent", "Gamer", "Traveler", "Creative", "Fitness Enthusiast", "Book Lover", "Food Lover", "Music Lover", "Sports Fan", "Pet Lover", "Entrepreneur"] },
-    focus: { label: "What should your bio focus on?", options: ["Personality", "Interests", "Positive Vibes", "Life Goals", "Something Simple"] },
+    title: "Tell us a little about yourself",
+    hint: "A detail about your life, work, or interests makes the bio sound more like you. It's fine to leave this blank.",
+    placeholder: "For example: I love books, cozy cafes, and taking photos on weekend walks.",
+    questions: [
+      { label: "What best describes you?", options: ["Student", "Gamer", "Traveler", "Creative", "Fitness Enthusiast", "Book Lover", "Food Lover", "Tech Lover", "Working Professional", "Just Myself", "Other"] },
+      { label: "What should your bio focus on?", options: ["My Interests", "My Personality", "My Work", "My Goals", "Positive Vibes", "My Everyday Life", "Keeping It Simple", "Other"] },
+      { label: "What kind of vibe feels like you?", options: ["Calm and Thoughtful", "Fun and Playful", "Curious", "Ambitious", "Cozy and Relaxed", "Bold and Confident", "Low Key", "Other"] },
+      { label: "What should people take away?", options: ["A Quick Introduction", "What I Enjoy", "A Little Personality", "Something Memorable", "Just the Basics", "Other"] },
+    ],
   },
   "Business Page": {
-    describes: { label: "What type of business?", options: ["Local Business", "Restaurant or Cafe", "Bakery or Desserts", "Retail Shop", "Online Store", "Beauty or Salon", "Fitness or Gym", "Health and Wellness", "Clinic or Healthcare", "Real Estate", "Education or Tutoring", "Photography", "Events or Weddings", "Home Services", "Construction or Trades", "Cleaning Services", "Travel or Tourism", "Fashion or Clothing", "Marketing Agency", "Tech or Software", "Coaching", "Professional Services", "Nonprofit", "Something Else"] },
-    focus: { label: "What should your bio highlight?", options: ["Services", "What Makes Us Different", "Helping Customers", "Getting More Inquiries"] },
+    title: "Tell us about your business",
+    hint: "Mention what you actually offer, your location, or what makes the business yours. Even one detail helps.",
+    placeholder: "For example: We run a small salon in Lahore, specializing in haircuts and natural hair care.",
+    questions: [
+      { label: "What kind of business do you have?", options: ["Beauty Salon", "Hair Salon", "Barbershop", "Nail Studio", "Spa and Skincare", "Clothing Brand", "Online Store", "Restaurant", "Cafe", "Bakery", "Fitness Studio", "Personal Training", "Photography", "Marketing Agency", "Software Agency", "Coaching", "Real Estate", "Home Services", "Education", "Healthcare", "Events", "Nonprofit", "Other"] },
+      { label: "Who do you want to reach?", options: ["Local Customers", "Online Shoppers", "Small Business Owners", "Professionals", "Families", "Students", "Women", "Men", "Anyone Interested", "Other"] },
+      { label: "What should your bio highlight?", options: ["Our Products", "Our Services", "How We Help", "Our Specialty", "Our Values", "Our Local Presence", "Quality and Care", "Other"] },
+      { label: "What should people do next?", options: ["Send Us a Message", "Book an Appointment", "Explore Our Products", "Visit Our Store", "Follow Our Page", "Learn More", "No Call to Action", "Other"] },
+    ],
   },
   Creator: {
-    describes: { label: "What kind of content do you create?", options: ["Lifestyle", "Gaming", "Technology", "Fashion", "Beauty", "Fitness", "Travel", "Food", "Education", "Comedy", "Music", "Art", "Photography", "Business", "Parenting"] },
-    focus: { label: "What should your bio communicate?", options: ["What I Create", "My Personality", "Building a Community", "My Creative Journey"] },
+    title: "Tell us about what you create",
+    hint: "A quick note about your content, style, or what people can expect makes your bio more specific.",
+    placeholder: "For example: I make short videos about simple phone photography tips and creative editing.",
+    questions: [
+      { label: "What do you create content about?", options: ["Lifestyle", "Gaming", "Technology", "Fashion", "Beauty", "Fitness", "Travel", "Food", "Education", "Photography", "Art", "Music", "Comedy", "Business", "Parenting", "Other"] },
+      { label: "Who is your content for?", options: ["Beginners", "People Who Share My Interests", "Everyday Learners", "Creators", "Professionals", "Local Community", "Anyone Interested", "Other"] },
+      { label: "What kind of content do you share?", options: ["Helpful Tips", "Tutorials", "Personal Stories", "Reviews", "Behind the Scenes", "Entertainment", "Creative Projects", "Other"] },
+      { label: "What should visitors do?", options: ["Follow for More", "Explore My Content", "Join the Conversation", "Get Inspired", "Learn Something New", "Just Get to Know Me", "Other"] },
+    ],
   },
   "Facebook Group": {
-    describes: { label: "What's your community about?", options: ["Hobbies", "Gaming", "Business", "Fitness", "Education", "Technology", "Local Community", "Networking"] },
-    focus: { label: "What's the group's purpose?", options: ["Helping Each Other", "Sharing Ideas", "Learning Together", "Connecting People"] },
+    title: "Tell us about your Facebook Group",
+    hint: "What brings people together? Mention a specific interest, location, or who the group is for.",
+    placeholder: "For example: A friendly group for new gardeners in Lahore to share tips, photos, and questions.",
+    questions: [
+      { label: "What's your community about?", options: ["Hobbies", "Gaming", "Business", "Fitness", "Education", "Technology", "Local Community", "Travel", "Parenting", "Books", "Gardening", "Arts and Crafts", "Job Networking", "Other"] },
+      { label: "Who is this group for?", options: ["Beginners", "Local People", "Professionals", "Students", "Parents", "Enthusiasts", "Creators", "Everyone Welcome", "Other"] },
+      { label: "What's the group's main purpose?", options: ["Helping Each Other", "Sharing Ideas", "Learning Together", "Connecting People", "Asking Questions", "Sharing Resources", "Finding Opportunities", "Other"] },
+      { label: "What kind of community do you want?", options: ["Friendly and Welcoming", "Supportive and Helpful", "Practical and Informative", "Fun and Casual", "Focused and Professional", "Creative and Inspiring", "Other"] },
+    ],
   },
-} as const;
-export const FACEBOOK_BIO_TONES = ["Simple and Natural", "Friendly", "Professional", "Funny", "Aesthetic", "Confident"];
-export const FACEBOOK_BIO_LANGUAGES = ["English", "Hindi", "Urdu", "Bangla"];
-
-/**
- * Optional extra details, behind "Add more details". Every one is optional, so a bio still works with
- * none of them. Labels and placeholders change with the profile type; the field names don't.
- */
-export const FACEBOOK_BIO_DETAILS: Record<keyof typeof FACEBOOK_BIO_CHOICES, { about: [string, string]; name: [string, string]; offer: [string, string] | null; location: [string, string] }> = {
-  "Personal Profile": { about: ["Tell us about yourself", "e.g. coffee addict, learning guitar, always planning the next trip"], name: ["Your name or nickname", "e.g. Sara"], offer: null, location: ["Where you're from", "e.g. Lahore"] },
-  "Business Page": { about: ["Tell us about your business", "e.g. family run, everything baked fresh each morning"], name: ["Business name", "e.g. Sweet Crumbs"], offer: ["What you sell or do", "e.g. custom birthday cakes and brownies"], location: ["Where you're based or serve", "e.g. Lahore, delivery across the city"] },
-  Creator: { about: ["Tell us about your content", "e.g. quick recipes under 15 minutes, posted every Friday"], name: ["Your name or creator name", "e.g. Chef Ali"], offer: ["What people get from following", "e.g. easy weeknight dinners"], location: ["Where you're based", "e.g. Toronto"] },
-  "Facebook Group": { about: ["Tell us about the group", "e.g. beginners welcome, weekly Q&A threads"], name: ["Group name", "e.g. Lahore Home Gardeners"], offer: ["Who the group is for", "e.g. first time gardeners and balcony growers"], location: ["Area it serves", "e.g. Lahore"] },
 };
-export const FACEBOOK_BIO_CTAS = ["No call to action", "Follow for more", "Send a message", "Call us", "Visit us", "Shop online", "Book now", "Join the group"];
+
+export const FACEBOOK_BIO_TONES = ["Simple and Natural", "Friendly", "Professional", "A Little Funny", "Aesthetic", "Confident"];
+export const FACEBOOK_BIO_LANGUAGES = ["English", "Hindi", "Urdu", "Bangla"];
+/** Group descriptions are a longer field than the 101 character Intro. */
+export const FACEBOOK_BIO_LIMITS: Record<FacebookBioKind, number> = { "Personal Profile": 101, "Business Page": 101, Creator: 101, "Facebook Group": 220 };

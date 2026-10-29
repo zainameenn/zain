@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_CTAS, FACEBOOK_BIO_DETAILS, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_TONES } from "@/lib/tools/families/facebook-bio-choices";
+import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_LIMITS, FACEBOOK_BIO_TONES, type FacebookBioKind } from "@/lib/tools/families/facebook-bio-choices";
 import { track } from "@/lib/tools/v3/track";
 import f from "./fb.module.css";
 
@@ -10,32 +10,25 @@ import f from "./fb.module.css";
 // same one every bio generator uses; nothing is generated locally or faked.
 
 const SLUG = "facebook-bio-generator";
-type Kind = keyof typeof FACEBOOK_BIO_CHOICES;
+type Kind = FacebookBioKind;
 const KINDS = Object.keys(FACEBOOK_BIO_CHOICES) as Kind[];
-// Facebook Group descriptions are a longer field than the 101 character Intro.
-const limitFor = (k: Kind) => (k === "Facebook Group" ? 255 : 101);
-const PREVIEW_NAME: Record<Kind, string> = { "Personal Profile": "Your profile", "Business Page": "Your business Page", Creator: "Your creator profile", "Facebook Group": "Your group" };
-const DEFAULT_CTA: Record<Kind, string> = { "Personal Profile": "No call to action", "Business Page": "Send a message", Creator: "Follow for more", "Facebook Group": "Join the group" };
-const first = (k: Kind) => ({ describes: FACEBOOK_BIO_CHOICES[k].describes.options[0] as string, focus: FACEBOOK_BIO_CHOICES[k].focus.options[0] as string });
-const LABELS = ["Clear and simple", "A little personality", "Short and punchy"];
-const MESSAGES = ["Putting your words together...", "Trying a few different angles...", "Finishing your bio ideas..."];
+const PREVIEW_NAME: Record<Kind, string> = { "Personal Profile": "Your profile", "Business Page": "Your business Page", Creator: "Your creator profile", "Facebook Group": "Your Facebook Group" };
+const LABELS = ["Simple and clear", "A little personality", "Short and memorable"];
+const MESSAGES = ["Putting the details together...", "Trying a few different styles...", "Finishing your suggestions..."];
+const OTHER_LABELS = ["Tell us what fits instead", "What would you prefer?", "Tell us in your words", "What would you prefer?"];
 
 const count = (t: string) => [...t].length;
 
+/** Everything the visitor picked for one profile type, kept when they switch types and come back. */
+type Answers = { about: string; picks: string[]; others: string[] };
+const fresh = (k: Kind): Answers => ({ about: "", picks: FACEBOOK_BIO_CHOICES[k].questions.map((q) => q.options[0]), others: ["", "", "", ""] });
+
 export function FacebookBioTool() {
   const [kind, setKind] = useState<Kind>("Personal Profile");
-  const [describes, setDescribes] = useState(first("Personal Profile").describes);
-  const [focus, setFocus] = useState(first("Personal Profile").focus);
+  const [byKind, setByKind] = useState<Record<Kind, Answers>>(() => Object.fromEntries(KINDS.map((k) => [k, fresh(k)])) as Record<Kind, Answers>);
   const [tone, setTone] = useState(FACEBOOK_BIO_TONES[0]);
   const [emoji, setEmoji] = useState(false);
   const [language, setLanguage] = useState("English");
-  // Optional details, hidden until the visitor asks for them.
-  const [more, setMore] = useState(false);
-  const [about, setAbout] = useState("");
-  const [name, setName] = useState("");
-  const [offer, setOffer] = useState("");
-  const [location, setLocation] = useState("");
-  const [cta, setCta] = useState(DEFAULT_CTA["Personal Profile"]);
   const [stage, setStage] = useState<"form" | "loading" | "results">("form");
   const [bios, setBios] = useState<string[]>([]);
   const [active, setActive] = useState(0);
@@ -44,6 +37,14 @@ export function FacebookBioTool() {
   const [message, setMessage] = useState(MESSAGES[0]);
   const busy = useRef(false);
   const resultsRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef<HTMLTextAreaElement>(null);
+
+  const cfg = FACEBOOK_BIO_CHOICES[kind];
+  const cur = byKind[kind];
+  const LIMIT = FACEBOOK_BIO_LIMITS[kind];
+  const update = (patch: Partial<Answers>) => setByKind((all) => ({ ...all, [kind]: { ...all[kind], ...patch } }));
+  const setPick = (i: number, v: string) => update({ picks: cur.picks.map((p, j) => (j === i ? v : p)) });
+  const setOther = (i: number, v: string) => update({ others: cur.others.map((p, j) => (j === i ? v : p)) });
 
   useEffect(() => {
     if (stage !== "loading") return;
@@ -63,8 +64,9 @@ export function FacebookBioTool() {
     setMessage(MESSAGES[0]);
     setStage("loading");
     track("tool_generate", SLUG, { kind });
-    // Field names match the Facebook bio fields the API validates (lib/tools/families/bio-facebook.ts).
-    const input = { profile_type: kind, describes, focus, tone, language, emoji: emoji ? "Yes" : "No", about: about.trim(), name: name.trim(), offer: d.offer ? offer.trim() : "", location: location.trim(), cta };
+    // "Question: Answer" lines; an "Other" pick sends what the visitor typed instead.
+    const answers = cfg.questions.map((q, i) => `${q.label} ${cur.picks[i] === "Other" ? cur.others[i].trim() || "Not specified" : cur.picks[i]}`).join("\n");
+    const input = { profile_type: kind, answers, about: cur.about.trim(), tone, language, emoji: emoji ? "Yes" : "No" };
     try {
       const res = await fetch("/api/tools", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ slug: SLUG, input }) });
       const body = await res.json().catch(() => ({}));
@@ -94,26 +96,16 @@ export function FacebookBioTool() {
     } catch {}
   }
 
-  const pick = (k: Kind) => {
-    setKind(k);
-    setDescribes(first(k).describes);
-    setFocus(first(k).focus);
-    setCta(DEFAULT_CTA[k]);
-  };
-  const LIMIT = limitFor(kind);
-  const q = FACEBOOK_BIO_CHOICES[kind];
-  const d = FACEBOOK_BIO_DETAILS[kind];
-  const filled = [about, name, d.offer ? offer : "", location].filter((x) => x.trim()).length;
-
   return (
     <div className={f.shell} id="bio-tool">
       {stage === "form" ? (
-        <section className={f.stage} aria-label="Bio generator form">
+        <section className={`${f.stage} ${f.formStage}`} aria-label="Bio generator form">
           <p className={f.stageLabel}>Your intro, in a few clicks</p>
-          <h2 className={f.toolHeading}>What are we writing a bio for?</h2>
+          <h2 className={f.formHeading}>What are we writing a bio for?</h2>
+          <p className={f.hint}>Pick what sounds right. Add your own details if you&apos;d like us to make it more personal.</p>
           <div className={f.types} role="group" aria-label="Select profile type">
             {KINDS.map((k) => (
-              <button key={k} type="button" className={f.type} aria-pressed={kind === k} onClick={() => pick(k)}>
+              <button key={k} type="button" className={f.type} aria-pressed={kind === k} onClick={() => setKind(k)}>
                 {k}
               </button>
             ))}
@@ -121,87 +113,71 @@ export function FacebookBioTool() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              generate();
+              if (e.currentTarget.reportValidity()) generate();
             }}
           >
-            <div className={f.row}>
-              <div className={f.field}>
-                <label htmlFor="fb-describes">{q.describes.label}</label>
-                <select id="fb-describes" value={describes} onChange={(e) => setDescribes(e.target.value)}>
-                  {q.describes.options.map((o) => (
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
+            <div className={f.optionalIntro}>
+              <div className={f.optionalLine}>
+                <label htmlFor="fb-about">{cfg.title}</label>
+                <span className={f.optionalPill}>Optional</span>
               </div>
-              <div className={f.field}>
-                <label htmlFor="fb-focus">{q.focus.label}</label>
-                <select id="fb-focus" value={focus} onChange={(e) => setFocus(e.target.value)}>
-                  {q.focus.options.map((o) => (
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
+              <p className={f.optionalDesc} id="fb-about-hint">{cfg.hint}</p>
+              <textarea id="fb-about" ref={aboutRef} aria-describedby="fb-about-hint" rows={3} maxLength={400} value={cur.about} onChange={(e) => update({ about: e.target.value })} placeholder={cfg.placeholder} />
+              <div className={f.hintRow}>
+                <span>One or two sentences are enough.</span>
+                <span>{cur.about.length} / 400</span>
               </div>
             </div>
-            <div className={f.row}>
-              <div className={f.field}>
+
+            <div className={f.sectionHeader}>
+              <h3>A few quick choices</h3>
+              <p>No need to fill everything out perfectly. Just choose what fits.</p>
+            </div>
+            <div className={f.questions}>
+              {cfg.questions.map((q, i) => (
+                <div key={`${kind}-${i}`} className={f.q}>
+                  <label htmlFor={`fb-q${i}`}>{q.label}</label>
+                  <span className={f.selectWrap}>
+                    <select id={`fb-q${i}`} value={cur.picks[i]} onChange={(e) => setPick(i, e.target.value)}>
+                      {q.options.map((o) => (
+                        <option key={o}>{o}</option>
+                      ))}
+                    </select>
+                  </span>
+                  {cur.picks[i] === "Other" ? (
+                    <div className={f.other}>
+                      <label htmlFor={`fb-q${i}-other`}>{OTHER_LABELS[i]}</label>
+                      <input id={`fb-q${i}-other`} required maxLength={70} value={cur.others[i]} onChange={(e) => setOther(i, e.target.value)} placeholder="Write your own answer" />
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+              <div className={f.q}>
                 <label htmlFor="fb-tone">Tone</label>
-                <select id="fb-tone" value={tone} onChange={(e) => setTone(e.target.value)}>
-                  {FACEBOOK_BIO_TONES.map((o) => (
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
+                <span className={f.selectWrap}>
+                  <select id="fb-tone" value={tone} onChange={(e) => setTone(e.target.value)}>
+                    {FACEBOOK_BIO_TONES.map((o) => (
+                      <option key={o}>{o}</option>
+                    ))}
+                  </select>
+                </span>
               </div>
-              <div className={f.field}>
+              <div className={f.q}>
                 <label htmlFor="fb-lang">Language</label>
-                <select id="fb-lang" value={language} onChange={(e) => setLanguage(e.target.value)}>
-                  {FACEBOOK_BIO_LANGUAGES.map((o) => (
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
+                <span className={f.selectWrap}>
+                  <select id="fb-lang" value={language} onChange={(e) => setLanguage(e.target.value)}>
+                    {FACEBOOK_BIO_LANGUAGES.map((o) => (
+                      <option key={o}>{o}</option>
+                    ))}
+                  </select>
+                </span>
               </div>
             </div>
             <label className={f.toggle}>
               <input type="checkbox" checked={emoji} onChange={(e) => setEmoji(e.target.checked)} /> Include emoji
             </label>
-            <div className={f.more}>
-              <button type="button" className={f.moreToggle} aria-expanded={more} aria-controls="fb-more" onClick={() => setMore((m) => !m)}>
-                <span aria-hidden="true">{more ? "−" : "+"}</span> Add more details <span className={f.optional}>(optional{filled ? `, ${filled} added` : ""})</span>
-              </button>
-              {more ? (
-                <div id="fb-more" className={f.morePanel}>
-                  <p className={f.moreHint}>Fill in anything you like, or nothing at all. The more you share, the more personal your bio gets.</p>
-                  <div className={f.field}>
-                    <label htmlFor="fb-about">{d.about[0]}</label>
-                    <textarea id="fb-about" rows={2} maxLength={200} value={about} onChange={(e) => setAbout(e.target.value)} placeholder={d.about[1]} />
-                  </div>
-                  <div className={f.row}>
-                    <div className={f.field}>
-                      <label htmlFor="fb-name">{d.name[0]}</label>
-                      <input id="fb-name" maxLength={60} value={name} onChange={(e) => setName(e.target.value)} placeholder={d.name[1]} />
-                    </div>
-                    <div className={f.field}>
-                      <label htmlFor="fb-location">{d.location[0]}</label>
-                      <input id="fb-location" maxLength={60} value={location} onChange={(e) => setLocation(e.target.value)} placeholder={d.location[1]} />
-                    </div>
-                  </div>
-                  {d.offer ? (
-                    <div className={f.field}>
-                      <label htmlFor="fb-offer">{d.offer[0]}</label>
-                      <input id="fb-offer" maxLength={120} value={offer} onChange={(e) => setOffer(e.target.value)} placeholder={d.offer[1]} />
-                    </div>
-                  ) : null}
-                  <div className={f.field}>
-                    <label htmlFor="fb-cta">What should people do next?</label>
-                    <select id="fb-cta" value={cta} onChange={(e) => setCta(e.target.value)}>
-                      {FACEBOOK_BIO_CTAS.map((o) => (
-                        <option key={o}>{o}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              ) : null}
-            </div>
             {error ? <p className={f.error} role="alert">{error}</p> : null}
+            <p className={f.lengthNote}>{kind === "Facebook Group" ? "Three editable community introductions, written for a Group description." : "Three editable suggestions, made for a short Facebook intro."}</p>
             <div className={f.submitRow}>
               <button className={f.action} type="submit">
                 <span aria-hidden="true">✧</span> Generate My Bio <span aria-hidden="true">→</span>
@@ -238,8 +214,8 @@ export function FacebookBioTool() {
               <h2 className={f.toolHeading}>Here are three ways to say it.</h2>
               <p className={f.hint}>Pick one, make any changes, and copy it to Facebook.</p>
             </div>
-            <button type="button" className={f.ghost} onClick={() => setStage("form")}>
-              ← Change options
+            <button type="button" className={f.ghost} onClick={() => (setStage("form"), setTimeout(() => aboutRef.current?.focus(), 50))}>
+              ← Edit details
             </button>
           </div>
           {error ? <p className={f.error} role="alert">{error}</p> : null}

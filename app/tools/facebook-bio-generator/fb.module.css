@@ -6,7 +6,7 @@
 .quote { margin: 12px auto 0; font-size: 15px; color: var(--muted); }
 
 /* Tool */
-.shell { max-width: 850px; margin: 36px auto 0; text-align: left; }
+.shell { max-width: 1120px; margin: 36px auto 0; text-align: left; }
 .stage { background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 22px 70px rgba(23, 75, 58, 0.08); padding: clamp(22px, 3vw, 34px); }
 .stageLabel { margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-text); text-align: center; }
 .toolHeading { margin: 0 0 4px; font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 2.6vw, 30px); color: var(--ink); text-align: center; }
@@ -121,11 +121,36 @@
 .socialLink:hover { border-color: var(--forest); background: var(--sage); }
 .socialLink:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
-/* Optional details panel */
-.more { margin: 0 0 18px; border-top: 1px solid var(--line); padding-top: 14px; text-align: center; }
-.moreToggle { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 0; border-radius: 10px; background: none; color: var(--forest); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
-.moreToggle:hover { background: var(--ivory); }
-.moreToggle:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-.morePanel { margin-top: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--ivory); text-align: left; }
-.moreHint { margin: 0 0 14px; font-size: 14px; color: var(--muted); text-align: center; }
-.morePanel textarea { min-height: 72px; }
+/* Form, October 30 design: optional note on top, four questions plus tone and language in a two column grid. */
+.formStage { padding: clamp(24px, 4vw, 44px) clamp(18px, 4vw, 48px) clamp(24px, 3.5vw, 40px); border-color: #e3d8c7; border-radius: 27px; }
+.formHeading { margin: 0 0 8px; font-family: var(--font-display); font-weight: 400; font-size: clamp(29px, 3.2vw, 43px); line-height: 1.25; letter-spacing: -0.02em; color: var(--ink); text-align: center; }
+.optionalIntro { margin: 0 0 24px; padding: 18px 19px 14px; border: 1px solid #eae2d5; border-radius: 17px; background: #fcfaf6; }
+.optionalLine { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 3px; }
+.optionalLine label { font-size: 15px; font-weight: 600; color: var(--ink); }
+.optionalPill { padding: 1px 9px; border: 1px solid #e2d7c6; border-radius: 999px; background: #fff; color: var(--gold-text); font-size: 12px; font-weight: 600; }
+.optionalDesc { margin: 3px 0 10px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.optionalIntro textarea { display: block; width: 100%; min-height: 94px; max-height: 180px; padding: 14px 16px; border: 1px solid var(--line-strong); border-radius: 12px; background: #fff; color: var(--ink); font: inherit; font-size: 16px; line-height: 1.5; resize: vertical; }
+.hintRow { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; font-size: 12px; color: var(--muted); }
+.sectionHeader { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 3px 13px; margin: 0 0 16px; }
+.sectionHeader h3 { margin: 0; font-size: 17px; font-weight: 700; color: var(--ink); }
+.sectionHeader p { margin: 0; font-size: 13px; color: var(--muted); }
+.questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 22px; }
+.q { min-width: 0; }
+.q > label { display: block; margin-bottom: 9px; font-size: 14px; font-weight: 600; line-height: 1.45; color: var(--ink); }
+.selectWrap { position: relative; display: block; width: 100%; }
+.selectWrap::after { content: ""; position: absolute; right: 20px; top: 50%; width: 10px; height: 10px; border-right: 1.75px solid var(--ink-2); border-bottom: 1.75px solid var(--ink-2); transform: translateY(-69%) rotate(45deg); pointer-events: none; }
+.selectWrap select { -webkit-appearance: none; appearance: none; width: 100%; height: 58px; padding: 0 53px 0 18px; border: 1px solid var(--line-strong); border-radius: 13px; background: #fff; color: var(--ink); font: inherit; font-size: 16px; text-overflow: ellipsis; cursor: pointer; }
+.other { margin-top: 10px; }
+.other label { display: block; margin: 0 0 5px; font-size: 13px; color: var(--ink-2); }
+.other input { width: 100%; padding: 13px 14px; border: 1px solid var(--line-strong); border-radius: 11px; font: inherit; font-size: 15px; }
+.selectWrap select:focus, .optionalIntro textarea:focus, .other input:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 3px var(--sage); }
+.formStage .toggle { margin: 22px 0 0; min-height: 0; }
+.lengthNote { margin: 18px 0 0; padding-top: 18px; border-top: 1px solid #eee7dc; font-size: 13px; color: var(--muted); text-align: center; }
+.formStage .submitRow { margin-top: 14px; }
+@media (max-width: 700px) {
+  .questions { grid-template-columns: 1fr; gap: 15px; }
+  .selectWrap select { height: 53px; padding-right: 46px; }
+  .sectionHeader { display: block; }
+  .sectionHeader p { margin-top: 5px; }
+  .optionalIntro { padding: 14px 13px 12px; }
+}

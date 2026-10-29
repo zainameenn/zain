@@ -93,7 +93,7 @@ export default function FacebookBioGeneratorPage() {
             Free Facebook <span className={t.accent}>Bio Generator</span>
           </h1>
           <p className={e.lede} style={{ marginTop: 20 }}>
-            This Facebook bio generator turns a few details about you, your business or what you create into short bio ideas you can edit, copy and use on your profile.
+            This Facebook bio generator helps when you're not sure what to put in your bio. Choose a few details about yourself, your business or your community, add a personal note if you like, then get bio ideas you can edit and copy.
           </p>
           <p className={f.quote}>No need to spend 20 minutes trying to describe yourself in one sentence.</p>
           <FacebookBioTool />
