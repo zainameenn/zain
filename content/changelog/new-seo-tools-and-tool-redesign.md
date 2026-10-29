@@ -1,7 +1,7 @@
 ---
 title: New Free SEO Tools and a Fresh Look for Every Free Tool
 summary: Five new SEO tools that check real pages, a new SEO tools directory, and every free tool now uses the site's new fonts and colours.
-category: tools
+category: new-tool
 status: published
 publishedAt: 2026-10-30
 updatedAt:
