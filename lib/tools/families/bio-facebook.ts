@@ -1,6 +1,7 @@
 import { FAIR_USE, LINK_SOCIAL_MEDIA_SERVICE } from "../links";
 import type { BrandExample, StudioContent, ToolPage } from "../types";
 import { studioBioPage, type StudioBioPlatform } from "./studio-bio";
+import { FACEBOOK_BIO_CHOICES, FACEBOOK_BIO_LANGUAGES, FACEBOOK_BIO_TONES } from "./facebook-bio-choices";
 
 // Facebook Bio Generator on the studio layout, same structure as the Instagram page.
 
@@ -305,8 +306,31 @@ const STUDIO: StudioContent = {
   ],
 };
 
+/** Swaps the studio form and prompt for the dropdown only version (no typing needed). */
+function dropdownOnly(page: ToolPage): ToolPage {
+  if (page.workspace.result.kind !== "options") return page;
+  return {
+    ...page,
+    workspace: {
+      ...page.workspace,
+      fields: [
+        { name: "profile_type", label: "Profile type", type: "select", options: Object.keys(FACEBOOK_BIO_CHOICES), defaultValue: "Personal Profile", required: true },
+        // The page sends the four answers as "Question: Answer" lines; "Other" answers are typed, so free text.
+        { name: "answers", label: "Your choices", type: "textarea", required: true, maxLength: 700 },
+        { name: "about", label: "About", type: "textarea", maxLength: 400 },
+        { name: "tone", label: "Tone", type: "select", options: FACEBOOK_BIO_TONES, defaultValue: "Simple and Natural", required: true },
+        { name: "language", label: "Language", type: "select", options: FACEBOOK_BIO_LANGUAGES, defaultValue: "English", required: true },
+        { name: "emoji", label: "Include emoji", type: "select", options: ["No", "Yes"], defaultValue: "No", required: true },
+      ],
+      // Group descriptions are a longer field; every other bio keeps the 101 character Intro limit (lib/tools/families/facebook-bio-choices.ts).
+      result: { ...page.workspace.result, limit: { field: "profile_type", map: { "Facebook Group": 220 }, fallback: 101 } },
+    },
+    api: { block: "facebook-bio", vars: {} },
+  };
+}
+
 export function facebookPage(page: ToolPage): ToolPage {
-  return studioBioPage(
+  return dropdownOnly(studioBioPage(
     {
       ...page,
       metaTitle: "Facebook Bio Generator: Free AI Bios for Profiles and Pages",
@@ -330,5 +354,5 @@ export function facebookPage(page: ToolPage): ToolPage {
     },
     PLATFORM,
     STUDIO,
-  );
+  ));
 }
