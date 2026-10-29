@@ -15,7 +15,7 @@ import t from "./edtool.module.css";
 // rhythm as the Black Friday page: sections without art are centred, cards sit on white over ivory bands.
 // The tool widget keeps its studio markup; its tokens are remapped to the editorial palette below.
 
-export const EDITORIAL_TOOLS = new Set(["website-metadata-extractor", "website-seo-checker", "broken-link-checker", "sitemap-url-status-checker", "long-tail-keyword-generator", "seo-question-generator", "core-web-vitals-checker"]);
+export const EDITORIAL_TOOLS = new Set(["website-metadata-extractor", "website-seo-checker", "broken-link-checker", "sitemap-url-status-checker", "long-tail-keyword-generator", "seo-question-generator", "core-web-vitals-checker", "serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap"]);
 
 /** Studio tokens re-pointed at the editorial ones, so the shared widgets match the page. */
 const WIDGET_TOKENS = {

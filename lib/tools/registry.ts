@@ -132,8 +132,12 @@ const LIVE = new Set([
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));
+// Tools that spend a metered data allowance. They go live automatically once a shared usage counter
+// (Upstash or Vercel KV) is configured, because without one the monthly caps can't be enforced.
+export const METERED = new Set(["core-web-vitals-checker", "long-tail-keyword-generator", "seo-question-generator", "serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap"]);
+const SHARED_COUNTER = Boolean((process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) || (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN));
 // TOOLS_PREVIEW=1 shows unreleased tools in a local production build. Never set it on Vercel.
-const SHOWN = process.env.NODE_ENV === "development" || process.env.TOOLS_PREVIEW === "1" ? WITH_META : WITH_META.filter((p) => LIVE.has(p.slug));
+const SHOWN = process.env.NODE_ENV === "development" || process.env.TOOLS_PREVIEW === "1" ? WITH_META : WITH_META.filter((p) => LIVE.has(p.slug) || (SHARED_COUNTER && METERED.has(p.slug)));
 
 /** Every page that renders: the hub, sitemap, static params, related links and the API all read from this. */
 export const TOOLS: Record<string, ToolPage> = Object.fromEntries(SHOWN.map((p) => [p.slug, p]));

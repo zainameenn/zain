@@ -96,4 +96,4 @@ export const toolThumbnail = (slug: string): string | null => (TOOL_THUMBNAILS[s
  * New tools that are live or in review before their own artwork exists (thumbnail and page illustration).
  * See docs/seo-tools/asset-manifest.md for the brief each one is waiting on. Remove a slug once its art lands.
  */
-export const ART_PENDING = new Set(["website-metadata-extractor", "website-seo-checker", "broken-link-checker", "sitemap-url-status-checker", "long-tail-keyword-generator", "seo-question-generator", "core-web-vitals-checker"]);
+export const ART_PENDING = new Set(["website-metadata-extractor", "website-seo-checker", "broken-link-checker", "sitemap-url-status-checker", "long-tail-keyword-generator", "seo-question-generator", "core-web-vitals-checker", "serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker", "keyword-search-volume-checker", "keyword-difficulty-checker", "keyword-research-tool", "organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap"]);

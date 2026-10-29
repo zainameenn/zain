@@ -25,13 +25,25 @@ const TASKS: { id: string; heading: string; intro: string; slugs: string[] }[] =
     id: "keywords",
     heading: "Find the right keywords",
     intro: "Start with a topic. Explore longer phrases and questions, then use clustering and keyword to page mapping to turn useful ideas into a plan.",
-    slugs: ["long-tail-keyword-generator", "seo-question-generator", "seo-keyword-cluster-generator", "seo-search-intent-classifier", "keyword-to-page-mapper", "local-seo-keyword-modifier-generator"],
+    slugs: ["keyword-research-tool", "keyword-search-volume-checker", "keyword-difficulty-checker", "long-tail-keyword-generator", "seo-question-generator", "seo-keyword-cluster-generator", "seo-search-intent-classifier", "keyword-to-page-mapper", "local-seo-keyword-modifier-generator"],
   },
   {
     id: "website",
     heading: "Check your website",
     intro: "Review page titles, metadata, indexing directives, links, sitemaps and real user performance. See the issue and the evidence, not just a generic grade.",
     slugs: ["website-seo-checker", "website-metadata-extractor", "broken-link-checker", "core-web-vitals-checker", "canonical-url-checker", "redirect-chain-checker", "sitemap-url-status-checker", "xml-sitemap-validator", "robots-txt-tester", "json-ld-schema-validator"],
+  },
+  {
+    id: "search",
+    heading: "Understand Google search results",
+    intro: "See the pages that rank, the questions and features Google shows, and where a domain appears, for the market you choose. Every result is a dated snapshot.",
+    slugs: ["serp-checker", "keyword-rank-checker", "people-also-ask-tool", "serp-features-checker", "local-serp-checker"],
+  },
+  {
+    id: "competitors",
+    heading: "Research competitors",
+    intro: "Explore organic keywords, traffic estimates, search competitors and keyword gaps. Each number shows its source and limits before you rely on it.",
+    slugs: ["organic-keywords-finder", "website-traffic-checker", "seo-competitor-finder", "competitor-keyword-gap"],
   },
   {
     id: "write",

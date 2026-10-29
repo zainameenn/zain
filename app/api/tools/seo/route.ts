@@ -2,6 +2,7 @@ import { visitorId } from "@/lib/tools/ai/gateway";
 import { counterStore } from "@/lib/tools/ai/store";
 import { checkPage, extractFacts, parseSitemap, resolveUrl } from "@/lib/tools/seo/html";
 import { braveSuggest, cruxRecord } from "@/lib/tools/seo/providers";
+import { MARKETS, cleanDomain, keywordGap, keywordIdeas, keywordMetrics, localSerp, organicKeywords, paaQuestions, rankCheck, seoCompetitors, serpCheck, serpFeatures, trafficEstimate, type Outcome } from "@/lib/tools/seo/paid";
 import { fetchError, safeRequest, urlProblem, type Fetched } from "@/lib/tools/v3/safe-fetch";
 
 // Public SEO tools (October 2026 wave). Page fetches go through lib/tools/v3/safe-fetch.ts: public
@@ -10,7 +11,8 @@ import { fetchError, safeRequest, urlProblem, type Fetched } from "@/lib/tools/v
 // Nothing a visitor enters is stored or logged.
 
 export const runtime = "nodejs";
-export const maxDuration = 30;
+// Some DataForSEO Labs reports (competitors) take up to about 45 seconds.
+export const maxDuration = 60;
 
 const MAX_HOPS = 6;
 const LINK_CAP = 40;
@@ -18,7 +20,7 @@ const SITEMAP_URL_CAP = 25;
 const POOL = 5;
 
 // Per visitor daily caps, per tool family, plus one global per minute cap for outgoing fetches.
-const DAILY = { page: 40, crawl: 8, suggest: 15, crux: 20 } as const;
+const DAILY = { page: 40, crawl: 8, suggest: 15, crux: 20, paid: Number(process.env.SEO_PAID_DAILY ?? 8) } as const;
 const GLOBAL_MINUTE = Number(process.env.SEO_GLOBAL_MINUTE ?? 120);
 
 const json = (body: unknown, status = 200) => Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
@@ -212,6 +214,66 @@ export async function POST(request: Request) {
     const r = await cruxRecord(start, body.device === "desktop" ? "DESKTOP" : "PHONE");
     if (!r.ok) return json({ error: r.message, renews: r.renews, quota: true }, 200);
     return json({ url: start, record: r.data, source: r.source, checkedAt: r.checkedAt });
+  }
+
+  // Paid data tools (Serper and DataForSEO), each behind the monthly ledger and a small daily cap per visitor.
+  if (action === "data") {
+    const tool = String(body.tool ?? "");
+    const cc = MARKETS[String(body.country ?? "US")] ? String(body.country) : "US";
+    const device = body.device === "mobile" ? "mobile" : "desktop";
+    const q = String(body.keyword ?? "").trim().replace(/\s+/g, " ").slice(0, 120);
+    const needQ = () => (q.length < 2 ? "Enter a keyword." : null);
+    const dom = (v: unknown) => cleanDomain(String(v ?? ""));
+    let run: (() => Promise<Outcome>) | null = null;
+    let problem: string | null = null;
+    switch (tool) {
+      case "serp": problem = needQ(); run = () => serpCheck(q, cc, device); break;
+      case "features": problem = needQ(); run = () => serpFeatures(q, cc, device); break;
+      case "paa": problem = needQ(); run = () => paaQuestions(q, cc); break;
+      case "rank": {
+        const d = dom(body.domain);
+        problem = needQ() ?? (d ? null : "Enter a domain like example.com.");
+        run = () => rankCheck(q, d!, cc, device);
+        break;
+      }
+      case "local": {
+        const where = String(body.location ?? "").trim().slice(0, 80);
+        problem = needQ() ?? (where.length < 2 ? "Enter a city, for example Austin, Texas." : null);
+        run = () => localSerp(q, where, cc);
+        break;
+      }
+      case "volume":
+      case "difficulty": {
+        const list = String(body.keywords ?? "").split(/[\n,]/).map((k) => k.trim()).filter(Boolean);
+        problem = !list.length ? "Enter at least one keyword." : list.length > 20 ? "Up to 20 keywords at a time." : null;
+        run = () => keywordMetrics(list, cc, tool);
+        break;
+      }
+      case "ideas": problem = needQ(); run = () => keywordIdeas(q, cc); break;
+      case "organic":
+      case "traffic":
+      case "competitors": {
+        const d = dom(body.domain);
+        problem = d ? null : "Enter a domain like example.com.";
+        run = () => (tool === "organic" ? organicKeywords(d!, cc) : tool === "traffic" ? trafficEstimate(d!, cc) : seoCompetitors(d!, cc));
+        break;
+      }
+      case "gap": {
+        const a = dom(body.domain);
+        const b = dom(body.competitor);
+        problem = a && b ? (a === b ? "Use two different domains." : null) : "Enter both domains, like example.com.";
+        run = () => keywordGap(a!, b!, cc);
+        break;
+      }
+      default:
+        return json({ error: "Unknown check." }, 400);
+    }
+    if (problem) return json({ error: problem }, 400);
+    const limited = await allowed(visitor, "paid");
+    if (limited) return json({ error: limited }, 429);
+    const r = await run!();
+    if (!r.ok) return json({ error: r.message, renews: r.renews, quota: true }, 200);
+    return json(r.data);
   }
 
   return json({ error: "Unknown check." }, 400);

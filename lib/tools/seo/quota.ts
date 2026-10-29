@@ -11,7 +11,7 @@ import { counterStore, type CounterStore } from "@/lib/tools/ai/store";
 //   shared store a metered provider fails closed, because per instance memory could overspend.
 // - Allowances come from env so they can be corrected from the provider dashboard without a deploy.
 
-export type ProviderId = "brave-suggest" | "brave-search" | "google-crux";
+export type ProviderId = "brave-suggest" | "brave-search" | "google-crux" | "serper" | "dataforseo";
 
 export type Provider = {
   id: ProviderId;
@@ -36,6 +36,11 @@ export const PROVIDERS: Record<ProviderId, Provider> = {
   "brave-search": { id: "brave-search", label: "Brave Search", envKey: "BRAVE_SEARCH_KEY", monthlyAllowance: envNum("BRAVE_SEARCH_MONTHLY", 2000), stopAt: 0.9, publicFree: true },
   // The CrUX API has no billing, only rate limits. The cap keeps one busy day from hitting them.
   "google-crux": { id: "google-crux", label: "Chrome UX Report", envKey: "GOOGLE_API_KEY", monthlyAllowance: envNum("CRUX_MONTHLY", 20000), stopAt: 0.9, publicFree: true },
+  // Paid sources. Zain approved public use on October 29, 2026, under these hard monthly caps.
+  // Serper credits are a one off pool, so the monthly cap spreads it out. Counted in requests.
+  serper: { id: "serper", label: "Serper (Google results)", envKey: "SERPER_API_KEY", monthlyAllowance: envNum("SERPER_MONTHLY", 500), stopAt: 0.9, publicFree: true },
+  // DataForSEO is billed in dollars, so this ledger counts micro dollars (1,000,000 = $1).
+  dataforseo: { id: "dataforseo", label: "DataForSEO", envKey: "DATAFORSEO_LOGIN", monthlyAllowance: Math.round(envNum("DATAFORSEO_MONTHLY_USD", 0.9) * 1_000_000), stopAt: 0.9, publicFree: true },
 };
 
 export const QUOTA_MESSAGE = "This free data source has reached its current allowance. Try again when it renews.";
@@ -65,6 +70,11 @@ export async function reserve(id: ProviderId, n = 1, opts: { mode?: "public" | "
   const used = await store.incr(`quota:${id}:${monthKey(now)}`, 40 * 86400, n);
   if (used > stopLimit(p)) return { ok: false, reason: "exhausted", message: QUOTA_MESSAGE, renews: renewsOn(now) };
   return { ok: true };
+}
+
+/** After a call whose real cost differs from what was reserved, move the ledger by the difference. */
+export async function adjust(id: ProviderId, delta: number, store: CounterStore = counterStore(), now = new Date()) {
+  if (delta) await store.incr(`quota:${id}:${monthKey(now)}`, 40 * 86400, Math.round(delta));
 }
 
 /** Requests used this month, for the owner. */
