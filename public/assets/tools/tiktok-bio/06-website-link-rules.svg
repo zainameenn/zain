@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 630" role="img" aria-labelledby="tt6 dd6">
+<title id="tt6">A link in your bio is a separate feature</title><desc id="dd6">Website links depend on the TikTok account and its eligibility.</desc>
+<rect x="1" y="1" width="1118" height="628" rx="30" fill="#fffdf9" stroke="#e6ded0" stroke-width="2"/>
+<rect x="32" y="30" width="70" height="8" rx="4" fill="#a17840" stroke="none" stroke-width="0"/>
+<text x="48" y="100" font-family="Georgia, serif" font-size="44" fill="#21372c" font-weight="650" text-anchor="start">A link in your bio is a separate feature</text>
+<text x="48" y="141" font-family="Inter, Arial, sans-serif" font-size="23" fill="#53645a" font-weight="400" text-anchor="start">Website links depend on the TikTok account and its eligibility.</text>
+<rect x="50" y="190" width="463" height="117" rx="22" fill="#e6f1ea" stroke="#bbd7c4" stroke-width="1.5"/>
+<text x="78" y="240" font-family="Inter, Arial, sans-serif" font-size="27" fill="#154b3b" font-weight="700" text-anchor="start">Can your profile add a website?</text>
+<text x="78" y="273" font-family="Inter, Arial, sans-serif" font-size="21" fill="#21372c" font-weight="400" text-anchor="start">Check Edit profile → Links</text>
+<line x1="286" y1="307" x2="286" y2="356" stroke="#a17840" stroke-width="4" stroke-linecap="round" stroke-dasharray=""/>
+<line x1="286" y1="353" x2="796" y2="353" stroke="#a17840" stroke-width="4" stroke-linecap="round" stroke-dasharray=""/>
+<rect x="49" y="373" width="501" height="167" rx="20" fill="#e6f1ea" stroke="#dcded5" stroke-width="1.5"/>
+<rect x="71" y="390" width="104" height="41" rx="19" fill="white" stroke="none" stroke-width="0"/><text x="123.0" y="418" font-family="Inter, Arial, sans-serif" font-size="18" fill="#154b3b" font-weight="600" text-anchor="middle">Yes</text>
+<text x="73" y="459" font-family="Inter, Arial, sans-serif" font-size="27" fill="#21372c" font-weight="700" text-anchor="start">Use a short CTA</text>
+<text x="73" y="497" font-family="Inter, Arial, sans-serif" font-size="21" fill="#53645a" font-weight="400" text-anchor="start">“See the guide below”</text>
+<rect x="566" y="373" width="501" height="167" rx="20" fill="#f5f1e8" stroke="#dcded5" stroke-width="1.5"/>
+<rect x="588" y="390" width="104" height="41" rx="19" fill="white" stroke="none" stroke-width="0"/><text x="640.0" y="418" font-family="Inter, Arial, sans-serif" font-size="18" fill="#154b3b" font-weight="600" text-anchor="middle">No</text>
+<text x="590" y="459" font-family="Inter, Arial, sans-serif" font-size="27" fill="#21372c" font-weight="700" text-anchor="start">Do not promise a link</text>
+<text x="590" y="497" font-family="Inter, Arial, sans-serif" font-size="21" fill="#53645a" font-weight="400" text-anchor="start">Use Follow, DM or content CTA</text>
+<text x="52" y="595" font-family="Inter, Arial, sans-serif" font-size="19" fill="#53645a" font-weight="400" text-anchor="start">TikTok publishes a 1,000-follower or Verified Business Account condition.</text>
+</svg>
