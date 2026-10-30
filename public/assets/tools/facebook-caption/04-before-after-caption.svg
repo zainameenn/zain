@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title4 desc4"><title id="title4">A caption should sound like a person</title><desc id="desc4">Replace generic promotion with a useful, specific update.</desc>
+<rect x="1" y="1" width="1198" height="678" rx="30" fill="#FFFEFB" stroke="#E9E1D5" stroke-width="2"/>
+<rect x="48" y="37" width="78" height="7" rx="4" fill="#A5793C" stroke="none" stroke-width="0"/>
+<text x="49" y="105" text-anchor="start" font-family="Georgia, serif" font-size="42" font-weight="500" fill="#24352D">A caption should sound like a person</text>
+<text x="50" y="146" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">Replace generic promotion with a useful, specific update.</text>
+<rect x="53" y="205" width="519" height="340" rx="23" fill="#F9ECE8" stroke="#EDC6C0" stroke-width="1.4"/>
+<rect x="81" y="229" width="135" height="40" rx="17" fill="#F2D6CF" stroke="none" stroke-width="0"/><text x="148.5" y="256" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#A34A3F">BEFORE</text>
+<text x="82" y="313" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#24352D">We are thrilled to</text>
+<text x="82" y="358" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="400" fill="#24352D">announce exciting news!</text>
+<text x="82" y="413" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="400" fill="#A34A3F">Stay tuned! Like and share!</text>
+<text x="81" y="495" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="400" fill="#59675F">Vague. No detail. Forced engagement.</text>
+<rect x="631" y="205" width="517" height="340" rx="23" fill="#E5F1EA" stroke="#BFD9C5" stroke-width="1.4"/>
+<rect x="661" y="229" width="135" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="728.5" y="256" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#154B3B">AFTER</text>
+<text x="660" y="316" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#24352D">The second studio room</text>
+<text x="660" y="359" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="400" fill="#24352D">opens on Monday.</text>
+<text x="660" y="408" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="400" fill="#24352D">More space for evening classes.</text>
+<text x="660" y="495" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="400" fill="#59675F">A real update people can use.</text>
+<line x1="584" y1="365" x2="621" y2="365" stroke="#A5793C" stroke-width="5" stroke-linecap="round"/>
+<path d="M609 352 L626 365 L609 378" fill="none" stroke="#A5793C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="57" y="607" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#59675F">Specific information only. Never invent opening dates, results, prices or testimonials.</text>
+</svg>
