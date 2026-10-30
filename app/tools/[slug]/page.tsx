@@ -25,7 +25,7 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   // Editorial SEO tools have their own static routes (app/tools/<slug>), so they're left out here.
-  return Object.keys(TOOLS).filter((slug) => !EDITORIAL_TOOLS.has(slug) && slug !== "facebook-bio-generator").map((slug) => ({ slug }));
+  return Object.keys(TOOLS).filter((slug) => !EDITORIAL_TOOLS.has(slug) && slug !== "facebook-bio-generator" && slug !== "twitter-bio-generator").map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
