@@ -5,9 +5,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  // The Tailwind CSS is small, so ship it inside the HTML instead of as a render-blocking file.
   experimental: {
-    inlineCss: true,
+    // Off: the site CSS is now about 240 KB, and inlining copied it into every prerendered page and its RSC
+    // payload. That made each deployment about 246 MB of prerendered output instead of 56 MB (measured Nov 2, 2026).
+    inlineCss: false,
     // Server source maps were about 67 MB of every deployment. Stack traces in logs are less readable without them.
     serverSourceMaps: false,
   },
