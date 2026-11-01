@@ -7,7 +7,8 @@ const TIMEOUT_MS = 55_000;
 /** Finish reasons that mean Google's safety filters stopped the reply. */
 const BLOCKED = new Set(["SAFETY", "PROHIBITED_CONTENT", "BLOCKLIST", "SPII", "RECITATION", "IMAGE_SAFETY"]);
 
-export type Turn = { role: "user" | "model"; text: string };
+/** A turn can carry images (base64, no data: prefix) for the vision tools. */
+export type Turn = { role: "user" | "model"; text: string; images?: { mimeType: string; data: string }[] };
 
 /** A failed call. `status` is the HTTP status (429 means Google's own quota or rate limit). */
 export class ModelError extends Error {
@@ -30,7 +31,7 @@ export async function generate({ model, system, turns, maxOutputTokens }: { mode
     headers: { "Content-Type": "application/json", "x-goog-api-key": key },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: system }] },
-      contents: turns.map((t) => ({ role: t.role, parts: [{ text: t.text }] })),
+      contents: turns.map((t) => ({ role: t.role, parts: [...(t.images ?? []).map((i) => ({ inlineData: i })), { text: t.text }] })),
       // JSON mode: the core prompt already asks for JSON only; this makes Gemini hold to it.
       generationConfig: { maxOutputTokens, responseMimeType: "application/json" },
     }),
