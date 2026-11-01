@@ -1,0 +1,57 @@
+/* Twitter (X) Bio Generator extras on top of the Facebook Bio Generator card styles (fb.module.css). */
+
+.modes { display: flex; width: fit-content; max-width: 100%; margin: 0 auto 22px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--ivory); }
+.mode { min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: none; color: var(--ink-2); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.mode[aria-selected="true"] { background: var(--forest); color: #fff; }
+.mode:focus-visible, .detailsToggle:focus-visible, .chip input:focus-visible + span { outline: 2px solid var(--forest); outline-offset: 2px; }
+
+.input { width: 100%; height: 54px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 13px; background: #fff; color: var(--ink); font: inherit; font-size: 16px; }
+.input:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 3px var(--sage); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; border: 0; }
+.chips legend { margin-bottom: 9px; padding: 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+.chip { position: relative; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; }
+.chip span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; font-size: 14px; color: var(--ink-2); }
+.chip input:checked + span { border-color: var(--forest); background: var(--sage); color: var(--forest); font-weight: 600; }
+
+.details { margin-top: 22px; border: 1px solid #eae2d5; border-radius: 17px; background: #fcfaf6; }
+.detailsToggle { display: flex; width: 100%; min-height: 52px; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 19px; border: 0; border-radius: 17px; background: none; color: var(--ink); font: inherit; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; }
+.detailsToggle em { font-style: normal; font-weight: 400; color: var(--muted); }
+.chev { width: 10px; height: 10px; flex: none; border-right: 1.75px solid var(--ink-2); border-bottom: 1.75px solid var(--ink-2); transform: rotate(45deg); transition: transform 150ms; }
+.detailsToggle[aria-expanded="true"] .chev { transform: rotate(-135deg); }
+.detailsBody { padding: 4px 19px 19px; }
+
+/* Results */
+.topActions, .itemButtons { display: flex; flex-wrap: wrap; gap: 8px; }
+.activeItem { border-color: var(--forest) !important; }
+.why { margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.profile { overflow: hidden; max-width: 520px; margin: 0 auto; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.banner { height: 70px; background: var(--forest); }
+.profileBody { position: relative; padding: 36px 18px 18px; }
+.pfp { position: absolute; top: -32px; left: 18px; display: grid; place-items: center; width: 64px; height: 64px; border: 4px solid #fff; border-radius: 50%; background: var(--sage); color: var(--forest); font-weight: 700; font-size: 22px; }
+.profileBody strong { display: block; font-size: 17px; color: var(--ink); }
+.profileBody small { display: block; font-size: 14px; color: var(--muted); }
+.bioText { margin: 10px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink); white-space: pre-line; overflow-wrap: anywhere; }
+
+/* Page sections */
+.table { width: 100%; margin-top: 24px; border-collapse: collapse; font-size: 15px; text-align: left; background: #fff; border: 1px solid var(--line); }
+.table th, .table td { padding: 13px 15px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+.table th { background: var(--ivory); font-weight: 600; color: var(--ink); }
+.tableWrap { overflow-x: auto; border-radius: 16px; }
+.wide { display: block; width: 100%; max-width: 1000px; height: auto; margin: 32px auto 0; }
+.examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; margin: 32px 0 0; padding: 0; list-style: none; }
+.examples li { padding: 22px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+.examples h3 { margin: 0 0 10px; font-size: 17px; }
+.examples ul { margin: 0; padding-left: 18px; }
+.examples ul li { padding: 0; border: 0; margin: 6px 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.quoteBox { margin: 16px 0; padding: 14px 18px; border-left: 3px solid var(--gold, #b38842); background: var(--ivory); border-radius: 0 12px 12px 0; font-size: 16px; }
+
+@media (max-width: 700px) {
+  .modes { width: 100%; }
+  .mode { flex: 1; padding: 0 8px; font-size: 13px; }
+  .topActions { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chev { transition: none; }
+}
