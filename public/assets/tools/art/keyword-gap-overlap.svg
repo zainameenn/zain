@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">Keyword gap between websites</title><desc id="svgdesc">An overlapping two-domain keyword comparison that highlights shared, unique, and missing search topics</desc>
+<defs><linearGradient id="canvasbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F3F9F4"/><stop offset="1" stop-color="#E2F0E6"/></linearGradient><linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#267958"/><stop offset="1" stop-color="#0F3F32"/></linearGradient><linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F9ECD7"/><stop offset="1" stop-color="#E8CEA4"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F7FBF8"/></linearGradient><filter id="sh" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="17" flood-color="#123D2C" flood-opacity=".13"/></filter><filter id="sh2" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#123D2C" flood-opacity=".10"/></filter><clipPath id="clipcircle"><circle cx="0" cy="0" r="100"/></clipPath></defs>
+<rect x="38" y="43" width="1124" height="715" rx="48" fill="url(#canvasbg)"/>
+<circle cx="1050" cy="144" r="115" fill="#CCE5D5" opacity="0.53"/>
+<circle cx="132" cy="650" r="89" fill="#D6E9DD" opacity="0.48"/>
+<text x="100" y="134" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#B38842" letter-spacing="2">KEYWORD GAP</text>
+<text x="100" y="171" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="760" fill="#0F3F32">Find the searches competitors cover that you do not</text>
+<path d="M 1100 212 Q 1102.2 221.24 1111 223 Q 1102.2 224.76 1100 234 Q 1097.8 224.76 1089 223 Q 1097.8 221.24 1100 212 Z" fill="#B38842" opacity="1" />
+<ellipse cx="435" cy="470" rx="240" ry="197" fill="#B9DCC9" opacity="0.9"/>
+<ellipse cx="642" cy="470" rx="240" ry="197" fill="#EED7A8" opacity="0.71"/>
+<ellipse cx="541" cy="470" rx="140" ry="165" fill="#9BC6B0" opacity="0.63"/>
+<rect x="281" y="281" width="282" height="48" rx="24.0" fill="#EDF5EF"/>
+<text x="296" y="313.16" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="620" fill="#0F3F32">Your website</text>
+<rect x="640" y="281" width="276" height="48" rx="24.0" fill="#F6E9D2"/>
+<text x="655" y="313.16" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="620" fill="#0F3F32">Competitor site</text>
+<text x="346" y="441" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="740" fill="#0F3F32" text-anchor="middle">Your terms</text>
+<text x="346" y="480" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="580" fill="#0F3F32" text-anchor="middle">email SEO</text>
+<text x="346" y="510" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="580" fill="#0F3F32" text-anchor="middle">site audit</text>
+<text x="544" y="453" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="780" fill="#0F3F32" text-anchor="middle">Shared</text>
+<text x="544" y="488" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="590" fill="#0F3F32" text-anchor="middle">keyword ideas</text>
+<text x="735" y="437" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="780" fill="#0F3F32" text-anchor="middle">Missing</text>
+<text x="735" y="476" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600" fill="#0F3F32" text-anchor="middle">long-tail guide</text>
+<text x="735" y="506" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600" fill="#0F3F32" text-anchor="middle">SERP checker</text>
+<rect x="806" y="574" width="297" height="102" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<rect x="829" y="597" width="51" height="51" rx="16" fill="#0F3F32"/>
+<g transform="translate(839.5,607.5) scale(1.25)" stroke="#FFFCF7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></g>
+<text x="894" y="613" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="720" fill="#0F3F32">Content gap</text>
+<text x="894" y="641" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="500" fill="#718078">Review intent before targeting</text>
+<path d="M 736 540 Q 793 575 829 595" fill="none" stroke="#267958" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<path d="M 960 240 Q 962.2 249.24 971 251 Q 962.2 252.76 960 262 Q 957.8 252.76 949 251 Q 957.8 249.24 960 240 Z" fill="#B38842" opacity="1" />
+<text x="100" y="710" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="480" fill="#718078">Conceptual keyword overlap. Not measured traffic or keyword volumes.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-label="X Twitter bio, short profile writing and character guidance" width="1200" height="820"><title>X Twitter bio, short profile writing and character guidance</title><defs>
+        <linearGradient id="forest" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F3F32"/><stop offset="1" stop-color="#247356"/></linearGradient>
+        <linearGradient id="mist" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4FAF5"/><stop offset=".6" stop-color="#DBEDE1"/><stop offset="1" stop-color="#C3DEC9"/></linearGradient>
+        <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFAF0"/><stop offset="1" stop-color="#F1E5D0"/></linearGradient>
+        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBD19A"/><stop offset="1" stop-color="#B38842"/></linearGradient>
+        <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22382F"/><stop offset="1" stop-color="#0F2921"/></linearGradient>
+        <filter id="shadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="19" flood-color="#123F2F" flood-opacity=".15"/></filter>
+        <filter id="smallShadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#123F2F" flood-opacity=".16"/></filter>
+        <filter id="glow" x="-65%" y="-65%" width="230%" height="230%"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+<path d="M129 456 C84 258 271 117 449 190 C566 99 775 71 907 233 C1091 268 1186 464 1047 650 C914 757 712 682 555 700 C293 747 150 657 129 456Z" fill="url(#mist)" opacity=".82"/>
+<circle cx="1019" cy="174" r="64" fill="#ECDFB8" opacity=".32"/><circle cx="175" cy="653" r="53" fill="#A2CDB2" opacity=".24"/>
+<circle cx="232" cy="143" r="7" fill="#B38842" opacity=".45"/>
+<circle cx="930" cy="628" r="6" fill="#B38842" opacity=".45"/>
+<circle cx="1064" cy="393" r="5" fill="#B38842" opacity=".45"/>
+<circle cx="379" cy="706" r="5" fill="#B38842" opacity=".45"/>
+<rect x="126" y="188" width="441" height="422" rx="26" fill="#FFFFFF" stroke="#D9E7DD" stroke-width="2" opacity="1" filter="url(#shadow)"/>
+<rect x="157" y="216" width="87" height="73" rx="19" fill="url(#ink)" stroke="none" stroke-width="1" opacity="1"/>
+<text x="200" y="271" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="51" font-weight="700" text-anchor="middle">X</text>
+<text x="267" y="247" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="760">Short. Clear. Yours.</text>
+<text x="267" y="277" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Bio builder</text>
+<text x="164" y="321" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="550">Personality</text>
+<rect x="163" y="334" width="346" height="42" rx="13" fill="#FAF7F0" stroke="#DCE7DC" stroke-width="1" opacity="1"/>
+<text x="183" y="361" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="650">Curious</text>
+<text x="164" y="391" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="550">Focus</text>
+<rect x="163" y="404" width="346" height="42" rx="13" fill="#FAF7F0" stroke="#DCE7DC" stroke-width="1" opacity="1"/>
+<text x="183" y="431" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="650">Design &amp; technology</text>
+<text x="164" y="461" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="550">Tone</text>
+<rect x="163" y="474" width="346" height="42" rx="13" fill="#FAF7F0" stroke="#DCE7DC" stroke-width="1" opacity="1"/>
+<text x="183" y="501" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="650">Simple and natural</text>
+<rect x="602" y="264" width="459" height="338" rx="29" fill="url(#ink)" stroke="none" stroke-width="1" opacity="1" filter="url(#shadow)"/>
+<text x="633" y="318" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="43" font-weight="700">𝕏</text>
+<circle cx="686" cy="368" r="35" fill="#A0C7AE" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(664 346) scale(0.9166666666666666)" fill="none" stroke="#0F3F32" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="24" cy="15" r="10"/><path d="M8 45 Q9 31 24 31 Q39 31 40 45"/>
+</g>
+<text x="742" y="365" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700">Example Profile</text>
+<text x="742" y="391" fill="#AFCEBE" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="500">@example</text>
+<text x="645" y="468" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="600">Design, tech, and learning</text>
+<text x="645" y="500" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="600">something new every day.</text>
+<rect x="641" y="544" width="376" height="9" rx="5" fill="#456D59" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="641" y="544" width="279" height="9" rx="5" fill="#ABD4B1" stroke="none" stroke-width="1" opacity="1"/>
+<text x="1018" y="578" fill="#CADFD1" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600" text-anchor="end">51 / 160</text>
+<path d="M1081 191 Q1084.74 204.6 1098 208 Q1084.4 211.74 1081 225 Q1077.6 211.74 1064 208 Q1077.26 204.6 1081 191Z" fill="#B38842" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+</svg>

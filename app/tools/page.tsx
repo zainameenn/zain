@@ -9,6 +9,8 @@ import { HUB_CARDS, HUB_CATEGORIES, hubImage } from "@/lib/tools/hub";
 import { LINK_SEO_SERVICE } from "@/lib/tools/links";
 import { ALL_TOOLS, TOOLS, toolPath } from "@/lib/tools/registry";
 import { Crumbs } from "./_components/content";
+import { Explainer, FlowSteps } from "./_components/Explainer";
+import { ART as TOOL_ART } from "@/lib/tools/art";
 import { ALIASES, AUDIENCES, FAQS, FEATURED, GROUP_COPY, GUIDE, KINDS, WORKFLOWS } from "./_hub/copy";
 import { Directory, ToolCard, type DirectoryGroup, type DirectoryTool } from "./_hub/Directory";
 import d from "./_hub/directory.module.css";
@@ -38,9 +40,9 @@ const SOCIALS = [
   { name: "Instagram", href: "https://www.instagram.com/zainn.ms/" },
 ];
 
-function Head({ eyebrow, heading, accent, intro, id }: { eyebrow: string; heading: string; accent?: string; intro?: ReactNode; id?: string }) {
+function Head({ eyebrow, heading, accent, intro, id, left }: { eyebrow: string; heading: string; accent?: string; intro?: ReactNode; id?: string; left?: boolean }) {
   return (
-    <header className={`${s.sectionHead} ${s.sectionHeadCenter}`}>
+    <header className={`${s.sectionHead} ${left ? s.sectionHeadStack : s.sectionHeadCenter}`}>
       <div>
         <p className={s.kicker}>{eyebrow}</p>
         <h2 className={s.h2} id={id}>
@@ -156,7 +158,9 @@ export default function ToolsHub() {
       {/* Category guides: short, crawlable starting points per category */}
       <section className={`${s.band} ${s.bandWarm}`} aria-labelledby="categories-h">
         <div className={s.wrap}>
-          <Head id="categories-h" eyebrow="By category" heading="Where to start in" accent="each category" />
+          <Explainer art={TOOL_ART.toolsCategories} className={d.catIntro}>
+            <Head id="categories-h" eyebrow="By category" heading="Where to start in" accent="each category" left />
+          </Explainer>
           <div className={d.catGuides}>
             {Object.entries(GROUP_COPY).map(([id, g]) => {
               const picks = g.picks.filter(([slug]) => live(slug));
@@ -294,20 +298,16 @@ export default function ToolsHub() {
       {/* 9: how it works */}
       <section className={s.band} aria-labelledby="how-h">
         <div className={s.wrap}>
-          <Head id="how-h" eyebrow="Three steps" heading="Pick it. Use it." accent="Make it yours." />
-          <ol className={s.steps}>
-            {[
-              { t: "Find your task", d: "Search the directory or choose a category. Every card tells you what the tool is built to do." },
-              { t: "Give it useful context", d: "Some tools ask a couple of questions. Others need a URL, a keyword list, or product details. Optional fields can help make results more relevant." },
-              { t: "Review before you use it", d: "Edit the draft, check factual details, copy or export your result, and make the final decision yourself." },
-            ].map((step, i) => (
-              <li key={step.t} className={s.step}>
-                <span className={`${s.stepNum} ${displayFont.className}`}>{String(i + 1).padStart(2, "0")}</span>
-                <h3 className={s.h3}>{step.t}</h3>
-                <p className={s.body}>{step.d}</p>
-              </li>
-            ))}
-          </ol>
+          <Explainer art={TOOL_ART.toolsSearch} flip>
+            <Head id="how-h" eyebrow="Three steps" heading="Pick it. Use it." accent="Make it yours." left />
+            <FlowSteps
+              steps={[
+                { title: "Find your task", text: "Search the directory or choose a category. Every card tells you what the tool is built to do." },
+                { title: "Give it useful context", text: "Some tools ask a couple of questions. Others need a URL, a keyword list, or product details. Optional fields can help make results more relevant." },
+                { title: "Review before you use it", text: "Edit the draft, check factual details, copy or export your result, and make the final decision yourself." },
+              ]}
+            />
+          </Explainer>
           <p className={d.small} style={{ textAlign: "center", marginTop: 24 }}>Free to use. Fair use limits help keep these tools available for everyone. No account is required for the public tools currently on the site.</p>
         </div>
       </section>

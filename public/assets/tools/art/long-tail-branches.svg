@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc"><title id="title">Long-tail keyword generator</title><desc id="desc">A seed keyword branching into specific keyword suggestions and natural-language search questions</desc>
+<defs>
+  <linearGradient id="soft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBF5ED"/><stop offset="1" stop-color="#D0E7D9"/></linearGradient>
+  <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1B6B51"/><stop offset="1" stop-color="#0F3F32"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F7E6C8"/><stop offset="1" stop-color="#E5C18C"/></linearGradient>
+  <linearGradient id="white" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F8F8F4"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#153E2C" flood-opacity=".13"/></filter>
+  <filter id="smshadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#153E2C" flood-opacity=".10"/></filter>
+  </defs>
+<rect x="50" y="50" width="1100" height="700" rx="54" fill="#EAF3ED" opacity="0.64"/>
+<circle cx="1055" cy="158" r="110" fill="#D3E8D9" opacity="0.54"/>
+<circle cx="154" cy="635" r="75" fill="#DDECE0" opacity="0.8"/>
+<path d="M 68 540 C 130 590 195 583 267 560" fill="none" stroke="#D5E6DA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<text x="104" y="120" fill="#B38842" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">LONG-TAIL KEYWORDS</text>
+<text x="104" y="152" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="750">Start broad. Find the specific searches.</text>
+<rect x="105" y="307" width="286" height="170" rx="30" fill="#FFFFFF" opacity="1" filter="url(#shadow)"/>
+<text x="132" y="356" fill="#69786F" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="740">SEED KEYWORD</text>
+<rect x="130" y="376" width="235" height="62" rx="15" fill="#E7F2EB" opacity="1"/>
+<g transform="translate(145 394) scale(1.0)" stroke="#267958" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="m15.2 15.2 5.1 5.1"/></g>
+<text x="179" y="416" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="750">desk mat</text>
+<path d="M 393 405 C 467 405 463 278 529 278 M 393 405 C 466 405 475 405 529 405 M 393 405 C 467 405 462 546 529 546" fill="none" stroke="#267958" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="530" y="219" width="537" height="98" rx="20" fill="#FFFFFF" opacity="1" filter="url(#smshadow)"/>
+<rect x="547" y="237" width="139" height="34" rx="17" fill="#DCECE4" opacity="1"/>
+<text x="563" y="259" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="740">PRODUCT TYPE</text>
+<rect x="530" y="347" width="537" height="98" rx="20" fill="#FFFFFF" opacity="1" filter="url(#smshadow)"/>
+<rect x="547" y="365" width="139" height="34" rx="17" fill="#F3E8D5" opacity="1"/>
+<text x="563" y="387" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="740">USE CASE</text>
+<rect x="530" y="487" width="537" height="98" rx="20" fill="#FFFFFF" opacity="1" filter="url(#smshadow)"/>
+<rect x="547" y="505" width="139" height="34" rx="17" fill="#E5ECE4" opacity="1"/>
+<text x="563" y="527" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="740">QUESTION</text>
+<text x="705" y="273" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">large gaming desk mat</text>
+<text x="705" y="402" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">desk mat for home office</text>
+<text x="705" y="542" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">how to clean a desk mat</text>
+<circle cx="503" cy="278" r="7" fill="#B38842" opacity="1"/>
+<circle cx="503" cy="405" r="7" fill="#B38842" opacity="1"/>
+<circle cx="503" cy="546" r="7" fill="#B38842" opacity="1"/>
+<path d="M1081 175 Q1083.6 185.79 1094 188 Q1083.6 190.21 1081 201 Q1078.4 190.21 1068 188 Q1078.4 185.79 1081 175 Z" fill="#B38842" opacity="1" />
+</svg>

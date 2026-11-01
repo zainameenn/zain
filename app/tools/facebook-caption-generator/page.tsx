@@ -6,6 +6,8 @@ import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import t from "../_studio/edtool.module.css";
+import { ART as SECTION_ART } from "@/lib/tools/art";
+import { Explainer } from "../_components/Explainer";
 import f from "../facebook-bio-generator/fb.module.css";
 import c from "./fbc.module.css";
 import { FacebookCaptionTool } from "./FacebookCaptionTool";
@@ -147,12 +149,13 @@ export default function FacebookCaptionGeneratorPage() {
       </SECTION>
 
       <SECTION id="what-is">
-        <Head kicker="The basics" title={<>What is a Facebook <em className={e.emGreen}>caption generator?</em></>} />
-        <div className={c.prose}>
-          <p className={e.body}>A Facebook caption generator writes the text that goes with a Facebook photo, video, Reel or regular post. Instead of starting with a blank box, you give it a topic, a few options or a picture and it suggests what to say.</p>
+        <Explainer art={SECTION_ART.facebookCaption} flip>
+          <p className={e.eyebrow}>The basics</p>
+          <h2 className={e.h2}>What is a Facebook <em className={e.emGreen}>caption generator?</em></h2>
+          <p className={e.body} style={{ marginTop: 16 }}>A Facebook caption generator writes the text that goes with a Facebook photo, video, Reel or regular post. Instead of starting with a blank box, you give it a topic, a few options or a picture and it suggests what to say.</p>
           <p className={e.body}>For a personal post, that might be one funny line under a holiday photo. For a business Page, it might be a clear announcement about a new service. For a community Group, it might be a friendly update explaining what members need to know.</p>
           <p className={e.body}>It&apos;s a writing helper, not an automatic publishing tool. You still decide what to post, and the final caption should reflect something real.</p>
-        </div>
+        </Explainer>
       </SECTION>
 
       <SECTION id="good-caption" band>
@@ -306,9 +309,8 @@ export default function FacebookCaptionGeneratorPage() {
             ["Adding five unrelated hashtags", "Describe the post, don't decorate it with tags."],
             ["Posting something longer than the message needs", "Long stories can work, but long introductions rarely help."],
             ["Treating AI output as final", "Edit for your facts and your voice before publishing."],
-          ].map(([h, p], i) => (
+          ].map(([h, p]) => (
             <li key={h} className={f.card}>
-              <span className={f.label}>{String(i + 1).padStart(2, "0")}</span>
               <h3>{h}</h3>
               <p>{p}</p>
             </li>

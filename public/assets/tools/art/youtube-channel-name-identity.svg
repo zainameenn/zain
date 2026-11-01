@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-label="YouTube channel name generator and channel identity preview" width="1200" height="820"><title>YouTube channel name generator and channel identity preview</title><defs>
+        <linearGradient id="forest" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F3F32"/><stop offset="1" stop-color="#247356"/></linearGradient>
+        <linearGradient id="mist" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4FAF5"/><stop offset=".6" stop-color="#DBEDE1"/><stop offset="1" stop-color="#C3DEC9"/></linearGradient>
+        <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFAF0"/><stop offset="1" stop-color="#F1E5D0"/></linearGradient>
+        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBD19A"/><stop offset="1" stop-color="#B38842"/></linearGradient>
+        <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22382F"/><stop offset="1" stop-color="#0F2921"/></linearGradient>
+        <filter id="shadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="19" flood-color="#123F2F" flood-opacity=".15"/></filter>
+        <filter id="smallShadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#123F2F" flood-opacity=".16"/></filter>
+        <filter id="glow" x="-65%" y="-65%" width="230%" height="230%"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+<path d="M129 456 C84 258 271 117 449 190 C566 99 775 71 907 233 C1091 268 1186 464 1047 650 C914 757 712 682 555 700 C293 747 150 657 129 456Z" fill="url(#mist)" opacity=".82"/>
+<circle cx="1019" cy="174" r="64" fill="#ECDFB8" opacity=".32"/><circle cx="175" cy="653" r="53" fill="#A2CDB2" opacity=".24"/>
+<circle cx="232" cy="143" r="7" fill="#B38842" opacity=".45"/>
+<circle cx="930" cy="628" r="6" fill="#B38842" opacity=".45"/>
+<circle cx="1064" cy="393" r="5" fill="#B38842" opacity=".45"/>
+<circle cx="379" cy="706" r="5" fill="#B38842" opacity=".45"/>
+<rect x="123" y="198" width="381" height="418" rx="26" fill="#FFFFFF" stroke="#D9E7DD" stroke-width="2" opacity="1" filter="url(#shadow)"/>
+<text x="155" y="248" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="750">Name ideas</text>
+<rect x="156" y="276" width="318" height="72" rx="18" fill="#FAF7F0" stroke="#D7E7DB" stroke-width="1" opacity="1"/>
+<circle cx="188" cy="311" r="18" fill="#1E6B53" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(176 298) scale(0.5208333333333334)" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 6 L41 24 L12 42 Z"/>
+</g>
+<text x="220" y="320" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="680">Studio North</text>
+<rect x="156" y="370" width="318" height="72" rx="18" fill="#FAF7F0" stroke="#D7E7DB" stroke-width="1" opacity="1"/>
+<circle cx="188" cy="405" r="18" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(176 392) scale(0.5208333333333334)" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 6 L41 24 L12 42 Z"/>
+</g>
+<text x="220" y="414" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="680">Everyday Lens</text>
+<rect x="156" y="464" width="318" height="72" rx="18" fill="#FAF7F0" stroke="#D7E7DB" stroke-width="1" opacity="1"/>
+<circle cx="188" cy="499" r="18" fill="#1E6B53" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(176 486) scale(0.5208333333333334)" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 6 L41 24 L12 42 Z"/>
+</g>
+<text x="220" y="508" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="680">Frame &amp; Focus</text>
+<text x="160" y="587" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="500">Choose a name that fits your videos</text>
+<path d="M521 388 L613 388" fill="none" stroke="#124D3B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.62"/>
+<path d="M613 388 L600.181702151249 397.57555430566333 L600.181702151249 378.42444569433667 Z" fill="#124D3B" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+<rect x="637" y="182" width="437" height="439" rx="26" fill="#FFFFFF" stroke="#D9E7DD" stroke-width="2" opacity="1" filter="url(#shadow)"/>
+<rect x="656" y="200" width="399" height="165" rx="18" fill="url(#forest)" stroke="none" stroke-width="1" opacity="1"/>
+<path d="M656 319 Q723 254 790 299 T926 294 T1055 327 V365 H656Z" fill="#78A993" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<rect x="673" y="333" width="74" height="74" rx="18" fill="#B32B30" stroke="none" stroke-width="1" opacity="1" filter="url(#smallShadow)"/>
+<path d="M702 352 L726 370 L702 388 Z" fill="#FFFFFF" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<text x="758" y="398" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="800">Studio North</text>
+<text x="760" y="431" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="500">Stories, cameras and everyday life</text>
+<rect x="662" y="474" width="112" height="92" rx="15" fill="#D5E8DF" stroke="none" stroke-width="1" opacity="1"/>
+<path d="M670 548 Q697 507 719 537 T765 526 V566 H670Z" fill="#7BAE96" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<circle cx="745" cy="498" r="8" fill="#FAF7F0" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="788" y="474" width="112" height="92" rx="15" fill="#E9DCCA" stroke="none" stroke-width="1" opacity="1"/>
+<path d="M796 548 Q823 507 845 537 T891 526 V566 H796Z" fill="#C4A477" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<circle cx="871" cy="498" r="8" fill="#FAF7F0" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="914" y="474" width="112" height="92" rx="15" fill="#C6DDC8" stroke="none" stroke-width="1" opacity="1"/>
+<path d="M922 548 Q949 507 971 537 T1017 526 V566 H922Z" fill="#86AE8C" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<circle cx="997" cy="498" r="8" fill="#FAF7F0" stroke="none" stroke-width="1" opacity="1"/>
+<path d="M1111 195 Q1114.52 207.8 1127 211 Q1114.2 214.52 1111 227 Q1107.8 214.52 1095 211 Q1107.48 207.8 1111 195Z" fill="#B38842" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">Broken link checker sitemap with 404 error</title><desc id="svgdesc">Website page connections showing a broken link to a missing page and a clear fix: update the link to a live destination</desc>
+<defs><linearGradient id="canvasbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F3F9F4"/><stop offset="1" stop-color="#E2F0E6"/></linearGradient><linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#267958"/><stop offset="1" stop-color="#0F3F32"/></linearGradient><linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F9ECD7"/><stop offset="1" stop-color="#E8CEA4"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F7FBF8"/></linearGradient><filter id="sh" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="17" flood-color="#123D2C" flood-opacity=".13"/></filter><filter id="sh2" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#123D2C" flood-opacity=".10"/></filter><clipPath id="clipcircle"><circle cx="0" cy="0" r="100"/></clipPath></defs>
+<rect x="38" y="43" width="1124" height="715" rx="48" fill="url(#canvasbg)"/>
+<circle cx="1050" cy="144" r="115" fill="#CCE5D5" opacity="0.53"/>
+<circle cx="132" cy="650" r="89" fill="#D6E9DD" opacity="0.48"/>
+<text x="100" y="134" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#B38842" letter-spacing="2">BROKEN LINKS</text>
+<text x="100" y="171" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="760" fill="#0F3F32">Spot dead destinations before visitors find them</text>
+<path d="M 1100 212 Q 1102.2 221.24 1111 223 Q 1102.2 224.76 1100 234 Q 1097.8 224.76 1089 223 Q 1097.8 221.24 1100 212 Z" fill="#B38842" opacity="1" />
+<rect x="119" y="325" width="232" height="155" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<rect x="205" y="345" width="67" height="67" rx="16" fill="#0F3F32"/>
+<g transform="translate(223.5,363.5) scale(1.25)" stroke="#FFFCF7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18 M12 3c-6 6-6 12 0 18 M12 3c6 6 6 12 0 18"/></g>
+<text x="236" y="445" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="720" fill="#0F3F32" text-anchor="middle">Homepage</text>
+<path d="M351 398 L437 398 M437 398 L437 280 M437 398 L437 547" fill="none" stroke="#267958" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<path d="M437 280 L522 280 M437 547 L522 547" fill="none" stroke="#267958" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="523" y="219" width="235" height="122" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<rect x="544" y="250" width="50" height="50" rx="16" fill="#EDF5EF"/>
+<g transform="translate(554.0,260.0) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h10l5 5v15H5zM15 2v5h5 M8 12h9 M8 16h9"/></g>
+<text x="606" y="269" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="690" fill="#0F3F32">Product page</text>
+<text x="606" y="293" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#267958">200 OK</text>
+<rect x="523" y="485" width="235" height="122" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<rect x="544" y="515" width="50" height="50" rx="16" fill="#EDF5EF"/>
+<g transform="translate(554.0,525.0) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8H7a5 5 0 0 0 0 10h5 M15 16h2a5 5 0 0 0 0-10h-5 M8 12h8"/></g>
+<text x="606" y="536" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="690" fill="#0F3F32">Resource link</text>
+<text x="606" y="560" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="540" fill="#718078">Links outward</text>
+<path d="M758 547 L824 547" fill="none" stroke="#BF6D61" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<path d="M 779.0 537.0 l 20 20 M 799.0 537.0 l -20 20" fill="none" stroke="#BF6D61" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="835" y="485" width="242" height="123" rx="21" fill="#F9E9E5" stroke="#BF6D61" stroke-width="1.5"/>
+<rect x="852" y="516" width="48" height="48" rx="16" fill="#F9E9E5"/>
+<g transform="translate(861.0,525.0) scale(1.25)" stroke="#BF6D61" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 21h20z M12 8v6M12 18v.1"/></g>
+<text x="912" y="535" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="760" fill="#BF6D61">404 Not Found</text>
+<text x="912" y="566" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="560" fill="#BF6D61">Missing destination</text>
+<rect x="845" y="637" width="225" height="46" rx="16" fill="#EDF5EF"/>
+<g transform="translate(857,646) scale(1.0416666666666667)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l6 6L21 5"/></g>
+<text x="895" y="665" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="650" fill="#0F3F32">Update or remove link</text>
+<text x="104" y="712" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="480" fill="#718078">Example link map. Fixes should follow the actual cause of each broken link.</text>
+</svg>

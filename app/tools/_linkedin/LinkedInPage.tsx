@@ -6,7 +6,9 @@ import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import { LINKEDIN_TOOLS, type LinkedInKind } from "@/lib/tools/families/linkedin-choices";
+import { ART, type ToolArt } from "@/lib/tools/art";
 import t from "../_studio/edtool.module.css";
+import { Explainer } from "../_components/Explainer";
 import f from "../facebook-bio-generator/fb.module.css";
 import l from "./linkedin.module.css";
 import { LinkedInTool } from "./LinkedInTool";
@@ -39,7 +41,17 @@ const SOCIALS = [
   { name: "X", href: "https://x.com/zainnameen", icon: "M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78L17.75 3Zm-1.08 16.17h1.7L7.4 4.73H5.57l11.1 14.44Z" },
 ];
 
-const RELATED: LinkedInKind[] = ["post", "comment", "headline", "about", "experience", "skills"];
+/** The illustration beside "What you get" on each tool. */
+const RESULT_ART: Record<LinkedInKind, ToolArt> = {
+  post: ART.linkedinPost,
+  comment: ART.linkedinComment,
+  headline: ART.linkedinHeadline,
+  about: ART.linkedinAbout,
+  experience: ART.linkedinExperience,
+  skills: ART.linkedinSkills,
+};
+
+const RELATED: LinkedInKind[] =["post", "comment", "headline", "about", "experience", "skills"];
 const RELATED_TEXT: Record<LinkedInKind, string> = {
   post: "Turn a real idea or lesson into a post.",
   comment: "Reply to a post with something useful.",
@@ -121,7 +133,7 @@ export function LinkedInPage({ c }: { c: LinkedInCopy }) {
         <ul className={`${f.cards} ${f.cards3}`}>
           {c.steps.map(([h, p], i) => (
             <li key={h} className={f.card}>
-              <span className={f.icon} aria-hidden="true">{i + 1}</span>
+              <span className={t.num}>Step {i + 1}</span>
               <h3>{h}</h3>
               <p>{p}</p>
             </li>
@@ -131,14 +143,15 @@ export function LinkedInPage({ c }: { c: LinkedInCopy }) {
       </Section>
 
       <Section id="what-you-get">
-        <Head kicker="Your result" title={<>What you get from {accent(`the ${tool.noun} tool`)}</>} />
-        <ul className={`${f.cards} ${f.cards2}`}>
-          {c.get.map((g) => (
-            <li key={g} className={f.card}>
-              <p>{g}</p>
-            </li>
-          ))}
-        </ul>
+        <Explainer art={RESULT_ART[c.kind]} flip>
+          <p className={e.eyebrow}>Your result</p>
+          <h2 className={e.h2}>What you get from {accent(`the ${tool.noun} tool`)}</h2>
+          <ul className={l.getList}>
+            {c.get.map((g) => (
+              <li key={g}>{g}</li>
+            ))}
+          </ul>
+        </Explainer>
       </Section>
 
       {c.guide.map((g, i) => (

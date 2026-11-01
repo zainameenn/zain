@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc"><title id="title">Pinterest Pin title and description generator</title><desc id="desc">A Pinterest-style pin image paired with a keyword-smart title and description editor</desc>
+<defs>
+  <linearGradient id="soft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBF5ED"/><stop offset="1" stop-color="#D0E7D9"/></linearGradient>
+  <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1B6B51"/><stop offset="1" stop-color="#0F3F32"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F7E6C8"/><stop offset="1" stop-color="#E5C18C"/></linearGradient>
+  <linearGradient id="white" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F8F8F4"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#153E2C" flood-opacity=".13"/></filter>
+  <filter id="smshadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#153E2C" flood-opacity=".10"/></filter>
+  </defs>
+<rect x="50" y="50" width="1100" height="700" rx="54" fill="#EAF3ED" opacity="0.64"/>
+<circle cx="1055" cy="158" r="110" fill="#D3E8D9" opacity="0.54"/>
+<circle cx="154" cy="635" r="75" fill="#DDECE0" opacity="0.8"/>
+<path d="M 68 540 C 130 590 195 583 267 560" fill="none" stroke="#D5E6DA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<text x="110" y="116" fill="#B38842" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">PINTEREST CONTENT</text>
+<text x="110" y="148" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="750">Give every Pin a clear purpose</text>
+<rect x="116" y="198" width="347" height="472" rx="30" fill="#FFFFFF" opacity="1" filter="url(#shadow)"/>
+<rect x="139" y="222" width="301" height="336" rx="23" fill="#D5E6DA" opacity="1"/>
+<path d="M 139 491 Q 215 386 284 446 Q 345 368 440 458 L440 558 L139 558Z" fill="#89B59C" opacity="1" />
+<path d="M 139 512 Q 207 453 298 491 Q 359 457 440 493 L440 558 L139 558Z" fill="#267958" opacity="1" />
+<circle cx="359" cy="292" r="37" fill="#F6DDAA" opacity="1"/>
+<path d="M 221 449 Q 241 401 252 350 M 250 385 Q 220 372 203 347 M 251 415 Q 292 407 309 377" fill="none" stroke="#0F3F32" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<text x="157" y="596" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="720">Pin image</text>
+<text x="157" y="624" fill="#69786F" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="500">Upload or describe a photo</text>
+<path d="M 492 419 L 596 419" fill="none" stroke="#267958" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<path d="M596.0 419.0 L583.2 426.8 L583.2 411.2 Z" fill="#267958" opacity="1" />
+<rect x="540" y="351" width="58" height="58" rx="16" fill="#145A45" opacity="1"/>
+<g transform="translate(554.0 365.0) scale(1.25)" stroke="#FFFFFF" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l-2 3 3-1 13-13-3-3L5 19z M14 7l3 3"/></g>
+<path d="M567 326 Q569.4 335.96 579 338 Q569.4 340.04 567 350 Q564.6 340.04 555 338 Q564.6 335.96 567 326 Z" fill="#B38842" opacity="1" />
+<rect x="622" y="205" width="459" height="418" rx="26" fill="#FFFFFF" opacity="1" stroke="#D7E0D8" stroke-width="1.25" filter="url(#shadow)"/>
+<rect x="622" y="205" width="459" height="58" rx="26" fill="#F5F1E8" opacity="1"/>
+<rect x="622" y="236" width="459" height="27" rx="0" fill="#F5F1E8" opacity="1"/>
+<circle cx="648" cy="230" r="5.5" fill="#B9675D" opacity="1"/>
+<circle cx="668" cy="230" r="5.5" fill="#B38842" opacity="1"/>
+<circle cx="688" cy="230" r="5.5" fill="#5D9B76" opacity="1"/>
+<text x="717" y="240" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">PIN PREVIEW</text>
+<text x="653" y="295" fill="#69786F" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="730">TITLE</text>
+<text x="653" y="332" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="720">Small Balcony Garden Ideas</text>
+<path d="M 655 352 L 1045 352" fill="none" stroke="#D7E0D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<text x="653" y="392" fill="#69786F" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="730">DESCRIPTION</text>
+<text x="653" y="429" fill="#25322B" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Create a cozy balcony garden with</text>
+<text x="653" y="460" fill="#25322B" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">simple planters, greenery, and</text>
+<text x="653" y="491" fill="#25322B" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">space-saving layout tips.</text>
+<rect x="651" y="526" width="191" height="42" rx="21" fill="#E7F2EB" opacity="1"/>
+<g transform="translate(666 535) scale(0.9166666666666666)" stroke="#267958" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="m15.2 15.2 5.1 5.1"/></g>
+<text x="698" y="552" fill="#267958" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">balcony garden</text>
+<text x="655" y="602" fill="#69786F" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="550">Clear idea  •  Relevant keywords  •  Ready to copy</text>
+<path d="M1065 152 Q1068.0 164.45 1080 167 Q1068.0 169.55 1065 182 Q1062.0 169.55 1050 167 Q1062.0 164.45 1065 152 Z" fill="#B38842" opacity="1" />
+</svg>

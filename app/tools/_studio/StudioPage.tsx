@@ -15,6 +15,8 @@ import { v2SpecForSlug } from "@/lib/tools/v2/client-spec";
 import { ToolWorkspace } from "../_components/ToolWorkspace";
 import { bodyFont, displayFont } from "@/app/_design/fonts";
 import { toolIllustration } from "@/lib/illustrations";
+import { toolArt } from "@/lib/tools/art";
+import { Explainer, FlowSteps } from "../_components/Explainer";
 import { hubImage } from "@/lib/tools/hub";
 import { Mark, PhoneFrame, ProfileScreen, initialsOf } from "./Phone";
 import { FacebookPostScreen, InstaPostScreen, TikTokVideoScreen, YouTubeResultsScreen } from "./PostScreen";
@@ -35,9 +37,9 @@ function Figure({ image }: { image: StudioImage }) {
   );
 }
 
-function SectionHead({ head }: { head: StudioHead }) {
+function SectionHead({ head, left }: { head: StudioHead; left?: boolean }) {
   return (
-    <header className={`${s.sectionHead} ${s.sectionHeadCenter}`}>
+    <header className={left ? `${s.sectionHead} ${s.sectionHeadStack}` : `${s.sectionHead} ${s.sectionHeadCenter}`}>
       <div>
         {head.eyebrow ? <p className={s.kicker}>{head.eyebrow}</p> : null}
         <h2 className={s.h2}>
@@ -145,30 +147,20 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
   const platform = tool.studio?.platform ?? "Instagram";
   switch (section.kind) {
     case "steps": {
-      // The small form mockups (account type, style, Copy bio) only describe the bio generators.
-      // Every tool shows its own illustration above the steps.
+      // Tools with an illustration get it beside the steps (see StepsBand). Without one, the bio
+      // generators keep their small form mockups (account type, style, Copy bio) on each step card.
       const isBio = !tool.studio?.tool || tool.studio.tool === "bio";
-      const art = toolIllustration(tool.slug);
       return (
-        <>
-        {art ? (
-          <figure className={s.figure}>
-            {/* A local SVG: next/image would only add an optimization round trip. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={art.src} alt={art.alt} width={art.width} height={art.height} loading="lazy" decoding="async" className={s.figureImg} />
-          </figure>
-        ) : null}
         <ol className={s.steps}>
           {section.steps.map((step, i) => (
             <li key={step.title} className={s.step}>
               {isBio ? <StepVisual kind={step.visual} /> : null}
-              <span className={`${s.stepNum} ${displayFont.className}`}>{pad(i + 1)}</span>
+              <span className={`${s.stepNum} ${displayFont.className}`}>Step {i + 1}</span>
               <h3 className={s.h3}>{step.title}</h3>
               <p className={s.body}>{rich(step.text)}</p>
             </li>
           ))}
         </ol>
-        </>
       );
     }
     case "gallery":
@@ -317,11 +309,8 @@ function Body({ section, tool }: { section: StudioSection; tool: ToolPage }) {
     case "practices":
       return (
         <ol className={s.practices}>
-          {section.items.map((p, i) => (
+          {section.items.map((p) => (
             <li key={p.title} className={p.featured ? `${s.practice} ${s.dark}` : s.practice}>
-              <span className={`${s.bigNum} ${displayFont.className}`} aria-hidden>
-                {pad(i + 1)}
-              </span>
               <h3 className={s.h3}>{p.title}</h3>
               <p className={s.body}>{rich(p.text)}</p>
               {p.example && "count" in p.example ? (
@@ -421,14 +410,27 @@ export function StudioPage({ tool, jsonLd }: { tool: ToolPage; jsonLd: Record<st
         {studio.tool === "v3" ? <V3Generator slug={tool.slug} name={tool.name} /> : v2 ? <V2Tool spec={v2} skin={("skin" in studio ? studio.skin : undefined) ?? (studio.tool === "legacy" ? undefined : "instagram")} label={"label" in studio ? studio.label : undefined} /> : studio.tool === "legacy" ? <ToolWorkspace slug={tool.slug} ws={tool.workspace} /> : studio.tool === "caption" ? <CaptionStudio slug={tool.slug} ws={tool.workspace} label={studio.label} skin={studio.skin} noun={studio.noun} /> : <BioStudio slug={tool.slug} ws={tool.workspace} skin={studio.skin} label={studio.label} />}
       </div>
 
-      {bands.map((section, i) => (
-        <section key={i} className={i % 2 === 0 ? `${s.band} ${s.bandWarm}` : s.band}>
-          <div className={s.wrap}>
-            <SectionHead head={section} />
-            <Body section={section} tool={tool} />
-          </div>
-        </section>
-      ))}
+      {bands.map((section, i) => {
+        const art = section.kind === "steps" ? (toolArt(tool.slug) ?? toolIllustration(tool.slug)) : null;
+        return (
+          <section key={i} className={i % 2 === 0 ? `${s.band} ${s.bandWarm}` : s.band}>
+            <div className={s.wrap}>
+              {art && section.kind === "steps" ? (
+                // How it works: the steps as a short flow beside the tool's illustration.
+                <Explainer art={art}>
+                  <SectionHead head={section} left />
+                  <FlowSteps steps={section.steps.map((st) => ({ title: st.title, text: rich(st.text) }))} />
+                </Explainer>
+              ) : (
+                <>
+                  <SectionHead head={section} />
+                  <Body section={section} tool={tool} />
+                </>
+              )}
+            </div>
+          </section>
+        );
+      })}
 
       {cta && cta.kind === "cta" ? (
         <div className={s.wrap}>

@@ -7,6 +7,8 @@ import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import { LINK_SOCIAL_MEDIA_SERVICE } from "@/lib/tools/links";
 import t from "../_studio/edtool.module.css";
+import { ART as SECTION_ART } from "@/lib/tools/art";
+import { Explainer } from "../_components/Explainer";
 import f from "../facebook-bio-generator/fb.module.css";
 import y from "./ytname.module.css";
 import { ChannelNameTool } from "./ChannelNameTool";
@@ -116,12 +118,12 @@ export default function YouTubeChannelNameGeneratorPage() {
         <Head kicker="Three steps" title={<>How the free YouTube <em className={e.emGreen}>channel name generator</em> works</>} />
         <ul className={`${f.cards} ${f.cards3}`}>
           {[
-            ["01", "Choose your channel topic", "Pick a niche, audience and naming style. You can leave personal details blank."],
-            ["02", "Explore five name ideas", "Review the names, their handle suggestions and why each one might work."],
-            ["03", "Check before you claim", "Search for similar channels and test your handle in YouTube Studio."],
+            ["Step 1", "Choose your channel topic", "Pick a niche, audience and naming style. You can leave personal details blank."],
+            ["Step 2", "Explore five name ideas", "Review the names, their handle suggestions and why each one might work."],
+            ["Step 3", "Check before you claim", "Search for similar channels and test your handle in YouTube Studio."],
           ].map(([i, h, p]) => (
             <li key={h} className={f.card}>
-              <span className={f.icon} aria-hidden="true">{i}</span>
+              <span className={t.num}>{i}</span>
               <h3>{h}</h3>
               <p>{p}</p>
             </li>
@@ -148,10 +150,11 @@ export default function YouTubeChannelNameGeneratorPage() {
       </SECTION>
 
       <SECTION id="good-name" band>
-        <div className={y.prose}>
-          <Head kicker="Practical guide" title={<>What makes a good <em className={e.emGreen}>YouTube channel name?</em></>} />
+        <Explainer art={SECTION_ART.youtubeChannelName}>
+          <p className={e.eyebrow}>Practical guide</p>
+          <h2 className={e.h2}>What makes a good <em className={e.emGreen}>YouTube channel name?</em></h2>
           <p className={e.body} style={{ marginTop: 16 }}>A good name is easy to hear, say and type. It gives viewers a clue about your content without boxing you into one tiny subject. For a channel about quick home meals, Pocket Kitchen is clearer than a string of unrelated words.</p>
-        </div>
+        </Explainer>
       </SECTION>
 
       <SECTION id="name-vs-handle">

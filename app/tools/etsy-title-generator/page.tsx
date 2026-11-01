@@ -6,6 +6,8 @@ import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import t from "../_studio/edtool.module.css";
+import { ART as SECTION_ART } from "@/lib/tools/art";
+import { Explainer } from "../_components/Explainer";
 import f from "../facebook-bio-generator/fb.module.css";
 import { EtsyTitleTool } from "./EtsyTitleTool";
 import s from "./etsy.module.css";
@@ -120,14 +122,14 @@ export default function EtsyTitleGeneratorPage() {
       </SECTION>
 
       <SECTION id="what-is">
-        <Head
-          kicker="The basics"
-          title={<>What is an Etsy <em className={e.emGreen}>title generator?</em></>}
-          intro="An Etsy title generator helps you describe a product in the words buyers use when they search. Instead of staring at an empty title box, you start with three accurate options and make them yours."
-        />
-        <p className={e.body} style={{ maxWidth: 760, margin: "16px auto 0", textAlign: "center" }}>
-          It doesn&apos;t replace knowing your product. You know the material, the size and who it&apos;s for. The tool helps you put those facts in a clear order, so the most important words come first.
-        </p>
+        <Explainer art={SECTION_ART.etsyTitle} flip>
+          <p className={e.eyebrow}>The basics</p>
+          <h2 className={e.h2}>What is an Etsy <em className={e.emGreen}>title generator?</em></h2>
+          <p className={e.body} style={{ marginTop: 14 }}>An Etsy title generator helps you describe a product in the words buyers use when they search. Instead of staring at an empty title box, you start with three accurate options and make them yours.</p>
+          <p className={e.body} style={{ marginTop: 16 }}>
+            It doesn&apos;t replace knowing your product. You know the material, the size and who it&apos;s for. The tool helps you put those facts in a clear order, so the most important words come first.
+          </p>
+        </Explainer>
       </SECTION>
 
       <SECTION id="how-long" band>

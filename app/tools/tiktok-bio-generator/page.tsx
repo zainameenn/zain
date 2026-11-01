@@ -7,6 +7,8 @@ import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import { LINK_SOCIAL_MEDIA_SERVICE } from "@/lib/tools/links";
 import t from "../_studio/edtool.module.css";
+import { ART as SECTION_ART } from "@/lib/tools/art";
+import { Explainer } from "../_components/Explainer";
 import f from "../facebook-bio-generator/fb.module.css";
 import k from "./tiktok.module.css";
 import { TikTokBioTool } from "./TikTokBioTool";
@@ -236,13 +238,14 @@ export default function TikTokBioGeneratorPage() {
       </SECTION>
 
       <SECTION id="aesthetic" band>
-        <div className={k.prose}>
-          <Head kicker="Style" title={<>How to make your TikTok bio aesthetic <em className={e.emGreen}>without making it unreadable</em></>} />
+        <Explainer art={SECTION_ART.tiktokBio} flip>
+          <p className={e.eyebrow}>Style</p>
+          <h2 className={e.h2}>How to make your TikTok bio aesthetic <em className={e.emGreen}>without making it unreadable</em></h2>
           <p className={e.body} style={{ marginTop: 16 }}>You can use lowercase words, thoughtful punctuation and a few well chosen details. Fancy Unicode fonts can look pretty, but they may be harder to read, copy, search or access with a screen reader.</p>
           <p className={e.body}>Choose a mood, then ground it in something specific. &ldquo;soft girl era&rdquo; describes a vibe. &ldquo;film photos, slow walks and secondhand books&rdquo; tells people more about the account.</p>
           <p className={e.body}>Use emojis if you like them, but don&apos;t force one between every word. A single emoji can add personality. Six emojis can make an 80 character bio difficult to scan.</p>
           <p className={e.body}>If you want the aesthetic style, choose it in the tool. You can still edit the final result before copying.</p>
-        </div>
+        </Explainer>
       </SECTION>
 
       <SECTION id="business">

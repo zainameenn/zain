@@ -1,0 +1,24 @@
+/* Two column teaching sections and the step flow. Token fallbacks cover both the studio and editorial pages. */
+
+.explainer { display: grid; gap: clamp(28px, 4vw, 40px); align-items: center; text-align: left; }
+.copy { min-width: 0; }
+.copy > :first-child { margin-top: 0; }
+.figure { min-width: 0; margin: 0; }
+.img { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; }
+
+@media (min-width: 900px) {
+  .explainer { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(40px, 5vw, 72px); }
+  .flip { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
+  .flip .figure { order: -1; }
+}
+
+/* Step flow: a thin rail joins the steps, so it reads as input, then process, then result. */
+.flow { display: grid; gap: 0; margin: 24px 0 0; padding: 0; list-style: none; }
+.flowStep { position: relative; padding: 0 0 22px 26px; }
+.flowStep::before { content: ""; position: absolute; left: 4px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent, var(--ink, #124938)); }
+.flowStep::after { content: ""; position: absolute; left: 8px; top: 20px; bottom: 2px; width: 2px; background: var(--line, #e2dccf); }
+.flowStep:last-child { padding-bottom: 0; }
+.flowStep:last-child::after { display: none; }
+.flowLabel { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-text, #7f5f26); }
+.flowTitle { margin: 4px 0 0; font-size: 18px; font-weight: 600; line-height: 1.35; color: var(--ink, #202821); }
+.flowText { margin: 6px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink-2, #4a524b); }

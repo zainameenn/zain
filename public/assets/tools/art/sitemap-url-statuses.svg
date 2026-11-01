@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">Sitemap URL status auditor tree</title><desc id="svgdesc">Website sitemap structure with several URL statuses showing valid, redirected, and missing pages</desc>
+<defs><linearGradient id="canvasbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F3F9F4"/><stop offset="1" stop-color="#E2F0E6"/></linearGradient><linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#267958"/><stop offset="1" stop-color="#0F3F32"/></linearGradient><linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F9ECD7"/><stop offset="1" stop-color="#E8CEA4"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F7FBF8"/></linearGradient><filter id="sh" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="17" flood-color="#123D2C" flood-opacity=".13"/></filter><filter id="sh2" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#123D2C" flood-opacity=".10"/></filter><clipPath id="clipcircle"><circle cx="0" cy="0" r="100"/></clipPath></defs>
+<rect x="38" y="43" width="1124" height="715" rx="48" fill="url(#canvasbg)"/>
+<circle cx="1050" cy="144" r="115" fill="#CCE5D5" opacity="0.53"/>
+<circle cx="132" cy="650" r="89" fill="#D6E9DD" opacity="0.48"/>
+<text x="100" y="134" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#B38842" letter-spacing="2">SITEMAP AUDIT</text>
+<text x="100" y="171" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="760" fill="#0F3F32">See which URLs need attention in your sitemap</text>
+<path d="M 1100 212 Q 1102.2 221.24 1111 223 Q 1102.2 224.76 1100 234 Q 1097.8 224.76 1089 223 Q 1097.8 221.24 1100 212 Z" fill="#B38842" opacity="1" />
+<rect x="110" y="308" width="250" height="156" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<rect x="202" y="328" width="65" height="65" rx="16" fill="#0F3F32"/>
+<g transform="translate(219.5,345.5) scale(1.25)" stroke="#FFFCF7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h10l5 5v15H5zM15 2v5h5 M8 12h9 M8 16h9"/></g>
+<text x="235" y="431" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="720" fill="#0F3F32" text-anchor="middle">sitemap.xml</text>
+<path d="M 360 388 L 468 388 M 468 271 L 468 583" fill="none" stroke="#267958" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<path d="M468 281 L551 281" fill="none" stroke="#267958" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="552" y="245" width="440" height="73" rx="16" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh2)"/>
+<rect x="564" y="259" width="45" height="45" rx="16" fill="#EDF5EF"/>
+<g transform="translate(571.5,266.5) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18 M12 3c-6 6-6 12 0 18 M12 3c6 6 6 12 0 18"/></g>
+<text x="625" y="277" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="680" fill="#0F3F32">/</text>
+<rect x="798" y="260" width="178" height="40" rx="20.0" fill="#EDF5EF"/>
+<text x="813" y="286.8" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="620" fill="#0F3F32">200 OK</text>
+<path d="M468 390 L551 390" fill="none" stroke="#267958" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="552" y="354" width="440" height="73" rx="16" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh2)"/>
+<rect x="564" y="368" width="45" height="45" rx="16" fill="#EDF5EF"/>
+<g transform="translate(571.5,375.5) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18 M12 3c-6 6-6 12 0 18 M12 3c6 6 6 12 0 18"/></g>
+<text x="625" y="386" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="680" fill="#0F3F32">/services</text>
+<rect x="798" y="369" width="178" height="40" rx="20.0" fill="#EDF5EF"/>
+<text x="813" y="395.8" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="620" fill="#0F3F32">200 OK</text>
+<path d="M468 499 L551 499" fill="none" stroke="#B38842" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="552" y="463" width="440" height="73" rx="16" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh2)"/>
+<rect x="564" y="477" width="45" height="45" rx="16" fill="#F6E9D2"/>
+<g transform="translate(571.5,484.5) scale(1.25)" stroke="#B38842" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 20 4 M12 4h8v8"/></g>
+<text x="625" y="495" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="680" fill="#0F3F32">/old-blog</text>
+<rect x="798" y="478" width="178" height="40" rx="20.0" fill="#F6E9D2"/>
+<text x="813" y="504.8" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="620" fill="#0F3F32">301 Redirect</text>
+<path d="M468 608 L551 608" fill="none" stroke="#BF6D61" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="552" y="572" width="440" height="73" rx="16" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh2)"/>
+<rect x="564" y="586" width="45" height="45" rx="16" fill="#F9E9E5"/>
+<g transform="translate(571.5,593.5) scale(1.25)" stroke="#BF6D61" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 21h20z M12 8v6M12 18v.1"/></g>
+<text x="625" y="604" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="680" fill="#0F3F32">/missing</text>
+<rect x="798" y="587" width="178" height="40" rx="20.0" fill="#F9E9E5"/>
+<text x="813" y="613.8" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="620" fill="#0F3F32">404 Error</text>
+<rect x="1008" y="311" width="63" height="63" rx="16" fill="#EDF5EF"/>
+<g transform="translate(1024.5,327.5) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l6 6L21 5"/></g>
+<text x="103" y="716" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="480" fill="#718078">Example response codes. An XML sitemap does not itself verify indexing.</text>
+</svg>

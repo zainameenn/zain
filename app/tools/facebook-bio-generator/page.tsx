@@ -6,6 +6,8 @@ import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import t from "../_studio/edtool.module.css";
+import { ART as SECTION_ART } from "@/lib/tools/art";
+import { Explainer, FlowSteps } from "../_components/Explainer";
 import { BioExamples, FacebookBioTool } from "./FacebookBioTool";
 import f from "./fb.module.css";
 
@@ -101,20 +103,18 @@ export default function FacebookBioGeneratorPage() {
       </section>
 
       <SECTION id="how-it-works" band>
-        <Head kicker="Three simple steps" title={<>How to use the Facebook Bio Generator</>} intro="You don't need to be a good writer. A few real details are enough to get started." />
-        <ol className={t.steps}>
-          {[
-            ["Tell us about yourself", "Write what you do, what you're into, or what your Facebook Page is about. One or two sentences is plenty."],
-            ["Choose how it should sound", "Pick a tone that feels right. Keep it natural, make it professional, or add a little personality."],
-            ["Copy the one you like", "Go through your bio ideas, edit any wording, check the length, then paste your favorite into Facebook."],
-          ].map(([h, p], i) => (
-            <li key={h}>
-              <span className={t.num}>{String(i + 1).padStart(2, "0")}</span>
-              <h3>{h}</h3>
-              <p>{p}</p>
-            </li>
-          ))}
-        </ol>
+        <Explainer art={SECTION_ART.facebookBio}>
+          <p className={e.eyebrow}>Three simple steps</p>
+          <h2 className={e.h2}>How to use the Facebook Bio Generator</h2>
+          <p className={e.body} style={{ marginTop: 14 }}>You don&apos;t need to be a good writer. A few real details are enough to get started.</p>
+          <FlowSteps
+            steps={[
+              { title: "Tell us about yourself", text: "Write what you do, what you're into, or what your Facebook Page is about. One or two sentences is plenty." },
+              { title: "Choose how it should sound", text: "Pick a tone that feels right. Keep it natural, make it professional, or add a little personality." },
+              { title: "Copy the one you like", text: "Go through your bio ideas, edit any wording, check the length, then paste your favorite into Facebook." },
+            ]}
+          />
+        </Explainer>
       </SECTION>
 
       <SECTION id="what-is">
