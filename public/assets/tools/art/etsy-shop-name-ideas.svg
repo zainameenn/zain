@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">Etsy shop name generator branding concepts</title><desc id="svgdesc">Distinctive storefront and sample shop-name ideas generated from the products and brand style, with availability reminder</desc>
+<defs><linearGradient id="canvasbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F3F9F4"/><stop offset="1" stop-color="#E2F0E6"/></linearGradient><linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#267958"/><stop offset="1" stop-color="#0F3F32"/></linearGradient><linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F9ECD7"/><stop offset="1" stop-color="#E8CEA4"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F7FBF8"/></linearGradient><filter id="sh" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="17" flood-color="#123D2C" flood-opacity=".13"/></filter><filter id="sh2" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#123D2C" flood-opacity=".10"/></filter><clipPath id="clipcircle"><circle cx="0" cy="0" r="100"/></clipPath></defs>
+<rect x="38" y="43" width="1124" height="715" rx="48" fill="url(#canvasbg)"/>
+<circle cx="1050" cy="144" r="115" fill="#CCE5D5" opacity="0.53"/>
+<circle cx="132" cy="650" r="89" fill="#D6E9DD" opacity="0.48"/>
+<text x="100" y="134" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#B38842" letter-spacing="2">ETSY SHOP NAMES</text>
+<text x="100" y="171" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="760" fill="#0F3F32">Find a name that sounds like your kind of shop</text>
+<path d="M 1100 212 Q 1102.2 221.24 1111 223 Q 1102.2 224.76 1100 234 Q 1097.8 224.76 1089 223 Q 1097.8 221.24 1100 212 Z" fill="#B38842" opacity="1" />
+<rect x="113" y="292" width="299" height="321" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<text x="140" y="336" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#718078">WHAT YOU SELL</text>
+<rect x="140" y="365" width="225" height="43" rx="21.5" fill="#EDF5EF"/>
+<text x="155" y="393.81" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="620" fill="#0F3F32">Handmade ceramics</text>
+<text x="141" y="452" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#718078">BRAND FEEL</text>
+<rect x="140" y="479" width="139" height="39" rx="19.5" fill="#F6E9D2"/>
+<text x="155" y="505.13" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="620" fill="#0F3F32">Calm</text>
+<rect x="285" y="479" width="102" height="39" rx="19.5" fill="#EDF5EF"/>
+<text x="300" y="505.13" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="620" fill="#0F3F32">Modern</text>
+<rect x="140" y="530" width="174" height="39" rx="19.5" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1"/>
+<text x="155" y="556.13" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="620" fill="#0F3F32">Warm</text>
+<path d="M 423 447 L 501 447" fill="none" stroke="#267958" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<path d="M 501 447 L 488.85 453.96 L 488.85 440.04 Z" fill="#267958" opacity="1" />
+<rect x="537" y="260" width="265" height="344" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<rect x="566" y="314" width="207" height="57" rx="5" fill="#0F3F32"/>
+<text x="671" y="351" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="720" fill="#FFFCF7" text-anchor="middle">Fern &amp; Form</text>
+<rect x="563" y="381" width="29" height="43" rx="0" fill="#D2E5D8"/>
+<rect x="593" y="381" width="29" height="43" rx="0" fill="#A4CBB3"/>
+<rect x="623" y="381" width="29" height="43" rx="0" fill="#D2E5D8"/>
+<rect x="653" y="381" width="29" height="43" rx="0" fill="#A4CBB3"/>
+<rect x="683" y="381" width="29" height="43" rx="0" fill="#D2E5D8"/>
+<rect x="713" y="381" width="29" height="43" rx="0" fill="#A4CBB3"/>
+<rect x="743" y="381" width="29" height="43" rx="0" fill="#D2E5D8"/>
+<path d="M563 379h211v15c0 20-30 20-30 0 0 20-30 20-30 0 0 20-30 20-30 0 0 20-30 20-30 0 0 20-30 20-30 0 0 20-30 20-30 0z" fill="#F6E9D2" stroke="#0F3F32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<rect x="570" y="424" width="198" height="128" rx="10" fill="#EDF5EF"/>
+<rect x="595" y="458" width="148" height="94" rx="5" fill="#B2D5BE"/>
+<path d="M620 542v-44q0-40 46-40q46 0 46 40v44" fill="none" stroke="#0F3F32" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
+<circle cx="675" cy="502" r="14" fill="#F2D7A5" opacity="1"/>
+<rect x="825" y="281" width="259" height="324" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
+<text x="852" y="329" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="750" fill="#0F3F32">More name ideas</text>
+<rect x="847" y="358" width="211" height="51" rx="13" fill="#EDF5EF"/>
+<text x="863" y="390" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="650" fill="#0F3F32">Studio Fern</text>
+<rect x="847" y="427" width="211" height="51" rx="13" fill="#EDF5EF"/>
+<text x="863" y="459" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="650" fill="#0F3F32">Little Hearth</text>
+<rect x="847" y="496" width="211" height="51" rx="13" fill="#EDF5EF"/>
+<text x="863" y="528" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="650" fill="#0F3F32">Soft Clay Co.</text>
+<text x="851" y="586" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="500" fill="#718078">Check availability first</text>
+<text x="102" y="717" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="480" fill="#718078">Sample names are creative examples. No trademark or platform availability check has been performed.</text>
+</svg>

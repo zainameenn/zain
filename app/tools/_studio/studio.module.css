@@ -862,6 +862,9 @@
   .sectionHead { text-align: center; margin-bottom: 36px; }
   .sectionHead .intro { margin-inline: auto; }
 }
+/* A section head inside a two column explainer: stacked and left aligned at every width. */
+.sectionHead.sectionHeadStack { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 0; text-align: left; }
+.sectionHead.sectionHeadStack .intro { max-width: none; margin-inline: 0; }
 .kicker {
   margin: 0 0 16px;
   font-size: 12px;

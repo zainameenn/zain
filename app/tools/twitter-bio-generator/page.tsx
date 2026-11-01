@@ -6,6 +6,8 @@ import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
 import t from "../_studio/edtool.module.css";
+import { ART as SECTION_ART } from "@/lib/tools/art";
+import { Explainer, FlowSteps } from "../_components/Explainer";
 import f from "../facebook-bio-generator/fb.module.css";
 import x from "./x.module.css";
 import { XBioTool } from "./XBioTool";
@@ -125,21 +127,19 @@ export default function TwitterBioGeneratorPage() {
       </section>
 
       <SECTION id="how-it-works" band>
-        <Head kicker="Four quick steps" title={<>How to use our free <em className={e.emGreen}>Twitter Bio Generator</em></>} intro="You don't need a personal brand statement. Or a collection of buzzwords. Just a few details about what makes your account yours." />
-        <ol className={t.steps}>
-          {[
-            ["Choose your account type", "Personal, creator, founder, professional, business, or fan account. Each needs a different kind of introduction."],
-            ["Choose your topic and your goal", "Tell us what you post about and what you want people to do when they find you."],
-            ["Add context if you want", "One sentence about yourself, your business, or an achievement can turn an okay bio into one that actually sounds like you."],
-            ["Generate and edit", "Browse five styles, check the character counts, preview each bio, and copy your favorite into X."],
-          ].map(([h, p], i) => (
-            <li key={h}>
-              <span className={t.num}>{String(i + 1).padStart(2, "0")}</span>
-              <h3>{h}</h3>
-              <p>{p}</p>
-            </li>
-          ))}
-        </ol>
+        <Explainer art={SECTION_ART.twitterBio}>
+          <p className={e.eyebrow}>Four quick steps</p>
+          <h2 className={e.h2}>How to use our free <em className={e.emGreen}>Twitter Bio Generator</em></h2>
+          <p className={e.body} style={{ marginTop: 14 }}>You don&apos;t need a personal brand statement. Or a collection of buzzwords. Just a few details about what makes your account yours.</p>
+          <FlowSteps
+            steps={[
+              { title: "Choose your account type", text: "Personal, creator, founder, professional, business, or fan account. Each needs a different kind of introduction." },
+              { title: "Choose your topic and your goal", text: "Tell us what you post about and what you want people to do when they find you." },
+              { title: "Add context if you want", text: "One sentence about yourself, your business, or an achievement can turn an okay bio into one that actually sounds like you." },
+              { title: "Generate and edit", text: "Browse five styles, check the character counts, preview each bio, and copy your favorite into X." },
+            ]}
+          />
+        </Explainer>
       </SECTION>
 
       <SECTION id="what-is">

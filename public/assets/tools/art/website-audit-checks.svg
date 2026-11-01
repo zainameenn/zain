@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-label="Website SEO audit and actionable on-page checks" width="1200" height="820"><title>Website SEO audit and actionable on-page checks</title><defs>
+        <linearGradient id="forest" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F3F32"/><stop offset="1" stop-color="#247356"/></linearGradient>
+        <linearGradient id="mist" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4FAF5"/><stop offset=".6" stop-color="#DBEDE1"/><stop offset="1" stop-color="#C3DEC9"/></linearGradient>
+        <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFAF0"/><stop offset="1" stop-color="#F1E5D0"/></linearGradient>
+        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBD19A"/><stop offset="1" stop-color="#B38842"/></linearGradient>
+        <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22382F"/><stop offset="1" stop-color="#0F2921"/></linearGradient>
+        <filter id="shadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="19" flood-color="#123F2F" flood-opacity=".15"/></filter>
+        <filter id="smallShadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#123F2F" flood-opacity=".16"/></filter>
+        <filter id="glow" x="-65%" y="-65%" width="230%" height="230%"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+<path d="M96 468 C104 243 299 121 480 186 C709 72 877 160 963 302 C1141 358 1150 567 946 679 C794 776 601 676 428 704 C210 729 88 602 96 468Z" fill="url(#mist)" opacity=".82"/>
+<circle cx="1019" cy="174" r="64" fill="#ECDFB8" opacity=".32"/><circle cx="175" cy="653" r="53" fill="#A2CDB2" opacity=".24"/>
+<circle cx="232" cy="143" r="7" fill="#B38842" opacity=".45"/>
+<circle cx="930" cy="628" r="6" fill="#B38842" opacity=".45"/>
+<circle cx="1064" cy="393" r="5" fill="#B38842" opacity=".45"/>
+<circle cx="379" cy="706" r="5" fill="#B38842" opacity=".45"/>
+<rect x="96" y="189" width="465" height="426" rx="26" fill="#FFFFFF" stroke="#D9E7DD" stroke-width="2" opacity="1" filter="url(#shadow)"/>
+<rect x="113" y="205" width="433" height="54" rx="15" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
+<circle cx="139" cy="233" r="7" fill="#B6CABC" stroke="none" stroke-width="1" opacity="1"/>
+<circle cx="160" cy="233" r="7" fill="#B6CABC" stroke="none" stroke-width="1" opacity="1"/>
+<circle cx="181" cy="233" r="7" fill="#B6CABC" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="204" y="218" width="314" height="27" rx="12" fill="#FFFFFF" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(216 220) scale(0.4166666666666667)" fill="none" stroke="#60776C" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20 10 H14 Q3 10 3 24 Q3 37 15 37 H22 M28 11 H33 Q45 11 45 24 Q45 37 33 37 H25 M15 24 H34"/>
+</g>
+<text x="255" y="238" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">example.com/page</text>
+<rect x="133" y="294" width="388" height="96" rx="18" fill="#EBF2E9" stroke="none" stroke-width="1" opacity="1"/>
+<text x="157" y="328" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="750">Page heading</text>
+<rect x="157" y="348" width="306" height="8" rx="4.0" fill="#A7B8AA" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="157" y="364" width="243" height="8" rx="4.0" fill="#A7B8AA" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="134" y="413" width="185" height="153" rx="16" fill="#E7EEDC" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(175 452) scale(1.2916666666666667)" fill="none" stroke="#124D3B" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="6" width="40" height="36" rx="5"/><circle cx="31" cy="17" r="4"/><path d="M6 38 l11 -13 l8 8 l6 -6 l10 11"/>
+</g>
+<rect x="342" y="440" width="162" height="9" rx="4.5" fill="#B4C7B7" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="342" y="466" width="150" height="9" rx="4.5" fill="#B4C7B7" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="342" y="492" width="126" height="9" rx="4.5" fill="#B4C7B7" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="342" y="518" width="143" height="9" rx="4.5" fill="#B4C7B7" stroke="none" stroke-width="1" opacity="1"/>
+<path d="M577 409 L645 409" fill="none" stroke="#124D3B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.62"/>
+<path d="M645 409 L632.181702151249 418.57555430566333 L632.181702151249 399.42444569433667 Z" fill="#124D3B" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+<rect x="665" y="179" width="421" height="447" rx="26" fill="#FFFFFF" stroke="#D9E7DD" stroke-width="2" opacity="1" filter="url(#shadow)"/>
+<text x="698" y="233" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">SEO checks</text>
+<rect x="943" y="204" width="104" height="38" rx="19.0" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
+<text x="995.0" y="227.9" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Example</text>
+<rect x="690" y="270" width="360" height="65" rx="14" fill="#FAF7F0" stroke="#E1EBE3" stroke-width="1" opacity="1"/>
+<circle cx="716" cy="302" r="17" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(706 292) scale(0.3958333333333333)" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12 H43 M5 24 H43 M5 36 H43"/><circle cx="17" cy="12" r="5" fill="white"/><circle cx="31" cy="24" r="5" fill="white"/><circle cx="22" cy="36" r="5" fill="white"/>
+</g>
+<text x="742" y="298" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="720">Page title</text>
+<text x="743" y="320" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="520">Title needs a clearer topic</text>
+<rect x="690" y="347" width="360" height="65" rx="14" fill="#FAF7F0" stroke="#E1EBE3" stroke-width="1" opacity="1"/>
+<circle cx="716" cy="379" r="17" fill="#1E6B53" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(706 369) scale(0.3958333333333333)" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M7 13 L11 17 L19 8 M25 13 H43 M7 29 L11 33 L19 24 M25 29 H43 M7 43 L11 47 L19 38 M25 43 H43"/>
+</g>
+<text x="742" y="375" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="720">Headings</text>
+<text x="743" y="397" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="520">One main heading found</text>
+<rect x="690" y="424" width="360" height="65" rx="14" fill="#FAF7F0" stroke="#E1EBE3" stroke-width="1" opacity="1"/>
+<circle cx="716" cy="456" r="17" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(706 446) scale(0.3958333333333333)" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12 H43 M5 24 H43 M5 36 H43"/><circle cx="17" cy="12" r="5" fill="white"/><circle cx="31" cy="24" r="5" fill="white"/><circle cx="22" cy="36" r="5" fill="white"/>
+</g>
+<text x="742" y="452" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="720">Internal links</text>
+<text x="743" y="474" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="520">Add relevant page links</text>
+<rect x="690" y="501" width="360" height="65" rx="14" fill="#FAF7F0" stroke="#E1EBE3" stroke-width="1" opacity="1"/>
+<circle cx="716" cy="533" r="17" fill="#1E6B53" stroke="none" stroke-width="1" opacity="1"/>
+<g transform="translate(706 523) scale(0.3958333333333333)" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M7 13 L11 17 L19 8 M25 13 H43 M7 29 L11 33 L19 24 M25 29 H43 M7 43 L11 47 L19 38 M25 43 H43"/>
+</g>
+<text x="742" y="529" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="720">Image text</text>
+<text x="743" y="551" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="520">Descriptions present</text>
+<path d="M1111 159 Q1114.74 172.6 1128 176 Q1114.4 179.74 1111 193 Q1107.6 179.74 1094 176 Q1107.26 172.6 1111 159Z" fill="#B38842" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+</svg>

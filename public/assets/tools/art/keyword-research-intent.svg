@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-label="Free keyword research, seed topic to search intent and related queries" width="1200" height="820"><title>Free keyword research, seed topic to search intent and related queries</title><defs>
+        <linearGradient id="forest" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F3F32"/><stop offset="1" stop-color="#247356"/></linearGradient>
+        <linearGradient id="mist" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F4FAF5"/><stop offset=".6" stop-color="#DBEDE1"/><stop offset="1" stop-color="#C3DEC9"/></linearGradient>
+        <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFAF0"/><stop offset="1" stop-color="#F1E5D0"/></linearGradient>
+        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBD19A"/><stop offset="1" stop-color="#B38842"/></linearGradient>
+        <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22382F"/><stop offset="1" stop-color="#0F2921"/></linearGradient>
+        <filter id="shadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="19" flood-color="#123F2F" flood-opacity=".15"/></filter>
+        <filter id="smallShadow" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#123F2F" flood-opacity=".16"/></filter>
+        <filter id="glow" x="-65%" y="-65%" width="230%" height="230%"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+<path d="M98 469 C67 282 190 158 393 181 C563 44 782 101 862 244 C1054 230 1156 413 1065 572 C972 764 737 721 582 681 C350 779 163 695 98 469Z" fill="url(#mist)" opacity=".82"/>
+<circle cx="1019" cy="174" r="64" fill="#ECDFB8" opacity=".32"/><circle cx="175" cy="653" r="53" fill="#A2CDB2" opacity=".24"/>
+<circle cx="232" cy="143" r="7" fill="#B38842" opacity=".45"/>
+<circle cx="930" cy="628" r="6" fill="#B38842" opacity=".45"/>
+<circle cx="1064" cy="393" r="5" fill="#B38842" opacity=".45"/>
+<circle cx="379" cy="706" r="5" fill="#B38842" opacity=".45"/>
+<rect x="96" y="222" width="302" height="354" rx="26" fill="#FFFFFF" stroke="#D9E7DD" stroke-width="2" opacity="1" filter="url(#shadow)"/>
+<text x="132" y="272" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="740">Start with a topic</text>
+<rect x="130" y="306" width="236" height="65" rx="18" fill="#FAF7F0" stroke="#CBDCCF" stroke-width="1" opacity="1"/>
+<g transform="translate(145 321) scale(0.7708333333333334)" fill="none" stroke="#124D3B" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="20" cy="20" r="12"/><path d="M29 29 L42 42"/>
+</g>
+<text x="201" y="346" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="740">desk mats</text>
+<text x="138" y="423" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Find relevant questions</text>
+<g transform="translate(137 449) scale(0.9583333333333334)" fill="none" stroke="#B38842" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M24 2 L29 18 L45 24 L29 30 L24 46 L19 30 L3 24 L19 18 Z"/>
+</g>
+<text x="200" y="480" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Explore intent</text>
+<path d="M417 401 L511 401" fill="none" stroke="#124D3B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.62"/>
+<path d="M511 401 L498.18170215124906 410.57555430566333 L498.18170215124906 391.42444569433667 Z" fill="#124D3B" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+<rect x="554" y="164" width="443" height="156" rx="23" fill="#FFFFFF" stroke="#D4E2D7" stroke-width="2" opacity="1" filter="url(#smallShadow)"/>
+<rect x="575" y="184" width="165" height="29" rx="14" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
+<text x="588" y="204" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="790" letter-spacing="0.6">BUYING INTENT</text>
+<circle cx="587" cy="228" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<text x="606" y="234" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">desk mats for office</text>
+<circle cx="587" cy="262" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<text x="606" y="268" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">large gaming desk mat</text>
+<rect x="690" y="359" width="399" height="156" rx="23" fill="#FFFFFF" stroke="#D4E2D7" stroke-width="2" opacity="1" filter="url(#smallShadow)"/>
+<rect x="711" y="379" width="165" height="29" rx="14" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
+<text x="724" y="399" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="790" letter-spacing="0.6">QUESTIONS</text>
+<circle cx="723" cy="423" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<text x="742" y="429" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">how to clean a desk mat</text>
+<circle cx="723" cy="457" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<text x="742" y="463" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">what size desk mat?</text>
+<rect x="517" y="563" width="453" height="131" rx="23" fill="#FFFFFF" stroke="#D4E2D7" stroke-width="2" opacity="1" filter="url(#smallShadow)"/>
+<rect x="538" y="583" width="165" height="29" rx="14" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
+<text x="551" y="603" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="790" letter-spacing="0.6">STYLE IDEAS</text>
+<circle cx="550" cy="627" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<text x="569" y="633" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">gothic desk mat</text>
+<circle cx="550" cy="661" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
+<text x="569" y="667" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">minimal desk mat</text>
+<path d="M524 412 C556 329 591 324 684 318 M524 412 C566 460 654 481 690 493" fill="none" stroke="#6BA081" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+<path d="M1068 174 Q1071.52 186.8 1084 190 Q1071.2 193.52 1068 206 Q1064.8 193.52 1052 190 Q1064.48 186.8 1068 174Z" fill="#B38842" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+</svg>

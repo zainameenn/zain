@@ -6,6 +6,8 @@ import { ArrowIcon } from "@/app/HomeComponents/icons";
 import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { HUB_CARDS, hubImage } from "@/lib/tools/hub";
 import { TOOLS, toolPath } from "@/lib/tools/registry";
+import { toolArt } from "@/lib/tools/art";
+import { Explainer, FlowSteps } from "../_components/Explainer";
 import type { NewToolContent } from "@/lib/tools/v3/content-types";
 import { SeoWidget } from "./SeoWidget";
 import s from "./studio.module.css";
@@ -40,6 +42,7 @@ const rich = (text: string) => text.replace(/\*\*([^*]+)\*\*/g, "$1");
 
 export function EditorialToolPage({ c, jsonLd }: { c: NewToolContent; jsonLd: Record<string, unknown> }) {
   const related = c.related.filter((r) => TOOLS[r.slug]);
+  const art = toolArt(c.slug);
   return (
     <EditorialPage>
       <JsonLd data={jsonLd} />
@@ -66,19 +69,29 @@ export function EditorialToolPage({ c, jsonLd }: { c: NewToolContent; jsonLd: Re
       </section>
 
       <section className={t.sec}>
-        <div className={`${e.container} ${t.center}`}>
-          <p className={e.eyebrow}>How it works</p>
-          <h2 className={e.h2}>How to use the {c.name} <em className={e.emGreen}>in three steps.</em></h2>
-          <ol className={t.steps}>
-            {c.steps.map((st, i) => (
-              <li key={st.title}>
-                <span className={t.num}>{String(i + 1).padStart(2, "0")}</span>
-                <h3>{st.title}</h3>
-                <p>{st.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
+        {art ? (
+          <div className={e.container}>
+            <Explainer art={art}>
+              <p className={e.eyebrow}>How it works</p>
+              <h2 className={e.h2}>How to use the {c.name} <em className={e.emGreen}>in three steps.</em></h2>
+              <FlowSteps steps={c.steps} />
+            </Explainer>
+          </div>
+        ) : (
+          <div className={`${e.container} ${t.center}`}>
+            <p className={e.eyebrow}>How it works</p>
+            <h2 className={e.h2}>How to use the {c.name} <em className={e.emGreen}>in three steps.</em></h2>
+            <ol className={t.steps}>
+              {c.steps.map((st, i) => (
+                <li key={st.title}>
+                  <span className={t.num}>Step {i + 1}</span>
+                  <h3>{st.title}</h3>
+                  <p>{st.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
       </section>
 
       <div className={t.band}>
