@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title3 desc3"><title id="title3">Short, medium or story?</title><desc id="desc3">Choose the length that fits the update, not the maximum allowed.</desc>
+<rect x="1" y="1" width="1198" height="678" rx="30" fill="#FFFEFB" stroke="#E9E1D5" stroke-width="2"/>
+<rect x="48" y="37" width="78" height="7" rx="4" fill="#A5793C" stroke="none" stroke-width="0"/>
+<text x="49" y="105" text-anchor="start" font-family="Georgia, serif" font-size="42" font-weight="500" fill="#24352D">Short, medium or story?</text>
+<text x="50" y="146" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">Choose the length that fits the update, not the maximum allowed.</text>
+<rect x="51" y="220" width="364" height="318" rx="22" fill="#E5F1EA" stroke="#DDDED6" stroke-width="1.4"/>
+<rect x="73" y="241" width="133" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="139.5" y="268" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#154B3B">SHORT</text>
+<text x="75" y="324" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">1 sentence</text>
+<text x="75" y="380" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650" fill="#24352D">The bakery is open again.</text>
+<text x="75" y="420" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#24352D">Come by this weekend.</text>
+<text x="75" y="460" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#24352D"></text>
+<rect x="440" y="220" width="364" height="318" rx="22" fill="#F5F0E6" stroke="#DDDED6" stroke-width="1.4"/>
+<rect x="462" y="241" width="133" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="528.5" y="268" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#154B3B">MEDIUM</text>
+<text x="464" y="324" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">2–4 sentences</text>
+<text x="464" y="380" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650" fill="#24352D">We refreshed the bakery</text>
+<text x="464" y="420" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#24352D">and added two new loaves.</text>
+<text x="464" y="460" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#24352D">Come see what is new.</text>
+<rect x="829" y="220" width="364" height="318" rx="22" fill="#E9EFFC" stroke="#DDDED6" stroke-width="1.4"/>
+<rect x="851" y="241" width="133" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="917.5" y="268" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#154B3B">STORY</text>
+<text x="853" y="324" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">Several short paragraphs</text>
+<text x="853" y="380" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650" fill="#24352D">Six months ago, this room</text>
+<text x="853" y="420" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#24352D">had empty shelves. Today,</text>
+<text x="853" y="460" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#24352D">we opened the doors.</text>
+<rect x="52" y="566" width="1096" height="54" rx="15" fill="#154B3B" stroke="none" stroke-width="1.4"/>
+<text x="600" y="601" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="500" fill="white">Facebook posts allow long text. Clear writing matters more than filling the limit.</text>
+</svg>

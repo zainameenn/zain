@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title2 desc2"><title id="title2">The first line has a job to do</title><desc id="desc2">Give readers the point before they tap “See more”.</desc>
+<rect x="1" y="1" width="1198" height="678" rx="30" fill="#FFFEFB" stroke="#E9E1D5" stroke-width="2"/>
+<rect x="48" y="37" width="78" height="7" rx="4" fill="#A5793C" stroke="none" stroke-width="0"/>
+<text x="49" y="105" text-anchor="start" font-family="Georgia, serif" font-size="42" font-weight="500" fill="#24352D">The first line has a job to do</text>
+<text x="50" y="146" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">Give readers the point before they tap “See more”.</text>
+<rect x="54" y="190" width="635" height="382" rx="23" fill="white" stroke="#DDDED6" stroke-width="1.4"/>
+<circle cx="106" cy="243" r="27" fill="#E5F1EA"/>
+<text x="146" y="253" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#24352D">Your Page</text>
+<text x="146" y="279" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="400" fill="#59675F">Yesterday · Public</text>
+<line x1="85" y1="306" x2="655" y2="306" stroke="#DDDED6" stroke-width="2" stroke-linecap="round"/>
+<rect x="80" y="337" width="583" height="79" rx="14" fill="#E5F1EA" stroke="#BDDAC7" stroke-width="1.4"/>
+<text x="102" y="369" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#154B3B">The new workshop starts Saturday.</text>
+<text x="102" y="399" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="400" fill="#59675F">Only the first line is highlighted here.</text>
+<text x="83" y="463" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#24352D">We will cover the tools, setup, and</text>
+<text x="83" y="493" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#24352D">the small mistakes worth avoiding.</text>
+<rect x="82" y="519" width="279" height="40" rx="17" fill="#F5F0E6" stroke="none" stroke-width="0"/><text x="221.5" y="546" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#A5793C">See more  •  illustrative</text>
+<rect x="730" y="218" width="399" height="316" rx="22" fill="#F5F0E6" stroke="#E2D9C8" stroke-width="1.4"/>
+<rect x="758" y="242" width="165" height="40" rx="17" fill="#E5F1EA" stroke="none" stroke-width="0"/><text x="840.5" y="269" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#154B3B">START HERE</text>
+<text x="762" y="323" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700" fill="#24352D">What happened?</text>
+<text x="762" y="378" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700" fill="#24352D">Who is it for?</text>
+<text x="762" y="433" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700" fill="#24352D">What should they do?</text>
+<line x1="748" y1="346" x2="1095" y2="346" stroke="#DDDED6" stroke-width="2" stroke-linecap="round"/>
+<line x1="748" y1="400" x2="1095" y2="400" stroke="#DDDED6" stroke-width="2" stroke-linecap="round"/>
+<text x="63" y="616" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="400" fill="#59675F">The “See more” cutoff depends on the device and layout. This is a preview.</text>
+</svg>

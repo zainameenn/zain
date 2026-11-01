@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title8 desc8"><title id="title8">Post caption or video subtitles?</title><desc id="desc8">These solve different problems, even though both are called captions.</desc>
+<rect x="1" y="1" width="1198" height="678" rx="30" fill="#FFFEFB" stroke="#E9E1D5" stroke-width="2"/>
+<rect x="48" y="37" width="78" height="7" rx="4" fill="#A5793C" stroke="none" stroke-width="0"/>
+<text x="49" y="105" text-anchor="start" font-family="Georgia, serif" font-size="42" font-weight="500" fill="#24352D">Post caption or video subtitles?</text>
+<text x="50" y="146" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">These solve different problems, even though both are called captions.</text>
+<rect x="50" y="201" width="530" height="345" rx="23" fill="#E5F1EA" stroke="#BEDAC5" stroke-width="1.4"/>
+<rect x="79" y="225" width="192" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="175.0" y="252" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#154B3B">POST CAPTION</text>
+<rect x="82" y="291" width="446" height="155" rx="15" fill="white" stroke="#DDDED6" stroke-width="1.4"/>
+<text x="105" y="330" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#24352D">Our new collection is live.</text>
+<text x="105" y="371" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="400" fill="#24352D">Three styles, one simple idea.</text>
+<text x="105" y="410" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#154B3B">See the details on our Page.</text>
+<text x="81" y="500" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#59675F">Written text accompanying a post.</text>
+<rect x="622" y="201" width="528" height="345" rx="23" fill="#F5F0E6" stroke="#E4D8CA" stroke-width="1.4"/>
+<rect x="652" y="225" width="225" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="764.5" y="252" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#A5793C">VIDEO SUBTITLES</text>
+<rect x="654" y="291" width="461" height="155" rx="15" fill="#274239" stroke="none" stroke-width="1.4"/>
+<text x="882" y="344" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="white">“Welcome back”</text>
+<text x="882" y="386" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="500" fill="#D3E5DB">00:00:04 → 00:00:06</text>
+<text x="655" y="500" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#59675F">Timed speech text on the video.</text>
+<text x="55" y="611" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="400" fill="#59675F">Do not promise transcription, subtitles or SRT exports from a text post generator.</text>
+</svg>

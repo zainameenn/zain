@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title6 desc6"><title id="title6">What the image shows vs what you know</title><desc id="desc6">AI can describe visible objects. Owners must confirm the facts.</desc>
+<rect x="1" y="1" width="1198" height="678" rx="30" fill="#FFFEFB" stroke="#E9E1D5" stroke-width="2"/>
+<rect x="48" y="37" width="78" height="7" rx="4" fill="#A5793C" stroke="none" stroke-width="0"/>
+<text x="49" y="105" text-anchor="start" font-family="Georgia, serif" font-size="42" font-weight="500" fill="#24352D">What the image shows vs what you know</text>
+<text x="50" y="146" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">AI can describe visible objects. Owners must confirm the facts.</text>
+<rect x="50" y="215" width="520" height="343" rx="22" fill="#E5F1EA" stroke="#BED9C4" stroke-width="1.4"/>
+<rect x="76" y="238" width="244" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="198.0" y="265" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#154B3B">VISIBLE IN PHOTO</text>
+<text x="81" y="321" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="650" fill="#24352D">•  Two ceramic mugs</text>
+<text x="81" y="371" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="650" fill="#24352D">•  Green and cream glaze</text>
+<text x="81" y="421" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="650" fill="#24352D">•  Wooden table</text>
+<text x="81" y="493" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="400" fill="#59675F">Good visual starting points</text>
+<rect x="620" y="215" width="530" height="343" rx="22" fill="#F5F0E6" stroke="#E5D9CA" stroke-width="1.4"/>
+<rect x="648" y="238" width="268" height="40" rx="17" fill="white" stroke="none" stroke-width="0"/><text x="782.0" y="265" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650" fill="#A5793C">USER MUST CONFIRM</text>
+<text x="656" y="321" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650" fill="#24352D">•  Handmade or factory-made?</text>
+<text x="656" y="371" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650" fill="#24352D">•  Price and availability?</text>
+<text x="656" y="421" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650" fill="#24352D">•  Shipping, size or material?</text>
+<text x="657" y="493" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="400" fill="#59675F">Never invent selling points</text>
+<text x="53" y="614" text-anchor="start" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="400" fill="#59675F">Image-only captioning should request missing details rather than guess them.</text>
+</svg>
