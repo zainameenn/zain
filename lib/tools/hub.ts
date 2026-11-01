@@ -34,6 +34,8 @@ export const HUB_CARDS: Record<string, HubCard> = {
   "linkedin-about-section-generator": { description: "Turn your experience and achievements into a readable LinkedIn About section that sounds like you.", cta: "Write your About section" },
   "linkedin-post-generator": { description: "Create LinkedIn posts from your ideas, experiences, or observations without making them sound overly corporate.", cta: "Write a post" },
   "linkedin-comment-generator": { description: "Write relevant, thoughtful LinkedIn comments that contribute something useful to the conversation.", cta: "Write a comment" },
+  "linkedin-experience-description-generator": { description: "Turn rough job notes into clear LinkedIn experience bullets, without invented metrics.", cta: "Write my experience" },
+  "linkedin-skills-generator": { description: "Find skills for your role and separate the ones you can prove from the ones to learn.", cta: "Find my skills" },
   ...Object.fromEntries(V3_CONTENT.map((c) => [c.slug, c.hubCard])),
 };
 

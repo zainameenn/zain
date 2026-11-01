@@ -1,0 +1,297 @@
+import type { LinkedInCopy } from "./LinkedInPage";
+
+// Page copy for the six LinkedIn tools, from the November 2026 package. Rewritten only where the package
+// describes features this build does not have: each writing tool returns one strong result (Try another
+// version gives a new one), and there is no resume, photo or link upload, so those FAQs say to paste text.
+
+const MISTAKES: [string, string][] = [
+  ["Trying to sound impressive instead of clear", "Use language a real reader would understand."],
+  ["Letting AI add details you never provided", "Review every job title, project and statistic, especially when you paste a resume or job listing."],
+  ["Writing for the character limit instead of the reader", "Short enough to be understood is more important than filling the entire field."],
+  ["Treating a draft as something already published", "This tool generates text. A human chooses what to post or add to LinkedIn."],
+];
+
+const STEPS = (what: string): [string, string][] => [
+  ["Choose the right goal", "Pick the profile type, audience or use case so the result fits what you are trying to do."],
+  ["Add the details you know", "Required facts are clearly marked. Anything else is optional, but a real example usually improves the output."],
+  ["Review and copy", `Read the ${what}, make it sound like you and check the facts before adding it to LinkedIn. Not right yet? Refine it or try another version.`],
+];
+
+export const POST: LinkedInCopy = {
+  kind: "post",
+  title: "Free LinkedIn Post Generator | Write Posts With AI",
+  description: "Free LinkedIn post generator that turns an idea, real experience or rough notes into one strong draft. Edit it, preview the feed and copy what sounds like you.",
+  h1: ["Free LinkedIn", "Post Generator"],
+  lede: "Free LinkedIn post generator for when you have something useful to say and need a clearer way to say it. Turn a topic, a rough idea or something you learned into a post you would actually publish. Choose the goal and style, and add your own experience so the result doesn't sound like everyone else.",
+  steps: STEPS("post"),
+  get: [
+    "One strong draft built around a single clear idea, using only the details you gave.",
+    "An editable post with a live count against your chosen length and LinkedIn's 3,000 character limit.",
+    "An illustrative feed preview. The real \"see more\" point varies by device.",
+    "One click refinements: shorter, more natural or simpler words, or a whole new version.",
+  ],
+  guide: [
+    { h: "What is a LinkedIn post generator?", p: ["It turns a topic, a rough note or a real experience into a first draft for LinkedIn. You should still decide whether the point is true, helpful and worth sharing. AI makes writing easier; it cannot supply a personal experience you never had."] },
+    { h: "How to write a LinkedIn post people want to read", p: ["Start with one specific idea. Give people the context they need and an example that helps them understand. End when the point is made. A question is optional, not a tax on every post."], fig: { name: "02-rules", alt: "The anatomy of a strong LinkedIn post: clear opening, one main point, real example, natural ending." } },
+    { h: "How long can a LinkedIn post be?", p: ["LinkedIn supports up to 3,000 characters in a standard post (see LinkedIn Help). That is a maximum, not a target. Keep the important idea near the beginning because feed previews truncate differently by device and placement."], fig: { name: "04-checklist", alt: "What the preview does and does not show: 3,000 character maximum, preview truncation varies, edit before copying, no auto publishing." } },
+    { h: "One idea, three formats", p: ["Idea: a small SaaS team kept publishing new pages while old pages stopped converting. Short insight: more pages will not fix a confusing product page. Story: we reviewed our lowest converting pages before creating anything new. Practical guide: audit traffic, search intent and the conversion path, then prioritize. Pick the format in the form; if the first draft isn't right, try another version."] },
+    { h: "LinkedIn post hooks that do not sound like AI", p: ["A good first line tells readers what the post is about or offers a useful tension. Try an observation, a lesson, a mistake or a concrete question. Skip formulas such as “Here is the harsh truth” if they do not match your voice."] },
+    { h: "Writing LinkedIn posts for different goals", p: ["A founder announcing a product should state what changed and who it helps. A job seeker sharing a project should say what they built and what they learned. A company Page should give readers relevant context instead of using a press release tone."] },
+    { h: "Should you use hashtags, emojis and links?", p: ["Use them only when they help the reader. Do not repeat a list of trendy hashtags or add emojis by default. Verify the destination of every link, and do not believe promises that putting a link in a comment boosts reach."] },
+    { h: "Can AI write posts in your voice?", p: ["Only if it has examples of how you actually write. Add real details in “Make it more personal” and edit the draft into your own words. This tool never reads your LinkedIn profile or posts."] },
+  ],
+  examples: [
+    ["Personal insight", "I used to think more content would fix slow growth. It turned out the existing pages needed clearer next steps."],
+    ["Practical tip", "Before writing another post, ask: Who needs this? What will they learn? What example makes it useful?"],
+    ["Founder update", "We simplified onboarding this week. Fewer fields, clearer instructions and one less place to get stuck."],
+  ],
+  mistakes: MISTAKES,
+  faqs: [
+    ["Is this LinkedIn Post Generator free?", "Yes. It's free with no signup, within fair use limits that keep it running for everyone."],
+    ["Do I need LinkedIn Premium to post?", "No. You can create standard posts on a regular LinkedIn account."],
+    ["What is the LinkedIn post character limit?", "3,000 characters, per LinkedIn Help."],
+    ["Why do I get one post instead of several?", "One well written draft is easier to judge than five similar ones. If it isn't right, press Try another version for a new angle, or refine the one you have."],
+    ["Can I generate a post from a photo?", "Not in this tool. Describe what the photo shows in the form instead, and the post will only use what you wrote."],
+    ["How many hashtags should I use?", "Only the ones that naturally help describe the topic. The tool adds at most three, and only when they are relevant."],
+    ["Should I write a long or short post?", "Use the shortest length that explains the idea well. A longer story or tutorial can work when it contains real substance."],
+    ["Can I paste an old draft to improve it?", "Yes. Paste it into “What are you posting about?” and the tool keeps your facts while it rewrites."],
+    ["Can this publish to my LinkedIn account automatically?", "No. This is a draft and copy workflow. It never asks for your LinkedIn login and never posts for you."],
+    ["What if my post is too long?", "Press Make it shorter, or edit it under 3,000 characters. For longer writing, consider a LinkedIn article."],
+    ["Can the tool make carousel images?", "No. That is a separate visual design task. This tool writes the text of a post."],
+    ["Is my information stored?", "No. What you type is sent to an AI provider (Google Gemini) to write the post and isn't stored by this site. Don't include private information."],
+  ],
+  figures: {
+    workflow: { name: "01-workflow", alt: "From rough idea to useful post: rough idea, audience and goal, real example, editable draft." },
+    examples: { name: "03-examples", alt: "One topic, three approaches: direct insight, personal lesson, practical guide. Choose your voice." },
+  },
+};
+
+export const COMMENT: LinkedInCopy = {
+  kind: "comment",
+  title: "Free LinkedIn Comment Generator | Useful AI Comments",
+  description: "Free LinkedIn comment generator: paste a post and get one natural comment with a real point of view. Choose your perspective, edit it and post it yourself.",
+  h1: ["Free LinkedIn", "Comment Generator"],
+  lede: "Free LinkedIn comment generator for replies that add something, not just “Great post.” Paste the post you want to reply to and tell us what you actually think, if you want. Get a thoughtful comment that responds to the point instead of sounding like automated engagement.",
+  steps: STEPS("comment"),
+  get: [
+    "One substantive comment that responds to a specific point in the post.",
+    "No forced praise and no automatic question at the end.",
+    "An editable comment with a live count and a preview.",
+    "You review it and publish it yourself. Nothing is posted for you.",
+  ],
+  guide: [
+    { h: "What makes a good LinkedIn comment?", p: ["A useful comment connects with a specific point in the original post. It might add a personal example, a caveat or a concrete next step. A generic compliment could fit under almost any post; that is the problem."], fig: { name: "02-rules", alt: "Generic vs specific comments: avoid empty praise, name the actual point, use real context, skip forced questions." } },
+    { h: "How to respond without pretending to know the author", p: ["Read the whole post first. Reflect its claim accurately. Keep personal stories attributed to yourself only when they are true. Do not invent relationships, shared projects or experiences."] },
+    { h: "Three comment styles worth using", p: ["Add an example when you have one. Offer a respectful alternative when a statement overlooks a case. Ask a question only when you sincerely want an answer. A question should not be an engagement trick. Choose your reaction in the form to steer the style."] },
+    { h: "LinkedIn comment examples", p: ["Original post: “We changed onboarding and saw fewer support tickets.” Useful reply: “Reducing decisions at the first step can make a real difference. It is worth checking whether support requests also changed after the update.” Avoid: “Absolutely amazing insight, thanks for sharing!”"] },
+    { h: "Should you disagree in LinkedIn comments?", p: ["Yes, when you can do so fairly and specifically. Explain the situation in which your view is different. Avoid insults, mockery or presenting guesses as certain facts."] },
+    { h: "Why an AI comment needs your input", p: ["Without a perspective, a model may write something bland that sounds agreeable. The optional “What do you actually think?” field helps the tool write a comment you actually stand behind."] },
+    { h: "Can you automate LinkedIn commenting?", p: ["Draft assistance is different from automated engagement. LinkedIn's User Agreement prohibits unauthorized bots or methods that comment, like and otherwise drive inauthentic activity. This tool will not auto comment, scrape feeds or engage at scale."], fig: { name: "04-checklist", alt: "Drafting is not auto commenting: paste source text, generate a suggestion, a human reviews, a human publishes." } },
+  ],
+  examples: [
+    ["Add detail", "One thing I would add is checking where people drop off before changing the entire flow."],
+    ["Respectful disagreement", "That can work for established brands. Small teams might need to validate the message before increasing output."],
+    ["Genuine question", "When you made that change, did you measure the effect on activation or only signups?"],
+  ],
+  mistakes: MISTAKES,
+  faqs: [
+    ["Can I use a LinkedIn comment generator without logging in?", "Yes. There's no account here, and the tool never asks for your LinkedIn password."],
+    ["Does LinkedIn allow AI written comments?", "LinkedIn allows AI assisted writing, but expects authentic contributions that members review. Automated commenting or inauthentic engagement is a separate policy concern."],
+    ["How long can a LinkedIn comment be?", "Third party guides commonly report around 1,250 characters, but official sources differ. This tool aims for short, readable comments and stops well under that."],
+    ["Can I reply to a comment instead of a post?", "Yes. Paste the comment and, if it helps, the post it sits under."],
+    ["Should every comment end with a question?", "No. Ask only when the question adds a useful next step."],
+    ["Can I generate comments from a link?", "No. A URL doesn't give permission to scrape LinkedIn, so paste the post text instead."],
+    ["Why do generated comments sound generic?", "They usually lack your opinion or an example. Add a real detail under “What do you actually think?” and try another version."],
+    ["Will this increase my LinkedIn engagement?", "No outcome is guaranteed. The tool helps you write; it has no effect on distribution or account growth."],
+    ["Can this post comments for me?", "No. Copy the draft and post it yourself."],
+  ],
+  figures: {
+    workflow: { name: "01-workflow", alt: "What a meaningful comment adds: read the actual post, choose your view, add one useful detail, edit and copy." },
+    examples: { name: "03-examples", alt: "Three useful response angles: build on an idea, offer a caveat, ask a real question, stay respectful." },
+  },
+};
+
+export const HEADLINE: LinkedInCopy = {
+  kind: "headline",
+  title: "Free LinkedIn Headline Generator | 220 Character Headlines",
+  description: "Free LinkedIn headline generator that writes one clear headline from your real role, skills and career goal. Check the 220 character count and copy it.",
+  h1: ["Free LinkedIn", "Headline Generator"],
+  lede: "Free LinkedIn headline generator for a headline that tells people what you do, without making them guess. Choose your goal, add your role and the skills you actually use, and get a headline that sounds like a professional, not a list of buzzwords.",
+  steps: STEPS("headline"),
+  get: [
+    "One truthful headline within LinkedIn's 220 character limit.",
+    "Your role and main keyword in the first 60 characters, the part search and comments show.",
+    "A live count and an approximate profile and search preview.",
+    "Target roles written as aspirations, never as titles you already hold.",
+  ],
+  guide: [
+    { h: "What is a LinkedIn headline?", p: ["It is the short line below your name on your profile and in many LinkedIn previews. It should help the right person understand your role, expertise or professional goal before clicking through."] },
+    { h: "How long can a LinkedIn headline be?", p: ["LinkedIn uses a 220 character headline limit. You do not have to fill it. Different LinkedIn screens show different portions, so put the most useful words first."], fig: { name: "02-rules", alt: "How 220 characters work: maximum 220 characters, front load your role, short previews vary, do not keyword stuff." } },
+    { h: "A simple headline formula", p: ["Start with your real role or target role. Add a few specific strengths. Finish with your audience or a result if you have genuine proof. You can write this as a sentence or as natural sections; pick the style in the form."] },
+    { h: "LinkedIn headlines for job seekers", p: ["If you want to become a product analyst, “Aspiring Product Analyst | SQL, Excel and customer research” is clearer than claiming to already hold a senior position. Job seekers should lead with actual skills and make career goals explicit."] },
+    { h: "LinkedIn headlines for founders and consultants", p: ["Say who you help, what you do and the problem you solve. “SEO consultant for local service businesses” is more useful than “Visionary growth ninja and thought leader.”"] },
+    { h: "Keyword use without keyword stuffing", p: ["Use normal role and skill names that a recruiter or client would understand. Repeating the same phrase several times does not make a headline more trustworthy or readable."] },
+    { h: "Where LinkedIn headlines appear", p: ["Headlines can show on profiles, in search results and beside comments. The visible space differs, so the preview here is illustrative rather than pixel perfect."], fig: { name: "04-checklist", alt: "Three headline styles: natural sentence, role and specialty, audience and outcome. Compare, then copy." } },
+  ],
+  examples: [
+    ["Job seeker", "Marketing analyst | GA4, Excel and campaign reporting | Exploring growth roles"],
+    ["Founder", "Founder helping small service businesses improve their websites and customer journey"],
+    ["Consultant", "SEO consultant for SaaS and service businesses | Keyword strategy and content planning"],
+  ],
+  mistakes: MISTAKES,
+  faqs: [
+    ["Is the LinkedIn headline generator free?", "Yes. It's free with no signup, within fair use limits."],
+    ["What is the maximum LinkedIn headline length?", "220 characters, according to LinkedIn's published guidance."],
+    ["Can I use a headline without my job title?", "Yes, but make your field or professional direction easy to understand."],
+    ["Should I list every skill?", "No. Choose the most relevant skills for your audience or career goal."],
+    ["Should a job seeker mention “Open to Work”?", "Only if it is relevant and you are comfortable making that signal public. The tool never adds it on its own."],
+    ["Can I use a title I am aiming for?", "Yes. Put it in “Role you are aiming for” and it will be written as a goal, so you don't misrepresent your current experience."],
+    ["Can I copy a headline from my resume?", "You can adapt it. A LinkedIn headline usually benefits from adding your audience or specialties. Paste the relevant facts into the form rather than a whole resume."],
+    ["Will this make my profile rank first?", "No. Search appearance depends on many factors outside a headline."],
+    ["What is the difference between headline and About?", "The headline is a short introduction; the About section gives the fuller story and evidence."],
+  ],
+  figures: {
+    workflow: { name: "01-workflow", alt: "A simple headline formula: real role, specific skills, audience or goal, proof only if true." },
+    examples: { name: "03-examples", alt: "Before and after: a generic keyword list becomes a clear role, a relevant audience and a useful specialty." },
+  },
+};
+
+export const ABOUT: LinkedInCopy = {
+  kind: "about",
+  title: "Free LinkedIn About Section Generator | Profile Summary",
+  description: "Free LinkedIn About section generator that turns your experience, skills and goals into one summary that sounds like you, within the 2,600 character limit.",
+  h1: ["Free LinkedIn", "About Section Generator"],
+  lede: "Free LinkedIn About section generator for a summary that sounds like a person, not a resume pasted into a box. Tell us what you do and what matters to you, choose a goal, add any real results you want mentioned, and get a clear summary you can edit and copy.",
+  steps: STEPS("summary"),
+  get: [
+    "One About section with a clear opener, real examples of your work and a natural close.",
+    "Short, Medium or Detailed lengths, always under LinkedIn's 2,600 characters.",
+    "A live count and a preview showing roughly where “see more” cuts in.",
+    "No made up numbers, employers, degrees or job titles.",
+  ],
+  guide: [
+    { h: "What is a LinkedIn About section?", p: ["The About section is where you explain your work, interests and direction in your own words. Unlike the headline, it gives you room for context and examples."] },
+    { h: "How to write a LinkedIn summary", p: ["Introduce what you do or want to do. Give a few relevant examples of your work. Explain who your skills help or what problems interest you. End with a clear next step when appropriate."] },
+    { h: "How long can a LinkedIn About section be?", p: ["The widely documented limit is 2,600 characters. That is not a recommended target. Put the most useful information early because the displayed preview is shorter and varies by device."], fig: { name: "02-rules", alt: "The 2,600 character guide: the limit is not a target, lead with the essentials, use short paragraphs, preview length varies." } },
+    { h: "LinkedIn About for students and graduates", p: ["You do not need a long work history. Mention what you are studying, projects you completed, tools you have used and the roles you want to explore."] },
+    { h: "LinkedIn About for people changing careers", p: ["Separate what you have done from where you want to go. Show transferable skills through projects or responsibilities rather than implying you already hold a new title."] },
+    { h: "LinkedIn About for founders and consultants", p: ["Describe the people you work with, the work you do and evidence that makes the service credible. Avoid invented client wins or a pushy sales paragraph."] },
+    { h: "How to improve a generic AI summary", p: ["Remove claims you cannot prove. Replace “results driven professional” with a real responsibility. Cut repetition. Rewrite phrases you would never say in conversation. The refine buttons help, but your own edit is the final word."] },
+    { h: "Headline vs About vs Experience", p: ["Your headline introduces your role. Your About explains your professional story. Your Experience entries document what you did in specific roles. Do not repeat the same text three times."], fig: { name: "04-checklist", alt: "Profile sections work together: the headline introduces, About explains, Experience proves, Skills support." } },
+  ],
+  examples: [
+    ["Student", "I am studying business analytics and learning how to turn messy data into useful decisions. Recent projects have included spreadsheet modelling and dashboard design. I am exploring entry level analyst opportunities."],
+    ["Consultant", "I help small businesses make their websites easier to find and use. My work focuses on practical SEO, content planning and clearer customer journeys. If you are improving your site, I would be glad to connect."],
+    ["Career changer", "My background is in customer support, where I learned to translate user problems into clear next steps. I am now building product operations skills through coursework and hands on projects."],
+  ],
+  mistakes: MISTAKES,
+  faqs: [
+    ["Is the LinkedIn About generator free?", "Yes. It's free with no signup, within fair use limits."],
+    ["What is the LinkedIn About character limit?", "Widely documented as 2,600 characters. Check the current editor when you paste."],
+    ["Should the About section be written in first person?", "First person is usually natural for an individual profile. Choose “Professional” for a more formal voice."],
+    ["Can I create an About section with no experience?", "Yes. Use your education, projects, volunteer work and career interests."],
+    ["Can I upload my resume?", "Not as a file. Paste the relevant parts into the form, so you choose exactly which facts are used."],
+    ["Should I include keywords in my LinkedIn summary?", "Use role and skill words naturally. A summary should still be readable by people."],
+    ["Do I need to mention achievements?", "Only when you have real evidence. Responsibilities and projects can also show value."],
+    ["Can I use the same text on my resume?", "You can reuse facts, but a LinkedIn About section usually works better as a first person introduction."],
+    ["How do I change my LinkedIn About?", "Open your profile, find About, choose edit, paste your text and save."],
+  ],
+  figures: {
+    workflow: { name: "01-workflow", alt: "The About section framework: who you are, what you do, evidence and examples, a natural next step." },
+    examples: { name: "03-examples", alt: "Three summary styles: short and direct, story led, evidence led. Use true details." },
+  },
+};
+
+export const EXPERIENCE: LinkedInCopy = {
+  kind: "experience",
+  title: "Free LinkedIn Experience Description Generator | Job Summary",
+  description: "Free LinkedIn experience description generator that turns real job notes into clear bullets or a short paragraph, with no invented metrics.",
+  h1: ["Free LinkedIn", "Experience Description Generator"],
+  lede: "Free LinkedIn experience description generator for showing what you actually did. Share your role and a few rough notes, and get a clear job description you can paste into your Experience section, without turning every responsibility into a made up success story.",
+  steps: STEPS("description"),
+  get: [
+    "One description for the role, as bullets, a short paragraph or both.",
+    "Every line built from your own notes. Results appear only if you gave them.",
+    "A live count with a conservative 2,000 character cap.",
+    "A pasted job posting is used for wording only, never as proof of what you did.",
+  ],
+  guide: [
+    { h: "What belongs in the LinkedIn Experience section?", p: ["A role description should show your responsibilities, scope and results. Explain the work in terms someone outside your company can understand. Avoid copying your job posting word for word."] },
+    { h: "How to write strong experience bullets", p: ["Start with a real action. Name the task or project. Add context and a result when you know it. If you do not have a number, describe the work accurately without inserting a placeholder that looks like a claim."] },
+    { h: "Responsibilities versus achievements", p: ["Responsibility: managed weekly email campaigns. Achievement: improved click through rate by 18% after rebuilding the segments, but only if that number is real. Both types of details are useful when accurate."], fig: { name: "02-rules", alt: "Responsibilities vs results: what you worked on, how you contributed, what changed if known, never invent figures." } },
+    { h: "LinkedIn experience description examples", p: ["Before: “Worked on social media.” After: “Planned weekly content across LinkedIn and Facebook, coordinated design briefs and reviewed post performance.” This adds specificity without claiming fake revenue."] },
+    { h: "How to write LinkedIn experience as a student", p: ["Include internship assignments, relevant project work and the tools you used. Do not invent an employment history. Explain your contribution to group projects honestly."] },
+    { h: "How to describe independent and founder work", p: ["Show the kind of clients or projects, the deliverables and how you worked. You do not need to pretend you ran a large team if you worked on your own."] },
+    { h: "How long can a LinkedIn experience description be?", p: ["Many outside guides report a 2,000 character editor limit for each role, but LinkedIn's official help is not as explicit. This tool uses 2,000 as a conservative cap; your LinkedIn editor is the final check."], fig: { name: "04-checklist", alt: "The Experience fact check: employer and role accurate, dates and claims confirmed, no invented metrics, human review." } },
+    { h: "Job summary versus a job posting", p: ["This tool writes a description of work you personally performed. It does not create a hiring advertisement or claim you held a role listed in a vacancy."] },
+  ],
+  examples: [
+    ["Marketing role", "Planned social posts for multiple channels and reviewed weekly analytics to identify which topics generated useful conversations."],
+    ["Data analyst internship", "Cleaned spreadsheet datasets, built dashboard views and documented reporting steps for the team."],
+    ["Independent consultant", "Managed client research, scoped deliverables and created SEO content briefs for small businesses."],
+  ],
+  mistakes: MISTAKES,
+  faqs: [
+    ["What is a LinkedIn job summary?", "Here, a short description of your responsibilities and achievements for one role in your Experience section."],
+    ["Is this different from an About section?", "Yes. About covers your overall professional story. Experience describes one specific job or project."],
+    ["Can I write a description without numbers?", "Yes. Specific, factual responsibilities are better than invented statistics, and the tool never adds numbers you didn't give."],
+    ["Should I paste a job posting?", "You can, to borrow relevant wording, but the result only describes what you actually did."],
+    ["Can this improve an old job description?", "Yes. Paste it into “What did you actually do?” and the tool keeps your facts while it rewrites."],
+    ["Should I use bullets or a paragraph?", "Bullets are easy to scan. A paragraph can work for short roles. Choose Both to get a summary and bullets."],
+    ["What if I was an intern or student?", "Say so in the form. The description will state that experience accurately and focus on projects, tools and contributions."],
+    ["Can I copy generated experience directly?", "Review it first. Confirm every responsibility, figure, employer and job title."],
+    ["What is the LinkedIn Experience character limit?", "Third party guides commonly report 2,000 characters per role. The platform editor remains the final check."],
+  ],
+  figures: {
+    workflow: { name: "01-workflow", alt: "Turn notes into experience: real job title, actual responsibilities, confirmed outcomes, readable bullets." },
+    examples: { name: "03-examples", alt: "Three description styles: brief paragraph, action led bullets, project focused. Choose and edit." },
+  },
+};
+
+export const SKILLS: LinkedInCopy = {
+  kind: "skills",
+  title: "Free LinkedIn Skills Generator | Role and Resume Skills",
+  description: "Free LinkedIn skills generator that finds skills for your role and goals, separating skills you can prove from suggestions to check and skills to learn.",
+  h1: ["Free LinkedIn", "Skills Generator"],
+  lede: "Free LinkedIn skills generator for a skills list that explains what you can do, because a long list does not. Pick your field and career goal, add skills you have genuinely used or paste a job description to compare, and get an organized list to review before adding anything to LinkedIn.",
+  steps: STEPS("list"),
+  get: [
+    "Skills you confirmed, cleaned into names LinkedIn recognises.",
+    "Role relevant suggestions, each with the evidence that would support it.",
+    "Learning gaps from your target role or job posting, kept separate.",
+    "Grouped into tools and technologies, industry knowledge and interpersonal skills. Tick, remove and copy.",
+  ],
+  guide: [
+    { h: "What is a LinkedIn skills generator?", p: ["It helps organize a skill list around your real work and the roles you want. Recommendations are not credentials. Add only skills you can explain through actual work, study or projects."] },
+    { h: "How many skills can you add to LinkedIn?", p: ["LinkedIn allows up to 100 skills in the Skills section (see LinkedIn Help). You do not need to add 100. Start with a smaller set that matches your experience and target audience."], fig: { name: "04-checklist", alt: "The 100 skill rule: 100 is a maximum, not a quality target, evidence matters, review before adding." } },
+    { h: "How to choose relevant LinkedIn skills", p: ["Look at your responsibilities, projects, tools and target jobs. Prefer clear skill names that hiring managers or clients recognize. A specific tool is often more informative than a generic claim such as “hardworking.”"] },
+    { h: "Hard skills, tools and interpersonal skills", p: ["Hard skills describe methods such as SQL or technical SEO. Tools are specific technologies such as Tableau. Interpersonal skills describe how you work with others. Use each only if you can explain an example."], fig: { name: "02-rules", alt: "LinkedIn skill organization: industry knowledge, tools and technology, interpersonal skills, prioritize relevance." } },
+    { h: "How to use a job description without exaggerating", p: ["A job posting can tell you which skills matter for the target role. It cannot prove you possess them. That is why the results keep skills you confirmed, suggestions to check and skills worth learning in separate lists."] },
+    { h: "LinkedIn skills for students and career changers", p: ["Projects, internships, coursework and volunteer work can provide real evidence of skills. Keep the background transparent; do not imply years of professional experience you do not have."] },
+    { h: "Why your Experience section should support your Skills", p: ["For your top skills, readers should be able to find examples in a job, project or achievement. If you list SQL, show where you worked with data. If you list stakeholder management, explain a relevant collaboration."] },
+    { h: "How to add and reorder LinkedIn skills", p: ["Open your profile and Skills section, add recognized skill labels and save. You can reorder skills using LinkedIn's own controls. This tool never logs in or edits your profile."] },
+    { h: "Are endorsements the same as skills?", p: ["No. You choose the skills on your profile. Connections can endorse them. A generated list does not create endorsements or prove ability."] },
+  ],
+  examples: [
+    ["Marketing specialist", "Content Strategy, Google Analytics 4, SEO, Audience Research, Campaign Reporting"],
+    ["Junior data analyst", "Excel, SQL, Data Cleaning, Data Visualization, Stakeholder Reporting"],
+    ["Customer support to operations", "Customer Support, Process Documentation, Ticket Analysis, Cross Team Communication"],
+  ],
+  mistakes: MISTAKES,
+  faqs: [
+    ["What is the LinkedIn Skills limit?", "LinkedIn permits up to 100 skills in the Skills section."],
+    ["Should I add all 100 skills?", "No. Select skills that are relevant and that you can actually demonstrate."],
+    ["Can a job description generate skills?", "It supplies role relevant suggestions, not proof that you have them. Those appear as suggestions or learning gaps, never as confirmed skills."],
+    ["Can I generate skills from my resume?", "Paste your skills or the relevant resume lines into “Skills you genuinely have”. File uploads aren't supported."],
+    ["Should I prioritize technical or soft skills?", "That depends on your role. Concrete skills and tools are often easier to show, while interpersonal skills benefit from examples. Use the Skills mix setting to steer it."],
+    ["Can I list skills from a course?", "Yes, when you actually learned and practised them. Do not imply professional mastery without evidence."],
+    ["Does LinkedIn automatically add generated skills?", "No. The tool only gives you a list to copy and add yourself."],
+    ["Do endorsements guarantee hiring?", "No. Endorsements may add context, but hiring decisions depend on much more."],
+    ["Can I see skills I am missing?", "Yes. Choose a target role or paste a job posting, and the gaps appear in a separate “Worth learning” list."],
+    ["How often should I update skills?", "Review them when your responsibilities or career goals materially change."],
+  ],
+  figures: {
+    workflow: { name: "01-workflow", alt: "From experience to skills: real responsibilities, tools actually used, relevant role terms, a verified skill list." },
+    examples: { name: "03-examples", alt: "Matched vs missing skills: already demonstrated, requested by the role, worth learning, do not claim as held." },
+  },
+};
