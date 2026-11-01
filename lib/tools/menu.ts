@@ -40,6 +40,8 @@ export const TOOL_MENU: ToolMenuGroup[] = [
       ["LinkedIn summary", "/tools/linkedin-about-section-generator"],
       ["LinkedIn post", "/tools/linkedin-post-generator"],
       ["LinkedIn comment", "/tools/linkedin-comment-generator"],
+      ["LinkedIn experience", "/tools/linkedin-experience-description-generator"],
+      ["LinkedIn skills", "/tools/linkedin-skills-generator"],
     ],
   },
   {

@@ -29,7 +29,15 @@ const PAGES: ToolPage[] = [
   linkedinPostPage(POST),
   linkedinCommentPage(COMMENT),
   ...V3_PAGES,
+  // November 2026: two new LinkedIn tools. Their own folders render the page (app/tools/_linkedin); these
+  // entries only list them in the hub, menu, sitemap and related links, so they borrow the headline page's shape.
+  linkedinStub("linkedin-experience-description-generator", "LinkedIn Experience Description Generator", "LinkedIn experience description generator"),
+  linkedinStub("linkedin-skills-generator", "LinkedIn Skills Generator", "free LinkedIn skills generator"),
 ];
+
+function linkedinStub(slug: string, name: string, keyword: string): ToolPage {
+  return { ...linkedinHeadlinePage(HEADLINE), slug, name, keyword, metaTitle: name, metaDescription: name, h1: { regular: "Free LinkedIn", accent: name.replace("LinkedIn ", "") }, api: null, studio: undefined };
+}
 
 /**
  * Pages rebuilt to the Instagram bio standard and approved to go live. Add a slug here when its batch is approved.
@@ -130,6 +138,9 @@ const LIVE = new Set([
   "broken-link-checker",
   "sitemap-url-status-checker",
   "website-audit-tool",
+  // November 2026: LinkedIn package.
+  "linkedin-experience-description-generator",
+  "linkedin-skills-generator",
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));
@@ -189,6 +200,8 @@ export const STATUS: Record<string, ToolStatus> = {
   "twitter-bio-generator": "published",
   "threads-bio-generator": "published",
   "facebook-bio-generator": "published",
+  "linkedin-experience-description-generator": "review",
+  "linkedin-skills-generator": "review",
 };
 export const statusOf = (slug: string): ToolStatus => STATUS[slug] ?? "development";
 
