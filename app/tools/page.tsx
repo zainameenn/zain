@@ -5,33 +5,45 @@ import { H1_ACCENT_STYLE, HERO_H1_STYLE } from "@/app/HomeComponents/heading";
 import { JsonLd, breadcrumbList } from "@/app/blog/_components/JsonLd";
 import { SITE_URL } from "@/lib/markdown";
 import { buildMetadata } from "@/lib/seo";
-import { ILLUSTRATIONS } from "@/lib/illustrations";
-import { HUB_META } from "@/lib/tools/meta";
-import { HERO_TOOL, HUB_CARDS, HUB_CATEGORIES, choosers, helps, hubFaqs, hubImage, startPicks, toolKinds, type HelpExample } from "@/lib/tools/hub";
-import { LINK_CONTACT, LINK_SERVICES } from "@/lib/tools/links";
+import { HUB_CARDS, HUB_CATEGORIES, hubImage } from "@/lib/tools/hub";
+import { LINK_SEO_SERVICE } from "@/lib/tools/links";
 import { ALL_TOOLS, TOOLS, toolPath } from "@/lib/tools/registry";
-import { Crumbs, rich } from "./_components/content";
+import { Crumbs } from "./_components/content";
+import { ALIASES, AUDIENCES, FAQS, FEATURED, GROUP_COPY, GUIDE, KINDS, WORKFLOWS } from "./_hub/copy";
 import { Directory, ToolCard, type DirectoryGroup, type DirectoryTool } from "./_hub/Directory";
+import d from "./_hub/directory.module.css";
 import h from "./_hub/hub.module.css";
 import { bodyFont, displayFont } from "@/app/_design/fonts";
 import s from "./_studio/studio.module.css";
 
-// The /tools hub: hero with one featured tool, starting points, the full directory with search,
-// then short guides that point to the right tool. Built from lib/tools/hub.ts, so only live tools ever appear.
+// The /tools directory (November 1, 2026 package): a search-first hero, six featured live tools, the full
+// directory with filters, then short task workflows and guides. Everything is built from the tool registry,
+// so a card, link or count only ever shows a tool that is live; tools still being built are labelled.
 
-const TITLE = HUB_META.title;
-const DESCRIPTION = HUB_META.description;
+const TITLE = "Free Marketing Tools for SEO & Social Media | Zainameen";
+const DESCRIPTION = "Explore free SEO, social media and ecommerce tools. Write captions, improve website pages, plan content and build better listings. Start without signing up.";
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: "/tools" });
 
-const card = (slug: string): DirectoryTool => ({ slug, href: toolPath(slug), name: TOOLS[slug].name, image: hubImage(slug), ...HUB_CARDS[slug] });
+const ART = "/assets/tools/directory";
+const live = (slug: string) => Boolean(TOOLS[slug]);
+const name = (slug: string) => TOOLS[slug]?.name ?? slug;
+const card = (slug: string): DirectoryTool => ({ slug, href: toolPath(slug), name: TOOLS[slug].name, image: hubImage(slug), aliases: ALIASES[slug], ...HUB_CARDS[slug] });
 
-function Head({ eyebrow, heading, accent, intro }: { eyebrow: string; heading: string; accent?: string; intro?: ReactNode }) {
+// The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
+const SOCIALS = [
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/zain-ameen/" },
+  { name: "X", href: "https://x.com/zainnameen" },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61560222560607" },
+  { name: "Instagram", href: "https://www.instagram.com/zainn.ms/" },
+];
+
+function Head({ eyebrow, heading, accent, intro, id }: { eyebrow: string; heading: string; accent?: string; intro?: ReactNode; id?: string }) {
   return (
     <header className={`${s.sectionHead} ${s.sectionHeadCenter}`}>
       <div>
         <p className={s.kicker}>{eyebrow}</p>
-        <h2 className={s.h2}>
+        <h2 className={s.h2} id={id}>
           {heading}
           {accent ? <em className={s.h2Accent}> {accent}</em> : null}
         </h2>
@@ -41,68 +53,20 @@ function Head({ eyebrow, heading, accent, intro }: { eyebrow: string; heading: s
   );
 }
 
-const Arrow = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <path d="M5 12h14M13 6l6 6-6 6" />
-  </svg>
+const Art = ({ file, alt, eager, max }: { file: string; alt: string; eager?: boolean; max?: number }) => (
+  // eslint-disable-next-line @next/next/no-img-element
+  <img className={d.art} style={max ? { maxWidth: max } : undefined} src={`${ART}/${file}.svg`} alt={alt} width={1600} height={960} loading={eager ? "eager" : "lazy"} decoding="async" fetchPriority={eager ? "high" : undefined} />
 );
 
-function Example({ example }: { example: HelpExample }) {
-  if (example.kind === "bio") return <p className={h.exBio}>{example.text}</p>;
-  if (example.kind === "serp")
-    return (
-      <div className={h.exSerp}>
-        <span className={h.exUrl}>{example.url}</span>
-        <span className={h.exTitle}>{example.title}</span>
-        <span className={h.exDesc}>{example.text}</span>
-      </div>
-    );
-  if (example.kind === "plan")
-    return (
-      <ol className={h.exPlan}>
-        {example.weeks.map((w) => (
-          <li key={w}>{w}</li>
-        ))}
-      </ol>
-    );
-  return (
-    <p className={h.exUtm}>
-      {example.base}
-      {example.params.map(([k, v], i) => (
-        <span key={k}>
-          {i ? "&" : "?"}
-          <b>{k}</b>={v}
-        </span>
-      ))}
-    </p>
-  );
-}
-
-const ToolLinks = ({ slugs, dark }: { slugs: string[]; dark?: boolean }) => (
-  <ul className={dark ? `${h.links} ${h.linksDark}` : h.links}>
-    {slugs.map((slug) => (
-      <li key={slug}>
-        <Link href={toolPath(slug)}>
-          {TOOLS[slug].name}
-          <Arrow />
-        </Link>
-      </li>
-    ))}
-  </ul>
-);
+const ToolLink = ({ slug }: { slug: string }) => (live(slug) ? <Link href={toolPath(slug)}>{name(slug)}</Link> : null);
 
 export default function ToolsHub() {
-  const groups: DirectoryGroup[] = HUB_CATEGORIES.map((c) => ({ ...c, tools: ALL_TOOLS.filter((t) => t.group === c.group && HUB_CARDS[t.slug]).map((t) => (t.linked ? card(t.slug) : { slug: t.slug, href: "", name: t.name, image: hubImage(t.slug), ...HUB_CARDS[t.slug] })) })).filter((g) => g.tools.length);
-  const all = groups.flatMap((g) => g.tools);
-  const hero = TOOLS[HERO_TOOL.slug] ? card(HERO_TOOL.slug) : null;
-  const picks = startPicks().map(card);
-  const choose = choosers();
-  const help = helps();
-  const kinds = toolKinds();
-  const faqs = hubFaqs();
-  // Sections after the directory alternate warm white and cream bands.
-  let band = 0;
-  const bandClass = () => (band++ % 2 === 0 ? `${s.band} ${s.bandWarm}` : s.band);
+  const groups: DirectoryGroup[] = HUB_CATEGORIES.map((c) => ({
+    ...c,
+    tools: ALL_TOOLS.filter((t) => t.group === c.group && HUB_CARDS[t.slug]).map((t) => (t.linked ? card(t.slug) : { slug: t.slug, href: "", name: t.name, image: hubImage(t.slug), aliases: ALIASES[t.slug], ...HUB_CARDS[t.slug] })),
+  })).filter((g) => g.tools.length);
+  const featured = FEATURED.filter((f) => live(f.slug)).map((f) => ({ ...card(f.slug), description: f.text, cta: f.cta }));
+  const groupFor = (slug: string) => HUB_CATEGORIES.find((c) => c.group === TOOLS[slug]?.group)?.label ?? "";
 
   return (
     <main className={`${s.page} ${s.edFonts} ${displayFont.variable} ${bodyFont.variable}`}>
@@ -121,93 +85,221 @@ export default function ToolsHub() {
               url: `${SITE_URL}/tools`,
               mainEntity: {
                 "@type": "ItemList",
-                itemListElement: all.filter((t) => t.href).map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: `${SITE_URL}${t.href}` })),
+                itemListElement: groups.flatMap((g) => g.tools).filter((t) => t.href).map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, url: `${SITE_URL}${t.href}` })),
               },
-            },
-            {
-              "@type": "FAQPage",
-              mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
             },
           ],
         }}
       />
 
+      {/* 1 and 2: breadcrumb and a search-first hero */}
       <div className={s.wrap}>
         <Crumbs items={[{ name: "Home", href: "/" }, { name: "Free Tools" }]} />
-        <header className={s.hero}>
-          <h1 style={HERO_H1_STYLE}>
-            Free <em style={H1_ACCENT_STYLE}>Marketing Tools</em> for Social Media, SEO &amp; More
-          </h1>
-          <p className={s.lede}>
-            These free marketing tools help you create better social media bios, write captions, improve your SEO, and plan your marketing without starting from scratch.
-          </p>
-          <p className={s.sub}>Pick a free tool, add a few details, and get something useful in minutes.</p>
-        </header>
-
-        {hero ? (
-          <section className={h.feature} aria-labelledby="featured-tool">
-            <div className={h.featureText}>
-              <p className={s.kicker}>Featured tool</p>
-              <h2 id="featured-tool" className={h.featureTitle}>
-                {hero.name}
-              </h2>
-              <p className={h.featureCopy}>{HERO_TOOL.copy}</p>
-              <div className={h.featureActions}>
-                <Link href={hero.href} className={`${s.btn} ${s.btnPrimary} ${s.btnLg}`}>
-                  {HERO_TOOL.button}
-                </Link>
-                <a href="#all-tools" className={`${s.btn} ${s.btnText} ${s.btnLg}`}>
-                  Browse all {all.length} tools
-                </a>
-              </div>
-            </div>
-            <div className={h.featureArt}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={hero.image} alt="" width={1200} height={900} fetchPriority="high" className={h.featureImg} />
-            </div>
-          </section>
-        ) : null}
-      </div>
-
-      {picks.length === 3 && all.length >= 9 ? (
-        <section className={`${s.band} ${s.bandWarm}`}>
-          <div className={s.wrap}>
-            <Head eyebrow="Where to start" heading="Tools to" accent="start with" intro="Three good first tools, picked by hand. Each one takes about a minute." />
-            <ul className={h.startGrid}>
-              {picks.map((t) => (
-                <li key={t.slug}>
-                  <ToolCard tool={t} featured />
+        <section className={d.hero}>
+          <div className={d.heroText}>
+            <p className={s.kicker}>Free tools. Real marketing tasks.</p>
+            <h1 style={HERO_H1_STYLE} className={d.h1}>
+              Free <em style={H1_ACCENT_STYLE}>Marketing Tools</em> for SEO, Social Media &amp; More
+            </h1>
+            <p className={s.lede}>Free marketing tools for the jobs on your list: finding keywords, improving a web page, writing a caption, or getting a product listing ready.</p>
+            <p className={d.heroCopy}>Pick what you&apos;re working on, open the right tool, and get something useful without starting from scratch. Some tools help you write. Others help you check, organize, or improve what you&apos;ve already made.</p>
+            <form action="/tools#all-tools" method="get" className={d.heroSearch} role="search">
+              <label htmlFor="hero-search" className={h.srOnly}>
+                Search a tool or task
+              </label>
+              <input id="hero-search" name="q" type="search" placeholder="Search a tool or task... Try: SEO title, Instagram bio, Etsy" autoComplete="off" />
+              <button type="submit" className={`${s.btn} ${s.btnPrimary}`}>
+                Search
+              </button>
+            </form>
+            <ul className={d.heroChips} aria-label="Popular categories">
+              {groups.map((g) => (
+                <li key={g.id}>
+                  <Link href={`/tools?cat=${g.id}#all-tools`}>{g.label}</Link>
                 </li>
               ))}
             </ul>
+            <p className={d.trust}>Free to start · No account needed for current public tools · Copy and edit results · Fair use limits apply</p>
+            <p className={d.note}>Looking for live keyword volumes or rankings? Some data tools are still in development. Working tools and upcoming tools are labeled separately.</p>
+          </div>
+          <div className={d.heroArt}>
+            <Art file="01-directory-hero" eager alt="Illustration of a marketing tool search bar and cards for SEO, social media, ecommerce and understanding tool results." />
+          </div>
+        </section>
+      </div>
+
+      {/* 3: six featured live tools */}
+      {featured.length ? (
+        <section className={`${s.band} ${s.bandWarm}`} aria-labelledby="featured-h">
+          <div className={s.wrap}>
+            <Head id="featured-h" eyebrow="A good place to start" heading="Popular tasks," accent="without the extra tabs" intro="Not sure where to begin? These tools cover the work people come back to most often." />
+            <ul className={d.featured}>
+              {featured.map((t) => (
+                <li key={t.slug}>
+                  <ToolCard tool={t} featured category={groupFor(t.slug)} />
+                </li>
+              ))}
+            </ul>
+            <Art file="02-tool-finder" max={1200} alt="Four task choices: write a social bio, improve a webpage, sell a product online, or plan marketing work." />
           </div>
         </section>
       ) : null}
 
-      <section className={s.band} aria-label="All free tools">
+      {/* 4: the full directory */}
+      <section className={s.band} aria-labelledby="directory-h">
         <div className={s.wrap}>
-          <Head eyebrow="The directory" heading="Every free tool," accent="in one place" intro="Jump to a category or search by platform or task." />
+          <Head id="directory-h" eyebrow="The full toolbox" heading="Find the tool that" accent="matches your task" intro="You don't need to know the technical name. Search for what you want to do, or choose a category below." />
           <Directory groups={groups} />
         </div>
       </section>
 
-      <section className={bandClass()}>
+      {/* Category guides: short, crawlable starting points per category */}
+      <section className={`${s.band} ${s.bandWarm}`} aria-labelledby="categories-h">
+        <div className={s.wrap}>
+          <Head id="categories-h" eyebrow="By category" heading="Where to start in" accent="each category" />
+          <div className={d.catGuides}>
+            {Object.entries(GROUP_COPY).map(([id, g]) => {
+              const picks = g.picks.filter(([slug]) => live(slug));
+              return picks.length ? (
+                <section key={id} className={d.catGuide} aria-labelledby={`guide-${id}`}>
+                  <h3 id={`guide-${id}`} className={s.h3}>{g.heading}</h3>
+                  <p className={s.body}>{g.intro}</p>
+                  <ul className={d.pickList}>
+                    {picks.map(([slug, text]) => (
+                      <li key={slug}>
+                        <Link href={toolPath(slug)}>{name(slug)}</Link>: {text}
+                      </li>
+                    ))}
+                  </ul>
+                  {g.note ? <p className={d.small}>{g.note}</p> : null}
+                  <a className={d.more} href={`/tools?cat=${id}#all-tools`}>
+                    See all {HUB_CATEGORIES.find((c) => c.id === id)?.label} tools <span aria-hidden="true">→</span>
+                  </a>
+                </section>
+              ) : null;
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 5: four connected workflows */}
+      <section className={s.band} aria-labelledby="workflows-h">
+        <div className={s.wrap}>
+          <Head id="workflows-h" eyebrow="Start with the job, not the jargon" heading="Four small workflows that" accent="actually make sense" />
+          <Art file="03-marketing-workflows" max={1200} alt="Diagram connecting keyword mapping, SEO title writing, website auditing and measuring results." />
+          <ol className={d.workflows}>
+            {WORKFLOWS.map((w, i) => (
+              <li key={w.title} className={d.workflow}>
+                <div>
+                  <span className={d.num}>{i + 1}</span>
+                  <h3 className={s.h3}>{w.title}</h3>
+                  <p className={d.path}>
+                    {w.steps.filter(live).map((slug, j) => (
+                      <span key={slug}>
+                        <b>{["Start with", "Then", "Next"][j]}:</b> <ToolLink slug={slug} />
+                      </span>
+                    ))}
+                  </p>
+                  <p className={s.body}>{w.text}</p>
+                  {live(w.cta[1]) ? (
+                    <Link href={toolPath(w.cta[1])} className={`${s.btn} ${s.btnPrimary} ${d.wfBtn}`}>
+                      {w.cta[0]}
+                    </Link>
+                  ) : null}
+                </div>
+                {w.fig ? <Art file={w.fig.name} alt={w.fig.alt} max={1150} /> : null}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 6: AI writing vs checks vs measured data */}
+      <section className={`${s.band} ${s.bandWarm}`} aria-labelledby="kinds-h">
         <div className={s.wrap}>
           <Head
-            eyebrow="How it works"
-            heading="How to use these"
-            accent="free marketing tools"
-            intro="You don't need a complicated setup. Pick the task you're working on, provide a little context, and use the result as your starting point."
+            id="kinds-h"
+            eyebrow="Good to know"
+            heading="Free SEO tools, AI generators and utilities"
+            accent="aren't all the same"
+            intro="A writing generator uses the information you provide to make a draft. A checker tests something specific. A keyword data tool needs a real search data source. Mixing those up can give you confident looking numbers that aren't real."
           />
-          <figure className={s.figure}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={ILLUSTRATIONS.A100.src} alt={ILLUSTRATIONS.A100.alt} width={ILLUSTRATIONS.A100.width} height={ILLUSTRATIONS.A100.height} loading="lazy" decoding="async" className={s.figureImg} />
-          </figure>
+          <ul className={d.kinds}>
+            {KINDS.map((k) => (
+              <li key={k.tag} className={d.kind}>
+                <span className={d.kindTag}>{k.tag}</span>
+                <h3 className={s.h3}>{k.title}</h3>
+                {k.text.map((p) => (
+                  <p key={p.slice(0, 30)} className={s.body}>{p}</p>
+                ))}
+              </li>
+            ))}
+          </ul>
+          <Art file="06-know-your-output" max={1180} alt="Three columns distinguishing AI writing suggestions, technical site checks, and sourced search data." />
+        </div>
+      </section>
+
+      {/* 7: beginner SEO guide */}
+      <section className={s.band} aria-labelledby="guide-h">
+        <div className={s.wrap}>
+          <Head id="guide-h" eyebrow="The basics, without the overwhelm" heading="How to use free SEO tools when" accent="you're starting from zero" intro="You don't need a huge SEO stack to make progress. Start with a few checks you can understand and repeat." />
+          <div className={d.guide}>
+            <ol className={d.guideSteps}>
+              {GUIDE.map(([t, p], i) => (
+                <li key={t}>
+                  <h3 className={s.h3}>
+                    <span className={d.num}>{i + 1}</span> {t}
+                  </h3>
+                  <p className={s.body}>{p}</p>
+                </li>
+              ))}
+            </ol>
+            <div>
+              <Art file="07-audit-priorities" alt="Example website audit issue list showing priority for blocked pages, broken links, missing descriptions and minor wording changes." />
+              <p style={{ textAlign: "center", marginTop: 20 }}>
+                <Link href="/tools?cat=seo-planning#all-tools" className={`${s.btn} ${s.btnPrimary}`}>
+                  Explore available SEO tools
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8: who it is for */}
+      <section className={`${s.band} ${s.bandWarm}`} aria-labelledby="who-h">
+        <div className={s.wrap}>
+          <Head id="who-h" eyebrow="Built for real work" heading="Pick a starting point that" accent="fits what you do" />
+          <ul className={d.audiences}>
+            {AUDIENCES.map((a) => (
+              <li key={a.who} className={d.audience}>
+                <h3 className={s.h3}>{a.who}</h3>
+                <p className={s.body}>{a.text}</p>
+                <p className={d.small}>
+                  Start with:{" "}
+                  {a.tools.filter(live).map((slug, i, all) => (
+                    <span key={slug}>
+                      <ToolLink slug={slug} />
+                      {i < all.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <Art file="08-use-case-map" max={1160} alt="Four user groups, seller, creator, founder and marketer, each connected to an appropriate starting tool." />
+        </div>
+      </section>
+
+      {/* 9: how it works */}
+      <section className={s.band} aria-labelledby="how-h">
+        <div className={s.wrap}>
+          <Head id="how-h" eyebrow="Three steps" heading="Pick it. Use it." accent="Make it yours." />
           <ol className={s.steps}>
             {[
-              { t: "Choose a tool", d: "Find the tool that matches your task, whether you're writing a bio, planning content, or improving a page title." },
-              { t: "Add your details", d: "Share your topic, audience, style, or other details the tool needs. The more useful your input, the more relevant the output can be." },
-              { t: "Review and use the result", d: "Read the result, regenerate or refine it if you want a different take, and copy what works for your project." },
+              { t: "Find your task", d: "Search the directory or choose a category. Every card tells you what the tool is built to do." },
+              { t: "Give it useful context", d: "Some tools ask a couple of questions. Others need a URL, a keyword list, or product details. Optional fields can help make results more relevant." },
+              { t: "Review before you use it", d: "Edit the draft, check factual details, copy or export your result, and make the final decision yourself." },
             ].map((step, i) => (
               <li key={step.t} className={s.step}>
                 <span className={`${s.stepNum} ${displayFont.className}`}>{String(i + 1).padStart(2, "0")}</span>
@@ -216,120 +308,59 @@ export default function ToolsHub() {
               </li>
             ))}
           </ol>
+          <p className={d.small} style={{ textAlign: "center", marginTop: 24 }}>Free to use. Fair use limits help keep these tools available for everyone. No account is required for the public tools currently on the site.</p>
         </div>
       </section>
 
-      {choose.length ? (
-        <section className={bandClass()}>
-          <div className={s.wrap}>
-            <Head eyebrow="Find the right tool" heading="Not sure which" accent="marketing tool you need?" intro="Start with what you're trying to improve. Here's where I'd begin." />
-            <ul className={h.choose}>
-              {choose.map((c) => (
-                <li key={c.title} className={`${h.chooseCard} ${c.tone === "dark" ? h.toneDark : c.tone === "cream" ? h.toneCream : ""}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={hubImage(c.tools[0])} alt="" width={1200} height={900} loading="lazy" decoding="async" className={h.chooseImg} />
-                  <div>
-                    <h3 className={h.chooseTitle}>{c.title}</h3>
-                    <p className={h.chooseText}>{c.text}</p>
-                    <ToolLinks slugs={c.tools} dark={c.tone === "dark"} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      ) : null}
-
-      {help.length ? (
-        <section className={bandClass()}>
-          <div className={s.wrap}>
-            <Head
-              eyebrow="What they're for"
-              heading="What can free marketing tools"
-              accent="actually help you do?"
-              intro="Marketing involves a lot of small tasks. These tools help with the first draft or setup, so you can spend more time reviewing the work and making decisions."
-            />
-            <ul className={h.help}>
-              {help.map((b) => (
-                <li key={b.title} className={h.helpCard}>
-                  <div className={h.helpText}>
-                    <h3 className={s.h3}>{b.title}</h3>
-                    <p className={s.body}>{rich(b.text)}</p>
-                    <ToolLinks slugs={b.tools} />
-                  </div>
-                  <div className={h.helpExample}>
-                    <span className={h.exLabel}>Example</span>
-                    <Example example={b.example} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      ) : null}
-
-      {kinds ? (
-        <section className={bandClass()}>
-          <div className={s.wrap}>
-            <Head
-              eyebrow="Two kinds of tools"
-              heading="AI generators and simple"
-              accent="marketing utilities, in one place"
-              intro="Some tools help you write. Others help you organize information or build something specific, like a campaign tracking URL."
-            />
-            <div className={h.split}>
-              <div className={`${h.splitCard} ${h.toneDark}`}>
-                <span className={h.splitTag}>AI writing tools</span>
-                <p className={h.splitText}>
-                  AI writing tools write a draft from the details you enter. They&apos;re useful for brainstorming and first drafts, but you should still review names, facts, claims, and wording before publishing.
-                </p>
-                <ToolLinks slugs={kinds.ai} dark />
-              </div>
-              <div className={h.splitCard}>
-                <span className={h.splitTag}>Practical utilities</span>
-                <p className={h.splitText}>Utility tools, such as a UTM link builder, follow a more structured process. They help you complete a specific task without needing to write everything manually.</p>
-                <ToolLinks slugs={kinds.util} />
-              </div>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section className={bandClass()}>
+      {/* 10: FAQ, all in the server HTML */}
+      <section className={`${s.band} ${s.bandWarm}`} aria-labelledby="faq-h">
         <div className={s.wrap}>
-          <Head eyebrow="FAQ" heading="Frequently asked" accent="questions" />
+          <Head id="faq-h" eyebrow="Common questions" heading="Frequently asked questions about" accent="free marketing tools" />
           <div className={s.faq}>
-            {faqs.map((f) => (
-              <details key={f.q}>
+            {FAQS.map(([q, a]) => (
+              <details key={q}>
                 <summary>
-                  <h3 className={s.faqQ}>{f.q}</h3>
+                  <h3 className={s.faqQ}>{q}</h3>
                   <span className={s.faqIcon} aria-hidden />
                 </summary>
-                <p className={s.faqA}>{rich(f.a)}</p>
+                <p className={s.faqA}>{a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
+      {/* 11: soft service CTA and social links */}
       <div className={`${s.wrap} ${h.ctaWrap}`}>
         <section className={s.cta}>
+          <p className={s.kicker} style={{ color: "#b9cbb8" }}>One more thing</p>
           <h2 className={s.ctaHeading}>
-            The tools help you start.
-            <em className={s.h2Accent}> I can help with the rest.</em>
+            Tools make the work easier.
+            <em className={s.h2Accent}> A good plan makes it worthwhile.</em>
           </h2>
           <p className={s.ctaCopy}>
-            Writing a caption or fixing a page title is one part of marketing. If you need help with SEO, Reddit, social media, or a growth strategy that connects everything, that&apos;s what I work on.
+            These tools can help you move faster. But which page to improve, what to publish, and how to turn attention into customers still takes some thought. I share practical lessons about SEO, Reddit, social media, and growing businesses without making everything more complicated than it needs to be.
           </p>
           <div className={h.ctaActions}>
-            <Link href={LINK_SERVICES ?? "/services"} className={`${s.btn} ${s.btnLight} ${s.btnLg}`}>
-              Explore my services
+            <Link href={LINK_SEO_SERVICE ?? "/services"} className={`${s.btn} ${s.btnLight} ${s.btnLg}`}>
+              Explore my SEO services
             </Link>
-            {LINK_CONTACT ? (
-              <Link href={LINK_CONTACT} className={h.ctaLink}>
-                Or tell me what you&apos;re working on
-              </Link>
-            ) : null}
+            <a href="#all-tools" className={h.ctaLink}>
+              Browse free tools again
+            </a>
+          </div>
+          <div className={d.social}>
+            <p className={d.socialHead}>Follow along for practical marketing ideas</p>
+            <p className={d.socialCopy}>Tips, experiments, and lessons from work on real websites and campaigns.</p>
+            <ul>
+              {SOCIALS.map((x) => (
+                <li key={x.name}>
+                  <a href={x.href} target="_blank" rel="noopener noreferrer">
+                    {x.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </div>

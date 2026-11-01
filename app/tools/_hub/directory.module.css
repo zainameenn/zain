@@ -1,0 +1,100 @@
+/* The /tools directory sections added in November 2026, on top of hub.module.css and the studio styles. */
+
+/* Hero: text and search on the left, the hero illustration on the right (below the search on phones). */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(12px, 3vw, 32px) 0 clamp(40px, 6vw, 72px); }
+.heroText { min-width: 0; }
+.h1 { margin-top: 10px; }
+.heroCopy { margin: 14px 0 0; max-width: 620px; font-size: 16px; line-height: 1.6; color: var(--ink-2, #3a4a43); }
+.heroSearch { display: flex; gap: 10px; width: 100%; max-width: 620px; margin-top: 24px; }
+.heroSearch input { flex: 1; min-width: 0; height: 56px; padding: 0 18px; border: 1.5px solid var(--line-strong, #cfc6b5); border-radius: 14px; background: #fff; color: var(--ink); font: inherit; font-size: 16px; }
+.heroSearch input:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(18, 73, 56, 0.15); }
+.heroSearch button { height: 56px; flex: none; padding: 0 24px; }
+.heroChips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.heroChips a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--line, #e2dccf); border-radius: 999px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: none; }
+.heroChips a:hover { border-color: var(--ink); }
+.heroChips a:focus-visible, .chip:focus-visible, .clear:focus-visible, .more:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.trust { margin: 18px 0 0; font-size: 13px; font-weight: 600; color: var(--ink-2, #3a4a43); }
+.note { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted, #6b6f68); }
+.heroArt { min-width: 0; }
+.art { display: block; width: 100%; height: auto; margin: 32px auto 0; border-radius: 18px; }
+.heroArt .art { margin: 0; }
+
+/* Featured: six equal height cards */
+.featured { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.featured > li, .featured > li > * { height: 100%; }
+.cardCat { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--gold-text, #8a6a2f); }
+
+/* Directory toolbar */
+.toolbar { position: sticky; top: 72px; z-index: 5; display: grid; gap: 12px; padding: 14px 0; background: var(--cream); }
+.searchRow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.selects { display: flex; gap: 10px; }
+.select { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink-2, #3a4a43); }
+.select select { height: 46px; padding: 0 36px 0 12px; border: 1px solid var(--line-strong, #cfc6b5); border-radius: 12px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23124938' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center; color: var(--ink); font: inherit; font-size: 14px; appearance: none; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.chip { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line, #e2dccf); border-radius: 999px; background: #fff; color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--cream, #faf7f0); }
+.chipCount { font-size: 12px; font-weight: 500; opacity: 0.75; }
+.status { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 6px 0 18px; font-size: 14px; color: var(--muted, #6b6f68); }
+.clear { padding: 0; border: 0; background: none; color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; text-decoration: underline; cursor: pointer; }
+
+/* Category guides */
+.catGuides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.catGuide { padding: 26px; border: 1px solid var(--line, #e2dccf); border-radius: 18px; background: #fff; }
+.pickList { margin: 14px 0 0; padding-left: 18px; }
+.pickList li { margin: 6px 0; font-size: 15px; line-height: 1.5; color: var(--ink-2, #3a4a43); }
+.pickList a, .path a, .small a { color: var(--ink); font-weight: 600; }
+.small { margin: 12px 0 0; font-size: 14px; line-height: 1.55; color: var(--muted, #6b6f68); }
+.more { display: inline-block; margin-top: 14px; color: var(--ink); font-size: 14px; font-weight: 600; }
+
+/* Workflows */
+.workflows { display: grid; gap: 22px; margin: 32px 0 0; padding: 0; list-style: none; }
+.workflow { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 28px; border: 1px solid var(--line, #e2dccf); border-radius: 20px; background: #fff; }
+.workflow .art { margin-top: 20px; }
+.num { display: inline-grid; place-items: center; width: 32px; height: 32px; margin-right: 6px; border-radius: 50%; background: var(--gold-soft); color: var(--ink); font-size: 15px; font-weight: 700; vertical-align: middle; }
+.workflow .num { margin-bottom: 10px; }
+.path { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 10px 0 12px; font-size: 14px; color: var(--ink-2, #3a4a43); }
+
+/* AI vs checks vs data */
+.kinds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.kind { padding: 26px; border: 1px solid var(--line, #e2dccf); border-radius: 18px; background: #fff; }
+.kindTag { display: inline-block; margin-bottom: 12px; padding: 5px 12px; border-radius: 999px; background: var(--gold-soft); color: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* Beginner guide */
+.guide { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.guide .art { margin-top: 0; }
+.guideSteps { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
+
+/* Audiences */
+.audiences { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.audience { padding: 24px; border: 1px solid var(--line, #e2dccf); border-radius: 18px; background: #fff; }
+
+/* Social links in the final CTA */
+.social { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(250, 247, 240, 0.2); }
+.socialHead { margin: 0; font-weight: 700; color: var(--cream, #faf7f0); }
+.socialCopy { margin: 6px 0 0; font-size: 15px; color: #c9d6cf; }
+.social ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
+.social a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1px solid rgba(250, 247, 240, 0.4); border-radius: 999px; color: var(--cream, #faf7f0); font-size: 14px; font-weight: 600; text-decoration: none; }
+.social a:hover { background: rgba(250, 247, 240, 0.1); }
+
+@media (max-width: 1024px) {
+  .featured { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kinds { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .heroArt { order: 2; }
+  .guide, .catGuides { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .featured { grid-template-columns: 1fr; }
+  .searchRow { grid-template-columns: 1fr; }
+  .selects { flex-wrap: wrap; }
+  .select { flex: 1 1 140px; }
+  .select select { width: 100%; }
+  .heroSearch { flex-direction: column; }
+  .heroSearch input { flex: none; width: 100%; }
+  .heroSearch button { width: 100%; }
+  .toolbar { position: static; }
+  .workflow, .catGuide, .kind { padding: 20px; }
+}
+.wfBtn { display: inline-flex; align-items: center; min-height: 46px; margin-top: 16px; padding: 0 20px; }
