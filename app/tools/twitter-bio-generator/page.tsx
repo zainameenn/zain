@@ -21,7 +21,6 @@ const DESCRIPTION = "Generate a Twitter (X) bio in seconds. Choose your style, a
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
-const ART = "/assets/tools/twitter-bio";
 
 // The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
 const SOCIALS = [
@@ -80,11 +79,6 @@ const Head = ({ kicker, title, intro }: { kicker: string; title: React.ReactNode
     <h2 className={e.h2} style={{ maxWidth: 820 }}>{title}</h2>
     {intro ? <p className={e.body} style={{ marginTop: 14 }}>{intro}</p> : null}
   </div>
-);
-
-const Figure = ({ name, alt, wide }: { name: string; alt: string; wide?: boolean }) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img className={wide ? x.wide : f.figure} src={`${ART}/${name}.svg`} alt={alt} width={1200} height={680} loading="lazy" decoding="async" />
 );
 
 export default function TwitterBioGeneratorPage() {
@@ -166,13 +160,11 @@ export default function TwitterBioGeneratorPage() {
             </ul>
             <p>You don&apos;t need all four. A personal account can get away with an honest one liner. A small business may need a clearer explanation of what it sells.</p>
           </div>
-          <Figure name="01-x-bio-profile-anatomy" alt="Annotated X profile bio showing identity, topic and reason to follow" />
         </div>
       </SECTION>
 
       <SECTION id="character-limit">
         <Head kicker="Limits" title={<>Twitter bio character limit: <em className={e.emGreen}>how long can your bio be?</em></>} intro="An X bio can contain up to 160 characters. That's the bio limit, not the post limit." />
-        <Figure wide name="02-x-character-limits" alt="X bio 160, display name 50, username 15 and post 280 character limits" />
         <div className={x.tableWrap} style={{ maxWidth: 900, margin: "0 auto" }}>
           <table className={x.table}>
             <thead>
@@ -223,7 +215,6 @@ export default function TwitterBioGeneratorPage() {
             <p>For a business, be more specific:</p>
             <p className={x.quoteBox}>Independent bakery making sourdough and weekend pastries. See what&apos;s fresh in our latest posts.</p>
           </div>
-          <Figure name="03-x-bio-formula" alt="Identity plus what you share plus why follow, with an example" />
         </div>
       </SECTION>
 
@@ -245,7 +236,6 @@ export default function TwitterBioGeneratorPage() {
           <h3 style={{ fontSize: 18, margin: 0 }}>Bios for women and men</h3>
           <p className={e.body} style={{ marginTop: 8 }}>You don&apos;t need a different formula because of gender. Start with what actually defines your account: your interests, personality, work, fandoms, or sense of humor. Choose a style that fits you, not a stereotype.</p>
         </div>
-        <Figure wide name="05-x-bio-tone-examples" alt="Six styles of Twitter bio for the same profile" />
       </SECTION>
 
       <SECTION id="styles" band>
@@ -274,13 +264,11 @@ export default function TwitterBioGeneratorPage() {
             <p>The first one could describe thousands of accounts. The second gives readers an actual reason to stick around.</p>
             <p>Try replacing &ldquo;passionate about marketing&rdquo; with what you actually do in marketing. Replace &ldquo;creative soul&rdquo; with the kind of things you make. The more real the input, the better the result.</p>
           </div>
-          <Figure name="04-x-bio-before-after" alt="Vague bio compared with specific useful bio" />
         </div>
       </SECTION>
 
       <SECTION id="keywords">
         <div className={f.split}>
-          <Figure name="06-x-bio-keywords-clarity" alt="Clear descriptive bio compared with keyword and hashtag stuffing" />
           <div>
             <p className={e.eyebrow}>Keywords and hashtags</p>
             <h2 className={e.h2}>Should you put keywords or hashtags <em className={e.emGreen}>in your X bio?</em></h2>
@@ -335,7 +323,6 @@ export default function TwitterBioGeneratorPage() {
               Try removing decorative symbols, shortening the text, or moving your URL to the dedicated website field. If it still doesn&apos;t save, use X&apos;s official <a href="https://help.x.com/en/managing-your-account/cant-save-changes-to-my-account" target="_blank" rel="noopener noreferrer">troubleshooting guide</a>.
             </p>
           </div>
-          <Figure name="07-x-bio-update-steps" alt="Generate, copy, update X profile in three steps" />
         </div>
       </SECTION>
 

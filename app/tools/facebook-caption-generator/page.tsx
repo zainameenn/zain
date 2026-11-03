@@ -21,7 +21,6 @@ const DESCRIPTION = "Write Facebook captions for photos, Reels, business Pages a
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
-const ART = "/assets/tools/facebook-caption";
 
 // The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
 const SOCIALS = [
@@ -88,11 +87,6 @@ const Head = ({ kicker, title, intro }: { kicker: string; title: React.ReactNode
   </div>
 );
 
-const Figure = ({ name, alt, wide }: { name: string; alt: string; wide?: boolean }) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img className={wide ? c.wideFig : f.figure} src={`${ART}/${name}.svg`} alt={alt} width={1200} height={680} loading="lazy" decoding="async" />
-);
-
 export default function FacebookCaptionGeneratorPage() {
   const url = `${SITE_URL}${PATH}`;
   return (
@@ -144,7 +138,6 @@ export default function FacebookCaptionGeneratorPage() {
               <li><strong>Edit and copy your favorite.</strong> Compare five approaches. Edit anything that doesn&apos;t sound like you. Check the facts, copy the one you like and paste it into your Facebook post.</li>
             </ol>
           </div>
-          <Figure name="01-photo-to-caption" alt="A photo and the owner's details turning into a caption ready to copy" />
         </div>
       </SECTION>
 
@@ -168,10 +161,8 @@ export default function FacebookCaptionGeneratorPage() {
             <h3 style={{ marginTop: 24 }}>Write like you normally talk</h3>
             <p>Your caption doesn&apos;t need a marketing voice. &ldquo;We made another batch of the chocolate cookies because you kept asking&rdquo; sounds more like a real business than &ldquo;We are absolutely thrilled to unveil our premium range.&rdquo;</p>
           </div>
-          <Figure name="02-first-line-preview" alt="A Facebook style post where the first line carries the point before See more" />
         </div>
         <div className={f.split} style={{ marginTop: 40 }}>
-          <Figure name="09-caption-framework" alt="A useful caption in four parts: the point, a useful detail, a natural voice and an optional next action" />
           <div>
             <h3>Add a detail the picture doesn&apos;t show</h3>
             <p>A photo shows the product. The caption can explain what changed, why it matters or what happens next. For a local business, that may be opening hours or availability. For a creator, it may be the story behind the clip. For a personal post, it might be the memory you&apos;re trying to capture.</p>
@@ -194,7 +185,6 @@ export default function FacebookCaptionGeneratorPage() {
             <p><strong>Story:</strong> Several short paragraphs. Useful when the real story is the point, such as a personal milestone, behind the scenes experience or founder update.</p>
             <p>Our length setting shapes the draft but never adds filler just to hit a number. Every result shows its character, word and hashtag count as you edit.</p>
           </div>
-          <Figure name="03-caption-lengths" alt="Short, medium and story length caption examples side by side" />
         </div>
       </SECTION>
 
@@ -221,7 +211,6 @@ export default function FacebookCaptionGeneratorPage() {
           </li>
         </ul>
         <p className={e.small} style={{ textAlign: "center", marginTop: 16 }}>The generator never invents specific dates, prices or other claims you haven&apos;t given it.</p>
-        <Figure wide name="07-caption-types" alt="Different post types, personal, business, creator, group and event, each with its own example caption" />
       </SECTION>
 
       <SECTION id="before-after">
@@ -235,13 +224,11 @@ export default function FacebookCaptionGeneratorPage() {
             <p className={c.quoteBox}>The second studio room opens on Monday. More space for evening classes, and a little less waiting for everyone who asked about them.</p>
             <p>The second caption says what changed and why people might care. There&apos;s no need to pretend every post is a major announcement.</p>
           </div>
-          <Figure name="04-before-after-caption" alt="A vague promotional caption rewritten as a specific, useful update" />
         </div>
       </SECTION>
 
       <SECTION id="from-photo" band>
         <div className={f.split}>
-          <Figure name="06-photo-facts-check" alt="What a photo shows, like two mugs on a wooden table, compared with facts the owner must confirm, like price and shipping" />
           <div>
             <p className={e.eyebrow}>Photo captions</p>
             <h2 className={e.h2}>How to generate Facebook captions <em className={e.emGreen}>from a photo</em></h2>
@@ -263,7 +250,6 @@ export default function FacebookCaptionGeneratorPage() {
               Meta warns against <a href="https://about.fb.com/news/2017/12/news-feed-fyi-fighting-engagement-bait-on-facebook/" target="_blank" rel="noopener noreferrer">engagement bait</a> and against <a href="https://about.fb.com/news/2025/04/cracking-down-spammy-content-facebook/" target="_blank" rel="noopener noreferrer">irrelevant captions and excessive hashtags</a>. Instead of &ldquo;LIKE if you agree,&rdquo; say something real. You can still ask a genuine question when it helps your audience, such as asking members which workshop topic would be useful next month.
             </p>
           </div>
-          <Figure name="05-genuine-conversation" alt="Engagement bait like LIKE if you agree, compared with a specific post that asks a relevant question" />
         </div>
       </SECTION>
 
@@ -294,7 +280,6 @@ export default function FacebookCaptionGeneratorPage() {
             <p><em>Video subtitles</em> (also called closed captions) are timed words associated with the spoken audio in a video. They serve accessibility and viewing purposes and may be generated through Facebook or video editing tools. They are not created by this caption generator.</p>
             <p>If you need video transcription, timestamped text or SRT subtitles, use a dedicated subtitle tool. The tools solve different tasks.</p>
           </div>
-          <Figure name="08-caption-vs-subtitles" alt="A written post caption compared with timed video subtitles" />
         </div>
       </SECTION>
 

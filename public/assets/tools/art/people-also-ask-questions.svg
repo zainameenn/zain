@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">People Also Ask question discovery</title><desc id="svgdesc">A seed search expanding into relevant question clusters with answer and intent hints</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="510" viewBox="0 170 1200 510" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">People Also Ask question discovery</title><desc id="svgdesc">A seed search expanding into relevant question clusters with answer and intent hints</desc>
 <defs><linearGradient id="canvasbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F3F9F4"/><stop offset="1" stop-color="#E2F0E6"/></linearGradient><linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#267958"/><stop offset="1" stop-color="#0F3F32"/></linearGradient><linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F9ECD7"/><stop offset="1" stop-color="#E8CEA4"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F7FBF8"/></linearGradient><filter id="sh" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="17" flood-color="#123D2C" flood-opacity=".13"/></filter><filter id="sh2" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#123D2C" flood-opacity=".10"/></filter><clipPath id="clipcircle"><circle cx="0" cy="0" r="100"/></clipPath></defs>
-<rect x="38" y="43" width="1124" height="715" rx="48" fill="url(#canvasbg)"/>
-<circle cx="1050" cy="144" r="115" fill="#CCE5D5" opacity="0.53"/>
-<circle cx="132" cy="650" r="89" fill="#D6E9DD" opacity="0.48"/>
-<text x="100" y="134" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#B38842" letter-spacing="2">SEARCH QUESTIONS</text>
-<text x="100" y="171" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="760" fill="#0F3F32">Turn one topic into questions worth answering</text>
+
+
+
+
+
 <path d="M 1100 212 Q 1102.2 221.24 1111 223 Q 1102.2 224.76 1100 234 Q 1097.8 224.76 1089 223 Q 1097.8 221.24 1100 212 Z" fill="#B38842" opacity="1" />
 <rect x="104" y="338" width="354" height="147" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
 <rect x="129" y="365" width="65" height="65" rx="16" fill="#0F3F32"/>
@@ -16,19 +16,19 @@
 <rect x="610" y="203" width="473" height="117" rx="19" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh2)"/>
 <rect x="625" y="221" width="48" height="48" rx="16" fill="#EDF5EF"/>
 <g transform="translate(634.0,230.0) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9c0-5 7-5 7 0 0 3-4 3-4 6 M12 19v.3"/></g>
-<text x="690" y="252" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="670" fill="#0F3F32">What size desk mat do I need?</text>
+<rect x="690.0" y="240.2" width="231.4" height="9.5" rx="4.8" fill="#0F3F32" opacity="0.28"/>
 <text x="690" y="287" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="500" fill="#718078">Sizing guide</text>
 <circle cx="585" cy="415" r="9" fill="#B38842" opacity="1"/>
 <rect x="610" y="363" width="473" height="117" rx="19" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh2)"/>
 <rect x="625" y="381" width="48" height="48" rx="16" fill="#EDF5EF"/>
 <g transform="translate(634.0,390.0) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9c0-5 7-5 7 0 0 3-4 3-4 6 M12 19v.3"/></g>
-<text x="690" y="412" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="670" fill="#0F3F32">How do I clean a desk mat?</text>
-<text x="690" y="447" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="500" fill="#718078">Care instructions</text>
+<rect x="690.0" y="400.2" width="207.5" height="9.5" rx="4.8" fill="#0F3F32" opacity="0.28"/>
+<rect x="690.0" y="437.7" width="107.1" height="8.0" rx="4.0" fill="#718078" opacity="0.28"/>
 <circle cx="585" cy="575" r="9" fill="#B38842" opacity="1"/>
 <rect x="610" y="523" width="473" height="117" rx="19" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh2)"/>
 <rect x="625" y="541" width="48" height="48" rx="16" fill="#EDF5EF"/>
 <g transform="translate(634.0,550.0) scale(1.25)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9c0-5 7-5 7 0 0 3-4 3-4 6 M12 19v.3"/></g>
-<text x="690" y="572" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="670" fill="#0F3F32">Are desk mats worth it?</text>
-<text x="690" y="607" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="500" fill="#718078">Comparison and benefits</text>
-<text x="100" y="715" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="480" fill="#718078">Question examples are illustrative. Validate queries against live search results.</text>
+<rect x="690.0" y="560.2" width="183.5" height="9.5" rx="4.8" fill="#0F3F32" opacity="0.28"/>
+<rect x="690.0" y="597.7" width="144.9" height="8.0" rx="4.0" fill="#718078" opacity="0.28"/>
+
 </svg>

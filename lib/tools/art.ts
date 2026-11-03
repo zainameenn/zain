@@ -1,40 +1,37 @@
-// Section illustrations for tool pages (November 2026 graphics batches 03 to 05 and the raster set).
-// Served from public/assets/tools/art. SVG alt text is each file's own <title> and <desc>; the WebP files
-// are trimmed, resized copies of the supplied PNG artwork. The words inside every graphic are illustrative
-// examples, never live data, so each page keeps its real explanation in HTML beside the image.
+// Section illustrations for tool pages. Rule (November 2026 cleanup): an illustration explains an idea with
+// shapes and objects, never with sentences, so the explanation stays in the HTML beside it.
+// - The site illustrations (lib/illustrations.ts) are reused wherever one fits the tool.
+// - The SEO tool SVGs in public/assets/tools/art are simplified versions of graphics batch 05 and 03/04:
+//   headlines, footnotes and sentences removed, only short labels such as status codes kept.
+// - The WebP files are trimmed, resized copies of the supplied raster artwork.
+
+import { ILLUSTRATIONS } from "@/lib/illustrations";
 
 export type ToolArt = { src: string; alt: string; width: number; height: number };
 
-const svg = (file: string, alt: string, width = 1200, height = 800): ToolArt => ({ src: `/assets/tools/art/${file}.svg`, alt, width, height });
+const svg = (file: string, alt: string, width = 1200, height = 510): ToolArt => ({ src: `/assets/tools/art/${file}.svg`, alt, width, height });
 const webp = (file: string, alt: string, width: number, height: number): ToolArt => ({ src: `/assets/tools/art/${file}.webp`, alt, width, height });
 
 export const ART = {
-  facebookBio: svg("facebook-bio-details", "A few profile details, such as photography, travel and a friendly tone, turning into a short Facebook intro ready to copy", 1200, 820),
-  twitterBio: svg("twitter-bio-length", "An X bio builder with personality, focus and tone choices next to a profile preview and a 160 character counter", 1200, 820),
-  tiktokBio: svg("tiktok-bio-profile", "Aesthetic, funny and creator styles leading to a TikTok profile preview with an 80 character bio counter", 1200, 820),
-  etsyTitle: svg("etsy-title-photo", "A product photo turning into an Etsy listing title preview with a 140 character counter", 1200, 820),
-  youtubeChannelName: svg("youtube-channel-name-identity", "Three channel name ideas next to a YouTube channel page preview using one of them", 1200, 820),
-  websiteAudit: svg("website-audit-checks", "A web page under review next to example SEO checks for the page title, headings, internal links and image text", 1200, 820),
-  keywordResearch: svg("keyword-research-intent", "A seed topic branching into buying intent, question and style keyword groups", 1200, 820),
-  instagramBio: svg("instagram-bio-profile", "Optional profile details turning into a short Instagram bio shown in a mobile profile preview"),
-  pinterest: svg("pinterest-pin-copy", "A Pinterest Pin image paired with a keyword smart title and description"),
-  searchIntent: svg("search-intent-groups", "Search phrases sorted into informational, navigational, commercial and transactional intent groups"),
-  contentBrief: svg("content-brief-outline", "A keyword, audience and questions compiled into a structured content brief with an outline"),
-  metaSnippet: svg("meta-snippet-preview", "A page title and summary turning into a search result snippet preview"),
-  longTail: svg("long-tail-branches", "A seed keyword branching into product type, use case and question searches"),
-  onPage: svg("on-page-checks", "A page under review next to example on page findings for the title tag, headings, image alt text and internal links"),
-  serp: svg("serp-anatomy", "An illustrated search results page showing a sponsored placement, organic listings and answer features as separate elements"),
-  keywordGap: svg("keyword-gap-overlap", "Two overlapping circles comparing your website's search terms, shared terms and terms only a competitor covers"),
-  brokenLinks: svg("broken-link-map", "A homepage linking to a working product page and a resource link that points to a 404 page, with a fix to update or remove the link"),
-  coreWebVitals: svg("core-web-vitals-gauges", "A page preview next to three illustrative gauges for LCP loading, INP responsiveness and CLS visual stability"),
-  sitemap: svg("sitemap-url-statuses", "A sitemap.xml file branching into URLs with 200 OK, 301 redirect and 404 error statuses"),
-  peopleAlsoAsk: svg("people-also-ask-questions", "One seed topic expanding into three related search questions with their intent"),
-  etsyShopName: svg("etsy-shop-name-ideas", "What a shop sells and its brand feel turning into a storefront sign and more shop name ideas to check for availability"),
-  rankTracking: svg("rank-tracking-positions", "Illustrative keyword positions moving between two dates, with an example visibility trend"),
+  facebookBio: ILLUSTRATIONS.A24,
+  twitterBio: ILLUSTRATIONS.A22,
+  tiktokBio: ILLUSTRATIONS.A21,
+  etsyTitle: ILLUSTRATIONS.A60,
+  youtubeChannelName: ILLUSTRATIONS.A73,
+  websiteAudit: svg("website-audit-checks", "A web page under review next to a list of example on page checks", 1200, 820),
+  keywordResearch: svg("keyword-research-intent", "A seed topic branching into three groups of related keywords", 1200, 820),
+  longTail: svg("long-tail-branches", "A seed keyword branching into three more specific searches"),
+  onPage: svg("on-page-checks", "A page under review next to example findings, some passed and some to fix"),
+  serp: svg("serp-anatomy", "An illustrated search results page with a sponsored placement, organic listings and answer features as separate elements"),
+  keywordGap: svg("keyword-gap-overlap", "Two overlapping circles: search terms only you cover, terms you share, and terms only a competitor covers"),
+  brokenLinks: svg("broken-link-map", "A homepage linking to a working page and to a link that ends at a 404 page"),
+  coreWebVitals: svg("core-web-vitals-gauges", "A page preview next to three illustrative gauges for LCP, INP and CLS"),
+  sitemap: svg("sitemap-url-statuses", "A sitemap file branching into URLs with 200, 301 and 404 statuses"),
+  peopleAlsoAsk: svg("people-also-ask-questions", "One seed topic expanding into three related search questions"),
+  rankTracking: svg("rank-tracking-positions", "Illustrative keyword positions moving between two dates, with an example trend line"),
   // Raster artwork, converted to WebP.
   toolsSearch: webp("tools-search-ecosystem", "A central tool search panel connected to SEO, social media, content and ecommerce tool groups", 1172, 941),
   toolsCategories: webp("tools-toolkit-categories", "A toolkit at the centre of eight tool categories, from writing and images to keywords, analytics and code", 1182, 909),
-  toolsRepurpose: webp("tools-one-idea-many-formats", "One article idea turning into several formats: a carousel, a video, a short clip, a quote and a report", 1182, 886),
   facebookCaption: webp("facebook-caption-photo", "A product photo and a few choices turning into a Facebook post with a caption", 1174, 852),
   linkedinPost: webp("linkedin-post-notes", "Rough notes, a goal and a chart turning into a finished LinkedIn post", 1174, 833),
   linkedinComment: webp("linkedin-comment-replies", "A LinkedIn post turning into three different comment drafts to choose from", 1174, 867),
@@ -47,14 +44,8 @@ export const ART = {
   keywordClusters: webp("keyword-cluster-groups", "A pile of keywords sorted into four page level groups", 1184, 836),
 } satisfies Record<string, ToolArt>;
 
-/** The illustration that sits beside a tool page's "how it works" section, when it has one. */
+/** The illustration beside a tool page's "how it works" section. Tools not listed fall back to their site illustration (lib/illustrations.ts). */
 const BY_SLUG: Record<string, ToolArt> = {
-  "instagram-bio-generator": ART.instagramBio,
-  "pinterest-description-generator": ART.pinterest,
-  "seo-search-intent-classifier": ART.searchIntent,
-  "seo-content-brief-generator": ART.contentBrief,
-  "meta-description-generator": ART.metaSnippet,
-  "etsy-shop-name-generator": ART.etsyShopName,
   "youtube-chapters-generator": ART.youtubeChapters,
   "google-ads-negative-keyword-generator": ART.negativeKeywords,
   "seo-keyword-cluster-generator": ART.keywordClusters,

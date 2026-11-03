@@ -22,7 +22,6 @@ const DESCRIPTION = "Free YouTube channel name generator for gaming, lifestyle, 
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
-const ART = "/assets/tools/youtube-channel-name";
 
 // The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
 const SOCIALS = [
@@ -69,11 +68,6 @@ const Head = ({ kicker, title, intro }: { kicker: string; title: React.ReactNode
     <h2 className={e.h2} style={{ maxWidth: 820 }}>{title}</h2>
     {intro ? <p className={e.body} style={{ marginTop: 14 }}>{intro}</p> : null}
   </div>
-);
-
-const Figure = ({ name, alt }: { name: string; alt: string }) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img className={y.wide} src={`${ART}/${name}.svg`} alt={alt} width={1200} height={700} loading="lazy" decoding="async" />
 );
 
 export default function YouTubeChannelNameGeneratorPage() {
@@ -129,7 +123,6 @@ export default function YouTubeChannelNameGeneratorPage() {
             </li>
           ))}
         </ul>
-        <Figure name="01-workflow" alt="Name idea to channel identity: choose your niche, generate name ideas, check the YouTube handle, and choose a name you can grow with." />
       </SECTION>
 
       <SECTION id="what-you-get">
@@ -165,7 +158,6 @@ export default function YouTubeChannelNameGeneratorPage() {
             <a href="https://support.google.com/youtube/answer/11585688" target="_blank" rel="noopener noreferrer">help article on handles</a>). A generated handle is an idea, not proof that it is available.
           </p>
         </div>
-        <Figure name="02-rules" alt="Name vs handle: the channel name is the visible display name, and the @handle is your unique profile identifier." />
       </SECTION>
 
       <SECTION id="own-name" band>
@@ -180,7 +172,6 @@ export default function YouTubeChannelNameGeneratorPage() {
           <Head kicker="Before you commit" title={<>How to check name and <em className={e.emGreen}>handle availability</em></>} />
           <p className={e.body} style={{ marginTop: 16 }}>Search YouTube for lookalike names, say the name aloud, check how it looks on a thumbnail, and try the exact handle in YouTube Studio. Check trademarks before treating a name as your brand.</p>
         </div>
-        <Figure name="04-checklist" alt="The decision checklist: easy to say and spell, relevant but not restrictive, not confusingly similar, handle and trademarks checked." />
       </SECTION>
 
       <SECTION id="changing-names" band>
@@ -205,7 +196,6 @@ export default function YouTubeChannelNameGeneratorPage() {
             </li>
           ))}
         </ul>
-        <Figure name="03-examples" alt="Three naming approaches: a personal name like Maya Moves, a descriptive name like Pocket Kitchen and a brandable name like Cartridge Club, all needing availability checks." />
       </SECTION>
 
       <SECTION id="tips" band>

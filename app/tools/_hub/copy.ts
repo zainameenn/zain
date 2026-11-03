@@ -101,13 +101,12 @@ export const GROUP_COPY: Record<string, { heading: string; intro: string; picks:
   },
 };
 
-export const WORKFLOWS: { title: string; steps: [string, string, string]; nextText?: string; text: string; cta: [string, string]; fig?: { name: string; alt: string } }[] = [
+export const WORKFLOWS: { title: string; steps: [string, string, string]; nextText?: string; text: string; cta: [string, string] }[] = [
   {
     title: "I'm publishing a new website page",
     steps: ["seo-title-generator", "meta-description-generator", "website-audit-tool"],
     text: "A page needs a clear title and description, but those are only part of the work. Check how the page is structured, make sure the content answers its main question, and confirm that important links work.",
     cta: ["Start with an SEO title", "seo-title-generator"],
-    fig: { name: "04-seo-workflow", alt: "Example SEO workflow turning restaurant bookkeeping research into a useful service page with title, content and checks." },
   },
   {
     title: "I have a keyword list but don't know what to publish",
@@ -126,7 +125,6 @@ export const WORKFLOWS: { title: string; steps: [string, string, string]; nextTe
     steps: ["etsy-title-generator", "shopify-product-title-generator", "product-description-generator"],
     text: "Start with a clear title, then the description. Then review your product photos, variants, shipping details and policies. The copy matters, but it must describe the actual product. Don't add materials, sizes, delivery promises, or benefits you can't support.",
     cta: ["Write a product title", "etsy-title-generator"],
-    fig: { name: "05-commerce-workflow", alt: "Diagram showing a tote bag's visible details turned into an accurate product title, with a checklist for unverified claims." },
   },
 ];
 

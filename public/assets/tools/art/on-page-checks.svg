@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc"><title id="title">Free on-page SEO checker</title><desc id="desc">On-page audit visual identifying important meta, heading, image-alt, internal link, and mobile issues</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="510" viewBox="0 170 1200 510" role="img" aria-labelledby="title desc"><title id="title">Free on-page SEO checker</title><desc id="desc">On-page audit visual identifying important meta, heading, image-alt, internal link, and mobile issues</desc>
 <defs>
   <linearGradient id="soft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBF5ED"/><stop offset="1" stop-color="#D0E7D9"/></linearGradient>
   <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1B6B51"/><stop offset="1" stop-color="#0F3F32"/></linearGradient>
@@ -7,22 +7,18 @@
   <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#153E2C" flood-opacity=".13"/></filter>
   <filter id="smshadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#153E2C" flood-opacity=".10"/></filter>
   </defs>
-<rect x="50" y="50" width="1100" height="700" rx="54" fill="#EAF3ED" opacity="0.64"/>
-<circle cx="1055" cy="158" r="110" fill="#D3E8D9" opacity="0.54"/>
-<circle cx="154" cy="635" r="75" fill="#DDECE0" opacity="0.8"/>
-<path d="M 68 540 C 130 590 195 583 267 560" fill="none" stroke="#D5E6DA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
-<text x="107" y="113" fill="#B38842" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">ON-PAGE SEO CHECKER</text>
-<text x="107" y="145" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="750">See what needs fixing on the page</text>
+
+
 <rect x="110" y="210" width="457" height="448" rx="26" fill="#FFFFFF" opacity="1" stroke="#D7E0D8" stroke-width="1.25" filter="url(#shadow)"/>
 <rect x="110" y="210" width="457" height="58" rx="26" fill="#F5F1E8" opacity="1"/>
 <rect x="110" y="241" width="457" height="27" rx="0" fill="#F5F1E8" opacity="1"/>
 <circle cx="136" cy="235" r="5.5" fill="#B9675D" opacity="1"/>
 <circle cx="156" cy="235" r="5.5" fill="#B38842" opacity="1"/>
 <circle cx="176" cy="235" r="5.5" fill="#5D9B76" opacity="1"/>
-<text x="205" y="245" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">PAGE UNDER REVIEW</text>
+<rect x="205.0" y="233.8" width="128.5" height="9.0" rx="4.5" fill="#0F3F32" opacity="0.28"/>
 <rect x="137" y="287" width="399" height="57" rx="12" fill="#E7F2EB" opacity="1"/>
 <g transform="translate(149 304) scale(1.0416666666666667)" stroke="#267958" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-6 6-6 12 0 18M12 3c6 6 6 12 0 18"/></g>
-<text x="188" y="323" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="650">example.com/services</text>
+<rect x="188.0" y="312.5" width="142.8" height="8.5" rx="4.3" fill="#0F3F32" opacity="0.28"/>
 <rect x="139" y="379" width="145" height="117" rx="13" fill="#D5E6DA" opacity="1"/>
 <path d="M 145 476 l 47-48 43 28 25-32 20 52" fill="none" stroke="#267958" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
 <circle cx="253" cy="406" r="15" fill="#F9DEAC" opacity="1"/>
@@ -39,28 +35,28 @@
 <g transform="translate(614.0 374.0) scale(1.25)" stroke="#FFFFFF" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="m15.2 15.2 5.1 5.1"/></g>
 <path d="M638 365 Q640.0 373.3 648 375 Q640.0 376.7 638 385 Q636.0 376.7 628 375 Q636.0 373.3 638 365 Z" fill="#B38842" opacity="1" />
 <rect x="682" y="208" width="401" height="456" rx="30" fill="#FFFFFF" opacity="1" filter="url(#shadow)"/>
-<text x="717" y="262" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="740">ON-PAGE FINDINGS</text>
+<rect x="717.0" y="250.8" width="121.0" height="9.0" rx="4.5" fill="#0F3F32" opacity="0.28"/>
 <rect x="709" y="293" width="348" height="66" rx="15" fill="#FFFCF8" opacity="1" stroke="#D7E0D8" stroke-width="1"/>
 <rect x="720" y="305" width="42" height="42" rx="16" fill="#E7F2EB" opacity="1"/>
 <g transform="translate(726.0 311.0) scale(1.25)" stroke="#267958" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L21 5"/></g>
-<text x="774" y="321" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="620">Title tag present</text>
+<rect x="774.0" y="310.5" width="121.4" height="8.5" rx="4.3" fill="#0F3F32" opacity="0.28"/>
 <text x="774" y="345" fill="#267958" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Passed</text>
 <rect x="709" y="376" width="348" height="66" rx="15" fill="#FFFCF8" opacity="1" stroke="#D7E0D8" stroke-width="1"/>
 <rect x="720" y="388" width="42" height="42" rx="16" fill="#F8EBD6" opacity="1"/>
 <g transform="translate(726.0 394.0) scale(1.25)" stroke="#B38842" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9c0-5 7-5 7 0 0 3-4 3-4 6 M12 19v.1"/></g>
-<text x="774" y="404" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="620">Multiple H1 headings</text>
+<rect x="774.0" y="393.5" width="142.8" height="8.5" rx="4.3" fill="#0F3F32" opacity="0.28"/>
 <text x="774" y="428" fill="#B38842" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Review</text>
 <rect x="709" y="459" width="348" height="66" rx="15" fill="#FFFCF8" opacity="1" stroke="#D7E0D8" stroke-width="1"/>
 <rect x="720" y="471" width="42" height="42" rx="16" fill="#F6E8E4" opacity="1"/>
 <g transform="translate(726.0 477.0) scale(1.25)" stroke="#B9675D" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><circle cx="8" cy="9" r="2"/><path d="M3 18l6-5 4 3 3-4 5 6"/></g>
-<text x="774" y="487" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="620">2 images missing alt text</text>
+<rect x="774.0" y="476.5" width="178.5" height="8.5" rx="4.3" fill="#0F3F32" opacity="0.28"/>
 <text x="774" y="511" fill="#B9675D" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Fix</text>
 <rect x="709" y="542" width="348" height="66" rx="15" fill="#FFFCF8" opacity="1" stroke="#D7E0D8" stroke-width="1"/>
 <rect x="720" y="554" width="42" height="42" rx="16" fill="#E7F2EB" opacity="1"/>
 <g transform="translate(726.0 560.0) scale(1.25)" stroke="#267958" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8h-2a5 5 0 0 0 0 10h5 M15 16h2a5 5 0 0 0 0-10h-5 M8 12h8"/></g>
-<text x="774" y="570" fill="#0F3F32" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="620">Internal links found</text>
+<rect x="774.0" y="559.5" width="142.8" height="8.5" rx="4.3" fill="#0F3F32" opacity="0.28"/>
 <text x="774" y="594" fill="#267958" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Passed</text>
 <rect x="708" y="626" width="347" height="24" rx="12" fill="#D5E6DA" opacity="1"/>
 <rect x="708" y="626" width="243" height="24" rx="12" fill="#267958" opacity="1"/>
-<text x="708" y="610" fill="#69786F" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">Prioritize fixes before chasing a score</text>
+<rect x="708.0" y="601.3" width="229.3" height="8.0" rx="4.0" fill="#69786F" opacity="0.28"/>
 </svg>

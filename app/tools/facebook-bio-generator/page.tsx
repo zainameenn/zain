@@ -20,7 +20,6 @@ const DESCRIPTION = "Free Facebook bio generator for a short profile, creator, b
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
-const ART = "/assets/tools/facebook-bio";
 
 // The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
 const SOCIALS = [
@@ -127,15 +126,11 @@ export default function FacebookBioGeneratorPage() {
             <p>The goal isn&apos;t to invent a new personality. It&apos;s to help you put your own into words.</p>
             <p className={f.focusLine}>A good bio should sound like a person wrote it, not like a list of inspirational quotes stuck together.</p>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={f.figure} src={`${ART}/bio-question-map.svg`} alt="Facebook bio questions grouped into ideas, writing steps, examples and profile types" width={1380} height={610} loading="lazy" decoding="async" />
         </div>
       </SECTION>
 
       <SECTION id="what-to-write" band>
         <div className={f.split}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={f.figure} src={`${ART}/bio-formula.svg`} alt="Three parts of a clear bio: who you are, what you do, and why people should follow" width={1200} height={440} loading="lazy" decoding="async" />
           <div>
             <p className={e.eyebrow}>A formula that works</p>
             <h2 className={e.h2}>What should you write in your <em className={e.emGreen}>Facebook bio?</em></h2>
@@ -162,8 +157,6 @@ export default function FacebookBioGeneratorPage() {
             <p><strong>For a short intro, we aim for 101 characters or fewer.</strong> Facebook interfaces and limits can change, so double check the field you&apos;re editing.</p>
             <p>A Facebook Group is a little different. Groups use a community description and related information, so group ideas from this generator are a starting point for that longer description.</p>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={f.figure} src={`${ART}/bio-fields.svg`} alt="Side by side diagram of a short Facebook intro and the longer About section" width={1200} height={570} loading="lazy" decoding="async" />
         </div>
       </SECTION>
 

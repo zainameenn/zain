@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">Core Web Vitals performance metrics diagram</title><desc id="svgdesc">Three performance gauges labeled LCP, INP and CLS with contextual explanations on page loading, responsiveness, and visual stability</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="510" viewBox="0 170 1200 510" role="img" aria-labelledby="svgtitle svgdesc"><title id="svgtitle">Core Web Vitals performance metrics diagram</title><desc id="svgdesc">Three performance gauges labeled LCP, INP and CLS with contextual explanations on page loading, responsiveness, and visual stability</desc>
 <defs><linearGradient id="canvasbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F3F9F4"/><stop offset="1" stop-color="#E2F0E6"/></linearGradient><linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#267958"/><stop offset="1" stop-color="#0F3F32"/></linearGradient><linearGradient id="warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F9ECD7"/><stop offset="1" stop-color="#E8CEA4"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F7FBF8"/></linearGradient><filter id="sh" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="17" flood-color="#123D2C" flood-opacity=".13"/></filter><filter id="sh2" x="-35%" y="-40%" width="175%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#123D2C" flood-opacity=".10"/></filter><clipPath id="clipcircle"><circle cx="0" cy="0" r="100"/></clipPath></defs>
-<rect x="38" y="43" width="1124" height="715" rx="48" fill="url(#canvasbg)"/>
-<circle cx="1050" cy="144" r="115" fill="#CCE5D5" opacity="0.53"/>
-<circle cx="132" cy="650" r="89" fill="#D6E9DD" opacity="0.48"/>
-<text x="100" y="134" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="750" fill="#B38842" letter-spacing="2">CORE WEB VITALS</text>
-<text x="100" y="171" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="760" fill="#0F3F32">Understand speed, responsiveness and layout stability</text>
+
+
+
+
+
 <path d="M 1100 212 Q 1102.2 221.24 1111 223 Q 1102.2 224.76 1100 234 Q 1097.8 224.76 1089 223 Q 1097.8 221.24 1100 212 Z" fill="#B38842" opacity="1" />
 <rect x="112" y="237" width="429" height="421" rx="26" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
 <rect x="112" y="237" width="429" height="60" rx="26" fill="#F5F1E8"/>
@@ -37,13 +37,13 @@
 <path d="M 831 431 A 51 51 0 0 1 920.8 414.1" fill="none" stroke="#B38842" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
 <g transform="translate(854,388) scale(1.4166666666666667)" stroke="#B38842" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-2 8 11-13h-7z"/></g>
 <text x="871" y="506" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="780" fill="#0F3F32" text-anchor="middle">INP</text>
-<text x="871" y="536" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="540" fill="#718078" text-anchor="middle">Responsiveness</text>
+<rect x="826.9" y="526.7" width="88.2" height="8.0" rx="4.0" fill="#718078" opacity="0.28"/>
 <rect x="957" y="315" width="148" height="276" rx="25" fill="#FFFCF7" stroke="#DBE6DF" stroke-width="1" filter="url(#sh)"/>
 <circle cx="1031" cy="403" r="55" fill="#EDF5EF" stroke="#DBE6DF" stroke-width="1.6" opacity="1"/>
 <path d="M 991 431 A 51 51 0 1 1 1072 431" fill="none" stroke="#DBE6DF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
 <path d="M 991 431 A 51 51 0 0 1 1055.6 447.7" fill="none" stroke="#267958" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="1" />
 <g transform="translate(1014,388) scale(1.4166666666666667)" stroke="#267958" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 9l10 6 10-6z M2 14l10 6 10-6 M2 18l10 5 10-5"/></g>
 <text x="1031" y="506" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="780" fill="#0F3F32" text-anchor="middle">CLS</text>
-<text x="1031" y="536" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="540" fill="#718078" text-anchor="middle">Visual stability</text>
-<text x="107" y="714" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="480" fill="#718078">Illustrative gauges only. Show real measurements only after running a valid test.</text>
+<rect x="980.6" y="526.7" width="100.8" height="8.0" rx="4.0" fill="#718078" opacity="0.28"/>
+
 </svg>

@@ -27,7 +27,6 @@ const DESCRIPTION = "Explore free SEO, social media and ecommerce tools. Write c
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: "/tools" });
 
-const ART = "/assets/tools/directory";
 const live = (slug: string) => Boolean(TOOLS[slug]);
 const name = (slug: string) => TOOLS[slug]?.name ?? slug;
 const card = (slug: string): DirectoryTool => ({ slug, href: toolPath(slug), name: TOOLS[slug].name, image: hubImage(slug), aliases: ALIASES[slug], ...HUB_CARDS[slug] });
@@ -54,11 +53,6 @@ function Head({ eyebrow, heading, accent, intro, id, left }: { eyebrow: string; 
     </header>
   );
 }
-
-const Art = ({ file, alt, eager, max }: { file: string; alt: string; eager?: boolean; max?: number }) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img className={d.art} style={max ? { maxWidth: max } : undefined} src={`${ART}/${file}.svg`} alt={alt} width={1600} height={960} loading={eager ? "eager" : "lazy"} decoding="async" fetchPriority={eager ? "high" : undefined} />
-);
 
 const ToolLink = ({ slug }: { slug: string }) => (live(slug) ? <Link href={toolPath(slug)}>{name(slug)}</Link> : null);
 
@@ -125,7 +119,8 @@ export default function ToolsHub() {
             <p className={d.note}>Looking for live keyword volumes or rankings? Some data tools are still in development. Working tools and upcoming tools are labeled separately.</p>
           </div>
           <div className={d.heroArt}>
-            <Art file="01-directory-hero" eager alt="Illustration of a marketing tool search bar and cards for SEO, social media, ecommerce and understanding tool results." />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className={d.art} src={TOOL_ART.toolsSearch.src} alt={TOOL_ART.toolsSearch.alt} width={TOOL_ART.toolsSearch.width} height={TOOL_ART.toolsSearch.height} loading="eager" decoding="async" fetchPriority="high" />
           </div>
         </section>
       </div>
@@ -142,7 +137,6 @@ export default function ToolsHub() {
                 </li>
               ))}
             </ul>
-            <Art file="02-tool-finder" max={1200} alt="Four task choices: write a social bio, improve a webpage, sell a product online, or plan marketing work." />
           </div>
         </section>
       ) : null}
@@ -190,12 +184,10 @@ export default function ToolsHub() {
       <section className={s.band} aria-labelledby="workflows-h">
         <div className={s.wrap}>
           <Head id="workflows-h" eyebrow="Start with the job, not the jargon" heading="Four small workflows that" accent="actually make sense" />
-          <Art file="03-marketing-workflows" max={1200} alt="Diagram connecting keyword mapping, SEO title writing, website auditing and measuring results." />
           <ol className={d.workflows}>
-            {WORKFLOWS.map((w, i) => (
+            {WORKFLOWS.map((w) => (
               <li key={w.title} className={d.workflow}>
                 <div>
-                  <span className={d.num}>{i + 1}</span>
                   <h3 className={s.h3}>{w.title}</h3>
                   <p className={d.path}>
                     {w.steps.filter(live).map((slug, j) => (
@@ -211,7 +203,6 @@ export default function ToolsHub() {
                     </Link>
                   ) : null}
                 </div>
-                {w.fig ? <Art file={w.fig.name} alt={w.fig.alt} max={1150} /> : null}
               </li>
             ))}
           </ol>
@@ -239,7 +230,6 @@ export default function ToolsHub() {
               </li>
             ))}
           </ul>
-          <Art file="06-know-your-output" max={1180} alt="Three columns distinguishing AI writing suggestions, technical site checks, and sourced search data." />
         </div>
       </section>
 
@@ -259,7 +249,6 @@ export default function ToolsHub() {
               ))}
             </ol>
             <div>
-              <Art file="07-audit-priorities" alt="Example website audit issue list showing priority for blocked pages, broken links, missing descriptions and minor wording changes." />
               <p style={{ textAlign: "center", marginTop: 20 }}>
                 <Link href="/tools?cat=seo-planning#all-tools" className={`${s.btn} ${s.btnPrimary}`}>
                   Explore available SEO tools
@@ -291,15 +280,14 @@ export default function ToolsHub() {
               </li>
             ))}
           </ul>
-          <Art file="08-use-case-map" max={1160} alt="Four user groups, seller, creator, founder and marketer, each connected to an appropriate starting tool." />
         </div>
       </section>
 
       {/* 9: how it works */}
       <section className={s.band} aria-labelledby="how-h">
         <div className={s.wrap}>
-          <Explainer art={TOOL_ART.toolsSearch} flip>
-            <Head id="how-h" eyebrow="Three steps" heading="Pick it. Use it." accent="Make it yours." left />
+          <Head id="how-h" eyebrow="Three steps" heading="Pick it. Use it." accent="Make it yours." />
+          <div className={d.howFlow}>
             <FlowSteps
               steps={[
                 { title: "Find your task", text: "Search the directory or choose a category. Every card tells you what the tool is built to do." },
@@ -307,7 +295,7 @@ export default function ToolsHub() {
                 { title: "Review before you use it", text: "Edit the draft, check factual details, copy or export your result, and make the final decision yourself." },
               ]}
             />
-          </Explainer>
+          </div>
           <p className={d.small} style={{ textAlign: "center", marginTop: 24 }}>Free to use. Fair use limits help keep these tools available for everyone. No account is required for the public tools currently on the site.</p>
         </div>
       </section>

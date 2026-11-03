@@ -15,40 +15,40 @@
 <circle cx="1064" cy="393" r="5" fill="#B38842" opacity=".45"/>
 <circle cx="379" cy="706" r="5" fill="#B38842" opacity=".45"/>
 <rect x="96" y="222" width="302" height="354" rx="26" fill="#FFFFFF" stroke="#D9E7DD" stroke-width="2" opacity="1" filter="url(#shadow)"/>
-<text x="132" y="272" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="740">Start with a topic</text>
+<rect x="132.0" y="258.4" width="166.3" height="11.0" rx="5.5" fill="#124D3B" opacity="0.28"/>
 <rect x="130" y="306" width="236" height="65" rx="18" fill="#FAF7F0" stroke="#CBDCCF" stroke-width="1" opacity="1"/>
 <g transform="translate(145 321) scale(0.7708333333333334)" fill="none" stroke="#124D3B" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
 <circle cx="20" cy="20" r="12"/><path d="M29 29 L42 42"/>
 </g>
 <text x="201" y="346" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="740">desk mats</text>
-<text x="138" y="423" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Find relevant questions</text>
+<rect x="138.0" y="411.8" width="173.9" height="9.0" rx="4.5" fill="#60776C" opacity="0.28"/>
 <g transform="translate(137 449) scale(0.9583333333333334)" fill="none" stroke="#B38842" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
 <path d="M24 2 L29 18 L45 24 L29 30 L24 46 L19 30 L3 24 L19 18 Z"/>
 </g>
-<text x="200" y="480" fill="#60776C" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Explore intent</text>
+<rect x="200.0" y="468.8" width="105.8" height="9.0" rx="4.5" fill="#60776C" opacity="0.28"/>
 <path d="M417 401 L511 401" fill="none" stroke="#124D3B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.62"/>
 <path d="M511 401 L498.18170215124906 410.57555430566333 L498.18170215124906 391.42444569433667 Z" fill="#124D3B" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
 <rect x="554" y="164" width="443" height="156" rx="23" fill="#FFFFFF" stroke="#D4E2D7" stroke-width="2" opacity="1" filter="url(#smallShadow)"/>
 <rect x="575" y="184" width="165" height="29" rx="14" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
-<text x="588" y="204" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="790" letter-spacing="0.6">BUYING INTENT</text>
+<rect x="588.0" y="195.3" width="76.4" height="8.0" rx="4.0" fill="#124D3B" opacity="0.28"/>
 <circle cx="587" cy="228" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
-<text x="606" y="234" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">desk mats for office</text>
+<rect x="606.0" y="222.8" width="151.2" height="9.0" rx="4.5" fill="#24332D" opacity="0.28"/>
 <circle cx="587" cy="262" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
-<text x="606" y="268" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">large gaming desk mat</text>
+<rect x="606.0" y="256.8" width="158.8" height="9.0" rx="4.5" fill="#24332D" opacity="0.28"/>
 <rect x="690" y="359" width="399" height="156" rx="23" fill="#FFFFFF" stroke="#D4E2D7" stroke-width="2" opacity="1" filter="url(#smallShadow)"/>
 <rect x="711" y="379" width="165" height="29" rx="14" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
 <text x="724" y="399" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="790" letter-spacing="0.6">QUESTIONS</text>
 <circle cx="723" cy="423" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
-<text x="742" y="429" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">how to clean a desk mat</text>
+<rect x="742.0" y="417.8" width="173.9" height="9.0" rx="4.5" fill="#24332D" opacity="0.28"/>
 <circle cx="723" cy="457" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
-<text x="742" y="463" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">what size desk mat?</text>
+<rect x="742.0" y="451.8" width="143.6" height="9.0" rx="4.5" fill="#24332D" opacity="0.28"/>
 <rect x="517" y="563" width="453" height="131" rx="23" fill="#FFFFFF" stroke="#D4E2D7" stroke-width="2" opacity="1" filter="url(#smallShadow)"/>
 <rect x="538" y="583" width="165" height="29" rx="14" fill="#E5F1E8" stroke="none" stroke-width="1" opacity="1"/>
-<text x="551" y="603" fill="#124D3B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="790" letter-spacing="0.6">STYLE IDEAS</text>
+<rect x="551.0" y="594.3" width="64.7" height="8.0" rx="4.0" fill="#124D3B" opacity="0.28"/>
 <circle cx="550" cy="627" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
-<text x="569" y="633" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">gothic desk mat</text>
+<rect x="569.0" y="621.8" width="113.4" height="9.0" rx="4.5" fill="#24332D" opacity="0.28"/>
 <circle cx="550" cy="661" r="5" fill="#B38842" stroke="none" stroke-width="1" opacity="1"/>
-<text x="569" y="667" fill="#24332D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">minimal desk mat</text>
+<rect x="569.0" y="655.8" width="121.0" height="9.0" rx="4.5" fill="#24332D" opacity="0.28"/>
 <path d="M524 412 C556 329 591 324 684 318 M524 412 C566 460 654 481 690 493" fill="none" stroke="#6BA081" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
 <path d="M1068 174 Q1071.52 186.8 1084 190 Q1071.2 193.52 1068 206 Q1064.8 193.52 1052 190 Q1064.48 186.8 1068 174Z" fill="#B38842" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
 </svg>

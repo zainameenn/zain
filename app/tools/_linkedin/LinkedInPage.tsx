@@ -8,7 +8,8 @@ import { buildMetadata } from "@/lib/seo";
 import { LINKEDIN_TOOLS, type LinkedInKind } from "@/lib/tools/families/linkedin-choices";
 import { ART, type ToolArt } from "@/lib/tools/art";
 import t from "../_studio/edtool.module.css";
-import { Explainer } from "../_components/Explainer";
+import { Explainer, FlowSteps } from "../_components/Explainer";
+import { ILLUSTRATIONS } from "@/lib/illustrations";
 import f from "../facebook-bio-generator/fb.module.css";
 import l from "./linkedin.module.css";
 import { LinkedInTool } from "./LinkedInTool";
@@ -17,7 +18,6 @@ import { LinkedInTool } from "./LinkedInTool";
 // the practical guide with the four SVGs, examples, mistakes, FAQs, related tools and the social CTA.
 // Each tool's copy lives in ./content.ts.
 
-export type Figure = { name: string; alt: string };
 export type LinkedInCopy = {
   kind: LinkedInKind;
   title: string;
@@ -26,11 +26,10 @@ export type LinkedInCopy = {
   lede: string;
   steps: [string, string][];
   get: string[];
-  guide: { h: string; p: string[]; fig?: Figure }[];
+  guide: { h: string; p: string[] }[];
   examples: [string, string][];
   mistakes: [string, string][];
   faqs: [string, string][];
-  figures: { workflow: Figure; examples: Figure };
 };
 
 // The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
@@ -40,6 +39,9 @@ const SOCIALS = [
   { name: "Instagram", href: "https://www.instagram.com/zainn.ms/", icon: "M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm6.1-8.1a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 3.6c2.73 0 3.05.01 4.13.06 2.77.13 4.07 1.44 4.2 4.2.05 1.08.06 1.4.06 4.14s-.01 3.06-.06 4.13c-.13 2.76-1.42 4.07-4.2 4.2-1.08.05-1.4.06-4.13.06s-3.06-.01-4.14-.06c-2.78-.13-4.07-1.44-4.2-4.2C3.61 15.06 3.6 14.74 3.6 12s.01-3.06.06-4.14c.13-2.76 1.43-4.07 4.2-4.2C8.94 3.61 9.27 3.6 12 3.6Z" },
   { name: "X", href: "https://x.com/zainnameen", icon: "M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78L17.75 3Zm-1.08 16.17h1.7L7.4 4.73H5.57l11.1 14.44Z" },
 ];
+
+/** The wordless site illustration beside "How to use", where one exists for the tool. */
+const HOW_ART: Partial<Record<LinkedInKind, ToolArt>> = { post: ILLUSTRATIONS.A69, comment: ILLUSTRATIONS.A70, headline: ILLUSTRATIONS.A13, about: ILLUSTRATIONS.A68 };
 
 /** The illustration beside "What you get" on each tool. */
 const RESULT_ART: Record<LinkedInKind, ToolArt> = {
@@ -86,11 +88,6 @@ const accent = (s: string) => {
   return w.length < 3 ? <em className={e.emGreen}>{s}</em> : <>{w.slice(0, -2).join(" ")} <em className={e.emGreen}>{w.slice(-2).join(" ")}</em></>;
 };
 
-const Illustration = ({ kind, fig }: { kind: LinkedInKind; fig: Figure }) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img className={l.figure} src={`/assets/tools/linkedin-${kind}/${fig.name}.svg`} alt={fig.alt} width={1200} height={700} loading="lazy" decoding="async" />
-);
-
 export function LinkedInPage({ c }: { c: LinkedInCopy }) {
   const tool = LINKEDIN_TOOLS[c.kind];
   const url = `${SITE_URL}/tools/${tool.slug}`;
@@ -129,17 +126,26 @@ export function LinkedInPage({ c }: { c: LinkedInCopy }) {
       </section>
 
       <Section id="how-to-use" band>
-        <Head kicker="Three steps" title={<>How to use the free {accent(tool.name)}</>} />
-        <ul className={`${f.cards} ${f.cards3}`}>
-          {c.steps.map(([h, p], i) => (
-            <li key={h} className={f.card}>
-              <span className={t.num}>Step {i + 1}</span>
-              <h3>{h}</h3>
-              <p>{p}</p>
-            </li>
-          ))}
-        </ul>
-        <Illustration kind={c.kind} fig={c.figures.workflow} />
+        {HOW_ART[c.kind] ? (
+          <Explainer art={HOW_ART[c.kind]!}>
+            <p className={e.eyebrow}>Three steps</p>
+            <h2 className={e.h2}>How to use the free {accent(tool.name)}</h2>
+            <FlowSteps steps={c.steps.map(([h, p]) => ({ title: h, text: p }))} />
+          </Explainer>
+        ) : (
+          <>
+            <Head kicker="Three steps" title={<>How to use the free {accent(tool.name)}</>} />
+            <ul className={`${f.cards} ${f.cards3}`}>
+              {c.steps.map(([h, p], i) => (
+                <li key={h} className={f.card}>
+                  <span className={t.num}>Step {i + 1}</span>
+                  <h3>{h}</h3>
+                  <p>{p}</p>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </Section>
 
       <Section id="what-you-get">
@@ -162,7 +168,6 @@ export function LinkedInPage({ c }: { c: LinkedInCopy }) {
               <p key={p.slice(0, 40)} className={e.body} style={{ marginTop: 16 }}>{p}</p>
             ))}
           </div>
-          {g.fig ? <Illustration kind={c.kind} fig={g.fig} /> : null}
         </Section>
       ))}
 
@@ -176,7 +181,6 @@ export function LinkedInPage({ c }: { c: LinkedInCopy }) {
             </li>
           ))}
         </ul>
-        <Illustration kind={c.kind} fig={c.figures.examples} />
       </Section>
 
       <Section id="mistakes" band>

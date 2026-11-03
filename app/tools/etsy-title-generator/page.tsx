@@ -21,7 +21,6 @@ const DESCRIPTION = "Upload a product photo or describe what you sell. Get three
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
-const ART = "/assets/tools/etsy-title";
 
 // The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
 const SOCIALS = [
@@ -59,11 +58,6 @@ const Head = ({ kicker, title, intro }: { kicker: string; title: React.ReactNode
     <h2 className={e.h2} style={{ maxWidth: 820 }}>{title}</h2>
     {intro ? <p className={e.body} style={{ marginTop: 14 }}>{intro}</p> : null}
   </div>
-);
-
-const Figure = ({ name, alt }: { name: string; alt: string }) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img className={f.figure} src={`${ART}/${name}.svg`} alt={alt} width={1200} height={650} loading="lazy" decoding="async" />
 );
 
 export default function EtsyTitleGeneratorPage() {
@@ -117,7 +111,6 @@ export default function EtsyTitleGeneratorPage() {
               <li><strong>Edit and copy.</strong> Compare three titles, check the character count, tweak any word and copy your favorite into Etsy.</li>
             </ol>
           </div>
-          <Figure name="01-photo-to-title" alt="A product photo and a few details turning into three Etsy title options" />
         </div>
       </SECTION>
 
@@ -134,7 +127,6 @@ export default function EtsyTitleGeneratorPage() {
 
       <SECTION id="how-long" band>
         <div className={f.split}>
-          <Figure name="02-title-anatomy" alt="An Etsy title broken into parts: the item, key details, and optional extras, within 140 characters" />
           <div>
             <p className={e.eyebrow}>Length</p>
             <h2 className={e.h2}>How long should an <em className={e.emGreen}>Etsy title be?</em></h2>
@@ -154,7 +146,6 @@ export default function EtsyTitleGeneratorPage() {
             <p>It can&apos;t confirm the material, the exact size, whether something is handmade or what buyers can personalize. A brass ring and a gold ring can look the same on screen.</p>
             <p className={f.focusLine}>So the tool only uses those facts when you type them in. Anything you add in the optional details takes priority over the photo.</p>
           </div>
-          <Figure name="05-photo-vs-confirmed-facts" alt="What a product photo shows, such as color and shape, compared with facts the seller must confirm, such as material and size" />
         </div>
       </SECTION>
 
@@ -164,8 +155,6 @@ export default function EtsyTitleGeneratorPage() {
           title={<>What makes a <em className={e.emGreen}>good Etsy title?</em></>}
           intro="Most weak titles are a pile of repeated keywords. A good one reads like a clear description a buyer can understand at a glance."
         />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className={s.wide} src={`${ART}/03-before-and-after.svg`} alt="A keyword stuffed Etsy title rewritten into a short, clear title" width={1200} height={650} loading="lazy" decoding="async" />
         <ul className={`${f.cards} ${f.cards3}`}>
           {[
             ["1", "Say what it is", "Name the item the way a buyer would search for it, in plain words."],
@@ -183,7 +172,6 @@ export default function EtsyTitleGeneratorPage() {
 
       <SECTION id="first-words">
         <div className={f.split}>
-          <Figure name="04-search-result-preview" alt="An Etsy style search result where only the first words of a long title are visible" />
           <div>
             <p className={e.eyebrow}>The first few words</p>
             <h2 className={e.h2}>Why the first words <em className={e.emGreen}>matter most</em></h2>
@@ -235,7 +223,6 @@ export default function EtsyTitleGeneratorPage() {
             <p><strong>Your attributes</strong>, like color and material, are chosen from Etsy&apos;s own lists, so you don&apos;t need to squeeze them all into the title.</p>
             <p><strong>Your description</strong> gives the full detail: sizes, care, what&apos;s included and how personalization works.</p>
           </div>
-          <Figure name="06-title-tags-attributes" alt="How an Etsy title, 13 tags and listing attributes each do a different job" />
         </div>
       </SECTION>
 

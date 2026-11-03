@@ -22,7 +22,6 @@ const DESCRIPTION = "Create a TikTok bio in a few clicks. Get 5 funny, aesthetic
 
 export const metadata: Metadata = buildMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 
-const ART = "/assets/tools/tiktok-bio";
 
 // The same profiles the site footer links to (app/HomeComponents/Footer.tsx).
 const SOCIALS = [
@@ -84,11 +83,6 @@ const Head = ({ kicker, title, intro }: { kicker: string; title: React.ReactNode
   </div>
 );
 
-const Figure = ({ name, alt, wide }: { name: string; alt: string; wide?: boolean }) => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img className={wide ? k.wide : f.figure} src={`${ART}/${name}.svg`} alt={alt} width={1120} height={630} loading="lazy" decoding="async" />
-);
-
 export default function TikTokBioGeneratorPage() {
   const url = `${SITE_URL}${PATH}`;
   return (
@@ -140,7 +134,6 @@ export default function TikTokBioGeneratorPage() {
               <li><strong>Preview, edit and copy.</strong> Check the live character count, then copy the one you like. Open TikTok, go to your profile, choose Edit profile and paste it into Bio.</li>
             </ol>
           </div>
-          <Figure name="01-answers-to-bio" alt="Four answers about account, content, audience and vibe turning into a short TikTok bio" />
         </div>
       </SECTION>
 
@@ -165,7 +158,6 @@ export default function TikTokBioGeneratorPage() {
             <p>That tells someone exactly what to expect, without turning the bio into a wall of keywords.</p>
             <p>Our generator keeps every result at or below 80 characters. Your in-app TikTok counter is the final check, especially with emoji, line breaks or unusual symbols.</p>
           </div>
-          <Figure name="02-character-limit" alt="A TikTok bio example with a character bar showing the 80 character maximum" />
         </div>
       </SECTION>
 
@@ -197,7 +189,6 @@ export default function TikTokBioGeneratorPage() {
           </table>
         </div>
         <p className={e.body} style={{ maxWidth: 760, margin: "20px auto 0", textAlign: "center" }}>If your name already says &ldquo;Jamie | Budget Recipes,&rdquo; your bio doesn&apos;t need to repeat those words exactly. It can explain what makes the recipes useful.</p>
-        <Figure wide name="03-profile-fields" alt="Illustrative TikTok profile labelling the name, username, bio and website link fields" />
       </SECTION>
 
       <SECTION id="what-to-put" band>
@@ -233,8 +224,6 @@ export default function TikTokBioGeneratorPage() {
             </li>
           ))}
         </ul>
-        <Figure wide name="04-bio-styles" alt="The same budget recipe topic written in simple, funny, aesthetic and professional voices" />
-        <Figure wide name="07-examples-by-account" alt="Example TikTok bios for a creator, a small business, a gamer and a personal account" />
       </SECTION>
 
       <SECTION id="aesthetic" band>
@@ -272,13 +261,11 @@ export default function TikTokBioGeneratorPage() {
             <p>If your profile already has a working website link, you can choose a short CTA such as &ldquo;Shop below&rdquo; or &ldquo;See my portfolio.&rdquo; If you don&apos;t, choose a CTA that works now, like &ldquo;Follow for more&rdquo; or, where messaging is available, &ldquo;DM for details.&rdquo; The generator only offers link and message CTAs when you tick those options.</p>
             <p>If the website link option is missing, don&apos;t try to force a URL into the bio and promise it will be clickable.</p>
           </div>
-          <Figure name="06-website-link-rules" alt="Decision chart: use a short link CTA only if your profile can add a website, otherwise use follow, DM or content CTAs" />
         </div>
       </SECTION>
 
       <SECTION id="before-after">
         <div className={f.split}>
-          <Figure name="05-before-and-after" alt="A vague bio, Just vibing, rewritten as Five-minute desk workouts for people who sit all day" />
           <div>
             <p className={e.eyebrow}>Before and after</p>
             <h2 className={e.h2}>Fixing a generic <em className={e.emGreen}>TikTok bio</em></h2>
@@ -300,7 +287,6 @@ export default function TikTokBioGeneratorPage() {
             <p>If you post easy recipes, the bio might say &ldquo;Quick dinners for busy students.&rdquo; A video caption might say &ldquo;3 dinners you can make with one pan.&rdquo; They work together, but they are not interchangeable.</p>
             <p>The same goes for hashtags, video titles, usernames and profile pictures. This generator writes a <strong>bio</strong>, not a caption or a new TikTok account name. For captions, use the <Link href="/tools/tiktok-caption-generator">TikTok Caption Generator</Link>.</p>
           </div>
-          <Figure name="08-bio-vs-caption" alt="A profile bio describes what you post and why to follow, a video caption describes one video" />
         </div>
       </SECTION>
 
