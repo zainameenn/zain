@@ -151,6 +151,8 @@ const LIVE = new Set([
   // November 2026: LinkedIn package.
   "linkedin-experience-description-generator",
   "linkedin-skills-generator",
+  // November 2026: Reddit and startup tools batch (lib/tools/kit).
+  ...KIT_SLUGS,
 ]);
 // SEO titles and descriptions from lib/tools/meta.ts override the page configs.
 const WITH_META = PAGES.map((p) => (TOOL_META[p.slug] ? { ...p, metaTitle: TOOL_META[p.slug].title, metaDescription: TOOL_META[p.slug].description } : p));
@@ -212,7 +214,7 @@ export const STATUS: Record<string, ToolStatus> = {
   "facebook-bio-generator": "published",
   "linkedin-experience-description-generator": "review",
   "linkedin-skills-generator": "review",
-  ...Object.fromEntries(KIT_SLUGS.map((s) => [s, "review" as const])),
+  ...Object.fromEntries(KIT_SLUGS.map((s) => [s, "published" as const])),
 };
 export const statusOf = (slug: string): ToolStatus => STATUS[slug] ?? "development";
 

@@ -2,8 +2,8 @@
 title: Ten New Free Tools for Reddit, Startups and Marketing Returns
 summary: Format Reddit posts, check titles, estimate ad costs, write a pitch, review a pricing page, plan a launch and work out ROI and runway.
 category: new-tool
-status: draft
-publishedAt: 
+status: published
+publishedAt: 2026-11-11
 updatedAt: 
 featuredImage: 
 imageAlt: 
