@@ -1,0 +1,18 @@
+.bar { height: 10px; border-radius: 999px; background: var(--ivory); overflow: hidden; border: 1px solid var(--line); }
+.bar i { display: block; height: 100%; background: var(--forest); transition: width 0.2s; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+.phase { margin-top: 32px; }
+.phaseH { margin: 0 0 8px; font-family: var(--font-display); font-size: 24px; font-weight: 500; }
+.tasks { display: grid; margin: 0 0 14px; padding: 0; list-style: none; }
+.task { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 14px 0; border-top: 1px solid var(--line); }
+.task input[type="checkbox"] { width: 20px; height: 20px; margin-top: 10px; accent-color: var(--forest); }
+.body { min-width: 0; }
+.title { width: 100%; padding: 6px 8px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--ink); font: inherit; font-size: 16px; font-weight: 600; }
+.title:hover, .title:focus { border-color: var(--line-strong); background: #fff; outline: none; }
+.done .title { text-decoration: line-through; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 4px 8px 0; font-size: 13.5px; color: var(--muted); text-transform: none; }
+.meta > span:first-child { text-transform: capitalize; min-width: 0; }
+.output { margin: 6px 8px 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-2, #4a524b); }
+.remove { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--muted); font-size: 20px; line-height: 1; cursor: pointer; }
+.remove:hover { color: #8a3a22; border-color: #8a3a22; }
+.remove:focus-visible, .task input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
