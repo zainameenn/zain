@@ -5,7 +5,6 @@ import { JsonLd, breadcrumbList } from "@/app/blog/_components/JsonLd";
 import { FAQAccordion } from "@/app/HomeComponents/FAQAccordion";
 import { EditorialPage, ed as e } from "@/app/_design/ui";
 import { SITE_URL } from "@/lib/markdown";
-import { SERVICES, formatPrice, startingPrice, type ServiceId } from "@/lib/pricing";
 import { buildMetadata } from "@/lib/seo";
 import { HUB_CARDS } from "@/lib/tools/hub";
 import { TOOLS, toolPath } from "@/lib/tools/registry";
@@ -13,6 +12,7 @@ import { KIT, type KitCopy, type KitSlug } from "@/lib/tools/kit/content";
 import { FlowSteps } from "../_components/Explainer";
 import t from "../_studio/edtool.module.css";
 import k from "./kit.module.css";
+import { ServiceCard } from "./ServiceCard";
 
 // The shared page for the November 2026 tools batch. Section order: breadcrumbs, hero, the working tool,
 // how to use it, examples, the guide, one service card, FAQ, related tools. Headings are centred; long
@@ -27,38 +27,6 @@ const Head = ({ kicker, title, intro, id }: { kicker: string; title: ReactNode; 
     {intro ? <p className={e.body} style={{ marginTop: 14, maxWidth: 680 }}>{intro}</p> : null}
   </div>
 );
-
-/** "Need help with this instead?": one service, its real starting price from lib/pricing.ts. */
-export function ServiceCard({ id, why }: { id: ServiceId; why: string }) {
-  const s = SERVICES[id];
-  const p = startingPrice(s);
-  const price = formatPrice(p);
-  return (
-    <div className={k.service}>
-      <div>
-        <p className={e.eyebrow}>Need help with this instead?</p>
-        <h2 className={e.h2}>{s.name}</h2>
-        <p className={k.serviceWhy}>{why}</p>
-        <p className={k.serviceNote}>The free tool stays free and fully usable. The paid work is me doing it with you, hands on: research, decisions and the follow through.</p>
-      </div>
-      <div className={k.serviceBox}>
-        <p className={k.servicePrice}>
-          {price.amount} <span>{price.note}</span>
-        </p>
-        <p className={k.servicePkg}>{p.name}: {p.forWho}</p>
-        <ul className={k.serviceList}>
-          {p.highlights.slice(0, 3).map((h) => (
-            <li key={h}>{h}</li>
-          ))}
-        </ul>
-        <div className={k.serviceActions}>
-          <Link href={`${s.href}#pricing`} className={`${e.btn} ${e.btnPrimary}`}>See {s.name.toLowerCase()} packages</Link>
-          <Link href="/pricing" className={k.textLink}>Compare all pricing</Link>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function KitPage({ c, children, service }: { c: KitCopy; children: ReactNode; service?: ReactNode }) {
   const url = `${SITE_URL}${toolPath(c.slug)}`;
