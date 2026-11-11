@@ -88,7 +88,7 @@ import b4_ab_test_sample_size_calculator from "./content/ab-test-sample-size-cal
 // The ten tools added in October 2026, turned into regular registry pages on the studio layout.
 // Copy lives in lib/tools/v3/content/<slug>.ts; the generators in app/tools/_studio/V3Generator.tsx.
 
-const ICON: Record<ToolGroup, RelatedIcon> = { Social: "caption", SEO: "chat", Ecommerce: "caption", LinkedIn: "bio", Naming: "bio", Utilities: "x", Copy: "chat" };
+const ICON: Record<ToolGroup, RelatedIcon> = { Social: "caption", SEO: "chat", Ecommerce: "caption", LinkedIn: "bio", Naming: "bio", Utilities: "x", Copy: "chat", RedditWriting: "chat", RedditNumbers: "x", Startup: "chat" };
 
 function page(c: NewToolContent, group: ToolGroup, ai: boolean): ToolPage {
   return {

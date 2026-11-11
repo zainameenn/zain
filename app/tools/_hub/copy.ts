@@ -14,6 +14,16 @@ export const FEATURED: { slug: string; text: string; cta: string }[] = [
 
 /** Extra words people search for, so "title tag" finds the SEO Title Generator. */
 export const ALIASES: Record<string, string> = {
+  "reddit-post-formatter": "reddit markdown preview bold spoiler format reddit post reddit comment",
+  "reddit-title-analyzer": "reddit title checker post title clickbait headline",
+  "reddit-engagement-calculator": "reddit score upvotes comments views engagement rate",
+  "reddit-ad-cost-calculator": "reddit ads cpc cpm roas ad budget advertising cost",
+  "reddit-ban-appeal-generator": "reddit ban unban appeal suspension modmail removed post",
+  "elevator-pitch-generator": "pitch startup pitch 30 second pitch investor intro",
+  "pricing-page-analyzer": "pricing page review plans packages pricing table saas pricing",
+  "startup-launch-checklist-generator": "launch plan product launch checklist go to market",
+  "marketing-roi-calculator": "roi return on investment roas campaign profit cac cost per lead",
+  "startup-runway-calculator": "runway burn rate cash months left startup finance",
   "seo-title-generator": "title tag page title seo checker",
   "meta-description-generator": "meta description snippet search description",
   "website-audit-tool": "website audit seo checker site audit technical seo",

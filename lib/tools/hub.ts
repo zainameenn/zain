@@ -35,6 +35,16 @@ export const HUB_CARDS: Record<string, HubCard> = {
   "linkedin-post-generator": { description: "Create LinkedIn posts from your ideas, experiences, or observations without making them sound overly corporate.", cta: "Write a post" },
   "linkedin-comment-generator": { description: "Write relevant, thoughtful LinkedIn comments that contribute something useful to the conversation.", cta: "Write a comment" },
   "linkedin-experience-description-generator": { description: "Turn rough job notes into clear LinkedIn experience bullets, without invented metrics.", cta: "Write my experience" },
+  "reddit-post-formatter": { description: "Write Reddit Markdown with a live preview, then copy it in.", cta: "Format my post" },
+  "reddit-title-analyzer": { description: "Check a post title for clarity, length and clickbait, with one clearer version.", cta: "Analyze my title" },
+  "reddit-engagement-calculator": { description: "Score to comment ratio and interactions per 1,000 views, honestly labelled.", cta: "Calculate engagement" },
+  "reddit-ad-cost-calculator": { description: "Estimate clicks, conversions, CPA and ROAS from your budget and CPC or CPM.", cta: "Estimate ad costs" },
+  "reddit-ban-appeal-generator": { description: "Draft a short, respectful appeal and see where to send it. Stays in your browser.", cta: "Write my appeal" },
+  "elevator-pitch-generator": { description: "One clear pitch for 30, 60 or 90 seconds, with no invented traction.", cta: "Write my pitch" },
+  "pricing-page-analyzer": { description: "Paste your pricing text and see what's clear, confusing or missing.", cta: "Review my pricing" },
+  "startup-launch-checklist-generator": { description: "A prioritised launch checklist you can tick off and export.", cta: "Plan my launch" },
+  "marketing-roi-calculator": { description: "ROI from gross profit, plus ROAS, cost per lead, CAC and break even.", cta: "Calculate ROI" },
+  "startup-runway-calculator": { description: "Gross and net burn, months of runway and what changes would extend it.", cta: "Calculate runway" },
   "linkedin-skills-generator": { description: "Find skills for your role and separate the ones you can prove from the ones to learn.", cta: "Find my skills" },
   ...Object.fromEntries(V3_CONTENT.map((c) => [c.slug, c.hubCard])),
 };
@@ -54,6 +64,9 @@ export const HUB_CATEGORIES: { group: ToolGroup; label: string; id: string; head
   { group: "LinkedIn", label: "LinkedIn", id: "linkedin", heading: "Free LinkedIn tools", intro: "Headlines, About sections, posts and comments that sound like you." },
   { group: "Naming", label: "Business Naming", id: "business-naming", heading: "Free business name generators", intro: "Names for Etsy shops, Shopify stores and YouTube channels." },
   { group: "Copy", label: "Copywriting", id: "copywriting", heading: "Free copywriting tools", intro: "Headlines, value propositions, email preheaders and changelog entries, one clear result at a time." },
+  { group: "RedditWriting", label: "Reddit Writing & Formatting", id: "reddit-writing", heading: "Free Reddit writing tools", intro: "Format posts, check titles and draft a respectful appeal, without posting anything for you." },
+  { group: "RedditNumbers", label: "Reddit Analytics & Calculators", id: "reddit-calculators", heading: "Free Reddit calculators", intro: "Engagement ratios and ad cost estimates from your own numbers, with every formula shown." },
+  { group: "Startup", label: "Startup & Growth Tools", id: "startup-growth", heading: "Free startup and growth tools", intro: "Pitches, launch plans, pricing page reviews, marketing ROI and runway." },
   { group: "Utilities", label: "Calculators & Utilities", id: "calculators-utilities", heading: "Free calculators and utilities", intro: "Profit calculators, review links and an llms.txt builder. No AI, all in your browser." },
 ];
 

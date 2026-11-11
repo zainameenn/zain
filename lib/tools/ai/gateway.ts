@@ -249,6 +249,8 @@ export type RunRequest<T> = Attempt & {
   dedupeKey?: string;
   /** Providers to leave out for this request, e.g. Google for UK and EU visitors. */
   skipProviders?: Provider[];
+  /** Restrict this request to these model ids (as written in AI_MODELS), in this order. Leaves the shared limits as they are. */
+  only?: string[];
   /** Checks and cleans the model's answer. Return null to reject it and try the next model. */
   validate: (raw: unknown) => T | null;
 };
@@ -256,7 +258,8 @@ export type RunRequest<T> = Attempt & {
 export type RunResult<T> = { value: T; model: string; attempts: number };
 
 export async function runAi<T>(req: RunRequest<T>): Promise<RunResult<T>> {
-  const models = aiModels();
+  const all = aiModels();
+  const models = req.only ? req.only.map((id) => all.find((m) => m.id === id)).filter((m): m is ModelConfig => Boolean(m)) : all;
   if (!models.length) throw new AiError("config", "no models configured");
   const L = aiLimits();
   const store = counterStore();

@@ -15,7 +15,10 @@ import { ProfileMockup } from "../_components/ProfileMockup";
 import { StudioPage } from "../_studio/StudioPage";
 import { EDITORIAL_TOOLS } from "../_studio/EditorialToolPage";
 import { ToolWorkspace, UseExampleButton } from "../_components/ToolWorkspace";
+import { KIT_SLUGS } from "@/lib/tools/kit/content";
 import s from "../tools.module.css";
+
+const KIT_SLUG_SET = new Set<string>(KIT_SLUGS);
 
 // One template for every tool page. Each page is a config object in lib/tools/registry.ts.
 
@@ -25,7 +28,7 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   // Editorial SEO tools have their own static routes (app/tools/<slug>), so they're left out here.
-  return Object.keys(TOOLS).filter((slug) => !EDITORIAL_TOOLS.has(slug) && slug !== "facebook-bio-generator" && slug !== "tiktok-bio-generator" && slug !== "etsy-title-generator" && slug !== "twitter-bio-generator" && slug !== "facebook-caption-generator" && slug !== "youtube-channel-name-generator" && !slug.startsWith("linkedin-")).map((slug) => ({ slug }));
+  return Object.keys(TOOLS).filter((slug) => !EDITORIAL_TOOLS.has(slug) && slug !== "facebook-bio-generator" && slug !== "tiktok-bio-generator" && slug !== "etsy-title-generator" && slug !== "twitter-bio-generator" && slug !== "facebook-caption-generator" && slug !== "youtube-channel-name-generator" && !slug.startsWith("linkedin-") && !KIT_SLUG_SET.has(slug)).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

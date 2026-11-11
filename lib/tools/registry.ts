@@ -6,6 +6,7 @@ import { ABOUT, COMMENT, HEADLINE, POST } from "./pages/linkedin";
 import { CALENDAR, MARKETING_PLAN } from "./pages/planning";
 import { META_DESCRIPTION, SEO_TITLE, UTM_BUILDER } from "./pages/seo";
 import { TOOL_META } from "./meta";
+import { KIT, KIT_SLUGS, type KitSlug } from "./kit/content";
 import type { ToolGroup, ToolPage } from "./types";
 import { V3_PAGES } from "./v3/pages";
 import { metaDescriptionPage, seoTitlePage } from "./families/writers";
@@ -33,7 +34,16 @@ const PAGES: ToolPage[] = [
   // entries only list them in the hub, menu, sitemap and related links, so they borrow the headline page's shape.
   linkedinStub("linkedin-experience-description-generator", "LinkedIn Experience Description Generator", "LinkedIn experience description generator"),
   linkedinStub("linkedin-skills-generator", "LinkedIn Skills Generator", "free LinkedIn skills generator"),
+  // November 2026 batch: own pages in app/tools/<slug>, copy in lib/tools/kit/content.ts.
+  ...KIT_SLUGS.map(kitStub),
 ];
+
+/** Registry entry for a page built on the shared kit template, so the hub, sitemap and related links see it. */
+function kitStub(slug: KitSlug): ToolPage {
+  const c = KIT[slug];
+  const group: ToolGroup = c.category.id === "reddit-writing" ? "RedditWriting" : c.category.id === "reddit-calculators" ? "RedditNumbers" : "Startup";
+  return { ...linkedinHeadlinePage(HEADLINE), slug, name: c.name, keyword: c.keyword, group, metaTitle: c.title, metaDescription: c.description, h1: { regular: c.name, accent: "(100% FREE)" }, api: null, studio: undefined };
+}
 
 function linkedinStub(slug: string, name: string, keyword: string): ToolPage {
   return { ...linkedinHeadlinePage(HEADLINE), slug, name, keyword, metaTitle: name, metaDescription: name, h1: { regular: "Free LinkedIn", accent: name.replace("LinkedIn ", "") }, api: null, studio: undefined };
@@ -202,6 +212,7 @@ export const STATUS: Record<string, ToolStatus> = {
   "facebook-bio-generator": "published",
   "linkedin-experience-description-generator": "review",
   "linkedin-skills-generator": "review",
+  ...Object.fromEntries(KIT_SLUGS.map((s) => [s, "review" as const])),
 };
 export const statusOf = (slug: string): ToolStatus => STATUS[slug] ?? "development";
 
