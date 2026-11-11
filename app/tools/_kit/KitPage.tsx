@@ -18,7 +18,11 @@ import { ServiceCard } from "./ServiceCard";
 // how to use it, examples, the guide, one service card, FAQ, related tools. Headings are centred; long
 // text, forms, results and FAQ answers stay left aligned. The tool itself is passed in as children.
 
-export const kitMetadata = (slug: KitSlug): Metadata => buildMetadata({ title: KIT[slug].title, description: KIT[slug].description, path: toolPath(slug) });
+/** Until a tool is approved (in LIVE, so in TOOLS), its page exists but stays out of search results. */
+export const kitMetadata = (slug: KitSlug): Metadata => {
+  const meta = buildMetadata({ title: KIT[slug].title, description: KIT[slug].description, path: toolPath(slug) });
+  return TOOLS[slug] ? meta : { ...meta, robots: { index: false, follow: true } };
+};
 
 const Head = ({ kicker, title, intro, id }: { kicker: string; title: ReactNode; intro?: string; id?: string }) => (
   <div className={t.center}>
