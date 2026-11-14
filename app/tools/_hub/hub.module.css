@@ -30,9 +30,9 @@
   margin: 0;
   font-family: var(--nf-general-sans);
   font-size: clamp(28px, 3vw, 40px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.08;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
 }
 .featureCopy {
   max-width: 440px;
@@ -90,7 +90,7 @@
   margin: 0;
   font-family: var(--nf-general-sans);
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
@@ -229,8 +229,8 @@
   margin: 0;
   font-family: var(--nf-general-sans);
   font-size: clamp(24px, 2.4vw, 30px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 .groupIntro { margin: 0; font-size: 15.5px; color: var(--muted); }
 
@@ -311,7 +311,7 @@
   margin: 0;
   font-family: var(--nf-general-sans);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }

@@ -68,8 +68,8 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
             type="button"
             onClick={close}
             aria-label="Close enlarged screenshot"
-            className="border-[#3A3935] hover:border-[#C4A47C]"
-            style={{ position: "absolute", top: 16, right: 16, width: 48, height: 48, borderRadius: 12, borderWidth: 1, borderStyle: "solid", background: "#1C1C1C", color: "#F2EFEA", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
+            className="border-[#2E6150] hover:border-[#B38842]"
+            style={{ position: "absolute", top: 16, right: 16, width: 48, height: 48, borderRadius: 12, borderWidth: 1, borderStyle: "solid", background: "#174B3A", color: "#F2EFEA", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" /></svg>
           </button>
@@ -102,7 +102,7 @@ export function ScreenshotFigure({ shot, sizes, className }: { shot: Screenshot;
         type="button"
         onClick={() => open(shot)}
         aria-label={`Enlarge screenshot: ${shot.caption}`}
-        className="border-[#DAD8D1] transition-colors hover:border-[#C4A47C]"
+        className="border-[#E4E0D6] transition-colors hover:border-[#B38842]"
         style={{ position: "relative", display: "block", width: "100%", padding: 0, borderWidth: 1, borderStyle: "solid", borderRadius: 12, overflow: "hidden", background: shot.background ?? "#fff", cursor: "zoom-in" }}
       >
         <Image src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes={sizes} style={{ display: "block", width: "100%", height: "auto" }} />

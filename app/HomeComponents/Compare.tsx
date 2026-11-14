@@ -20,14 +20,14 @@ export default function Compare() {
               minWidth: 0,
               borderRadius: 22,
               padding: "clamp(24px,2.6vw,32px)",
-              background: o.dark ? "#1C1C1C" : "#FBFBF9",
-              color: o.dark ? "#F2EFEA" : "#1C1C1C",
-              border: o.dark ? "1px solid #1C1C1C" : "1px solid #E2DFD8",
+              background: o.dark ? "#174B3A" : "#FBFBF9",
+              color: o.dark ? "#F2EFEA" : "#202821",
+              border: o.dark ? "1px solid #202821" : "1px solid #E4E0D6",
             }}
           >
-            <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,27px)", fontWeight: 600, letterSpacing: "-0.025em", color: o.dark ? "#D3AE82" : "#1C1C1C" }}>{o.t}</h3>
+            <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,27px)", fontWeight: 600, letterSpacing: "-0.025em", color: o.dark ? "#D3AE82" : "#202821" }}>{o.t}</h3>
             {o.d.map((p) => (
-              <p key={p.slice(0, 30)} style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.6, color: o.dark ? "#C9C4BA" : "#5A5854" }}>{p}</p>
+              <p key={p.slice(0, 30)} style={{ margin: "12px 0 0", fontSize: 16, lineHeight: 1.6, color: o.dark ? "#D6E0DA" : "#4A524B" }}>{p}</p>
             ))}
           </div>
         ))}

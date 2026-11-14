@@ -52,7 +52,7 @@ const fieldStyle: React.CSSProperties = {
   background: "#FBFBF9",
   font: "inherit",
   fontSize: 16,
-  color: "#1C1C1C",
+  color: "#202821",
   outline: "none",
 };
 
@@ -72,11 +72,11 @@ const labelStyle: React.CSSProperties = {
   marginBottom: 8,
   fontSize: 13.5,
   fontWeight: 600,
-  color: "#1C1C1C",
+  color: "#202821",
 };
 
 const focusClass =
-  "focus:border-[#1C1C1C] focus:shadow-[0_0_0_3px_rgba(196,164,124,.35)]";
+  "focus:border-[#202821] focus:shadow-[0_0_0_3px_rgba(196,164,124,.35)]";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -128,9 +128,9 @@ export function ContactForm() {
         <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em" }}>
           Got it, thanks.
         </p>
-        <p style={{ margin: "10px 0 0", fontSize: 16, color: "#5A5854" }}>
+        <p style={{ margin: "10px 0 0", fontSize: 16, color: "#4A524B" }}>
           Your message is with me. I usually reply within a couple of hours, straight to the email you gave. If it&apos;s urgent, email{" "}
-          <a href="mailto:hello@zainameen.com" style={{ color: "#1C1C1C", fontWeight: 600, borderBottom: "1.5px solid #1C1C1C" }}>
+          <a href="mailto:hello@zainameen.com" style={{ color: "#202821", fontWeight: 600, borderBottom: "1.5px solid #202821" }}>
             hello@zainameen.com
           </a>{" "}
           directly.
@@ -160,7 +160,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="cf-site" style={labelStyle}>
-          Company or website <span style={{ fontWeight: 400, color: "#6F6B64" }}>(optional)</span>
+          Company or website <span style={{ fontWeight: 400, color: "#687068" }}>(optional)</span>
         </label>
         <input id="cf-site" name="website" autoComplete="url" style={fieldStyle} className={focusClass} />
       </div>
@@ -192,7 +192,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="cf-budget" style={labelStyle}>
-          Monthly budget <span style={{ fontWeight: 400, color: "#6F6B64" }}>(optional)</span>
+          Monthly budget <span style={{ fontWeight: 400, color: "#687068" }}>(optional)</span>
         </label>
         <select id="cf-budget" name="budget" style={selectStyle} className={focusClass} defaultValue="">
           <option value="">Choose one</option>
@@ -219,7 +219,7 @@ export function ContactForm() {
             height: 56,
             padding: "0 26px",
             borderRadius: 12,
-            background: "#1C1C1C",
+            background: "#174B3A",
             color: "#F8F6F4",
             fontSize: 16,
             fontWeight: 600,
@@ -228,7 +228,7 @@ export function ContactForm() {
           {sending ? "Sending..." : "Send it my way"}
           <ArrowIcon />
         </button>
-        <p style={{ margin: 0, flex: "1 1 240px", fontSize: 13.5, lineHeight: 1.5, color: "#6E6B66" }}>
+        <p style={{ margin: 0, flex: "1 1 240px", fontSize: 13.5, lineHeight: 1.5, color: "#687068" }}>
           I read every message myself and usually reply within a couple of hours. No mailing list surprises.
         </p>
       </div>

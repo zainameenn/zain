@@ -16,10 +16,10 @@ import { ACCENT_LINE, BODY, CARD, CARD_PAD, EYEBROW, GENERAL_SANS, GOLD, GOLD_LI
 // `case-headline` keeps small label headings out of the phone heading size rule in globals.css.
 const LABEL_H2 = "case-headline";
 
-const DARK_BUTTON = "inline-flex items-center whitespace-nowrap rounded-[12px] bg-[#1C1C1C] !text-[#F8F6F4] transition-colors hover:bg-[#33322F] active:bg-black";
-const OUTLINE_BUTTON = "inline-flex items-center whitespace-nowrap rounded-[12px] border border-[#1C1C1C] transition-colors hover:bg-[#E4E1D9]";
-const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
-const UNDERLINE_LINK = "inline-flex items-center min-h-[32px] border-b border-[#CFCBC2] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
+const DARK_BUTTON = "inline-flex items-center whitespace-nowrap rounded-[12px] bg-[#174B3A] !text-[#F8F6F4] transition-colors hover:bg-[#2E6150] active:bg-black";
+const OUTLINE_BUTTON = "inline-flex items-center whitespace-nowrap rounded-[12px] border border-[#202821] transition-colors hover:bg-[#E4E1D9]";
+const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] font-semibold border-b-[1.5px] border-[#202821] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
+const UNDERLINE_LINK = "inline-flex items-center min-h-[32px] border-b border-[#CBC5B7] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 
 /** Column classes by item count, written out so Tailwind keeps them. */
 const MD_COLS: Record<number, string> = { 1: "md:grid-cols-1", 2: "md:grid-cols-2", 3: "md:grid-cols-3" };
@@ -75,7 +75,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           <div style={{ paddingTop: "clamp(28px,3vw,40px)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "8px 24px" }}>
             <nav aria-label="Breadcrumb">
               <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: MUTED }}>
-                <li><Link href="/case-studies" className="inline-flex min-h-[44px] items-center border-b border-transparent hover:border-[#1C1C1C] hover:!text-[#1C1C1C]">Case studies</Link></li>
+                <li><Link href="/case-studies" className="inline-flex min-h-[44px] items-center border-b border-transparent hover:border-[#202821] hover:!text-[#202821]">Case studies</Link></li>
                 <li aria-hidden="true">/</li>
                 <li><Link href={`/case-studies/${study.slug}`} aria-current="page" style={{ display: "inline-flex", alignItems: "center", minHeight: 44, color: INK, fontWeight: 500 }}>{study.name}</Link></li>
               </ol>
@@ -96,7 +96,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
               <Image src={study.logo.src} alt={study.logo.alt} width={study.logo.width} height={study.logo.height} priority sizes="124px" style={{ display: "block", height: 36, width: "auto" }} />
               <h1 style={{ ...HERO_H1_STYLE, marginTop: 28 }}>
                 {hero.title}{" "}
-                <span style={{ ...H1_ACCENT_STYLE, display: "block", marginTop: 6, color: "#6B6862" }}>
+                <span style={{ ...H1_ACCENT_STYLE, display: "block", marginTop: 6, color: "#687068" }}>
                   <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
                     {hero.accent}
                     <Squiggle />
@@ -140,7 +140,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
           <section id={study.keyResultsId} aria-label="Key results" style={study.keyResultsId ? { scrollMarginTop: 96 } : undefined}>
             <dl className={`grid grid-cols-1 ${MD_COLS[Math.min(study.keyResults.length, 3)]}`} style={{ margin: 0, gap: 1, background: LINE, borderTop: `1px solid ${INK}`, borderBottom: `1px solid ${LINE}` }}>
               {study.keyResults.map((r) => (
-                <div key={r.label} style={{ background: "#EEEDE7", padding: "28px 20px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+                <div key={r.label} style={{ background: "#F8F5EE", padding: "28px 20px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
                   <Stat value={r.value} label={r.label} size="clamp(40px,4vw,58px)" />
                 </div>
               ))}
@@ -155,8 +155,8 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
               <figure style={{ margin: "20px auto 0", maxWidth: 820, borderRadius: 20, background: "#F2EFEA", padding: "clamp(26px,3.6vw,48px)", display: "flex", flexDirection: "column", gap: 24 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
                   <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: GOLD_TEXT }}>{testimonial.label}</span>
-                  <a href={testimonial.originalHref} target="_blank" rel="noopener" className="inline-flex min-h-[44px] items-center text-[12.5px] !text-[#5A5854] hover:!text-[#1C1C1C]">
-                    <span style={{ borderBottom: "1px solid #CFCBC2" }}>View original ↗</span>
+                  <a href={testimonial.originalHref} target="_blank" rel="noopener" className="inline-flex min-h-[44px] items-center text-[12.5px] !text-[#4A524B] hover:!text-[#202821]">
+                    <span style={{ borderBottom: "1px solid #CBC5B7" }}>View original ↗</span>
                   </a>
                 </div>
                 <blockquote style={{ margin: 0, fontFamily: GENERAL_SANS, fontWeight: 500, fontSize: "clamp(21px,2.3vw,30px)", lineHeight: 1.38, letterSpacing: "-0.015em", textWrap: "pretty" }}>
@@ -183,7 +183,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
 
           {/* 30 second version */}
           <section aria-labelledby="summary" style={{ paddingTop: "clamp(48px,5vw,72px)" }}>
-            <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(24px,3.4vw,44px)" }}>
+            <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E4E0D6", padding: "clamp(24px,3.4vw,44px)" }}>
               <h2 id="summary" className={LABEL_H2} style={{ ...EYEBROW, margin: 0, display: "flex", alignItems: "center", gap: 10, color: GOLD_TEXT }}>
                 <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: GOLD }} />
                 {summary.heading}
@@ -223,7 +223,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
                 {problem.heading.text}
                 <span style={{ ...ACCENT_LINE, marginTop: 4, color: GOLD_LIGHT }}>{problem.heading.accent}</span>
               </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2" style={{ marginTop: "clamp(28px,3vw,40px)", gap: "20px clamp(28px,3.5vw,48px)", paddingTop: 24, borderTop: "1px solid #3A3935" }}>
+              <div className="grid grid-cols-1 lg:grid-cols-2" style={{ marginTop: "clamp(28px,3vw,40px)", gap: "20px clamp(28px,3.5vw,48px)", paddingTop: 24, borderTop: "1px solid #2E6150" }}>
                 {problem.paragraphs.map((p, i) => <p key={i} style={{ margin: 0, fontSize: 16.5, lineHeight: 1.65, color: "#D9D5CC", textWrap: "pretty" }}><Rich text={p} /></p>)}
               </div>
               {problem.closing && (
@@ -250,7 +250,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
               {effort.items.map((e) => (
                 <div key={e.label} style={{ padding: "18px 12px 4px", borderTop: `1px solid ${LINE}`, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 6 }}>
                   <dt style={{ order: 2, fontSize: 14, lineHeight: 1.4, color: MUTED }}>{e.label}</dt>
-                  <dd style={{ order: 1, margin: 0, fontFamily: GENERAL_SANS, fontSize: "clamp(22px,2vw,28px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.1, fontVariantNumeric: "tabular-nums", color: "#33322F" }}>{e.value}</dd>
+                  <dd style={{ order: 1, margin: 0, fontFamily: GENERAL_SANS, fontSize: "clamp(22px,2vw,28px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.1, fontVariantNumeric: "tabular-nums", color: "#2E6150" }}>{e.value}</dd>
                 </div>
               ))}
             </dl>
@@ -267,9 +267,9 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
                   <Stat value={r.value} label={r.label} note={r.note} size="clamp(48px,5vw,76px)" />
                 </div>
               ))}
-              <div className="md:col-span-3" style={{ borderRadius: 20, border: "1.5px dashed #B9A584", background: "#EEEDE7", padding: CARD_PAD, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", justifyContent: "space-between", gap: 20 }}>
+              <div className="md:col-span-3" style={{ borderRadius: 20, border: "1.5px dashed #B9A584", background: "#F8F5EE", padding: CARD_PAD, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", justifyContent: "space-between", gap: 20 }}>
                 <dt style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, fontFamily: GENERAL_SANS, fontSize: "clamp(19px,1.7vw,22px)", fontWeight: 600, letterSpacing: "-0.015em", lineHeight: 1.25 }}>
-                  <span style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 12, border: "1px solid #CFCBC2", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 12, border: "1px solid #CBC5B7", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
                   </span>
                   {results.privateNote.title}
@@ -330,7 +330,7 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
             <ul className={`grid grid-cols-1 ${MD_COLS[Math.min(servicesUsed.items.length, 3)]}`} style={{ margin: "16px auto 0", maxWidth: servicesUsed.items.length >= 3 ? undefined : servicesUsed.items.length * 400, padding: 0, listStyle: "none", gap: 12 }}>
               {servicesUsed.items.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="flex items-center justify-between gap-4 border border-[#DDDAD3] transition-colors hover:border-[#1C1C1C]" style={{ minHeight: 64, padding: "16px 20px", borderRadius: 14, background: CARD, fontFamily: GENERAL_SANS, fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em" }}>
+                  <Link href={s.href} className="flex items-center justify-between gap-4 border border-[#E4E0D6] transition-colors hover:border-[#202821]" style={{ minHeight: 64, padding: "16px 20px", borderRadius: 14, background: CARD, fontFamily: GENERAL_SANS, fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em" }}>
                     {s.label}
                     <ArrowIcon size={14} style={{ flex: "0 0 auto" }} />
                   </Link>
@@ -369,9 +369,9 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
                     </span>
                   </span>
                 </h2>
-                <p style={{ margin: "24px auto 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>{cta.text}</p>
+                <p style={{ margin: "24px auto 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>{cta.text}</p>
               </div>
-              <Link href={cta.link.href} className="inline-flex items-center justify-center rounded-[12px] bg-[#F2EFEA] !text-[#1C1C1C] transition-colors hover:bg-white" style={{ gap: 16, height: 64, padding: "0 32px", fontSize: 17, fontWeight: 600 }}>
+              <Link href={cta.link.href} className="inline-flex items-center justify-center rounded-[12px] bg-[#F2EFEA] !text-[#202821] transition-colors hover:bg-white" style={{ gap: 16, height: 64, padding: "0 32px", fontSize: 17, fontWeight: 600 }}>
                 {cta.link.label}
                 <ArrowIcon size={16} />
               </Link>

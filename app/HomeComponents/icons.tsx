@@ -25,7 +25,7 @@ export function ChevronIcon({ size = 11, style }: { size?: number; style?: React
 export function PlusIcon({ size = 12, style }: { size?: number; style?: React.CSSProperties }) {
   return (
     <svg width={size} height={size} viewBox="0 0 12 12" fill="none" style={style}>
-      <path d="M6 1V11M1 6H11" stroke="#1C1C1C" strokeWidth="1.5" />
+      <path d="M6 1V11M1 6H11" stroke="#202821" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -65,7 +65,7 @@ export function Squiggle() {
       preserveAspectRatio="none"
       style={{ position: "absolute", left: "-3%", bottom: "-0.14em", width: "106%", height: "0.3em", overflow: "visible", pointerEvents: "none" }}
     >
-      <path d="M3 13 C 60 20, 150 21, 216 15 S 286 6, 297 4" stroke="#C6A47C" strokeWidth="2.6" strokeLinecap="round" vectorEffect="non-scaling-stroke" fill="none" />
+      <path d="M3 13 C 60 20, 150 21, 216 15 S 286 6, 297 4" stroke="#B38842" strokeWidth="2.6" strokeLinecap="round" vectorEffect="non-scaling-stroke" fill="none" />
     </svg>
   );
 }

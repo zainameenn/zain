@@ -70,7 +70,7 @@ export default function Navbar() {
         top: 0,
         zIndex: 80,
         background: scrolled || menuOpen ? "rgba(238,237,231,.94)" : "rgba(238,237,231,0)",
-        borderBottom: `1px solid ${scrolled ? "#DDDAD3" : "transparent"}`,
+        borderBottom: `1px solid ${scrolled ? "#E4E0D6" : "transparent"}`,
         transition: "background 200ms, border-color 200ms",
         backdropFilter: "blur(6px)",
       }}
@@ -114,7 +114,7 @@ export default function Navbar() {
                       height: 44,
                       padding: "0 12px",
                       whiteSpace: "nowrap",
-                      color: navHover === -1 || on ? "#1C1C1C" : "#6F6B64",
+                      color: navHover === -1 || on ? "#202821" : "#687068",
                       transition: "color 180ms",
                     }}
                   >
@@ -127,7 +127,7 @@ export default function Navbar() {
                         right: 12,
                         bottom: 8,
                         height: 1.5,
-                        background: "#C4A47C",
+                        background: "#B38842",
                         transform: `scaleX(${on ? 1 : 0})`,
                         transformOrigin: "left",
                         transition: "transform 260ms cubic-bezier(.2,.7,.2,1)",
@@ -136,19 +136,19 @@ export default function Navbar() {
                   </a>
                   {dd && menu.groups && (
                     <div style={{ position: "absolute", right: -150, top: "100%", paddingTop: 10, width: 880, zIndex: 90, animation: "zddin 180ms ease-out both" }}>
-                      <div style={{ background: "#F8F6F4", border: "1px solid #DDDAD3", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: "22px 22px 8px" }}>
+                      <div style={{ background: "#F8F6F4", border: "1px solid #E4E0D6", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: "22px 22px 8px" }}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: "4px 20px" }}>
                           {[[menu.groups[0], menu.groups[5]], [menu.groups[1], menu.groups[6]], [menu.groups[2], menu.groups[4]], [menu.groups[3], menu.groups[7]]].map((col, ci) => (
                             <div key={ci}>
                               {col.map((g, gi) => (
                                 <div key={g.h} style={{ marginTop: gi ? 18 : 0 }}>
-                                  <div style={{ padding: "0 10px 8px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>{g.h}</div>
+                                  <div style={{ padding: "0 10px 8px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7F5F26" }}>{g.h}</div>
                                   {g.items.map(([name, href]) => (
                                     <a
                                       key={href}
                                       href={href}
-                                      style={{ display: "block", padding: "7px 10px", borderRadius: 8, fontSize: 14.5, fontWeight: 500, color: "#1C1C1C", transition: "background 160ms" }}
-                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#EEEDE7")}
+                                      style={{ display: "block", padding: "7px 10px", borderRadius: 8, fontSize: 14.5, fontWeight: 500, color: "#202821", transition: "background 160ms" }}
+                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F8F5EE")}
                                       onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                                     >
                                       {name}
@@ -161,11 +161,11 @@ export default function Navbar() {
                         </div>
                         <a
                           href={menu.all.href}
-                          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 14, padding: "14px 10px 10px", borderTop: "1px solid #DDDAD3", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}
+                          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 14, padding: "14px 10px 10px", borderTop: "1px solid #E4E0D6", fontSize: 14, fontWeight: 600, color: "#202821" }}
                         >
                           <span>
                             {menu.all.t}
-                            <span style={{ marginLeft: 10, fontWeight: 400, color: "#5A5854" }}>All free, no signup.</span>
+                            <span style={{ marginLeft: 10, fontWeight: 400, color: "#4A524B" }}>All free, no signup.</span>
                           </span>
                           <ArrowIcon />
                         </a>
@@ -174,22 +174,22 @@ export default function Navbar() {
                   )}
                   {dd && !menu.groups && (
                     <div style={{ position: "absolute", left: -8, top: "100%", paddingTop: 10, width: 380, zIndex: 90, animation: "zddin 180ms ease-out both" }}>
-                      <div style={{ background: "#F8F6F4", border: "1px solid #DDDAD3", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: 8 }}>
+                      <div style={{ background: "#F8F6F4", border: "1px solid #E4E0D6", borderRadius: 16, boxShadow: "0 24px 48px -28px rgba(40,30,15,.35)", padding: 8 }}>
                         {menu.items.map((m) => (
                           <a
                             key={m.t}
                             href={m.href}
                             style={{ display: "block", padding: "12px 14px", borderRadius: 10, transition: "background 160ms" }}
-                            onMouseEnter={(e) => (e.currentTarget.style.background = "#EEEDE7")}
+                            onMouseEnter={(e) => (e.currentTarget.style.background = "#F8F5EE")}
                             onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                           >
-                            <span style={{ display: "block", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>{m.t}</span>
-                            <span style={{ display: "block", marginTop: 3, fontSize: 13.5, fontWeight: 400, color: "#5A5854" }}>{m.d}</span>
+                            <span style={{ display: "block", fontSize: 15, fontWeight: 600, color: "#202821" }}>{m.t}</span>
+                            <span style={{ display: "block", marginTop: 3, fontSize: 13.5, fontWeight: 400, color: "#4A524B" }}>{m.d}</span>
                           </a>
                         ))}
                         <a
                           href={menu.all.href}
-                          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 6, padding: "14px 14px 10px", borderTop: "1px solid #DDDAD3", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}
+                          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 6, padding: "14px 14px 10px", borderTop: "1px solid #E4E0D6", fontSize: 14, fontWeight: 600, color: "#202821" }}
                         >
                           {menu.all.t}
                           <ArrowIcon />
@@ -214,7 +214,7 @@ export default function Navbar() {
               height: 44,
               padding: "0 18px",
               borderRadius: 12,
-              background: ctaHover ? "#33322F" : "#1C1C1C",
+              background: ctaHover ? "#10382B" : "#174B3A",
               color: "#F8F6F4",
               fontSize: 14.5,
               fontWeight: 500,
@@ -229,7 +229,7 @@ export default function Navbar() {
             className="md:hidden max-md:!inline-flex max-md:!min-w-11 max-md:!items-center max-md:!justify-center max-md:!gap-2"
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
-            style={{ background: "none", border: 0, font: "500 15px var(--nf-inter)", color: "#1C1C1C", height: 44, padding: 0, cursor: "pointer" }}
+            style={{ background: "none", border: 0, font: "500 15px var(--nf-inter)", color: "#202821", height: 44, padding: 0, cursor: "pointer" }}
           >
             {/* hamburger icon, becomes an X while the menu is open */}
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -246,7 +246,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <nav style={{ padding: "8px clamp(20px,4vw,48px) 24px", display: "flex", flexDirection: "column", borderTop: "1px solid #DDDAD3" }} className="max-md:!max-h-[calc(100dvh-73px)] max-md:!overflow-y-auto max-md:!overscroll-contain">
+        <nav style={{ padding: "8px clamp(20px,4vw,48px) 24px", display: "flex", flexDirection: "column", borderTop: "1px solid #E4E0D6" }} className="max-md:!max-h-[calc(100dvh-73px)] max-md:!overflow-y-auto max-md:!overscroll-contain">
           {NAV_LINKS.map((l) => {
             const menu = DROPDOWNS[l.t];
             if (!menu) {
@@ -255,18 +255,18 @@ export default function Navbar() {
                   key={l.t}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  style={{ display: "block", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #DDDAD3" }}
+                  style={{ display: "block", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", borderBottom: "1px solid #E4E0D6" }}
                 >
                   {l.t}
                 </a>
               );
             }
             return (
-              <div key={l.t} style={{ borderBottom: "1px solid #DDDAD3" }}>
+              <div key={l.t} style={{ borderBottom: "1px solid #E4E0D6" }}>
                 <button
                   onClick={() => setMobileOpen((v) => (v === l.t ? null : l.t))}
                   aria-expanded={mobileOpen === l.t}
-                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#1C1C1C" }}
+                  style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "var(--nf-general-sans)", fontWeight: 500, fontSize: 24, padding: "12px 0", color: "#202821" }}
                 >
                   {l.t}
                   <ChevronIcon style={{ transform: mobileOpen === l.t ? "rotate(180deg)" : "none", transition: "transform 200ms" }} />
@@ -274,23 +274,23 @@ export default function Navbar() {
                 {mobileOpen === l.t && (
                   <div style={{ display: "flex", flexDirection: "column", padding: "0 0 12px" }}>
                     {menu.items.map((m) => (
-                      <a key={m.t} href={m.href} onClick={() => setMenuOpen(false)} style={{ padding: "10px 0", fontSize: 16, color: "#4E4C48" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
+                      <a key={m.t} href={m.href} onClick={() => setMenuOpen(false)} style={{ padding: "10px 0", fontSize: 16, color: "#4A524B" }} className="max-md:!flex max-md:!min-h-11 max-md:!items-center">
                         {m.t}
                       </a>
                     ))}
                     {menu.groups?.map((g) => (
                       <div key={g.h} style={{ paddingTop: 10 }}>
-                        <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>{g.h}</div>
+                        <div style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7F5F26" }}>{g.h}</div>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", columnGap: 16 }}>
                           {g.items.map(([name, href]) => (
-                            <a key={href} href={href} onClick={() => setMenuOpen(false)} style={{ fontSize: 15.5, color: "#4E4C48" }} className="flex min-h-11 items-center">
+                            <a key={href} href={href} onClick={() => setMenuOpen(false)} style={{ fontSize: 15.5, color: "#4A524B" }} className="flex min-h-11 items-center">
                               {name}
                             </a>
                           ))}
                         </div>
                       </div>
                     ))}
-                    <a href={menu.all.href} onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#1C1C1C" }} className="max-md:!min-h-11">
+                    <a href={menu.all.href} onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", fontSize: 15, fontWeight: 600, color: "#202821" }} className="max-md:!min-h-11">
                       {menu.all.t}
                       <ArrowIcon />
                     </a>

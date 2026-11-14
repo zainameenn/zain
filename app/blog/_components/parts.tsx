@@ -6,7 +6,7 @@ import { SanityImage } from "./SanityImage";
 import { authorPath, formatDate, initials, paragraphs, postPath, readingMinutes } from "./utils";
 import s from "../blog.module.css";
 
-export function Eyebrow({ children, color = "#6F6B64" }: { children: React.ReactNode; color?: string }) {
+export function Eyebrow({ children, color = "#687068" }: { children: React.ReactNode; color?: string }) {
   return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color }}>{children}</div>;
 }
 
@@ -17,14 +17,14 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
         {items.map((item, i) => (
           <li key={i} style={{ display: "inline-flex", alignItems: "center", gap: 8, minWidth: 0 }}>
             {i > 0 ? (
-              <span aria-hidden="true" style={{ color: "#C4A47C" }}>
+              <span aria-hidden="true" style={{ color: "#B38842" }}>
                 /
               </span>
             ) : null}
             {item.href ? (
               <Link href={item.href}>{item.name}</Link>
             ) : (
-              <span aria-current="page" style={{ color: "#1C1C1C" }}>
+              <span aria-current="page" style={{ color: "#202821" }}>
                 {item.name}
               </span>
             )}
@@ -47,7 +47,7 @@ export function Avatar({ name, image, size }: { name: string; image?: SanityImag
   return (
     <span
       aria-hidden="true"
-      style={{ ...box, display: "inline-flex", alignItems: "center", justifyContent: "center", background: "#1C1C1C", color: "#F2EFEA", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: size * 0.36, letterSpacing: "-0.02em" }}
+      style={{ ...box, display: "inline-flex", alignItems: "center", justifyContent: "center", background: "#174B3A", color: "#F2EFEA", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: size * 0.36, letterSpacing: "-0.02em" }}
     >
       {initials(name)}
     </span>
@@ -56,7 +56,7 @@ export function Avatar({ name, image, size }: { name: string; image?: SanityImag
 
 function Meta({ post }: { post: PostCardData }) {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 8px", fontSize: 13.5, color: "#6F6B64" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 8px", fontSize: 13.5, color: "#687068" }}>
       <time dateTime={stegaClean(post.publishedAt)}>{formatDate(post.publishedAt)}</time>
       <span aria-hidden="true">·</span>
       <span>{readingMinutes(post.chars)} min read</span>
@@ -125,13 +125,13 @@ export function FeaturedCard({ post }: { post: PostCardData }) {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", height: 26, padding: "0 10px", borderRadius: 999, background: "#1C1C1C", color: "#F2EFEA", fontSize: 11.5, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>Featured</span>
+            <span style={{ display: "inline-flex", alignItems: "center", height: 26, padding: "0 10px", borderRadius: 999, background: "#174B3A", color: "#F2EFEA", fontSize: 11.5, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>Featured</span>
             {category ? <span className={s.cardCategory}>{category.title}</span> : null}
           </div>
           <h2 className={s.cardTitle} style={{ marginTop: 14 }}>
             {post.title}
           </h2>
-          <p style={{ margin: "14px 0 20px", fontSize: 17, lineHeight: 1.6, color: "#4E4C48" }}>{post.excerpt}</p>
+          <p style={{ margin: "14px 0 20px", fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>{post.excerpt}</p>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 24px" }}>
             <Meta post={post} />
             <ReadMore label="Read the article" />
@@ -146,22 +146,22 @@ export function FeaturedCard({ post }: { post: PostCardData }) {
 export function Byline({ author, publishedAt, updatedAt, chars }: { author?: Author | null; publishedAt: string; updatedAt?: string | null; chars?: number | null }) {
   const showUpdated = updatedAt && formatDate(updatedAt) !== formatDate(publishedAt);
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "14px 24px", paddingTop: 20, borderTop: "1px solid #DDDAD3" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "14px 24px", paddingTop: 20, borderTop: "1px solid #E4E0D6" }}>
       {author ? (
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <Avatar name={author.name} image={author.image} size={44} />
           <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.35 }}>
-            <span style={{ fontSize: 15, color: "#1C1C1C" }}>
+            <span style={{ fontSize: 15, color: "#202821" }}>
               By{" "}
-              <Link href={authorPath(author.slug)} rel="author" style={{ fontWeight: 600, borderBottom: "1px solid #CFCBC2" }}>
+              <Link href={authorPath(author.slug)} rel="author" style={{ fontWeight: 600, borderBottom: "1px solid #CBC5B7" }}>
                 {author.name}
               </Link>
             </span>
-            {author.jobTitle ? <span style={{ fontSize: 13.5, color: "#6F6B64" }}>{author.jobTitle}</span> : null}
+            {author.jobTitle ? <span style={{ fontSize: 13.5, color: "#687068" }}>{author.jobTitle}</span> : null}
           </div>
         </div>
       ) : null}
-      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 8px", fontSize: 13.5, color: "#5A5854" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 8px", fontSize: 13.5, color: "#4A524B" }}>
         <span>
           Published <time dateTime={stegaClean(publishedAt)}>{formatDate(publishedAt)}</time>
         </span>
@@ -196,7 +196,7 @@ function SocialLinks({ author }: { author: Author }) {
             <a
               href={stegaClean(l.url)}
               {...(external ? { target: "_blank", rel: "noopener me" } : {})}
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 36, padding: "0 14px", borderRadius: 999, border: "1px solid #D6CFC2", fontSize: 13.5, fontWeight: 500, color: "#1C1C1C" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 36, padding: "0 14px", borderRadius: 999, border: "1px solid #CBC5B7", fontSize: 13.5, fontWeight: 500, color: "#202821" }}
             >
               {stegaClean(l.label).toLowerCase() === "linkedin" ? <LinkedInIcon size={14} /> : null}
               {l.label}
@@ -211,26 +211,26 @@ function SocialLinks({ author }: { author: Author }) {
 /** The fuller author box at the end of each article. */
 export function AuthorBox({ author }: { author: Author }) {
   return (
-    <section aria-label="About the author" style={{ borderRadius: 24, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(24px,3vw,36px)" }}>
-      <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7D6039" }}>
+    <section aria-label="About the author" style={{ borderRadius: 24, background: "#F4F0E8", border: "1px solid #E4E0D6", padding: "clamp(24px,3vw,36px)" }}>
+      <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7F5F26" }}>
         About the author
       </div>
       <div style={{ marginTop: 18, display: "flex", gap: 18, alignItems: "flex-start" }} className="max-sm:!flex-col">
         <Avatar name={author.name} image={author.image} size={72} />
         <div style={{ display: "flex", flexDirection: "column", gap: 12, minWidth: 0 }}>
           <div>
-            <Link href={authorPath(author.slug)} style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", color: "#1C1C1C" }}>
+            <Link href={authorPath(author.slug)} style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", color: "#202821" }}>
               {author.name}
             </Link>
-            {author.jobTitle ? <div style={{ marginTop: 2, fontSize: 14.5, color: "#6F6B64" }}>{author.jobTitle}</div> : null}
+            {author.jobTitle ? <div style={{ marginTop: 2, fontSize: 14.5, color: "#687068" }}>{author.jobTitle}</div> : null}
           </div>
           {paragraphs(author.bio).map((p, i) => (
-            <p key={i} style={{ margin: 0, fontSize: 16, lineHeight: 1.65, color: "#4E4C48" }}>
+            <p key={i} style={{ margin: 0, fontSize: 16, lineHeight: 1.65, color: "#4A524B" }}>
               {p}
             </p>
           ))}
           <SocialLinks author={author} />
-          <Link href={authorPath(author.slug)} style={{ alignSelf: "flex-start", marginTop: 4, display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C", paddingBottom: 2 }}>
+          <Link href={authorPath(author.slug)} style={{ alignSelf: "flex-start", marginTop: 4, display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "#202821", borderBottom: "1.5px solid #202821", paddingBottom: 2 }}>
             More articles by {author.name.split(" ")[0]}
             <ArrowIcon />
           </Link>
@@ -256,7 +256,7 @@ export function BlogCta({
 }) {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
-      <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+      <div style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
         <h2 style={{ margin: 0, maxWidth: 820, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.6vw,50px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
           {heading ?? (
             <>
@@ -267,8 +267,8 @@ export function BlogCta({
             </>
           )}
         </h2>
-        {text ? <p style={{ margin: "20px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>{text}</p> : null}
-        <Link href={buttonUrl} style={{ marginTop: 32, display: "inline-flex", alignItems: "center", gap: 12, height: 60, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16.5, fontWeight: 600 }}>
+        {text ? <p style={{ margin: "20px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>{text}</p> : null}
+        <Link href={buttonUrl} style={{ marginTop: 32, display: "inline-flex", alignItems: "center", gap: 12, height: 60, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#202821", fontSize: 16.5, fontWeight: 600 }}>
           {buttonLabel}
           <ArrowIcon size={15} />
         </Link>

@@ -21,28 +21,28 @@ export default function Companies() {
 
   return (
     <section className="max-md:!pt-14" style={{ padding: "clamp(80px,9vw,128px) 0 0" }}>
-      <p className="max-md:!text-center" style={{ margin: "0 auto 24px", maxWidth: 1360, padding: "0 clamp(20px,4vw,48px)", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>
+      <p className="max-md:!text-center" style={{ margin: "0 auto 24px", maxWidth: 1360, padding: "0 clamp(20px,4vw,48px)", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>
         Brands and products I&apos;ve worked with
       </p>
       <div
         onMouseEnter={() => setRunning(false)}
         onMouseLeave={() => setRunning(true)}
         style={{
-          background: "#EEEDE7",
+          background: "#F8F5EE",
           overflow: "hidden",
-          borderTop: "1px solid #DDDAD3",
-          borderBottom: "1px solid #DDDAD3",
+          borderTop: "1px solid #E4E0D6",
+          borderBottom: "1px solid #E4E0D6",
           WebkitMaskImage: "linear-gradient(90deg,transparent,#000 80px,#000 calc(100% - 80px),transparent)",
           maskImage: "linear-gradient(90deg,transparent,#000 80px,#000 calc(100% - 80px),transparent)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", width: "max-content", animation: "zmarqL 34s linear infinite", animationPlayState: running ? "running" : "paused" }}>
           {loop.map((b, i) => (
-            <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", justifyContent: "center", height: "clamp(104px,9vw,136px)", padding: "0 clamp(40px,4vw,64px)", background: "#EEEDE7" }}>
+            <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", justifyContent: "center", height: "clamp(104px,9vw,136px)", padding: "0 clamp(40px,4vw,64px)", background: "#F8F5EE" }}>
               {b.img ? (
                 <BgImage src={b.img} alt={b.t} fit="contain" style={{ display: "block", width: b.w, height: b.h, mixBlendMode: "multiply" }} />
               ) : (
-                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
+                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#202821", whiteSpace: "nowrap" }}>{b.t}</span>
               )}
             </div>
           ))}

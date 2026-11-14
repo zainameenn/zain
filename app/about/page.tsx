@@ -15,12 +15,12 @@ const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>{children}</div>;
+  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>{children}</div>;
 }
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", height: 32, padding: "0 14px", borderRadius: 999, background: "#1C1C1C", color: "#F2EFEA", fontSize: 13.5, fontWeight: 500, whiteSpace: "nowrap" }}>
+    <span style={{ display: "inline-flex", alignItems: "center", height: 32, padding: "0 14px", borderRadius: 999, background: "#174B3A", color: "#F2EFEA", fontSize: 13.5, fontWeight: 500, whiteSpace: "nowrap" }}>
       {children}
     </span>
   );
@@ -31,7 +31,7 @@ function CenteredHead({ eyebrow, title, sub }: { eyebrow: string; title: React.R
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 40px", maxWidth: 900 }}>
       <Eyebrow>{eyebrow}</Eyebrow>
       <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>{title}</h2>
-      {sub && <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>{sub}</p>}
+      {sub && <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>{sub}</p>}
     </div>
   );
 }
@@ -200,11 +200,11 @@ export default function AboutPage() {
             I&nbsp;fix growth problems for a living. <Emphasis>Mostly on purpose.</Emphasis>
           </em>
         </h1>
-        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
           I&apos;m a growth marketing specialist from Lahore, working with SaaS and service businesses in the US, UAE and Europe. I started as a writer, ran a sales floor, then spent years figuring out why good products don&apos;t grow. Now I find that reason and fix it myself.
         </p>
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px]">
-          <a href="#resume" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+          <a href="#resume" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, background: "#174B3A", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
             Download resume
           </a>
         </div>
@@ -218,15 +218,15 @@ export default function AboutPage() {
 
       {/* PROOF */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} 0` }}>
-        <div style={{ display: "grid", borderTop: "1px solid #DDDAD3", borderBottom: "1px solid #DDDAD3" }} className="grid-cols-2 sm:!grid-cols-4">
+        <div style={{ display: "grid", borderTop: "1px solid #E4E0D6", borderBottom: "1px solid #E4E0D6" }} className="grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s) => (
             <div key={s.l} style={{ padding: "28px 16px", textAlign: "center" }}>
               <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(36px,3.6vw,52px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
-              <div style={{ marginTop: 10, fontSize: 14, color: "#5A5854" }}>{s.l}</div>
+              <div style={{ marginTop: 10, fontSize: 14, color: "#4A524B" }}>{s.l}</div>
             </div>
           ))}
         </div>
-        <p style={{ margin: "16px 0 0", textAlign: "center", fontSize: 13.5, color: "#6F6B64" }}>Across SaaS, AI, tech, home services and ecommerce.</p>
+        <p style={{ margin: "16px 0 0", textAlign: "center", fontSize: 13.5, color: "#687068" }}>Across SaaS, AI, tech, home services and ecommerce.</p>
       </section>
 
       {/* MY STORY */}
@@ -244,11 +244,11 @@ export default function AboutPage() {
         <Img loading="lazy" src="/assets/about/story-t.webp" alt="Illustration: ideas, writing, research, distribution, testing and growth connected around one centre" style={{ display: "block", width: "100%", maxWidth: 760, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: "32px 24px" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-6">
           {STORY_STEPS.map((s) => (
-            <li key={s.n} style={{ position: "relative", paddingTop: 28, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
-              <span aria-hidden="true" style={{ position: "absolute", top: -6, left: "calc(50% - 5.5px)", width: 11, height: 11, borderRadius: "50%", background: s.accent ? "#C4A47C" : "#1C1C1C", boxShadow: "0 0 0 4px #EEEDE7" }} />
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{s.n}</div>
+            <li key={s.n} style={{ position: "relative", paddingTop: 28, borderTop: "1px solid #202821", textAlign: "center" }}>
+              <span aria-hidden="true" style={{ position: "absolute", top: -6, left: "calc(50% - 5.5px)", width: 11, height: 11, borderRadius: "50%", background: s.accent ? "#B38842" : "#174B3A", boxShadow: "0 0 0 4px #F8F5EE" }} />
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{s.n}</div>
               <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{s.t}</h3>
-              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "#4E4C48" }}>{s.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "#4A524B" }}>{s.d}</p>
             </li>
           ))}
         </ol>
@@ -256,7 +256,7 @@ export default function AboutPage() {
 
       {/* GROWTH PATH */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(40px,5vw,64px) clamp(20px,3vw,48px)" }}>
+        <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E4E0D6", padding: "clamp(40px,5vw,64px) clamp(20px,3vw,48px)" }}>
           <CenteredHead
             eyebrow="How I got into growth"
             title={
@@ -275,9 +275,9 @@ export default function AboutPage() {
                 style={{
                   position: "relative",
                   borderRadius: 20,
-                  background: p.dark ? "#1C1C1C" : "#FBFAF7",
-                  color: p.dark ? "#F2EFEA" : "#1C1C1C",
-                  border: `1px solid ${p.dark ? "#1C1C1C" : "#E2D8CA"}`,
+                  background: p.dark ? "#174B3A" : "#FBFAF7",
+                  color: p.dark ? "#F2EFEA" : "#202821",
+                  border: `1px solid ${p.dark ? "#202821" : "#E4E0D6"}`,
                   padding: "24px 20px 26px",
                   display: "flex",
                   flexDirection: "column",
@@ -287,15 +287,15 @@ export default function AboutPage() {
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10 }}>
-                  <span style={{ fontSize: 12, fontWeight: 600, color: p.dark ? "#D3AE82" : "#7D6039", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
+                  <span style={{ fontSize: 12, fontWeight: 600, color: p.dark ? "#D3AE82" : "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
                   {!p.dark && (
-                    <span aria-hidden="true" style={{ color: "#C4A47C" }}>
+                    <span aria-hidden="true" style={{ color: "#B38842" }}>
                       <ArrowIcon />
                     </span>
                   )}
                 </div>
                 <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
-                <p className="max-md:!text-base" style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: p.dark ? "#C9C4BA" : "#4E4C48" }}>{p.d}</p>
+                <p className="max-md:!text-base" style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: p.dark ? "#D6E0DA" : "#4A524B" }}>{p.d}</p>
               </li>
             ))}
           </ol>
@@ -317,10 +317,10 @@ export default function AboutPage() {
         <Img loading="lazy" src="/assets/about/loop-t.webp" alt="Illustration: writing, testing, measuring, conversation and distribution feeding back into one loop" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,40px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {LESSONS.map((l) => (
-            <div key={l.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{l.n}</div>
+            <div key={l.n} style={{ paddingTop: 20, borderTop: "1px solid #202821", textAlign: "center" }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{l.n}</div>
               <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{l.t}</h3>
-              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{l.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4A524B" }}>{l.d}</p>
             </div>
           ))}
         </div>
@@ -343,21 +343,21 @@ export default function AboutPage() {
         <div
           className="max-md:![-webkit-mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)] max-md:![mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%_-_16px),transparent)]"
           style={{
-            background: "#EEEDE7",
+            background: "#F8F5EE",
             overflow: "hidden",
-            borderTop: "1px solid #DDDAD3",
-            borderBottom: "1px solid #DDDAD3",
+            borderTop: "1px solid #E4E0D6",
+            borderBottom: "1px solid #E4E0D6",
             WebkitMaskImage: "linear-gradient(90deg,transparent,#000 80px,#000 calc(100% - 80px),transparent)",
             maskImage: "linear-gradient(90deg,transparent,#000 80px,#000 calc(100% - 80px),transparent)",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", width: "max-content", animation: "zmarqL 34s linear infinite" }}>
             {companiesLoop.map((b, i) => (
-              <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", justifyContent: "center", height: "clamp(104px,9vw,136px)", padding: "0 clamp(40px,4vw,64px)", background: "#EEEDE7" }}>
+              <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", justifyContent: "center", height: "clamp(104px,9vw,136px)", padding: "0 clamp(40px,4vw,64px)", background: "#F8F5EE" }}>
                 {b.img ? (
                   <Img loading="lazy" src={b.img} alt={b.t} style={{ display: "block", width: b.w, height: b.h, objectFit: "contain", mixBlendMode: "multiply" }} />
                 ) : (
-                  <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#1C1C1C", whiteSpace: "nowrap" }}>{b.t}</span>
+                  <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 30, fontWeight: 600, letterSpacing: "-0.03em", color: "#202821", whiteSpace: "nowrap" }}>{b.t}</span>
                 )}
               </div>
             ))}
@@ -380,25 +380,25 @@ export default function AboutPage() {
         <Img loading="lazy" src="/assets/about/results-t.webp" alt="Illustration: several growth dashboards rising around one central result" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {CASES.map((c) => (
-            <article key={c.logoAlt} style={{ borderRadius: 24, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "28px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 18 }}>
+            <article key={c.logoAlt} style={{ borderRadius: 24, background: "#F8F6F4", border: "1px solid #E4E0D6", padding: "28px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 18 }}>
               <div style={{ height: 48, width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Img loading="lazy" src={c.logo} alt={c.logoAlt} style={{ display: "block", height: c.logoH, width: "auto", maxWidth: 170, mixBlendMode: "multiply" }} />
               </div>
               <div>
-                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7D6039" }}>{c.cat}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#7F5F26" }}>{c.cat}</div>
                 <h3 style={{ margin: "8px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.25 }}>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{c.sr}</span>
                   {c.title}
                 </h3>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "start", width: "100%", borderTop: "1px solid #DDDAD3", marginTop: "auto" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "start", width: "100%", borderTop: "1px solid #E4E0D6", marginTop: "auto" }}>
                 <div style={{ padding: "18px 8px 0" }}>
                   <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{c.stat1v}</div>
-                  <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{c.stat1l}</div>
+                  <div style={{ marginTop: 6, fontSize: 13, color: "#4A524B" }}>{c.stat1l}</div>
                 </div>
-                <div style={{ padding: "18px 8px 0", borderLeft: "1px solid #DDDAD3" }}>
+                <div style={{ padding: "18px 8px 0", borderLeft: "1px solid #E4E0D6" }}>
                   <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{c.stat2v}</div>
-                  <div style={{ marginTop: 6, fontSize: 13, color: "#5A5854" }}>{c.stat2l}</div>
+                  <div style={{ marginTop: 6, fontSize: 13, color: "#4A524B" }}>{c.stat2l}</div>
                 </div>
               </div>
             </article>
@@ -421,9 +421,9 @@ export default function AboutPage() {
         <Img loading="lazy" src="/assets/about/skills-t.webp" alt="Illustration: analytics, content, targeting, search, sharing and conversation around one core skill set" style={{ display: "block", width: "100%", maxWidth: 720, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
           {SKILLS_GROUPS.map((g) => (
-            <div key={g.n} style={{ borderRadius: 20, background: "#F8F6F4", border: "1px solid #E2DFD8", padding: "24px 22px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 16 }}>
+            <div key={g.n} style={{ borderRadius: 20, background: "#F8F6F4", border: "1px solid #E4E0D6", padding: "24px 22px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{g.n}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{g.n}</span>
                 <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600, letterSpacing: "-0.02em" }}>{g.t}</h3>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 8 }}>
@@ -454,15 +454,15 @@ export default function AboutPage() {
           style={{
             overflow: "hidden",
             background: "#F8F6F4",
-            borderTop: "1px solid #DDDAD3",
-            borderBottom: "1px solid #DDDAD3",
+            borderTop: "1px solid #E4E0D6",
+            borderBottom: "1px solid #E4E0D6",
             WebkitMaskImage: "linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent)",
             maskImage: "linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent)",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", width: "max-content", animation: "zmarqL 44s linear infinite" }}>
             {toolsLoop.map((t, i) => (
-              <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", gap: 10, height: 88, padding: "0 clamp(24px,2.4vw,32px)", fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", color: "#1C1C1C", whiteSpace: "nowrap" }}>
+              <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", gap: 10, height: 88, padding: "0 clamp(24px,2.4vw,32px)", fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", color: "#202821", whiteSpace: "nowrap" }}>
                 {t.hasIcon && <Img src={t.src} alt="" aria-hidden="true" width={26} height={26} style={{ display: "block", width: 26, height: 26, objectFit: "contain" }} />}
                 {t.hasLogo && <BgImage src={t.src} alt={t.t} fit="contain" style={{ display: "block", height: t.h, width: t.lw }} />}
                 {t.showText && <span>{t.t}</span>}
@@ -488,24 +488,24 @@ export default function AboutPage() {
         <div role="img" aria-label="Diagnose, prioritize, execute, measure, learn, then repeat" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "10px 8px", margin: "0 auto 48px", maxWidth: 980 }}>
           {PHILOSOPHY_FLOW.map((t, i) => (
             <span key={t} style={{ display: "contents" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px", borderRadius: 999, background: i === 0 ? "#1C1C1C" : "#F8F6F4", color: i === 0 ? "#F2EFEA" : "#1C1C1C", border: i === 0 ? "1px solid #1C1C1C" : "1px solid #DDD6C8", fontFamily: "var(--nf-general-sans)", fontSize: 16, fontWeight: 600 }}>
-                <span style={{ fontSize: 11.5, color: i === 0 ? "#D3AE82" : "#7D6039" }}>{String(i + 1).padStart(2, "0")}</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px", borderRadius: 999, background: i === 0 ? "#174B3A" : "#F8F6F4", color: i === 0 ? "#F2EFEA" : "#202821", border: i === 0 ? "1px solid #202821" : "1px solid #DDD6C8", fontFamily: "var(--nf-general-sans)", fontSize: 16, fontWeight: 600 }}>
+                <span style={{ fontSize: 11.5, color: i === 0 ? "#D3AE82" : "#7F5F26" }}>{String(i + 1).padStart(2, "0")}</span>
                 {t}
               </span>
-              <span aria-hidden="true" style={{ color: "#C4A47C" }}>
+              <span aria-hidden="true" style={{ color: "#B38842" }}>
                 <ArrowIcon />
               </span>
             </span>
           ))}
-          <span aria-hidden="true" style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 18, color: "#6E6B66", paddingLeft: 6 }}>
+          <span aria-hidden="true" style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 18, color: "#687068", paddingLeft: 6 }}>
             and repeat
           </span>
         </div>
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,40px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {PHILOSOPHY_CARDS.map((c) => (
-            <div key={c.t} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
+            <div key={c.t} style={{ paddingTop: 20, borderTop: "1px solid #202821", textAlign: "center" }}>
               <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{c.t}</h3>
-              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4A524B" }}>{c.d}</p>
             </div>
           ))}
         </div>
@@ -526,25 +526,25 @@ export default function AboutPage() {
         <Img loading="lazy" src="/assets/illustrations/A97-how-i-work-four-stages.svg" width={1200} height={800} alt="Four connected stages show research, priority selection, execution and measurement as a practical marketing delivery workflow." style={{ display: "block", width: "100%", maxWidth: 820, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,40px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {WORKING.map((w) => (
-            <div key={w.n} style={{ paddingTop: 20, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{w.n}</div>
+            <div key={w.n} style={{ paddingTop: 20, borderTop: "1px solid #202821", textAlign: "center" }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{w.n}</div>
               <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(19px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{w.t}</h3>
-              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{w.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#4A524B" }}>{w.d}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* CLIENT PROOF */}
-      <section id="reviews" className="max-md:!mt-20" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
+      <section id="reviews" className="max-md:!mt-20" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#174B3A", color: "#F2EFEA" }}>
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(80px,8vw,104px) ${PAD} 0` }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto", maxWidth: 900 }}>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client proof</div>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#B38842" }}>Client proof</div>
             <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               What people say
               <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>about working with me.</em>
             </h2>
-            <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>Luckily, I don&apos;t have to write this part myself.</p>
+            <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>Luckily, I don&apos;t have to write this part myself.</p>
           </div>
         </div>
         <div
@@ -560,10 +560,10 @@ export default function AboutPage() {
         >
           <div style={{ display: "flex", alignItems: "stretch", width: "max-content", padding: "0 20px 8px" }}>
             {REVIEWS.map((r) => (
-              <figure key={r.name} style={{ flex: "0 0 auto", width: "clamp(300px,26vw,380px)", margin: "0 16px 0 0", borderRadius: 20, background: r.bg, color: "#1C1C1C", padding: "clamp(24px,2.2vw,32px)", display: "flex", flexDirection: "column", gap: 20, scrollSnapAlign: "center" }}>
+              <figure key={r.name} style={{ flex: "0 0 auto", width: "clamp(300px,26vw,380px)", margin: "0 16px 0 0", borderRadius: 20, background: r.bg, color: "#202821", padding: "clamp(24px,2.2vw,32px)", display: "flex", flexDirection: "column", gap: 20, scrollSnapAlign: "center" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-                  <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>{r.srcLabel}</span>
-                  <a href={r.link} target="_blank" rel="noopener noreferrer" className="max-md:!whitespace-nowrap max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontSize: 12.5, color: "#5A5854", borderBottom: "1px solid #CFCBC2" }}>
+                  <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7F5F26" }}>{r.srcLabel}</span>
+                  <a href={r.link} target="_blank" rel="noopener noreferrer" className="max-md:!whitespace-nowrap max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontSize: 12.5, color: "#4A524B", borderBottom: "1px solid #CBC5B7" }}>
                     View original ↗
                   </a>
                 </div>
@@ -576,47 +576,47 @@ export default function AboutPage() {
                   )}
                   <span style={{ minWidth: 0 }}>
                     <span style={{ display: "block", fontSize: 15, fontWeight: 600 }}>{r.name}</span>
-                    <span style={{ display: "block", fontSize: 13, color: "#5A5854", lineHeight: 1.35 }}>{r.role}</span>
+                    <span style={{ display: "block", fontSize: 13, color: "#4A524B", lineHeight: 1.35 }}>{r.role}</span>
                   </span>
                 </figcaption>
               </figure>
             ))}
           </div>
         </div>
-        <p style={{ margin: "24px 0 0", textAlign: "center", fontSize: 13.5, color: "#8B877F" }}>Real reviews from real clients, including Upwork.</p>
+        <p style={{ margin: "24px 0 0", textAlign: "center", fontSize: 13.5, color: "#9FB4AA" }}>Real reviews from real clients, including Upwork.</p>
         <div style={{ height: "clamp(72px,7vw,96px)" }} />
       </section>
 
       {/* PERSONAL */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
-        <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(40px,5vw,72px) clamp(24px,4vw,64px)", display: "grid", gap: "40px clamp(32px,5vw,72px)", alignItems: "stretch" }} className="md:!grid-cols-2">
+        <div style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(40px,5vw,72px) clamp(24px,4vw,64px)", display: "grid", gap: "40px clamp(32px,5vw,72px)", alignItems: "stretch" }} className="md:!grid-cols-2">
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 32 }}>
             <div className="max-md:!text-center">
-              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Outside the dashboard</div>
+              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#B38842" }}>Outside the dashboard</div>
               <h2 className="max-md:!text-balance" style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
                 There&apos;s a person
                 <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>behind the dashboards.</em>
               </h2>
-              <p className="max-md:!mx-auto" style={{ margin: "18px 0 0", maxWidth: 420, fontSize: 16.5, lineHeight: 1.6, color: "#B7B2A8" }}>A few things that have nothing to do with click through rates.</p>
+              <p className="max-md:!mx-auto" style={{ margin: "18px 0 0", maxWidth: 420, fontSize: 16.5, lineHeight: 1.6, color: "#C9D6CF" }}>A few things that have nothing to do with click through rates.</p>
             </div>
-            <figure style={{ margin: 0, padding: 28, borderRadius: 20, background: "#262523", border: "1px solid #3A3935" }}>
+            <figure style={{ margin: 0, padding: 28, borderRadius: 20, background: "#262523", border: "1px solid #2E6150" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 13, fontWeight: 600, color: "#1C1C1C", background: "#D3AE82", borderRadius: 999, height: 28, padding: "0 12px", display: "inline-flex", alignItems: "center" }}>01</span>
+                <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 13, fontWeight: 600, color: "#202821", background: "#D3AE82", borderRadius: 999, height: 28, padding: "0 12px", display: "inline-flex", alignItems: "center" }}>01</span>
                 <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>Gamer with a serious backlog</h3>
               </div>
-              <p className="max-md:!text-base" style={{ margin: "14px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#C9C4BA" }}>Resident Evil is my all time favorite. Right now I&apos;m rotating between Sekiro, Elden Ring and Black Myth: Wukong.</p>
-              <blockquote style={{ margin: "18px 0 0", paddingTop: 18, borderTop: "1px solid #3A3935", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.2, color: "#F2EFEA" }}>
+              <p className="max-md:!text-base" style={{ margin: "14px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#D6E0DA" }}>Resident Evil is my all time favorite. Right now I&apos;m rotating between Sekiro, Elden Ring and Black Myth: Wukong.</p>
+              <blockquote style={{ margin: "18px 0 0", paddingTop: 18, borderTop: "1px solid #2E6150", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.2, color: "#F2EFEA" }}>
                 &ldquo;Dying to the same boss 40 times turns out to be great training for Google algorithm updates.&rdquo;
               </blockquote>
             </figure>
           </div>
-          <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", justifyContent: "center", borderTop: "1px solid #3A3935" }}>
+          <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", justifyContent: "center", borderTop: "1px solid #2E6150" }}>
             {PERSONAL_LIST.map((p) => (
-              <li key={p.n} style={{ display: "grid", gridTemplateColumns: "64px minmax(0,1fr)", gap: "4px 20px", alignItems: "baseline", padding: "26px 0", borderBottom: "1px solid #3A3935" }}>
+              <li key={p.n} style={{ display: "grid", gridTemplateColumns: "64px minmax(0,1fr)", gap: "4px 20px", alignItems: "baseline", padding: "26px 0", borderBottom: "1px solid #2E6150" }}>
                 <span style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 40, lineHeight: 1, color: "#D3AE82" }}>{p.n}</span>
                 <div>
                   <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{p.t}</h3>
-                  <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>{p.d}</p>
+                  <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 15.5, lineHeight: 1.6, color: "#C9D6CF" }}>{p.d}</p>
                 </div>
               </li>
             ))}
@@ -637,21 +637,21 @@ export default function AboutPage() {
           sub="Here it is. Dates and everything."
         />
         <Img loading="lazy" src="/assets/about/resume-t.webp" alt="Illustration: calendar, checklists, timeline, documents and invoices organised around one folder" style={{ display: "block", width: "100%", maxWidth: 640, height: "auto", margin: "-12px auto 28px", mixBlendMode: "multiply" }} />
-        <div style={{ maxWidth: 1040, margin: "0 auto", borderTop: "1px solid #1C1C1C" }}>
+        <div style={{ maxWidth: 1040, margin: "0 auto", borderTop: "1px solid #202821" }}>
           {RESUME_ITEMS.map((r, i) => (
-            <div key={i} style={{ display: "flex", flexDirection: "column", gap: 6, padding: "20px 0", borderBottom: "1px solid #DDDAD3" }} className="md:!grid md:!grid-cols-[minmax(0,260px)_minmax(0,1fr)_140px] md:!gap-x-6 md:!items-baseline">
+            <div key={i} style={{ display: "flex", flexDirection: "column", gap: 6, padding: "20px 0", borderBottom: "1px solid #E4E0D6" }} className="md:!grid md:!grid-cols-[minmax(0,260px)_minmax(0,1fr)_140px] md:!gap-x-6 md:!items-baseline">
               <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 18, fontWeight: 600, letterSpacing: "-0.015em" }}>{r.org}</h3>
               <div>
-                <div className="max-md:!text-base" style={{ fontSize: 15.5, fontWeight: 500, color: "#1C1C1C" }}>{r.role}</div>
-                {r.desc && <p className="max-md:!text-base" style={{ margin: "4px 0 0", fontSize: 14.5, lineHeight: 1.55, color: "#5A5854" }}>{r.desc}</p>}
+                <div className="max-md:!text-base" style={{ fontSize: 15.5, fontWeight: 500, color: "#202821" }}>{r.role}</div>
+                {r.desc && <p className="max-md:!text-base" style={{ margin: "4px 0 0", fontSize: 14.5, lineHeight: 1.55, color: "#4A524B" }}>{r.desc}</p>}
               </div>
-              <span style={{ fontSize: 13.5, color: "#6E6B66", whiteSpace: "nowrap", fontVariantNumeric: "tabular-nums" }} className="md:!text-right">
+              <span style={{ fontSize: 13.5, color: "#687068", whiteSpace: "nowrap", fontVariantNumeric: "tabular-nums" }} className="md:!text-right">
                 {r.range}
               </span>
             </div>
           ))}
           <div style={{ padding: "24px 0 0", display: "flex", flexDirection: "column", alignItems: "center", gap: 14, textAlign: "center" }}>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Certifications</div>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>Certifications</div>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 8 }}>
               {CERTIFICATIONS.map((c) => (
                 <Pill key={c}>{c}</Pill>
@@ -660,7 +660,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div style={{ marginTop: 36, display: "flex", flexDirection: "column", alignItems: "center", gap: 12, textAlign: "center" }}>
-          <a href="#resume-pdf" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+          <a href="#resume-pdf" className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#174B3A", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
             Download resume
             <ArrowIcon />
           </a>
@@ -685,20 +685,20 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>That&apos;s the story.</h2>
           <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.1, color: "#D3AE82" }}>
             <Emphasis>Now tell me yours.</Emphasis>
           </p>
-          <p style={{ margin: "24px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+          <p style={{ margin: "24px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>
             What are you growing, and what&apos;s getting in the way? I&apos;ll tell you where I&apos;d start. I only take two clients at a time, so the sooner the better.
           </p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col">
-            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener noreferrer" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+            <a href="https://calendly.com/zain-ameen/30min" target="_blank" rel="noopener noreferrer" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#202821", fontSize: 16, fontWeight: 600 }}>
               Book a free call
               <ArrowIcon />
             </a>
-            <a href="mailto:hello@zainameen.com" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #3A3935", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
+            <a href="mailto:hello@zainameen.com" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #2E6150", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
               Send me an email
             </a>
           </div>

@@ -17,16 +17,16 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6f6b64;
+  color: #687068;
 }
 .h1,
 .h2 {
   margin: 12px auto 0;
   font-family: var(--nf-general-sans);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   text-wrap: balance;
-  color: #222021;
+  color: #202821;
 }
 .h1 {
   font-size: clamp(2rem, calc(2.6vw + 1.25rem), 3.625rem);
@@ -41,7 +41,7 @@
   margin: 16px auto 0;
   font-size: 17px;
   line-height: 1.6;
-  color: #4e4c48;
+  color: #4A524B;
   text-wrap: pretty;
 }
 
@@ -83,15 +83,15 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7d6039;
+  color: #7F5F26;
 }
 .cardName {
   margin: 8px 0 0;
   text-align: center;
   font-family: var(--nf-general-sans);
   font-size: clamp(21px, 1.8vw, 25px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -100,7 +100,7 @@
   text-align: center;
   font-size: 14.5px;
   line-height: 1.45;
-  color: #6e6b66;
+  color: #687068;
 }
 .price {
   display: flex;
@@ -115,21 +115,21 @@
 .amount {
   font-family: var(--nf-general-sans);
   font-size: clamp(34px, 3.2vw, 44px);
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.05;
   font-variant-numeric: tabular-nums;
-  color: #222021;
+  color: #202821;
 }
 .per {
   font-size: 13.5px;
-  color: #6e6b66;
+  color: #687068;
 }
 .benefit {
   margin: 16px 0 0;
   font-size: 15px;
   line-height: 1.5;
-  color: #222021;
+  color: #202821;
 }
 .list {
   margin: 14px 0 0;
@@ -147,7 +147,7 @@
   padding-left: 18px;
   font-size: 14.5px;
   line-height: 1.45;
-  color: #4e4c48;
+  color: #4A524B;
 }
 .list li::before {
   content: "";
@@ -163,7 +163,7 @@
   margin: 14px 0 0;
   font-size: 13.5px;
   line-height: 1.45;
-  color: #6e6b66;
+  color: #687068;
 }
 .cardFoot {
   display: grid;
@@ -183,36 +183,36 @@
   min-height: 48px;
   padding: 0 20px;
   border-radius: 12px;
-  border: 1px solid #222021;
-  color: #222021;
+  border: 1px solid #202821;
+  color: #202821;
   font-size: 15px;
   font-weight: 600;
   text-align: center;
   transition: background 160ms, color 160ms;
 }
 .btn:hover {
-  background: #222021;
-  color: #fcf2e6;
+  background: #202821;
+  color: #F8F5EE;
 }
 .btnDark {
-  background: #222021;
-  color: #fcf2e6;
+  background: #202821;
+  color: #F8F5EE;
 }
 .btnDark:hover {
   background: #b38842;
   border-color: #b38842;
-  color: #222021;
+  color: #202821;
 }
 .btnLight {
   width: auto;
   background: #f2efea;
   border-color: #f2efea;
-  color: #171717;
+  color: #202821;
 }
 .btnLight:hover {
   background: #d3ae82;
   border-color: #d3ae82;
-  color: #171717;
+  color: #202821;
 }
 .btn:focus-visible,
 .compareLink:focus-visible,
@@ -225,12 +225,12 @@
   display: inline-block;
   padding: 6px 2px;
   font-size: 13.5px;
-  color: #6e6b66;
+  color: #687068;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 .compareLink:hover {
-  color: #222021;
+  color: #202821;
 }
 .textLink {
   display: inline-flex;
@@ -238,8 +238,8 @@
   gap: 8px;
   padding: 6px 0;
   font-weight: 600;
-  color: #222021;
-  border-bottom: 1.5px solid #222021;
+  color: #202821;
+  border-bottom: 1.5px solid #202821;
 }
 
 /* ---------- SEO audit strip ---------- */
@@ -262,8 +262,8 @@
   text-align: center;
   font-family: var(--nf-general-sans);
   font-size: clamp(20px, 1.8vw, 24px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 .inlineList {
   margin: 0;
@@ -279,7 +279,7 @@
   border-radius: 999px;
   background: #f3ece1;
   font-size: 13.5px;
-  color: #4e4c48;
+  color: #4A524B;
 }
 .extraPrice {
   display: flex;
@@ -317,13 +317,13 @@
   text-align: center;
   font-family: var(--nf-general-sans);
   font-size: 15px;
-  font-weight: 600;
-  color: #222021;
+  font-weight: 400;
+  color: #202821;
   background: #f6efe4;
 }
 .table td {
   text-align: center;
-  color: #4e4c48;
+  color: #4A524B;
 }
 .rowHead {
   position: sticky;
@@ -332,7 +332,7 @@
   min-width: 180px;
   text-align: left !important;
   font-weight: 500;
-  color: #222021;
+  color: #202821;
   background: #fffaf3;
 }
 .table thead .rowHead {
@@ -347,14 +347,14 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7d6039;
+  color: #7F5F26;
   background: #fffaf3;
 }
 .table tbody:last-child tr:last-child > * {
   border-bottom: 0;
 }
 .yes {
-  color: #7d6039;
+  color: #7F5F26;
   font-weight: 700;
 }
 .dash {
@@ -386,7 +386,7 @@
   text-align: center;
   font-family: var(--nf-general-sans);
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.015em;
 }
 .defs,
@@ -399,20 +399,20 @@
 .faqs dt {
   font-weight: 600;
   font-size: 15px;
-  color: #222021;
+  color: #202821;
 }
 .defs dd,
 .faqs dd {
   margin: 4px 0 0;
   font-size: 14.5px;
   line-height: 1.55;
-  color: #4e4c48;
+  color: #4A524B;
 }
 .helpLine {
   margin: clamp(40px, 5vw, 56px) 0 0;
   text-align: center;
   font-size: 15.5px;
-  color: #4e4c48;
+  color: #4A524B;
 }
 
 /* ---------- Dark CTA ---------- */
@@ -422,7 +422,7 @@
   gap: 16px;
   padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
   border-radius: 28px;
-  background: #171717;
+  background: #174B3A;
   color: #f2efea;
   text-align: center;
 }
@@ -431,8 +431,8 @@
   max-width: 850px;
   font-family: var(--nf-general-sans);
   font-size: clamp(30px, 3.2vw, 44px);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.08;
   text-wrap: balance;
 }
@@ -441,7 +441,7 @@
   max-width: 650px;
   font-size: 16.5px;
   line-height: 1.55;
-  color: #c9c4ba;
+  color: #D6E0DA;
 }
 
 @media (max-width: 767.98px) {
@@ -489,7 +489,7 @@
   text-align: center;
   font-family: var(--nf-general-sans);
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.015em;
   line-height: 1.25;
   text-wrap: balance;
@@ -507,18 +507,18 @@
   padding: 18px 22px 0;
   font-size: 15px;
   line-height: 1.55;
-  color: #222021;
+  color: #202821;
 }
 .otNext {
   margin: 0;
   padding: 12px 22px 0;
   font-size: 14px;
   line-height: 1.5;
-  color: #5a5854;
+  color: #4A524B;
 }
 .otNext b {
   font-weight: 600;
-  color: #222021;
+  color: #202821;
 }
 .otCard .cardFoot {
   padding: 0 22px 22px;
@@ -567,7 +567,7 @@
   margin-top: 18px;
   font-size: 15.5px;
   line-height: 1.6;
-  color: #5a5854;
+  color: #4A524B;
 }
 .readable .twoCol {
   gap: 48px clamp(40px, 5vw, 72px);

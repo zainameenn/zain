@@ -10,7 +10,7 @@ const WIDE_SIZES = "(max-width: 1023px) 90vw, 1000px";
 const HALF_SIZES = "(max-width: 1023px) 90vw, 500px";
 const SINGLE_SIZES = "(max-width: 1023px) 90vw, 760px";
 
-const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] text-[15px] font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
+const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] text-[15px] font-semibold border-b-[1.5px] border-[#202821] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 
 function ExternalIcon() {
   return (
@@ -34,7 +34,7 @@ function PhaseItem({ phase }: { phase: Phase }) {
       <span
         aria-hidden="true"
         className="size-10 text-[14px] md:size-14 md:text-[17px]"
-        style={{ position: "relative", borderRadius: "50%", background: "#EEEDE7", border: `1px solid ${INK}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: GENERAL_SANS, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}
+        style={{ position: "relative", borderRadius: "50%", background: "#F8F5EE", border: `1px solid ${INK}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: GENERAL_SANS, fontWeight: 600, fontVariantNumeric: "tabular-nums" }}
       >
         {phase.number}
       </span>
@@ -86,7 +86,7 @@ function PhaseItem({ phase }: { phase: Phase }) {
         {art?.title && art.url && (
           <aside aria-labelledby={`${id}-article`} style={{ ...ASIDE, border: `1px solid ${LINE}` }}>
             <h4 id={`${id}-article`} style={ASIDE_TITLE}>An article that worked</h4>
-            <a href={art.url} target="_blank" rel="noopener" className="inline-flex items-center gap-[10px] min-h-[44px] border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]" style={{ marginTop: 12, fontFamily: GENERAL_SANS, fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.3 }}>
+            <a href={art.url} target="_blank" rel="noopener" className="inline-flex items-center gap-[10px] min-h-[44px] border-b-[1.5px] border-[#202821] hover:!text-[#7A5C33] hover:border-[#7A5C33]" style={{ marginTop: 12, fontFamily: GENERAL_SANS, fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.3 }}>
               {art.title}
               <ExternalIcon />
             </a>
@@ -118,7 +118,7 @@ function PhaseItem({ phase }: { phase: Phase }) {
         )}
 
         {attr && (
-          <div style={{ marginTop: 32, borderRadius: 20, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(22px,3vw,36px)" }}>
+          <div style={{ marginTop: 32, borderRadius: 20, background: "#F4F0E8", border: "1px solid #E4E0D6", padding: "clamp(22px,3vw,36px)" }}>
             <h4 style={{ margin: 0, fontFamily: GENERAL_SANS, fontSize: "clamp(21px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>{attr.title}</h4>
             <p style={{ margin: "14px 0 0", maxWidth: 720, fontSize: 16.5, lineHeight: 1.65, color: BODY, textWrap: "pretty" }}><Rich text={attr.text} /></p>
             <figure style={{ margin: "24px 0 0" }}>
@@ -154,7 +154,7 @@ export function Phases({ data }: { data: NonNullable<CaseStudy["phases"]> }) {
       </div>
       {data.diagram && <Art id={data.diagram} maxWidth={760} style={{ marginTop: "clamp(28px,3vw,40px)" }} />}
       <div style={{ position: "relative", marginTop: "clamp(36px,4vw,56px)" }}>
-        <span aria-hidden="true" className="left-[19.5px] md:left-[27.5px]" style={{ position: "absolute", top: 8, bottom: 8, width: 1, background: "#CFCBC2" }} />
+        <span aria-hidden="true" className="left-[19.5px] md:left-[27.5px]" style={{ position: "absolute", top: 8, bottom: 8, width: 1, background: "#CBC5B7" }} />
         <ol style={{ position: "relative", margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "clamp(48px,5vw,72px)" }}>
           {data.items.map((p) => <PhaseItem key={p.number} phase={p} />)}
         </ol>

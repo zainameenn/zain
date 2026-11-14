@@ -8,23 +8,23 @@ export default function Philosophy() {
             More Marketing Won&apos;t Fix a Growth Problem{" "}
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>You Haven&apos;t Identified.</em>
           </h2>
-          <ul className="max-md:!mx-auto" style={{ margin: "24px 0 0", padding: 0, listStyle: "none", maxWidth: 480, borderTop: "1px solid #DDDAD3" }}>
+          <ul className="max-md:!mx-auto" style={{ margin: "24px 0 0", padding: 0, listStyle: "none", maxWidth: 480, borderTop: "1px solid #E4E0D6" }}>
             {[
               "Sometimes a business has traffic but no signups.",
               "Sometimes people visit the website but don't understand the product.",
               "Sometimes the content is good, but it's reaching the wrong audience.",
               "And sometimes the team is doing a lot of marketing without knowing which activity is bringing customers.",
             ].map((t) => (
-              <li key={t} style={{ padding: "12px 0", borderBottom: "1px solid #DDDAD3", fontSize: 16.5, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>{t}</li>
+              <li key={t} style={{ padding: "12px 0", borderBottom: "1px solid #E4E0D6", fontSize: 16.5, lineHeight: 1.5, color: "#202821", fontWeight: 500 }}>{t}</li>
             ))}
           </ul>
-          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4A524B" }}>
             I start by figuring out where things are going wrong.
           </p>
-          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4A524B" }}>
             That could be your search visibility, positioning, content, conversion rate or customer acquisition strategy.
           </p>
-          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#202821", fontWeight: 500 }}>
             Once the problem is clear, we can stop guessing and work on what matters.
           </p>
         </div>
@@ -43,16 +43,16 @@ export default function Philosophy() {
               gap: 16,
               marginTop: 8,
               paddingTop: 14,
-              borderTop: "1px solid #DDDAD3",
+              borderTop: "1px solid #E4E0D6",
               fontSize: 11.5,
               fontWeight: 600,
               letterSpacing: ".1em",
               textTransform: "uppercase",
-              color: "#6E6B66",
+              color: "#687068",
             }}
           >
             <span>More activity, same leaks</span>
-            <span style={{ color: "#7D6039" }}>Constraint fixed, growth compounds</span>
+            <span style={{ color: "#7F5F26" }}>Constraint fixed, growth compounds</span>
           </figcaption>
         </figure>
       </div>

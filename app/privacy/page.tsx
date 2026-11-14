@@ -20,9 +20,9 @@ export const metadata = buildMetadata({
 const MAX = 760;
 const PAD = "clamp(20px,4vw,48px)";
 const H2: React.CSSProperties = { margin: "44px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2.2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 };
-const P: React.CSSProperties = { margin: "14px 0 0", fontSize: 16.5, lineHeight: 1.65, color: "#4E4C48" };
-const LI: React.CSSProperties = { marginTop: 8, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" };
-const A = "font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
+const P: React.CSSProperties = { margin: "14px 0 0", fontSize: 16.5, lineHeight: 1.65, color: "#4A524B" };
+const LI: React.CSSProperties = { marginTop: 8, fontSize: 16.5, lineHeight: 1.6, color: "#4A524B" };
+const A = "font-semibold border-b-[1.5px] border-[#202821] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 
 const SECTIONS: { h: string; body: React.ReactNode }[] = [
   {
@@ -42,10 +42,10 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
         <p style={P}>Two tools help me understand how the site is used, so I can make it better:</p>
         <ul style={{ margin: "10px 0 0", paddingLeft: 20 }}>
           <li style={LI}>
-            <strong style={{ color: "#1C1C1C" }}>Google Analytics</strong> counts visits and shows which pages are read, roughly where visitors come from and what device they use. It loads after the page has finished loading.
+            <strong style={{ color: "#202821" }}>Google Analytics</strong> counts visits and shows which pages are read, roughly where visitors come from and what device they use. It loads after the page has finished loading.
           </li>
           <li style={LI}>
-            <strong style={{ color: "#1C1C1C" }}>Microsoft Clarity</strong> shows how people move through a page, such as scrolls, clicks and heatmaps, so I can spot what&apos;s confusing. It only starts after you first scroll, tap, click or press a key.
+            <strong style={{ color: "#202821" }}>Microsoft Clarity</strong> shows how people move through a page, such as scrolls, clicks and heatmaps, so I can spot what&apos;s confusing. It only starts after you first scroll, tap, click or press a key.
           </li>
         </ul>
         <p style={P}>Both set cookies or similar identifiers in your browser. You can block them with your browser&apos;s privacy settings or a content blocker, and the site will still work.</p>
@@ -60,7 +60,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
           When you send the form on the <a href="/contact" className={A}>contact page</a>, it collects your name, email, what you need help with and your message, plus your company or website and monthly budget if you choose to add them. It also records the time you sent it and the page you sent it from.
         </p>
         <p style={P}>
-          The form is delivered by <strong style={{ color: "#1C1C1C" }}>Web3Forms</strong>, which emails your message to me. I use it only to reply to you. Your email is set as the reply address, so my answer goes straight back to you.
+          The form is delivered by <strong style={{ color: "#202821" }}>Web3Forms</strong>, which emails your message to me. I use it only to reply to you. Your email is set as the reply address, so my answer goes straight back to you.
         </p>
       </>
     ),
@@ -69,7 +69,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     h: "Booking a call",
     body: (
       <p style={P}>
-        The booking calendar is run by <strong style={{ color: "#1C1C1C" }}>Calendly</strong>. It only loads when you click to open it. If you book, Calendly collects the details you enter, like your name, email and the time you pick, under its own privacy policy, and shares them with me so I can show up for the call.
+        The booking calendar is run by <strong style={{ color: "#202821" }}>Calendly</strong>. It only loads when you click to open it. If you book, Calendly collects the details you enter, like your name, email and the time you pick, under its own privacy policy, and shares them with me so I can show up for the call.
       </p>
     ),
   },
@@ -78,7 +78,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     body: (
       <>
         <p style={P}>
-          When you use one of the <Link href="/tools" className={A}>free tools</Link>, what you type and any photo, PDF or text file you upload are sent to <strong style={{ color: "#1C1C1C" }}>Google&apos;s Gemini API</strong> to write your result. If Gemini is busy, a text only request may go to Groq or OpenRouter instead. This site doesn&apos;t store your inputs, your uploads or your results, and doesn&apos;t log what they say. Photos are resized in your browser before they&apos;re sent, which also removes their location data. The newer AI tools (such as the name generators, script writers, keyword tools and landing page copy) send what you type to one free AI provider at a time: <strong style={{ color: "#1C1C1C" }}>Groq</strong>, <strong style={{ color: "#1C1C1C" }}>Google&apos;s Gemini API</strong> or <strong style={{ color: "#1C1C1C" }}>OpenRouter</strong> (which passes it to a model such as NVIDIA Nemotron). If one is busy, the next one is used. Visitors in the UK, EU and EEA are never sent to Gemini by these tools. The canonical and redirect checkers fetch only the public URL you enter, from our server. The calculators, validators and other generators run in your browser and send nothing.
+          When you use one of the <Link href="/tools" className={A}>free tools</Link>, what you type and any photo, PDF or text file you upload are sent to <strong style={{ color: "#202821" }}>Google&apos;s Gemini API</strong> to write your result. If Gemini is busy, a text only request may go to Groq or OpenRouter instead. This site doesn&apos;t store your inputs, your uploads or your results, and doesn&apos;t log what they say. Photos are resized in your browser before they&apos;re sent, which also removes their location data. The newer AI tools (such as the name generators, script writers, keyword tools and landing page copy) send what you type to one free AI provider at a time: <strong style={{ color: "#202821" }}>Groq</strong>, <strong style={{ color: "#202821" }}>Google&apos;s Gemini API</strong> or <strong style={{ color: "#202821" }}>OpenRouter</strong> (which passes it to a model such as NVIDIA Nemotron). If one is busy, the next one is used. Visitors in the UK, EU and EEA are never sent to Gemini by these tools. The canonical and redirect checkers fetch only the public URL you enter, from our server. The calculators, validators and other generators run in your browser and send nothing.
         </p>
         <p style={P}>
           Google handles that content under its own terms. While the tools run on Gemini&apos;s free tier, Google may use what&apos;s sent to improve its products, so please don&apos;t enter anything private or sensitive. The UTM link builder runs entirely in your browser and sends nothing.
@@ -98,7 +98,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     h: "Hosting",
     body: (
       <p style={P}>
-        The site is hosted by <strong style={{ color: "#1C1C1C" }}>Vercel</strong>, which keeps standard technical logs, such as IP address, browser and the pages requested, to run the site and keep it secure. Fonts are served from this site, not from a third party.
+        The site is hosted by <strong style={{ color: "#202821" }}>Vercel</strong>, which keeps standard technical logs, such as IP address, browser and the pages requested, to run the site and keep it secure. Fonts are served from this site, not from a third party.
       </p>
     ),
   },
@@ -131,7 +131,7 @@ export default function PrivacyPage() {
             <Emphasis>in plain English.</Emphasis>
           </em>
         </h1>
-        <p style={{ ...P, margin: "24px 0 0", fontSize: 18, color: "#1C1C1C" }}>
+        <p style={{ ...P, margin: "24px 0 0", fontSize: 18, color: "#202821" }}>
           This privacy policy explains what zainameen.com collects, why, and what you can do about it. No legalese marathon.
         </p>
         {SECTIONS.map((s) => (
@@ -140,7 +140,7 @@ export default function PrivacyPage() {
             {s.body}
           </div>
         ))}
-        <p style={{ margin: "44px 0 0", fontSize: 14, color: "#6F6B64" }}>Last updated: {LAST_UPDATED}</p>
+        <p style={{ margin: "44px 0 0", fontSize: 14, color: "#687068" }}>Last updated: {LAST_UPDATED}</p>
       </section>
     </main>
   );

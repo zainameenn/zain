@@ -84,21 +84,21 @@ export default function Reviews() {
   const loop = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section id="reviews" style={{ marginTop: "clamp(80px,9vw,128px)", background: "#171717", color: "#F2EFEA" }}>
+    <section id="reviews" style={{ marginTop: "clamp(80px,9vw,128px)", background: "#174B3A", color: "#F2EFEA" }}>
       <div
         style={{ maxWidth: 816, margin: "0 auto", padding: "clamp(80px,8vw,112px) clamp(20px,4vw,48px) 0", textAlign: "center" }}
       >
         <div>
-          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client Feedback</div>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#B38842" }}>Client Feedback</div>
           <h2 style={{ textWrap: "balance", margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             What Clients Say About <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Working With Me</em>
           </h2>
         </div>
         <div>
-          <p style={{ margin: "16px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#B7B2A8" }}>
+          <p style={{ margin: "16px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#C9D6CF" }}>
             You don&apos;t have to take my word for it.
           </p>
-          <p style={{ margin: "12px 0 0", fontSize: 16.5, lineHeight: 1.6, color: "#B7B2A8" }}>
+          <p style={{ margin: "12px 0 0", fontSize: 16.5, lineHeight: 1.6, color: "#C9D6CF" }}>
             Here are recommendations from founders, managers and clients I&apos;ve worked with across SaaS, marketing and other businesses.
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function Reviews() {
                 margin: "0 16px 0 0",
                 borderRadius: 20,
                 background: i % REVIEWS.length < 3 ? "#F2EFEA" : "#E6E2D9",
-                color: "#1C1C1C",
+                color: "#202821",
                 padding: "clamp(24px,2.2vw,32px)",
                 display: "flex",
                 flexDirection: "column",
@@ -132,10 +132,10 @@ export default function Reviews() {
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>
+                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7F5F26" }}>
                   {r.src === "Upwork" ? "Upwork ★ 5.0" : "LinkedIn recommendation"}
                 </span>
-                <a href={r.link} target="_blank" rel="noreferrer" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontSize: 12.5, color: "#5A5854", borderBottom: "1px solid #CFCBC2" }}>
+                <a href={r.link} target="_blank" rel="noreferrer" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ fontSize: 12.5, color: "#4A524B", borderBottom: "1px solid #CBC5B7" }}>
                   View original ↗
                 </a>
               </div>
@@ -148,7 +148,7 @@ export default function Reviews() {
                 )}
                 <span style={{ minWidth: 0 }}>
                   <span style={{ display: "block", fontSize: 15, fontWeight: 600 }}>{r.name}</span>
-                  <span style={{ display: "block", fontSize: 13, color: "#5A5854", lineHeight: 1.35 }}>{r.role}</span>
+                  <span style={{ display: "block", fontSize: 13, color: "#4A524B", lineHeight: 1.35 }}>{r.role}</span>
                 </span>
               </figcaption>
             </figure>

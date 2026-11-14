@@ -83,10 +83,10 @@ export default async function AuthorPage({ params }: Props) {
           <h1 style={{ ...HERO_H1_STYLE, marginTop: 24 }}>
             Articles by <em style={H1_ACCENT_STYLE}>{author.name}.</em>
           </h1>
-          {author.jobTitle ? <p style={{ margin: "14px 0 0", fontSize: 16, fontWeight: 500, color: "#7D6039" }}>{author.jobTitle}</p> : null}
+          {author.jobTitle ? <p style={{ margin: "14px 0 0", fontSize: 16, fontWeight: 500, color: "#7F5F26" }}>{author.jobTitle}</p> : null}
           <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 12 }}>
             {paragraphs(author.bio).map((p, i) => (
-              <p key={i} style={{ margin: 0, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+              <p key={i} style={{ margin: 0, fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
                 {p}
               </p>
             ))}
@@ -95,7 +95,7 @@ export default async function AuthorPage({ params }: Props) {
             <SocialLinks author={author} />
           </div>
           {isZain ? (
-            <Link href="/about" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
+            <Link href="/about" style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#202821", borderBottom: "1.5px solid #202821" }}>
               More about me
               <ArrowIcon />
             </Link>
@@ -103,7 +103,7 @@ export default async function AuthorPage({ params }: Props) {
         </div>
       </section>
       <section aria-labelledby="author-posts" style={{ maxWidth: MAX, margin: "0 auto", padding: `0 ${PAD} clamp(64px,7vw,96px)` }}>
-        <div style={{ marginBottom: 32, paddingTop: 32, borderTop: "1px solid #DDDAD3" }}>
+        <div style={{ marginBottom: 32, paddingTop: 32, borderTop: "1px solid #E4E0D6" }}>
           <Eyebrow>Published articles</Eyebrow>
           <h2 id="author-posts" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(28px,2.6vw,38px)", lineHeight: 1.08, letterSpacing: "-0.035em" }}>
             {author.posts.length} {author.posts.length === 1 ? "article" : "articles"}
@@ -116,7 +116,7 @@ export default async function AuthorPage({ params }: Props) {
             ))}
           </div>
         ) : (
-          <p style={{ margin: 0, fontSize: 16, color: "#5A5854" }}>No published articles yet.</p>
+          <p style={{ margin: 0, fontSize: 16, color: "#4A524B" }}>No published articles yet.</p>
         )}
       </section>
     </main>

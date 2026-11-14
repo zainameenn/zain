@@ -17,7 +17,7 @@ export default function WhatIDo() {
         </h2>
         <div style={{ textAlign: "left" }}>
           {PARAS.map((p) => (
-            <p key={p.slice(0, 30)} style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+            <p key={p.slice(0, 30)} style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
               {p}
             </p>
           ))}

@@ -7,11 +7,11 @@ export function FAQAccordion({ faqs, defaultOpen = -1 }: { faqs: [string, string
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div style={{ borderTop: "1px solid #1C1C1C" }}>
+    <div style={{ borderTop: "1px solid #202821" }}>
       {faqs.map(([q, paras], i) => {
         const isOpen = open === i;
         return (
-          <div key={q} style={{ borderBottom: "1px solid #DDDAD3" }}>
+          <div key={q} style={{ borderBottom: "1px solid #E4E0D6" }}>
             <button
               onClick={() => setOpen((o) => (o === i ? -1 : i))}
               aria-expanded={isOpen}
@@ -33,14 +33,14 @@ export function FAQAccordion({ faqs, defaultOpen = -1 }: { faqs: [string, string
               }}
             >
               <h3 style={{ margin: 0, font: "inherit", letterSpacing: "inherit" }}>{q}</h3>
-              <span style={{ flex: "0 0 auto", width: 28, height: 28, borderRadius: "50%", border: "1px solid #CFCBC2", display: "flex", alignItems: "center", justifyContent: "center", transform: isOpen ? "rotate(45deg)" : "none", transition: "transform 220ms" }}>
+              <span style={{ flex: "0 0 auto", width: 28, height: 28, borderRadius: "50%", border: "1px solid #CBC5B7", display: "flex", alignItems: "center", justifyContent: "center", transform: isOpen ? "rotate(45deg)" : "none", transition: "transform 220ms" }}>
                 <PlusIcon />
               </span>
             </button>
             {isOpen && (
               <div className="max-md:!pr-0" style={{ display: "flex", flexDirection: "column", gap: 12, padding: "0 48px 28px 0", maxWidth: 720 }}>
                 {paras.map((p, j) => (
-                  <p key={j} style={{ margin: 0, fontSize: 16, lineHeight: 1.65, color: "#4E4C48" }}>
+                  <p key={j} style={{ margin: 0, fontSize: 16, lineHeight: 1.65, color: "#4A524B" }}>
                     {p}
                   </p>
                 ))}

@@ -47,12 +47,12 @@ export default function Process() {
             role="tablist"
             onMouseEnter={lock}
             onMouseLeave={unlock}
-            style={{ borderTop: "1px solid #DDDAD3" }}
+            style={{ borderTop: "1px solid #E4E0D6" }}
           >
             {STEPS.map((s, i) => {
               const on = step === i;
               return (
-                <div key={s.t} style={{ position: "relative", borderBottom: "1px solid #DDDAD3" }}>
+                <div key={s.t} style={{ position: "relative", borderBottom: "1px solid #E4E0D6" }}>
                   <button
                     role="tab"
                     aria-selected={on}
@@ -61,9 +61,9 @@ export default function Process() {
                     onFocus={() => setStep(i)}
                     style={{ all: "unset", boxSizing: "border-box", cursor: "pointer", width: "100%", display: "grid", gridTemplateColumns: "48px minmax(0,1fr)", gap: "6px 0", padding: "20px 0" }}
                   >
-                    <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7D6039" : "#6F6B64", fontVariantNumeric: "tabular-nums", paddingTop: 8 }}>{String(i + 1).padStart(2, "0")}</span>
-                    <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", color: on ? "#1C1C1C" : "#706B61", transition: "color 250ms" }}>{s.t}</span>
-                    <span style={{ gridColumn: 2, fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 440 }}>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7F5F26" : "#687068", fontVariantNumeric: "tabular-nums", paddingTop: 8 }}>{String(i + 1).padStart(2, "0")}</span>
+                    <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", color: on ? "#202821" : "#687068", transition: "color 250ms" }}>{s.t}</span>
+                    <span style={{ gridColumn: 2, fontSize: 16, lineHeight: 1.5, color: "#4A524B", maxWidth: 440 }}>
                       {s.d.map((p) => (
                         <span key={p.slice(0, 20)} style={{ display: "block", marginTop: 6 }}>{p}</span>
                       ))}
@@ -78,7 +78,7 @@ export default function Process() {
                       width: "100%",
                       transform: on ? "scaleX(1)" : "scaleX(0)",
                       transformOrigin: "left",
-                      background: "#1C1C1C",
+                      background: "#174B3A",
                       transition: `transform ${on && !locked ? "4200ms" : "300ms"} linear`,
                     }}
                   />
@@ -96,12 +96,12 @@ export default function Process() {
               style={{ aspectRatio: "1448/620" }}
             />
             <div style={{ position: "relative", height: 3, marginTop: 12, borderRadius: 2, background: "#E2DBCD" }}>
-              <span style={{ position: "absolute", top: 0, height: 3, width: "19%", borderRadius: 2, background: "#C4A47C", left: 0, transform: `translateX(${(parseFloat(BAR_LEFT[step]) / 19) * 100}%)`, transition: "transform 500ms cubic-bezier(.3,.7,.2,1)" }} />
+              <span style={{ position: "absolute", top: 0, height: 3, width: "19%", borderRadius: 2, background: "#B38842", left: 0, transform: `translateX(${(parseFloat(BAR_LEFT[step]) / 19) * 100}%)`, transition: "transform 500ms cubic-bezier(.3,.7,.2,1)" }} />
             </div>
           </div>
-          <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>
+          <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>
             <span>{STEPS[step].art}</span>
-            <span style={{ color: "#7D6039", whiteSpace: "nowrap" }}>{String(step + 1).padStart(2, "0")} / 04</span>
+            <span style={{ color: "#7F5F26", whiteSpace: "nowrap" }}>{String(step + 1).padStart(2, "0")} / 04</span>
           </div>
         </div>
       </div>

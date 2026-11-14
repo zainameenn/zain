@@ -4,8 +4,22 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Used when the General Sans files aren't available to this build (next/font overrides it when they are). */
-  --nf-general-sans: Arial, sans-serif;
+  /* One type system for the whole site (November 2026), the one the tool pages use. Older font names point here,
+     so every component that still says --nf-general-sans, --nf-serif or --nf-geist gets Lora or Figtree. */
+  --nf-general-sans: var(--ed-display), Georgia, serif;
+  --nf-serif: var(--ed-display), Georgia, serif;
+  --nf-geist: var(--ed-body), system-ui, sans-serif;
+}
+
+/* Headings in Lora read at regular weight, as on the tool pages, not the old 600 sans. Small headings (h3) switch to
+   Figtree semibold, the tool pages' h3. Inline styles set these, hence the attribute selectors and !important. */
+[style*="--nf-general-sans"] {
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+}
+h3[style*="--nf-general-sans"] {
+  font-family: var(--ed-body), system-ui, sans-serif !important;
+  font-weight: 600 !important;
 }
 
 body {
@@ -19,12 +33,12 @@ a {
 }
 
 ::selection {
-  background: #D3AE82;
-  color: #1C1C1C;
+  background: #D8E4D7;
+  color: #202821;
 }
 
 :focus-visible {
-  outline: 2px solid #C4A47C;
+  outline: 2px solid #2F7A5F;
   outline-offset: 3px;
 }
 
@@ -135,8 +149,8 @@ a {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: #EEEDE7;
-  --foreground: #1C1C1C;
+  --background: #F8F5EE;
+  --foreground: #202821;
 }
 
 .dark {

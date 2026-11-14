@@ -151,12 +151,12 @@ const faqSchema = {
 function SectionHead({ eyebrow, title, accent, sub }: { eyebrow: string; title: string; accent: string; sub?: string }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 44px", maxWidth: 900 }}>
-      <div style={{ ...EYEBROW, color: "#6F6B64" }}>{eyebrow}</div>
+      <div style={{ ...EYEBROW, color: "#687068" }}>{eyebrow}</div>
       <h2 style={H2}>
         {title}
-        <em style={{ ...SERIF, display: "block", marginTop: 6, fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>{accent}</em>
+        <em style={{ ...SERIF, display: "block", marginTop: 6, fontSize: "1.08em", lineHeight: 1.05, color: "#202821" }}>{accent}</em>
       </h2>
-      {sub && <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#5A5854", textWrap: "pretty" }}>{sub}</p>}
+      {sub && <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#4A524B", textWrap: "pretty" }}>{sub}</p>}
     </div>
   );
 }
@@ -168,42 +168,42 @@ export default function ServicesPage() {
 
       {/* HERO */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(48px,5.4vw,72px) ${PAD} 0`, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-        <Link href="/black-friday-marketing-deals" className="transition-colors hover:!border-[#C4A47C]" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 20, padding: "8px 14px", borderRadius: 999, border: "1px solid #E2DFD8", background: "#FBFBF9", fontSize: 14, fontWeight: 600, color: "#1C1C1C" }}>
+        <Link href="/black-friday-marketing-deals" className="transition-colors hover:!border-[#B38842]" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 20, padding: "8px 14px", borderRadius: 999, border: "1px solid #E4E0D6", background: "#FBFBF9", fontSize: 14, fontWeight: 600, color: "#202821" }}>
           Black Friday: 10% off eligible services, November 23 to 30 <span aria-hidden="true">→</span>
         </Link>
-        <div style={{ ...EYEBROW, display: "flex", alignItems: "center", gap: 10, color: "#5A5854" }}>
-          <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
+        <div style={{ ...EYEBROW, display: "flex", alignItems: "center", gap: 10, color: "#4A524B" }}>
+          <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: "#B38842" }} />
           Services
         </div>
         <h1 style={{ margin: "18px auto 0", maxWidth: 980, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(42px,5.2vw,76px)", lineHeight: 1.02, letterSpacing: "-0.04em", textWrap: "balance" }}>
           Growth marketing services for SaaS and service businesses
         </h1>
-        <p style={{ margin: "28px auto 0", maxWidth: 680, fontSize: 18, lineHeight: 1.6, color: "#4E4C48", textWrap: "pretty" }}>
+        <p style={{ margin: "28px auto 0", maxWidth: 680, fontSize: 18, lineHeight: 1.6, color: "#4A524B", textWrap: "pretty" }}>
           Growth marketing services for SaaS work better when one person runs them together, so pick one channel or hand me all of it. Six services, all handled by me. If you already know what you need, jump straight in. If you don&apos;t, that&apos;s kind of my thing.
         </p>
         <div className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col" style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-          <Link href="/contact" className="max-md:!justify-center transition-colors hover:!bg-[#33322F]" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+          <Link href="/contact" className="max-md:!justify-center transition-colors hover:!bg-[#2E6150]" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#174B3A", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
             Tell me what’s stuck
             <ArrowIcon />
           </Link>
-          <a href="#all-services" className="max-md:!justify-center transition-colors hover:!bg-[#1C1C1C] hover:!text-[#F8F6F4]" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 24px", borderRadius: 12, border: "1px solid #1C1C1C", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+          <a href="#all-services" className="max-md:!justify-center transition-colors hover:!bg-[#174B3A] hover:!text-[#F8F6F4]" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 24px", borderRadius: 12, border: "1px solid #202821", color: "#202821", fontSize: 16, fontWeight: 600 }}>
             See all services ↓
           </a>
         </div>
-        <p style={{ margin: "16px 0 0", fontSize: 13.5, color: "#6E6B66" }}>One person. Fewer handoffs. Much less “who was handling this?”</p>
+        <p style={{ margin: "16px 0 0", fontSize: 13.5, color: "#687068" }}>One person. Fewer handoffs. Much less “who was handling this?”</p>
       </section>
 
       {/* PROOF */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} 0` }}>
-        <div className="max-[760px]:!grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }}>
+        <div className="max-[760px]:!grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", borderTop: "1px solid #202821", borderBottom: "1px solid #E4E0D6" }}>
           {PROOF.map((p, i) => (
-            <div key={p.v} className={i === 2 ? "max-[760px]:!border-l-0" : undefined} style={{ padding: "28px 16px", textAlign: "center", borderLeft: i === 0 ? "none" : "1px solid #DDDAD3" }}>
+            <div key={p.v} className={i === 2 ? "max-[760px]:!border-l-0" : undefined} style={{ padding: "28px 16px", textAlign: "center", borderLeft: i === 0 ? "none" : "1px solid #E4E0D6" }}>
               <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(34px,3.4vw,48px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{p.v}</div>
-              <div style={{ marginTop: 10, fontSize: 14, lineHeight: 1.4, color: "#5A5854" }}>{p.l}</div>
+              <div style={{ marginTop: 10, fontSize: 14, lineHeight: 1.4, color: "#4A524B" }}>{p.l}</div>
             </div>
           ))}
         </div>
-        <p style={{ margin: "18px 0 0", textAlign: "center", fontSize: 15, fontWeight: 500, color: "#1C1C1C" }}>Different channels. Same job: move something that matters.</p>
+        <p style={{ margin: "18px 0 0", textAlign: "center", fontSize: 15, fontWeight: 500, color: "#202821" }}>Different channels. Same job: move something that matters.</p>
       </section>
 
       {/* SERVICES */}
@@ -216,27 +216,27 @@ export default function ServicesPage() {
         />
         <div className="max-[1080px]:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 20 }}>
           {SERVICES.map((s) => (
-            <article key={s.n} style={{ display: "flex", flexDirection: "column", borderRadius: 28, background: "#F8F6F4", border: "1px solid #E2DFD8", overflow: "hidden" }}>
-              <div style={{ aspectRatio: "16/10", background: "#F4F0E8", borderBottom: "1px solid #E2D8CA", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <article key={s.n} style={{ display: "flex", flexDirection: "column", borderRadius: 28, background: "#F8F6F4", border: "1px solid #E4E0D6", overflow: "hidden" }}>
+              <div style={{ aspectRatio: "16/10", background: "#F4F0E8", borderBottom: "1px solid #E4E0D6", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Img loading="lazy" src={s.img} alt={s.alt} style={{ display: "block", width: "88%", height: "88%", objectFit: "contain", mixBlendMode: "multiply" }} />
               </div>
               <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "clamp(24px,2.6vw,36px)" }}>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: 12 }}>
                   <span style={{ ...SERIF, fontSize: 30, lineHeight: 1, color: "#AE834E" }}>{s.n}</span>
-                  <span style={{ ...EYEBROW, fontSize: 11.5, color: "#5A5854" }}>{s.tag}</span>
+                  <span style={{ ...EYEBROW, fontSize: 11.5, color: "#4A524B" }}>{s.tag}</span>
                 </div>
                 <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.1vw,30px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.12, textWrap: "balance" }}>{s.t}</h3>
-                <p style={{ margin: "14px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4E4C48", textWrap: "pretty" }}>{s.d}</p>
-                <div style={{ marginTop: 20, width: "100%", padding: "14px 18px", borderRadius: 12, background: "#EEEDE7", borderTop: "2px solid #C4A47C" }}>
-                  <div style={{ ...EYEBROW, fontSize: 10.5, color: "#7D6039" }}>Best when</div>
-                  <p style={{ margin: "6px 0 0", fontSize: 15, lineHeight: 1.5, color: "#1C1C1C" }}>{s.best}</p>
+                <p style={{ margin: "14px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4A524B", textWrap: "pretty" }}>{s.d}</p>
+                <div style={{ marginTop: 20, width: "100%", padding: "14px 18px", borderRadius: 12, background: "#F8F5EE", borderTop: "2px solid #B38842" }}>
+                  <div style={{ ...EYEBROW, fontSize: 10.5, color: "#7F5F26" }}>Best when</div>
+                  <p style={{ margin: "6px 0 0", fontSize: 15, lineHeight: 1.5, color: "#202821" }}>{s.best}</p>
                 </div>
                 <div style={{ marginTop: 18, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 6 }}>
                   {s.tags.map((t) => (
-                    <span key={t} style={{ display: "inline-flex", alignItems: "center", height: 28, padding: "0 12px", borderRadius: 999, background: "#1C1C1C", color: "#F2EFEA", fontSize: 12.5, fontWeight: 500, whiteSpace: "nowrap" }}>{t}</span>
+                    <span key={t} style={{ display: "inline-flex", alignItems: "center", height: 28, padding: "0 12px", borderRadius: 999, background: "#174B3A", color: "#F2EFEA", fontSize: 12.5, fontWeight: 500, whiteSpace: "nowrap" }}>{t}</span>
                   ))}
                 </div>
-                <Link href={s.href} className={TEXT_LINK} style={{ marginTop: "auto", paddingTop: 26, alignSelf: "center", display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>
+                <Link href={s.href} className={TEXT_LINK} style={{ marginTop: "auto", paddingTop: 26, alignSelf: "center", display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "#202821" }}>
                   <span style={{ borderBottom: "1.5px solid currentColor", paddingBottom: 2 }}>{s.cta}</span>
                   <ArrowIcon />
                 </Link>
@@ -248,17 +248,17 @@ export default function ServicesPage() {
 
       {/* ONE SYSTEM */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: SEC_PAD }}>
-        <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,80px) clamp(24px,4vw,64px)" }}>
+        <div style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(48px,6vw,80px) clamp(24px,4vw,64px)" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", margin: "0 auto 28px", maxWidth: 900 }}>
-            <div style={{ ...EYEBROW, color: "#C4A47C" }}>One system</div>
+            <div style={{ ...EYEBROW, color: "#B38842" }}>One system</div>
             <h2 style={H2}>
               Different channels.
               <em style={{ ...SERIF, display: "block", marginTop: 6, fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>Same growth problem.</em>
             </h2>
           </div>
-          <div className="max-[1080px]:!grid-cols-2 max-[760px]:!grid-cols-1" style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", borderTop: "1px solid #33322F" }}>
+          <div className="max-[1080px]:!grid-cols-2 max-[760px]:!grid-cols-1" style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", borderTop: "1px solid #2E6150" }}>
             {SYSTEM.map((line) => (
-              <p key={line} style={{ margin: 0, padding: "18px 16px", borderBottom: "1px solid #33322F", textAlign: "center", fontSize: 16, lineHeight: 1.45, color: "#C9C4BA", textWrap: "balance" }}>{line}</p>
+              <p key={line} style={{ margin: 0, padding: "18px 16px", borderBottom: "1px solid #2E6150", textAlign: "center", fontSize: 16, lineHeight: 1.45, color: "#D6E0DA", textWrap: "balance" }}>{line}</p>
             ))}
           </div>
           <div className="max-[760px]:!flex-col max-[760px]:!items-center" style={{ margin: "clamp(36px,4vw,52px) auto 0", maxWidth: 1060, display: "flex", alignItems: "flex-start", justifyContent: "center", gap: 14 }}>
@@ -266,16 +266,16 @@ export default function ServicesPage() {
               const last = i === CHAIN.length - 1;
               return [
                 i > 0 && (
-                  <span key={`a${i}`} aria-hidden="true" className="max-[760px]:!mt-0 max-[760px]:!self-center max-[760px]:!rotate-90" style={{ flex: "0 0 auto", alignSelf: "flex-start", marginTop: 21, color: "#C4A47C" }}>
+                  <span key={`a${i}`} aria-hidden="true" className="max-[760px]:!mt-0 max-[760px]:!self-center max-[760px]:!rotate-90" style={{ flex: "0 0 auto", alignSelf: "flex-start", marginTop: 21, color: "#B38842" }}>
                     <ArrowIcon />
                   </span>
                 ),
                 <div key={c} className="max-[760px]:!w-full max-[760px]:!flex-none" style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", maxWidth: 170, height: 56, borderRadius: 14, border: `1px solid ${last ? "#D3AE82" : "#3A3935"}`, background: last ? "#D3AE82" : "#262523", color: last ? "#1C1C1C" : "#F2EFEA", fontFamily: "var(--nf-general-sans)", fontSize: 17, fontWeight: 600 }}>{c}</span>
+                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", maxWidth: 170, height: 56, borderRadius: 14, border: `1px solid ${last ? "#D3AE82" : "#2E6150"}`, background: last ? "#D3AE82" : "#262523", color: last ? "#202821" : "#F2EFEA", fontFamily: "var(--nf-general-sans)", fontSize: 17, fontWeight: 600 }}>{c}</span>
                   {c === "Distribution" && (
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 6, width: "100%", maxWidth: 170 }}>
                       {DISTRIBUTION.map((d) => (
-                        <span key={d} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", height: 26, padding: "0 10px", borderRadius: 999, border: "1px solid #4A4843", fontSize: 12, color: "#C9C4BA" }}>{d}</span>
+                        <span key={d} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", height: 26, padding: "0 10px", borderRadius: 999, border: "1px solid #4A4843", fontSize: 12, color: "#D6E0DA" }}>{d}</span>
                       ))}
                     </div>
                   )}
@@ -296,12 +296,12 @@ export default function ServicesPage() {
             { n: "02", t: "Something is wrong. I’m not sure what.", d: "Start with the $499 Growth Diagnosis. I’ll review the current system, identify the bottlenecks and rank what I would fix first.", price: "$499 one time", href: "/services/saas-growth-consultant#pricing", cta: "Start with the diagnosis", featured: true },
             { n: "03", t: "I want someone to handle the whole thing.", d: "Strategy plus up to two active channels at a time, coordinated as one plan. One person. One invoice.", price: "From $4,499/month", href: "/contact", cta: "Tell me what’s stuck" },
           ].map((o) => (
-            <div key={o.n} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "clamp(28px,3vw,40px) clamp(22px,2.4vw,32px)", borderRadius: 24, background: o.featured ? "#F4F0E8" : "#F8F6F4", border: `1px solid ${o.featured ? "#D3AE82" : "#E2DFD8"}` }}>
+            <div key={o.n} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "clamp(28px,3vw,40px) clamp(22px,2.4vw,32px)", borderRadius: 24, background: o.featured ? "#F4F0E8" : "#F8F6F4", border: `1px solid ${o.featured ? "#D3AE82" : "#E4E0D6"}` }}>
               <span style={{ ...SERIF, fontSize: 32, lineHeight: 1, color: "#AE834E" }}>{o.n}</span>
               <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 21, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, textWrap: "balance" }}>{o.t}</h3>
-              <p style={{ margin: "12px 0 0", maxWidth: 320, fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", textWrap: "pretty" }}>{o.d}</p>
+              <p style={{ margin: "12px 0 0", maxWidth: 320, fontSize: 15.5, lineHeight: 1.55, color: "#4A524B", textWrap: "pretty" }}>{o.d}</p>
               {o.price && <div style={{ marginTop: 16, fontFamily: "var(--nf-general-sans)", fontSize: 26, fontWeight: 600, letterSpacing: "-0.03em" }}>{o.price}</div>}
-              <Link href={o.href} className={TEXT_LINK} style={{ marginTop: "auto", paddingTop: 24, display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "#1C1C1C" }}>
+              <Link href={o.href} className={TEXT_LINK} style={{ marginTop: "auto", paddingTop: 24, display: "inline-flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "#202821" }}>
                 <span style={{ borderBottom: "1.5px solid currentColor", paddingBottom: 2 }}>{o.cta}</span>
                 {o.up ? <span aria-hidden="true">↑</span> : <ArrowIcon />}
               </Link>
@@ -315,10 +315,10 @@ export default function ServicesPage() {
         <SectionHead eyebrow="How I work" title="Four steps." accent="No 87-slide strategy deck." />
         <ol className="max-[1080px]:!grid-cols-2 max-[760px]:!grid-cols-1" style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: "28px 24px" }}>
           {STEPS.map((s) => (
-            <li key={s.n} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", paddingTop: 22, borderTop: "2px solid #1C1C1C" }}>
-              <span style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
+            <li key={s.n} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", paddingTop: 22, borderTop: "2px solid #202821" }}>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
               <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
-              <p style={{ margin: "8px 0 0", maxWidth: 240, fontSize: 15.5, lineHeight: 1.55, color: "#5A5854" }}>{s.d}</p>
+              <p style={{ margin: "8px 0 0", maxWidth: 240, fontSize: 15.5, lineHeight: 1.55, color: "#4A524B" }}>{s.d}</p>
             </li>
           ))}
         </ol>
@@ -329,15 +329,15 @@ export default function ServicesPage() {
         <SectionHead eyebrow="Selected proof" title="The services are different." accent="The proof shouldn’t be." />
         <div className="max-[1080px]:!grid-cols-2 max-[760px]:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 16 }}>
           {CASES.map((c) => (
-            <Link key={c.alt} href={c.href} className="transition-colors hover:!border-[#1C1C1C]" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "28px 22px", borderRadius: 22, background: "#F8F6F4", border: "1px solid #E2DFD8", color: "#1C1C1C" }}>
+            <Link key={c.alt} href={c.href} className="transition-colors hover:!border-[#202821]" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "28px 22px", borderRadius: 22, background: "#F8F6F4", border: "1px solid #E4E0D6", color: "#202821" }}>
               <span style={{ height: 44, display: "flex", alignItems: "center" }}>
                 <Img loading="lazy" src={c.logo} alt={c.alt} style={{ display: "block", maxHeight: 34, maxWidth: 150, width: "auto", height: "auto", mixBlendMode: "multiply" }} />
               </span>
               <div style={{ marginTop: 18, width: "100%", display: "flex", flexDirection: "column" }}>
                 {c.stats.map(([v, l]) => (
-                  <div key={l} style={{ padding: "12px 0", borderTop: "1px solid #E2DFD8" }}>
+                  <div key={l} style={{ padding: "12px 0", borderTop: "1px solid #E4E0D6" }}>
                     <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: 24, fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05 }}>{v}</div>
-                    <div style={{ marginTop: 4, fontSize: 13.5, color: "#5A5854" }}>{l}</div>
+                    <div style={{ marginTop: 4, fontSize: 13.5, color: "#4A524B" }}>{l}</div>
                   </div>
                 ))}
               </div>
@@ -360,7 +360,7 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section id="contact" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Still not sure which one?
             <span style={{ ...SERIF, display: "block", marginTop: 6, fontSize: "1.08em", color: "#D3AE82" }}>
@@ -370,15 +370,15 @@ export default function ServicesPage() {
               </span>
             </span>
           </h2>
-          <p style={{ margin: "22px auto 0", maxWidth: 580, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8", textWrap: "pretty" }}>
+          <p style={{ margin: "22px auto 0", maxWidth: 580, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF", textWrap: "pretty" }}>
             Send me the site, the numbers, the half-finished idea or just the problem. I’ll tell you where I’d start. If I’m not the right person for it, I’ll say that too.
           </p>
           <div className="max-md:!w-full max-md:!max-w-[400px] max-md:!flex-col" style={{ marginTop: 30, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-            <Link href="/contact" className="max-md:!justify-center transition-colors hover:!bg-white" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+            <Link href="/contact" className="max-md:!justify-center transition-colors hover:!bg-white" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#F2EFEA", color: "#202821", fontSize: 16, fontWeight: 600 }}>
               Tell me what’s stuck
               <ArrowIcon />
             </Link>
-            <Link href="/contact#book" className="max-md:!justify-center transition-colors hover:!border-[#C4A47C]" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 24px", borderRadius: 12, border: "1px solid #4A4843", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
+            <Link href="/contact#book" className="max-md:!justify-center transition-colors hover:!border-[#B38842]" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 24px", borderRadius: 12, border: "1px solid #4A4843", color: "#F2EFEA", fontSize: 16, fontWeight: 600 }}>
               Book a free call
             </Link>
             <a href="mailto:hello@zainameen.com" className="max-md:!justify-center transition-colors hover:!text-[#D3AE82]" style={{ display: "inline-flex", alignItems: "center", height: 56, padding: "0 18px", color: "#F2EFEA", fontSize: 16, fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 4, textDecorationColor: "#6B675F" }}>

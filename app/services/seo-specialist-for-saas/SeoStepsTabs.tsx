@@ -14,11 +14,11 @@ export function SeoStepsTabs() {
   const [active, setActive] = useState(0);
 
   return (
-    <div role="tablist" style={{ marginTop: 28, borderTop: "1px solid #DDDAD3" }}>
+    <div role="tablist" style={{ marginTop: 28, borderTop: "1px solid #E4E0D6" }}>
       {STEPS.map((s, i) => {
         const on = active === i;
         return (
-          <div key={s.t} style={{ position: "relative", borderBottom: "1px solid #DDDAD3" }}>
+          <div key={s.t} style={{ position: "relative", borderBottom: "1px solid #E4E0D6" }}>
             <button
               role="tab"
               aria-selected={on}
@@ -36,7 +36,7 @@ export function SeoStepsTabs() {
                 padding: "16px 0",
               }}
             >
-              <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7D6039" : "#6F6B64", paddingTop: 6 }}>{String(i + 1).padStart(2, "0")}</span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7F5F26" : "#687068", paddingTop: 6 }}>{String(i + 1).padStart(2, "0")}</span>
               <h3
                 style={{
                   margin: 0,
@@ -44,13 +44,13 @@ export function SeoStepsTabs() {
                   fontSize: "clamp(20px,1.8vw,24px)",
                   fontWeight: 600,
                   letterSpacing: "-0.02em",
-                  color: on ? "#1C1C1C" : "#706B61",
+                  color: on ? "#202821" : "#687068",
                   transition: "color 250ms",
                 }}
               >
                 {s.t}
               </h3>
-              <span className="max-md:!text-base" style={{ gridColumn: 2, fontSize: 15.5, lineHeight: 1.5, color: "#5A5854", maxWidth: 440 }}>{s.d}</span>
+              <span className="max-md:!text-base" style={{ gridColumn: 2, fontSize: 15.5, lineHeight: 1.5, color: "#4A524B", maxWidth: 440 }}>{s.d}</span>
             </button>
             <span
               style={{
@@ -61,7 +61,7 @@ export function SeoStepsTabs() {
                 width: "100%",
                 transform: on ? "scaleX(1)" : "scaleX(0)",
                 transformOrigin: "left",
-                background: "#1C1C1C",
+                background: "#174B3A",
                 transition: "transform 450ms cubic-bezier(.3,.7,.2,1)",
               }}
             />

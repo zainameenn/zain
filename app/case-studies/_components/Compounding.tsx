@@ -79,7 +79,7 @@ export function Compounding({ data }: { data: NonNullable<CaseStudy["compounding
                   >
                     <span
                       className={last ? css.pulse : undefined}
-                      style={{ flex: "0 0 auto", width: cards ? 52 : 48, height: cards ? 52 : 48, borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 2, background: last ? "#2A2926" : "#F4F0E8", border: `1px solid ${last ? "#3A3935" : "#E2D8CA"}` }}
+                      style={{ flex: "0 0 auto", width: cards ? 52 : 48, height: cards ? 52 : 48, borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 2, background: last ? "#2A2926" : "#F4F0E8", border: `1px solid ${last ? "#2E6150" : "#E4E0D6"}` }}
                     >
                       {step.icons.map((icon) => <Icon key={icon} name={icon} color={last ? "#D3AE82" : INK} dark={last} />)}
                     </span>

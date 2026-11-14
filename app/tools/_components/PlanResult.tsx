@@ -50,7 +50,7 @@ function printPlan(markdown: string) {
               : "",
     )
     .join("");
-  win.document.write(`<!doctype html><meta charset="utf-8"><title>30 day marketing plan</title><style>body{font:15px/1.6 Arial,sans-serif;max-width:720px;margin:40px auto;color:#1C1C1C}h2{margin-top:28px}</style>${html}`);
+  win.document.write(`<!doctype html><meta charset="utf-8"><title>30 day marketing plan</title><style>body{font:15px/1.6 Arial,sans-serif;max-width:720px;margin:40px auto;color:#202821}h2{margin-top:28px}</style>${html}`);
   win.document.close();
   win.focus();
   win.print();

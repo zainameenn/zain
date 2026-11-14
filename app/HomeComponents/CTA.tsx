@@ -9,7 +9,7 @@ export default function CTA() {
   return (
     <section id="contact" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) clamp(24px,3vw,40px)" }}>
       <div
-        style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }}
+        style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }}
         className="md:!grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"
       >
         <div className="max-md:!text-center">
@@ -17,10 +17,10 @@ export default function CTA() {
             Looking for a Marketing Specialist{" "}
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>Who Can Actually Do the Work?</em>
           </h2>
-          <p className="max-md:!mx-auto" style={{ margin: "24px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "24px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>
             Tell me what you&apos;re building, where growth is stuck and what you&apos;ve already tried.
           </p>
-          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>
             I&apos;ll take a look and tell you where I think we should start.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#F2EFEA" }}>
@@ -32,23 +32,23 @@ export default function CTA() {
             href="/contact"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
-            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: ctaHover ? "#FFFFFF" : "#F2EFEA", color: "#1C1C1C", fontSize: 17, fontWeight: 600, transition: "background 180ms" }}
+            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: ctaHover ? "#FFFFFF" : "#F2EFEA", color: "#202821", fontSize: 17, fontWeight: 600, transition: "background 180ms" }}
           >
             Tell Me What You&apos;re Working On
             <ArrowIcon size={16} style={{ transform: ctaHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
           </a>
           <div className="max-md:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <a href="/case-studies" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+            <a href="/case-studies" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #2E6150", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
               See My Case Studies
             </a>
-            <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+            <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #2E6150", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
               <MailIcon />
               hello@zainameen.com
             </a>
           </div>
           <div className="max-md:!flex-col max-md:!gap-3 max-md:!text-center" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, paddingTop: 12 }}>
-            <span style={{ fontSize: 13.5, color: "#8B877F" }}>Based in Lahore. Working with businesses internationally.</span>
-            <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 12, border: "1px solid #3A3935", display: "flex", alignItems: "center", justifyContent: "center", color: "#F2EFEA" }}>
+            <span style={{ fontSize: 13.5, color: "#9FB4AA" }}>Based in Lahore. Working with businesses internationally.</span>
+            <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 12, border: "1px solid #2E6150", display: "flex", alignItems: "center", justifyContent: "center", color: "#F2EFEA" }}>
               <LinkedInIcon />
             </a>
           </div>

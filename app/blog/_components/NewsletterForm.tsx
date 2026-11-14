@@ -14,9 +14,9 @@ export function NewsletterForm({ source = "blog" }: { source?: string }) {
     return (
       <p
         role="status"
-        style={{ margin: "32px 0 0", display: "inline-flex", alignItems: "center", gap: 10, minHeight: 56, padding: "12px 22px", borderRadius: 12, border: "1px solid #C4A47C", fontSize: 16, fontWeight: 600, color: "#F2EFEA", textAlign: "left" }}
+        style={{ margin: "32px 0 0", display: "inline-flex", alignItems: "center", gap: 10, minHeight: 56, padding: "12px 22px", borderRadius: 12, border: "1px solid #B38842", fontSize: 16, fontWeight: 600, color: "#F2EFEA", textAlign: "left" }}
       >
-        <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+        <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#B38842", flex: "0 0 auto" }} />
         {state.message}
       </p>
     );
@@ -63,14 +63,14 @@ export function NewsletterForm({ source = "blog" }: { source?: string }) {
           placeholder="you@company.com"
           aria-invalid={state.kind === "error" || undefined}
           aria-describedby={state.kind === "error" ? `${id}-msg` : undefined}
-          style={{ flex: 1, minWidth: 0, height: 56, padding: "0 18px", borderRadius: 12, border: `1px solid ${state.kind === "error" ? "#E0673F" : "#3A3935"}`, background: "#262523", color: "#F2EFEA", fontSize: 16, fontFamily: "inherit" }}
+          style={{ flex: 1, minWidth: 0, height: 56, padding: "0 18px", borderRadius: 12, border: `1px solid ${state.kind === "error" ? "#E0673F" : "#2E6150"}`, background: "#262523", color: "#F2EFEA", fontSize: 16, fontFamily: "inherit" }}
         />
         {/* Honeypot for bots. Hidden from people and screen readers. */}
         <input name="company" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
         <button
           type="submit"
           disabled={state.kind === "loading"}
-          style={{ height: 56, padding: "0 24px", borderRadius: 12, border: 0, background: "#F2EFEA", color: "#1C1C1C", fontSize: 16, fontWeight: 600, fontFamily: "inherit", cursor: state.kind === "loading" ? "wait" : "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10, whiteSpace: "nowrap", opacity: state.kind === "loading" ? 0.7 : 1 }}
+          style={{ height: 56, padding: "0 24px", borderRadius: 12, border: 0, background: "#F2EFEA", color: "#202821", fontSize: 16, fontWeight: 600, fontFamily: "inherit", cursor: state.kind === "loading" ? "wait" : "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10, whiteSpace: "nowrap", opacity: state.kind === "loading" ? 0.7 : 1 }}
         >
           {state.kind === "loading" ? "Adding you..." : "Get the good stuff"}
           {state.kind === "loading" ? null : <ArrowIcon />}

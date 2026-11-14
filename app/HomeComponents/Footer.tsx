@@ -47,7 +47,7 @@ const FOOT_GROUPS: { h: string; items: [string, string][] }[] = [
   },
 ];
 
-const HEADING_STYLE: React.CSSProperties = { margin: "0 0 16px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#8B877F" };
+const HEADING_STYLE: React.CSSProperties = { margin: "0 0 16px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9FB4AA" };
 
 const SOCIALS: { t: string; href: string; kind: "in" | "mail" | "icon"; icon?: string }[] = [
   { t: "LinkedIn", href: "https://www.linkedin.com/in/zain-ameen/", kind: "in" },
@@ -67,8 +67,8 @@ const LINK_CLASS = "footer-link inline-flex min-h-10 items-center md:min-h-0";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#171717", color: "#F2EFEA", overflow: "hidden" }}>
-      <style>{`.footer-link{color:#C9C4BA;transition:color 150ms}.footer-link:hover{color:#F2EFEA}.footer-link:focus-visible,.footer-social:focus-visible{outline:2px solid #D3AE82;outline-offset:3px;border-radius:4px}.footer-social{transition:border-color 150ms}.footer-social:hover{border-color:#8B877F}`}</style>
+    <footer style={{ background: "#174B3A", color: "#F2EFEA", overflow: "hidden" }}>
+      <style>{`.footer-link{color:#D6E0DA;transition:color 150ms}.footer-link:hover{color:#F2EFEA}.footer-link:focus-visible,.footer-social:focus-visible{outline:2px solid #D3AE82;outline-offset:3px;border-radius:4px}.footer-social{transition:border-color 150ms}.footer-social:hover{border-color:#9FB4AA}`}</style>
       <div style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(64px,7vw,96px) clamp(20px,4vw,48px) 0" }}>
         <div style={{ display: "grid", gap: "48px clamp(32px,4vw,64px)", alignItems: "start", paddingBottom: "clamp(40px,5vw,56px)", borderBottom: "1px solid #2F2E2B" }} className="lg:grid-cols-[auto_minmax(0,1fr)]">
           {/* Brand */}
@@ -80,7 +80,7 @@ export default function Footer() {
               </span>
               <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Zain Ul Abdin</span>
             </Link>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#C9D6CF" }}>
               Helping SaaS and service businesses
               <br />
               grow through SEO, Reddit, social media
@@ -101,7 +101,7 @@ export default function Footer() {
                   aria-label={so.t}
                   title={so.t}
                   className="footer-social"
-                  style={{ width: 42, height: 42, borderRadius: 8, border: "1px solid #33322F", display: "flex", alignItems: "center", justifyContent: "center" }}
+                  style={{ width: 42, height: 42, borderRadius: 8, border: "1px solid #2E6150", display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
                   {so.kind === "in" ? <LinkedInIcon size={14} color="#F2EFEA" /> : <Img src={`/icons/${so.icon}-F2EFEA.svg`} alt="" aria-hidden="true" width={15} height={15} style={{ display: "block", width: 15, height: 15, objectFit: "contain" }} />}
                 </a>
@@ -135,9 +135,9 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div style={{ padding: "22px 0 26px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "8px 24px", fontSize: 13.5, color: "#8B877F" }}>
+        <div style={{ padding: "22px 0 26px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "8px 24px", fontSize: 13.5, color: "#9FB4AA" }}>
           <span>© {new Date().getFullYear()} Zain Ul Abdin. Built for useful growth, not vanity metrics.</span>
-          <a href="#top" className="footer-link inline-flex min-h-11 items-center gap-2" style={{ color: "#8B877F" }}>
+          <a href="#top" className="footer-link inline-flex min-h-11 items-center gap-2" style={{ color: "#9FB4AA" }}>
             Back to top <ArrowIcon style={{ transform: "rotate(-90deg)" }} />
           </a>
         </div>

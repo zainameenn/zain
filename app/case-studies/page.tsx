@@ -52,7 +52,7 @@ export default function CaseStudiesPage() {
             <Emphasis>receipts included.</Emphasis>
           </em>
         </h1>
-        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
           These growth marketing case studies show real work, real results and the real screenshots behind them. What was broken, what I changed and what happened next. No vanity metrics, no rounding up.
         </p>
       </section>

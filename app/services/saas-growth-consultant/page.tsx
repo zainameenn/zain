@@ -18,7 +18,7 @@ const PAD = "clamp(20px,2.5vw,32px)";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", height: 34, padding: "0 14px", borderRadius: 999, background: "#1C1C1C", color: "#F2EFEA", fontSize: 13, fontWeight: 500, whiteSpace: "nowrap" }}>
+    <span style={{ display: "inline-flex", alignItems: "center", height: 34, padding: "0 14px", borderRadius: 999, background: "#174B3A", color: "#F2EFEA", fontSize: 13, fontWeight: 500, whiteSpace: "nowrap" }}>
       {children}
     </span>
   );
@@ -26,25 +26,25 @@ function Pill({ children }: { children: React.ReactNode }) {
 
 function LightPill({ children }: { children: React.ReactNode }) {
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", height: 34, padding: "0 14px", borderRadius: 999, background: "#F2EFEA", color: "#1C1C1C", fontSize: 13, fontWeight: 500, whiteSpace: "nowrap" }}>
+    <span style={{ display: "inline-flex", alignItems: "center", height: 34, padding: "0 14px", borderRadius: 999, background: "#F2EFEA", color: "#202821", fontSize: 13, fontWeight: 500, whiteSpace: "nowrap" }}>
       {children}
     </span>
   );
 }
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>{children}</div>;
+  return <div className="max-md:!text-center" style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>{children}</div>;
 }
 
 function SectionHead({ eyebrow, title, sub, dark }: { eyebrow: string; title: React.ReactNode; sub: React.ReactNode; dark?: boolean }) {
   return (
     <div style={{ display: "grid", gap: "20px 64px", alignItems: "end", marginBottom: 40 }} className="md:!grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] max-md:!text-center">
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#9C978D" : "#6F6B64" }}>{eyebrow}</div>
-        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#1C1C1C" }}>{title}</h2>
+        <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: dark ? "#A9BDB3" : "#687068" }}>{eyebrow}</div>
+        <h2 className="max-md:!text-balance" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(38px,3.6vw,52px)", lineHeight: 1.02, letterSpacing: "-0.035em", color: dark ? "#F2EFEA" : "#202821" }}>{title}</h2>
       </div>
       <div className="max-md:!mx-auto" style={{ paddingBottom: 4, maxWidth: 460 }}>
-        <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: dark ? "#B7B2A8" : "#4E4C48" }}>{sub}</p>
+        <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: dark ? "#C9D6CF" : "#4A524B" }}>{sub}</p>
       </div>
     </div>
   );
@@ -153,16 +153,16 @@ export default function GrowthStrategyPage() {
               fixes the leak before <Emphasis>buying more water.</Emphasis>
             </em>
           </h1>
-          <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4E4C48" }}>
+          <p className="max-md:!mx-auto" style={{ margin: "28px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#4A524B" }}>
             As a SaaS growth consultant, I look at your whole growth system, from positioning to retention, find the one thing actually holding it back, and build the plan around that.
           </p>
-          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#1C1C1C", fontWeight: 500 }}>Then I help execute it, because a plan nobody runs is just a nice PDF.</p>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 520, fontSize: 18, lineHeight: 1.55, color: "#202821", fontWeight: 500 }}>Then I help execute it, because a plan nobody runs is just a nice PDF.</p>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }} className="max-md:!mx-auto max-md:!max-w-[400px] max-md:!flex-col">
-            <a href="#pricing" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
+            <a href="#pricing" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#174B3A", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}>
               Start with the $499 audit
               <ArrowIcon />
             </a>
-            <a href="#work" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CFCBC2", color: "#1C1C1C", fontSize: 16, fontWeight: 600 }}>
+            <a href="#work" className="max-md:!justify-center" style={{ display: "inline-flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: "1px solid #CBC5B7", color: "#202821", fontSize: 16, fontWeight: 600 }}>
               See the results ↓
             </a>
           </div>
@@ -174,16 +174,16 @@ export default function GrowthStrategyPage() {
 
       {/* PROOF */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `0 ${PAD}` }}>
-        <div style={{ display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDDAD3" }} className="!grid-cols-2 sm:!grid-cols-4">
+        <div style={{ display: "grid", borderTop: "1px solid #202821", borderBottom: "1px solid #E4E0D6" }} className="!grid-cols-2 sm:!grid-cols-4">
           {PROOF.map((s, i) => (
-            <div key={s.l} className={`max-md:!text-center max-sm:!px-2 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#DDDAD3]" : ""}`} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0" }}>
+            <div key={s.l} className={`max-md:!text-center max-sm:!px-2 ${i % 2 === 0 ? "max-sm:!border-l-0" : ""} ${i >= 2 ? "max-sm:!border-t max-sm:!border-t-[#E4E0D6]" : ""}`} style={{ padding: `28px 24px 28px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #E4E0D6" : "0" }}>
               <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,3.8vw,56px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
               <div style={{ marginTop: 14, fontSize: 15, fontWeight: 600 }}>{s.l}</div>
-              <div style={{ marginTop: 4, fontSize: 13.5, color: "#6E6B66" }}>{s.sub}</div>
+              <div style={{ marginTop: 4, fontSize: 13.5, color: "#687068" }}>{s.sub}</div>
             </div>
           ))}
         </div>
-        <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13.5, color: "#6E6B66" }}>Strategy built from doing the work, not just talking about it.</p>
+        <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13.5, color: "#687068" }}>Strategy built from doing the work, not just talking about it.</p>
       </section>
 
       {/* PROBLEM */}
@@ -197,21 +197,21 @@ export default function GrowthStrategyPage() {
                 <Emphasis>isn&apos;t a strategy.</Emphasis>
               </em>
             </h2>
-            <p className="max-md:!mx-auto max-md:!text-center max-md:!text-balance" style={{ margin: "18px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,26px)", lineHeight: 1.25, color: "#6B6862", maxWidth: 460 }}>
+            <p className="max-md:!mx-auto max-md:!text-center max-md:!text-balance" style={{ margin: "18px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(22px,2vw,26px)", lineHeight: 1.25, color: "#687068", maxWidth: 460 }}>
               It&apos;s usually just a more expensive way to stay stuck.
             </p>
-            <p style={{ margin: "24px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4E4C48", maxWidth: 480 }}>
+            <p style={{ margin: "24px 0 0", fontSize: 17, lineHeight: 1.6, color: "#4A524B", maxWidth: 480 }}>
               When growth stalls, the instinct is to add something: another channel, another hire, another agency.
             </p>
-            <p style={{ margin: "12px 0 0", fontSize: 17, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500, maxWidth: 480 }}>
+            <p style={{ margin: "12px 0 0", fontSize: 17, lineHeight: 1.6, color: "#202821", fontWeight: 500, maxWidth: 480 }}>
               But if people don&apos;t understand the product, more traffic just means more people leaving confused. The fix depends on where growth is actually stuck.
             </p>
           </div>
           <div style={{ minWidth: 0 }}>
-            <ul style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #1C1C1C" }}>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #202821" }}>
               {SYMPTOMS.map((s) => (
-                <li key={s.n} className="max-sm:!grid-cols-[40px_minmax(0,1fr)]" style={{ display: "grid", gridTemplateColumns: "40px minmax(0,150px) minmax(0,1fr)", gap: "4px 16px", alignItems: "baseline", padding: "20px 0", borderBottom: "1px solid #DDDAD3" }}>
-                  <span style={{ fontSize: 12.5, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
+                <li key={s.n} className="max-sm:!grid-cols-[40px_minmax(0,1fr)]" style={{ display: "grid", gridTemplateColumns: "40px minmax(0,150px) minmax(0,1fr)", gap: "4px 16px", alignItems: "baseline", padding: "20px 0", borderBottom: "1px solid #E4E0D6" }}>
+                  <span style={{ fontSize: 12.5, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
                   <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase" }}>{s.k}</span>
                   <span className="max-sm:!col-start-2" style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(18px,1.6vw,21px)", fontWeight: 500, letterSpacing: "-0.01em", lineHeight: 1.3 }}>{s.d}</span>
                 </li>
@@ -220,7 +220,7 @@ export default function GrowthStrategyPage() {
             <p style={{ margin: "24px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
               Different symptoms. Different fixes.
               <br />
-              <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em", color: "#7D6039" }}>Same mistake: guessing.</em>
+              <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em", color: "#7F5F26" }}>Same mistake: guessing.</em>
             </p>
           </div>
         </div>
@@ -231,10 +231,10 @@ export default function GrowthStrategyPage() {
         <SectionHead eyebrow="What growth involves" title={<>Growth has <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>six parts.</em></>} sub="A weak one drags down the other five." />
         <div style={{ display: "grid", gap: 20 }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
           {SIX_PARTS.map((p) => (
-            <div key={p.n} style={{ minWidth: 0, borderRadius: 22, background: "#FBFBF9", border: "1px solid #E2DFD8", padding: 26, display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
+            <div key={p.n} style={{ minWidth: 0, borderRadius: 22, background: "#FBFBF9", border: "1px solid #E4E0D6", padding: 26, display: "flex", flexDirection: "column" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{p.n}</span>
               <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(21px,1.8vw,25px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15 }}>{p.t}</h3>
-              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#4E4C48" }}>{p.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px 0 0", fontSize: 15, lineHeight: 1.55, color: "#4A524B" }}>{p.d}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
                 {p.tags.map((tag) => (
                   <Pill key={tag}>{tag}</Pill>
@@ -249,7 +249,7 @@ export default function GrowthStrategyPage() {
       </section>
 
       {/* DARK: BOTTLENECK TO SYSTEM */}
-      <section className="max-md:!mt-20" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#171717", color: "#F2EFEA" }}>
+      <section className="max-md:!mt-20" style={{ marginTop: "clamp(88px,8vw,112px)", background: "#174B3A", color: "#F2EFEA" }}>
         <div style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,6vw,88px) ${PAD} clamp(56px,5vw,72px)` }}>
           <SectionHead
             dark
@@ -260,10 +260,10 @@ export default function GrowthStrategyPage() {
           <div style={{ display: "grid", gap: "32px 56px", alignItems: "center" }} className="md:!grid-cols-2">
             <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: "24px 28px" }} className="grid-cols-2 sm:!grid-cols-3">
               {SYSTEM_STEPS.map((s, i) => (
-                <li key={s.n} style={{ minWidth: 0, paddingTop: 16, borderTop: `2px solid ${i === SYSTEM_STEPS.length - 1 ? "#C4A47C" : "rgba(255,255,255,.3)"}` }}>
+                <li key={s.n} style={{ minWidth: 0, paddingTop: 16, borderTop: `2px solid ${i === SYSTEM_STEPS.length - 1 ? "#B38842" : "rgba(255,255,255,.3)"}` }}>
                   <span style={{ fontSize: 12, fontWeight: 600, color: "#D3AE82", fontVariantNumeric: "tabular-nums" }}>{s.n}</span>
                   <h3 style={{ margin: "8px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>{s.t}</h3>
-                  <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#B7B2A8" }}>{s.d}</p>
+                  <p className="max-md:!text-base" style={{ margin: "6px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "#C9D6CF" }}>{s.d}</p>
                 </li>
               ))}
             </ol>
@@ -275,26 +275,26 @@ export default function GrowthStrategyPage() {
       {/* CONSTRAINT MAP */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="The whole system" title={<>I check the whole system<em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>before recommending anything.</em></>} sub="If I only looked at SEO, I'd only ever recommend SEO." />
-        <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2D8CA", padding: "clamp(20px,3vw,40px) clamp(12px,2vw,28px) clamp(24px,3vw,36px)" }}>
+        <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E4E0D6", padding: "clamp(20px,3vw,40px) clamp(12px,2vw,28px) clamp(24px,3vw,36px)" }}>
           <Img loading="lazy" src="/assets/pages/growth-strategy/06-constraint-map__nine-stage-system.webp" alt="Growth system: market, ICP, positioning, offer, channel, landing page, activation, retention and revenue as nine connected stages, with a magnifier on the weak points" style={{ display: "block", width: "100%", height: "auto" }} />
           <div className="max-md:!justify-center" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "8px 16px", marginTop: 20 }}>
             {STAGES.map((s, i) => (
-              <span key={s} style={{ fontFamily: "var(--nf-general-sans)", fontSize: 14.5, fontWeight: 600, letterSpacing: "-0.01em", color: i === STAGES.length - 1 ? "#7D6039" : "#1C1C1C" }}>
+              <span key={s} style={{ fontFamily: "var(--nf-general-sans)", fontSize: 14.5, fontWeight: 600, letterSpacing: "-0.01em", color: i === STAGES.length - 1 ? "#7F5F26" : "#202821" }}>
                 {s}
               </span>
             ))}
           </div>
         </div>
-        <div style={{ marginTop: 28, display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
+        <div style={{ marginTop: 28, display: "grid", borderTop: "1px solid #202821" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {SYMPTOM_QUOTES.map((s, i) => (
-            <div key={s.q} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `20px ${i ? 0 : 24}px 22px 0`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <div key={s.q} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `20px ${i ? 0 : 24}px 22px 0`, borderLeft: i ? "1px solid #E4E0D6" : "0", borderBottom: "1px solid #E4E0D6" }}>
               <p style={{ margin: 0, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 20, lineHeight: 1.25 }}>{s.q}</p>
-              <p style={{ margin: "10px 0 0", fontSize: 11.5, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "#7D6039" }}>{s.to}</p>
+              <p style={{ margin: "10px 0 0", fontSize: 11.5, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "#7F5F26" }}>{s.to}</p>
             </div>
           ))}
         </div>
         <p style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(20px,1.8vw,24px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.3 }}>
-          Same business. Different symptom. <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em", color: "#7D6039" }}>Completely different fix.</em>
+          Same business. Different symptom. <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.1em", color: "#7F5F26" }}>Completely different fix.</em>
         </p>
       </section>
 
@@ -306,7 +306,7 @@ export default function GrowthStrategyPage() {
           <article style={{ borderRadius: 28, background: "#111616", color: "#F2EFEA", padding: "clamp(24px,3.4vw,48px)" }}>
             <div style={{ display: "grid", gap: "24px 56px", alignItems: "start" }} className="md:!grid-cols-2">
               <div style={{ minWidth: 0 }}>
-                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 12px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 12px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#A9BDB3" }}>
                   <span>01</span>
                   <span style={{ width: 24, height: 1, background: "rgba(255,255,255,.2)" }} />
                   <span>AI SaaS · Multi-channel growth &amp; GTM</span>
@@ -325,11 +325,11 @@ export default function GrowthStrategyPage() {
               <div style={{ minWidth: 0 }}>
                 <div style={{ padding: "14px 0", borderTop: "1px solid rgba(255,255,255,.14)" }}>
                   <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>PROBLEM</div>
-                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#C9C4BA", maxWidth: 460 }}>Blainy needed users without an ad budget.</p>
+                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#D6E0DA", maxWidth: 460 }}>Blainy needed users without an ad budget.</p>
                 </div>
                 <div style={{ padding: "14px 0", borderTop: "1px solid rgba(255,255,255,.14)" }}>
                   <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>CONSTRAINT</div>
-                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#C9C4BA", maxWidth: 460 }}>No budget for paid acquisition meant every channel had to feed the others instead of competing for attention.</p>
+                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#D6E0DA", maxWidth: 460 }}>No budget for paid acquisition meant every channel had to feed the others instead of competing for attention.</p>
                 </div>
               </div>
             </div>
@@ -342,13 +342,13 @@ export default function GrowthStrategyPage() {
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid rgba(255,255,255,.14)" : "0" }}>
                   <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
-                  <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#B7B2A8" }}>{s.l}</div>
+                  <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#C9D6CF" }}>{s.l}</div>
                 </div>
               ))}
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
               <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>THE GROWTH ENGINE</span>
-              <span style={{ fontSize: 12.5, color: "#9C978D" }}>Seven channels feeding one system</span>
+              <span style={{ fontSize: 12.5, color: "#A9BDB3" }}>Seven channels feeding one system</span>
             </div>
             <div style={{ display: "grid", gap: 16, alignItems: "center", marginBottom: 32 }} className="md:!grid-cols-[minmax(0,1.4fr)_auto_minmax(0,1fr)]">
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -366,7 +366,7 @@ export default function GrowthStrategyPage() {
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
               <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>SEARCH</span>
-              <span style={{ fontSize: 12.5, color: "#9C978D" }}>Google Search Console</span>
+              <span style={{ fontSize: 12.5, color: "#A9BDB3" }}>Google Search Console</span>
             </div>
             <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
               <Img loading="lazy" src="/assets/site/blainy-gsc-full.jpg" alt="Blainy Google Search Console: 297K clicks, 25.3M impressions" style={{ display: "block", width: "100%" }} />
@@ -375,7 +375,7 @@ export default function GrowthStrategyPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
                   <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>INSTAGRAM</span>
-                  <span style={{ fontSize: 12.5, color: "#9C978D" }}>3.9M+ views · last 90 days</span>
+                  <span style={{ fontSize: 12.5, color: "#A9BDB3" }}>3.9M+ views · last 90 days</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__instagram-90-days.webp" alt="Blainy Instagram, last 90 days: 3,952,443 views, 2,139,992 accounts reached" style={{ display: "block", width: "100%" }} />
@@ -387,12 +387,12 @@ export default function GrowthStrategyPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
                   <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>THREADS</span>
-                  <span style={{ fontSize: 12.5, color: "#9C978D" }}>338K views</span>
+                  <span style={{ fontSize: 12.5, color: "#A9BDB3" }}>338K views</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__threads-338k-views.png" alt="Blainy Threads insights: 338K views, 11.9K interactions" style={{ display: "block", width: "100%" }} />
                 </div>
-                <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#9C978D", marginTop: 6 }}>ONE OF THE POSTS</div>
+                <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#A9BDB3", marginTop: 6 }}>ONE OF THE POSTS</div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-blainy__threads-post.png" alt="Blainy Threads post, PhD student survival guide: 306 likes, 21 reposts" style={{ display: "block", width: "100%" }} />
                 </div>
@@ -401,7 +401,7 @@ export default function GrowthStrategyPage() {
             <div style={{ marginTop: 28 }}>
               <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
                 <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>PINTEREST</span>
-                <span style={{ fontSize: 12.5, color: "#9C978D" }}>479K impressions · last 90 days</span>
+                <span style={{ fontSize: 12.5, color: "#A9BDB3" }}>479K impressions · last 90 days</span>
               </div>
               <div style={{ display: "grid", gap: 14 }} className="sm:!grid-cols-2">
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
@@ -415,12 +415,12 @@ export default function GrowthStrategyPage() {
           </article>
 
           {/* Everdry */}
-          <article style={{ borderRadius: 28, background: "#F4EFE8", border: "1px solid #E2D8CA", padding: "clamp(24px,3.4vw,48px)" }}>
+          <article style={{ borderRadius: 28, background: "#F4EFE8", border: "1px solid #E4E0D6", padding: "clamp(24px,3.4vw,48px)" }}>
             <div style={{ display: "grid", gap: "24px 56px", alignItems: "start" }} className="md:!grid-cols-2">
               <div style={{ minWidth: 0 }}>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 12px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6A5C4B" }}>
                   <span>02</span>
-                  <span style={{ width: 24, height: 1, background: "#DDD5C8" }} />
+                  <span style={{ width: 24, height: 1, background: "#E4E0D6" }} />
                   <span>Home services · Local growth</span>
                 </div>
                 <div style={{ marginTop: 20, height: 52, display: "flex", alignItems: "center" }}>
@@ -433,12 +433,12 @@ export default function GrowthStrategyPage() {
                 </h3>
               </div>
               <div style={{ minWidth: 0 }}>
-                <div style={{ padding: "14px 0", borderTop: "1px solid #DDD5C8" }}>
-                  <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>PROBLEM</div>
-                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4E4C48", maxWidth: 460 }}>The person running their Facebook page had left. Nobody was posting, and nobody was seeing it.</p>
+                <div style={{ padding: "14px 0", borderTop: "1px solid #E4E0D6" }}>
+                  <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7F5F26" }}>PROBLEM</div>
+                  <p style={{ margin: "6px 0 0", fontSize: 15.5, lineHeight: 1.55, color: "#4A524B", maxWidth: 460 }}>The person running their Facebook page had left. Nobody was posting, and nobody was seeing it.</p>
                 </div>
-                <div style={{ padding: "14px 0", borderTop: "1px solid #DDD5C8" }}>
-                  <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>WHAT CHANGED</div>
+                <div style={{ padding: "14px 0", borderTop: "1px solid #E4E0D6" }}>
+                  <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7F5F26" }}>WHAT CHANGED</div>
                   <div style={{ marginTop: 10, display: "flex", flexWrap: "wrap", gap: 8 }}>
                     {["Before and afters", "Myth busting posts", "Real reviews", "Facebook growth"].map((t) => (
                       <Pill key={t}>{t}</Pill>
@@ -447,36 +447,36 @@ export default function GrowthStrategyPage() {
                 </div>
               </div>
             </div>
-            <div style={{ margin: "28px 0 32px", display: "grid", borderTop: "1px solid #1C1C1C", borderBottom: "1px solid #DDD5C8" }} className="grid-cols-1 sm:!grid-cols-3">
+            <div style={{ margin: "28px 0 32px", display: "grid", borderTop: "1px solid #202821", borderBottom: "1px solid #E4E0D6" }} className="grid-cols-1 sm:!grid-cols-3">
               {[
                 { v: "160,235", l: "Facebook views, 28 days" },
                 { v: "40,153", l: "people reached, same 28 days" },
                 { v: "141,889", l: "views, an earlier 28 days" },
               ].map((s, i) => (
-                <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #DDD5C8" : "0" }}>
+                <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid #E4E0D6" : "0" }}>
                   <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
-                  <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#5A5854" }}>{s.l}</div>
+                  <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#4A524B" }}>{s.l}</div>
                 </div>
               ))}
             </div>
             <div style={{ display: "grid", gap: "28px 20px", alignItems: "start" }} className="sm:!grid-cols-2">
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid #DDD5C8", marginBottom: 14 }}>
-                  <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>FACEBOOK</span>
-                  <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Last 28 days</span>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid #E4E0D6", marginBottom: 14 }}>
+                  <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7F5F26" }}>FACEBOOK</span>
+                  <span style={{ fontSize: 12.5, color: "#687068" }}>Last 28 days</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__facebook-160k-views.webp" alt="Everdry Facebook dashboard, last 28 days: 160,235 views" style={{ display: "block", width: "100%" }} />
                 </div>
-                <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#6F6B64", marginTop: 6 }}>THE CONTENT BEHIND IT</div>
+                <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#687068", marginTop: 6 }}>THE CONTENT BEHIND IT</div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/pages/growth-strategy/07-results-everdry__post-graphics-grid.webp" alt="Grid of Everdry post graphics: client feedback, education and service posts" style={{ display: "block", width: "100%" }} />
                 </div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid #DDD5C8", marginBottom: 14 }}>
-                  <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7D6039" }}>FACEBOOK</span>
-                  <span style={{ fontSize: 12.5, color: "#6F6B64" }}>Earlier 28 day windows</span>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid #E4E0D6", marginBottom: 14 }}>
+                  <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#7F5F26" }}>FACEBOOK</span>
+                  <span style={{ fontSize: 12.5, color: "#687068" }}>Earlier 28 day windows</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/case-studies/everdry/facebook-141k-views.webp" alt="Everdry Facebook professional dashboard: 141,889 views and 36,284 reach in 28 days" style={{ display: "block", width: "100%" }} />
@@ -492,7 +492,7 @@ export default function GrowthStrategyPage() {
           <article style={{ borderRadius: 28, background: "#15171F", color: "#F2EFEA", padding: "clamp(24px,3.4vw,48px)" }}>
             <div style={{ display: "grid", gap: "24px 56px", alignItems: "start" }} className="md:!grid-cols-2">
               <div style={{ minWidth: 0 }}>
-                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 12px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#9C978D" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 12px", fontSize: 11.5, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#A9BDB3" }}>
                   <span>03</span>
                   <span style={{ width: 24, height: 1, background: "rgba(255,255,255,.2)" }} />
                   <span>AI / Tech · Content · Reddit · Pinterest</span>
@@ -525,7 +525,7 @@ export default function GrowthStrategyPage() {
               ].map((s, i) => (
                 <div key={s.l} style={{ padding: `20px 16px 20px ${i ? 16 : 0}px`, borderLeft: i ? "1px solid rgba(255,255,255,.14)" : "0" }}>
                   <div style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,40px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.v}</div>
-                  <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#B7B2A8" }}>{s.l}</div>
+                  <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.4, color: "#C9D6CF" }}>{s.l}</div>
                 </div>
               ))}
             </div>
@@ -533,7 +533,7 @@ export default function GrowthStrategyPage() {
               <div>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
                   <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>FACEBOOK</span>
-                  <span style={{ fontSize: 12.5, color: "#9C978D" }}>4 Oct to 23 Jan</span>
+                  <span style={{ fontSize: 12.5, color: "#A9BDB3" }}>4 Oct to 23 Jan</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#242526", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/v8/vx-70k.webp" alt="Virtarix Facebook insights, 4 Oct to 23 Jan: 71,459 views, 3,395 interactions" style={{ display: "block", width: "100%" }} />
@@ -542,7 +542,7 @@ export default function GrowthStrategyPage() {
               <div>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 12px", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.14)", marginBottom: 14 }}>
                   <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: ".12em", color: "#D3AE82" }}>REDDIT &amp; AI DISCOVERY</span>
-                  <span style={{ fontSize: 12.5, color: "#9C978D" }}>Reddit Answers recommending Virtarix</span>
+                  <span style={{ fontSize: 12.5, color: "#A9BDB3" }}>Reddit Answers recommending Virtarix</span>
                 </div>
                 <div style={{ borderRadius: 14, overflow: "hidden", background: "#fff", border: "1px solid rgba(128,128,128,.22)" }}>
                   <Img loading="lazy" src="/assets/v7/virtarix-reddit-good.jpg" alt="Reddit Answers for 'good vps' listing Virtarix" style={{ display: "block", width: "100%" }} />
@@ -556,15 +556,15 @@ export default function GrowthStrategyPage() {
       {/* LEAVE WITH */}
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <SectionHead eyebrow="Deliverables" title={<>Strategy you can<em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>actually use.</em></>} sub="Not a 60-slide deck. A plan with an order to it." />
-        <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
+        <div style={{ display: "grid", borderTop: "1px solid #202821" }} className="grid-cols-1 sm:!grid-cols-3">
           {LEAVE_WITH.map((c, i) => (
-            <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 32px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{c.n}</span>
+            <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 32px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #E4E0D6" : "0", borderBottom: "1px solid #E4E0D6" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#7F5F26" }}>{c.n}</span>
               <h3 style={{ margin: "10px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 600, letterSpacing: "-0.025em" }}>{c.t}</h3>
               <ul style={{ margin: "20px 0 0", padding: 0, listStyle: "none" }}>
                 {c.items.map((it) => (
                   <li key={it} style={{ display: "flex", gap: 12, padding: "11px 0", borderTop: "1px solid #E6E1D8", fontSize: 16, lineHeight: 1.45 }}>
-                    <span style={{ width: 5, height: 5, marginTop: ".55em", borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+                    <span style={{ width: 5, height: 5, marginTop: ".55em", borderRadius: "50%", background: "#B38842", flex: "0 0 auto" }} />
                     {it}
                   </li>
                 ))}
@@ -579,16 +579,16 @@ export default function GrowthStrategyPage() {
         <SectionHead eyebrow="Roadmap" title={<>What the first 90 days<em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.08em" }}>usually look like.</em></>} sub="" />
         <div style={{ display: "grid", gap: 20 }} className="grid-cols-1 sm:!grid-cols-3">
           {ROADMAP.map((r) => (
-            <div key={r.range} style={{ minWidth: 0, borderRadius: 22, background: r.dark ? "#171717" : "#FBFBF9", color: r.dark ? "#F2EFEA" : "#1C1C1C", border: `1px solid ${r.dark ? "#171717" : "#E2DFD8"}`, padding: 28 }}>
+            <div key={r.range} style={{ minWidth: 0, borderRadius: 22, background: r.dark ? "#174B3A" : "#FBFBF9", color: r.dark ? "#F2EFEA" : "#202821", border: `1px solid ${r.dark ? "#202821" : "#E4E0D6"}`, padding: 28 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <span style={{ width: 12, height: 12, borderRadius: "50%", background: r.dark ? "#D3AE82" : "#1C1C1C" }} />
-                <span style={{ flex: 1, height: 1.5, background: r.dark ? "rgba(211,174,130,.5)" : "#DDD5C8" }} />
-                <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: r.dark ? "#9E7948" : "#7D6039" }}>{r.range}</span>
+                <span style={{ width: 12, height: 12, borderRadius: "50%", background: r.dark ? "#D3AE82" : "#174B3A" }} />
+                <span style={{ flex: 1, height: 1.5, background: r.dark ? "rgba(211,174,130,.5)" : "#E4E0D6" }} />
+                <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: r.dark ? "#9E7948" : "#7F5F26" }}>{r.range}</span>
               </div>
               <h3 style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}>{r.t}</h3>
               <ul style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
                 {r.items.map((it) => (
-                  <li key={it} style={{ padding: "10px 0", borderTop: `1px solid ${r.dark ? "rgba(255,255,255,.14)" : "#E6E1D8"}`, fontSize: 15.5, lineHeight: 1.45, color: r.dark ? "#C9C4BA" : "#4E4C48" }} className="max-md:!text-base">
+                  <li key={it} style={{ padding: "10px 0", borderTop: `1px solid ${r.dark ? "rgba(255,255,255,.14)" : "#E6E1D8"}`, fontSize: 15.5, lineHeight: 1.45, color: r.dark ? "#D6E0DA" : "#4A524B" }} className="max-md:!text-base">
                     {it}
                   </li>
                 ))}
@@ -609,28 +609,28 @@ export default function GrowthStrategyPage() {
             </h2>
           </div>
           <div style={{ paddingBottom: 4 }}>
-            <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#4E4C48" }}>Every idea gets three questions.</p>
+            <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>Every idea gets three questions.</p>
             <div className="max-md:!justify-center" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 14px", fontFamily: "var(--nf-general-sans)", fontSize: 19, fontWeight: 600 }}>
               {["Impact", "Confidence", "Effort"].map((t, i) => (
                 <span key={t} style={{ display: "inline-flex", alignItems: "baseline", gap: 8 }}>
-                  <span style={{ fontFamily: "var(--nf-geist),var(--nf-inter)", fontSize: 11.5, color: "#7D6039" }}>{String(i + 1).padStart(2, "0")}</span>
+                  <span style={{ fontFamily: "var(--nf-geist),var(--nf-inter)", fontSize: 11.5, color: "#7F5F26" }}>{String(i + 1).padStart(2, "0")}</span>
                   {t}
                 </span>
               ))}
             </div>
           </div>
         </div>
-        <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-3">
+        <div style={{ display: "grid", borderTop: "1px solid #202821" }} className="grid-cols-1 sm:!grid-cols-3">
           {PRIORITIZE.map((c, i) => (
-            <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 30px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: c.dim ? "#706B61" : "#7D6039" }}>
-                <span style={{ width: 8, height: 8, borderRadius: "50%", background: i === 0 ? "#1C1C1C" : i === 1 ? "#C4A47C" : "transparent", border: c.dim ? "1.5px solid #CFCBC2" : "1.5px solid transparent" }} />
+            <div key={c.n} className="max-sm:!border-l-0 max-sm:!px-0" style={{ minWidth: 0, padding: `28px ${i ? 24 : 0}px 30px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #E4E0D6" : "0", borderBottom: "1px solid #E4E0D6" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 700, letterSpacing: ".12em", color: c.dim ? "#687068" : "#7F5F26" }}>
+                <span style={{ width: 8, height: 8, borderRadius: "50%", background: i === 0 ? "#174B3A" : i === 1 ? "#B38842" : "transparent", border: c.dim ? "1.5px solid #CBC5B7" : "1.5px solid transparent" }} />
                 {c.n}
               </div>
-              <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", color: c.dim ? "#6E6B66" : "#1C1C1C" }}>{c.t}</h3>
+              <h3 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(26px,2.4vw,34px)", fontWeight: 600, letterSpacing: "-0.03em", color: c.dim ? "#687068" : "#202821" }}>{c.t}</h3>
               <ul style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
                 {c.items.map((it) => (
-                  <li key={it} style={{ padding: "10px 0", borderTop: "1px solid #E6E1D8", fontSize: 16, lineHeight: 1.45, color: c.dim ? "#6E6B66" : "#4E4C48" }}>
+                  <li key={it} style={{ padding: "10px 0", borderTop: "1px solid #E6E1D8", fontSize: 16, lineHeight: 1.45, color: c.dim ? "#687068" : "#4A524B" }}>
                     {it}
                   </li>
                 ))}
@@ -650,10 +650,10 @@ export default function GrowthStrategyPage() {
         <div style={{ display: "grid", gap: "32px 56px", alignItems: "center" }} className="md:!grid-cols-2">
           <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column" }}>
             {PROCESS_STEPS.map((s, i) => (
-              <li key={s.n} style={{ minWidth: 0, display: "grid", gridTemplateColumns: "44px minmax(0,1fr)", gap: "2px 12px", padding: "18px 0", borderTop: `1px solid ${i === PROCESS_STEPS.length - 1 ? "#C4A47C" : "#1C1C1C"}` }}>
-                <span style={{ fontSize: 13, fontWeight: 600, color: "#7D6039" }}>{s.n}</span>
+              <li key={s.n} style={{ minWidth: 0, display: "grid", gridTemplateColumns: "44px minmax(0,1fr)", gap: "2px 12px", padding: "18px 0", borderTop: `1px solid ${i === PROCESS_STEPS.length - 1 ? "#B38842" : "#202821"}` }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: "#7F5F26" }}>{s.n}</span>
                 <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(21px,1.9vw,25px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.t}</h3>
-                <p className="max-md:!text-base" style={{ gridColumn: 2, margin: "4px 0 0", fontSize: 15.5, lineHeight: 1.5, color: "#4E4C48" }}>{s.d}</p>
+                <p className="max-md:!text-base" style={{ gridColumn: 2, margin: "4px 0 0", fontSize: 15.5, lineHeight: 1.5, color: "#4A524B" }}>{s.d}</p>
               </li>
             ))}
           </ol>
@@ -668,7 +668,7 @@ export default function GrowthStrategyPage() {
       <section className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} 0` }}>
         <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
           <div className="max-md:!text-center">
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Who it&apos;s for</div>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>Who it&apos;s for</div>
             <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
               Growth strategy
               <br />
@@ -677,22 +677,22 @@ export default function GrowthStrategyPage() {
           </div>
           <div style={{ display: "grid", gap: "32px clamp(24px,3vw,48px)" }} className="sm:!grid-cols-2">
             <div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>Good fit</h3>
-              <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
+              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7F5F26" }}>Good fit</h3>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #E4E0D6" }}>
                 {FIT_GOOD.map((t) => (
-                  <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45 }}>
-                    <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#7D6039" }}>✓</span>
+                  <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #E4E0D6", fontSize: 17, lineHeight: 1.45 }}>
+                    <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#7F5F26" }}>✓</span>
                     <span>{t}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>Not the right fit</h3>
-              <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
+              <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#687068" }}>Not the right fit</h3>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #E4E0D6" }}>
                 {FIT_BAD.map((t) => (
-                  <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#5A5854" }}>
-                    <span aria-hidden="true" style={{ fontSize: 14 }}><span style={{ display: "inline-block", width: "0.91em", height: 2, verticalAlign: "0.214em", background: "#706B61" }} /></span>
+                  <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #E4E0D6", fontSize: 17, lineHeight: 1.45, color: "#4A524B" }}>
+                    <span aria-hidden="true" style={{ fontSize: 14 }}><span style={{ display: "inline-block", width: "0.91em", height: 2, verticalAlign: "0.214em", background: "#687068" }} /></span>
                     <span>{t}</span>
                   </li>
                 ))}
@@ -720,45 +720,45 @@ export default function GrowthStrategyPage() {
 
       {/* CTA */}
       <section id="contact" className="max-md:!pt-20" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(88px,8vw,112px) ${PAD} clamp(24px,3vw,40px)` }}>
-        <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
+        <div style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)", display: "grid", gap: "48px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-2">
           <div className="max-md:!text-center">
             <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>Not sure what&apos;s holding growth back?</h2>
             <p style={{ margin: "14px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.6vw,36px)", lineHeight: 1.1, color: "#D3AE82" }}>
               <Emphasis>That&apos;s exactly where I start.</Emphasis>
             </p>
-            <p className="max-md:!mx-auto" style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+            <p className="max-md:!mx-auto" style={{ margin: "22px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>
               Tell me what you&apos;re growing, what&apos;s happening now and what you&apos;ve already tried. I&apos;ll look at the system and tell you where I&apos;d start first.
             </p>
           </div>
           <div className="max-md:!mx-auto max-md:!w-full max-md:!max-w-[400px]" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <a href="#pricing" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#1C1C1C", fontSize: 17, fontWeight: 600 }}>
+            <a href="#pricing" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: "#F2EFEA", color: "#202821", fontSize: 17, fontWeight: 600 }}>
               Start with the $499 audit
               <ArrowIcon size={16} />
             </a>
             <div className="max-md:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              <Link href="/#contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+              <Link href="/#contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #2E6150", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
                 Tell me what&apos;s stuck
               </Link>
-              <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+              <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 52, borderRadius: 12, border: "1px solid #2E6150", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
                 Email me
               </a>
             </div>
-            <span className="max-md:!text-center" style={{ paddingTop: 8, fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
+            <span className="max-md:!text-center" style={{ paddingTop: 8, fontSize: 13.5, color: "#9FB4AA" }}>I usually reply within a couple of hours.</span>
           </div>
         </div>
       </section>
 
       {/* RELATED */}
       <section style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,6vw,80px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Where the strategy gets executed</h2>
-        <div style={{ display: "grid", borderTop: "1px solid #1C1C1C" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
+        <h2 className="max-md:!text-center" style={{ margin: "0 0 20px", fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>Where the strategy gets executed</h2>
+        <div style={{ display: "grid", borderTop: "1px solid #202821" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
           {RELATED.map((r, i) => (
-            <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #DDDAD3" : "0", borderBottom: "1px solid #DDDAD3" }}>
+            <a key={r.t} href={r.href} className="max-sm:!border-l-0 max-sm:!px-0" style={{ display: "flex", flexDirection: "column", gap: 8, padding: `22px ${i ? 24 : 0}px 22px ${i ? 24 : 0}px`, borderLeft: i ? "1px solid #E4E0D6" : "0", borderBottom: "1px solid #E4E0D6" }}>
               <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em" }}>
                 {r.t}
                 <ArrowIcon />
               </span>
-              <span className="max-md:!text-base" style={{ fontSize: 15, lineHeight: 1.5, color: "#5A5854" }}>{r.d}</span>
+              <span className="max-md:!text-base" style={{ fontSize: 15, lineHeight: 1.5, color: "#4A524B" }}>{r.d}</span>
             </a>
           ))}
         </div>

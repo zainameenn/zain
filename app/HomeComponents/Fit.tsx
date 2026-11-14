@@ -24,22 +24,22 @@ export default function Fit() {
         </div>
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,48px)" }} className="sm:!grid-cols-2">
           <div>
-            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>We&apos;re probably a good fit if</h3>
-            <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
+            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7F5F26" }}>We&apos;re probably a good fit if</h3>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #E4E0D6" }}>
               {GOOD.map((t) => (
-                <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#1C1C1C" }}>
-                  <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#7D6039" }}>✓</span>
+                <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #E4E0D6", fontSize: 17, lineHeight: 1.45, color: "#202821" }}>
+                  <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 600, color: "#7F5F26" }}>✓</span>
                   <span>{t}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>Probably not the right fit if</h3>
-            <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
+            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#687068" }}>Probably not the right fit if</h3>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #E4E0D6" }}>
               {BAD.map((t) => (
-                <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#5A5854" }}>
-                  <span aria-hidden="true" style={{ fontSize: 14 }}><span style={{ display: "inline-block", width: "0.91em", height: 2, verticalAlign: "0.214em", background: "#706B61" }} /></span>
+                <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #E4E0D6", fontSize: 17, lineHeight: 1.45, color: "#4A524B" }}>
+                  <span aria-hidden="true" style={{ fontSize: 14 }}><span style={{ display: "inline-block", width: "0.91em", height: 2, verticalAlign: "0.214em", background: "#687068" }} /></span>
                   <span>{t}</span>
                 </li>
               ))}

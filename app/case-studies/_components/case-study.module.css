@@ -5,7 +5,7 @@
   align-self: center;
   width: 2px;
   height: 36px;
-  background-image: repeating-linear-gradient(180deg, #C4A47C 0 6px, transparent 6px 12px);
+  background-image: repeating-linear-gradient(180deg, #B38842 0 6px, transparent 6px 12px);
 }
 
 .dot {
@@ -28,7 +28,7 @@
   .connector {
     width: 56px;
     height: 2px;
-    background-image: repeating-linear-gradient(90deg, #C4A47C 0 6px, transparent 6px 12px);
+    background-image: repeating-linear-gradient(90deg, #B38842 0 6px, transparent 6px 12px);
   }
   .dot {
     top: -4px;

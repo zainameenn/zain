@@ -75,7 +75,7 @@ export default async function SitemapPage() {
 
         <section className={`${s.mapSection} ${s.mapWide}`} aria-labelledby="map-tools">
           <h2 id="map-tools" className={s.mapHeading}>
-            Free Tools <span style={{ fontWeight: 400, color: "#6F6B64" }}>({tools.length})</span>
+            Free Tools <span style={{ fontWeight: 400, color: "#687068" }}>({tools.length})</span>
           </h2>
           <div className={s.mapCols}>
             {toolGroups.map((g) => (
@@ -90,7 +90,7 @@ export default async function SitemapPage() {
         {posts.length ? (
           <section className={`${s.mapSection} ${s.mapWide}`} aria-labelledby="map-blog">
             <h2 id="map-blog" className={s.mapHeading}>
-              Blog <span style={{ fontWeight: 400, color: "#6F6B64" }}>({posts.length})</span>
+              Blog <span style={{ fontWeight: 400, color: "#687068" }}>({posts.length})</span>
             </h2>
             <LinkList flow links={posts.map((p) => ({ path: `/blog/${p.slug}`, name: p.title }))} />
           </section>

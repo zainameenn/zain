@@ -61,7 +61,7 @@ export function CaseStudy({
         <Headline className="case-headline" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.12 }}>{headline}</Headline>
         <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.6, color: textColor, maxWidth: 440 }}>{paragraphs}</div>
         {link ? (
-          <a href={link.href} style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 18, fontSize: 15, fontWeight: 600, color: dark ? "#EEF0F8" : "#1C1C1C", textDecoration: "underline", textUnderlineOffset: 4 }}>
+          <a href={link.href} style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 18, fontSize: 15, fontWeight: 600, color: dark ? "#EEF0F8" : "#202821", textDecoration: "underline", textUnderlineOffset: 4 }}>
             {link.label} <span aria-hidden="true">→</span>
           </a>
         ) : null}
@@ -149,9 +149,9 @@ export const CASES = {
             <div style={{ position: "absolute", right: 24, bottom: 24, width: "56%", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(20,40,40,.12)", background: "#fff", boxShadow: "0 28px 56px -28px rgba(20,40,40,.55)" }}>
               <Img loading="lazy" src="/assets/site/blainy-bing-full.jpg" alt="Blainy Bing Webmaster Tools search performance" style={{ display: "block", width: "100%" }} />
             </div>
-            <div style={{ position: "absolute", left: 24, bottom: 24, padding: "16px 20px", borderRadius: 16, background: "#1C1C1C", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4 }}>
+            <div style={{ position: "absolute", left: 24, bottom: 24, padding: "16px 20px", borderRadius: 16, background: "#174B3A", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4 }}>
               <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(30px,3.2vw,48px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>85K+</span>
-              <span style={{ fontSize: 12.5, color: "#B7B2A8" }}>users, organically</span>
+              <span style={{ fontSize: 12.5, color: "#C9D6CF" }}>users, organically</span>
             </div>
           </Frame>
         }
@@ -190,9 +190,9 @@ export const CASES = {
             <div style={{ position: "absolute", right: 24, top: "45%", width: "58%", borderRadius: 12, overflow: "hidden", border: "1px solid #2F3033", background: "#202124", boxShadow: "0 28px 56px -26px rgba(20,20,20,.55)" }}>
               <Img loading="lazy" src="/assets/case-studies/everdry/facebook-141k-views.webp" alt="Everdry Facebook professional dashboard: 141,889 views and 36,284 reach in 28 days" style={{ display: "block", width: "100%" }} />
             </div>
-            <div style={{ position: "absolute", right: 24, top: 24, padding: "16px 20px", borderRadius: 16, background: "#1C1C1C", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4, boxShadow: "0 20px 40px -24px rgba(20,20,20,.5)" }}>
+            <div style={{ position: "absolute", right: 24, top: 24, padding: "16px 20px", borderRadius: 16, background: "#174B3A", color: "#F2EFEA", display: "flex", flexDirection: "column", gap: 4, boxShadow: "0 20px 40px -24px rgba(20,20,20,.5)" }}>
               <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(40px,4vw,60px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>160K+</span>
-              <span style={{ fontSize: 12.5, color: "#B7B2A8" }}>Facebook views in 28 days</span>
+              <span style={{ fontSize: 12.5, color: "#C9D6CF" }}>Facebook views in 28 days</span>
             </div>
             <div style={{ position: "absolute", left: 24, bottom: 24, width: "34%", aspectRatio: "4/3", border: "6px solid #fff", boxShadow: "0 24px 44px -24px rgba(20,20,20,.5)", transform: "rotate(-2deg)", borderRadius: 12, overflow: "hidden" }}>
               <BgImage src="/assets/v8/ed-design.webp" alt="Everdry social content creative" fit="cover" style={{ width: "100%", height: "100%", background: "#fff" }} />
@@ -281,7 +281,7 @@ export const CASES = {
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#D6CFC3" }} />
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#D6CFC3" }} />
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#D6CFC3" }} />
-                <span style={{ marginLeft: 10, height: 14, padding: "0 10px", borderRadius: 7, background: "#fff", fontSize: 9.5, color: "#6F6B64", display: "flex", alignItems: "center", whiteSpace: "nowrap" }}>etsy.com/shop/Loompad</span>
+                <span style={{ marginLeft: 10, height: 14, padding: "0 10px", borderRadius: 7, background: "#fff", fontSize: 9.5, color: "#687068", display: "flex", alignItems: "center", whiteSpace: "nowrap" }}>etsy.com/shop/Loompad</span>
               </div>
               <Img loading="lazy" src="/assets/case-studies/loompad/etsy-storefront-120-sales.webp" alt="LoomPad Etsy storefront: desk mat banner, 5.0 rating from 27 reviews, 120 sales, 2 months on Etsy" style={{ display: "block", width: "100%" }} />
             </div>
@@ -296,15 +296,15 @@ export default function Work() {
     <section id="work" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto clamp(32px,4vw,48px)", textAlign: "center" }}>
         <div>
-          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Selected Work</div>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>Selected Work</div>
           <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Real Marketing Work.
             <br />
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>Real Results.</em>
           </h2>
         </div>
-        <p style={{ margin: "16px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 520 }}>I&apos;ve worked across SaaS, AI products, technology, home services and ecommerce.</p>
-        <p style={{ margin: "10px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 520 }}>Here are a few projects where the work translated into measurable growth.</p>
+        <p style={{ margin: "16px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#4A524B", maxWidth: 520 }}>I&apos;ve worked across SaaS, AI products, technology, home services and ecommerce.</p>
+        <p style={{ margin: "10px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#4A524B", maxWidth: 520 }}>Here are a few projects where the work translated into measurable growth.</p>
       </div>
 
       {CASES.blainy}

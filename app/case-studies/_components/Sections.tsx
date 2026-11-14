@@ -7,7 +7,7 @@ import { ACCENT_LINE, BODY, CARD, EYEBROW, GENERAL_SANS, GOLD, GOLD_TEXT, INK, L
 const LABEL_H2 = "case-headline";
 const WIDE_SIZES = "(max-width: 1023px) 90vw, 1000px";
 const HALF_SIZES = "(max-width: 1023px) 90vw, 500px";
-const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] text-[15px] font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
+const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] text-[15px] font-semibold border-b-[1.5px] border-[#202821] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 
 /** Two column screenshot grid; wide shots span both columns on desktop. */
 export function ScreenshotGrid({ shots, style }: { shots: Screenshot[]; style?: React.CSSProperties }) {
@@ -97,7 +97,7 @@ export function StatsGrid({ data }: { data: NonNullable<CaseStudy["statsGrid"]> 
       <h2 id="stats-grid" className={LABEL_H2} style={{ ...EYEBROW, margin: 0, textAlign: "center" }}>{data.heading}</h2>
       <dl style={{ margin: "16px 0 0", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,170px),1fr))", gap: 1, background: LINE, borderTop: `1px solid ${INK}`, borderBottom: `1px solid ${LINE}` }}>
         {data.items.map((s) => (
-          <div key={s.label} style={{ background: "#EEEDE7", padding: "28px 16px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+          <div key={s.label} style={{ background: "#F8F5EE", padding: "28px 16px 26px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <dt style={{ order: 3, marginTop: 14, fontSize: 14.5, lineHeight: 1.4, color: MUTED }}>{s.label}</dt>
             <dd style={{ order: 1, margin: 0, fontFamily: GENERAL_SANS, fontSize: "clamp(34px,3.2vw,46px)", fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{s.value}</dd>
             <span aria-hidden="true" style={{ order: 2, marginTop: 14, width: 28, height: 2, background: GOLD }} />

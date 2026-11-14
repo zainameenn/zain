@@ -96,7 +96,7 @@ export default function PricingPage() {
         <h1 style={{ ...HERO_H1_STYLE, maxWidth: 850, margin: "0 auto" }}>
           Growth marketing pricing. <em style={H1_ACCENT_STYLE}>No guesswork.</em>
         </h1>
-        <p style={{ margin: "24px auto 0", maxWidth: 650, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+        <p style={{ margin: "24px auto 0", maxWidth: 650, fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
           Growth marketing pricing for SEO, Reddit, social media, paid ads and strategy, all public. Compare packages, see exactly what&apos;s included and pick the one that fits.
         </p>
       </section>

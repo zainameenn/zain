@@ -26,21 +26,21 @@ export function CalendlyEmbed() {
         <div
           style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18, padding: 24, textAlign: "center", background: "#FBFBF9" }}
         >
-          <span aria-hidden="true" style={{ width: 56, height: 56, borderRadius: "50%", border: "1px solid #DDD6CA", background: "#F4F0E8", display: "flex", alignItems: "center", justifyContent: "center", color: "#1C1C1C" }}>
+          <span aria-hidden="true" style={{ width: 56, height: 56, borderRadius: "50%", border: "1px solid #DDD6CA", background: "#F4F0E8", display: "flex", alignItems: "center", justifyContent: "center", color: "#202821" }}>
             <CalendarIcon size={22} />
           </span>
-          <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em", color: "#1C1C1C" }}>Pick a time that works for you</p>
+          <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: 20, fontWeight: 600, letterSpacing: "-0.015em", color: "#202821" }}>Pick a time that works for you</p>
           <button
             type="button"
             onClick={() => setOpen(true)}
             disabled={open}
             aria-live="polite"
-            className="transition-colors hover:!bg-[#33322F]"
-            style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 12, height: 56, padding: "0 26px", border: 0, borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontFamily: "inherit", fontSize: 16, fontWeight: 600, cursor: open ? "progress" : "pointer" }}
+            className="transition-colors hover:!bg-[#2E6150]"
+            style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 12, height: 56, padding: "0 26px", border: 0, borderRadius: 12, background: "#174B3A", color: "#F8F6F4", fontFamily: "inherit", fontSize: 16, fontWeight: 600, cursor: open ? "progress" : "pointer" }}
           >
             {open ? "Loading available times…" : "Show available times"}
           </button>
-          <a href={BOOKING_URL} target="_blank" rel="noopener" style={{ fontSize: 14, color: "#5A5854", borderBottom: "1px solid #CFCBC2" }}>
+          <a href={BOOKING_URL} target="_blank" rel="noopener" style={{ fontSize: 14, color: "#4A524B", borderBottom: "1px solid #CBC5B7" }}>
             Or open the calendar in a new tab
           </a>
         </div>

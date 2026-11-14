@@ -148,7 +148,7 @@ export default async function ArticlePage({ params }: Props) {
               {category ? (
                 <div className={s.heroCategory}>
                   <Link href={categoryPath(stegaClean(category.slug))}>
-                    <Eyebrow color="#7D6039">{category.title}</Eyebrow>
+                    <Eyebrow color="#7F5F26">{category.title}</Eyebrow>
                   </Link>
                 </div>
               ) : null}
@@ -209,10 +209,10 @@ export default async function ArticlePage({ params }: Props) {
               <div id="article-end" aria-hidden="true" />
 
               {/* ARTICLE FOOTER: categories and sharing */}
-              <div style={{ marginTop: 56, paddingTop: 24, borderTop: "1px solid #DDDAD3", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+              <div style={{ marginTop: 56, paddingTop: 24, borderTop: "1px solid #E4E0D6", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
                 {post.categories?.length ? (
                   <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>
-                    <span style={{ fontSize: 14, color: "#6F6B64", marginRight: 4 }}>Filed under</span>
+                    <span style={{ fontSize: 14, color: "#687068", marginRight: 4 }}>Filed under</span>
                     {post.categories.map((c) => (
                       <Link key={c.slug} href={categoryPath(stegaClean(c.slug))} className={s.chip}>
                         {c.title}

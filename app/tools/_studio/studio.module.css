@@ -1,15 +1,15 @@
-/* Studio: the redesigned free tool system. Brand tokens: cream #FCF2E6, gold #B38842, charcoal #222021.
+/* Studio: the redesigned free tool system. Brand tokens: cream #F8F5EE, gold #B38842, charcoal #202821.
    White surfaces carry the content so text stays easy to read. Gold is an accent, never a fill for everything.
    Spacing scale: 4, 8, 12, 16, 20, 24, 32, 48, 64, 96. */
 
 .page {
-  --cream: #FCF2E6;
-  --ink: #222021;
-  --ink-2: #48433F;
+  --cream: #F8F5EE;
+  --ink: #202821;
+  --ink-2: #4A524B;
   --muted: #6B645D;
   --gold: #B38842;
-  --gold-text: #8A6A33; /* gold darkened for small text on white (AA contrast) */
-  --gold-soft: #F4E8D4;
+  --gold-text: #7F5F26; /* gold darkened for small text on white (AA contrast) */
+  --gold-soft: #D8E4D7;
   --surface: #FFFFFF;
   --surface-2: #FAF6F0;
   --line: rgba(34, 32, 33, 0.12);
@@ -717,7 +717,7 @@
   margin: 8px 0 0;
   font-family: var(--nf-general-sans);
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.01em;
 }
 .results {
@@ -871,15 +871,15 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6F6B64;
+  color: #687068;
 }
 .h2 {
   margin: 0;
   font-family: var(--nf-general-sans);
   font-size: clamp(32px, 3.6vw, 52px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.04;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .h2Accent {
@@ -898,13 +898,13 @@
   padding-bottom: 4px;
   font-size: 17px;
   line-height: 1.55;
-  color: #5A5854;
+  color: #4A524B;
 }
 .h3 {
   margin: 0 0 6px;
   font-family: var(--nf-general-sans);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
   letter-spacing: -0.01em;
 }
@@ -1338,7 +1338,7 @@
   margin: 0;
   font-family: var(--nf-general-sans);
   font-size: 17.5px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.35;
 }
 .faqIcon {
@@ -1407,15 +1407,15 @@
   color: var(--cream);
   text-align: center;
 }
-.cta .kicker { color: #9C978D; }
+.cta .kicker { color: #A9BDB3; }
 .ctaHeading {
   max-width: 820px;
   margin: 0 auto;
   font-family: var(--nf-general-sans);
   font-size: clamp(30px, 3.4vw, 48px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.06;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .ctaHeading .h2Accent { color: #D3AE82; }
@@ -1441,7 +1441,7 @@
 }
 
 /* The cream runs behind the site header too, so there's no seam above the page. */
-:global(body):has(.page) { background: #FCF2E6; }
+:global(body):has(.page) { background: #F8F5EE; }
 
 /* Formatting choices get a full row each when the column is narrow, so labels never wrap or overflow. */
 .rowWide {
@@ -1803,7 +1803,7 @@
 .tkMore:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .tkPlaceholder { color: rgba(255, 255, 255, 0.55); font-style: italic; }
 .tkSound { font-size: 13px; color: rgba(255, 255, 255, 0.85); }
-.tk .pmark { background: #D3AE82; color: #222021; }
+.tk .pmark { background: #D3AE82; color: #202821; }
 /* The TikTok video fills the screen below the status bar exactly, so the caption sits at the bottom edge. */
 .phoneScreen:has(.tk) { display: flex; flex-direction: column; }
 .phoneScreen:has(.tk) .statusBar { background: #1D1B1A; color: #FFFFFF; }

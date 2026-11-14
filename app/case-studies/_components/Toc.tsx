@@ -33,7 +33,7 @@ export function Toc({ items }: { items: { id: string; label: string }[] }) {
                 <a
                   href={`#${id}`}
                   aria-current={on ? "true" : undefined}
-                  className={on ? "" : "!text-[#5A5854] hover:!text-[#1C1C1C]"}
+                  className={on ? "" : "!text-[#4A524B] hover:!text-[#202821]"}
                   style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", minHeight: 44, borderBottom: `2px solid ${on ? GOLD : "transparent"}`, fontSize: 14.5, fontWeight: on ? 600 : 500, color: on ? INK : undefined }}
                 >
                   {label}

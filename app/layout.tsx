@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import { Geist, Inter, Instrument_Serif } from "next/font/google";
-import { generalSans } from "../.generated/general-sans";
+import { Inter } from "next/font/google";
+import { bodyFont, displayFont } from "./_design/fonts";
 import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
 import { identityGraph } from "@/lib/structuredData";
 
-const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-geist" });
 // Only the small mobile "Menu" label uses Inter, so it loads without a preload.
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter", preload: false });
-const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", display: "swap", variable: "--nf-serif" });
-
-// General Sans is loaded with next/font/local from files the build downloads (see scripts/prepare-general-sans.mjs).
+// One type system for the whole site (November 2026): Lora for headings, Figtree for text, as on the tool pages.
+// The older font names (--nf-general-sans, --nf-serif, --nf-geist) point at these in globals.css.
 
 export const metadata: Metadata = {
   authors: [{ name: "Zain Ul Abdin", url: "https://www.zainameen.com" }],
@@ -25,7 +23,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${generalSans.variable}`}>
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable} ${inter.variable}`}>
       <head>
 
         {/* Structured data: website, Person and Organization. A plain script so crawlers and agents see it without running JavaScript. */}

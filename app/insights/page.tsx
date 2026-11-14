@@ -15,7 +15,7 @@ const MAX = 1280;
 const PAD = "clamp(20px,2.5vw,32px)";
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>{children}</div>;
+  return <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>{children}</div>;
 }
 
 function CenterHead({ eyebrow, title, sub }: { eyebrow: string; title: React.ReactNode; sub?: React.ReactNode }) {
@@ -36,7 +36,7 @@ function CenterHead({ eyebrow, title, sub }: { eyebrow: string; title: React.Rea
         {title}
       </h2>
       {sub ? (
-        <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>{sub}</p>
+        <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>{sub}</p>
       ) : null}
     </div>
   );
@@ -67,21 +67,21 @@ const KEYBOOKS = [
   {
     n: "01",
     dark: false,
-    labelColor: "#7D6039",
-    badgeBorder: "#D6CFC2",
-    badgeColor: "#5A5854",
-    subColor: "#5A5854",
+    labelColor: "#7F5F26",
+    badgeBorder: "#CBC5B7",
+    badgeColor: "#4A524B",
+    subColor: "#4A524B",
     ringBorder: "#D3C7B3",
     ringDash: "#C9BBA4",
-    shape: { width: 56, aspectRatio: "1", borderRadius: "50%", background: "#1C1C1C", boxShadow: "0 0 0 10px rgba(28,28,28,.06)" },
+    shape: { width: 56, aspectRatio: "1", borderRadius: "50%", background: "#174B3A", boxShadow: "0 0 0 10px rgba(28,28,28,.06)" },
   },
   {
     n: "02",
     dark: true,
     labelColor: "#D3AE82",
-    badgeBorder: "#3A3935",
-    badgeColor: "#C9C4BA",
-    subColor: "#B7B2A8",
+    badgeBorder: "#2E6150",
+    badgeColor: "#D6E0DA",
+    subColor: "#C9D6CF",
     ringBorder: "#4A4843",
     ringDash: "#5A5750",
     shape: { width: 48, aspectRatio: "1", borderRadius: 14, background: "#D3AE82", boxShadow: "0 0 0 10px rgba(211,174,130,.14)" },
@@ -89,13 +89,13 @@ const KEYBOOKS = [
   {
     n: "03",
     dark: false,
-    labelColor: "#7D6039",
-    badgeBorder: "#D6CFC2",
-    badgeColor: "#5A5854",
-    subColor: "#5A5854",
+    labelColor: "#7F5F26",
+    badgeBorder: "#CBC5B7",
+    badgeColor: "#4A524B",
+    subColor: "#4A524B",
     ringBorder: "#D3C7B3",
     ringDash: "#C9BBA4",
-    shape: { width: 64, aspectRatio: "1", borderRadius: "50% 50% 12px 12px", background: "#1C1C1C", boxShadow: "0 0 0 10px rgba(28,28,28,.06)" },
+    shape: { width: 64, aspectRatio: "1", borderRadius: "50% 50% 12px 12px", background: "#174B3A", boxShadow: "0 0 0 10px rgba(28,28,28,.06)" },
   },
 ];
 
@@ -138,17 +138,17 @@ export default function InsightsPage() {
             The good stuff <Emphasis>is coming.</Emphasis>
           </em>
         </h1>
-        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+        <p style={{ margin: "28px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
           Growth marketing insights are coming here soon: practical Keybooks, useful breakdowns and blogs about what works, what doesn&apos;t, and what I&apos;d probably avoid completely.
         </p>
-        <p style={{ margin: "14px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
+        <p style={{ margin: "14px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#202821", fontWeight: 500 }}>
           A lot of it will be free. Because useful marketing advice probably shouldn&apos;t always start with a checkout page.
         </p>
         <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }} className="max-md:!w-full max-md:!max-w-[400px]">
           <a
             href="#waitlist"
             className="max-md:!flex max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!mx-auto"
-            style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: "#174B3A", color: "#F8F6F4", fontSize: 16, fontWeight: 600 }}
           >
             Join the waitlist
             <ArrowIcon />
@@ -169,7 +169,7 @@ export default function InsightsPage() {
           title={
             <>
               What I&rsquo;m
-              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#202821" }}>
                 working on.
               </em>
             </>
@@ -177,21 +177,21 @@ export default function InsightsPage() {
         />
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,48px)" }} className="grid-cols-1 md:!grid-cols-3">
           {COMING.map((c) => (
-            <div key={c.n} style={{ paddingTop: 22, borderTop: "1px solid #1C1C1C", textAlign: "center" }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#7D6039", fontVariantNumeric: "tabular-nums" }}>{c.n}</div>
+            <div key={c.n} style={{ paddingTop: 22, borderTop: "1px solid #202821", textAlign: "center" }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#7F5F26", fontVariantNumeric: "tabular-nums" }}>{c.n}</div>
               <h3 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>{c.t}</h3>
-              <p className="max-md:!text-base" style={{ margin: "10px auto 0", maxWidth: 340, fontSize: 15.5, lineHeight: 1.6, color: "#4E4C48" }}>{c.d}</p>
+              <p className="max-md:!text-base" style={{ margin: "10px auto 0", maxWidth: 340, fontSize: 15.5, lineHeight: 1.6, color: "#4A524B" }}>{c.d}</p>
               {c.tags ? (
                 <div style={{ marginTop: 14, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 6 }}>
                   {c.tags.map((tag) => (
-                    <span key={tag} style={{ display: "inline-flex", alignItems: "center", height: 28, padding: "0 12px", borderRadius: 999, border: "1px solid #D6CFC2", fontSize: 12.5, color: "#4E4C48" }}>
+                    <span key={tag} style={{ display: "inline-flex", alignItems: "center", height: 28, padding: "0 12px", borderRadius: 999, border: "1px solid #CBC5B7", fontSize: 12.5, color: "#4A524B" }}>
                       {tag}
                     </span>
                   ))}
                 </div>
               ) : null}
               {c.italic ? (
-                <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 18, lineHeight: 1.3, color: "#6E6B66" }}>
+                <p style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 18, lineHeight: 1.3, color: "#687068" }}>
                   {c.italic}
                 </p>
               ) : null}
@@ -207,7 +207,7 @@ export default function InsightsPage() {
           title={
             <>
               The Keybooks are
-              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+              <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#202821" }}>
                 probably the fun part.
               </em>
             </>
@@ -224,9 +224,9 @@ export default function InsightsPage() {
               key={k.n}
               style={{
                 borderRadius: 24,
-                background: k.dark ? "#1C1C1C" : "#F4F0E8",
-                color: k.dark ? "#F2EFEA" : "#1C1C1C",
-                border: `1px solid ${k.dark ? "#1C1C1C" : "#E2D8CA"}`,
+                background: k.dark ? "#174B3A" : "#F4F0E8",
+                color: k.dark ? "#F2EFEA" : "#202821",
+                border: `1px solid ${k.dark ? "#202821" : "#E4E0D6"}`,
                 padding: 24,
                 display: "flex",
                 flexDirection: "column",
@@ -239,7 +239,7 @@ export default function InsightsPage() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: k.labelColor }}>Keybook {k.n}</span>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 6, height: 26, padding: "0 10px", borderRadius: 999, border: `1px solid ${k.badgeBorder}`, fontSize: 11.5, fontWeight: 600, color: k.badgeColor }}>
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C" }} />
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#B38842" }} />
                   Coming soon
                 </span>
               </div>
@@ -275,14 +275,14 @@ export default function InsightsPage() {
             }}
           >
             Things I&apos;ll probably
-            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#202821" }}>
               write too much about.
             </em>
           </h2>
         </div>
         <div style={{ maxWidth: 960, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10 }}>
           {TOPICS.map((t) => (
-            <span key={t} style={{ display: "inline-flex", alignItems: "center", height: 36, padding: "0 16px", borderRadius: 999, background: "#1C1C1C", color: "#F2EFEA", fontSize: 14, fontWeight: 500, whiteSpace: "nowrap" }}>
+            <span key={t} style={{ display: "inline-flex", alignItems: "center", height: 36, padding: "0 16px", borderRadius: 999, background: "#174B3A", color: "#F2EFEA", fontSize: 14, fontWeight: 500, whiteSpace: "nowrap" }}>
               {t}
             </span>
           ))}
@@ -294,7 +294,7 @@ export default function InsightsPage() {
         <div
           style={{
             borderRadius: 28,
-            background: "#1C1C1C",
+            background: "#174B3A",
             color: "#F2EFEA",
             padding: "clamp(48px,6vw,88px) clamp(24px,5vw,72px)",
             display: "flex",
@@ -303,18 +303,18 @@ export default function InsightsPage() {
             textAlign: "center",
           }}
         >
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Get it first</div>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#B38842" }}>Get it first</div>
           <h2 style={{ margin: "14px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Want me to tell you
             <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
               when something useful drops?
             </em>
           </h2>
-          <p style={{ margin: "22px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+          <p style={{ margin: "22px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>
             Join the list and I&apos;ll send you the new Keybooks, guides and genuinely useful posts when they&apos;re ready. No daily &ldquo;10x your growth&rdquo; emails. Promise.
           </p>
           <WaitlistForm />
-          <p style={{ margin: "16px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F" }}>
+          <p style={{ margin: "16px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#9FB4AA" }}>
             Free resources, new posts and the occasional &ldquo;I learned this the hard way.&rdquo; Unsubscribe whenever you want.
           </p>
         </div>
@@ -334,11 +334,11 @@ export default function InsightsPage() {
             }}
           >
             Until then...
-            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#1C1C1C" }}>
+            <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#202821" }}>
               I&apos;m probably still writing.
             </em>
           </h2>
-          <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>
+          <p style={{ margin: "20px auto 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>
             I&apos;m building this properly instead of filling it with five rushed posts just so the page looks busy. When there&apos;s something worth reading, it&apos;ll be here.
           </p>
         </div>
@@ -348,11 +348,11 @@ export default function InsightsPage() {
             target="_blank"
             rel="noopener"
             className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']"
-            style={{ fontSize: 14.5, color: "#1C1C1C", borderBottom: "1px solid #CFCBC2", paddingBottom: 2 }}
+            style={{ fontSize: 14.5, color: "#202821", borderBottom: "1px solid #CBC5B7", paddingBottom: 2 }}
           >
             Or say hi on LinkedIn
           </a>
-          <p style={{ margin: "24px 0 0", fontSize: 13, color: "#706B61" }}>
+          <p style={{ margin: "24px 0 0", fontSize: 13, color: "#687068" }}>
             That&apos;s it for now. <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, fontSize: 15 }}>Ta-da. Bye.</em>
           </p>
         </div>

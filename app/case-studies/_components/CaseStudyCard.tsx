@@ -4,7 +4,7 @@ import type { CaseStudy } from "../_data/types";
 import { ArrowIcon } from "../../HomeComponents/icons";
 import { BODY, CARD, EYEBROW, GENERAL_SANS, LINE, MUTED } from "./styles";
 
-const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] font-semibold border-b-[1.5px] border-[#1C1C1C] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
+const TEXT_LINK = "inline-flex items-center gap-[10px] min-h-[44px] font-semibold border-b-[1.5px] border-[#202821] hover:!text-[#7A5C33] hover:border-[#7A5C33]";
 
 /** Logo, tags, headline result, one line on the work and a link to the case study. */
 export function CaseStudyCard({ study, linkLabel }: { study: CaseStudy; linkLabel?: string }) {

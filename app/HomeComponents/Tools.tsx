@@ -48,9 +48,9 @@ export default function Tools() {
     <section style={{ padding: "clamp(80px,9vw,128px) 0 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto 24px", padding: "0 clamp(20px,4vw,48px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textAlign: "center" }}>
         <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(28px,2.8vw,38px)", letterSpacing: "-0.03em" }}>Marketing Tools I Work With</h2>
-        <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.6, color: "#5A5854" }}>I&apos;ve worked with SEO, analytics, advertising and content tools including Ahrefs, Semrush, Screaming Frog, Google Analytics 4, Google Search Console, Google Tag Manager, Google Ads, Meta Ads Manager, HubSpot, Microsoft Clarity and Canva.</p>
-        <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#5A5854" }}>The tools help with research, execution and measurement.</p>
-        <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>What matters is knowing which ones to use and what decisions to make from the results.</p>
+        <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.6, color: "#4A524B" }}>I&apos;ve worked with SEO, analytics, advertising and content tools including Ahrefs, Semrush, Screaming Frog, Google Analytics 4, Google Search Console, Google Tag Manager, Google Ads, Meta Ads Manager, HubSpot, Microsoft Clarity and Canva.</p>
+        <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#4A524B" }}>The tools help with research, execution and measurement.</p>
+        <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#202821", fontWeight: 500 }}>What matters is knowing which ones to use and what decisions to make from the results.</p>
       </div>
       <div
         onMouseEnter={() => setRunning(false)}
@@ -59,15 +59,15 @@ export default function Tools() {
         style={{
           overflow: "hidden",
           background: "#F8F6F4",
-          borderTop: "1px solid #DDDAD3",
-          borderBottom: "1px solid #DDDAD3",
+          borderTop: "1px solid #E4E0D6",
+          borderBottom: "1px solid #E4E0D6",
           WebkitMaskImage: "linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent)",
           maskImage: "linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", width: "max-content", animation: "zmarqL 44s linear infinite", animationPlayState: running ? "running" : "paused" }}>
           {loop.map((t, i) => (
-            <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", gap: 10, height: 88, padding: "0 clamp(24px,2.4vw,32px)", fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", color: "#1C1C1C", whiteSpace: "nowrap" }}>
+            <div key={i} style={{ flex: "0 0 auto", display: "flex", alignItems: "center", gap: 10, height: 88, padding: "0 clamp(24px,2.4vw,32px)", fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", color: "#202821", whiteSpace: "nowrap" }}>
               {t.hasIcon && <Img src={t.src} alt="" aria-hidden="true" width={26} height={26} style={{ display: "block", width: 26, height: 26, objectFit: "contain" }} />}
               {t.hasLogo && <BgImage src={t.src} alt={t.t} fit="contain" style={{ display: "block", height: t.h, width: t.lw }} />}
               {t.showText && <span>{t.t}</span>}

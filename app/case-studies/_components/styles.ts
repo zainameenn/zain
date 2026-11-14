@@ -1,11 +1,11 @@
 import type { CSSProperties } from "react";
 
-export const INK = "#1C1C1C";
-export const MUTED = "#5A5854";
-export const BODY = "#4E4C48";
-export const LINE = "#DDDAD3";
+export const INK = "#202821";
+export const MUTED = "#4A524B";
+export const BODY = "#4A524B";
+export const LINE = "#E4E0D6";
 export const CARD = "#F6F4EF";
-export const GOLD = "#C4A47C";
+export const GOLD = "#B38842";
 export const GOLD_TEXT = "#7A5C33";
 export const GOLD_LIGHT = "#D3AE82";
 
@@ -16,7 +16,7 @@ export const SERIF = "var(--nf-serif),serif";
 export const EYEBROW: CSSProperties = { fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: MUTED };
 
 /** Italic serif second line of a section heading. */
-export const ACCENT_LINE: CSSProperties = { display: "block", fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", color: "#6B6862" };
+export const ACCENT_LINE: CSSProperties = { display: "block", fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", color: "#687068" };
 
 export const SECTION_H2: CSSProperties = {
   margin: "12px 0 0",

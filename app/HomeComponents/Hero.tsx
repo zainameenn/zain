@@ -29,7 +29,7 @@ export default function Hero() {
       className="!grid-cols-1 xl:!grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] xl:!gap-10"
     >
       <div style={{ minWidth: 0 }} className="max-md:!text-center">
-        <p style={{ margin: "0 0 18px", fontSize: 13, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "#6E6B66" }}>
+        <p style={{ margin: "0 0 18px", fontSize: 13, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "#687068" }}>
           Zain Ul Abdin | Independent SaaS Growth Marketer
         </p>
         <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, fontSize: "clamp(2rem, calc(2.6vw + 1.25rem), 3.625rem)", lineHeight: 1.08, maxWidth: 820 }}>
@@ -51,7 +51,7 @@ export default function Hero() {
               <path
                 pathLength={1}
                 d="M3 13 C 60 20, 150 21, 216 15 S 286 6, 297 4"
-                stroke="#C6A47C"
+                stroke="#B38842"
                 strokeWidth="2.8"
                 strokeLinecap="round"
                 vectorEffect="non-scaling-stroke"
@@ -61,10 +61,10 @@ export default function Hero() {
             </svg>
           </span>
         </h1>
-        <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "28px 0 0", maxWidth: 560, fontSize: 19, lineHeight: 1.55, color: "#4E4C48" }}>
+        <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "28px 0 0", maxWidth: 560, fontSize: 19, lineHeight: 1.55, color: "#4A524B" }}>
           I help SaaS founders and service businesses get more users, leads and customers through SEO, Reddit marketing, social media and content.
         </p>
-        <p className="max-md:!mx-auto" style={{ margin: "16px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>
+        <p className="max-md:!mx-auto" style={{ margin: "16px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>
           I&apos;m Zain Ul Abdin, a hands-on growth marketing specialist. I handle the strategy, content, execution and reporting myself, so you&apos;re not stuck managing five different people to get one thing done.
         </p>
         <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }} className="max-md:!mx-auto max-md:!mt-8 max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
@@ -73,7 +73,7 @@ export default function Hero() {
             className="max-md:!justify-center"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
-            style={{ display: "flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: ctaHover ? "#33322F" : "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600, transition: "background 180ms" }}
+            style={{ display: "flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: ctaHover ? "#10382B" : "#174B3A", color: "#F8F6F4", fontSize: 16, fontWeight: 600, transition: "background 180ms" }}
           >
             Let&apos;s Talk About Your Growth
             <ArrowIcon size={14} style={{ transform: ctaHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
@@ -83,14 +83,14 @@ export default function Hero() {
             className="max-md:!justify-center"
             onMouseEnter={() => setWorkHover(true)}
             onMouseLeave={() => setWorkHover(false)}
-            style={{ display: "flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: `1px solid ${workHover ? "#1C1C1C" : "#CFCBC2"}`, background: workHover ? "#F8F6F4" : "transparent", fontSize: 16, fontWeight: 500, transition: "background 180ms,border-color 180ms" }}
+            style={{ display: "flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: `1px solid ${workHover ? "#202821" : "#CBC5B7"}`, background: workHover ? "#F8F6F4" : "transparent", fontSize: 16, fontWeight: 500, transition: "background 180ms,border-color 180ms" }}
           >
             See My Work
             <UpArrowIcon style={{ transform: workHover ? "translateY(3px)" : "none", transition: "transform 200ms" }} />
           </a>
         </div>
-        <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#6E6B66" }}>
-          <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
+        <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#687068" }}>
+          <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#B38842", flex: "0 0 auto" }} />
           I usually reply within a couple of hours. No hour-long discovery call required.
         </p>
       </div>

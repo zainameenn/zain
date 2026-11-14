@@ -87,7 +87,7 @@ function Pagination({ category, q, page, totalPages }: { category: string; q: st
       </Link>
       {pages.map((n, i) => (
         <span key={n} style={{ display: "contents" }}>
-          {i > 0 && n - pages[i - 1] > 1 ? <span aria-hidden="true" style={{ padding: "0 4px", color: "#6F6B64" }}>...</span> : null}
+          {i > 0 && n - pages[i - 1] > 1 ? <span aria-hidden="true" style={{ padding: "0 4px", color: "#687068" }}>...</span> : null}
           <Link href={blogHref({ category, q, page: n }, "#articles")} className={`${s.pageLink} ${n === page ? s.pageCurrent : ""}`} aria-current={n === page ? "page" : undefined} aria-label={`Page ${n}`}>
             {n}
           </Link>
@@ -108,16 +108,16 @@ function SectionHeading({ id, eyebrow, title, sub }: { id: string; eyebrow?: str
       <h2 id={id} style={{ margin: eyebrow ? "12px 0 0" : 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(30px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
         {title}
       </h2>
-      {sub ? <p style={{ margin: "12px 0 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>{sub}</p> : null}
+      {sub ? <p style={{ margin: "12px 0 0", maxWidth: 640, fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>{sub}</p> : null}
     </div>
   );
 }
 
 function EmptyState({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ padding: "clamp(40px,5vw,64px) 24px", borderRadius: 24, border: "1px dashed #D6CFC2", textAlign: "center" }}>
-      <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.02em", color: "#1C1C1C" }}>{title}</p>
-      <div style={{ margin: "10px auto 0", maxWidth: 520, fontSize: 16.5, lineHeight: 1.6, color: "#5A5854" }}>{children}</div>
+    <div style={{ padding: "clamp(40px,5vw,64px) 24px", borderRadius: 24, border: "1px dashed #CBC5B7", textAlign: "center" }}>
+      <p style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,26px)", fontWeight: 600, letterSpacing: "-0.02em", color: "#202821" }}>{title}</p>
+      <div style={{ margin: "10px auto 0", maxWidth: 520, fontSize: 16.5, lineHeight: 1.6, color: "#4A524B" }}>{children}</div>
     </div>
   );
 }
@@ -170,7 +170,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
         <h1 style={{ ...HERO_H1_STYLE, maxWidth: 900, marginTop: 16 }}>
           Marketing advice <em style={H1_ACCENT_STYLE}>without the marketing headache.</em>
         </h1>
-        <p style={{ margin: "24px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4E4C48" }}>
+        <p style={{ margin: "24px auto 0", maxWidth: 640, fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
           Practical notes on SEO, Reddit, SaaS growth, and the things I&apos;ve learned by actually doing the work. What worked, what didn&apos;t, and what I&apos;d try next.
         </p>
       </section>
@@ -192,7 +192,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
         <>
           {/* FILTERS AND SEARCH */}
           <section id="articles" aria-labelledby="find" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(64px,7vw,96px) ${PAD} 0`, scrollMarginTop: 96 }}>
-            <div style={{ paddingTop: 32, borderTop: "1px solid #DDDAD3" }}>
+            <div style={{ paddingTop: 32, borderTop: "1px solid #E4E0D6" }}>
               <SectionHeading id="find" title="Find something worth reading." />
               <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
                 {data.categories.length ? (
@@ -221,7 +221,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
                   <label htmlFor="blog-search" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>
                     Search articles
                   </label>
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ position: "absolute", left: 16, top: 16, color: "#6F6B64", pointerEvents: "none" }}>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ position: "absolute", left: 16, top: 16, color: "#687068", pointerEvents: "none" }}>
                     <circle cx="7" cy="7" r="5.25" stroke="currentColor" strokeWidth="1.5" />
                     <path d="M11 11L14.5 14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
@@ -245,7 +245,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
                     {activeCategory?.description && !q ? <>{activeCategory.description} </> : null}
                     {data.total} {data.total === 1 ? "article" : "articles"}
                     {q && activeCategory ? <> in {activeCategory.title}</> : null}.{" "}
-                    <Link href="/blog#articles" style={{ color: "#1C1C1C", borderBottom: "1px solid #CFCBC2", whiteSpace: "nowrap" }}>
+                    <Link href="/blog#articles" style={{ color: "#202821", borderBottom: "1px solid #CBC5B7", whiteSpace: "nowrap" }}>
                       Clear filters
                     </Link>
                   </>
@@ -263,12 +263,12 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
             ) : filtering ? (
               <EmptyState title="Nothing matches that yet.">
                 Try a shorter word or another category.{" "}
-                <Link href="/blog#articles" style={{ color: "#1C1C1C", borderBottom: "1px solid #CFCBC2" }}>
+                <Link href="/blog#articles" style={{ color: "#202821", borderBottom: "1px solid #CBC5B7" }}>
                   See all articles
                 </Link>
               </EmptyState>
             ) : (
-              <p style={{ margin: 0, fontSize: 16.5, color: "#5A5854" }}>That&apos;s the only one so far. More are on the way.</p>
+              <p style={{ margin: 0, fontSize: 16.5, color: "#4A524B" }}>That&apos;s the only one so far. More are on the way.</p>
             )}
             <Pagination category={category} q={q} page={page} totalPages={totalPages} />
           </section>
@@ -277,18 +277,18 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
 
       {/* NEWSLETTER */}
       <section id="newsletter" style={{ maxWidth: MAX, margin: "0 auto", padding: `clamp(80px,8vw,112px) ${PAD} clamp(64px,7vw,96px)` }}>
-        <div style={{ borderRadius: 28, background: "#1C1C1C", color: "#F2EFEA", padding: "clamp(44px,5vw,72px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div style={{ borderRadius: 28, background: "#174B3A", color: "#F2EFEA", padding: "clamp(44px,5vw,72px) clamp(24px,5vw,72px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.4vw,48px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
             Useful marketing notes.
             <em style={{ display: "block", marginTop: 6, fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.08em", lineHeight: 1.05, color: "#D3AE82" }}>
               No 10x growth secrets.
             </em>
           </h2>
-          <p style={{ margin: "20px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+          <p style={{ margin: "20px auto 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#C9D6CF" }}>
             New articles, practical guides, and things I&apos;ve learned while working on actual projects. Sent when there&apos;s something worth sharing.
           </p>
           <NewsletterForm source="blog" />
-          <p style={{ margin: "14px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#8B877F" }}>No daily motivational emails. Want off the list? Email hello@zainameen.com and I&apos;ll remove you.</p>
+          <p style={{ margin: "14px 0 0", fontSize: 13.5, lineHeight: 1.5, color: "#9FB4AA" }}>No daily motivational emails. Want off the list? Email hello@zainameen.com and I&apos;ll remove you.</p>
         </div>
       </section>
     </main>

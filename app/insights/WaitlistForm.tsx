@@ -18,13 +18,13 @@ export function WaitlistForm() {
           height: 56,
           padding: "0 22px",
           borderRadius: 12,
-          border: "1px solid #C4A47C",
+          border: "1px solid #B38842",
           fontSize: 16,
           fontWeight: 600,
           color: "#F2EFEA",
         }}
       >
-        <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#C4A47C" }} />
+        <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#B38842" }} />
         Your email app should have opened. Just hit send and you&apos;re on the list.
       </p>
     );
@@ -59,7 +59,7 @@ export function WaitlistForm() {
           height: 56,
           padding: "0 18px",
           borderRadius: 12,
-          border: "1px solid #3A3935",
+          border: "1px solid #2E6150",
           background: "#262523",
           color: "#F2EFEA",
           fontSize: 16,
@@ -75,7 +75,7 @@ export function WaitlistForm() {
           borderRadius: 12,
           border: 0,
           background: "#F2EFEA",
-          color: "#1C1C1C",
+          color: "#202821",
           fontSize: 16,
           fontWeight: 600,
           fontFamily: "inherit",
