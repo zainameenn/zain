@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import { Inter } from "next/font/google";
 import { bodyFont, displayFont } from "./_design/fonts";
 import Navbar from "./HomeComponents/Navbar";
 import Footer from "./HomeComponents/Footer";
 import { identityGraph } from "@/lib/structuredData";
 
-// Only the small mobile "Menu" label uses Inter, so it loads without a preload.
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", variable: "--nf-inter", preload: false });
 // One type system for the whole site (November 2026): Lora for headings, Figtree for text, as on the tool pages.
 // The older font names (--nf-general-sans, --nf-serif, --nf-geist) point at these in globals.css.
 
@@ -23,7 +20,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable} ${inter.variable}`}>
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <head>
 
         {/* Structured data: website, Person and Organization. A plain script so crawlers and agents see it without running JavaScript. */}

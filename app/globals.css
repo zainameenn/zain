@@ -9,6 +9,7 @@
   --nf-general-sans: var(--ed-display), Georgia, serif;
   --nf-serif: var(--ed-display), Georgia, serif;
   --nf-geist: var(--ed-body), system-ui, sans-serif;
+  --nf-inter: var(--ed-body), system-ui, sans-serif;
 }
 
 /* Headings in Lora read at regular weight, as on the tool pages, not the old 600 sans. Small headings (h3) switch to
