@@ -26,7 +26,7 @@ export default function About() {
       </div>
       <figure style={{ margin: "clamp(40px,5vw,64px) 0 0" }}>
         <BgImage
-          src="/assets/v9/g09.webp"
+          src="/assets/v9/g09-forest.webp"
           alt="Illustration: a path from content, search, community and experiments up to a growth summit"
           fit={100}
           style={{ aspectRatio: "1672/640" }}

@@ -20,7 +20,7 @@ export default function FAQ() {
           <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>SaaS Growth Marketing Specialist</em>
         </h2>
         <Img
-          src="/assets/v12/art-b.webp"
+          src="/assets/v12/art-b-forest.webp"
           alt="Illustration: questions flowing to a marketer at a desk and coming out as checked answers"
           width={1086}
           height={1448}

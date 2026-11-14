@@ -167,11 +167,11 @@ export const loompad: CaseStudy = {
       },
       screenshots: [
         {
-          src: `${IMG}/etsy-storefront-120-sales.webp`,
-          width: 1920,
-          height: 554,
-          alt: "LoomPad Etsy storefront: banner reading Premium Desk Mats That Make Every Workspace Feel Like Your Own, with a 5.0 star rating from 27 reviews, 120 sales and 2 months on Etsy",
-          caption: "Etsy storefront at 2 months · 5.0 rating · 120 sales",
+          src: `${IMG}/etsy-storefront-228-sales.webp`,
+          width: 1600,
+          height: 933,
+          alt: "LoomPad Etsy storefront: banner reading Premium Desk Mats That Make Every Workspace Feel Like Your Own, a 4.9 star rating from 69 reviews, 228 sales, 3 months on Etsy, 97 items and featured desk mats",
+          caption: "Etsy storefront, Nov 2026 · 4.9 rating from 69 reviews · 228 sales",
           wide: true,
         },
         {

@@ -283,7 +283,7 @@ export const CASES = {
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#D6CFC3" }} />
                 <span style={{ marginLeft: 10, height: 14, padding: "0 10px", borderRadius: 7, background: "#fff", fontSize: 9.5, color: "#687068", display: "flex", alignItems: "center", whiteSpace: "nowrap" }}>etsy.com/shop/Loompad</span>
               </div>
-              <Img loading="lazy" src="/assets/case-studies/loompad/etsy-storefront-120-sales.webp" alt="LoomPad Etsy storefront: desk mat banner, 5.0 rating from 27 reviews, 120 sales, 2 months on Etsy" style={{ display: "block", width: "100%" }} />
+              <Img loading="lazy" src="/assets/case-studies/loompad/etsy-storefront-228-sales.webp" alt="LoomPad Etsy storefront: banner reading Premium Desk Mats That Make Every Workspace Feel Like Your Own, a 4.9 star rating from 69 reviews, 228 sales, 3 months on Etsy, 97 items and featured desk mats" style={{ display: "block", width: "100%" }} />
             </div>
           </Frame>
         }

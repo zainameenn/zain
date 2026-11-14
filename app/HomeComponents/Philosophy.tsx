@@ -30,7 +30,7 @@ export default function Philosophy() {
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
           <BgImage
-            src="/assets/v9/g04.webp"
+            src="/assets/v9/g04-forest.webp"
             alt="Illustration: disconnected channels pouring into a leaking funnel, next to a connected system feeding growth"
             fit={100}
             style={{ aspectRatio: "1672/900" }}

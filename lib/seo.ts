@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const SITE_NAME = "Zain Ul Abdin";
 const TWITTER_HANDLE = "@zainnameen";
 const OG_IMAGE = {
-  url: "/assets/v9/g07.png",
+  url: "/assets/v9/g07-forest.png",
   width: 1448,
   height: 1086,
   alt: "Zain Ul Abdin, Growth Marketing Specialist",

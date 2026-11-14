@@ -97,7 +97,7 @@ export default function Hero() {
 
       <figure className="xl:!-mr-12" style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
         <BgImage
-          src="/assets/v9/g07.png"
+          src="/assets/v9/g07-forest.png"
           alt="Illustration of a founder calmly reviewing marketing dashboards"
           position="56% 50.4%"
           fit={105.5}
