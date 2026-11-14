@@ -1,76 +1,82 @@
 export const FAQS: [string, string[]][] = [
   [
-    "What does a growth marketing specialist actually do?",
+    "What does a growth marketing specialist do?",
     [
-      "Finds what's blocking growth and fixes it. An SEO expert or social media manager owns one channel. I figure out which channel matters first, then do the work myself, including the writing and design.",
+      "A growth marketing specialist helps businesses acquire, convert and retain customers through research, experimentation and marketing execution.",
+      "For SaaS companies, this can include SEO, content marketing, paid acquisition, social media, customer research and conversion optimization.",
+      "My own work focuses heavily on organic acquisition, particularly SEO, Reddit and content distribution.",
     ],
   ],
   [
-    "How much does it cost to hire a marketing specialist?",
+    "What's the difference between a growth marketer and a digital marketing specialist?",
     [
-      "A social media check is free. A full SEO audit is $499. Social media management starts at $799 a month, and SEO starts at $1,499 a month, billed weekly or every two weeks.",
-      "Compared with hiring an SEO expert, a social media manager and a designer separately, you pay one person and manage one person. And unlike an agency, you talk to the person doing the work.",
+      "Digital marketing specialists often focus on managing campaigns and channels, such as SEO, social media or paid ads.",
+      "Growth marketers look at how the entire acquisition and conversion process works, from finding potential customers to getting them to sign up or buy.",
+      "In practice, the roles can overlap. My work includes both strategy and hands-on digital marketing execution.",
     ],
   ],
   [
-    "Is SEO still worth it in 2026, or did AI kill it?",
+    "Do you offer SaaS marketing consulting?",
     [
-      "It's worth it, but the old playbook is dead. Google doesn't punish AI. It punishes mass produced content with nothing new in it. In 2024, sites built on that went from thousands of visitors a day to zero overnight. AI scrap is still AI scrap.",
-      "What works now is content with something original: real research, insights from forums and communities, and data nobody else has. Google says that's also what gets you into AI Overviews. So one piece of work covers both.",
-      "Can AI or ChatGPT do SEO for you? It makes the work faster. Things that took me a week now take a couple of hours. But AI can't decide what's worth ranking for or add the insight that makes a page stand out. That part still needs a person.",
-      "How long does it take? Google says four months to a year. With faster research and production, I usually see early movement on less competitive keywords in 2 to 3 months. The bigger results take longer, and anyone promising page one by next month is guessing.",
+      "Yes. I help SaaS founders identify growth problems, research opportunities, prioritize acquisition channels and improve their marketing strategy.",
+      "I can also handle execution, depending on the engagement.",
     ],
   ],
   [
-    "How much does Reddit marketing cost, and are Reddit ads worth it?",
+    "Can you help a SaaS startup get its first users?",
     [
-      "Organic Reddit costs time, not ad spend. That's how I've driven thousands of Reddit conversions with $0 on ads. It works when you help first and mention the product second.",
-      "It's also worth more than it looks. Reddit threads show up heavily in Google, and Google licenses Reddit content for its AI. A good thread can keep bringing people in long after you post it.",
-      "Reddit ads are a different story. Reddit reviews every ad and can reject it, and each community has its own culture. In my experience, some product types, like AI writing tools, get pushback almost everywhere. I rarely recommend ads unless the product solves a very specific problem for a very specific community.",
+      "Yes, if the product and target audience are clear enough to develop a realistic acquisition strategy.",
+      "I can help research where potential users spend time, identify relevant search queries, test content and distribution opportunities, and improve the path from website visit to signup.",
     ],
   ],
   [
-    "Is $10 or $20 a day enough for Google or Meta ads?",
+    "Do you offer SEO and social media marketing together?",
     [
-      "Enough to test, not enough to scale. The average Google Ads click costs about $5.42, so $300 to $600 a month gets you roughly 55 to 110 clicks. That's enough to learn which keywords actually convert.",
-      "For an early startup, even $100 to $200 a month can answer that question. I then use the winning keywords to plan your SEO, so the ad budget pays you back twice. One thing ads can't do: help you rank organically. Google is clear that ad spend has no effect on organic results.",
-      "Before spending anything, I fix the landing page and tracking, so your budget isn't paying to find out something's broken.",
+      "Yes. SEO and social media can work together as part of a broader growth strategy.",
+      "I can help develop content for search, adapt useful material for relevant social platforms, and use audience conversations to identify new content opportunities.",
     ],
   ],
   [
-    "How do I hire the right marketing person?",
+    "Do you work with businesses outside Pakistan?",
+    ["Yes. I'm based in Lahore and work remotely with businesses in the US, UAE, Europe and other markets."],
+  ],
+  [
+    "Is it better to hire an independent marketing specialist or an agency?",
     [
-      "Ask for business results, not reach. Ask what they did and why it caused the result. Ask if you can start small. That's exactly how I'd like you to judge me.",
+      "It depends on the work.",
+      "An independent marketing specialist can be a good fit when you want direct communication, flexibility and someone who can personally execute the strategy.",
+      "An agency may be a better fit if you need a larger team handling several specialized projects simultaneously.",
     ],
   ],
   [
-    "How much does a growth marketing specialist cost?",
+    "How much does it cost to hire you?",
     [
-      "Monthly plans start at $799 for social media, $899 for ads management plus your ad spend, $1,499 for SEO or Reddit, and Complete Growth starts at $4,499. Not sure where to start? The SEO audit and the Growth Diagnosis are $499 each.",
+      "My services depend on the scope.",
+      "Social media management starts at $799 per month. Ongoing Reddit marketing and SEO services start at $1,499 per month. My broader growth engagement starts at $4,499 per month.",
+      "For businesses that want to start smaller, I also offer a $499 SEO audit and a free social media check.",
     ],
   ],
   [
-    "Do you only work with SaaS?",
+    "Can you guarantee first-page Google rankings?",
     [
-      "No. Most of my work is SaaS and AI tools, but I also work with service businesses like Everdry, a US waterproofing company. Same process: find the bottleneck, then fix it.",
+      "No. Search rankings depend on competition, search intent, website quality, technical factors and other signals outside any one marketer's control.",
+      "My focus is on improving the right pages, building useful content, strengthening organic visibility and measuring the results.",
     ],
   ],
   [
-    "How fast can you start?",
+    "Do you help with visibility in AI search results?",
     [
-      "I work with two clients at a time, so it depends on whether a spot is open. Book a call and I'll tell you straight.",
+      "I work on the SEO and content foundations that help people and search systems understand a business.",
+      "This includes clear page structure, original information, relevant content and stronger supporting evidence. No one can guarantee inclusion in a specific AI-generated answer.",
     ],
   ],
   [
-    "What results have you gotten?",
+    "What results have you achieved?",
     [
-      "100K+ users brought in across clients, including 85K+ for Blainy with no paid ads. 50M+ search impressions and 100M+ total impressions across all clients.",
-    ],
-  ],
-  [
-    "How fast do you reply?",
-    [
-      "Usually within a couple of hours. If we're on opposite sides of the clock, your email is the first thing I read when I wake up. I read every email, even the scam ones, so yours is in good company.",
+      "One of my main SaaS projects is Blainy, where I worked as the founding marketing hire.",
+      "The product reached more than 85,000 signups and one million website visitors in approximately 14 months without paid advertising.",
+      "I've also worked on social media, community marketing and organic acquisition projects for technology, home service and ecommerce businesses.",
+      "You can see the individual case studies and their supporting data on my website.",
     ],
   ],
 ];

@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { BgImage } from "./Img";
 
 const STEPS = [
-  { t: "Diagnose", d: "Find where growth is leaking.", art: "Signals, one problem" },
-  { t: "Prioritize", d: "Pick what matters. Ignore the rest, guilt free.", art: "One constraint in focus" },
-  { t: "Execute", d: "I do the work, not just point at it.", art: "Work around the constraint" },
-  { t: "Learn", d: "Keep what works, cut what doesn't, repeat.", art: "Evidence and feedback" },
+  { t: "Understand the Business", d: ["I start with your product, customers, competitors, positioning and existing marketing.", "What have you tried? What's working? Where are customers coming from? Where are you losing them?"], art: "Signals, one problem" },
+  { t: "Find the Opportunities", d: ["I look at the search demand, content gaps, customer conversations, competitors and current performance.", "Then I identify the problems and opportunities that are worth addressing first."], art: "One constraint in focus" },
+  { t: "Build and Execute", d: ["Depending on the business, that might mean SEO improvements, new landing page copy, content marketing, social media campaigns, Reddit distribution or paid advertising.", "I don't just hand over a document and disappear. I work on the execution too."], art: "Work around the constraint" },
+  { t: "Measure and Improve", d: ["We review the results, understand what changed and adjust the strategy.", "The goal is to build repeatable customer acquisition rather than depend on one successful campaign."], art: "Evidence and feedback" },
 ];
 
 const BAR_LEFT = ["4%", "30%", "52%", "75.5%"];
@@ -36,11 +36,9 @@ export default function Process() {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto clamp(32px,4vw,48px)", textAlign: "center" }}>
-        <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>How I work</div>
-        <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.4vw,46px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
-          Four steps.
-          <br />
-          <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>No 87 slide strategy deck.</em>
+        <h2 className="max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3.4vw,46px)", lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+          How I Approach SaaS and{" "}
+          <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Digital Marketing Growth</em>
         </h2>
       </div>
       <div style={{ display: "grid", gap: "clamp(32px,5vw,72px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.82fr)_minmax(0,1fr)]">
@@ -65,7 +63,11 @@ export default function Process() {
                   >
                     <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7D6039" : "#6F6B64", fontVariantNumeric: "tabular-nums", paddingTop: 8 }}>{String(i + 1).padStart(2, "0")}</span>
                     <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.025em", color: on ? "#1C1C1C" : "#706B61", transition: "color 250ms" }}>{s.t}</span>
-                    <span style={{ gridColumn: 2, fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 440 }}>{s.d}</span>
+                    <span style={{ gridColumn: 2, fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 440 }}>
+                      {s.d.map((p) => (
+                        <span key={p.slice(0, 20)} style={{ display: "block", marginTop: 6 }}>{p}</span>
+                      ))}
+                    </span>
                   </button>
                   <span
                     style={{

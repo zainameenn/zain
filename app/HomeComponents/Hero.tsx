@@ -29,11 +29,18 @@ export default function Hero() {
       className="!grid-cols-1 xl:!grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] xl:!gap-10"
     >
       <div style={{ minWidth: 0 }} className="max-md:!text-center">
+        <p style={{ margin: "0 0 18px", fontSize: 13, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "#6E6B66" }}>
+          Zain Ul Abdin | Independent SaaS Growth Marketer
+        </p>
         <h1 className="max-md:!mx-auto" style={{ ...H1_STYLE, fontSize: "clamp(2rem, calc(2.6vw + 1.25rem), 3.625rem)", lineHeight: 1.08, maxWidth: 820 }}>
-          Growth marketing specialist for SaaS and service businesses, minus the{" "}
+          SaaS Growth Marketing Specialist{" "}
+          <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", lineHeight: 0.95 }}>
+            for Startups and Growing{" "}
+          </em>
+          {/* The underline sits under the last word only, so it stays the right length when the accent wraps. */}
           <span style={{ position: "relative", display: "inline-block" }}>
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", lineHeight: 0.95 }}>
-              second full time job.
+              Businesses
             </em>
             <svg
               aria-hidden="true"
@@ -55,7 +62,10 @@ export default function Hero() {
           </span>
         </h1>
         <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "28px 0 0", maxWidth: 560, fontSize: 19, lineHeight: 1.55, color: "#4E4C48" }}>
-          As a growth marketing specialist, I find what&apos;s actually blocking growth, then fix it myself. SEO, Reddit, social, content, design and ads, handled by one person instead of five. Fewer tabs. Fewer meetings. Same coffee.
+          I help SaaS founders and service businesses get more users, leads and customers through SEO, Reddit marketing, social media and content.
+        </p>
+        <p className="max-md:!mx-auto" style={{ margin: "16px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#5A5854" }}>
+          I&apos;m Zain Ul Abdin, a hands-on growth marketing specialist. I handle the strategy, content, execution and reporting myself, so you&apos;re not stuck managing five different people to get one thing done.
         </p>
         <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }} className="max-md:!mx-auto max-md:!mt-8 max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
           <a
@@ -65,7 +75,7 @@ export default function Hero() {
             onMouseLeave={() => setCtaHover(false)}
             style={{ display: "flex", alignItems: "center", gap: 12, height: 56, padding: "0 26px", borderRadius: 12, background: ctaHover ? "#33322F" : "#1C1C1C", color: "#F8F6F4", fontSize: 16, fontWeight: 600, transition: "background 180ms" }}
           >
-            Tell me what&apos;s stuck
+            Let&apos;s Talk About Your Growth
             <ArrowIcon size={14} style={{ transform: ctaHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
           </a>
           <a
@@ -75,13 +85,13 @@ export default function Hero() {
             onMouseLeave={() => setWorkHover(false)}
             style={{ display: "flex", alignItems: "center", gap: 10, height: 56, padding: "0 22px", borderRadius: 12, border: `1px solid ${workHover ? "#1C1C1C" : "#CFCBC2"}`, background: workHover ? "#F8F6F4" : "transparent", fontSize: 16, fontWeight: 500, transition: "background 180ms,border-color 180ms" }}
           >
-            See the results
+            See My Work
             <UpArrowIcon style={{ transform: workHover ? "translateY(3px)" : "none", transition: "transform 200ms" }} />
           </a>
         </div>
         <p className="max-md:!block" style={{ margin: "14px 0 0", display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "#6E6B66" }}>
           <span aria-hidden="true" className="max-md:!mr-2.5 max-md:!inline-block max-md:!align-middle" style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4A47C", flex: "0 0 auto" }} />
-          I usually reply within a couple of hours. No 60 minute discovery call.
+          I usually reply within a couple of hours. No hour-long discovery call required.
         </p>
       </div>
 

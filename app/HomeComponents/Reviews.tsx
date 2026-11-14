@@ -89,14 +89,19 @@ export default function Reviews() {
         style={{ maxWidth: 816, margin: "0 auto", padding: "clamp(80px,8vw,112px) clamp(20px,4vw,48px) 0", textAlign: "center" }}
       >
         <div>
-          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client proof</div>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#C4A47C" }}>Client Feedback</div>
           <h2 style={{ textWrap: "balance", margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            What people say after working with me.
+            What Clients Say About <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Working With Me</em>
           </h2>
         </div>
-        <p style={{ margin: "16px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#B7B2A8" }}>
-          Luckily, I don&apos;t have to write this part myself.
-        </p>
+        <div>
+          <p style={{ margin: "16px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontSize: "clamp(22px,2vw,28px)", lineHeight: 1.25, color: "#B7B2A8" }}>
+            You don&apos;t have to take my word for it.
+          </p>
+          <p style={{ margin: "12px 0 0", fontSize: 16.5, lineHeight: 1.6, color: "#B7B2A8" }}>
+            Here are recommendations from founders, managers and clients I&apos;ve worked with across SaaS, marketing and other businesses.
+          </p>
+        </div>
       </div>
       <div
         onMouseEnter={() => setRunning(false)}

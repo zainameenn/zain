@@ -5,11 +5,11 @@ import { ArrowIcon } from "./icons";
 import { BgImage } from "./Img";
 
 const SERVICES = [
-  { name: "Growth strategy and GTM", line: "Find the real constraint and plan around it.", href: "/services/saas-growth-consultant", linkLabel: "SaaS growth consultant" },
-  { name: "SEO", line: "Original content that ranks on Google and shows up in AI answers.", href: "/services/seo-specialist-for-saas", linkLabel: "SEO specialist for SaaS" },
-  { name: "Reddit marketing", line: "Show up where buyers ask for recommendations, without getting banned.", href: "/services/reddit-marketing-specialist", linkLabel: "Reddit marketing specialist" },
-  { name: "Social media management", line: "Content, graphics and posting that bring visits, not just likes.", href: "/services/social-media-marketing-specialist", linkLabel: "Social media marketing specialist" },
-  { name: "Google and Meta ads", line: "Test small, find what converts, then scale. Only once the funnel can handle the traffic.", href: "/services/google-and-meta-ads-specialist", linkLabel: "Google and Meta ads specialist" },
+  { name: "SaaS Growth Marketing Consultant", line: "Growth strategy, go-to-market planning, customer acquisition and conversion improvements. I help identify what's holding a SaaS product back, prioritize the opportunities and work on the channels most likely to bring the right users.", href: "/services/saas-growth-consultant", linkLabel: "Explore SaaS Growth Consulting" },
+  { name: "SEO Specialist for SaaS", line: "Keyword research, search intent analysis, technical SEO, content strategy, on-page optimization and internal linking. I help software businesses make their websites easier to discover through Google and other search experiences, with a focus on attracting relevant visitors.", href: "/services/seo-specialist-for-saas", linkLabel: "Explore SaaS SEO Services" },
+  { name: "Reddit Marketing Specialist", line: "Reddit audience research, community analysis, useful content, relevant conversations and organic distribution. I help businesses understand what people are discussing in their niche and participate in ways that are genuinely useful.", href: "/services/reddit-marketing-specialist", linkLabel: "Explore Reddit Marketing" },
+  { name: "Social Media Marketing Specialist", line: "Social media strategy, content planning, writing, branded graphics, platform-specific publishing and performance reviews. I work on social content that supports your business goals instead of treating the number of posts published as the result.", href: "/services/social-media-marketing-specialist", linkLabel: "Explore Social Media Marketing" },
+  { name: "Google Ads and Meta Ads Specialist", line: "Campaign research, targeting, ad copy, creative testing, conversion tracking and performance optimization. I can help set up and improve paid acquisition once your offer, landing pages and tracking are ready.", href: "/services/google-and-meta-ads-specialist", linkLabel: "Explore Paid Advertising Services" },
 ];
 
 export default function Services() {
@@ -19,10 +19,12 @@ export default function Services() {
     <section id="services" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto 32px", textAlign: "center" }}>
         <div>
-          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Capabilities</div>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>What I can help with.</h2>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Marketing Services</div>
+          <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            Marketing Services for SaaS, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Startups and Growing Businesses</em>
+          </h2>
         </div>
-        <p style={{ margin: "16px auto 0", fontSize: 17, lineHeight: 1.55, color: "#5A5854", maxWidth: 440 }}>If you already know the channel, great. If you don&apos;t, that&apos;s kind of my thing.</p>
+        <p style={{ margin: "16px auto 0", fontSize: 17, lineHeight: 1.55, color: "#5A5854", maxWidth: 520 }}>I work with founders and small teams that need practical marketing help without building a full department.</p>
       </div>
       <div style={{ display: "grid", gap: "clamp(32px,4vw,64px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
         <div style={{ borderTop: "1px solid #1C1C1C" }}>

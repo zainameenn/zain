@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const METRICS: { v: string; l: string; fs: string; mobile?: string }[] = [
-  { v: "100K+", l: "users brought in", fs: "clamp(42px,4.2vw,58px)" },
-  { v: "85K+", l: "for one SaaS, no ads", fs: "clamp(42px,4.2vw,58px)" },
-  { v: "50M+", l: "search impressions", fs: "clamp(42px,4.2vw,58px)" },
-  { v: "Thousands", l: "Reddit conversions, $0 ad spend", fs: "clamp(34px,3.4vw,46px)", mobile: "max-md:!text-[28px]" },
+  { v: "100K+", l: "Users acquired across projects", fs: "clamp(42px,4.2vw,58px)" },
+  { v: "85K+", l: "Signups for one SaaS without paid ads", fs: "clamp(42px,4.2vw,58px)" },
+  { v: "50M+", l: "Search impressions across projects", fs: "clamp(42px,4.2vw,58px)" },
+  { v: "160K+", l: "Facebook views in 28 days for a service business", fs: "clamp(42px,4.2vw,58px)" },
 ];
 
 export default function Proof() {
@@ -65,7 +65,6 @@ export default function Proof() {
           </div>
         ))}
       </div>
-      <p className="max-md:!text-center" style={{ margin: "14px 0 0", fontSize: 13, color: "#6F6B64", textAlign: "right" }}>Across SaaS and service clients.</p>
     </section>
   );
 }

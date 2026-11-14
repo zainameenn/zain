@@ -1,25 +1,25 @@
 const SKILLS = [
-  "Growth Strategy",
-  "Go-to-Market",
-  "SEO",
+  "Growth Marketing Strategy",
+  "SaaS Customer Acquisition",
+  "Search Engine Optimization",
   "Reddit Marketing",
-  "Community Growth",
-  "Organic Social",
-  "Content Strategy",
-  "Paid Acquisition",
-  "Product Marketing",
-  "Lifecycle Marketing",
-  "Conversion Optimization",
-  "Analytics & Attribution",
-  "Ecommerce Growth",
+  "Social Media Marketing",
+  "Content Marketing and SEO Writing",
+  "Organic Growth Strategy",
+  "Go-to-Market Planning",
+  "Conversion Rate Optimization",
+  "Community Marketing",
+  "Google and Meta Advertising",
+  "Marketing Analytics and Attribution",
+  "Landing Page Optimization",
+  "Audience and Competitor Research",
 ];
 
 export default function Skills() {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
-      <div style={{ textAlign: "center", fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Skills</div>
-      <h2 className="max-md:!text-balance" style={{ maxWidth: 720, textAlign: "center", margin: "12px auto 40px", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-        Skills, <em style={{ fontFamily: "var(--nf-serif),serif", fontWeight: 400, fontSize: "1.1em" }}>without the keyword soup.</em>
+      <h2 className="max-md:!text-balance" style={{ maxWidth: 720, textAlign: "center", margin: "0 auto 40px", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+        My Core <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Marketing Skills</em>
       </h2>
       <div style={{ display: "grid", columnGap: "clamp(24px,3vw,48px)" }} className="grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
         {SKILLS.map((t, i) => (

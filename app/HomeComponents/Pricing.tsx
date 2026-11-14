@@ -48,14 +48,19 @@ export default function Pricing() {
     <section id="pricing" className="max-md:!pt-20" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(96px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto clamp(40px,4vw,56px)", textAlign: "center" }}>
         <div>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Pricing</div>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Working Together</div>
           <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Senior work.
-            <br />
-            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>Without the agency invoice.</em>
+            Hire a Marketing Specialist{" "}
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>Without Building a Whole Marketing Team.</em>
           </h2>
         </div>
-        <p style={{ margin: "16px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 420 }}>No long contracts. No agency markup. Monthly work is billed weekly or every two weeks.</p>
+        {[
+          "Not every business needs the same marketing package.",
+          "Some need a one-time SEO audit. Others need someone to take ownership of social media or Reddit marketing. And some need help connecting several acquisition channels.",
+          "I offer smaller starting points and ongoing marketing services, depending on what you need.",
+        ].map((t, i) => (
+          <p key={t.slice(0, 20)} style={{ margin: `${i ? 10 : 16}px auto 0`, fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 560 }}>{t}</p>
+        ))}
       </div>
 
       <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 4px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>
@@ -63,14 +68,12 @@ export default function Pricing() {
         Start here
       </div>
       <div style={{ borderBottom: "1px solid #DDDAD3" }}>
-        <Row n="01" title="Social media check" price="Free" cta={{ label: "Get the free check" }}>
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>I&apos;ll look at why your posts aren&apos;t getting seen.</p>
-          <p style={{ margin: "6px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#6E6B66" }}>Coffee&apos;s on me.</p>
+        <Row n="01" title="Free Social Media Check" price="Free" cta={{ label: "Get a Free Social Media Check" }}>
+          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>I&apos;ll review your current social media presence and identify where I&apos;d start improving it.</p>
         </Row>
-        <Row n="02" title="Full SEO audit" price={`$${SEO_AUDIT.price}`} sub="one time" cta={{ label: "Start with an audit" }}>
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
-            Everything on your site, ranked by what to fix first. Most audits give you a list. This one tells you the order.
-          </p>
+        <Row n="02" title="SEO Audit" price={`$${SEO_AUDIT.price}`} sub="one time" cta={{ label: "Request an SEO Audit" }}>
+          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>A review of your site&apos;s technical health, search opportunities, content and on-page SEO issues.</p>
+          <p style={{ margin: "6px 0 0", fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>You&apos;ll get a prioritized list of what needs attention.</p>
         </Row>
       </div>
 
@@ -81,23 +84,14 @@ export default function Pricing() {
         Ongoing
       </div>
       <div style={{ borderBottom: "1px solid #DDDAD3" }}>
-        <Row n="03" title="Social media management" price={`From ${monthlyFrom("social")}`} sub="per month">
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
-            Planned, designed and scheduled posts for the platforms your customers use.
-          </p>
-          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>Three packages, from 2 platforms and 8 posts a month up to 4 platforms with short video edits.</p>
+        <Row n="03" title="Social Media Management" price={`From ${monthlyFrom("social")}`} sub="per month">
+          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>Content strategy, writing, branded graphics and scheduling for the platforms that matter to your business.</p>
         </Row>
-        <Row n="04" title="Reddit marketing" price={`From ${monthlyFrom("reddit")}`} sub="per month">
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>
-            Posts, comments and threads in the communities your buyers actually read. Built to rank on Google and get picked up by AI answers, without getting banned.
-          </p>
-          <p className="max-md:!text-base" style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "#6E6B66" }}>The same approach behind thousands of Reddit conversions with $0 on ads.</p>
+        <Row n="04" title="Reddit Marketing" price={`From ${monthlyFrom("reddit")}`} sub="per month">
+          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>Community research, content development and relevant Reddit participation focused on your target audience.</p>
         </Row>
-        <Row n="05" title="SEO" price={`From ${monthlyFrom("seo")}`} sub="per month">
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>Research, technical fixes, page optimization and, from SEO Growth, original articles.</p>
-          <p style={{ margin: "6px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 19, lineHeight: 1.3, color: "#6E6B66" }}>
-            The part everyone quietly hates doing.
-          </p>
+        <Row n="05" title="SaaS SEO Services" price={`From ${monthlyFrom("seo")}`} sub="per month">
+          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.55, color: "#4E4C48" }}>Search strategy, keyword research, technical assessments, on-page optimization and ongoing organic growth work.</p>
         </Row>
       </div>
 
@@ -108,15 +102,16 @@ export default function Pricing() {
         <div className="max-md:!text-center">
           <div className="max-md:!justify-center" style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#D3AE82" }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#D3AE82" }} />
-            06 · Complete Growth
+            06
           </div>
           <h3 style={{ margin: "18px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.4vw,48px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Several channels, <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>one plan.</em>
+            Complete <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>Growth</em>
           </h3>
           <p className="max-md:!mx-auto" style={{ margin: "18px 0 0", maxWidth: 460, fontSize: 17, lineHeight: 1.55, color: "#C9C4BA" }}>
-            Strategy plus up to two active channels at a time, chosen by what will move the numbers.
-            <br />
-            <span style={{ color: "#F2EFEA" }}>One person, one plan, one invoice.</span>
+            For businesses that need help across more than one marketing channel.
+          </p>
+          <p className="max-md:!mx-auto" style={{ margin: "10px 0 0", maxWidth: 460, fontSize: 17, lineHeight: 1.55, color: "#F2EFEA" }}>
+            Strategy, execution planning and up to two active channels at a time, based on the agreed scope.
           </p>
           <ul style={{ margin: "28px 0 0", padding: 0, listStyle: "none", display: "grid", gap: "0 32px", maxWidth: 520, borderTop: "1px solid #33322F" }} className="grid-cols-1 sm:!grid-cols-2 max-md:!mx-auto max-md:!text-left">
             {COMPLETE_GROWTH.highlights.map((t) => (
@@ -135,9 +130,6 @@ export default function Pricing() {
               <span style={{ fontSize: 15, color: "#9C978D" }}>per month</span>
             </div>
           </div>
-          <p className="max-md:!mx-auto max-md:!text-base" style={{ margin: 0, fontSize: 14, lineHeight: 1.5, color: "#9C978D", maxWidth: 340 }}>
-            It isn&apos;t every service at once. Work goes where the plan says it pays off, and bigger scopes are priced after a call.
-          </p>
           <a
             href="#contact"
             className="max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center"
@@ -145,23 +137,12 @@ export default function Pricing() {
             onMouseLeave={() => setWayHover(false)}
             style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 12, height: 52, padding: "0 24px", borderRadius: 12, background: wayHover ? "#D3AE82" : "#F2EFEA", color: "#171717", fontSize: 15.5, fontWeight: 600, transition: "background 180ms" }}
           >
-            Tell me what&apos;s stuck
+            Discuss Your Marketing Needs
             <ArrowIcon style={{ transform: wayHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
           </a>
-          <p className="max-md:!text-base" style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, color: "#8B877F" }}>
-            Not sure you need all of it?
-            <br />
-            <a href="#contact" className="max-md:relative max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-3.5 max-md:after:content-['']" style={{ color: "#D3AE82", borderBottom: "1px solid #6B5A40" }}>Start with the free check.</a>
-          </p>
         </div>
       </div>
 
-      <div style={{ marginTop: "clamp(40px,4vw,56px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center" }}>
-        <a href="#contact" className="max-md:!w-full max-md:!max-w-[400px] max-md:!justify-center max-md:!self-center" style={{ display: "inline-flex", alignItems: "center", gap: 12, height: 48, padding: "0 22px", borderRadius: 12, border: "1px solid #1C1C1C", color: "#1C1C1C", fontSize: 15, fontWeight: 600 }}>
-          Not sure which? Tell me what&apos;s stuck
-          <ArrowIcon />
-        </a>
-      </div>
     </section>
   );
 }

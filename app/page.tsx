@@ -20,9 +20,9 @@ import { FAQS } from "./HomeComponents/faqData";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Growth Marketing Specialist for SaaS | Zain Ul Abdin",
+  title: "SaaS Growth Marketing Specialist | Zain Ul Abdin",
   description:
-    "Growth marketing specialist for SaaS and service businesses. SEO, Reddit, social, content and ads from one person. 100K+ users brought in.",
+    "I'm Zain Ul Abdin, a SaaS growth marketing specialist helping startups grow through SEO, Reddit, content and social media. See real results and case studies.",
   path: "/",
 });
 

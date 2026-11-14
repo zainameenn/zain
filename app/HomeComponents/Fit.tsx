@@ -1,13 +1,16 @@
 const GOOD = [
-  "You have a real product and real customers.",
-  "You're marketing but can't tell what's working.",
-  "You'd like to stop thinking about it at 2am.",
+  "You're building or growing a SaaS product and need help acquiring users.",
+  "Your business gets traffic but struggles to turn visitors into customers.",
+  "You're looking for an independent marketing specialist who can both plan and execute.",
+  "You want to grow through SEO, content, Reddit or social media.",
+  "You need someone who can work with your existing team without adding unnecessary meetings.",
+  "You care about useful results, not just impressions and likes.",
 ];
 
 const BAD = [
-  "You want page one of Google by Friday.",
-  "You need a 20 person agency.",
-  'You want someone to "just post more."',
+  "You expect guaranteed Google rankings within a few days.",
+  "You need a large agency team working across dozens of campaigns.",
+  "You're only interested in publishing more content without checking whether it helps the business.",
 ];
 
 export default function Fit() {
@@ -15,12 +18,13 @@ export default function Fit() {
     <section id="fit" className="max-md:!pt-20" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(96px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ display: "grid", gap: "24px clamp(32px,5vw,80px)", alignItems: "start" }} className="md:!grid-cols-[minmax(0,0.34fr)_minmax(0,1fr)]">
         <div className="max-md:!text-center">
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Who it&apos;s for</div>
-          <h2 style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>Is this a fit?</h2>
+          <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.2vw,46px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+            Is This the <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Right Fit?</em>
+          </h2>
         </div>
         <div style={{ display: "grid", gap: "32px clamp(24px,3vw,48px)" }} className="sm:!grid-cols-2">
           <div>
-            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>Good fit</h3>
+            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#7D6039" }}>We&apos;re probably a good fit if</h3>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
               {GOOD.map((t) => (
                 <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#1C1C1C" }}>
@@ -31,7 +35,7 @@ export default function Fit() {
             </ul>
           </div>
           <div>
-            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>Not a fit</h3>
+            <h3 style={{ margin: "0 0 10px", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", textTransform: "uppercase", color: "#6F6B64" }}>Probably not the right fit if</h3>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: "1px solid #DDDAD3" }}>
               {BAD.map((t) => (
                 <li key={t} style={{ display: "grid", gridTemplateColumns: "24px minmax(0,1fr)", gap: 12, alignItems: "baseline", padding: "16px 0", borderTop: "1px solid #DDDAD3", fontSize: 17, lineHeight: 1.45, color: "#5A5854" }}>

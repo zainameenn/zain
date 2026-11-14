@@ -16,6 +16,7 @@ export function CaseStudy({
   paragraphs,
   stats,
   visual,
+  link,
   headingLevel = 3,
 }: {
   id: string;
@@ -34,6 +35,8 @@ export function CaseStudy({
   paragraphs: React.ReactNode;
   stats: { v: string; l: string }[];
   visual: React.ReactNode;
+  /** A link to the full case study, shown under the copy on the homepage. */
+  link?: { href: string; label: string };
   /** 2 on the case study pages, where the card sits directly under the H1. */
   headingLevel?: 2 | 3;
 }) {
@@ -57,6 +60,11 @@ export function CaseStudy({
         <div style={{ margin: "20px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(28px,2.6vw,36px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1 }}>{name}</div>
         <Headline className="case-headline" style={{ margin: "16px 0 0", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(24px,2.2vw,30px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.12 }}>{headline}</Headline>
         <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.6, color: textColor, maxWidth: 440 }}>{paragraphs}</div>
+        {link ? (
+          <a href={link.href} style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 18, fontSize: 15, fontWeight: 600, color: dark ? "#EEF0F8" : "#1C1C1C", textDecoration: "underline", textUnderlineOffset: 4 }}>
+            {link.label} <span aria-hidden="true">→</span>
+          </a>
+        ) : null}
       </div>
       <div>
         <div className="max-sm:!grid-cols-2" style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length},minmax(0,1fr))`, borderTop: `1px solid ${dark ? "#2C3042" : "#C9D6D5"}` }}>
@@ -115,23 +123,23 @@ export const CASES = {
         top={96}
         bg="#EEF3F2"
         border="#D5E1DF"
-        eyebrow="AI SaaS / SEO / Reddit / Content"
+        eyebrow="AI SaaS Growth Marketing"
         logo="/assets/site/logo-blainy.png"
         logoAlt="Blainy logo"
         name="Blainy"
-        headline={<>Zero to 85K+ users.<br />No paid ads.</>}
+        headline={<>From zero to 85K+ signups<br />without paid ads.</>}
         paragraphs={
           <>
-            <p style={{ margin: 0 }}>Blainy needed users without an ad budget. I built growth around search, Reddit and content so each channel fed the next one.</p>
-            <p className="max-md:!text-base" style={{ margin: "12px 0 0", paddingLeft: 12, borderLeft: "2px solid #9FB2B0", fontSize: 14.5, color: "#1C1C1C", fontWeight: 500, maxWidth: 420 }}>
-              That brought in 85K+ users and ~30M search impressions in 12 months.
-            </p>
+            <p style={{ margin: 0 }}>I worked as the founding marketing hire for Blainy, an AI research and writing tool.</p>
+            <p style={{ margin: "12px 0 0" }}>We built organic acquisition around SEO, Reddit marketing and social content. I worked on search strategy, content, distribution and helping users discover the product.</p>
           </>
         }
+        link={{ href: "/case-studies/blainy", label: "Read the Blainy Growth Case Study" }}
         stats={[
-          { v: "85K+", l: "users" },
-          { v: "~30M", l: "search impressions" },
-          { v: "Thousands", l: "Reddit-driven conversions" },
+          { v: "85K+", l: "signups in approximately 14 months" },
+          { v: "1M+", l: "website visitors" },
+          { v: "~30M", l: "search impressions in 12 months" },
+          { v: "$0", l: "paid advertising spend" },
         ]}
         visual={
           <Frame bg="#DCE8E6">
@@ -157,24 +165,22 @@ export const CASES = {
         bg="#F8F6F4"
         border="#E1DCD2"
         reverse
-        eyebrow="Home Services / Social / Facebook"
+        eyebrow="Social Media Marketing"
         logo="/assets/v8/logo-everdry.gif"
         logoAlt="Everdry Waterproofing logo"
         logoHeight={38}
         name="Everdry Waterproofing"
-        headline={
+        headline={<>160K+ Facebook views in 28 days.</>}
+        paragraphs={
           <>
-            Home service marketing that isn&apos;t{" "}
-            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>
-              &quot;post and hope.&quot;
-            </em>
+            <p style={{ margin: 0 }}>Everdry needed consistent, useful social media content that homeowners would actually pay attention to.</p>
+            <p style={{ margin: "12px 0 0" }}>I worked on content ideas, messaging, graphics and social media execution, using customer concerns and common waterproofing questions as the starting point.</p>
           </>
         }
-        paragraphs={<p style={{ margin: 0 }}>Their Facebook page had gone quiet after the last manager left. I rebuilt it around before and afters, myth busting and real reviews, with visuals homeowners stop for.</p>}
+        link={{ href: "/case-studies/everdry", label: "See the Everdry Case Study" }}
         stats={[
           { v: "160K+", l: "Facebook views in 28 days" },
-          { v: "40,153", l: "people reached in the same 28 days" },
-          { v: "141,889", l: "views in an earlier 28 day window" },
+          { v: "40K+", l: "people reached in the same period" },
         ]}
         visual={
           <Frame bg="#E9E4DA">
@@ -203,22 +209,22 @@ export const CASES = {
         bg="#15171F"
         border="#15171F"
         dark
-        eyebrow="Content / Community / Reddit"
+        eyebrow="Community and Content Growth"
         logo="/assets/v8/logos/virtarix.png"
         logoAlt="Virtarix logo"
         logoHeight={28}
         name="Virtarix"
-        headline={<>A new Facebook page to<br /><strong style={{ fontWeight: 700 }}>70K+ views</strong> in under 4 months.</>}
+        headline={<>From a quiet Facebook page to <strong style={{ fontWeight: 700 }}>70K+ views.</strong></>}
         paragraphs={
           <>
-            <p style={{ margin: 0, color: "#A3A8BD" }}>Virtarix had solid technical knowledge and almost no distribution.</p>
-            <p style={{ margin: "10px 0 0", color: "#EEF0F8" }}>I turned that into technical content, community activity and Reddit conversations people could actually find.</p>
+            <p style={{ margin: 0, color: "#A3A8BD" }}>Virtarix had technical expertise but limited visibility.</p>
+            <p style={{ margin: "10px 0 0", color: "#EEF0F8" }}>I helped turn that expertise into content and relevant community conversations across social media and Reddit.</p>
           </>
         }
+        link={{ href: "/case-studies/virtarix", label: "See the Virtarix Case Study" }}
         stats={[
-          { v: "70K+", l: "Facebook views" },
-          { v: "34K", l: "views in one month (Dec)" },
-          { v: "5", l: "Reddit Answers results recommending Virtarix" },
+          { v: "70K+", l: "Facebook views in under four months" },
+          { v: "34K", l: "views in one month" },
         ]}
         visual={
           <div style={{ position: "relative", minWidth: 0, aspectRatio: "1/0.86", borderRadius: 20, overflow: "hidden", background: "#1E2130" }}>
@@ -250,18 +256,23 @@ export const CASES = {
         bg="#F3ECE3"
         border="#E3D8C8"
         reverse
-        eyebrow="Etsy / Ecommerce / Listings"
+        eyebrow="Ecommerce Growth"
         logo="/assets/v8/logos/loompad.png"
         logoAlt="LoomPad"
         logoHeight={38}
         name="LoomPad"
-        headline={<><strong style={{ fontWeight: 700 }}>$4,381</strong> in sales from a store nobody could find.</>}
-        paragraphs={<p style={{ margin: 0, color: "#5E5142" }}>I reworked listings and distribution so people searching could actually find the products.</p>}
+        headline={<>Turning product listings into organic sales.</>}
+        paragraphs={
+          <>
+            <p style={{ margin: 0, color: "#5E5142" }}>For LoomPad, I worked on product listings, search visibility, product positioning and organic distribution.</p>
+            <p style={{ margin: "12px 0 0", color: "#5E5142" }}>The goal was simple: help shoppers find the right products and understand what they were buying.</p>
+          </>
+        }
+        link={{ href: "/case-studies/loompad", label: "See the LoomPad Case Study" }}
         stats={[
           { v: "120", l: "orders" },
-          { v: "$4,381", l: "sales" },
+          { v: "$4,381", l: "sales recorded in the documented period" },
           { v: "7,046", l: "visits" },
-          { v: "1.7%", l: "conversion rate" },
         ]}
         visual={
           <Frame bg="#E6DACA">
@@ -288,14 +299,15 @@ export default function Work() {
     <section id="work" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto clamp(32px,4vw,48px)", textAlign: "center" }}>
         <div>
-          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Selected work</div>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>Selected Work</div>
           <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Growth work that had to
+            Real Marketing Work.
             <br />
-            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>earn its place.</em>
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.12em" }}>Real Results.</em>
           </h2>
         </div>
-        <p style={{ margin: "16px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 360 }}>No vanity metrics. Just the numbers that actually moved something.</p>
+        <p style={{ margin: "16px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 520 }}>I&apos;ve worked across SaaS, AI products, technology, home services and ecommerce.</p>
+        <p style={{ margin: "10px auto 0", fontSize: 16.5, lineHeight: 1.55, color: "#5A5854", maxWidth: 520 }}>Here are a few projects where the work translated into measurable growth.</p>
       </div>
 
       {CASES.blainy}

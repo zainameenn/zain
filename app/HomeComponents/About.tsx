@@ -6,25 +6,20 @@ export default function About() {
     <section id="about" style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
         <div>
-          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>About</div>
+          <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>About Me</div>
           <h2 className="max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(34px,3.8vw,52px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            I came into growth
-            <br />
-            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>through the work itself.</em>
+            Hi, I&apos;m Zain Ul Abdin,{" "}
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>a Growth Marketing Specialist.</em>
           </h2>
         </div>
         <div style={{ marginTop: 24, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, fontSize: 17, lineHeight: 1.6, color: "#4E4C48" }}>
-          <p style={{ margin: 0 }}>I started writing, then SEO, then distribution and community.</p>
-          <p style={{ margin: 0 }}>Somewhere along the way, they stopped looking like separate channels.</p>
-          <p style={{ margin: 0 }}>Before marketing, I ran a sales floor, so I care about closed deals more than likes.</p>
-          <p style={{ margin: 0, color: "#1C1C1C", fontWeight: 500 }}>My job isn&apos;t to make every channel look important. It&apos;s to find the one that matters right now.</p>
-          <p style={{ alignSelf: "stretch", margin: "8px 0 0", paddingTop: 14, borderTop: "1px solid #DDDAD3", fontSize: 13.5, lineHeight: 1.5, color: "#6E6B66" }}>
-            Based in Lahore.
-            <br />
-            Working with teams in the US, UAE and Europe.
-          </p>
+          <p style={{ margin: 0 }}>I&apos;m based in Lahore, Pakistan, and work remotely with SaaS founders and service businesses in the United States, UAE and Europe.</p>
+          <p style={{ margin: 0 }}>My career started with content writing. That led me into SEO, then community marketing, social media, customer acquisition and broader growth strategy.</p>
+          <p style={{ margin: 0 }}>I also spent time in sales, which taught me something important: getting someone&apos;s attention and convincing them to become a customer are two different things.</p>
+          <p style={{ margin: 0 }}>Today, I combine those experiences to help businesses figure out how to find the right people, communicate their value and grow.</p>
+          <p style={{ margin: 0, color: "#1C1C1C", fontWeight: 500 }}>I like working directly with founders and small teams. Clear expectations, useful work, actual numbers.</p>
           <a href="/about" style={{ marginTop: 12, display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#1C1C1C", borderBottom: "1.5px solid #1C1C1C" }}>
-            More about me
+            More About Me
             <ArrowIcon />
           </a>
         </div>

@@ -15,23 +15,27 @@ export default function Team() {
         className="md:!grid-cols-2 max-md:!px-6"
       >
         <div>
-          <div className="max-md:!text-center" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#6F6B64" }}>One person instead of five</div>
-          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: "12px 0 0", fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
-            The stuff that usually
-            <br />
-            takes a whole team.
+          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+            A Digital Marketing Specialist Who Can Handle{" "}
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>More Than One Channel.</em>
           </h2>
-          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "18px 0 0", maxWidth: 460, fontSize: 18, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>
-            Strategy, SEO, Reddit, social media, articles, graphics and ads. All handled by me.
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
+            You don&apos;t always need a separate SEO consultant, content writer, social media manager, Reddit marketer and marketing strategist.
           </p>
-          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "14px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
-            Most founders end up hiring an SEO expert, a social media manager, a designer and an ads person, then managing all four.
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+            Especially when you&apos;re a small SaaS team or a growing service business.
           </p>
-          <p className="max-md:!text-center" style={{ margin: "16px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: 26, lineHeight: 1.1, color: "#1C1C1C" }}>
-            That&apos;s a job on its own.
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+            I work across these areas because they affect each other.
           </p>
-          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "16px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
-            You get one person, one plan and fewer &quot;wait, who was doing this?&quot; moments.
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+            Your SEO strategy influences what you write. Your content can become social media material. Reddit conversations can reveal what customers are searching for. Your landing page determines whether the resulting traffic converts.
+          </p>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+            When those activities are connected, you spend less time coordinating and more time learning what&apos;s actually working.
+          </p>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
+            That&apos;s how I approach digital marketing.
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%" }}>

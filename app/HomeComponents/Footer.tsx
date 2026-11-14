@@ -81,11 +81,7 @@ export default function Footer() {
               <span style={{ fontFamily: "var(--nf-general-sans)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em" }}>Zain Ul Abdin</span>
             </Link>
             <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: "#B7B2A8" }}>
-              Helping SaaS and service businesses
-              <br />
-              grow through SEO, Reddit, social media
-              <br />
-              and practical marketing.
+              Independent SaaS growth marketing specialist helping startups and service businesses grow through SEO, Reddit marketing, social media, content and practical customer acquisition strategies.
             </p>
             <a href="mailto:hello@zainameen.com" className="footer-link" style={{ display: "inline-flex", alignItems: "center", gap: 10, minHeight: 40, fontSize: 15, fontWeight: 500, color: "#D3AE82" }}>
               <MailIcon size={15} color="#D3AE82" />

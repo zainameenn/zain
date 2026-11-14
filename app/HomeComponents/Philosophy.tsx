@@ -5,22 +5,27 @@ export default function Philosophy() {
       <div style={{ display: "grid", gap: "40px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.86fr)_minmax(0,1fr)]">
         <div>
           <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            More marketing isn&apos;t
-            <br />
-            always the answer.
+            More Marketing Won&apos;t Fix a Growth Problem{" "}
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>You Haven&apos;t Identified.</em>
           </h2>
-          <p className="max-md:!text-center" style={{ margin: "12px 0 0", fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "clamp(28px,2.7vw,38px)", lineHeight: 1.05, color: "#6B6862" }}>
-            Sometimes it&apos;s just more tabs open.
+          <ul className="max-md:!mx-auto" style={{ margin: "24px 0 0", padding: 0, listStyle: "none", maxWidth: 480, borderTop: "1px solid #DDDAD3" }}>
+            {[
+              "Sometimes a business has traffic but no signups.",
+              "Sometimes people visit the website but don't understand the product.",
+              "Sometimes the content is good, but it's reaching the wrong audience.",
+              "And sometimes the team is doing a lot of marketing without knowing which activity is bringing customers.",
+            ].map((t) => (
+              <li key={t} style={{ padding: "12px 0", borderBottom: "1px solid #DDDAD3", fontSize: 16.5, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>{t}</li>
+            ))}
+          </ul>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+            I start by figuring out where things are going wrong.
           </p>
-          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "28px 0 0", maxWidth: 460, fontSize: 18.5, lineHeight: 1.5, color: "#1C1C1C", fontWeight: 500 }}>
-            Three dashboards, two freelancers and one Reddit thread you keep meaning to reply to.
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
+            That could be your search visibility, positioning, content, conversion rate or customer acquisition strategy.
           </p>
-          <p className="max-md:!mx-auto max-md:!text-center" style={{ margin: "12px 0 0", maxWidth: 460, fontSize: 16.5, lineHeight: 1.6, color: "#4E4C48" }}>
-            Everything looks busy and growth still feels stuck. Usually one or two things are holding the rest back. We find those first. Everything else can wait.
-          </p>
-          <p className="max-md:!text-center" style={{ margin: "32px 0 0", paddingTop: 24, borderTop: "1px solid #DDDAD3", fontFamily: "var(--nf-general-sans)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2 }}>
-            Diagnose first.{" "}
-            <em style={{ fontFamily: "var(--nf-serif),serif", fontWeight: 400, fontSize: "1.1em" }}>Panic never.</em>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>
+            Once the problem is clear, we can stop guessing and work on what matters.
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>

@@ -47,8 +47,10 @@ export default function Tools() {
   return (
     <section style={{ padding: "clamp(80px,9vw,128px) 0 0" }}>
       <div style={{ maxWidth: 720, margin: "0 auto 24px", padding: "0 clamp(20px,4vw,48px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textAlign: "center" }}>
-        <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(28px,2.8vw,38px)", letterSpacing: "-0.03em" }}>Tools I work with</h2>
-        <p style={{ margin: 0, fontSize: 16, color: "#5A5854" }}>The stack changes. The job doesn&apos;t.</p>
+        <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(28px,2.8vw,38px)", letterSpacing: "-0.03em" }}>Marketing Tools I Work With</h2>
+        <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.6, color: "#5A5854" }}>I&apos;ve worked with SEO, analytics, advertising and content tools including Ahrefs, Semrush, Screaming Frog, Google Analytics 4, Google Search Console, Google Tag Manager, Google Ads, Meta Ads Manager, HubSpot, Microsoft Clarity and Canva.</p>
+        <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#5A5854" }}>The tools help with research, execution and measurement.</p>
+        <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#1C1C1C", fontWeight: 500 }}>What matters is knowing which ones to use and what decisions to make from the results.</p>
       </div>
       <div
         onMouseEnter={() => setRunning(false)}

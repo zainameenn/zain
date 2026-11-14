@@ -14,13 +14,17 @@ export default function CTA() {
       >
         <div className="max-md:!text-center">
           <h2 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,4vw,56px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            <span style={{ display: "block", fontSize: "1.12em", color: "#D3AE82", marginBottom: ".08em" }}>
-              <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "inherit" }}>Take a breath.</em>
-            </span>
-            Then tell me what&apos;s stuck.
+            Looking for a Marketing Specialist{" "}
+            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em", color: "#D3AE82" }}>Who Can Actually Do the Work?</em>
           </h2>
           <p className="max-md:!mx-auto" style={{ margin: "24px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
-            What you&apos;re growing, what&apos;s happening and what you&apos;ve tried. I&apos;ll tell you where I&apos;d start. If I&apos;m not the right fit, I&apos;ll say so.
+            Tell me what you&apos;re building, where growth is stuck and what you&apos;ve already tried.
+          </p>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#B7B2A8" }}>
+            I&apos;ll take a look and tell you where I think we should start.
+          </p>
+          <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 17, lineHeight: 1.6, color: "#F2EFEA" }}>
+            If SEO makes sense, we&apos;ll talk SEO. If the problem is your landing page, content or acquisition strategy, we&apos;ll start there instead.
           </p>
         </div>
         <div id="book" className="max-md:!mx-auto max-md:!w-full max-md:!max-w-[400px]" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -30,20 +34,20 @@ export default function CTA() {
             onMouseLeave={() => setCtaHover(false)}
             style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, height: 64, padding: "0 24px", borderRadius: 12, background: ctaHover ? "#FFFFFF" : "#F2EFEA", color: "#1C1C1C", fontSize: 17, fontWeight: 600, transition: "background 180ms" }}
           >
-            Tell me what&apos;s happening
+            Tell Me What You&apos;re Working On
             <ArrowIcon size={16} style={{ transform: ctaHover ? "translateX(4px)" : "none", transition: "transform 200ms" }} />
           </a>
           <div className="max-md:!grid-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <a href="/contact" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
-              Get a free social check
+            <a href="/case-studies" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
+              See My Case Studies
             </a>
             <a href="mailto:hello@zainameen.com" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, height: 52, borderRadius: 12, border: "1px solid #3A3935", fontSize: 15, fontWeight: 500, color: "#F2EFEA" }}>
               <MailIcon />
-              Email me
+              hello@zainameen.com
             </a>
           </div>
           <div className="max-md:!flex-col max-md:!gap-3 max-md:!text-center" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, paddingTop: 12 }}>
-            <span style={{ fontSize: 13.5, color: "#8B877F" }}>I usually reply within a couple of hours.</span>
+            <span style={{ fontSize: 13.5, color: "#8B877F" }}>Based in Lahore. Working with businesses internationally.</span>
             <a href="https://www.linkedin.com/in/zain-ameen/" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{ flex: "0 0 auto", width: 44, height: 44, borderRadius: 12, border: "1px solid #3A3935", display: "flex", alignItems: "center", justifyContent: "center", color: "#F2EFEA" }}>
               <LinkedInIcon />
             </a>
