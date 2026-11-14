@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowIcon } from "./icons";
-import { BgImage } from "./Img";
+import { HomeArt } from "./HomeArt";
 
 const SERVICES = [
   { name: "SaaS Growth Marketing Consultant", line: "Growth strategy, go-to-market planning, customer acquisition and conversion improvements. I help identify what's holding a SaaS product back, prioritize the opportunities and work on the channels most likely to bring the right users.", href: "/services/saas-growth-consultant", linkLabel: "Explore SaaS Growth Consulting" },
@@ -53,12 +53,13 @@ export default function Services() {
             );
           })}
         </div>
-        <figure style={{ margin: 0, minWidth: 0, position: "sticky", top: 112, borderRadius: 28, background: "#F8F6F4", border: "1px solid #E4E0D6", padding: "clamp(20px,2.4vw,32px) clamp(12px,1.6vw,24px)" }}>
-          <BgImage
-            src="/assets/v9/g10-forest.webp"
-            alt="Illustration: ads, search and content channels feeding one growth engine that outputs performance and revenue"
-            fit={100}
-            style={{ aspectRatio: "1448/880" }}
+        <figure style={{ margin: 0, minWidth: 0, alignSelf: "start", borderRadius: 28, background: "#F8F6F4", border: "1px solid #E4E0D6", padding: "clamp(20px,2.4vw,32px) clamp(12px,1.6vw,24px)" }}>
+          <HomeArt
+            src="/assets/home/06-services-integration.svg"
+            width={690}
+            height={365}
+            alt="Search, community and ads services feeding one strategy that produces measurable results"
+            maxWidth={560}
           />
           <figcaption style={{ display: "flex", justifyContent: "space-between", gap: 16, marginTop: 8, padding: "14px 8px 0", borderTop: "1px solid #E4E0D6", fontSize: 11.5, fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "#687068" }}>
             <span>Channels</span>

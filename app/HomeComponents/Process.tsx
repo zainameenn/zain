@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BgImage } from "./Img";
+import { HomeArt } from "./HomeArt";
 
 const STEPS = [
   { t: "Understand the Business", d: ["I start with your product, customers, competitors, positioning and existing marketing.", "What have you tried? What's working? Where are customers coming from? Where are you losing them?"], art: "Signals, one problem" },
@@ -89,11 +89,12 @@ export default function Process() {
         </div>
         <div style={{ minWidth: 0 }}>
           <div style={{ borderRadius: 28, background: "#F4F0E8", border: "1px solid #E2DBCD", padding: "clamp(24px,3vw,40px) clamp(16px,2vw,28px)" }}>
-            <BgImage
-              src="/assets/v9/g08-forest.webp"
-              alt="Illustration: diagnose, prioritize, execute and learn, with a loop back to the start"
-              fit={100}
-              style={{ aspectRatio: "1448/620" }}
+            <HomeArt
+              src="/assets/home/05-approach-roadmap.svg"
+              width={690}
+              height={250}
+              alt="Four steps in a row: understand, find the opportunities, build and execute, measure and improve"
+              maxWidth={560}
             />
             <div style={{ position: "relative", height: 3, marginTop: 12, borderRadius: 2, background: "#E2DBCD" }}>
               <span style={{ position: "absolute", top: 0, height: 3, width: "19%", borderRadius: 2, background: "#B38842", left: 0, transform: `translateX(${(parseFloat(BAR_LEFT[step]) / 19) * 100}%)`, transition: "transform 500ms cubic-bezier(.3,.7,.2,1)" }} />

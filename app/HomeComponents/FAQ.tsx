@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { PlusIcon } from "./icons";
 import { FAQS } from "./faqData";
-import { Img } from "./Img";
+import { HomeArt } from "./HomeArt";
 
 export default function FAQ() {
   const [open, setOpen] = useState(-1);
@@ -19,15 +19,9 @@ export default function FAQ() {
           Questions About Hiring a{" "}
           <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>SaaS Growth Marketing Specialist</em>
         </h2>
-        <Img
-          src="/assets/v12/art-b-forest.webp"
-          alt="Illustration: questions flowing to a marketer at a desk and coming out as checked answers"
-          width={1086}
-          height={1448}
-          loading="lazy"
-          className="max-md:!mx-auto"
-          style={{ display: "block", marginTop: "clamp(28px,3vw,40px)", width: "100%", maxWidth: "420px", height: "auto", objectFit: "contain", mixBlendMode: "multiply" }}
-        />
+        <div className="max-md:!hidden" style={{ marginTop: "clamp(28px,3vw,40px)" }}>
+          <HomeArt src="/assets/home/08-faq-questions.svg" width={480} height={450} maxWidth={400} />
+        </div>
       </div>
       <div style={{ borderTop: "1px solid #202821" }}>
         {FAQS.map(([q, paras], i) => {

@@ -1,5 +1,5 @@
 import { ArrowIcon } from "./icons";
-import { BgImage } from "./Img";
+import { HomeArt } from "./HomeArt";
 
 export default function About() {
   return (
@@ -24,13 +24,9 @@ export default function About() {
           </a>
         </div>
       </div>
-      <figure style={{ margin: "clamp(40px,5vw,64px) 0 0" }}>
-        <BgImage
-          src="/assets/v9/g09-forest.webp"
-          alt="Illustration: a path from content, search, community and experiments up to a growth summit"
-          fit={100}
-          style={{ aspectRatio: "1672/640" }}
-        />
+      {/* A shallow decorative band. Hidden on phones, where it would only add scrolling. */}
+      <figure className="max-sm:!hidden" style={{ margin: "clamp(40px,5vw,56px) 0 0" }}>
+        <HomeArt src="/assets/home/07-about-growth-ribbon.svg" width={1100} height={220} maxWidth={1040} />
       </figure>
       <div className="max-md:!justify-center" style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid #E4E0D6", display: "flex", flexWrap: "wrap", gap: "8px 20px", fontSize: 14, color: "#4A524B" }}>
         <span>SaaS</span>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowIcon, UpArrowIcon } from "./icons";
 import { H1_STYLE } from "./heading";
-import { BgImage } from "./Img";
+import { HomeArt } from "./HomeArt";
 
 export default function Hero() {
   const [drawn, setDrawn] = useState(false);
@@ -95,15 +95,15 @@ export default function Hero() {
         </p>
       </div>
 
-      <figure className="xl:!-mr-12" style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
-        <BgImage
-          src="/assets/v9/g07-forest.png"
-          alt="Illustration of a founder calmly reviewing marketing dashboards"
-          position="56% 50.4%"
-          fit={105.5}
-          loading="eager"
-          fetchPriority="high"
-          style={{ aspectRatio: "1373/666" }}
+      <figure style={{ margin: 0, minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
+        <HomeArt
+          src="/assets/home/01-hero-growth-system.svg"
+          width={940}
+          height={380}
+          mobile={{ src: "/assets/home/01-hero-growth-system-mobile.svg", width: 420, height: 470 }}
+          alt="Search, content, community and advertising connected through one strategy into growth results"
+          eager
+          maxWidth={600}
         />
       </figure>
     </section>

@@ -1,3 +1,4 @@
+import { HomeArt } from "./HomeArt";
 const PARAS = [
   "A growth marketing specialist helps businesses find customers, turn visitors into users and figure out which marketing channels are worth investing in.",
   "For SaaS companies, that could mean improving search visibility, building content around what customers are looking for, reaching potential users through Reddit, or fixing a landing page that's getting traffic but not signups.",
@@ -22,6 +23,15 @@ export default function WhatIDo() {
             </p>
           ))}
         </div>
+      </div>
+      <div style={{ marginTop: "clamp(40px,5vw,64px)" }}>
+        <HomeArt
+          src="/assets/home/02-growth-process-strip.svg"
+          width={1120}
+          height={220}
+          mobile={{ src: "/assets/home/02-growth-process-mobile.svg", width: 420, height: 575 }}
+          maxWidth={1060}
+        />
       </div>
     </section>
   );
