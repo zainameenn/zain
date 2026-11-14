@@ -28,7 +28,7 @@ const CASE_STUDY_MENU = [
   { t: "Blainy", d: "An AI SaaS to 85K+ signups with zero paid ads.", href: "/case-studies/blainy" },
   { t: "Everdry Waterproofing", d: "A quiet Facebook page to 160K+ views in 28 days.", href: "/case-studies/everdry" },
   { t: "Virtarix", d: "A VPS host found through Reddit and Facebook.", href: "/case-studies/virtarix" },
-  { t: "LoomPad", d: "My own Etsy store: $4,381 from 120 orders.", href: "/case-studies/loompad" },
+  { t: "LoomPad", d: "My own Etsy store: 228 sales in 3 months.", href: "/case-studies/loompad" },
 ];
 
 /** Nav items that open a dropdown, with the "view all" link at the bottom. Free Tools opens a wider, grouped panel. */

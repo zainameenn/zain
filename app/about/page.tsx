@@ -84,7 +84,7 @@ const CASES = [
   { logo: "/assets/site/logo-blainy.png", logoAlt: "Blainy", logoH: 34, cat: "AI SaaS", sr: "Blainy: ", title: "Zero to 85K+ users, no paid ads.", stat1v: "85K+", stat1l: "users", stat2v: "~30M", stat2l: "search impressions" },
   { logo: "/assets/v8/logo-everdry.gif", logoAlt: "Everdry Waterproofing", logoH: 40, cat: "Home services", sr: "Everdry Waterproofing: ", title: "A quiet Facebook page to 160K+ views in 28 days.", stat1v: "160K+", stat1l: "Facebook views", stat2v: "40,153", stat2l: "people reached" },
   { logo: "/assets/v8/logos/virtarix.png", logoAlt: "Virtarix", logoH: 30, cat: "AI and tech", sr: "Virtarix: ", title: "A new Facebook page to 70K+ views in under 4 months.", stat1v: "70K+", stat1l: "Facebook views", stat2v: "1.2K+", stat2l: "Pinterest visits" },
-  { logo: "/assets/v8/logos/loompad.png", logoAlt: "LoomPad", logoH: 30, cat: "Etsy store", sr: "LoomPad: ", title: "Sales from a store nobody could find.", stat1v: "$4,381", stat1l: "in sales", stat2v: "120", stat2l: "orders" },
+  { logo: "/assets/v8/logos/loompad.png", logoAlt: "LoomPad", logoH: 30, cat: "Etsy store", sr: "LoomPad: ", title: "Sales from a store nobody could find.", stat1v: "228", stat1l: "sales in 3 months", stat2v: "4.9", stat2l: "rating from 69 reviews" },
 ];
 
 const SKILLS_GROUPS = [

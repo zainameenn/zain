@@ -270,9 +270,9 @@ export const CASES = {
         }
         link={{ href: "/case-studies/loompad", label: "See the LoomPad Case Study" }}
         stats={[
-          { v: "120", l: "orders" },
-          { v: "$4,381", l: "sales recorded in the documented period" },
-          { v: "7,046", l: "visits" },
+          { v: "228", l: "sales in about 3 months" },
+          { v: "4.9", l: "star rating from 69 reviews" },
+          { v: "97", l: "listings" },
         ]}
         visual={
           <Frame bg="#E6DACA">

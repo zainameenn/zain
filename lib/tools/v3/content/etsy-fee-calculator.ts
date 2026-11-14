@@ -50,7 +50,7 @@ export default {
     { slug: "shopify-profit-margin-calculator", text: "Compare margins if you also sell on Shopify." },
     { slug: "etsy-shop-name-generator", text: "Name a new shop." },
   ],
-  cta: { heading: "Want more profitable", accent: "Etsy listings?", copy: "See how I took my own Etsy store to 120 orders by fixing listings, not buying ads.", button: "Read the LoomPad case study", href: "/case-studies/loompad" },
+  cta: { heading: "Want more profitable", accent: "Etsy listings?", copy: "See how I took my own Etsy store to 228 sales by fixing listings, not buying ads.", button: "Read the LoomPad case study", href: "/case-studies/loompad" },
   hubCard: { description: "Estimate Etsy listing, transaction, processing and Offsite Ads fees, and see what you keep from each order.", cta: "Calculate Etsy fees" },
   sources: [
     { label: "Etsy: fees and taxes for selling", url: "https://help.etsy.com/hc/en-us/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy", checked: "October 2026" },
