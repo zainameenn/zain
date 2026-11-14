@@ -15,7 +15,7 @@ export default function Team() {
         className="md:!grid-cols-2 max-md:!px-6"
       >
         <div>
-          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
+          <h2 className="max-md:!text-balance" style={{ textAlign: "center", margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(32px,3vw,42px)", lineHeight: 1.06, letterSpacing: "-0.03em" }}>
             A Digital Marketing Specialist Who Can Handle{" "}
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>More Than One Channel.</em>
           </h2>

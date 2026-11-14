@@ -4,7 +4,7 @@ export default function Philosophy() {
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
       <div style={{ display: "grid", gap: "40px clamp(40px,5vw,80px)", alignItems: "center" }} className="md:!grid-cols-[minmax(0,0.86fr)_minmax(0,1fr)]">
         <div>
-          <h2 className="max-md:!text-center max-md:!text-balance" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 className="max-md:!text-balance" style={{ textAlign: "center", margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             More Marketing Won&apos;t Fix a Growth Problem{" "}
             <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>You Haven&apos;t Identified.</em>
           </h2>

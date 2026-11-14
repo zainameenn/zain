@@ -276,7 +276,7 @@ export const CASES = {
         ]}
         visual={
           <Frame bg="#E6DACA">
-            <div style={{ position: "absolute", left: 24, top: "13%", width: "calc(90% - 24px)", borderRadius: 12, overflow: "hidden", background: "#fff", border: "1px solid #D8CAB5", boxShadow: "0 24px 48px -30px rgba(60,40,20,.5)" }}>
+            <div style={{ position: "absolute", left: "5%", top: "50%", transform: "translateY(-50%)", width: "90%", borderRadius: 12, overflow: "hidden", background: "#fff", border: "1px solid #D8CAB5", boxShadow: "0 24px 48px -30px rgba(60,40,20,.5)" }}>
               <div style={{ height: 24, display: "flex", alignItems: "center", gap: 5, padding: "0 10px", background: "#F4F1EC", borderBottom: "1px solid #E5DED2" }}>
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#D6CFC3" }} />
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#D6CFC3" }} />
@@ -284,9 +284,6 @@ export const CASES = {
                 <span style={{ marginLeft: 10, height: 14, padding: "0 10px", borderRadius: 7, background: "#fff", fontSize: 9.5, color: "#6F6B64", display: "flex", alignItems: "center", whiteSpace: "nowrap" }}>etsy.com/shop/Loompad</span>
               </div>
               <Img loading="lazy" src="/assets/case-studies/loompad/etsy-storefront-120-sales.webp" alt="LoomPad Etsy storefront: desk mat banner, 5.0 rating from 27 reviews, 120 sales, 2 months on Etsy" style={{ display: "block", width: "100%" }} />
-            </div>
-            <div style={{ position: "absolute", right: 24, bottom: 24, width: "52%", borderRadius: 12, overflow: "hidden", border: "1px solid #D8CAB5", background: "#fff", boxShadow: "0 28px 48px -22px rgba(20,10,0,.6)" }}>
-              <Img loading="lazy" src="/assets/case-studies/loompad/etsy-shop-stats-120-orders.webp" alt="LoomPad Etsy shop stats, Jul to Oct 2026: 7,046 visits, 120 orders, 1.7% conversion rate, USD 4,381.60 revenue" style={{ display: "block", width: "100%" }} />
             </div>
           </Frame>
         }

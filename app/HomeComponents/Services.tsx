@@ -41,7 +41,7 @@ export default function Services() {
                 >
                   <span style={{ fontSize: 13, fontWeight: 600, color: on ? "#7D6039" : "#6F6B64", fontVariantNumeric: "tabular-nums" }}>{String(i + 1).padStart(2, "0")}</span>
                   <span className="max-md:!transform-none" style={{ display: "flex", flexDirection: "column", gap: 8, transform: on ? "translateX(6px)" : "none", transition: "transform 240ms cubic-bezier(.2,.7,.2,1)" }}>
-                    <h3 className="lg:!whitespace-nowrap" style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(21px,1.8vw,26px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.name}</h3>
+                    <h3 style={{ margin: 0, fontFamily: "var(--nf-general-sans)", fontSize: "clamp(21px,1.8vw,26px)", fontWeight: 600, letterSpacing: "-0.02em" }}>{s.name}</h3>
                     <span style={{ fontSize: 16, lineHeight: 1.5, color: "#5A5854", maxWidth: 520 }}>{s.line}</span>
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14.5, fontWeight: 600, color: on ? "#1C1C1C" : "#6F6B64", whiteSpace: "nowrap", transition: "color 200ms" }}>
