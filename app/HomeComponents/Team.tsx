@@ -1,4 +1,5 @@
-import { HomeArt } from "./HomeArt";
+import { Img } from "./Img";
+import { Mark } from "./Mark";
 export default function Team() {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
@@ -32,19 +33,20 @@ export default function Team() {
             Your SEO strategy influences what you write. Your content can become social media material. Reddit conversations can reveal what customers are searching for. Your landing page determines whether the resulting traffic converts.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#4A524B" }}>
-            When those activities are connected, you spend less time coordinating and more time learning what&apos;s actually working.
+            When those activities are connected, you spend less time coordinating and <Mark>more time learning what&apos;s actually working</Mark>.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#202821", fontWeight: 500 }}>
             That&apos;s how I approach digital marketing.
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0, width: "100%" }}>
-          <HomeArt
-            src="/assets/home/04-connected-channel-map.svg"
-            width={730}
-            height={460}
-            alt="Search, content, ads, community, writing and reporting all connected through one central strategy"
-            maxWidth={550}
+          <Img
+            src="/assets/v12/art-a-forest.webp"
+            alt="Illustration: strategy, search, Reddit, social, design and ads cards all connecting to one marketer at a desk"
+            width={1448}
+            height={1086}
+            loading="lazy"
+            style={{ display: "block", width: "100%", height: "auto", objectFit: "contain", mixBlendMode: "multiply" }}
           />
         </figure>
       </div>

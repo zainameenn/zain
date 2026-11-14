@@ -18,6 +18,10 @@ export default function Compare() {
             key={o.t}
             style={{
               minWidth: 0,
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
               borderRadius: 22,
               padding: "clamp(24px,2.6vw,32px)",
               background: o.dark ? "#174B3A" : "#FBFBF9",

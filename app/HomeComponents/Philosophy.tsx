@@ -1,4 +1,5 @@
-import { HomeArt } from "./HomeArt";
+import { BgImage } from "./Img";
+import { Mark } from "./Mark";
 export default function Philosophy() {
   return (
     <section style={{ maxWidth: 1360, margin: "0 auto", padding: "clamp(80px,9vw,128px) clamp(20px,4vw,48px) 0" }}>
@@ -6,7 +7,8 @@ export default function Philosophy() {
         <div>
           <h2 className="max-md:!text-balance" style={{ textAlign: "center", margin: 0, fontFamily: "var(--nf-general-sans)", fontWeight: 600, fontSize: "clamp(36px,3.6vw,50px)", lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             More Marketing Won&apos;t Fix a Growth Problem{" "}
-            <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>You Haven&apos;t Identified.</em>
+            {/* One line from tablet up, as asked; phones wrap so nothing overflows. */}
+            <em className="md:!whitespace-nowrap" style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1em" }}>You Haven&apos;t Identified.</em>
           </h2>
           <ul className="max-md:!mx-auto" style={{ margin: "24px 0 0", padding: 0, listStyle: "none", maxWidth: 480, borderTop: "1px solid #E4E0D6" }}>
             {[
@@ -25,16 +27,15 @@ export default function Philosophy() {
             That could be your search visibility, positioning, content, conversion rate or customer acquisition strategy.
           </p>
           <p className="max-md:!mx-auto" style={{ margin: "12px 0 0", maxWidth: 480, fontSize: 16.5, lineHeight: 1.6, color: "#202821", fontWeight: 500 }}>
-            Once the problem is clear, we can stop guessing and work on what matters.
+            Once the problem is clear, we can <Mark>stop guessing and work on what matters</Mark>.
           </p>
         </div>
         <figure style={{ margin: 0, minWidth: 0 }}>
-          <HomeArt
-            src="/assets/home/03-bottleneck-before-after.svg"
-            width={730}
-            height={430}
-            alt="Before: scattered channels pour into a cracked funnel with weak results. After: connected channels feed a working funnel and growing results."
-            maxWidth={560}
+          <BgImage
+            src="/assets/v9/g04-forest.webp"
+            alt="Illustration: disconnected channels pouring into a leaking funnel, next to a connected system feeding growth"
+            fit={100}
+            style={{ aspectRatio: "1672/900" }}
           />
           <figcaption
             className="max-md:!text-center"

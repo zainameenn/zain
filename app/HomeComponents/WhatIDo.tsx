@@ -1,11 +1,11 @@
-import { HomeArt } from "./HomeArt";
+import { Mark } from "./Mark";
 const PARAS = [
   "A growth marketing specialist helps businesses find customers, turn visitors into users and figure out which marketing channels are worth investing in.",
   "For SaaS companies, that could mean improving search visibility, building content around what customers are looking for, reaching potential users through Reddit, or fixing a landing page that's getting traffic but not signups.",
   "That's the work I do.",
   "I research the market, find the opportunities, build the strategy and execute it. Then I look at the numbers and figure out what needs to change.",
   "I work across SEO, organic social media, content marketing, Reddit, community growth and paid advertising. But I don't recommend every channel just because I know how to use it.",
-  "The goal is to find what actually works for your business.",
+  <>The goal is to find <Mark>what actually works for your business</Mark>.</>,
 ];
 
 export default function WhatIDo() {
@@ -17,21 +17,12 @@ export default function WhatIDo() {
           <em style={{ fontFamily: "var(--nf-serif),serif", fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em", fontSize: "1.1em" }}>Actually Do?</em>
         </h2>
         <div style={{ textAlign: "left" }}>
-          {PARAS.map((p) => (
-            <p key={p.slice(0, 30)} style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
+          {PARAS.map((p, i) => (
+            <p key={i} style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.6, color: "#4A524B" }}>
               {p}
             </p>
           ))}
         </div>
-      </div>
-      <div style={{ marginTop: "clamp(40px,5vw,64px)" }}>
-        <HomeArt
-          src="/assets/home/02-growth-process-strip.svg"
-          width={1120}
-          height={220}
-          mobile={{ src: "/assets/home/02-growth-process-mobile.svg", width: 420, height: 575 }}
-          maxWidth={1060}
-        />
       </div>
     </section>
   );

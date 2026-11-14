@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { ArrowIcon, UpArrowIcon } from "./icons";
 import { H1_STYLE } from "./heading";
-import { HomeArt } from "./HomeArt";
+import { BgImage } from "./Img";
+import { Mark } from "./Mark";
 
 export default function Hero() {
   const [drawn, setDrawn] = useState(false);
@@ -62,10 +63,10 @@ export default function Hero() {
           </span>
         </h1>
         <p className="max-md:!mx-auto max-md:!mt-7" style={{ margin: "28px 0 0", maxWidth: 560, fontSize: 19, lineHeight: 1.55, color: "#4A524B" }}>
-          I help SaaS founders and service businesses get more users, leads and customers through SEO, Reddit marketing, social media and content.
+          I help SaaS founders and service businesses get <Mark>more users, leads and customers</Mark> through SEO, Reddit marketing, social media and content.
         </p>
         <p className="max-md:!mx-auto" style={{ margin: "16px 0 0", maxWidth: 560, fontSize: 17, lineHeight: 1.6, color: "#4A524B" }}>
-          I&apos;m Zain Ul Abdin, a hands-on growth marketing specialist. I handle the strategy, content, execution and reporting myself, so you&apos;re not stuck managing five different people to get one thing done.
+          I&apos;m Zain Ul Abdin, a hands-on growth marketing specialist. I handle <Mark>the strategy, content, execution and reporting myself</Mark>, so you&apos;re not stuck managing five different people to get one thing done.
         </p>
         <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px" }} className="max-md:!mx-auto max-md:!mt-8 max-md:!max-w-[400px] max-md:!flex-col max-md:!items-stretch">
           <a
@@ -95,15 +96,15 @@ export default function Hero() {
         </p>
       </div>
 
-      <figure style={{ margin: 0, minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
-        <HomeArt
-          src="/assets/home/01-hero-growth-system.svg"
-          width={940}
-          height={380}
-          mobile={{ src: "/assets/home/01-hero-growth-system-mobile.svg", width: 420, height: 470 }}
-          alt="Search, content, community and advertising connected through one strategy into growth results"
-          eager
-          maxWidth={600}
+      <figure className="xl:!-mr-12" style={{ margin: "0 0 0 0", minWidth: 0, animation: "zin 800ms cubic-bezier(.2,.7,.2,1) 120ms both" }}>
+        <BgImage
+          src="/assets/v9/g07-forest.png"
+          alt="Illustration of a founder calmly reviewing marketing dashboards"
+          position="56% 50.4%"
+          fit={105.5}
+          loading="eager"
+          fetchPriority="high"
+          style={{ aspectRatio: "1373/666" }}
         />
       </figure>
     </section>

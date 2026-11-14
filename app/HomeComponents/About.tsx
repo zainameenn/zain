@@ -1,5 +1,6 @@
 import { ArrowIcon } from "./icons";
 import { HomeArt } from "./HomeArt";
+import { Mark } from "./Mark";
 
 export default function About() {
   return (
@@ -17,7 +18,7 @@ export default function About() {
           <p style={{ margin: 0 }}>My career started with content writing. That led me into SEO, then community marketing, social media, customer acquisition and broader growth strategy.</p>
           <p style={{ margin: 0 }}>I also spent time in sales, which taught me something important: getting someone&apos;s attention and convincing them to become a customer are two different things.</p>
           <p style={{ margin: 0 }}>Today, I combine those experiences to help businesses figure out how to find the right people, communicate their value and grow.</p>
-          <p style={{ margin: 0, color: "#202821", fontWeight: 500 }}>I like working directly with founders and small teams. Clear expectations, useful work, actual numbers.</p>
+          <p style={{ margin: 0, color: "#202821", fontWeight: 500 }}>I like working directly with founders and small teams. <Mark>Clear expectations, useful work, actual numbers.</Mark></p>
           <a href="/about" style={{ marginTop: 12, display: "inline-flex", alignItems: "center", gap: 10, height: 44, fontSize: 15, fontWeight: 600, color: "#202821", borderBottom: "1.5px solid #202821" }}>
             More About Me
             <ArrowIcon />
